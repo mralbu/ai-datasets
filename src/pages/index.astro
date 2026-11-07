@@ -16,16 +16,21 @@ const groups = Object.keys(MODALITIES)
     </p>
   </section>
 
-  <div class="chips" role="group" aria-label="Show categories">
-    <button type="button" class="chip" data-all aria-pressed="true">All<span class="n">{all.length}</span></button>
-    {groups.map(({ m, items }) => (
-      <button type="button" class="chip" data-toggle={m} aria-pressed="true">{MODALITIES[m]}<span class="n">{items.length}</span></button>
-    ))}
+  <div class="filter-bar">
+    <div class="chips" role="group" aria-label="Show categories">
+      {groups.map(({ m, items }) => (
+        <button type="button" class="chip" data-toggle={m} data-m={m} aria-pressed="true" title="Click to show or hide. Double-click to show only this.">
+          <span class="dot" aria-hidden="true"></span>{MODALITIES[m]}<span class="n">{items.length}</span>
+        </button>
+      ))}
+      <button type="button" class="linkish reset" data-reset hidden>Show all</button>
+    </div>
+    <span class="hint muted">Double-click to show only one</span>
   </div>
 
   {groups.map(({ m, items }) => (
-    <section data-group={m}>
-      <h2>{MODALITIES[m]}</h2>
+    <section data-group={m} data-m={m}>
+      <h2><span class="cat-dot" aria-hidden="true"></span>{MODALITIES[m]}</h2>
       <div class="cards">
         {items.map((ds) => (
           <a class="card entry" href={url(`/d/${ds.id}`)}>
@@ -40,39 +45,54 @@ const groups = Object.keys(MODALITIES)
       </div>
     </section>
   ))}
-  <p class="muted empty" data-empty hidden>No categories selected. <button type="button" class="linkish" data-reset>Show all</button></p>
+  <p class="muted empty" data-empty hidden>No categories selected. <button type="button" class="linkish" data-reset-empty>Show all</button></p>
 </Base>
 
 <script>
-  // Each chip toggles its category on or off; "All" turns everything back on.
+  // Legend-style filter: click toggles a category, double-click shows only it
+  // (double-click it again, when it is the only one shown, to bring all back).
   // The selection is kept in the URL (#vision,text) so it can be shared.
   const toggles = [...document.querySelectorAll<HTMLButtonElement>('[data-toggle]')];
-  const allChip = document.querySelector<HTMLButtonElement>('[data-all]')!;
   const groups = [...document.querySelectorAll<HTMLElement>('[data-group]')];
+  const reset = document.querySelector<HTMLButtonElement>('[data-reset]')!;
   const empty = document.querySelector<HTMLElement>('[data-empty]')!;
   const keys = toggles.map((t) => t.dataset.toggle!);
 
+  const current = () => new Set(toggles.filter((t) => t.getAttribute('aria-pressed') === 'true').map((t) => t.dataset.toggle!));
   const apply = (on: Set<string>) => {
     toggles.forEach((t) => t.setAttribute('aria-pressed', String(on.has(t.dataset.toggle!))));
     groups.forEach((g) => (g.hidden = !on.has(g.dataset.group!)));
-    allChip.setAttribute('aria-pressed', String(on.size === keys.length));
+    reset.hidden = on.size === keys.length;
     empty.hidden = on.size > 0;
     const hash = on.size === keys.length ? '' : `#${[...on].join(',')}`;
     history.replaceState(null, '', location.pathname + hash);
   };
-  const current = () => new Set(toggles.filter((t) => t.getAttribute('aria-pressed') === 'true').map((t) => t.dataset.toggle!));
+  const toggle = (k: string) => {
+    const on = current();
+    on.has(k) ? on.delete(k) : on.add(k);
+    apply(on);
+  };
+  const solo = (k: string) => {
+    const on = current();
+    apply(on.size === 1 && on.has(k) ? new Set(keys) : new Set([k]));
+  };
 
+  // A single click waits briefly to see if it becomes a double-click, so a
+  // double-click doesn't flash the section off and on first. Keyboard
+  // activation (detail 0) toggles at once.
+  let pending: number | undefined;
   toggles.forEach((t) =>
-    t.addEventListener('click', () => {
-      const on = current();
+    t.addEventListener('click', (e) => {
       const k = t.dataset.toggle!;
-      on.has(k) ? on.delete(k) : on.add(k);
-      apply(on);
+      clearTimeout(pending);
+      if (e.detail === 0) return toggle(k);
+      if (e.detail >= 2) return solo(k);
+      pending = window.setTimeout(() => toggle(k), 230);
     }),
   );
   const showAll = () => apply(new Set(keys));
-  allChip.addEventListener('click', showAll);
-  document.querySelector('[data-reset]')!.addEventListener('click', showAll);
+  reset.addEventListener('click', showAll);
+  document.querySelector('[data-reset-empty]')!.addEventListener('click', showAll);
 
   const fromHash = location.hash.slice(1).split(',').filter((k) => keys.includes(k));
   if (fromHash.length) apply(new Set(fromHash));
@@ -81,7 +101,17 @@ const groups = Object.keys(MODALITIES)
 <style>
   .hero { padding: 40px 0 8px; max-width: 680px; }
   .hero h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0 0 12px; }
-  .chips { margin: 20px 0 4px; }
+  .filter-bar {
+    position: sticky; top: 56px; z-index: 10; background: var(--bg);
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 16px;
+    padding: 12px 0; margin: 12px 0 0; border-bottom: 1px solid var(--border);
+  }
+  @media (max-width: 600px) { .filter-bar { position: static; } } /* too tall to pin on phones */
+  .hint { font-size: 0.78rem; }
+  @media (hover: none) { .hint { display: none; } }
+  .linkish.reset { font-size: 0.85rem; margin-left: 4px; }
+  .reset[hidden] { display: none; }
+  h2 { scroll-margin-top: 120px; }
   section[hidden] { display: none; }
   .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
   .entry { display: flex; flex-direction: column; gap: 10px; padding: 16px; color: var(--text); transition: border-color 0.15s; }

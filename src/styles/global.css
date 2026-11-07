@@ -11,6 +11,8 @@
   --code-bg: #f3f1ec;
   --mark: #fff1b8;
   --shadow: 0 10px 30px rgb(20 20 30 / 0.12);
+  /* Category colors (dots on filter chips and section headings) */
+  --c-vision: #2f6fd6; --c-text: #1f8a5b; --c-benchmark: #8a4fd1; --c-tabular: #c26a12; --c-audio: #c43c78; --c-other: #6b7280;
   --radius: 10px;
   --maxw: 1080px;
   color-scheme: light;
@@ -21,6 +23,7 @@
     --bg: #131316; --surface: #1c1c21; --text: #ececef; --muted: #9c9ca6; --border: #2e2e35;
     --accent: #8aa8ff; --accent-soft: #232b45; --pos: #5cc98a; --neg: #f08a73; --code-bg: #24242a;
     --mark: #5a4a12; --shadow: 0 10px 30px rgb(0 0 0 / 0.5);
+    --c-vision: #7aa7ff; --c-text: #5cc98a; --c-benchmark: #b48cff; --c-tabular: #f0a35c; --c-audio: #f07aad; --c-other: #9ca3af;
     color-scheme: dark;
   }
 }
@@ -28,6 +31,7 @@
   --bg: #131316; --surface: #1c1c21; --text: #ececef; --muted: #9c9ca6; --border: #2e2e35;
   --accent: #8aa8ff; --accent-soft: #232b45; --pos: #5cc98a; --neg: #f08a73; --code-bg: #24242a;
   --mark: #5a4a12; --shadow: 0 10px 30px rgb(0 0 0 / 0.5);
+    --c-vision: #7aa7ff; --c-text: #5cc98a; --c-benchmark: #b48cff; --c-tabular: #f0a35c; --c-audio: #f07aad; --c-other: #9ca3af;
   color-scheme: dark;
 }
 /* Shiki dual themes (astro:components <Code>): switch to the dark colors with the theme. */
@@ -63,10 +67,26 @@ button {
 button:hover { border-color: var(--accent); }
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
 .pixelated { image-rendering: pixelated; image-rendering: crisp-edges; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+/* Filter chips: neutral pills with a category dot; "off" chips fade and get a hollow dot. */
+.chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+[data-m='vision'] { --c: var(--c-vision); }
+[data-m='text'] { --c: var(--c-text); }
+[data-m='benchmark'] { --c: var(--c-benchmark); }
+[data-m='tabular'] { --c: var(--c-tabular); }
+[data-m='audio'] { --c: var(--c-audio); }
+[data-m='other'] { --c: var(--c-other); }
 .chip {
-  font-size: 0.85rem; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border);
-  background: var(--surface); color: var(--text); cursor: pointer;
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 0.85rem; line-height: 1; padding: 7px 12px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text);
+  cursor: pointer; user-select: none; touch-action: manipulation;
+  transition: opacity 0.15s, border-color 0.15s, background 0.15s;
 }
-.chip[aria-pressed='true'] { background: var(--accent); border-color: var(--accent); color: var(--bg); }
-.chip .n { opacity: 0.65; margin-left: 4px; font-variant-numeric: tabular-nums; }
+.chip:hover { border-color: var(--muted); }
+.chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.chip .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--c, var(--muted)); border: 1.5px solid var(--c, var(--muted)); box-sizing: border-box; }
+.chip .n { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 0.8rem; }
+.chip[aria-pressed='false'] { background: transparent; color: var(--muted); border-color: transparent; }
+.chip[aria-pressed='false'] .dot { background: transparent; }
+.chip[aria-pressed='false']:hover { border-color: var(--border); }
+.cat-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--c); margin-right: 10px; vertical-align: 2px; }
