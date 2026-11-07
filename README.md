@@ -4,23 +4,25 @@
 [![Deploy](https://img.shields.io/github/actions/workflow/status/mralbu/ai-datasets/deploy.yml?branch=main&label=deploy&style=flat-square)](https://github.com/mralbu/ai-datasets/actions/workflows/deploy.yml)
 
 A small static site showing what classic AI datasets and benchmarks actually look like:
-a short description, the key facts, and real samples for each one.
+why each one mattered, the key facts, real samples, and a copy-paste snippet to download it.
 
 **→ [mralbu.github.io/ai-datasets](https://mralbu.github.io/ai-datasets/)**
 
-[![The MNIST page: key facts, a digit at its real 28×28 size next to an 8× enlargement, and a grid of samples](docs/screenshot.png)](https://mralbu.github.io/ai-datasets/d/mnist)
+[![The MNIST page: why it matters, link buttons, the download box, key facts, and a digit at its real 28×28 size next to an 8× enlargement](docs/screenshot.png)](https://mralbu.github.io/ai-datasets/d/mnist)
 
-Not a catalog. Hugging Face and Papers with Code already do that. The goal is a few dozen
-historically important datasets, each shown well enough that you come away knowing the data.
+Not a catalog; Hugging Face already does that. The goal is a few dozen historically important
+datasets across vision, LLMs, text, tabular data and audio, each shown well enough that you come
+away knowing the data.
 
 ## How it works
 
 ```
-datasets/<id>.yaml      one file per dataset: facts, description, HF source, display kind
-scripts/sample.py       (uv + polars + altair) samples rows from the Hugging Face dataset viewer
+datasets/<id>.yaml      one file per dataset: facts, description, Hugging Face source, how to display it
+scripts/sample.py       (uv: polars, altair, pillow) samples rows from the Hugging Face dataset viewer
                         into a snapshot, then copies it to src/generated/ and public/samples/
 src/                    Astro site: catalog, timeline, one page per dataset
 samples branch          the snapshot: sampled rows, media and a manifest (generated, data only)
+justfile                shortcuts for everything below (run `just` to list them)
 ```
 
 ### Where samples come from
@@ -35,66 +37,90 @@ A normal push touches Hugging Face not at all.
   The previous sample of that dataset is kept in the snapshot.
 - `manifest.json` on the branch records, per dataset, the Hugging Face revision and fetch time;
   each page shows it under the samples.
-- To re-fetch on purpose: run the deploy workflow manually with `refetch` set to dataset ids or
-  `all`, or bump `SAMPLER_VERSION` in `scripts/sample.py`.
+- To re-fetch on purpose: `just deploy-refetch <ids>` (or `all`), which runs the deploy workflow
+  with `refetch` set; or bump `SAMPLER_VERSION` in `scripts/sample.py`.
 - Taking a sample down: delete or edit it on the `samples` branch (squash or recreate the branch
   if it must leave history); nothing on `main` needs rewriting.
 - A monthly workflow (`check-sources.yml`) makes one tiny request per source and fails if a
-  dataset was renamed, gated or deleted upstream.
+  dataset was renamed, gated or deleted upstream. Run the same check locally with `just check`.
 
 ## Develop
 
+Needs Node 22+, [uv](https://docs.astral.sh/uv/) and, for the shortcuts, [just](https://just.systems/).
+
 ```sh
-npm install
-git fetch origin samples && git worktree add .samples samples   # reuse the published snapshot
-npm run fetch              # uv run scripts/sample.py: fetches only what is missing or changed
-BASE_PATH=/ npm run dev    # http://localhost:4321
+just setup     # npm install, and the published snapshot checked out in .samples/
+just fetch     # sample whatever is new or changed (nothing, right after setup)
+just dev       # http://localhost:4321
 ```
 
-Without the worktree, `.samples/` is just a local cache and the first `npm run fetch` fills it
-(about 3 minutes). Other options: `uv run scripts/sample.py <id>` (only that dataset),
-`--force` (re-fetch even if unchanged), `--check` (health check only).
+| command | does |
+|---|---|
+| `just fetch [ids…]` | sample datasets that are new or changed (all, or only the given ids) |
+| `just refetch ids…` | re-sample the given ids even if unchanged |
+| `just check` | check that every Hugging Face source still serves rows |
+| `just dev` | dev server at the site root |
+| `just build` / `just preview` | build at the site root (as `dev` does), and serve it locally |
+| `just new <id> <like>` | start `datasets/<id>.yaml` from an existing entry |
+| `just deploy-refetch ids…` | run the deploy workflow on GitHub with forced re-fetches (needs `gh`) |
+| `just clean` | remove build output and caches (keeps `.samples/`) |
+
+Without just, the same commands are `npm install`, `uv run scripts/sample.py [--force|--check] [ids…]`
+and `BASE_PATH=/ npm run dev`. Without the `samples` worktree, `.samples/` is just a local cache and
+the first fetch fills it, which takes 10 minutes or more for the whole catalog.
 
 ## Add a dataset
 
-1. Copy a similar entry in `datasets/*.yaml` and fill it in. `display.kind` picks the renderer
-   (field names are columns of the Hugging Face dataset):
+1. `just new <id> <similar-id>` and fill it in. `modality` is the category (`vision`, `text`,
+   `benchmark` (shown as "LLMs"), `tabular`, `audio`, `other`). `display.kind` picks the renderer;
+   field names are columns of the Hugging Face dataset:
 
    | kind | fields | used by |
    |---|---|---|
-   | `image` | `image`, `label`, `scale` (enlarge tiny images), `thumb` (px height for photos), `class_grid`, `short_labels` | MNIST, Fashion-MNIST, CIFAR-10, ImageNet |
-   | `boxes` | `image`, `objects` (COCO-style `bbox` `[x, y, w, h]` + a label list), `label` (its name, default `label`) | COCO, Pascal VOC |
-   | `text` | `text`, `label`, `summary` (shown on demand), `caption` (small line, e.g. a URL) | IMDB, 20 Newsgroups, CNN/DailyMail, C4 |
-   | `extractive` | `context`, `question`, `answers`, `title` | SQuAD |
+   | `image` | `image`, `label`, `scale` (enlarge tiny images), `thumb` (px height for photos), `class_grid`, `short_labels` | MNIST, Fashion-MNIST, CIFAR-10, SVHN, ImageNet |
+   | `boxes` | `image`, `objects` (COCO-style `bbox` `[x, y, w, h]` + a label list), `label` (its name, default `label`) | COCO, PASCAL VOC |
+   | `segmentation` | `image`, `objects` (ADE20K-style: `name`, `polygon {x, y}`, `depth_ordering_rank`, `parts.part_level`), `scene` | ADE20K |
+   | `annotated` | `image`, `captions` (list) or `attributes: true` (yes/no columns), `thumb` | Flickr30k, CelebA |
+   | `text` | `text`, `label`, `summary` (shown on demand), `caption` (small line, e.g. a URL) | IMDB, 20 Newsgroups, WikiText-103, CNN/DailyMail, C4 |
    | `record` | `label`; shows every text field, per config | GLUE, SuperGLUE, SNLI |
-   | `qa` | `question`, `answer`, `tags` (fields shown as tags), `math` (render LaTeX with KaTeX), `input`, `wrong` (list of false answers), `answer_label` | GSM8K, MATH, TruthfulQA, Alpaca |
+   | `extractive` | `context`, `question`, `answers`, `title` | SQuAD |
+   | `translation` | `translation` (a Translation feature), `source`, `target` (language codes) | WMT14 |
+   | `qa` | `question`, `answer`, `tags` (fields shown as tags), `math` (LaTeX via KaTeX), `input`, `wrong` (list of false answers), `answer_label` | GSM8K, MATH, TruthfulQA, Alpaca |
    | `mcq` | `question`, `choices` (a list, or `{text, label}`), `answer` (index or key), `subject` | MMLU, HellaSwag, AI2 ARC |
+   | `image_mcq` | `images` (list of image columns), `question`, `options`, `answer` (letter), `subject` | MMMU |
    | `code` | `prompt`, `solution`, `tests`, `title`; `*_lang` (Shiki language, `text` for prose) and `*_label` | HumanEval, SWE-bench |
-   | `audio` | `audio`, `text` and/or `label` (class or list of classes), `speaker` | LibriSpeech, AudioSet, Speech Commands, LJSpeech |
+   | `preference` | `chosen`, `rejected` (Human:/Assistant: transcripts) | Anthropic HH-RLHF |
    | `grid` | `train`, `test` (ARC-style pairs of integer grids) | ARC-AGI |
-   | `table` | optional `chart: {type: scatter \| rate, x, y, color}`, `columns` | Iris, Titanic, Palmer Penguins, MovieLens |
-| `annotated` | `image`, `captions` (list) or `attributes: true` (yes/no columns), `thumb` | Flickr30k, CelebA |
-| `image_mcq` | `images` (list of image columns), `question`, `options`, `answer` (letter), `subject` | MMMU |
-| `segmentation` | `image`, `objects` (ADE20K-style: `name`, `polygon {x, y}`, `depth_ordering_rank`, `parts.part_level`), `scene` | ADE20K |
-| `preference` | `chosen`, `rejected` (Human:/Assistant: transcripts) | Anthropic HH-RLHF |
-| `translation` | `translation` (a Translation feature), `source`, `target` (language codes) | WMT14 |
+   | `audio` | `audio`, `text` and/or `label` (a class or a list of classes), `speaker` | LibriSpeech, AudioSet, Speech Commands, LJSpeech |
+   | `table` | `columns` (default: all); `chart: {type: scatter \| rate, x, y, color}` | Iris, Titanic, Palmer Penguins, MovieLens |
 
-   Useful `source` options: `n` (rows to sample), `seed`, `fetch_all: true` (small tables, needed for
-   charts), `configs: [...]` (sample several configs, like GLUE's tasks), and `rows_per_page`
-   (default 8; lower it when the split is sorted by a label with many values, as ImageNet's is),
-   `min_length: {field: n}` (skip rows whose field is shorter, like WikiText's blank lines),
-   `drop: [columns]` (leave columns out of the sample) and `max_image_px` (downscale big photos;
-   annotations keep their original coordinates).
+   Useful `source` options:
+   - `n` (rows to sample) and `seed`.
+   - `configs: [...]` samples several configs, like GLUE's tasks or MMMU's subjects.
+   - `fetch_all: true` reads a small table whole (needed for charts).
+   - `rows_per_page` (default 8): lower it when the split is sorted by a label with many values,
+     as ImageNet's is.
+   - `min_length: {field: n}` skips rows whose field is shorter, like WikiText's blank lines.
+   - `drop: [columns]` leaves columns out of the sample.
+   - `max_image_px` downscales big photos; annotations keep their original coordinates.
 
-   Each page has a "Get the data" box with copy-paste snippets for the `hf` CLI, 🤗 `datasets` and
-   Polars, built from `source`. Override it with an optional `download` block: `hf` (the canonical
-   repo when the sample comes from a mirror), `config`, `split`, `include` (glob for
-   `hf download --include`, for one config of a big repo), `revision`, `gated: true` and `note`.
-2. `uv run scripts/sample.py <id>` and check the page with `BASE_PATH=/ npm run dev`.
+   The "Get the data" box shows snippets for the `hf` CLI, 🤗 `datasets` and Polars, built from
+   `source`. Override it with an optional `download` block: `hf` (the canonical repo, when the sample
+   comes from a mirror), `config`, `split`, `include` (glob for `hf download --include`, for one config
+   of a big repo), `revision`, `gated: true` and `note`.
+2. `just fetch <id>` and check the page with `just dev`. Look at the sampled rows before publishing:
+   some datasets contain offensive material, and a different `seed` picks other rows.
 3. Related datasets (`lineage`) take `hf: <owner/name>` to link to Hugging Face, or `url:` when
-   there is no HF copy, and `id:` when the dataset also has a page on this site.
+   there is no HF copy, and `id:` when the dataset also has a page on this site. Link back from the
+   related entries too.
 
 The schema lives in `src/content.config.ts`; the build fails on a malformed entry.
+
+Gotchas:
+- Some Hugging Face repos are not readable by the dataset viewer (loading scripts, odd layouts).
+  Search for a community Parquet copy with a working viewer and say so in `download.note`.
+- The viewer's signed media links fail for config names containing `+`; use another copy.
+- Gated datasets (GPQA, Humanity's Last Exam) cannot be sampled. Link them from `lineage` instead.
 
 ## Deploy
 
