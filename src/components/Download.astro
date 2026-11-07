@@ -49,19 +49,21 @@ const tabs = [
 ] as const;
 const themes = { light: 'github-light', dark: 'github-dark' } as const;
 ---
-<section class="download card" data-download>
+<section class="download" data-download>
   <div class="head">
     <h2>Get the data</h2>
-    <div class="tabs" role="tablist" aria-label="Download method">
-      {tabs.map((t, i) => (
-        <button type="button" role="tab" id={`dl-tab-${t.id}`} aria-controls={`dl-${t.id}`} aria-selected={String(i === 0)} data-tab={t.id}>{t.label}</button>
-      ))}
+    <div class="controls">
+      <div class="tabs" role="tablist" aria-label="Download method">
+        {tabs.map((t, i) => (
+          <button type="button" role="tab" id={`dl-tab-${t.id}`} aria-controls={`dl-${t.id}`} aria-selected={String(i === 0)} data-tab={t.id}>{t.label}</button>
+        ))}
+      </div>
+      <button type="button" class="copy" data-copy aria-label="Copy snippet">Copy</button>
     </div>
   </div>
   {tabs.map((t, i) => (
-    <div class="panel" role="tabpanel" id={`dl-${t.id}`} aria-labelledby={`dl-tab-${t.id}`} data-panel={t.id} hidden={i !== 0}>
+    <div class="panel" role="tabpanel" id={`dl-${t.id}`} aria-labelledby={`dl-tab-${t.id}`} data-panel={t.id} data-code={t.code} hidden={i !== 0}>
       <Code code={t.code} lang={t.lang} themes={themes} />
-      <button type="button" class="copy" data-copy={t.code} aria-label={`Copy ${t.label} snippet`}>Copy</button>
     </div>
   ))}
   {(dl.gated || dl.note) && (
@@ -91,8 +93,9 @@ const themes = { light: 'github-light', dark: 'github-dark' } as const;
     );
     box.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((b) =>
       b.addEventListener('click', async () => {
+        const code = box.querySelector<HTMLElement>('[data-panel]:not([hidden])')?.dataset.code ?? '';
         try {
-          await navigator.clipboard.writeText(b.dataset.copy!);
+          await navigator.clipboard.writeText(code);
           b.textContent = 'Copied';
         } catch {
           b.textContent = 'Copy failed';
@@ -104,14 +107,14 @@ const themes = { light: 'github-light', dark: 'github-dark' } as const;
 </script>
 
 <style>
-  .download { padding: 8px 10px; margin: 0 0 1rem; min-width: 0; }
+  .download { margin: 0 0 1rem; min-width: 0; }
   .head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 6px; }
+  .controls { display: flex; align-items: center; gap: 6px; }
   h2 { margin: 0; font-size: 0.85rem; font-weight: 600; color: var(--muted); }
   .tabs { display: flex; gap: 2px; padding: 1px; border: 1px solid var(--border); border-radius: 7px; }
   .tabs button { border: 0; background: none; padding: 1px 8px; font-size: 0.75rem; border-radius: 6px; color: var(--muted); }
   .tabs button[aria-selected='true'] { background: var(--accent-soft); color: var(--text); }
-  .panel { position: relative; }
-  .panel :global(pre) { margin: 0; font-size: 0.74rem; line-height: 1.45; padding: 7px 10px; padding-right: 58px; white-space: pre; }
-  .copy { position: absolute; top: 4px; right: 4px; font-size: 0.7rem; padding: 1px 7px; }
+  .panel :global(pre) { margin: 0; font-size: 0.74rem; line-height: 1.45; padding: 8px 12px; white-space: pre; border: 1px solid var(--border); }
+  .copy { font-size: 0.75rem; padding: 1px 9px; line-height: 1.5; }
   .note { font-size: 0.74rem; margin: 6px 0 0; }
 </style>

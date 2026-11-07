@@ -16,6 +16,17 @@ const hostOf = (u: string) => new URL(u).hostname.replace(/^www\./, '');
 const d = ds.data;
 const s = getSamples(ds.id);
 const splits = Object.entries(d.splits).map(([k, v]) => `${k} ${v.toLocaleString('en-US')}`).join(' · ');
+// Line icons (24×24, stroked with currentColor) for the link buttons.
+const ICONS = {
+  home: 'M3 10.5 12 3l9 7.5M5 9v11a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9',
+  data: 'M4 6c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3Zm0 0v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3',
+  paper: 'M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Zm0 0v5h5M9 13h6M9 17h6',
+};
+const links = [
+  d.homepage && { href: d.homepage, label: 'Homepage', icon: ICONS.home, tip: hostOf(d.homepage) },
+  { href: hfUrl(d.source.hf), label: 'Hugging Face', icon: ICONS.data, tip: d.source.hf },
+  d.paper && { href: d.paper.url, label: 'Paper', icon: ICONS.paper, tip: hostOf(d.paper.url) },
+].filter(Boolean) as { href: string; label: string; icon: string; tip: string }[];
 const facts: [string, string][] = [
   ['Year', String(d.year)],
   ['Creators', d.creators],
@@ -36,23 +47,18 @@ const facts: [string, string][] = [
     <section class="why">
       <h2>Why it matters</h2>
       <p>{d.why}</p>
-      <div class="links">
-        <span class="icon-links">
-          {d.homepage && (
-            <a class="icon-btn tip" href={d.homepage} aria-label="Homepage" data-tip={`Homepage · ${hostOf(d.homepage)}`}>🏠</a>
-          )}
-          <a class="icon-btn tip" href={`https://huggingface.co/datasets/${d.source.hf}`} aria-label="On Hugging Face" data-tip={`Hugging Face · ${d.source.hf}`}>🤗</a>
-        </span>
-        {d.paper && (
-          <a class="paper tip" href={d.paper.url} data-tip={`Original paper · ${hostOf(d.paper.url)}`}>
-            <span class="emoji" aria-hidden="true">📄</span><span>{d.paper.title}</span>
+      <div class="links icon-links">
+        {links.map((l) => (
+          <a class="link-btn tip" href={l.href} data-tip={l.tip}>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d={l.icon} /></svg>{l.label}
           </a>
-        )}
+        ))}
       </div>
       <Download ds={ds} />
     </section>
     <dl class="facts card">
       {facts.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
+      {d.paper && (<><dt>Paper</dt><dd><a href={d.paper.url}>{d.paper.title}</a></dd></>)}
     </dl>
   </div>
 
@@ -110,16 +116,17 @@ const facts: [string, string][] = [
   .lede { font-size: 1.1rem; margin: 0 0 8px; }
   .top { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 28px; align-items: start; }
   @media (max-width: 760px) { .top { grid-template-columns: minmax(0, 1fr); gap: 8px; } .facts { margin-top: 0 !important; } }
-  .links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; font-size: 0.92rem; margin: 4px 0 1rem; }
-  .paper { display: inline-flex; align-items: baseline; gap: 8px; }
-  .paper .emoji { font-size: 1.05rem; text-decoration: none; }
-  .icon-links { display: inline-flex; gap: 8px; }
-  .icon-btn {
-    width: 34px; height: 34px; display: grid; place-items: center; font-size: 1.05rem; line-height: 1;
-    border: 1px solid var(--border); border-radius: 50%; background: var(--surface);
-    transition: border-color 0.15s, transform 0.15s;
+  .links { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 1.25rem; }
+  .link-btn {
+    display: inline-flex; align-items: center; gap: 7px; height: 32px; padding: 0 12px;
+    border: 1px solid var(--border); border-radius: 8px; background: var(--surface);
+    color: var(--text); font-size: 0.85rem; font-weight: 500;
+    transition: border-color 0.15s, color 0.15s;
   }
-  .icon-btn:hover { text-decoration: none; border-color: var(--accent); transform: translateY(-1px); }
+  .link-btn svg { width: 16px; height: 16px; fill: none; stroke: var(--muted); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.15s; }
+  .link-btn:hover { text-decoration: none; border-color: var(--accent); color: var(--accent); }
+  .link-btn:hover svg { stroke: var(--accent); }
+  @media (max-width: 420px) { .links { gap: 6px; } .link-btn { padding: 0 9px; gap: 5px; font-size: 0.8rem; } }
   .facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; padding: 16px 18px; margin: 2.2rem 0 0; font-size: 0.9rem; }
   dt { color: var(--muted); }
   dd { margin: 0; }
