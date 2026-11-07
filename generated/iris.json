@@ -1,0 +1,1072 @@
+{
+ "chart": {
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json",
+  "config": {
+   "view": {
+    "continuousHeight": 300,
+    "continuousWidth": 300
+   }
+  },
+  "data": {
+   "values": [
+    {
+     "PetalLengthCm": 1.4,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.4,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.3,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.5,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.4,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.7,
+     "PetalWidthCm": 0.4,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.4,
+     "PetalWidthCm": 0.3,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.5,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.4,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.5,
+     "PetalWidthCm": 0.1,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.5,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.6,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.4,
+     "PetalWidthCm": 0.1,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.1,
+     "PetalWidthCm": 0.1,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.2,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.5,
+     "PetalWidthCm": 0.4,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.3,
+     "PetalWidthCm": 0.4,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.4,
+     "PetalWidthCm": 0.3,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.7,
+     "PetalWidthCm": 0.3,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.5,
+     "PetalWidthCm": 0.3,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.7,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.5,
+     "PetalWidthCm": 0.4,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.0,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.7,
+     "PetalWidthCm": 0.5,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.9,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.6,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.6,
+     "PetalWidthCm": 0.4,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.5,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.4,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.6,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.6,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.5,
+     "PetalWidthCm": 0.4,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.5,
+     "PetalWidthCm": 0.1,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.4,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.5,
+     "PetalWidthCm": 0.1,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.2,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.3,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.5,
+     "PetalWidthCm": 0.1,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.3,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.5,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.3,
+     "PetalWidthCm": 0.3,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.3,
+     "PetalWidthCm": 0.3,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.3,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.6,
+     "PetalWidthCm": 0.6,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.9,
+     "PetalWidthCm": 0.4,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.4,
+     "PetalWidthCm": 0.3,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.6,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.4,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.5,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 1.4,
+     "PetalWidthCm": 0.2,
+     "Species": "Iris-setosa"
+    },
+    {
+     "PetalLengthCm": 4.7,
+     "PetalWidthCm": 1.4,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.5,
+     "PetalWidthCm": 1.5,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.9,
+     "PetalWidthCm": 1.5,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.0,
+     "PetalWidthCm": 1.3,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.6,
+     "PetalWidthCm": 1.5,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.5,
+     "PetalWidthCm": 1.3,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.7,
+     "PetalWidthCm": 1.6,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 3.3,
+     "PetalWidthCm": 1.0,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.6,
+     "PetalWidthCm": 1.3,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 3.9,
+     "PetalWidthCm": 1.4,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 3.5,
+     "PetalWidthCm": 1.0,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.2,
+     "PetalWidthCm": 1.5,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.0,
+     "PetalWidthCm": 1.0,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.7,
+     "PetalWidthCm": 1.4,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 3.6,
+     "PetalWidthCm": 1.3,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.4,
+     "PetalWidthCm": 1.4,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.5,
+     "PetalWidthCm": 1.5,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.1,
+     "PetalWidthCm": 1.0,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.5,
+     "PetalWidthCm": 1.5,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 3.9,
+     "PetalWidthCm": 1.1,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.8,
+     "PetalWidthCm": 1.8,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.0,
+     "PetalWidthCm": 1.3,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.9,
+     "PetalWidthCm": 1.5,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.7,
+     "PetalWidthCm": 1.2,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.3,
+     "PetalWidthCm": 1.3,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.4,
+     "PetalWidthCm": 1.4,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.8,
+     "PetalWidthCm": 1.4,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 5.0,
+     "PetalWidthCm": 1.7,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.5,
+     "PetalWidthCm": 1.5,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 3.5,
+     "PetalWidthCm": 1.0,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 3.8,
+     "PetalWidthCm": 1.1,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 3.7,
+     "PetalWidthCm": 1.0,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 3.9,
+     "PetalWidthCm": 1.2,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 5.1,
+     "PetalWidthCm": 1.6,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.5,
+     "PetalWidthCm": 1.5,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.5,
+     "PetalWidthCm": 1.6,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.7,
+     "PetalWidthCm": 1.5,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.4,
+     "PetalWidthCm": 1.3,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.1,
+     "PetalWidthCm": 1.3,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.0,
+     "PetalWidthCm": 1.3,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.4,
+     "PetalWidthCm": 1.2,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.6,
+     "PetalWidthCm": 1.4,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.0,
+     "PetalWidthCm": 1.2,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 3.3,
+     "PetalWidthCm": 1.0,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.2,
+     "PetalWidthCm": 1.3,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.2,
+     "PetalWidthCm": 1.2,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.2,
+     "PetalWidthCm": 1.3,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.3,
+     "PetalWidthCm": 1.3,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 3.0,
+     "PetalWidthCm": 1.1,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 4.1,
+     "PetalWidthCm": 1.3,
+     "Species": "Iris-versicolor"
+    },
+    {
+     "PetalLengthCm": 6.0,
+     "PetalWidthCm": 2.5,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.1,
+     "PetalWidthCm": 1.9,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.9,
+     "PetalWidthCm": 2.1,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.6,
+     "PetalWidthCm": 1.8,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.8,
+     "PetalWidthCm": 2.2,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 6.6,
+     "PetalWidthCm": 2.1,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 4.5,
+     "PetalWidthCm": 1.7,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 6.3,
+     "PetalWidthCm": 1.8,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.8,
+     "PetalWidthCm": 1.8,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 6.1,
+     "PetalWidthCm": 2.5,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.1,
+     "PetalWidthCm": 2.0,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.3,
+     "PetalWidthCm": 1.9,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.5,
+     "PetalWidthCm": 2.1,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.0,
+     "PetalWidthCm": 2.0,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.1,
+     "PetalWidthCm": 2.4,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.3,
+     "PetalWidthCm": 2.3,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.5,
+     "PetalWidthCm": 1.8,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 6.7,
+     "PetalWidthCm": 2.2,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 6.9,
+     "PetalWidthCm": 2.3,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.0,
+     "PetalWidthCm": 1.5,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.7,
+     "PetalWidthCm": 2.3,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 4.9,
+     "PetalWidthCm": 2.0,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 6.7,
+     "PetalWidthCm": 2.0,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 4.9,
+     "PetalWidthCm": 1.8,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.7,
+     "PetalWidthCm": 2.1,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 6.0,
+     "PetalWidthCm": 1.8,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 4.8,
+     "PetalWidthCm": 1.8,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 4.9,
+     "PetalWidthCm": 1.8,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.6,
+     "PetalWidthCm": 2.1,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.8,
+     "PetalWidthCm": 1.6,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 6.1,
+     "PetalWidthCm": 1.9,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 6.4,
+     "PetalWidthCm": 2.0,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.6,
+     "PetalWidthCm": 2.2,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.1,
+     "PetalWidthCm": 1.5,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.6,
+     "PetalWidthCm": 1.4,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 6.1,
+     "PetalWidthCm": 2.3,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.6,
+     "PetalWidthCm": 2.4,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.5,
+     "PetalWidthCm": 1.8,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 4.8,
+     "PetalWidthCm": 1.8,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.4,
+     "PetalWidthCm": 2.1,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.6,
+     "PetalWidthCm": 2.4,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.1,
+     "PetalWidthCm": 2.3,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.1,
+     "PetalWidthCm": 1.9,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.9,
+     "PetalWidthCm": 2.3,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.7,
+     "PetalWidthCm": 2.5,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.2,
+     "PetalWidthCm": 2.3,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.0,
+     "PetalWidthCm": 1.9,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.2,
+     "PetalWidthCm": 2.0,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.4,
+     "PetalWidthCm": 2.3,
+     "Species": "Iris-virginica"
+    },
+    {
+     "PetalLengthCm": 5.1,
+     "PetalWidthCm": 1.8,
+     "Species": "Iris-virginica"
+    }
+   ]
+  },
+  "encoding": {
+   "color": {
+    "field": "Species",
+    "legend": {
+     "orient": "top"
+    },
+    "type": "nominal"
+   },
+   "tooltip": [
+    {
+     "field": "PetalLengthCm",
+     "type": "quantitative"
+    },
+    {
+     "field": "PetalWidthCm",
+     "type": "quantitative"
+    },
+    {
+     "field": "Species",
+     "type": "nominal"
+    }
+   ],
+   "x": {
+    "field": "PetalLengthCm",
+    "scale": {
+     "zero": false
+    },
+    "type": "quantitative"
+   },
+   "y": {
+    "field": "PetalWidthCm",
+    "scale": {
+     "zero": false
+    },
+    "type": "quantitative"
+   }
+  },
+  "height": 320,
+  "mark": {
+   "opacity": 0.75,
+   "size": 60,
+   "type": "circle"
+  },
+  "title": "All 150 flowers: petal length vs width",
+  "width": "container"
+ },
+ "features": [
+  {
+   "name": "Id",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "SepalLengthCm",
+   "type": {
+    "_type": "Value",
+    "dtype": "float64"
+   }
+  },
+  {
+   "name": "SepalWidthCm",
+   "type": {
+    "_type": "Value",
+    "dtype": "float64"
+   }
+  },
+  {
+   "name": "PetalLengthCm",
+   "type": {
+    "_type": "Value",
+    "dtype": "float64"
+   }
+  },
+  {
+   "name": "PetalWidthCm",
+   "type": {
+    "_type": "Value",
+    "dtype": "float64"
+   }
+  },
+  {
+   "name": "Species",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T15:47:46+00:00",
+ "id": "iris",
+ "num_rows_total": 150,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "Id",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "SepalLengthCm",
+     "type": {
+      "_type": "Value",
+      "dtype": "float64"
+     }
+    },
+    {
+     "name": "SepalWidthCm",
+     "type": {
+      "_type": "Value",
+      "dtype": "float64"
+     }
+    },
+    {
+     "name": "PetalLengthCm",
+     "type": {
+      "_type": "Value",
+      "dtype": "float64"
+     }
+    },
+    {
+     "name": "PetalWidthCm",
+     "type": {
+      "_type": "Value",
+      "dtype": "float64"
+     }
+    },
+    {
+     "name": "Species",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 150,
+   "split": "train"
+  }
+ ],
+ "revision": "0bda0ce801be0fa2f464ff845a9d5ceae99aad7d",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "Id": 17,
+    "PetalLengthCm": 1.3,
+    "PetalWidthCm": 0.4,
+    "SepalLengthCm": 5.4,
+    "SepalWidthCm": 3.9,
+    "Species": "Iris-setosa"
+   },
+   "row_idx": 16,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Id": 61,
+    "PetalLengthCm": 3.5,
+    "PetalWidthCm": 1.0,
+    "SepalLengthCm": 5.0,
+    "SepalWidthCm": 2.0,
+    "Species": "Iris-versicolor"
+   },
+   "row_idx": 60,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Id": 34,
+    "PetalLengthCm": 1.4,
+    "PetalWidthCm": 0.2,
+    "SepalLengthCm": 5.5,
+    "SepalWidthCm": 4.2,
+    "Species": "Iris-setosa"
+   },
+   "row_idx": 33,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Id": 122,
+    "PetalLengthCm": 4.9,
+    "PetalWidthCm": 2.0,
+    "SepalLengthCm": 5.6,
+    "SepalWidthCm": 2.8,
+    "Species": "Iris-virginica"
+   },
+   "row_idx": 121,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Id": 140,
+    "PetalLengthCm": 5.4,
+    "PetalWidthCm": 2.1,
+    "SepalLengthCm": 6.9,
+    "SepalWidthCm": 3.1,
+    "Species": "Iris-virginica"
+   },
+   "row_idx": 139,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Id": 149,
+    "PetalLengthCm": 5.4,
+    "PetalWidthCm": 2.3,
+    "SepalLengthCm": 6.2,
+    "SepalWidthCm": 3.4,
+    "Species": "Iris-virginica"
+   },
+   "row_idx": 148,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Id": 60,
+    "PetalLengthCm": 3.9,
+    "PetalWidthCm": 1.4,
+    "SepalLengthCm": 5.2,
+    "SepalWidthCm": 2.7,
+    "Species": "Iris-versicolor"
+   },
+   "row_idx": 59,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Id": 142,
+    "PetalLengthCm": 5.1,
+    "PetalWidthCm": 2.3,
+    "SepalLengthCm": 6.9,
+    "SepalWidthCm": 3.1,
+    "Species": "Iris-virginica"
+   },
+   "row_idx": 141,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Id": 67,
+    "PetalLengthCm": 4.5,
+    "PetalWidthCm": 1.5,
+    "SepalLengthCm": 5.6,
+    "SepalWidthCm": 3.0,
+    "Species": "Iris-versicolor"
+   },
+   "row_idx": 66,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Id": 121,
+    "PetalLengthCm": 5.7,
+    "PetalWidthCm": 2.3,
+    "SepalLengthCm": 6.9,
+    "SepalWidthCm": 3.2,
+    "Species": "Iris-virginica"
+   },
+   "row_idx": 120,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Id": 4,
+    "PetalLengthCm": 1.5,
+    "PetalWidthCm": 0.2,
+    "SepalLengthCm": 4.6,
+    "SepalWidthCm": 3.1,
+    "Species": "Iris-setosa"
+   },
+   "row_idx": 3,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Id": 95,
+    "PetalLengthCm": 4.2,
+    "PetalWidthCm": 1.3,
+    "SepalLengthCm": 5.6,
+    "SepalWidthCm": 2.7,
+    "Species": "Iris-versicolor"
+   },
+   "row_idx": 94,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "scikit-learn/iris",
+  "split": "train"
+ }
+}

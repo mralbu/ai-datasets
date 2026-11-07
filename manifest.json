@@ -1,0 +1,110 @@
+{
+ "sampler_version": 1,
+ "datasets": {
+  "arc-agi": {
+   "fingerprint": "29190a28600a5808",
+   "hf": "zhmz90/arc-agi-2",
+   "revision": "7c9bee1b8bf066ec2cbfdc1ed822bac0037d46f0",
+   "fetched_at": "2026-11-07T15:45:36+00:00",
+   "rows": 12
+  },
+  "cifar10": {
+   "fingerprint": "ec2ef70e1bfa8044",
+   "hf": "uoft-cs/cifar10",
+   "revision": "0b2714987fa478483af9968de7c934580d0bb9a2",
+   "fetched_at": "2026-11-07T15:45:52+00:00",
+   "rows": 60
+  },
+  "coco": {
+   "fingerprint": "3995a4c29ae86935",
+   "hf": "rafaelpadilla/coco2017",
+   "revision": "7d5136d6952da2df12d99106e2cce2a65324617d",
+   "fetched_at": "2026-11-07T15:46:00+00:00",
+   "rows": 18
+  },
+  "glue": {
+   "fingerprint": "f919a7b699e6dcd1",
+   "hf": "nyu-mll/glue",
+   "revision": "bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c",
+   "fetched_at": "2026-11-07T15:46:05+00:00",
+   "rows": 36
+  },
+  "gsm8k": {
+   "fingerprint": "48c9cdd47f07a112",
+   "hf": "openai/gsm8k",
+   "revision": "740312add88f781978c0658806c59bc2815b9866",
+   "fetched_at": "2026-11-07T15:46:06+00:00",
+   "rows": 20
+  },
+  "hellaswag": {
+   "fingerprint": "d7742ffa614ec0b0",
+   "hf": "Rowan/hellaswag",
+   "revision": "218ec52e09a7e7462a5400043bb9a69a41d06b76",
+   "fetched_at": "2026-11-07T15:46:09+00:00",
+   "rows": 20
+  },
+  "humaneval": {
+   "fingerprint": "acdad41f0bc2bf49",
+   "hf": "openai/openai_humaneval",
+   "revision": "7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544",
+   "fetched_at": "2026-11-07T15:46:10+00:00",
+   "rows": 12
+  },
+  "imagenet": {
+   "fingerprint": "95386929ed857ea1",
+   "hf": "evanarlian/imagenet_1k_resized_256",
+   "revision": "8de107e08d1f61884d5a4ec2dea8740667264a60",
+   "fetched_at": "2026-11-07T15:47:44+00:00",
+   "rows": 32
+  },
+  "imdb": {
+   "fingerprint": "65601359d01d8d8d",
+   "hf": "stanfordnlp/imdb",
+   "revision": "e6281661ce1c48d982bc483cf8a173c1bbeb5d31",
+   "fetched_at": "2026-11-07T15:47:45+00:00",
+   "rows": 24
+  },
+  "iris": {
+   "fingerprint": "6608d21f54912413",
+   "hf": "scikit-learn/iris",
+   "revision": "0bda0ce801be0fa2f464ff845a9d5ceae99aad7d",
+   "fetched_at": "2026-11-07T15:47:46+00:00",
+   "rows": 12
+  },
+  "librispeech": {
+   "fingerprint": "8e3a54f885561e62",
+   "hf": "openslr/librispeech_asr",
+   "revision": "71cacbfb7e2354c4226d01e70d77d5fca3d04ba1",
+   "fetched_at": "2026-11-07T15:47:49+00:00",
+   "rows": 10
+  },
+  "mmlu": {
+   "fingerprint": "51947459d1786af2",
+   "hf": "cais/mmlu",
+   "revision": "c30699e8356da336a370243923dbaf21066bb9fe",
+   "fetched_at": "2026-11-07T15:48:58+00:00",
+   "rows": 24
+  },
+  "mnist": {
+   "fingerprint": "e0ce24e5a1fe294e",
+   "hf": "ylecun/mnist",
+   "revision": "77f3279092a1c1579b2250db8eafed0ad422088c",
+   "fetched_at": "2026-11-07T15:49:11+00:00",
+   "rows": 60
+  },
+  "squad": {
+   "fingerprint": "a7ffcdd131e5e772",
+   "hf": "rajpurkar/squad",
+   "revision": "7b6d24c440a36b6815f21b70d25016731768db1f",
+   "fetched_at": "2026-11-07T15:49:12+00:00",
+   "rows": 16
+  },
+  "titanic": {
+   "fingerprint": "ef468f65ad128b57",
+   "hf": "phihung/titanic",
+   "revision": "9753139e0b9d454ab4fd22e884290260db5fc7b6",
+   "fetched_at": "2026-11-07T15:49:15+00:00",
+   "rows": 16
+  }
+ }
+}

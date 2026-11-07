@@ -1,0 +1,610 @@
+{
+ "features": [
+  {
+   "name": "ind",
+   "type": {
+    "_type": "Value",
+    "dtype": "int32"
+   }
+  },
+  {
+   "name": "activity_label",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "ctx_a",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "ctx_b",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "ctx",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "endings",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "_type": "Value",
+     "dtype": "string"
+    }
+   }
+  },
+  {
+   "name": "source_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "split",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "split_type",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "label",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T15:46:09+00:00",
+ "id": "hellaswag",
+ "num_rows_total": 10042,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "ind",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    {
+     "name": "activity_label",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "ctx_a",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "ctx_b",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "ctx",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "endings",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "string"
+      }
+     }
+    },
+    {
+     "name": "source_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "split",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "split_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "label",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 10042,
+   "split": "validation"
+  }
+ ],
+ "revision": "218ec52e09a7e7462a5400043bb9a69a41d06b76",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Family Life",
+    "ctx": "[header] How to separate your professional and private life [title] List the multiple roles you may have. [step] A single person may fill a number of different roles all at once, or at different times in life: employee, employer, student, sibling, significant other, child, parent, caregiver, etc. These roles sometimes overlap, but each one has its own expectations and needs.",
+    "ctx_a": "[header] How to separate your professional and private life [title] List the multiple roles you may have. [step] A single person may fill a number of different roles all at once, or at different times in life: employee, employer, student, sibling, significant other, child, parent, caregiver, etc. These roles sometimes overlap, but each one has its own expectations and needs.",
+    "ctx_b": "",
+    "endings": [
+     "[substeps] Researchers have linked certain divisions and demands in each category of job. Sometimes the three categories are equally similar, so it's important to think carefully when deciding which categories to include.",
+     "Review your previous job experience to figure out what roles and duties you need. [title] Determine the level of mental fitness you need.",
+     "[substeps] Once you have identified which roles are most important to you, it is best to list these into a separate document. Make a mental note of all responsibilities you hold.",
+     "Make a list of all of the roles that apply to you, and decide which ones are most important to you. [title] Go to and leave work at the same times each day."
+    ],
+    "ind": 49594,
+    "label": "3",
+    "source_id": "wikihow~81611",
+    "split": "val",
+    "split_type": "zeroshot"
+   },
+   "row_idx": 9911,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Health",
+    "ctx": "[header] How to tell if a fall broke bones without an x ray [title] Ask what happened. [step] If you're assisting yourself or someone else, figure out what happened directly before the pain. If you're helping someone, ask what happened right before the incident.",
+    "ctx_a": "[header] How to tell if a fall broke bones without an x ray [title] Ask what happened. [step] If you're assisting yourself or someone else, figure out what happened directly before the pain. If you're helping someone, ask what happened right before the incident.",
+    "ctx_b": "",
+    "endings": [
+     "Look it up online or contact someone who has done so before. [substeps] For example, if you're assisting someone else but suspect that the person has broken their nose, then ask if that happened before the incident.",
+     "Most broken bones require a force strong enough to crack or fully break the bone. Figuring out the cause of the injury can help you assess whether it's likely or not likely that a bone was broken.",
+     "Draw a picture of the direction of fracture rather than comparing it as it happened before. For example, if someone broke an ankle, draw lines or signs so you have inspiration.",
+     "[substeps] Breaks are when you're trying to break a bone but can't come to help. The best thing you can do right after the break usually is to \" get out of bed \" and run."
+    ],
+    "ind": 27959,
+    "label": "1",
+    "source_id": "wikihow~46062",
+    "split": "val",
+    "split_type": "indomain"
+   },
+   "row_idx": 7017,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Personal Care and Style",
+    "ctx": "[header] How to clean a washer and dryer [title] Clean the top of the lid and underneath the lid of the washer with a damp sponge. [title] Pull out the lint trap (if your machine has one) and rinse it under running water. [title] Clean out the soap, bleach and fabric softener dispensers.",
+    "ctx_a": "[header] How to clean a washer and dryer [title] Clean the top of the lid and underneath the lid of the washer with a damp sponge. [title] Pull out the lint trap (if your machine has one) and rinse it under running water. [title] Clean out the soap, bleach and fabric softener dispensers.",
+    "ctx_b": "",
+    "endings": [
+     "[step] If these cups are removable, take them out and rinse them under running water. Otherwise, use a pipe cleaner or some cotton swabs to remove the residue.",
+     "[step] ( chemicals are highly flammable and contain gases that decompose and taint fabric. ) [title] Remove the cloth dish washer cover.",
+     "[title] Remove the bottom of the suction cup (if connected). [title] Check to make sure the spout is clean.",
+     "[step] Scrub out the interior of the lint trap with a damp sponge. Ensure all soap is well rinsed and that all soap residue is washed out of the inside of the lint trap."
+    ],
+    "ind": 514,
+    "label": "0",
+    "source_id": "wikihow~835",
+    "split": "val",
+    "split_type": "zeroshot"
+   },
+   "row_idx": 3311,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Holidays and Traditions",
+    "ctx": "[header] How to open presents politely [title] Sit down to open presents and open them one at a time. [step] There is no rush to open your gifts, and it seems like you just want what's inside of them if you rush through them. [substeps] Decide which present you'd like to open first, and open the wrapping paper slowly.",
+    "ctx_a": "[header] How to open presents politely [title] Sit down to open presents and open them one at a time. [step] There is no rush to open your gifts, and it seems like you just want what's inside of them if you rush through them. [substeps] Decide which present you'd like to open first, and open the wrapping paper slowly.",
+    "ctx_b": "",
+    "endings": [
+     "While opening gifts is a nice way to touch the items inside of the gift, it is not the only way you could open the present. Put the \" things \" inside the wrapped paper and notice what you see, whether you want to find a jewel, necklace, or bracelet.",
+     "Open the wrapper from the box in question instead of packing it up. Once you see your inside the box, don't open the lid yet.",
+     "This will build up suspense, and seem as if it really is a great present once you finally see it. If it's in a bag, pull the tissue paper out slowly and place it beside of you.",
+     "This will allow you to see the small pieces inside, and hopefully give you a little more time to show your cards. If you're not sure what you'd like to open, you can guess instead."
+    ],
+    "ind": 49505,
+    "label": "2",
+    "source_id": "wikihow~81464",
+    "split": "val",
+    "split_type": "indomain"
+   },
+   "row_idx": 9898,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Playing water polo",
+    "ctx": "People are playing a game in a pool. They are throwing a ball back and forth trying to score. they",
+    "ctx_a": "People are playing a game in a pool. They are throwing a ball back and forth trying to score.",
+    "ctx_b": "they",
+    "endings": [
+     "reach for the ball again, one gets it by accident.",
+     "come running out of the pool and start fighting over the ball.",
+     "dive into the pool to take their turn and kick the ball over and over.",
+     "continue to play after one team scores."
+    ],
+    "ind": 28482,
+    "label": "3",
+    "source_id": "activitynet~v_LM8C4FSpN0w",
+    "split": "val",
+    "split_type": "indomain"
+   },
+   "row_idx": 1844,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Health",
+    "ctx": "[header] How to save yourself from a heart attack [title] Watch for chest discomfort. [step] The principal sign of a heart attack is an uncomfortable feeling in your chest. It could feel like pressure is being put on your chest, that it is being squeezed, or that it feels particularly full.",
+    "ctx_a": "[header] How to save yourself from a heart attack [title] Watch for chest discomfort. [step] The principal sign of a heart attack is an uncomfortable feeling in your chest. It could feel like pressure is being put on your chest, that it is being squeezed, or that it feels particularly full.",
+    "ctx_b": "",
+    "endings": [
+     "It might go away only to come back shortly thereafter. [substeps] While we imagine that a heart attack comes on as an instant, intense pain, often it is a duller pain that slowly grows into a feeling of discomfort more than pain.",
+     "Your heart could be pounding all over your body, or in no particular location. See if your heart immediately begins to panic or kicks you in the chest, or feels like it's pressure poking or pulling at you.",
+     "[title] Take note of any shortness of breath. [step] The principal sign for a heart attack is considered a shortness of breath that is a symptom of a heart attack.",
+     "Severe chest discomfort could indicate a heart attack. [substeps] Increase heart rate by feeling uncomfortably heavy."
+    ],
+    "ind": 1055,
+    "label": "0",
+    "source_id": "wikihow~1739",
+    "split": "val",
+    "split_type": "indomain"
+   },
+   "row_idx": 3367,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Clean and jerk",
+    "ctx": "A woman is show in several different location lifting weights above her head and jumping her legs out. the woman",
+    "ctx_a": "A woman is show in several different location lifting weights above her head and jumping her legs out.",
+    "ctx_b": "the woman",
+    "endings": [
+     "continues lifting up the weights over her head while various text instruments pan across the screen.",
+     "ends with her also jumping her legs down.",
+     "continues going up as various discs are thrown up and throughout her body while the camera follows.",
+     "continues to run up and down the trainer's world and ends by dropping keys and jumping back down."
+    ],
+    "ind": 28728,
+    "label": "0",
+    "source_id": "activitynet~v_RSyk6rS8ay0",
+    "split": "val",
+    "split_type": "zeroshot"
+   },
+   "row_idx": 1860,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Personal Care and Style",
+    "ctx": "[header] How to tie a shemagh [title] Fold the shemagh into a triangle. [step] With the shemagh completely open, match one corner with the corner diagonally opposite from it, folding the square in half and into a triangle. [substeps] This particular tying method is a good option if you want to use the shemagh to protect your head and face from cold winds or hot sun.",
+    "ctx_a": "[header] How to tie a shemagh [title] Fold the shemagh into a triangle. [step] With the shemagh completely open, match one corner with the corner diagonally opposite from it, folding the square in half and into a triangle. [substeps] This particular tying method is a good option if you want to use the shemagh to protect your head and face from cold winds or hot sun.",
+    "ctx_b": "",
+    "endings": [
+     "[title] Drape the shemagh over your forehead. [step] Pull the folded edge of the shemagh over your forehead, positioning it somewhere between your hairline and your eyebrows.",
+     "[title] Trim the paper to the desired length. [step] To successfully tie a shemagh, you'll need your paper to be long enough to wrap around and over your head several times.",
+     "[title] Tie the shemagh in the same manner you would knot a scarf. [step] You will now be tying the shemagh to the head of your shirt.",
+     "[title] Unbutton the loose hook of the shemagh. [step] Use pliers to reach inside the loose hook."
+    ],
+    "ind": 16356,
+    "label": "0",
+    "source_id": "wikihow~27096",
+    "split": "val",
+    "split_type": "zeroshot"
+   },
+   "row_idx": 5418,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Work World",
+    "ctx": "[header] How to become an it consultant [title] Choose the right major. [step] The college major you choose will be invaluable in enabling you to work as an it consultant. While there is no single \" correct \" major for hopeful consultants, a field like computer sciences will ground you in technology.",
+    "ctx_a": "[header] How to become an it consultant [title] Choose the right major. [step] The college major you choose will be invaluable in enabling you to work as an it consultant. While there is no single \" correct \" major for hopeful consultants, a field like computer sciences will ground you in technology.",
+    "ctx_b": "",
+    "endings": [
+     "Many colleges and universities make it easier for students to associate with college majors. Choose a major that has some degree in technology.",
+     "[substeps] Other useful majors include: business, marketing/sales (if you plan to work with clients), or electrical engineering. Many online colleges offer it-specific degrees.",
+     "Being an it consultant requires at least some objective work to overcome and it takes one or two years to be appointed formally. [substeps] The major you choose will be specifically tailored to graduate with a less introductory job.",
+     "They might also help you learn more about modern computer programs on a competitive basis, or they might help you develop a portfolio (or portfolio) that will lead you to start on your own. [substeps] Choosing a major should be your number one responsibility."
+    ],
+    "ind": 29301,
+    "label": "1",
+    "source_id": "wikihow~48313",
+    "split": "val",
+    "split_type": "indomain"
+   },
+   "row_idx": 7183,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Health",
+    "ctx": "[header] How to stimulate your pituitary gland [title] Talk with your doctor. [step] If you suspect an issue with your pituitary gland, your doctor's office should be your first stop. You can go to see your primary care physician first or go directly to an endocrinologist, a doctor who specializes in the endocrine (hormone-producing) system.",
+    "ctx_a": "[header] How to stimulate your pituitary gland [title] Talk with your doctor. [step] If you suspect an issue with your pituitary gland, your doctor's office should be your first stop. You can go to see your primary care physician first or go directly to an endocrinologist, a doctor who specializes in the endocrine (hormone-producing) system.",
+    "ctx_b": "",
+    "endings": [
+     "[title] Have surgery done to correct a problem. [step] Surgery means monitoring your hormone levels and being sure your pituitary gland is functioning correctly.",
+     "The doctor will likely start by measuring your gland output with a blood test. [substeps] After the initial consultation, the doctor may suggest more in-depth diagnostic tests, such as a magnetic resonance imaging scan (mri).",
+     "They can help you develop proper methods of inducing this hormone production. [substeps] Ovarian glands on your penis are located between the penis and your anus.",
+     "Your doctor may refer you to a neurologist first if one is very helpful to you or if you have concerns. But if you suspect an urgent matter, your doctor should be able to help you identify potential causes."
+    ],
+    "ind": 29257,
+    "label": "1",
+    "source_id": "wikihow~48239",
+    "split": "val",
+    "split_type": "indomain"
+   },
+   "row_idx": 7178,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Computers and Electronics",
+    "ctx": "[header] How to take action for violation of an injunction [title] Make sure you're safe. [step] Before you take action for violation of an injunction, take care that the incident is over and the threat to your safety or the safety of others has ended. If you fear for the immediate safety of yourself or your loved ones, call 911.",
+    "ctx_a": "[header] How to take action for violation of an injunction [title] Make sure you're safe. [step] Before you take action for violation of an injunction, take care that the incident is over and the threat to your safety or the safety of others has ended. If you fear for the immediate safety of yourself or your loved ones, call 911.",
+    "ctx_b": "",
+    "endings": [
+     "Only tell the police if you think someone hurt you or needs immediate assistance. [substeps] You may also want to consult an attorney if you think the threat of an injunction applies to you.",
+     "If you're concerned for personal safety, and need to protect yourself or others, call a local police station or other emergency number. [substeps] Remember that an injunction is a vague sentence or term.",
+     "[substeps] If you call 911, make sure you have a copy of the order when police arrive. You should keep a copy of the injunction on your person at all times.",
+     "If you fear for the immediate safety of others, call 411. In virginia, this number is 800-467-8255 or 800-273-6522."
+    ],
+    "ind": 6795,
+    "label": "2",
+    "source_id": "wikihow~11230",
+    "split": "val",
+    "split_type": "indomain"
+   },
+   "row_idx": 4148,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Family Life",
+    "ctx": "[header] How to introduce solids to a breastfed baby [title] Start by introducing the baby to only one vegetable. [step] Just give the child the plain cooked vegetable without adding any salt, sugar, corn starch, or other food thickening. [title] Introduce solid food only if the child is healthy.",
+    "ctx_a": "[header] How to introduce solids to a breastfed baby [title] Start by introducing the baby to only one vegetable. [step] Just give the child the plain cooked vegetable without adding any salt, sugar, corn starch, or other food thickening. [title] Introduce solid food only if the child is healthy.",
+    "ctx_b": "",
+    "endings": [
+     "[step] You can skip this step if you are breastfeeding because fresh vegetables will contain more salt, water, and fats, too. [title] This method works best to give the baby apples, mangoes, or dark greens.",
+     "[step] The fats in lean, fresh foods are often the hardest for breastfeeding children, and you're better off with simple, nutrient-rich foods. For example, if your child is older than three months old, offer lots of vegetable options.",
+     "[step] If this is the case, try to introduce vegetable foods gradually throughout the feeding process to help them understand food is a normal part of nursing. The idea behind base food consumption in newborns will be that they stop eating after a couple hours.",
+     "[title] Give your child the new product only in the morning at breakfast. [step] If the baby is going to have any negative reaction, then you will have time to take necessary measures."
+    ],
+    "ind": 27657,
+    "label": "3",
+    "source_id": "wikihow~45579",
+    "split": "val",
+    "split_type": "zeroshot"
+   },
+   "row_idx": 6968,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Cutting the grass",
+    "ctx": "A first person view is seen of a man riding a riding lawn mower. he",
+    "ctx_a": "A first person view is seen of a man riding a riding lawn mower.",
+    "ctx_b": "he",
+    "endings": [
+     "takes turns quickly, mowing the lawn.",
+     "creates a large puddle of water and a high rush of water around him as he heads back and forth back and forth.",
+     "moves all around while there is a crowd watching.",
+     "talks about how to properly ride an object while another man climbs up on the back of him."
+    ],
+    "ind": 2637,
+    "label": "0",
+    "source_id": "activitynet~v_VOGF4tBFEuw",
+    "split": "val",
+    "split_type": "zeroshot"
+   },
+   "row_idx": 198,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Home and Garden",
+    "ctx": "[header] How to fold altar linens [title] Look at the linen. [step] The purificator is the smallest of the small linens, and the post communion veil is the largest of the small linens. Both can be either square or rectangular, and both have an embroidered cross in the center.",
+    "ctx_a": "[header] How to fold altar linens [title] Look at the linen. [step] The purificator is the smallest of the small linens, and the post communion veil is the largest of the small linens. Both can be either square or rectangular, and both have an embroidered cross in the center.",
+    "ctx_b": "",
+    "endings": [
+     "The pectoral cross is a crescent with a series of embroidered figures and knots. The circular fold is the largest of all of the linens, but in order to fold an altar linens, you will need to go to the vatican website or the uuruses page.",
+     "[title] Place one candle on the end of the cloth for blessing. [step] Candle boxes are made for light wicks, usually silver, but be sure to choose a larger one to suit your own preferences.",
+     "[substeps] The purificator is the linen used to dry the holy vessels during holy communion. The post communion veil is used to cover the chalice after holy communion has concluded.",
+     "The cloth can be patterned, embroidered, or printed by the purists, as you want the simplicity of the selections not strictly decorative. Choose a patterned or rectangular cloth by drawing the corners closed."
+    ],
+    "ind": 16037,
+    "label": "2",
+    "source_id": "wikihow~26548",
+    "split": "val",
+    "split_type": "indomain"
+   },
+   "row_idx": 5390,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Longboarding",
+    "ctx": "A boy skateboard on a road jumping and flipping the skateboard in the street. A skateboard leans on a tree. then",
+    "ctx_a": "A boy skateboard on a road jumping and flipping the skateboard in the street. A skateboard leans on a tree.",
+    "ctx_b": "then",
+    "endings": [
+     ", the boy slides on the street with his skateboard sticking in the air.",
+     ", gopro jumps, then skateboard on a road.",
+     ", the boy rides on the skateboard with turned legs.",
+     ", the boy skateboard on small ramps and then continues skateboarding in the street."
+    ],
+    "ind": 2553,
+    "label": "3",
+    "source_id": "activitynet~v_UYzgXZIRUR8",
+    "split": "val",
+    "split_type": "indomain"
+   },
+   "row_idx": 187,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Family Life",
+    "ctx": "[header] How to make a wedding ribbon wand [title] Calculate your budget for the wand. [step] How much money are you willing to spend on a wand per guest? This will help you to choose your materials wisely. [title] Choose the size of the rod.",
+    "ctx_a": "[header] How to make a wedding ribbon wand [title] Calculate your budget for the wand. [step] How much money are you willing to spend on a wand per guest? This will help you to choose your materials wisely. [title] Choose the size of the rod.",
+    "ctx_b": "",
+    "endings": [
+     "[step] For a wand that has a heavy base, it will cost you plenty of money to make it. For a wand that has smaller base, you may need just one wand, or you may require more to complete a marriage.",
+     "[step] Choosing the length of the rod will affect everything from dowel size to ribbon length. [substeps] Hardware stores carry unfinished wood dowels in 36 \" or 48 \" lengths.",
+     "[step] It can be a wide blade of wood or it can be a one-piece cloth with a slot into the front that allows you to fold it and use it as a dowel rod. [title] Pick a cut size that fits your décor.",
+     "[step] If you're creating some artistic flair, but only for the birthday party, make sure the rod size is reasonable. You can easily make a wand at home with enough room to do other household household chores, such as washing the dishes, sweeping the floors, and mowing the lawn."
+    ],
+    "ind": 42364,
+    "label": "1",
+    "source_id": "wikihow~69687",
+    "split": "val",
+    "split_type": "zeroshot"
+   },
+   "row_idx": 8970,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Pets and Animals",
+    "ctx": "[header] How to calm an aggressive cat [title] Protect yourself during an attack. [step] If you are actively being attacked by an aggressive cat, you should protect yourself the best you can. Remember that a cat's best weapons are its teeth and its claws, so try to avoid contact with both.",
+    "ctx_a": "[header] How to calm an aggressive cat [title] Protect yourself during an attack. [step] If you are actively being attacked by an aggressive cat, you should protect yourself the best you can. Remember that a cat's best weapons are its teeth and its claws, so try to avoid contact with both.",
+    "ctx_b": "",
+    "endings": [
+     "Your best option is to stay away from the cat and avoid handling it if possible. [substeps] If you must touch the cat, try to hold it by the scruff so that it can't get you with its claws or teeth.",
+     "Avoid places where you do not want any harm to be: on furniture, behind corners, in doorways, in your home, parking lots, anywhere else where you know you may be seen [title] Wear safety equipment. [step] One of the main ways to calm an aggressive cat is by wearing a protective safety gear.",
+     "Look for any of these things or avoid contact. [substeps] Roll away from the cat to get away if possible.",
+     "[substeps] Cover your face, use protective body armor and non-cotton covers, and select toys and other soft things to use as your body shield during a wild cat attack. Consider taking alternate cover locations when a wild cat may attack you, such as your home, office, or backyard."
+    ],
+    "ind": 7011,
+    "label": "0",
+    "source_id": "wikihow~11580",
+    "split": "val",
+    "split_type": "indomain"
+   },
+   "row_idx": 4175,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Making a cake",
+    "ctx": "Workers are introduced as the efforts are displayed on how they are making a large upcoming contribution for a special event. The bakers are making a huge delicious cake for celebration of many years in special olympics. many people",
+    "ctx_a": "Workers are introduced as the efforts are displayed on how they are making a large upcoming contribution for a special event. The bakers are making a huge delicious cake for celebration of many years in special olympics.",
+    "ctx_b": "many people",
+    "endings": [
+     "arrive for the event, and absolutely love the final outcome of the sweet cakes.",
+     "are in houses preparing for the event.",
+     "are still making the massive orts used by bakers per year.",
+     "are gathered in spontaneous events celebrating their accomplishments and their participation in the event."
+    ],
+    "ind": 36240,
+    "label": "0",
+    "source_id": "activitynet~v_J2gJYNO2qh8",
+    "split": "val",
+    "split_type": "indomain"
+   },
+   "row_idx": 2354,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Throwing darts",
+    "ctx": "A boy is standing behind a counter. He is throwing darts at a wall. a woman",
+    "ctx_a": "A boy is standing behind a counter. He is throwing darts at a wall.",
+    "ctx_b": "a woman",
+    "endings": [
+     "is holding up a video camera to record the boy in the market.",
+     "is sitting in front of him helping him.",
+     "picks up a dart the hit her.",
+     "is standing next to him."
+    ],
+    "ind": 35403,
+    "label": "3",
+    "source_id": "activitynet~v_z5bc9KKiAGI",
+    "split": "val",
+    "split_type": "indomain"
+   },
+   "row_idx": 2294,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "activity_label": "Personal Care and Style",
+    "ctx": "[header] How to create wavy hair with a curling iron [title] Get a ceramic tourmaline 1 \" barrel curling iron. [step] This is a high quality styling tool, and so it should work better than the alternative and also protect your hair better. The 1 \" barrel will allow you to create large curls that you can then shake out and scrunch up to create a wavy look.",
+    "ctx_a": "[header] How to create wavy hair with a curling iron [title] Get a ceramic tourmaline 1 \" barrel curling iron. [step] This is a high quality styling tool, and so it should work better than the alternative and also protect your hair better. The 1 \" barrel will allow you to create large curls that you can then shake out and scrunch up to create a wavy look.",
+    "ctx_b": "",
+    "endings": [
+     "You can also use a curling iron with a larger barrel or a smaller barrel, though it may be more difficult to achieve the wavy look. [substeps] You can buy curling irons from a beauty supply shop or online.",
+     "[substeps] Hold the curling iron at hip-height. Holding it at hip level towards you minimizes the risk of damaging your bottom strand of hair and will reduce frizz.",
+     "[title] Take a small amount of water in your chosen iron. [step] Take a compact 4 \" barrel curling iron.",
+     "[title] Find a curling iron with a round barrel. [step] This is it, curling with a barrel."
+    ],
+    "ind": 42336,
+    "label": "0",
+    "source_id": "wikihow~69629",
+    "split": "val",
+    "split_type": "zeroshot"
+   },
+   "row_idx": 8965,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "Rowan/hellaswag",
+  "split": "validation"
+ }
+}

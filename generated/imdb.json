@@ -1,0 +1,274 @@
+{
+ "features": [
+  {
+   "name": "text",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "label",
+   "type": {
+    "_type": "ClassLabel",
+    "names": [
+     "neg",
+     "pos"
+    ]
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T15:47:45+00:00",
+ "id": "imdb",
+ "num_rows_total": 25000,
+ "parts": [
+  {
+   "config": "plain_text",
+   "features": [
+    {
+     "name": "text",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "label",
+     "type": {
+      "_type": "ClassLabel",
+      "names": [
+       "neg",
+       "pos"
+      ]
+     }
+    }
+   ],
+   "num_rows_total": 25000,
+   "split": "test"
+  }
+ ],
+ "revision": "e6281661ce1c48d982bc483cf8a173c1bbeb5d31",
+ "rows": [
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 1,
+    "text": "\"The Student Nurses\" is an excellent film that deals with four women bonded by friendship and career. For the first time, one is able to see a realistic portrayal of relationships inside the work place, outside the work place, the risks of those relationships, and the consequences. This film also offers a rare chance to see veteran stage and television actress Katherine \"Scottie\" MacGregor as the nurses' instructor, \"Miss Boswell.\" Ms. MacGregor is best known for her performance as \"Mrs. Oleson\" on the television series \"Little House on the Prairie.\" The direction, music, and print color are very good as well as the opening theme song performed by Clancy B. Grass, III. This film offers a rare opportunity for those who enjoy themes centered around the late 1960s and early 1970s, which offers a \"softer side to life\" while appreciating the beauty of the female sex."
+   },
+   "row_idx": 18181,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 0,
+    "text": "This is perhaps the most ridiculous crap I have ever watched. Three unconnected stories about completely stupid and random things are occasionally interrupted by a bus and a boring monologue about relationships by a stupid man. Christ knows why so many people got involved in this. Highlights: Green fridge man reading Jean-Paul Sartre, the slob mans dinner guest and her horse-manure hair products, a RIDICULOUSLY unreasonable woman in the third short, who suspected a man of foul play just for taking an interest in her generic activities, Blowers.<br /><br />I need to use up a few more lines apparently, so may as well mention some more stupid things about the film. The first film involves a man driving a talking car around and obeying its unreasonable demands for absolutely no apparent reason. The only way you would watch this film is if you were blind and had other debilitating defects in your personality and brain. It is kind of funny in an ironic way, but also extremely wearying, like being forced to chew for a very long time on a stained rug."
+   },
+   "row_idx": 9291,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 0,
+    "text": "I'm a fan of Get Shorty. This is the sequel for the movie that needed no sequel.<br /><br />Chili is back but Rene Russo is gone without a peep. Unfortunately Chili's game was played out in the first movie and rather than find an interesting personal arc for him, they just have him stand around repeating lines from the first movie. It's pretty tepid. Travolta looks old here. It's like they move people around him because his bones are getting creaky. His pink lip gloss and the blue eye contacts are very weird. The 2nd bad role is Edie (played by Uma Thurman). She's a music producer, a role that requires her only to be the female Reuben Kincaid. (\"Hey these kids have a great new sound.\") In any scene she strikes the wrong pitch motivationally or emotionally or both. It's painful to watch. Despite it's plentiful problems, Be Cool gets better after a very unpromising start.<br /><br />I certainly got my laughs out of it (Vince Vaughan running around on fire, Cedric the Entertainer, Ludicrous, the Rock, a t-shirt that says \"widow\" on it), but it offers no great memories after it's over. It's a helium-light love fest from the first frame. There's no one as pricelessly idiotic as Gene Hackman in the first movie. It's just about doing good in the world, for a couple of kids who deserve a chance (Beyonce & the Rock). Ho-hum. The first one wasn't preachy.<br /><br />Working in (repeatedly) gags & lines from the first movie is annoying as is the dumb concession to the Rock's wrestling fans (he raises his eyebrow twice) as are the droll inside jokes: Steven Tyler saying \"I'm not the kind of singer that make appearances in movies\" ar ar.<br /><br />The all-star spectacular line-up is part of the problem. The first movie wasn't burdened by \"stars.\"<br /><br />For a buck rental let's call it even."
+   },
+   "row_idx": 5311,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 0,
+    "text": "I acquired this film a couple of years ago and on trying to find some info about it I found that even the mighty IMDb didn't have it listed. That should have been all I needed to know.<br /><br />With Friends Like These is an anthology that plays like a collection of second rate Twilight Zone / Outer Limits episodes all linked together by a bus journey that never really seems to tie in with the rest of the film. Of the three stories, the only one that I gleaned any entertainment value from was the second episode in which a man (of sorts) grows out of the bacteria in a guys fridge. This episode wins points for a few spots of humour and it's bizarre premise. Other than that there is an episode with a talking car (bland and directionless) and an episode where a girl visits a very unique dating agency (my dog guessed the ending of this one).<br /><br />As has been mentioned in other comments, the 18 rating is entirely unwarranted. There is nothing to offend here. If you're after a good horror anthology check out Asylum or the Creepshow films instead."
+   },
+   "row_idx": 9294,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 0,
+    "text": "Ha ha! First of if you've never seen a \"Dimension Film\" your in for a real treat! Known primarily for SUPER LOW BUDGET Horror/Slasher films, \"Beowulf\" was no exception.<br /><br />However, this video was more in the style of ultra-cheesy. I missed the K-R-A-F-T label on the side.<br /><br />Consider the Anachronisms! (something out of place and time)<br /><br />We had: candles, armour, swords....<br /><br />Yet we saw: telescopes, Soled Shoes, Cigarette lighters, Loudspeakers, Electricity, Body Bags, aluminum foil tins,, and spoons/forks. <br /><br />Not bad for something that takes place in like the 8th Century!<br /><br />This is not a horror film, is a horrible film. Its very laughable. Its really a comedy made to look like a horror film! I couldn't stop laughing!<br /><br />Christopher Lambert (\"The Highlander Series\") -- must have really taken a tumble in his career if he's working for \"Dimension Films.\"<br /><br />I've learned my lesson though. I'll be looking at the film studios on the videos, a LOT more closely now.<br /><br />RATED NO REELS OUT OF FIVE. If you want a good laugh though, its hard to pass up on this piece of work!<br /><br />This move had some cleavage in spots -- I especially liked the blonde bimbette!<br /><br />Wayno<br /><br />"
+   },
+   "row_idx": 5373,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 0,
+    "text": "Story of an ex-Navy Seal who is now a combat medical officer assigned to a state of the art Russian sub with a nurse. This is to answer a call for help set off by a dying member of the original crew. The sub has been overtaken by terrorists who are bent on destruction. So we see the duo try and gain control back. And this happens with the fear of the US Naval Forces is about to unleashing everything it has got on the terrorist sub to prevent it from launching its arsenal. Be careful of the early explicit sexual scene in the first quarter of the movie. A couple of unexplained scenes towards the end. Watch it when you have the time. Nothing to miss out even if you let the show run while you go get yourself a cup of coffee: slow moving."
+   },
+   "row_idx": 9287,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 0,
+    "text": "\"Get Shorty\", \"Out of Sight\", \"Jackie Brown\" (and even \"52 Pick-Up\")--folks were finally getting Elmore Leonard right, making good movies out of his work. So, despite my students' warnings about how bad this movie would be, I couldn't resist renting it. I thought, How bad can it be? Oy, what a mistake, especially right on the heels of reading the book, which was lame (and too circularly self-referential, too) relative to the rest of Elmore Leonard's books. Still, the book was better than the movie. Leonard again trumps the weak and unskilled screen-writers who try to take over his book. The dialogue written for Steven Tyler was painful to watch. And the lyrics to the character Linda Moon's first song? My middle-schoolers write with more depth. Sad, sad, sad. Why even give it a star? Because Harvey Keitel and Uma Thurman are still fun to see on screen, and Andre 3000 didn't make a complete fool of himself."
+   },
+   "row_idx": 5324,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 0,
+    "text": "An unbelievable plot, laughable characters, and obvious errors (in one scene where several grass huts are supposed to be burning, a gas torch can be seen repeatedly trying to ignite one of the huts), this film is a real dog."
+   },
+   "row_idx": 9336,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 1,
+    "text": "I have always been fascinated by silent films. There is something about seeing actors and actresses from 100 years ago performing. Jaded by today's high-tech special effects, I always try and imagine what it was like to watch a particular film at the time of it's original release. It helps to appreciate the crudeness of early cinema.<br /><br />\"The Life and Passion of Jesus Christ\" is a very charming production from Pathe, originally filmed in 1902, but expanded and finally released in 1905. Imagine a series of famous religious paintings coming to life, separated by title cards, and you will have a pretty good idea of what this film is like. For example, the scene in which Mary and Joseph rest as they are escaping to Egypt, is almost identical to Luc Olivier Merson's 1879 painting \"Rest on the Flight to Egypt\", right down to Mary sitting on the famous Sphinx. While some might find these \"living paintings\" an unimaginative cop-out, I found them to be very charming, and very nostalgic.<br /><br />The sets and costumes appear to be right out of a stage production of the life of Christ. Possibly from and elaborate passion play of the day. The make-up on the cast is very theatrical, so much so that a close-up of Jesus is almost comical. Again, where others might be bothered by the cudeness of them, I was quite charmed.<br /><br />Having been filmed over a period of 3 years, the continuity isn't too bad. The biggest flaws are in the casting changes made over that time. The characters of John the Apostle and the 12 year old Jesus change in mid scene, much to the audiences surprise!<br /><br />The best unintentional humor, of the film, is in the Birth of Jesus scene. The baby LITERALLY appears, as if by magic, in the manger between Mary and Joseph. Maybe it was simply my frame of mind at the time I viewed it, but I laughed out loud! If only child birth were that easy!!!! To top it off, the actress who plays Mary looks bored through the whole scene (actually, through the whole movie), as if this sort of thing happens every day! My, how times have changed!<br /><br />As simplistic as this film is, compared to today, it's really a wonderful window into the past. I recommend it!<br /><br />"
+   },
+   "row_idx": 18168,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 1,
+    "text": "A wonderful film - a charming, quirky family story. A cross-country journey filled with lots of interesting, oddball stops along the way (& several very cool cameos). Great cast led by Rod Steiger carries the film along and leads to a surprise ending. Well directed & shot - a really nice movie."
+   },
+   "row_idx": 18223,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 0,
+    "text": "Too fractured to be enjoyable, too loose to be interesting and too clumsily photographed to be tolerable MR LONELY is an interesting idea ruined by really bad film making. Like a Ken Russell film at its worst, or DAY OF THE LOCUST remade by amateurs, MR LONELY might have seemed like a good idea on a few scraps of paper (no script, you see) and a free holiday to somewhere, but in the end we have a widescreen film that seems as if it was made by film students whose parents told them that EVERYTHING they did was a brilliant creation. Or did I get the film maker right? MR LONELY is a waste of resources, trying to be (gawd!) quirky and deliberately off kilter. It ends up being annoying and indulgent.. and pointless. What's the point of going to a commune in Scotland? What a stupid idea in this film about Hollywood delusion. Maybe Korine wanted to remake GODSPELL ... well the result is GOD-AWFUL. Oh and there is some subplot like leftover footage from FITZCARRALDO including Werner Herzog, nuns and a plane. Add slo-mo drifting and violin music all wistful and melancholy, add James Fox who seems to hope he might be seen as daring (like in PERFORMANCE) and the result is amphetamine fantasy alphabet soup in widescreen. It might have been fun to film but the result on the screen is a mess. Imagine American PIE BAND CAMP with food poisoning."
+   },
+   "row_idx": 9313,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 1,
+    "text": "So well made, no CGI crap. Has anyone else been on the \"Jumping Crocs\" tour of Darwin's Adelaide River before? Black Water was WAY realistic; Rogue was a bit cringeworthy.<br /><br />Thought the blonde chick was excellent in it - haven't really seen her before. And the other chick is a babe, she is always excellent. <br /><br />V. suspenseful - I would compare it to Jaws over any other man eating animal flick. <br /><br />Got the hole Aussie thing down pat without going OTT with struths and crikeys, as well. <br /><br />Loved it!"
+   },
+   "row_idx": 18207,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 0,
+    "text": "A couple of clarifying comments are in order. Herschell Gordon Lewis contributed a brief introduction to the video release of DOCTOR GORE (aka THE BODY SHOP), wherein he touched upon his collaborative efforts with J.G. \"Pat\" Patterson, director and star of DOCTOR GORE. Patterson concocted the \"gore effects\" for THE GRUESOME TWOSOME and a few other Lewis movies in the late 60s. Lewis remarks that whereas 2,000 MANIACS was a \"five gallon\" film (referring to the amount of stage blood required), the Lewis-Patterson productions were \"fifteen gallon\" pictures. Lewis does not describe DOCTOR GORE as a \"fifteen gallon\" film -- he's only talking about the films he & Patterson made together. Lewis has confessed (elsewhere) that his introduction to DOCTOR GORE was improvised before he'd even seen Patterson's film! So take it with a grain of salt. <br /><br />This may be an \"unfinished\" film, but like some unfinished novels it does have an \"ending.\" It's just missing some connective tissue. <br /><br />Patterson has definite stage presence & a dry sense of humor, helping to make this simplistic show somewhat more watchable than it should be. There's an extremely bare-bones plot -- even BLOOD FEAST is more complex -- and a gratingly repetitive musical score by William Girdler. A bit of nudity & lots of skin. The entire middle section of the film involves the construction of a \"perfect woman;\" this is concentrated gore for the bloodthirsty, and laughable. <br /><br />Patterson the director is in way over his head, but he tries hard to tell his story creatively, if it's possible to use Frankenstein clichés creatively. But the best reason to see this film (on Something Weird's DVD, if possible) is that it features a perfect Nashville weeper, Bill Hicks' \"A Heart Dies Every Minute.\" Ain't it the truth!"
+   },
+   "row_idx": 9347,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 0,
+    "text": "It's partly bad luck for \"Illuminata\" that it comes out after \"Shakespeare in Love\" as it deals with virtually the same themes of life as art, art as life and the Magic of the Theatre and the same archetypal Foibles of Theater Folk, but a whole lot more ponderously.<br /><br />There are scenes that come alive, as a play develops and gets reinterpreted by a writer's life, but there's a whole lot of Orson Welles-ish ego in this produced by/directed by/lead acted by John Torturro as a vehicle for his wife Katharine Borowitz (with an adorable cameo by their son).<br /><br />Each actor gets his/her moment literally in the spotlight, but there's so many \"masques\" or set pieces that seem like 19th century parlor games. Bill Irwin Talks. Susan Sarandon gets to be a diva. Christopher Walken gets to be a different kind of villain - a gay critic. The women have to disrobe unnecessarily because this is an Art Film.<br /><br />The art and set direction are marvelous, though quite dark. This should get an award as the Best Use of a Jersey City Theater as A Set Ever In a Movie. (originally written 8/21/99)"
+   },
+   "row_idx": 5388,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 0,
+    "text": "I saw a 12:45 a.m. show last night, and I would've walked out 20 min. in, but there was nowhere to go! Blatant product placement, juvenile script, so much talent gone to waste, gay-bashing...what didn't they do? The movie is also insanely long (we got out at 3). As a person who rarely pays full price at the movies, imagine my chagrin doling out $22 for this self-indulgent, mean-spirited nightmare (plus $2 parking). I woke up today still feeling depressed, and haven't been able to shake it all day. I love Vince Vaughn, and he seemed straight up lost in this thing, as was I. When Cedric the Entertainer is the high-water mark (a man so un-entertaining that he has to call himself \"the Entertainer\" so you'll understand what it is he thinks he's doing), you have a serious problem. Also, the appearance of Robert Pastorelli is down-right creepy, since he died almost a year ago (March 10). This should give you an idea how long they've been polishing this turd. This movie is mean to the bitter end. We stayed just to make sure they didn't give Robert an \"In Remembrance\", which they didn't. Save yourself! Save your money! Save your soul!"
+   },
+   "row_idx": 5317,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 0,
+    "text": "The acting is awkward and creepy, and not in a good way...at all. The writing, the dialogue, and the chemistry between the actors is horrible. Nothing makes sense and every close-up of an actor's expression or reaction lasts 3 or 4 seconds too long, making it seem like a Mexican Soap Opera (telenovela). Everything about the writing is unrealistic, and all of the actors involved make it that much worse with their campy interpretations of the script. Am I the only one who sees this??? To use the word cheesy to describe this Canadian disaster would be the understatement of the century. Did the director even watch the final cut before it was put on the air???"
+   },
+   "row_idx": 9310,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 0,
+    "text": "I rarely give ratings less than 5, but in this instance I must weigh in. Elmore Leonard is a great writer with many wonderful, complex books, original characters, crisp dialogue, invigorating plot twists. Films based on his books go way back to Hombre (Paul Newman), Mr. Majestyk (Bronson), and Out of Sight (Clooney / Lopez) among others. Even when done so-so the films at least have some measure of story essence coming through. This one, .... it is simply not a worthy addition to the catalog.<br /><br />The acting is bad (I do not know why, because these are very capable people here) and the story is handled with stupidity. The characters are re-arranged, the chemistry is missing, the actors and actresses are mis-cast.<br /><br />Since Elmore Leonard is a really great story teller, I would hope that anyone who does not know his work would be dissuaded from reading his books because they saw this disappointing rendition of one of his stories.<br /><br />The story is a sequel to Get Shorty. If you have not seen that film, do not watch this. If you have seen Get Shorty, do not proceed to this.<br /><br />I saw Be Cool a few years back, and tonight have been re-visiting the vid. The first time must not have made such a negative impression because I had forgotten how dismal this sequel was.<br /><br />Fortunately, I think no less of those who appeared in this film for having done so. They probably expected something more. Get Shorty was original and great fun. Travolta I nearly always like, but he is so much better in Tarantino's Pulp Fiction and in the preceding Get Shorty. He was clearly unable to enjoy whatever was going on here.<br /><br />And I hear Freaky Deaky,another Elmore Leonard book, is in pre-production for 2008 release. Hopefully they can pull it off.<br /><br />Read the books. They are almost all great."
+   },
+   "row_idx": 5314,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 1,
+    "text": "<br /><br />Giorgino is a strange, dark, obsessive object; the casting is impressive, the plot is powerful, reminded me of Edgar Poe's tales. Probably not a masterpiece, but it does leave us with the remembrance of strong images, fine music, fear, sadness, confusion, and a sentence that says it all : the wolves are coming. GIORGINO is quite forgotten now, and when it was released nobody seemed to appreciate it. That's a shame. If you ever have a chance to see this, well... give it a try."
+   },
+   "row_idx": 18225,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 0,
+    "text": "Kevin Spacey is my favorite actor of all time, he is without a doubt on other's lists as well when it comes to great actors. He even pulled off a good Irish accent in Ordinary Decent Criminal as well. But Kevin Spacey, as a Mafia leader? Or even a burglar? I'm not so sure he could go that far. The movie to me just didn't make any sense and the some of the story just didn't feel solved to me.<br /><br />I know once again that IMDb is going to make me write ten more lines. But I'm not so sure on what I could say about this movie because I am still trying to figure it out. Silly, isn't it? But I'm pretty sure that more than a few of you IMDb users have been in the same predicament as I am in right now where you just want to say a line or two about a movie, but now you have to do ten lines? Wow, that should do it. :D <br /><br />3/10"
+   },
+   "row_idx": 5351,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 1,
+    "text": "That's certainly not the best film ever. But that's certainly worth seeing for people with a special kind of mind. So the one who loves sadness and depression, and scary fairy-tales at night, and wolves and real madness - welcome! If you find a copy, of course:) As for me, I could stand it only once... But since that the Wolves, and Saint-Lucy, and children's drawings, and a headless Christ live in my nightmares."
+   },
+   "row_idx": 18227,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 0,
+    "text": "This is a silly movie with much singing and dancing. Acting is average, but writing leaves something to be desired. There are rememberable performances by Buddy Epsen, with a short but outstanding performance by Gypsy Rose as the bitter wife of a rich playboy. A totally unbelievable portrayal of college life which ends with a superb ice skating exibition of Alice in Wonderland. Many parts are worth watching, but do not be afraid to fast forward through parts of the movie"
+   },
+   "row_idx": 9338,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 1,
+    "text": "During WW2 in the Philipines, Japanese soldiers are starving, dying, growing weak, and becoming more and more insane. A small group of soldiers, trying to stay alive, have eventually resorted to cannibalism. This film perfectly portrays the insanity that overtakes people under extreme conditions. There are a few humorous parts in this movie, but the majority of it is just a very slow moving and realistic film. It follows these soldiers from one painful moment to another, and eventually to death. A very interesting film, showing the death, and the horror, of what may have been the worst war the world has ever seen."
+   },
+   "row_idx": 18233,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 1,
+    "text": "This program was quite interesting. The way the program was displayed made it all the more interesting. String Theory is also very interesting to listen too. The whole three hours in my opinion were well worth it. I enjoyed listening to the ideas given by the physicists. Extra dimensions really boggle the mind. If you have the chance, watch this amazing documentary."
+   },
+   "row_idx": 18160,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "label": 0,
+    "text": "one of the worst excuses for an irish accents i've heard. from a truly great actor too. its a bad irish accent not to mention a dublin accent (which is completely different) anyway the film is loosely based around the story of ganglord martin cahill and its done much much much better with brendan gleeson in the title role in THE GENERAL"
+   },
+   "row_idx": 5355,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "plain_text",
+  "hf": "stanfordnlp/imdb",
+  "split": "test"
+ }
+}

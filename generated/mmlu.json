@@ -1,0 +1,480 @@
+{
+ "features": [
+  {
+   "name": "question",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "subject",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "choices",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "_type": "Value",
+     "dtype": "string"
+    }
+   }
+  },
+  {
+   "name": "answer",
+   "type": {
+    "_type": "ClassLabel",
+    "names": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T15:48:58+00:00",
+ "id": "mmlu",
+ "num_rows_total": 14042,
+ "parts": [
+  {
+   "config": "all",
+   "features": [
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "subject",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "choices",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "string"
+      }
+     }
+    },
+    {
+     "name": "answer",
+     "type": {
+      "_type": "ClassLabel",
+      "names": [
+       "A",
+       "B",
+       "C",
+       "D"
+      ]
+     }
+    }
+   ],
+   "num_rows_total": 14042,
+   "split": "test"
+  }
+ ],
+ "revision": "c30699e8356da336a370243923dbaf21066bb9fe",
+ "rows": [
+  {
+   "config": "all",
+   "row": {
+    "answer": 0,
+    "choices": [
+     "Mortality",
+     "Loss of social support",
+     "Cognitive decline",
+     "Independence"
+    ],
+    "question": "An increase in neuroticism later in life is a strong predictor of",
+    "subject": "human_aging"
+   },
+   "row_idx": 6195,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 1,
+    "choices": [
+     "The Western diet",
+     "The Mediterranean diet",
+     "Neither",
+     "Both"
+    ],
+    "question": "What dietary pattern shows most promise in preventing age related cognitive decline\n",
+    "subject": "nutrition"
+   },
+   "row_idx": 9578,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 2,
+    "choices": [
+     "The order violates the due process clause of the Fourteenth Amendment.",
+     "The order violates the equal protection clause of the Fourteenth Amendment.",
+     "The order violates the free exercise clause of the First Amendment, as incorporated by the Fourteenth Amendment.",
+     "The order violates the privileges or immunities clause of the Fourteenth Amendment."
+    ],
+    "question": "A 2-week-old baby had developed a severe case ofjaundice. A pediatrician informed the infant's father that unless his daughter received immediate medical treatment, she would die. The father, who was very religious, refused to permit the pediatrician to administer the necessary treatment. He explained that his faith in his religion would restore his daughter to good health. As a consequence, the pediatrician sought an order from the state court, where the father was present, permitting the pediatrician to provide the necessary medical treatment to the infant. Which of the following is the father's strongest constitutional argument against the court order?",
+    "subject": "professional_law"
+   },
+   "row_idx": 11882,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 2,
+    "choices": [
+     "If the owner modifies the file, another user who does not share will see the changes.",
+     "If the owner renames the file, other users will not be able to access it.",
+     "If the owner is allowed to delete a file, dangling links may result.",
+     "If any user who shares the file appends to it, others who share it will not be able to access the new disk blocks."
+    ],
+    "question": "Suppose sharing of tiles in a multilevel directory structure is achieved with directory entries that are links pointing to a node containing information about a shared file. Information in this node includes (1) the owner of the file, (2) a count of the number of links to the tile, and (3) the disk block numbers of the file. What is a primary drawback to this approach to sharing?",
+    "subject": "college_computer_science"
+   },
+   "row_idx": 1005,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 1,
+    "choices": [
+     "Granite, gabbro, diorite, quartz, feldspar",
+     "Gold, quartz, topaz, diamond, corundum",
+     "Gneiss, schist, phyllite, chlorite, mica",
+     "Coal, chert, limestone, dolomite, halite"
+    ],
+    "question": "Which of the following lists includes minerals only?",
+    "subject": "miscellaneous"
+   },
+   "row_idx": 7396,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 0,
+    "choices": [
+     "No, because it is hearsay not within any exception. exception.",
+     "No, because it is substantially more prejudicial than probative.",
+     "Yes, as circumstantial evidence that the defendant was one of the kidnappers.",
+     "Yes, to corroborate the truthfulness of the victim."
+    ],
+    "question": "A defendant is on trial for kidnapping. The victim has testified that one of the kidnappers referred to the other as \"Speed.\" The prosecutor calls a jail employee to testify that, while the defendant was in jail awaiting trial, other inmates addressed the defendant as \"Speed.\" Is the jail employee's testimony admissible?",
+    "subject": "professional_law"
+   },
+   "row_idx": 11273,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 3,
+    "choices": [
+     "No, because the modification was never reduced to a writing signed by the party to be charged.",
+     "No, because there was no consideration for the modification of the contract.",
+     "Yes, because the companyÕs promise was supported by consideration.",
+     "Yes, because the modification was fair and equitable in view of the unanticipated increase in the price of structural steel."
+    ],
+    "question": "A company contracted with a builder to construct a new corporate headquarters for a fixed price of $100 million. At the time of the contract, structural steel was widely available and was included in the contract as a $6 million item. Before work began on the project, tornado damage shut down the production facility of the biggest structural steel supplier in the country, and the price of structural steel increased by 20% as a result. The builder informed the company of the steel price increase, and the parties then orally agreed to increase the project price to $101 million. The builder proceeded with construction and delivered the project on time. The company paid the builder $100 million but refused to pay the additional $1 million. If the builder sues the company for $1 million, is the builder likely to prevail?",
+    "subject": "professional_law"
+   },
+   "row_idx": 11887,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 1,
+    "choices": [
+     "a current account deficit.",
+     "a budget surplus.",
+     "a trade surplus.",
+     "a budget deficit."
+    ],
+    "question": "If in a given year the government collects more money in net taxes than it spends there would exist",
+    "subject": "high_school_macroeconomics"
+   },
+   "row_idx": 4129,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 0,
+    "choices": [
+     "recovery for the amount in principal and ininterest thereon from the time of the mortgagepayment.",
+     "recovery for only the principal that the farmerpaid on the mortgage.",
+     "recovery for the measure of value betweenthe value of the land with and without such anencumbrance.",
+     "no recovery."
+    ],
+    "question": "A landowner conveyed 50 acres of his orchard to a fanner. The deed contained the following covenants:(1) seisin, (2) right to convey, and (3) against encumbrances. When the landowner conveyed the property to the farmer, there was an outstanding mortgage. The farmer took possession, and shortly thereafter, threatened with foreclosure, he paid off the mortgage with interest. The farmer now sues for breach of covenant against encumbrances. The court will most likely allow",
+    "subject": "professional_law"
+   },
+   "row_idx": 11309,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 0,
+    "choices": [
+     "serotonin",
+     "dopamine",
+     "acetylcholine",
+     "thorazine"
+    ],
+    "question": "A medication prescribed by a psychiatrist for major depressive disorder would most likely influence the balance of which of the following neurotransmitters?",
+    "subject": "high_school_psychology"
+   },
+   "row_idx": 5147,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 3,
+    "choices": [
+     "Both supply and demand shift rightward.",
+     "Both supply and demand shift leftward.",
+     "Supply shifts to the right; demand shifts to the left.",
+     "Supply shifts to the left; demand shifts to the right."
+    ],
+    "question": "Corn is exchanged in a competitive market. Which of the following definitely increases the equilibrium price of corn?",
+    "subject": "high_school_macroeconomics"
+   },
+   "row_idx": 4153,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 2,
+    "choices": [
+     "deontological approach",
+     "Kantian approach",
+     "virtue ethics approach",
+     "consequentalist approach"
+    ],
+    "question": " Thomson's appeal to the vices of callousness and self-centeredness relates to what kind of approach to abortion?",
+    "subject": "moral_disputes"
+   },
+   "row_idx": 8336,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 2,
+    "choices": [
+     "Zen Buddhism",
+     "Chan Buddhism",
+     "Humanistic Buddhism",
+     "Pure Land Buddhism"
+    ],
+    "question": "Which form of Buddhism focuses on social engagement that attracts lay participation?",
+    "subject": "world_religions"
+   },
+   "row_idx": 13942,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 3,
+    "choices": [
+     "In the context of small samples, Dickey Fuller tests are prone to conclude that there is a unit root in a series when there is not",
+     "The Engle-Granger (EG) approach can only detect up to one cointegrating relationship even though there could be more than one",
+     "The variables are treated asymmetrically in the cointegrating tests",
+     "It is not possible to perform tests about the cointegrating relationship"
+    ],
+    "question": "Which one of the following criticisms of the Dickey-Fuller/Engle-Granger approach to dealing with cointegrated variables is overcome by the Engle-Yoo (EY) procedure?",
+    "subject": "econometrics"
+   },
+   "row_idx": 1904,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 0,
+    "choices": [
+     "the color of the paper",
+     "the number of questions answered correctly",
+     "how long it takes students to answer questions",
+     "the total number of questions answered"
+    ],
+    "question": "Ben thinks students will answer questions printed on yellow paper more quickly than those printed on blue paper. All study participants will take three tests with 35 multiple-choice questions each. The independent variable in Ben's experiment is",
+    "subject": "high_school_psychology"
+   },
+   "row_idx": 5218,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 3,
+    "choices": [
+     "I only",
+     "II only",
+     "III only",
+     "I and II only"
+    ],
+    "question": "Let G = (V, E) be a finite directed acyclic graph with |E| > 0. Which of the following must be true?\nI. G has a vertex with no incoming edge.\nII. G has a vertex with no outgoing edge.\nIII. G has an isolated vertex, that is, one with neither an incoming edge nor an outgoing edge.",
+    "subject": "college_computer_science"
+   },
+   "row_idx": 1055,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 2,
+    "choices": [
+     "14",
+     "36",
+     "48",
+     "64"
+    ],
+    "question": "There were 6 rows of chairs set up for a meeting. Each row had 8 chairs. What was the total number of chairs set up for the meeting?",
+    "subject": "elementary_mathematics"
+   },
+   "row_idx": 2423,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 2,
+    "choices": [
+     "Be absent from work",
+     "Invest in craft and hobby books",
+     "Do some informal planning",
+     "Become irritated and anxious"
+    ],
+    "question": "As working people get closer to retirement they are more likely to",
+    "subject": "human_aging"
+   },
+   "row_idx": 6204,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 2,
+    "choices": [
+     "No significant difference; low-income urban and rural people face similar constraints in accessing food and consume similar diets in developing countries.",
+     "It will reduce poverty and hunger because these are almost entirely concentrated in rural areas.",
+     "Urban dwellers depend more than rural people on purchases to acquire food, have little opportunity to grow their own food, and so are much more vulnerable to food price increases.",
+     "Poor city folk eat mainly sorghum, millet, maize and root crops, so a lot more of those foods will need to be produced as the world urbanises."
+    ],
+    "question": "What difference will urbanisation make for hunger and malnutrition?\n",
+    "subject": "nutrition"
+   },
+   "row_idx": 9600,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 1,
+    "choices": [
+     "5",
+     "6",
+     "8",
+     "42"
+    ],
+    "question": "Balloons come in packages of 8. If you need 42 balloons, how many packages should you buy?",
+    "subject": "elementary_mathematics"
+   },
+   "row_idx": 2409,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 0,
+    "choices": [
+     "Gregory",
+     "Augustine",
+     "Athanasius",
+     "Francis"
+    ],
+    "question": "Which pope promoted the cults of St. Peter and St. Paul to bolster authority in Rome?",
+    "subject": "world_religions"
+   },
+   "row_idx": 13925,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 2,
+    "choices": [
+     "1 ohm of resistance",
+     "ratio of 1 V to 1 C",
+     "ratio of 1 C to 1 V",
+     "none of these"
+    ],
+    "question": "1 F is theoretically equal to",
+    "subject": "electrical_engineering"
+   },
+   "row_idx": 1934,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 0,
+    "choices": [
+     "moral injury.",
+     "moral morbidity.",
+     "moral accident.",
+     "moral delusion."
+    ],
+    "question": " McGrecgor, following Hampton, argues that the harm of rape involves",
+    "subject": "moral_disputes"
+   },
+   "row_idx": 8384,
+   "truncated": []
+  },
+  {
+   "config": "all",
+   "row": {
+    "answer": 3,
+    "choices": [
+     "Cystic fibrosis.",
+     "Fragile X syndrome.",
+     "Oculocutaneous albinism.",
+     "Tay-Sachs disease."
+    ],
+    "question": "Enzyme assay can be used to identify carriers of:",
+    "subject": "medical_genetics"
+   },
+   "row_idx": 7379,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "all",
+  "hf": "cais/mmlu",
+  "split": "test"
+ }
+}

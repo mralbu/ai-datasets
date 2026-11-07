@@ -1,0 +1,268 @@
+{
+ "features": [
+  {
+   "name": "file",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "audio",
+   "type": {
+    "_type": "Audio",
+    "sampling_rate": 16000
+   }
+  },
+  {
+   "name": "text",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "speaker_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "chapter_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "id",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T15:47:49+00:00",
+ "id": "librispeech",
+ "num_rows_total": 2620,
+ "parts": [
+  {
+   "config": "clean",
+   "features": [
+    {
+     "name": "file",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "audio",
+     "type": {
+      "_type": "Audio",
+      "sampling_rate": 16000
+     }
+    },
+    {
+     "name": "text",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "speaker_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "chapter_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 2620,
+   "split": "test"
+  }
+ ],
+ "revision": "71cacbfb7e2354c4226d01e70d77d5fca3d04ba1",
+ "rows": [
+  {
+   "config": "clean",
+   "row": {
+    "audio": {
+     "src": "samples/librispeech/428-audio.flac",
+     "type": "audio/flac"
+    },
+    "chapter_id": 75947,
+    "file": "/home/albert/.cache/huggingface/datasets/downloads/extracted/4a12a5d9e3d43248af424bf5fb40094f2aac834e9c19b34fb91aa912db1bd0b0/7127-75947-0002.flac",
+    "id": "7127-75947-0002",
+    "speaker_id": 7127,
+    "text": "DO YOU THINK SO SHE REPLIED WITH INDIFFERENCE"
+   },
+   "row_idx": 428,
+   "truncated": []
+  },
+  {
+   "config": "clean",
+   "row": {
+    "audio": {
+     "src": "samples/librispeech/1887-audio.flac",
+     "type": "audio/flac"
+    },
+    "chapter_id": 68769,
+    "file": "/home/albert/.cache/huggingface/datasets/downloads/extracted/4a12a5d9e3d43248af424bf5fb40094f2aac834e9c19b34fb91aa912db1bd0b0/6829-68769-0029.flac",
+    "id": "6829-68769-0029",
+    "speaker_id": 6829,
+    "text": "IT'S A STOCK COMPANY AND RICH"
+   },
+   "row_idx": 1887,
+   "truncated": []
+  },
+  {
+   "config": "clean",
+   "row": {
+    "audio": {
+     "src": "samples/librispeech/1886-audio.flac",
+     "type": "audio/flac"
+    },
+    "chapter_id": 68769,
+    "file": "/home/albert/.cache/huggingface/datasets/downloads/extracted/4a12a5d9e3d43248af424bf5fb40094f2aac834e9c19b34fb91aa912db1bd0b0/6829-68769-0028.flac",
+    "id": "6829-68769-0028",
+    "speaker_id": 6829,
+    "text": "HE IS SUPPOSED TO SIGN ALL THE CHECKS OF THE CONCERN"
+   },
+   "row_idx": 1886,
+   "truncated": []
+  },
+  {
+   "config": "clean",
+   "row": {
+    "audio": {
+     "src": "samples/librispeech/447-audio.flac",
+     "type": "audio/flac"
+    },
+    "chapter_id": 75947,
+    "file": "/home/albert/.cache/huggingface/datasets/downloads/extracted/4a12a5d9e3d43248af424bf5fb40094f2aac834e9c19b34fb91aa912db1bd0b0/7127-75947-0021.flac",
+    "id": "7127-75947-0021",
+    "speaker_id": 7127,
+    "text": "LA VALLIERE IS QUITE A POETESS SAID TONNAY CHARENTE"
+   },
+   "row_idx": 447,
+   "truncated": []
+  },
+  {
+   "config": "clean",
+   "row": {
+    "audio": {
+     "src": "samples/librispeech/1806-audio.flac",
+     "type": "audio/flac"
+    },
+    "chapter_id": 133604,
+    "file": "/home/albert/.cache/huggingface/datasets/downloads/extracted/4a12a5d9e3d43248af424bf5fb40094f2aac834e9c19b34fb91aa912db1bd0b0/1188-133604-0035.flac",
+    "id": "1188-133604-0035",
+    "speaker_id": 1188,
+    "text": "THUS IN CHAUCER'S DREAM"
+   },
+   "row_idx": 1806,
+   "truncated": []
+  },
+  {
+   "config": "clean",
+   "row": {
+    "audio": {
+     "src": "samples/librispeech/1817-audio.flac",
+     "type": "audio/flac"
+    },
+    "chapter_id": 131720,
+    "file": "/home/albert/.cache/huggingface/datasets/downloads/extracted/4a12a5d9e3d43248af424bf5fb40094f2aac834e9c19b34fb91aa912db1bd0b0/2300-131720-0001.flac",
+    "id": "2300-131720-0001",
+    "speaker_id": 2300,
+    "text": "THE LONDON PLANT WAS LESS TEMPORARY BUT NOT PERMANENT SUPPLYING BEFORE IT WAS TORN OUT NO FEWER THAN THREE THOUSAND LAMPS IN HOTELS CHURCHES STORES AND DWELLINGS IN THE VICINITY OF HOLBORN VIADUCT"
+   },
+   "row_idx": 1817,
+   "truncated": []
+  },
+  {
+   "config": "clean",
+   "row": {
+    "audio": {
+     "src": "samples/librispeech/521-audio.flac",
+     "type": "audio/flac"
+    },
+    "chapter_id": 961,
+    "file": "/home/albert/.cache/huggingface/datasets/downloads/extracted/4a12a5d9e3d43248af424bf5fb40094f2aac834e9c19b34fb91aa912db1bd0b0/2961-961-0001.flac",
+    "id": "2961-961-0001",
+    "speaker_id": 2961,
+    "text": "AND NOW HE DESIRES TO SEE THE IDEAL STATE SET IN MOTION HE WOULD LIKE TO KNOW HOW SHE BEHAVED IN SOME GREAT STRUGGLE"
+   },
+   "row_idx": 521,
+   "truncated": []
+  },
+  {
+   "config": "clean",
+   "row": {
+    "audio": {
+     "src": "samples/librispeech/493-audio.flac",
+     "type": "audio/flac"
+    },
+    "chapter_id": 75946,
+    "file": "/home/albert/.cache/huggingface/datasets/downloads/extracted/4a12a5d9e3d43248af424bf5fb40094f2aac834e9c19b34fb91aa912db1bd0b0/7127-75946-0026.flac",
+    "id": "7127-75946-0026",
+    "speaker_id": 7127,
+    "text": "WHEN THE MUSIC BY ITS BURSTS OF MELODY CARRIED AWAY THESE ILLUSTRIOUS DANCERS WHEN THE SIMPLE UNTUTORED PANTOMIME OF THAT PERIOD ONLY THE MORE NATURAL ON ACCOUNT OF THE VERY INDIFFERENT ACTING OF THE AUGUST ACTORS HAD REACHED ITS CULMINATING POINT OF TRIUMPH THE THEATER SHOOK WITH TUMULTUOUS APPLAUSE"
+   },
+   "row_idx": 493,
+   "truncated": []
+  },
+  {
+   "config": "clean",
+   "row": {
+    "audio": {
+     "src": "samples/librispeech/431-audio.flac",
+     "type": "audio/flac"
+    },
+    "chapter_id": 75947,
+    "file": "/home/albert/.cache/huggingface/datasets/downloads/extracted/4a12a5d9e3d43248af424bf5fb40094f2aac834e9c19b34fb91aa912db1bd0b0/7127-75947-0005.flac",
+    "id": "7127-75947-0005",
+    "speaker_id": 7127,
+    "text": "I ALLUDE TO THE GODDESS"
+   },
+   "row_idx": 431,
+   "truncated": []
+  },
+  {
+   "config": "clean",
+   "row": {
+    "audio": {
+     "src": "samples/librispeech/1801-audio.flac",
+     "type": "audio/flac"
+    },
+    "chapter_id": 133604,
+    "file": "/home/albert/.cache/huggingface/datasets/downloads/extracted/4a12a5d9e3d43248af424bf5fb40094f2aac834e9c19b34fb91aa912db1bd0b0/1188-133604-0030.flac",
+    "id": "1188-133604-0030",
+    "speaker_id": 1188,
+    "text": "HE KNOWS THEM BOTH"
+   },
+   "row_idx": 1801,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "clean",
+  "hf": "openslr/librispeech_asr",
+  "split": "test"
+ }
+}

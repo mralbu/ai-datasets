@@ -1,0 +1,755 @@
+{
+ "features": [
+  {
+   "name": "sentence",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "label",
+   "type": {
+    "_type": "ClassLabel",
+    "names": [
+     "unacceptable",
+     "acceptable"
+    ]
+   }
+  },
+  {
+   "name": "idx",
+   "type": {
+    "_type": "Value",
+    "dtype": "int32"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T15:46:05+00:00",
+ "id": "glue",
+ "num_rows_total": 59879,
+ "parts": [
+  {
+   "config": "cola",
+   "features": [
+    {
+     "name": "sentence",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "label",
+     "type": {
+      "_type": "ClassLabel",
+      "names": [
+       "unacceptable",
+       "acceptable"
+      ]
+     }
+    },
+    {
+     "name": "idx",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    }
+   ],
+   "num_rows_total": 1043,
+   "split": "validation"
+  },
+  {
+   "config": "sst2",
+   "features": [
+    {
+     "name": "sentence",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "label",
+     "type": {
+      "_type": "ClassLabel",
+      "names": [
+       "negative",
+       "positive"
+      ]
+     }
+    },
+    {
+     "name": "idx",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    }
+   ],
+   "num_rows_total": 872,
+   "split": "validation"
+  },
+  {
+   "config": "mrpc",
+   "features": [
+    {
+     "name": "sentence1",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "sentence2",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "label",
+     "type": {
+      "_type": "ClassLabel",
+      "names": [
+       "not_equivalent",
+       "equivalent"
+      ]
+     }
+    },
+    {
+     "name": "idx",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    }
+   ],
+   "num_rows_total": 408,
+   "split": "validation"
+  },
+  {
+   "config": "qqp",
+   "features": [
+    {
+     "name": "question1",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question2",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "label",
+     "type": {
+      "_type": "ClassLabel",
+      "names": [
+       "not_duplicate",
+       "duplicate"
+      ]
+     }
+    },
+    {
+     "name": "idx",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    }
+   ],
+   "num_rows_total": 40430,
+   "split": "validation"
+  },
+  {
+   "config": "stsb",
+   "features": [
+    {
+     "name": "sentence1",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "sentence2",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "label",
+     "type": {
+      "_type": "Value",
+      "dtype": "float32"
+     }
+    },
+    {
+     "name": "idx",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    }
+   ],
+   "num_rows_total": 1500,
+   "split": "validation"
+  },
+  {
+   "config": "mnli",
+   "features": [
+    {
+     "name": "premise",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "hypothesis",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "label",
+     "type": {
+      "_type": "ClassLabel",
+      "names": [
+       "entailment",
+       "neutral",
+       "contradiction"
+      ]
+     }
+    },
+    {
+     "name": "idx",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    }
+   ],
+   "num_rows_total": 9815,
+   "split": "validation_matched"
+  },
+  {
+   "config": "qnli",
+   "features": [
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "sentence",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "label",
+     "type": {
+      "_type": "ClassLabel",
+      "names": [
+       "entailment",
+       "not_entailment"
+      ]
+     }
+    },
+    {
+     "name": "idx",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    }
+   ],
+   "num_rows_total": 5463,
+   "split": "validation"
+  },
+  {
+   "config": "rte",
+   "features": [
+    {
+     "name": "sentence1",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "sentence2",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "label",
+     "type": {
+      "_type": "ClassLabel",
+      "names": [
+       "entailment",
+       "not_entailment"
+      ]
+     }
+    },
+    {
+     "name": "idx",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    }
+   ],
+   "num_rows_total": 277,
+   "split": "validation"
+  },
+  {
+   "config": "wnli",
+   "features": [
+    {
+     "name": "sentence1",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "sentence2",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "label",
+     "type": {
+      "_type": "ClassLabel",
+      "names": [
+       "not_entailment",
+       "entailment"
+      ]
+     }
+    },
+    {
+     "name": "idx",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    }
+   ],
+   "num_rows_total": 71,
+   "split": "validation"
+  }
+ ],
+ "revision": "bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c",
+ "rows": [
+  {
+   "config": "cola",
+   "row": {
+    "idx": 280,
+    "label": 0,
+    "sentence": "John will rain tomorrow."
+   },
+   "row_idx": 280,
+   "truncated": []
+  },
+  {
+   "config": "sst2",
+   "row": {
+    "idx": 335,
+    "label": 0,
+    "sentence": "with the exception of some fleetingly amusing improvisations by cedric the entertainer as perry 's boss , there is n't a redeeming moment here . "
+   },
+   "row_idx": 335,
+   "truncated": []
+  },
+  {
+   "config": "mrpc",
+   "row": {
+    "idx": 3120,
+    "label": 1,
+    "sentence1": "In a statement , Lee said he \" no longer believes that Viacom deliberately intended to trade on my name when naming Spike TV . \"",
+    "sentence2": "Spike Lee no longer believes that Viacom deliberately intended to trade on his name by calling its own venture \" Spike TV , \" according to a statement read in court Tuesday ."
+   },
+   "row_idx": 305,
+   "truncated": []
+  },
+  {
+   "config": "qqp",
+   "row": {
+    "idx": 15444,
+    "label": 0,
+    "question1": "What exactly does it means if a girl stares at you?",
+    "question2": "What does it mean when a girl stares at me when am not looking?"
+   },
+   "row_idx": 15444,
+   "truncated": []
+  },
+  {
+   "config": "stsb",
+   "row": {
+    "idx": 316,
+    "label": 3.799999952316284,
+    "sentence1": "A woman equestrian riding a horse.",
+    "sentence2": "The woman is riding on the brown horse."
+   },
+   "row_idx": 316,
+   "truncated": []
+  },
+  {
+   "config": "mnli",
+   "row": {
+    "hypothesis": "He was hired to influence the British economy.",
+    "idx": 1808,
+    "label": 2,
+    "premise": "At the least, he was hired in an attempt to influence administration China policy."
+   },
+   "row_idx": 1808,
+   "truncated": []
+  },
+  {
+   "config": "qnli",
+   "row": {
+    "idx": 4771,
+    "label": 0,
+    "question": "What was the Yuan dynasty called in Mongolian?",
+    "sentence": "The counterpart in Mongolian language was Dai Ön Ulus, also rendered as Ikh Yuan Üls or Yekhe Yuan Ulus."
+   },
+   "row_idx": 4771,
+   "truncated": []
+  },
+  {
+   "config": "rte",
+   "row": {
+    "idx": 111,
+    "label": 0,
+    "sentence1": "We learn that Claretta Petacci, Mussolini's last mistress, had a tendency to whine and to lie all day in bed, eating chocolate.",
+    "sentence2": "Claretta Petacci was Mussolini's last mistress."
+   },
+   "row_idx": 111,
+   "truncated": []
+  },
+  {
+   "config": "wnli",
+   "row": {
+    "idx": 17,
+    "label": 0,
+    "sentence1": "Everyone really loved the oatmeal cookies; only a few people liked the chocolate chip cookies. Next time, we should make fewer of them.",
+    "sentence2": "We should make fewer of the oatmeal cookies."
+   },
+   "row_idx": 17,
+   "truncated": []
+  },
+  {
+   "config": "cola",
+   "row": {
+    "idx": 248,
+    "label": 0,
+    "sentence": "Kim depends for Sandy."
+   },
+   "row_idx": 248,
+   "truncated": []
+  },
+  {
+   "config": "sst2",
+   "row": {
+    "idx": 304,
+    "label": 1,
+    "sentence": "a densely constructed , highly referential film , and an audacious return to form that can comfortably sit among jean-luc godard 's finest work . "
+   },
+   "row_idx": 304,
+   "truncated": []
+  },
+  {
+   "config": "mrpc",
+   "row": {
+    "idx": 2892,
+    "label": 0,
+    "sentence1": "A pro-independence radical , Miodrag Zivkovic , of the Liberal Alliance , came in second with 31 percent of the vote .",
+    "sentence2": "Miodrag Zivkovic , of the Liberal Alliance of Montenegro , won 31 percent of the vote while the independent Dragan Hajdukovic got four percent ."
+   },
+   "row_idx": 295,
+   "truncated": []
+  },
+  {
+   "config": "qqp",
+   "row": {
+    "idx": 15436,
+    "label": 0,
+    "question1": "How do you know if someone is following you back on Snapchat?",
+    "question2": "How do you check if someone is following you on Snapchat if you don't follow them?"
+   },
+   "row_idx": 15436,
+   "truncated": []
+  },
+  {
+   "config": "stsb",
+   "row": {
+    "idx": 265,
+    "label": 3.5999999046325684,
+    "sentence1": "A jockey riding a horse in a pen.",
+    "sentence2": "A jockey rides a horse at a gallop."
+   },
+   "row_idx": 265,
+   "truncated": []
+  },
+  {
+   "config": "mnli",
+   "row": {
+    "hypothesis": "That is one of the most interesting things about it.",
+    "idx": 1795,
+    "label": 1,
+    "premise": "now that's an interesting point yeah i mean once the expectations are"
+   },
+   "row_idx": 1795,
+   "truncated": []
+  },
+  {
+   "config": "qnli",
+   "row": {
+    "idx": 4832,
+    "label": 1,
+    "question": "Who did Peyton Manning complete an 18 yard pass to on the opening drive?",
+    "sentence": "A pair of carries by C. J. Anderson moved the ball up 20 yards to the Panthers 14-yard line, but Carolina's defense dug in over the next three plays."
+   },
+   "row_idx": 4832,
+   "truncated": []
+  },
+  {
+   "config": "rte",
+   "row": {
+    "idx": 95,
+    "label": 1,
+    "sentence1": "I asked myself how to understand the 'Twilight's success. And I have come to the idea that when you really believe in something, sooner or later it will become real. So, I guess this is what happened with Robert Pattinson. Last year he was just an unknown actor who's biggest role was in a pair of \"Harry Potter\" movies. Now, not only that Twilight is competing with 'Harry Potter', but Robert Pattinson is one of the most famous young actors who sucked $373.4 million from global box offices. So the movie about a vampire boy who falls in love with a normal girl, begun a real hysteria. And Pattinson has a lot to do with it!.",
+    "sentence2": "Robert Pattinson is a vampire."
+   },
+   "row_idx": 95,
+   "truncated": []
+  },
+  {
+   "config": "wnli",
+   "row": {
+    "idx": 20,
+    "label": 0,
+    "sentence1": "Tatyana knew that Grandma always enjoyed serving an abundance of food to her guests. Now Tatyana watched as Grandma gathered Tatyana's small mother into a wide, scrawny embrace and then propelled her to the table, lifting her shawl from her shoulders, seating her in the place of honor, and saying simply: \"There's plenty.\"",
+    "sentence2": "Grandma gathered Tatyana's small mother into a wide, scrawny embrace and then propelled Tatyana to the table."
+   },
+   "row_idx": 20,
+   "truncated": []
+  },
+  {
+   "config": "cola",
+   "row": {
+    "idx": 256,
+    "label": 1,
+    "sentence": "They were taking a hard look at possible FTA."
+   },
+   "row_idx": 256,
+   "truncated": []
+  },
+  {
+   "config": "sst2",
+   "row": {
+    "idx": 279,
+    "label": 1,
+    "sentence": "... with `` the bourne identity '' we return to the more traditional action genre . "
+   },
+   "row_idx": 279,
+   "truncated": []
+  },
+  {
+   "config": "mrpc",
+   "row": {
+    "idx": 2775,
+    "label": 1,
+    "sentence1": "BREAST cancer cases in the UK have hit an all-time high with more than 40,000 women diagnosed with the disease each year , Cancer Re-search UK revealed yesterday .",
+    "sentence2": "Cases of breast cancer in Britain have reached a record high , with the number of women diagnosed with the disease passing the 40,000 mark for the first time ."
+   },
+   "row_idx": 281,
+   "truncated": []
+  },
+  {
+   "config": "qqp",
+   "row": {
+    "idx": 15349,
+    "label": 0,
+    "question1": "Farting releases stress do you agree?",
+    "question2": "How can I hack someone's WhatsApp account if I just have his WhatsApp account number?"
+   },
+   "row_idx": 15349,
+   "truncated": []
+  },
+  {
+   "config": "stsb",
+   "row": {
+    "idx": 244,
+    "label": 0.0,
+    "sentence1": "A chef is slicing carrot.",
+    "sentence2": "A person is drawing a picture."
+   },
+   "row_idx": 244,
+   "truncated": []
+  },
+  {
+   "config": "mnli",
+   "row": {
+    "hypothesis": "I gave up on working for the camp due to the long working hours.",
+    "idx": 1772,
+    "label": 2,
+    "premise": "to uh working a steady eight hour job as it were i had been working for a camp and had relatively real long hours sixteen years old and could handle getting up at five and not getting to bed until ten or eleven and"
+   },
+   "row_idx": 1772,
+   "truncated": []
+  },
+  {
+   "config": "qnli",
+   "row": {
+    "idx": 4840,
+    "label": 1,
+    "question": "What scripture did Luther use to back up his opinion that churchmen were not infallible?",
+    "sentence": "Luther made certain concessions to the Saxon, who was a relative of the Elector, and promised to remain silent if his opponents did."
+   },
+   "row_idx": 4840,
+   "truncated": []
+  },
+  {
+   "config": "rte",
+   "row": {
+    "idx": 93,
+    "label": 0,
+    "sentence1": "Merrill Lynch & Co. and Smith Barney, now a unit of Citigroup, in 1998 settled discrimination cases involving hundreds of female employees.",
+    "sentence2": "Merrill Lynch & Co. and Smith Barney are now a unit of Citigroup."
+   },
+   "row_idx": 93,
+   "truncated": []
+  },
+  {
+   "config": "wnli",
+   "row": {
+    "idx": 68,
+    "label": 1,
+    "sentence1": "The dog chased the cat, which ran up a tree. It waited at the top.",
+    "sentence2": "The cat waited at the top."
+   },
+   "row_idx": 68,
+   "truncated": []
+  },
+  {
+   "config": "cola",
+   "row": {
+    "idx": 279,
+    "label": 1,
+    "sentence": "John can kick the ball."
+   },
+   "row_idx": 279,
+   "truncated": []
+  },
+  {
+   "config": "sst2",
+   "row": {
+    "idx": 317,
+    "label": 1,
+    "sentence": "all-in-all , the film is an enjoyable and frankly told tale of a people who live among us , but not necessarily with us . "
+   },
+   "row_idx": 317,
+   "truncated": []
+  },
+  {
+   "config": "mrpc",
+   "row": {
+    "idx": 2539,
+    "label": 1,
+    "sentence1": "Wal-Mart , the nation 's largest private employer , has expanded its antidiscrimination policy to protect gay and lesbian employees , company officials said Tuesday .",
+    "sentence2": "Wal-Mart Stores Inc . , the nation 's largest private employer , will now include gays and lesbians in its anti-discrimination policy , company officials said Wednesday ."
+   },
+   "row_idx": 256,
+   "truncated": []
+  },
+  {
+   "config": "qqp",
+   "row": {
+    "idx": 15381,
+    "label": 0,
+    "question1": "What are the questions asked in SSB interviews?",
+    "question2": "What are SSB interview questions and answers?"
+   },
+   "row_idx": 15381,
+   "truncated": []
+  },
+  {
+   "config": "stsb",
+   "row": {
+    "idx": 240,
+    "label": 0.800000011920929,
+    "sentence1": "The man is trying to feed the snake with a mouse.",
+    "sentence2": "A man is working on his laptop."
+   },
+   "row_idx": 240,
+   "truncated": []
+  },
+  {
+   "config": "mnli",
+   "row": {
+    "hypothesis": "Congress determined that Commission should recover over $126 in costs.",
+    "idx": 1849,
+    "label": 0,
+    "premise": "For fiscal year 1996, Congress determined that the Commission should recover $126,400,000 in costs, an amount 8.6 percent higher than required in fiscal year 1995."
+   },
+   "row_idx": 1849,
+   "truncated": []
+  },
+  {
+   "config": "qnli",
+   "row": {
+    "idx": 4781,
+    "label": 1,
+    "question": "Where was Tesla studying when he started playing cards and billiards?",
+    "sentence": "On one occasion at his laboratory, Tesla worked for a period of 84 hours without sleep or rest.:208 Kenneth Swezey, a journalist whom Tesla had befriended, confirmed that Tesla rarely slept."
+   },
+   "row_idx": 4781,
+   "truncated": []
+  },
+  {
+   "config": "rte",
+   "row": {
+    "idx": 130,
+    "label": 1,
+    "sentence1": "Hours earlier, Yasser Arafat called for an end to attacks against Israeli civilians in the two weeks before Israeli elections.",
+    "sentence2": "Arafat condemned suicide bomb attacks inside Israel."
+   },
+   "row_idx": 130,
+   "truncated": []
+  },
+  {
+   "config": "wnli",
+   "row": {
+    "idx": 12,
+    "label": 0,
+    "sentence1": "The large ball crashed right through the table because it was made of styrofoam.",
+    "sentence2": "The large ball was made of styrofoam."
+   },
+   "row_idx": 12,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "cola",
+  "hf": "nyu-mll/glue",
+  "split": "validation"
+ }
+}

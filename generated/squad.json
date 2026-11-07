@@ -1,0 +1,486 @@
+{
+ "features": [
+  {
+   "name": "id",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "title",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "context",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "question",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "answers",
+   "type": {
+    "answer_start": {
+     "_type": "List",
+     "feature": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    "text": {
+     "_type": "List",
+     "feature": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T15:49:12+00:00",
+ "id": "squad",
+ "num_rows_total": 10570,
+ "parts": [
+  {
+   "config": "plain_text",
+   "features": [
+    {
+     "name": "id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "title",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "context",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answers",
+     "type": {
+      "answer_start": {
+       "_type": "List",
+       "feature": {
+        "_type": "Value",
+        "dtype": "int32"
+       }
+      },
+      "text": {
+       "_type": "List",
+       "feature": {
+        "_type": "Value",
+        "dtype": "string"
+       }
+      }
+     }
+    }
+   ],
+   "num_rows_total": 10570,
+   "split": "validation"
+  }
+ ],
+ "revision": "7b6d24c440a36b6815f21b70d25016731768db1f",
+ "rows": [
+  {
+   "config": "plain_text",
+   "row": {
+    "answers": {
+     "answer_start": [
+      37,
+      37,
+      37
+     ],
+     "text": [
+      "427,652",
+      "427,652",
+      "427,652"
+     ]
+    },
+    "context": "As of the census of 2000, there were 427,652 people, 140,079 households, and 97,915 families residing in the city. The population density was 4,097.9 people per square mile (1,582.2/km²). There were 149,025 housing units at an average density of 1,427.9 square miles (3,698 km2). The racial makeup of the city was 50.2% White, 8.4% Black or African American, 1.6% Native American, 11.2% Asian (about a third of which is Hmong), 0.1% Pacific Islander, 23.4% from other races, and 5.2% from two or more races. Hispanic or Latino of any race were 39.9% of the population.",
+    "id": "5725fabc89a1e219009ac128",
+    "question": "How many people lived in Fresno in 2000, according to the Census Bureau? ",
+    "title": "Fresno,_California"
+   },
+   "row_idx": 4784,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "answers": {
+     "answer_start": [
+      387,
+      387,
+      387
+     ],
+     "text": [
+      "Kearney Park",
+      "Kearney Park",
+      "Kearney Park"
+     ]
+    },
+    "context": "Fresno has three large public parks, two in the city limits and one in county land to the southwest. Woodward Park, which features the Shinzen Japanese Gardens, numerous picnic areas and several miles of trails, is in North Fresno and is adjacent to the San Joaquin River Parkway. Roeding Park, near Downtown Fresno, is home to the Fresno Chaffee Zoo, and Rotary Storyland and Playland. Kearney Park is the largest of the Fresno region's park system and is home to historic Kearney Mansion and plays host to the annual Civil War Revisited, the largest reenactment of the Civil War in the west coast of the U.S.",
+    "id": "5725d662ec44d21400f3d68b",
+    "question": "Which park hosts the largest Civil War reenactment on the west coast?",
+    "title": "Fresno,_California"
+   },
+   "row_idx": 4700,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "answers": {
+     "answer_start": [
+      85,
+      85,
+      85
+     ],
+     "text": [
+      "11.4 million",
+      "11.4 million",
+      "11.4 million"
+     ]
+    },
+    "context": "By the opening of the 2008 General Conference, total UMC membership was estimated at 11.4 million, with about 7.9 million in the U.S. and 3.5 million overseas. Significantly, about 20% of the conference delegates were from Africa, with Filipinos and Europeans making up another 10%. During the conference, the delegates voted to finalize the induction of the Methodist Church of the Ivory Coast and its 700,000 members into the denomination. Given current trends in the UMC—with overseas churches growing, especially in Africa, and U.S. churches collectively losing about 1,000 members a week—it has been estimated that Africans will make up at least 30% of the delegates at the 2012 General Conference, and it is also possible that 40% of the delegates will be from outside the U.S. One Congolese bishop has estimated that typical Sunday attendance of the UMC is higher in his country than in the entire United States.",
+    "id": "5730ebe0a5e9cc1400cdbae5",
+    "question": "By the opening of the 2008 General Conference, what was the total UMC membership?",
+    "title": "United_Methodist_Church"
+   },
+   "row_idx": 10186,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "answers": {
+     "answer_start": [
+      36,
+      45,
+      45
+     ],
+     "text": [
+      "Fresno's far southeast side",
+      "far southeast side",
+      "far southeast side"
+     ]
+    },
+    "context": "The neighborhood of Sunnyside is on Fresno's far southeast side, bounded by Chestnut Avenue to the West. Its major thoroughfares are Kings Canyon Avenue and Clovis Avenue. Although parts of Sunnyside are within the City of Fresno, much of the neighborhood is a \"county island\" within Fresno County. Largely developed in the 1950s through the 1970s, it has recently experienced a surge in new home construction. It is also the home of the Sunnyside Country Club, which maintains a golf course designed by William P. Bell.",
+    "id": "5725db98ec44d21400f3d6c5",
+    "question": "Where is the neighborhood of Sunnyside located in Fresno?",
+    "title": "Fresno,_California"
+   },
+   "row_idx": 4710,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "answers": {
+     "answer_start": [
+      422,
+      422,
+      422
+     ],
+     "text": [
+      "west",
+      "west",
+      "west"
+     ]
+    },
+    "context": "Fresno is served by State Route 99, the main north/south freeway that connects the major population centers of the California Central Valley. State Route 168, the Sierra Freeway, heads east to the city of Clovis and Huntington Lake. State Route 41 (Yosemite Freeway/Eisenhower Freeway) comes into Fresno from Atascadero in the south, and then heads north to Yosemite. State Route 180 (Kings Canyon Freeway) comes from the west via Mendota, and from the east in Kings Canyon National Park going towards the city of Reedley.",
+    "id": "5725fcbe271a42140099d3b0",
+    "question": "State Route 180 comes from which direction via Mendota?",
+    "title": "Fresno,_California"
+   },
+   "row_idx": 4797,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "answers": {
+     "answer_start": [
+      592,
+      162,
+      603
+     ],
+     "text": [
+      "the way of military action",
+      "persons who conscientiously oppose all war",
+      "military action"
+     ]
+    },
+    "context": "The United Methodist Church opposes conscription as incompatible with the teaching of Scripture. Therefore, the Church supports and extends its ministry to those persons who conscientiously oppose all war, or any particular war, and who therefore refuse to serve in the armed forces or to cooperate with systems of military conscription. However, the United Methodist Church also supports and extends its ministry to those persons who conscientiously choose to serve in the armed forces or to accept alternative service. The church also states that \"as Christians they are aware that neither the way of military action, nor the way of inaction is always righteous before God.\"",
+    "id": "5730b9852461fd1900a9cffa",
+    "question": "The church states that, as Christians, they are aware that neither the way of what is righteous before God?\"",
+    "title": "United_Methodist_Church"
+   },
+   "row_idx": 10091,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "answers": {
+     "answer_start": [
+      466,
+      466,
+      466
+     ],
+     "text": [
+      "Hughes Hotel",
+      "Hughes Hotel",
+      "Hughes Hotel"
+     ]
+    },
+    "context": "Between the 1880s and World War II, Downtown Fresno flourished, filled with electric Street Cars, and contained some of the San Joaquin Valley's most beautiful architectural buildings. Among them, the original Fresno County Courthouse (demolished), the Fresno Carnegie Public Library (demolished), the Fresno Water Tower, the Bank of Italy Building, the Pacific Southwest Building, the San Joaquin Light & Power Building (currently known as the Grand 1401), and the Hughes Hotel (burned down), to name a few.",
+    "id": "5725d7e438643c19005acdfc",
+    "question": "Which one of Fresno's hotels burned down?",
+    "title": "Fresno,_California"
+   },
+   "row_idx": 4704,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "answers": {
+     "answer_start": [
+      110,
+      110,
+      110
+     ],
+     "text": [
+      "7.9 million",
+      "7.9 million in the U.S",
+      "7.9 million"
+     ]
+    },
+    "context": "By the opening of the 2008 General Conference, total UMC membership was estimated at 11.4 million, with about 7.9 million in the U.S. and 3.5 million overseas. Significantly, about 20% of the conference delegates were from Africa, with Filipinos and Europeans making up another 10%. During the conference, the delegates voted to finalize the induction of the Methodist Church of the Ivory Coast and its 700,000 members into the denomination. Given current trends in the UMC—with overseas churches growing, especially in Africa, and U.S. churches collectively losing about 1,000 members a week—it has been estimated that Africans will make up at least 30% of the delegates at the 2012 General Conference, and it is also possible that 40% of the delegates will be from outside the U.S. One Congolese bishop has estimated that typical Sunday attendance of the UMC is higher in his country than in the entire United States.",
+    "id": "5730ebe0a5e9cc1400cdbae6",
+    "question": "By the opening of the 2008 General Conference, what was the total UMC membership in the U.S.?",
+    "title": "United_Methodist_Church"
+   },
+   "row_idx": 10187,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "answers": {
+     "answer_start": [
+      155,
+      155,
+      155
+     ],
+     "text": [
+      "automobiles",
+      "automobiles",
+      "automobiles"
+     ]
+    },
+    "context": "Formed in 1946, Sierra Sky Park Airport is a residential airport community born of a unique agreement in transportation law to allow personal aircraft and automobiles to share certain roads. Sierra Sky Park was the first aviation community to be built[citation needed] and there are now numerous such communities across the United States and around the world. Developer William Smilie created the nation's first planned aviation community. Still in operation today, the public use airport provides a unique neighborhood that spawned interest and similar communities nationwide.",
+    "id": "5725f46289a1e219009ac0fd",
+    "question": "The transportation law allows personal aircraft to share the roadways with what?",
+    "title": "Fresno,_California"
+   },
+   "row_idx": 4762,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "answers": {
+     "answer_start": [
+      355,
+      355,
+      355
+     ],
+     "text": [
+      "8 million",
+      "8 million",
+      "8 million"
+     ]
+    },
+    "context": "Like many other mainline Protestant denominations in the United States, the United Methodist Church has experienced significant membership losses in recent decades. At the time of its formation, the UMC had about 11 million members in nearly 42,000 congregations. In 1975, membership dropped below 10 million for the first time. In 2005, there were about 8 million members in over 34,000 congregations. Membership is concentrated primarily in the Midwest and in the South. Texas has the largest number of members, with about 1 million. The states with the highest membership rates are Oklahoma, Iowa, Mississippi, West Virginia, and North Carolina.",
+    "id": "5730eb5b497a881900248a41",
+    "question": "In 2005, approximately how many members were in the UMC?",
+    "title": "United_Methodist_Church"
+   },
+   "row_idx": 10183,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "answers": {
+     "answer_start": [
+      0,
+      0,
+      0
+     ],
+     "text": [
+      "Elders",
+      "Elders",
+      "Elders"
+     ]
+    },
+    "context": "Elders are called by God, affirmed by the church, and ordained by a bishop to a ministry of Word, Sacrament, Order and Service within the church. They may be appointed to the local church, or to other valid extension ministries of the church. Elders are given the authority to preach the Word of God, administer the sacraments of the church, to provide care and counseling, and to order the life of the church for ministry and mission. Elders may also be assigned as District Superintendents, and they are eligible for election to the episcopacy. Elders serve a term of 2–3 years as provisional Elders prior to their ordination.",
+    "id": "5730d473b7151e1900c0155a",
+    "question": "Who is called by God, affirmed by the church and ordained by a bishop?",
+    "title": "United_Methodist_Church"
+   },
+   "row_idx": 10149,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "answers": {
+     "answer_start": [
+      874,
+      874,
+      874
+     ],
+     "text": [
+      "Fresno Normal School",
+      "Fresno Normal School",
+      "Fresno Normal School"
+     ]
+    },
+    "context": "The popular neighborhood known as the Tower District is centered around the historic Tower Theatre, which is included on the National List of Historic Places. The theater was built in 1939 and is at Olive and Wishon Avenues in the heart of the Tower District. (The name of the theater refers to a well-known landmark water tower, which is actually in another nearby area). The Tower District neighborhood is just north of downtown Fresno proper, and one-half mile south of Fresno City College. Although the neighborhood was known as a residential area prior, the early commercial establishments of the Tower District began with small shops and services that flocked to the area shortly after World War II. The character of small local businesses largely remains today. To some extent, the businesses of the Tower District were developed due to the proximity of the original Fresno Normal School, (later renamed California State University at Fresno). In 1916 the college moved to what is now the site of Fresno City College one-half mile north of the Tower District.",
+    "id": "5725dd7d89a1e219009abfed",
+    "question": "What was the original name of California State University at Fresno?",
+    "title": "Fresno,_California"
+   },
+   "row_idx": 4718,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "answers": {
+     "answer_start": [
+      264,
+      251,
+      264
+     ],
+     "text": [
+      "nine",
+      "no more than nine members",
+      "nine"
+     ]
+    },
+    "context": "The Book of Discipline is the guidebook for local churches and pastors and describes in considerable detail the organizational structure of local United Methodist churches. All UM churches must have a board of trustees with at least three members and no more than nine members and it is recommended that no gender should hold more than a 2/3 majority. All churches must also have a nominations committee, a finance committee and a church council or administrative council. Other committees are suggested but not required such as a missions committee, or evangelism or worship committee. Term limits are set for some committees but not for all. The church conference is an annual meeting of all the officers of the church and any interested members. This committee has the exclusive power to set pastors' salaries (compensation packages for tax purposes) and to elect officers to the committees.",
+    "id": "5730cb8df6cb411900e244c4",
+    "question": "What is the greatest number of members a board of trustees can have?",
+    "title": "United_Methodist_Church"
+   },
+   "row_idx": 10136,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "answers": {
+     "answer_start": [
+      95,
+      98,
+      98
+     ],
+     "text": [
+      "in recent decades",
+      "recent decades",
+      "recent decades"
+     ]
+    },
+    "context": "The area is also known for its early twentieth century homes, many of which have been restored in recent decades. The area includes many California Bungalow and American Craftsman style homes, Spanish Colonial Revival Style architecture, Mediterranean Revival Style architecture, Mission Revival Style architecture, and many Storybook houses designed by Fresno architects, Hilliard, Taylor & Wheeler. The residential architecture of the Tower District contrasts with the newer areas of tract homes urban sprawl in north and east areas of Fresno.",
+    "id": "5725e748ec44d21400f3d736",
+    "question": "How recently has the homes in Fresno been restored?",
+    "title": "Fresno,_California"
+   },
+   "row_idx": 4733,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "answers": {
+     "answer_start": [
+      766,
+      760,
+      213
+     ],
+     "text": [
+      "twice a year",
+      "meets twice a year at",
+      "every eight years"
+     ]
+    },
+    "context": "The Judicial Council is the highest court in the denomination. It consists of nine members, both laity and clergy, elected by the General Conference for an eight-year term. The ratio of laity to clergy alternates every eight years. The Judicial Council interprets the Book of Discipline between sessions of General Conference, and during General Conference, the Judicial Council rules on the constitutionality of laws passed by General Conference. The Council also determines whether actions of local churches, annual conferences, church agencies, and bishops are in accordance with church law. The Council reviews all decisions of law made by bishops The Judicial Council cannot create any legislation; it can only interpret existing legislation. The Council meets twice a year at various locations throughout the world. The Judicial Council also hears appeals from those who have been accused of chargeable offenses that can result in defrocking or revocation of membership.",
+    "id": "5730ca6eaca1c71400fe5ac4",
+    "question": "How many times a year does The Council meet?",
+    "title": "United_Methodist_Church"
+   },
+   "row_idx": 10129,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "answers": {
+     "answer_start": [
+      314,
+      314,
+      314
+     ],
+     "text": [
+      "36",
+      "36 acres",
+      "36"
+     ]
+    },
+    "context": "Decisions in-between the four-year meetings are made by the Mission Council (usually consisting of church bishops). One of the most high profile decisions in recent years by one of the councils was a decision by the Mission Council of the South Central Jurisdiction which in March 2007 approved a 99-year lease of 36 acres (150,000 m2) at Southern Methodist University for the George W. Bush Presidential Library. The decision generated controversy in light of Bush's support of the Iraq War which the church bishops have criticized. A debate over whether the decision should or could be submitted for approval by the Southern Jurisdictional Conference at its July 2008 meeting in Dallas, Texas, remains unresolved.",
+    "id": "5730c8a1f6cb411900e2449e",
+    "question": "In March 2007, the Mission Council of the South Central jurisdiction approved a 99-year lease on how many acres?",
+    "title": "United_Methodist_Church"
+   },
+   "row_idx": 10123,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "plain_text",
+  "hf": "rajpurkar/squad",
+  "split": "validation"
+ }
+}

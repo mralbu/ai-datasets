@@ -1,0 +1,599 @@
+{
+ "chart": {
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json",
+  "config": {
+   "view": {
+    "continuousHeight": 300,
+    "continuousWidth": 300
+   }
+  },
+  "data": {
+   "values": [
+    {
+     "Pclass": 1,
+     "Sex": "female",
+     "count": 94,
+     "rate": 0.9680851063829787
+    },
+    {
+     "Pclass": 1,
+     "Sex": "male",
+     "count": 122,
+     "rate": 0.36885245901639346
+    },
+    {
+     "Pclass": 2,
+     "Sex": "female",
+     "count": 76,
+     "rate": 0.9210526315789473
+    },
+    {
+     "Pclass": 2,
+     "Sex": "male",
+     "count": 108,
+     "rate": 0.1574074074074074
+    },
+    {
+     "Pclass": 3,
+     "Sex": "female",
+     "count": 144,
+     "rate": 0.5
+    },
+    {
+     "Pclass": 3,
+     "Sex": "male",
+     "count": 347,
+     "rate": 0.13544668587896252
+    }
+   ]
+  },
+  "encoding": {
+   "color": {
+    "field": "Sex",
+    "legend": {
+     "orient": "top"
+    },
+    "type": "nominal"
+   },
+   "tooltip": [
+    {
+     "field": "Pclass",
+     "type": "nominal"
+    },
+    {
+     "field": "Sex",
+     "type": "nominal"
+    },
+    {
+     "field": "rate",
+     "format": ".0%",
+     "type": "quantitative"
+    },
+    {
+     "field": "count",
+     "type": "quantitative"
+    }
+   ],
+   "x": {
+    "axis": {
+     "labelAngle": 0
+    },
+    "field": "Pclass",
+    "title": "Pclass",
+    "type": "nominal"
+   },
+   "xOffset": {
+    "field": "Sex",
+    "type": "nominal"
+   },
+   "y": {
+    "axis": {
+     "format": "%"
+    },
+    "field": "rate",
+    "title": "survival rate",
+    "type": "quantitative"
+   }
+  },
+  "height": 320,
+  "mark": {
+   "type": "bar"
+  },
+  "title": "Survival rate by class and sex (all 891 labeled passengers)",
+  "width": "container"
+ },
+ "features": [
+  {
+   "name": "PassengerId",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Survived",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Pclass",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Name",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "Sex",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "Age",
+   "type": {
+    "_type": "Value",
+    "dtype": "float64"
+   }
+  },
+  {
+   "name": "SibSp",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Parch",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Ticket",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "Fare",
+   "type": {
+    "_type": "Value",
+    "dtype": "float64"
+   }
+  },
+  {
+   "name": "Cabin",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "Embarked",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T15:49:15+00:00",
+ "id": "titanic",
+ "num_rows_total": 891,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "PassengerId",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Survived",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Pclass",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Name",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "Sex",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "Age",
+     "type": {
+      "_type": "Value",
+      "dtype": "float64"
+     }
+    },
+    {
+     "name": "SibSp",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Parch",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Ticket",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "Fare",
+     "type": {
+      "_type": "Value",
+      "dtype": "float64"
+     }
+    },
+    {
+     "name": "Cabin",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "Embarked",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 891,
+   "split": "train"
+  }
+ ],
+ "revision": "9753139e0b9d454ab4fd22e884290260db5fc7b6",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "Age": 37.0,
+    "Cabin": "C118",
+    "Embarked": "C",
+    "Fare": 29.7,
+    "Name": "Natsch, Mr. Charles H",
+    "Parch": 1,
+    "PassengerId": 274,
+    "Pclass": 1,
+    "Sex": "male",
+    "SibSp": 0,
+    "Survived": 0,
+    "Ticket": "PC 17596"
+   },
+   "row_idx": 273,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Age": 22.0,
+    "Cabin": null,
+    "Embarked": "S",
+    "Fare": 7.75,
+    "Name": "Nysten, Miss. Anna Sofia",
+    "Parch": 0,
+    "PassengerId": 142,
+    "Pclass": 3,
+    "Sex": "female",
+    "SibSp": 0,
+    "Survived": 1,
+    "Ticket": "347081"
+   },
+   "row_idx": 141,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Age": 24.0,
+    "Cabin": null,
+    "Embarked": "S",
+    "Fare": 7.4958,
+    "Name": "Coleff, Mr. Satio",
+    "Parch": 0,
+    "PassengerId": 515,
+    "Pclass": 3,
+    "Sex": "male",
+    "SibSp": 0,
+    "Survived": 0,
+    "Ticket": "349209"
+   },
+   "row_idx": 514,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Age": 40.0,
+    "Cabin": null,
+    "Embarked": "S",
+    "Fare": 13.0,
+    "Name": "Smith, Miss. Marion Elsie",
+    "Parch": 0,
+    "PassengerId": 347,
+    "Pclass": 2,
+    "Sex": "female",
+    "SibSp": 0,
+    "Survived": 1,
+    "Ticket": "31418"
+   },
+   "row_idx": 346,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Age": 32.0,
+    "Cabin": null,
+    "Embarked": "S",
+    "Fare": 13.0,
+    "Name": "Pinsky, Mrs. (Rosa)",
+    "Parch": 0,
+    "PassengerId": 191,
+    "Pclass": 2,
+    "Sex": "female",
+    "SibSp": 0,
+    "Survived": 1,
+    "Ticket": "234604"
+   },
+   "row_idx": 190,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Age": 22.0,
+    "Cabin": null,
+    "Embarked": "S",
+    "Fare": 9.8375,
+    "Name": "Strandberg, Miss. Ida Sofia",
+    "Parch": 0,
+    "PassengerId": 475,
+    "Pclass": 3,
+    "Sex": "female",
+    "SibSp": 0,
+    "Survived": 0,
+    "Ticket": "7553"
+   },
+   "row_idx": 474,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Age": 51.0,
+    "Cabin": null,
+    "Embarked": "S",
+    "Fare": 7.0542,
+    "Name": "Lundahl, Mr. Johan Svensson",
+    "Parch": 0,
+    "PassengerId": 632,
+    "Pclass": 3,
+    "Sex": "male",
+    "SibSp": 0,
+    "Survived": 0,
+    "Ticket": "347743"
+   },
+   "row_idx": 631,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Age": 54.0,
+    "Cabin": "E46",
+    "Embarked": "S",
+    "Fare": 51.8625,
+    "Name": "McCarthy, Mr. Timothy J",
+    "Parch": 0,
+    "PassengerId": 7,
+    "Pclass": 1,
+    "Sex": "male",
+    "SibSp": 0,
+    "Survived": 0,
+    "Ticket": "17463"
+   },
+   "row_idx": 6,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Age": null,
+    "Cabin": null,
+    "Embarked": "Q",
+    "Fare": 7.7875,
+    "Name": "McDermott, Miss. Brigdet Delia",
+    "Parch": 0,
+    "PassengerId": 83,
+    "Pclass": 3,
+    "Sex": "female",
+    "SibSp": 0,
+    "Survived": 1,
+    "Ticket": "330932"
+   },
+   "row_idx": 82,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Age": 28.0,
+    "Cabin": null,
+    "Embarked": "S",
+    "Fare": 13.0,
+    "Name": "Collander, Mr. Erik Gustaf",
+    "Parch": 0,
+    "PassengerId": 343,
+    "Pclass": 2,
+    "Sex": "male",
+    "SibSp": 0,
+    "Survived": 0,
+    "Ticket": "248740"
+   },
+   "row_idx": 342,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Age": null,
+    "Cabin": null,
+    "Embarked": "S",
+    "Fare": 56.4958,
+    "Name": "Lam, Mr. Ali",
+    "Parch": 0,
+    "PassengerId": 693,
+    "Pclass": 3,
+    "Sex": "male",
+    "SibSp": 0,
+    "Survived": 1,
+    "Ticket": "1601"
+   },
+   "row_idx": 692,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Age": 29.0,
+    "Cabin": null,
+    "Embarked": "S",
+    "Fare": 21.075,
+    "Name": "Palsson, Mrs. Nils (Alma Cornelia Berglund)",
+    "Parch": 4,
+    "PassengerId": 568,
+    "Pclass": 3,
+    "Sex": "female",
+    "SibSp": 0,
+    "Survived": 0,
+    "Ticket": "349909"
+   },
+   "row_idx": 567,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Age": 32.0,
+    "Cabin": null,
+    "Embarked": "S",
+    "Fare": 7.925,
+    "Name": "Tikkanen, Mr. Juho",
+    "Parch": 0,
+    "PassengerId": 383,
+    "Pclass": 3,
+    "Sex": "male",
+    "SibSp": 0,
+    "Survived": 0,
+    "Ticket": "STON/O 2. 3101293"
+   },
+   "row_idx": 382,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Age": 19.0,
+    "Cabin": "B42",
+    "Embarked": "S",
+    "Fare": 30.0,
+    "Name": "Graham, Miss. Margaret Edith",
+    "Parch": 0,
+    "PassengerId": 888,
+    "Pclass": 1,
+    "Sex": "female",
+    "SibSp": 0,
+    "Survived": 1,
+    "Ticket": "112053"
+   },
+   "row_idx": 887,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Age": 26.0,
+    "Cabin": null,
+    "Embarked": "S",
+    "Fare": 10.5,
+    "Name": "Gavey, Mr. Lawrence",
+    "Parch": 0,
+    "PassengerId": 620,
+    "Pclass": 2,
+    "Sex": "male",
+    "SibSp": 0,
+    "Survived": 0,
+    "Ticket": "31028"
+   },
+   "row_idx": 619,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "Age": 21.0,
+    "Cabin": "D9",
+    "Embarked": "S",
+    "Fare": 77.9583,
+    "Name": "Longley, Miss. Gretchen Fiske",
+    "Parch": 0,
+    "PassengerId": 628,
+    "Pclass": 1,
+    "Sex": "female",
+    "SibSp": 0,
+    "Survived": 1,
+    "Ticket": "13502"
+   },
+   "row_idx": 627,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "phihung/titanic",
+  "split": "train"
+ }
+}
