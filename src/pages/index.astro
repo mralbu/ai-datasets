@@ -1,11 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
 import Preview from '../components/Preview.astro';
+import CategoryFilter from '../components/CategoryFilter.astro';
 import { getDatasets, MODALITIES, url } from '../lib/data';
 const all = await getDatasets();
 const groups = Object.keys(MODALITIES)
   .map((m) => ({ m, items: all.filter((d) => d.data.modality === m) }))
   .filter((g) => g.items.length);
+const counts = Object.fromEntries(groups.map((g) => [g.m, g.items.length]));
 ---
 <Base title="AI Datasets">
   <section class="hero">
@@ -16,20 +18,10 @@ const groups = Object.keys(MODALITIES)
     </p>
   </section>
 
-  <div class="filter-bar">
-    <div class="chips" role="group" aria-label="Show categories">
-      {groups.map(({ m, items }) => (
-        <button type="button" class="chip" data-toggle={m} data-m={m} aria-pressed="true" title="Click to show or hide. Double-click to show only this.">
-          <span class="dot" aria-hidden="true"></span>{MODALITIES[m]}<span class="n">{items.length}</span>
-        </button>
-      ))}
-      <button type="button" class="linkish reset" data-reset hidden>Show all</button>
-    </div>
-    <span class="hint muted">Double-click to show only one</span>
-  </div>
+  <CategoryFilter counts={counts} />
 
   {groups.map(({ m, items }) => (
-    <section data-group={m} data-m={m}>
+    <section data-filter-item data-m={m}>
       <h2><span class="cat-dot" aria-hidden="true"></span>{MODALITIES[m]}</h2>
       <div class="cards">
         {items.map((ds) => (
@@ -45,74 +37,13 @@ const groups = Object.keys(MODALITIES)
       </div>
     </section>
   ))}
-  <p class="muted empty" data-empty hidden>No categories selected. <button type="button" class="linkish" data-reset-empty>Show all</button></p>
 </Base>
-
-<script>
-  // Legend-style filter: click toggles a category, double-click shows only it
-  // (double-click it again, when it is the only one shown, to bring all back).
-  // The selection is kept in the URL (#vision,text) so it can be shared.
-  const toggles = [...document.querySelectorAll<HTMLButtonElement>('[data-toggle]')];
-  const groups = [...document.querySelectorAll<HTMLElement>('[data-group]')];
-  const reset = document.querySelector<HTMLButtonElement>('[data-reset]')!;
-  const empty = document.querySelector<HTMLElement>('[data-empty]')!;
-  const keys = toggles.map((t) => t.dataset.toggle!);
-
-  const current = () => new Set(toggles.filter((t) => t.getAttribute('aria-pressed') === 'true').map((t) => t.dataset.toggle!));
-  const apply = (on: Set<string>) => {
-    toggles.forEach((t) => t.setAttribute('aria-pressed', String(on.has(t.dataset.toggle!))));
-    groups.forEach((g) => (g.hidden = !on.has(g.dataset.group!)));
-    reset.hidden = on.size === keys.length;
-    empty.hidden = on.size > 0;
-    const hash = on.size === keys.length ? '' : `#${[...on].join(',')}`;
-    history.replaceState(null, '', location.pathname + hash);
-  };
-  const toggle = (k: string) => {
-    const on = current();
-    on.has(k) ? on.delete(k) : on.add(k);
-    apply(on);
-  };
-  const solo = (k: string) => {
-    const on = current();
-    apply(on.size === 1 && on.has(k) ? new Set(keys) : new Set([k]));
-  };
-
-  // A single click waits briefly to see if it becomes a double-click, so a
-  // double-click doesn't flash the section off and on first. Keyboard
-  // activation (detail 0) toggles at once.
-  let pending: number | undefined;
-  toggles.forEach((t) =>
-    t.addEventListener('click', (e) => {
-      const k = t.dataset.toggle!;
-      clearTimeout(pending);
-      if (e.detail === 0) return toggle(k);
-      if (e.detail >= 2) return solo(k);
-      pending = window.setTimeout(() => toggle(k), 230);
-    }),
-  );
-  const showAll = () => apply(new Set(keys));
-  reset.addEventListener('click', showAll);
-  document.querySelector('[data-reset-empty]')!.addEventListener('click', showAll);
-
-  const fromHash = location.hash.slice(1).split(',').filter((k) => keys.includes(k));
-  if (fromHash.length) apply(new Set(fromHash));
-</script>
 
 <style>
   .hero { padding: 40px 0 8px; max-width: 680px; }
   .hero h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0 0 12px; }
-  .filter-bar {
-    position: sticky; top: 56px; z-index: 10; background: var(--bg);
-    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 16px;
-    padding: 12px 0; margin: 12px 0 0; border-bottom: 1px solid var(--border);
-  }
-  @media (max-width: 600px) { .filter-bar { position: static; } } /* too tall to pin on phones */
-  .hint { font-size: 0.78rem; }
-  @media (hover: none) { .hint { display: none; } }
-  .linkish.reset { font-size: 0.85rem; margin-left: 4px; }
-  .reset[hidden] { display: none; }
-  h2 { scroll-margin-top: 120px; }
   section[hidden] { display: none; }
+  h2 { scroll-margin-top: 120px; }
   .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
   .entry { display: flex; flex-direction: column; gap: 10px; padding: 16px; color: var(--text); transition: border-color 0.15s; }
   .entry:hover { border-color: var(--accent); text-decoration: none; }
@@ -120,7 +51,4 @@ const groups = Object.keys(MODALITIES)
   h3 { margin: 0; font-size: 1.05rem; }
   .year { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 0.9rem; }
   .one { margin: 0; font-size: 0.92rem; }
-  .empty { margin-top: 32px; }
-  .linkish { border: 0; background: none; padding: 0; color: var(--accent); font: inherit; cursor: pointer; }
-  .linkish:hover { text-decoration: underline; }
 </style>

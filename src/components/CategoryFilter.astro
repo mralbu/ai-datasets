@@ -1,0 +1,94 @@
+---
+// Legend-style category filter shared by the catalog and the timeline.
+// Click toggles a category; double-click shows only it (again: show all).
+// Elements marked data-filter-item data-m="<category>" are shown or hidden;
+// the page can listen for the "categoryfilter" event for anything else.
+// The selection is kept in the URL hash (#vision,text) so it can be shared.
+import { MODALITIES } from '../lib/data';
+interface Props { counts: Record<string, number>; label?: string }
+const { counts, label = 'Show categories' } = Astro.props;
+const cats = Object.keys(MODALITIES).filter((m) => counts[m]);
+---
+<div class="cat-filter" data-cat-filter>
+  <div class="chips" role="group" aria-label={label}>
+    {cats.map((m) => (
+      <button type="button" class="chip" data-toggle={m} data-m={m} aria-pressed="true" title="Click to show or hide. Double-click to show only this.">
+        <span class="dot" aria-hidden="true"></span>{MODALITIES[m]}<span class="n">{counts[m]}</span>
+      </button>
+    ))}
+    <button type="button" class="show-all" data-reset hidden>Show all</button>
+  </div>
+</div>
+<p class="muted cat-empty" data-empty hidden>
+  No categories selected. <button type="button" class="show-all" data-reset>Show all</button>
+</p>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-cat-filter]');
+  if (root) {
+    const toggles = [...root.querySelectorAll<HTMLButtonElement>('[data-toggle]')];
+    const resets = [...document.querySelectorAll<HTMLButtonElement>('[data-reset]')];
+    const empty = document.querySelector<HTMLElement>('[data-empty]')!;
+    const items = [...document.querySelectorAll<HTMLElement>('[data-filter-item]')];
+    const keys = toggles.map((t) => t.dataset.toggle!);
+
+    const current = () =>
+      new Set(toggles.filter((t) => t.getAttribute('aria-pressed') === 'true').map((t) => t.dataset.toggle!));
+    const apply = (on: Set<string>) => {
+      toggles.forEach((t) => t.setAttribute('aria-pressed', String(on.has(t.dataset.toggle!))));
+      items.forEach((el) => (el.hidden = !on.has(el.dataset.m!)));
+      const all = on.size === keys.length;
+      resets[0].hidden = all;
+      empty.hidden = on.size > 0;
+      history.replaceState(null, '', location.pathname + (all ? '' : `#${[...on].join(',')}`));
+      window.dispatchEvent(new CustomEvent('categoryfilter', { detail: on }));
+    };
+    const toggle = (k: string) => {
+      const on = current();
+      on.has(k) ? on.delete(k) : on.add(k);
+      apply(on);
+    };
+    const solo = (k: string) => {
+      const on = current();
+      apply(on.size === 1 && on.has(k) ? new Set(keys) : new Set([k]));
+    };
+
+    // A single click waits briefly to see if it becomes a double-click, so a
+    // double-click doesn't flash items off and on. Keyboard (detail 0) is immediate.
+    let pending: number | undefined;
+    toggles.forEach((t) =>
+      t.addEventListener('click', (e) => {
+        const k = t.dataset.toggle!;
+        clearTimeout(pending);
+        if (e.detail === 0) return toggle(k);
+        if (e.detail >= 2) return solo(k);
+        pending = window.setTimeout(() => toggle(k), 230);
+      }),
+    );
+    resets.forEach((r) => r.addEventListener('click', () => apply(new Set(keys))));
+
+    const fromHash = location.hash.slice(1).split(',').filter((k) => keys.includes(k));
+    apply(fromHash.length ? new Set(fromHash) : new Set(keys));
+  }
+</script>
+
+<style>
+  .cat-filter {
+    position: sticky; top: 56px; z-index: 10;
+    margin: 16px 0 0; padding: 12px 0 10px;
+    background: var(--bg);
+  }
+  /* Soft fade instead of a hard divider where cards scroll under the bar. */
+  .cat-filter::after {
+    content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 14px;
+    background: linear-gradient(var(--bg), transparent); pointer-events: none;
+  }
+  @media (max-width: 600px) { .cat-filter { position: static; } .cat-filter::after { display: none; } }
+  .show-all {
+    border: 0; background: none; padding: 4px 6px; margin-left: 2px;
+    color: var(--accent); font-size: 0.82rem; cursor: pointer;
+  }
+  .show-all:hover { text-decoration: underline; }
+  .show-all[hidden] { display: none; }
+  .cat-empty { margin-top: 28px; }
+</style>
