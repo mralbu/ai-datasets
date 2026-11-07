@@ -36,10 +36,13 @@ from itertools import zip_longest
 from pathlib import Path
 from urllib.parse import urlparse
 
+import io
+
 import altair as alt
 import httpx
 import polars as pl
 import yaml
+from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG = ROOT / "datasets"
@@ -146,8 +149,23 @@ def sample_part(client: httpx.Client, src: dict, n: int, rng: random.Random) -> 
     return {"total": total, "features": features, "rows": rows, "all_rows": all_rows}
 
 
-def save_media(client: httpx.Client, media_dir: Path, ds_id: str, tag: str, features: list[dict], rows: list[dict]) -> None:
-    """Download images/audio next to the site; signed viewer URLs expire."""
+def shrink(data: bytes, max_px: int) -> bytes:
+    """Downscale a large photo so its longest side is max_px (JPEG). Small images pass through."""
+    img = Image.open(io.BytesIO(data))
+    if max(img.size) <= max_px:
+        return data
+    img.thumbnail((max_px, max_px), Image.LANCZOS)
+    out = io.BytesIO()
+    img.convert("RGB").save(out, "JPEG", quality=85, optimize=True)
+    return out.getvalue()
+
+
+def save_media(client: httpx.Client, media_dir: Path, ds_id: str, tag: str, features: list[dict], rows: list[dict],
+               max_px: int | None = None) -> None:
+    """Download images/audio next to the site; signed viewer URLs expire.
+
+    With max_px, large images are downscaled; width/height keep the original size,
+    because annotations (polygons, boxes) are in original pixel coordinates."""
     media_cols = {f["name"]: f["type"].get("_type") for f in features if f["type"].get("_type") in ("Image", "Audio")}
     if not media_cols:
         return
@@ -160,8 +178,13 @@ def save_media(client: httpx.Client, media_dir: Path, ds_id: str, tag: str, feat
             if not cell:
                 continue
             ext = Path(urlparse(cell["src"]).path).suffix or (".jpg" if kind == "Image" else ".wav")
+            data = get(client, cell["src"]).content
+            if kind == "Image" and max_px:
+                small = shrink(data, max_px)
+                if small is not data:
+                    data, ext = small, ".jpg"
             name = f"{tag}{r['row_idx']}-{col}{ext}"
-            (media_dir / name).write_bytes(get(client, cell["src"]).content)
+            (media_dir / name).write_bytes(data)
             local = {"src": f"samples/{ds_id}/{name}"}
             if kind == "Image":
                 local |= {"width": cell.get("width"), "height": cell.get("height")}
@@ -185,8 +208,14 @@ def sample_dataset(client: httpx.Client, meta: dict, media_dir: Path) -> dict:
     for c in configs:
         part_src = src | {"config": c["config"], "split": c.get("split", src.get("split", "train"))}
         part = sample_part(client, part_src, n, rng)
+        # source.drop: columns not worth keeping (ADE20K's per-object mask images, say).
+        drop = set(src.get("drop") or [])
+        if drop:
+            part["features"] = [f for f in part["features"] if f["name"] not in drop]
+            for r in part["rows"]:
+                r["row"] = {k: v for k, v in r["row"].items() if k not in drop}
         tag = f"{c['config']}-" if multi else ""
-        save_media(client, media_dir, ds_id, tag, part["features"], part["rows"])
+        save_media(client, media_dir, ds_id, tag, part["features"], part["rows"], src.get("max_image_px"))
         parts.append({
             "config": part_src["config"],
             "split": part_src["split"],

@@ -83,6 +83,8 @@ const display = z.discriminatedUnion('kind', [
   z.object({ kind: z.literal('image_mcq'), images: z.array(z.string()), question: z.string(), options: z.string(), answer: z.string(), subject: z.string().optional() }),
   // Two answers to the same conversation, one preferred by a human rater (RLHF data).
   z.object({ kind: z.literal('preference'), chosen: z.string(), rejected: z.string() }),
+  // Polygon segmentation (ADE20K-style objects with name, polygon {x, y}, depth rank and part level).
+  z.object({ kind: z.literal('segmentation'), image: z.string(), objects: z.string(), scene: z.string().optional() }),
   // A Translation feature, e.g. {de: …, en: …}; source/target pick the order.
   z.object({ kind: z.literal('translation'), translation: z.string(), source: z.string(), target: z.string() }),
 ]);
@@ -125,6 +127,8 @@ const datasets = defineCollection({
       fetch_all: z.boolean().optional(),
       rows_per_page: z.number().int().optional(),
       min_length: z.record(z.string(), z.number().int()).optional(), // skip rows whose field is shorter (WikiText's blank lines)
+      drop: z.array(z.string()).optional(), // columns to leave out of the sample
+      max_image_px: z.number().int().optional(), // downscale larger images (annotations keep original coordinates)
     }),
     // How to get the full dataset (the download box). Defaults to the sampled source repo.
     download: z
