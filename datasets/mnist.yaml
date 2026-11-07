@@ -1,0 +1,34 @@
+name: MNIST
+year: 1998
+modality: vision
+task: Image classification (handwritten digits)
+one_liner: 70,000 handwritten digits, 28×28 grayscale, 10 classes.
+creators: Yann LeCun, Corinna Cortes, Christopher J.C. Burges
+size: 70,000 images
+splits: { train: 60000, test: 10000 }
+input: 28×28 grayscale image
+labels: Digit 0–9
+license: CC BY-SA 3.0
+paper:
+  title: Gradient-Based Learning Applied to Document Recognition
+  url: http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf
+homepage: http://yann.lecun.com/exdb/mnist/
+why: >-
+  The "hello world" of machine learning. A remix of NIST handwriting data,
+  small enough to train on a laptop in seconds, it was the standard yardstick
+  for neural networks from LeNet-5 to the first deep learning papers. Geoffrey
+  Hinton called it "the drosophila of machine learning".
+trivia:
+  - Digits were size-normalized to fit a 20×20 box, then centered by center of mass in a 28×28 frame. That is why every digit sits in the middle.
+  - The writers were US Census Bureau employees and high-school students; train and test use disjoint sets of writers.
+  - LeNet-5 got about 0.95% test error in 1998. Modern models reach about 0.2%, and most remaining errors are arguably mislabeled or ambiguous digits.
+lineage:
+  - { name: NIST Special Database 1 & 3, note: source data }
+  - { name: Fashion-MNIST, note: "2017, drop-in replacement with clothing images" }
+  - { name: EMNIST, note: "2017, adds letters" }
+  - { name: KMNIST, note: "2018, cursive Japanese characters" }
+landmark_papers:
+  - { title: "Gradient-Based Learning Applied to Document Recognition (LeNet-5)", year: 1998, url: "http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf" }
+  - { title: "Dropout: A Simple Way to Prevent Neural Networks from Overfitting", year: 2014, url: "https://jmlr.org/papers/v15/srivastava14a.html" }
+source: { hf: ylecun/mnist, config: mnist, split: test, n: 60, seed: 1 }
+display: { kind: image, image: image, label: label, scale: 4 }

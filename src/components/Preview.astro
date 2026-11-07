@@ -1,0 +1,32 @@
+---
+// A tiny glimpse of the data for catalog cards.
+import { getSamples, labelOf, url, type Dataset } from '../lib/data';
+interface Props { ds: Dataset }
+const { ds } = Astro.props;
+const d = ds.data.display;
+const s = getSamples(ds.id);
+const rows = s?.rows ?? [];
+const snippet = (t: string, n = 140) => (t.length > n ? t.slice(0, n).trimEnd() + '…' : t);
+---
+<div class="preview">
+  {!s && <span class="muted">Samples not fetched</span>}
+  {s && d.kind === 'image' && (
+    <div class="strip">
+      {rows.slice(0, 8).map((r) => (
+        <img class="pixelated" src={url(r.row[d.image].src)} alt={d.label ? labelOf(s, d.label, r.row[d.label]) : ''} loading="lazy" />
+      ))}
+    </div>
+  )}
+  {s && d.kind === 'text' && <p>“{snippet(String(rows[0]?.row[d.text] ?? '').replace(/<br\s*\/?>/g, ' '))}”</p>}
+  {s && d.kind === 'qa' && <p>{snippet(String(rows[0]?.row[d.question] ?? ''))}</p>}
+  {s && d.kind === 'table' && (
+    <code>{s.features.map((f) => f.name).join(' · ')}</code>
+  )}
+</div>
+<style>
+  .preview { min-height: 64px; font-size: 0.85rem; color: var(--muted); }
+  .preview p { margin: 0; font-style: italic; }
+  .strip { display: grid; grid-template-columns: repeat(8, 1fr); gap: 3px; }
+  .strip img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 3px; background: #000; }
+  code { word-break: break-word; }
+</style>

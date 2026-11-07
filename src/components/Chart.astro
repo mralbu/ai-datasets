@@ -1,0 +1,17 @@
+---
+interface Props { spec: Record<string, unknown> }
+const { spec } = Astro.props;
+---
+<figure class="chart card" data-spec={JSON.stringify(spec)}></figure>
+<script>
+  import embed from 'vega-embed';
+  const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  for (const el of document.querySelectorAll<HTMLElement>('figure.chart')) {
+    const spec = JSON.parse(el.dataset.spec!);
+    spec.background = 'transparent';
+    embed(el, spec, { actions: false, theme: dark ? 'dark' : undefined, renderer: 'svg' });
+  }
+</script>
+<style>
+  .chart { margin: 0; padding: 16px; width: 100%; }
+</style>

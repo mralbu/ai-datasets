@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import { getDatasets, MODALITIES, url } from '../lib/data';
+const all = await getDatasets();
+---
+<Base title="Timeline · AI Datasets" description="Classic AI datasets and benchmarks in the order they appeared.">
+  <h1>Timeline</h1>
+  <p class="muted">The history of AI, told through what people measured it on.</p>
+  <ol class="tl">
+    {all.map((ds) => (
+      <li>
+        <span class="y">{ds.data.year}</span>
+        <div>
+          <a href={url(`/d/${ds.id}`)}><strong>{ds.data.name}</strong></a>
+          <span class="tag">{MODALITIES[ds.data.modality]}</span>
+          <p class="muted">{ds.data.one_liner}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+</Base>
+<style>
+  .tl { list-style: none; padding: 0; margin: 24px 0; border-left: 2px solid var(--border); }
+  .tl li { display: grid; grid-template-columns: 64px 1fr; gap: 12px; padding: 0 0 20px 16px; position: relative; }
+  .tl li::before { content: ''; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+  .y { font-weight: 700; font-variant-numeric: tabular-nums; }
+  .tl p { margin: 4px 0 0; font-size: 0.92rem; }
+  .tag { margin-left: 8px; vertical-align: 2px; }
+</style>

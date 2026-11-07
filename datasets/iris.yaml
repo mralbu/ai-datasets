@@ -1,0 +1,32 @@
+name: Iris
+year: 1936
+modality: tabular
+task: Multiclass classification (flower species)
+one_liner: 150 flowers, 4 measurements each, 3 species.
+creators: Ronald A. Fisher (data collected by Edgar Anderson)
+size: 150 rows × 4 features
+splits: { all: 150 }
+input: Sepal length/width and petal length/width, in cm
+labels: Iris setosa, versicolor, virginica (50 each)
+license: CC BY 4.0 (UCI repository)
+paper:
+  title: The Use of Multiple Measurements in Taxonomic Problems
+  url: https://doi.org/10.1111/j.1469-1809.1936.tb02137.x
+homepage: https://archive.ics.uci.edu/dataset/53/iris
+why: >-
+  Probably the most-used dataset in statistics teaching. Fisher used it to
+  introduce linear discriminant analysis, and it still shows up in the first
+  chapter of countless ML courses: small enough to print on one page, and one
+  class (setosa) is perfectly separable while the other two overlap.
+trivia:
+  - Plot petal length against petal width and setosa splits off cleanly; versicolor and virginica overlap a little. That plot is the whole lesson.
+  - The widely copied UCI version differs from Fisher's paper in two rows (samples 35 and 38), noted by Bezdek et al. in 1999.
+  - Fisher published it in the Annals of Eugenics, which is why some courses now prefer the Palmer Penguins dataset (2020) as a replacement.
+lineage:
+  - { name: Palmer Penguins, note: "2020, a popular modern substitute" }
+landmark_papers:
+  - { title: "The Use of Multiple Measurements in Taxonomic Problems", year: 1936, url: "https://doi.org/10.1111/j.1469-1809.1936.tb02137.x" }
+source: { hf: scikit-learn/iris, config: default, split: train, n: 12, seed: 3, fetch_all: true }
+display:
+  kind: table
+  chart: { x: PetalLengthCm, y: PetalWidthCm, color: Species, title: "All 150 flowers: petal length vs width" }
