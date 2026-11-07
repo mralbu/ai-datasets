@@ -25,6 +25,7 @@ trivia:
   - About 1 in 10 annotations is a "crowd" region (a group of people or objects) handled specially in scoring.
 lineage:
   - { name: Pascal VOC, note: "2005–2012, 20 classes, the predecessor", hf: TNILab/pascal_voc2012_det_train_val, id: pascal-voc }
+  - { name: ADE20K, note: "2017, every pixel labeled, 150-class benchmark", hf: 1aurent/ADE20K, id: ade20k }
   - { name: LVIS, note: "2019, 1,200+ categories on COCO images", url: "https://www.lvisdataset.org/" }
   - { name: Objects365, note: "2019, 365 categories, 2M images", url: "https://www.objects365.org/" }
 landmark_papers:

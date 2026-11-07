@@ -1,0 +1,112 @@
+---
+import { url, type SampleRow } from '../../lib/data';
+interface Props { d: { image: string; objects: string; scene?: string }; rows: SampleRow[]; k: number }
+const { d, rows, k } = Astro.props;
+
+interface Obj { name: string; polygon: { x: number[]; y: number[] }; depth_ordering_rank?: number; parts?: { part_level?: number } }
+// "wall socket, wall plug, electric outlet" -> "wall socket"
+const short = (n: string) => n.split(',')[0].trim();
+// One color per class name, the same in every image. The most common classes get hand-picked,
+// clearly different colors (neighbors like wall/floor/ceiling or plant/grass/tree never clash);
+// rarer classes get a color from a hash of the name, varying hue and lightness.
+const FIXED: Record<string, string> = {
+  wall: '#d9a441', floor: '#8e5bd6', ceiling: '#3fbf6f', sky: '#5ab4e8', building: '#c2408f',
+  tree: '#2e8b3e', grass: '#9ad04a', plant: '#1f9e89', road: '#7a7a7a', sidewalk: '#b8a07a',
+  earth: '#a0683b', mountain: '#6b5ca5', water: '#2f6fd6', sea: '#2f6fd6', person: '#e8453c',
+  car: '#f07f22', windowpane: '#57d6c4', door: '#a34f2a', table: '#e6cf3a', chair: '#e655c8',
+  bed: '#3d7fe0', cabinet: '#4a48c8', curtain: '#33c94f', painting: '#ff8fa3', sofa: '#b03a5b',
+  shelf: '#c98b5a', lamp: '#ffd166', light: '#ffe08a', rug: '#d4628a', mirror: '#e14b4b',
+};
+const hash = (s: string) => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0; return h; };
+const color = (n: string) => FIXED[n] ?? (() => { const h = hash(n); return `hsl(${h % 360} ${60 + (h >> 9) % 25}% ${45 + (h >> 17) % 20}%)`; })();
+// "Unclassified" scene levels say nothing; drop them.
+const sceneOf = (v: unknown) =>
+  ((v as string[] | undefined) ?? []).filter((x) => x && x.toLowerCase() !== 'unclassified').map((x) => x.replaceAll('_', ' ')).join(' › ') || undefined;
+// Whole objects only (parts like "door handle" are a second level), drawn back to front.
+const objectsOf = (r: SampleRow): Obj[] =>
+  ((r.row[d.objects] ?? []) as Obj[])
+    .filter((o) => (o.parts?.part_level ?? 0) === 0 && o.polygon?.x?.length > 2)
+    .sort((a, b) => (a.depth_ordering_rank ?? 0) - (b.depth_ordering_rank ?? 0));
+const points = (o: Obj) => o.polygon.x.map((x, i) => `${x},${o.polygon.y[i]}`).join(' ');
+const legend = (objs: Obj[]) => {
+  const m = new Map<string, number>();
+  for (const o of objs) m.set(short(o.name), (m.get(short(o.name)) ?? 0) + 1);
+  return [...m.entries()].sort((a, b) => b[1] - a[1]);
+};
+---
+<div class="seg-grid">
+  {rows.map((r, i) => {
+    const img = r.row[d.image];
+    const objs = objectsOf(r);
+    const scene = d.scene ? sceneOf(r.row[d.scene]) : undefined;
+    return (
+      <figure class="card seg" data-item data-seg hidden={i >= k}>
+        <div class="frame">
+          <img src={url(img.src)} width={img.width} height={img.height} alt={scene ?? ''} loading="lazy" />
+          <svg viewBox={`0 0 ${img.width} ${img.height}`} preserveAspectRatio="none" role="img" aria-label="object masks">
+            {objs.map((o) => (
+              <polygon points={points(o)} data-name={short(o.name)} style={`--c:${color(short(o.name))}`}><title>{short(o.name)}</title></polygon>
+            ))}
+          </svg>
+          <span class="hover-name" aria-hidden="true"></span>
+        </div>
+        <figcaption>
+          {scene && <p class="scene muted">{scene}</p>}
+          <p class="legend">
+            {legend(objs).map(([n, c]) => (
+              <span class="chip" data-name={n} style={`--c:${color(n)}`}><i></i>{n}{c > 1 && <span class="muted"> ×{c}</span>}</span>
+            ))}
+          </p>
+        </figcaption>
+      </figure>
+    );
+  })}
+</div>
+
+<script>
+  // Hovering a mask or a legend chip highlights every object of that class in the image.
+  for (const fig of document.querySelectorAll<HTMLElement>('[data-seg]')) {
+    const label = fig.querySelector<HTMLElement>('.hover-name')!;
+    const set = (name: string | null) => {
+      fig.classList.toggle('focus', !!name);
+      fig.querySelectorAll<SVGElement | HTMLElement>('[data-name]').forEach((el) => el.classList.toggle('on', el.dataset.name === name));
+      label.textContent = name ?? '';
+    };
+    fig.querySelectorAll<HTMLElement | SVGElement>('[data-name]').forEach((el) => {
+      el.addEventListener('pointerenter', () => set(el.dataset.name!));
+      el.addEventListener('pointerleave', () => set(null));
+    });
+  }
+</script>
+
+<style>
+  .seg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: 14px; align-items: start; }
+  figure { margin: 0; overflow: hidden; }
+  figure[hidden] { display: none; }
+  .frame { position: relative; line-height: 0; background: #000; }
+  .frame img { width: 100%; height: auto; display: block; transition: opacity 0.2s; }
+  svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  polygon {
+    fill: color-mix(in srgb, var(--c) 45%, transparent); stroke: #fff; stroke-opacity: 0.75; stroke-width: 1.2;
+    vector-effect: non-scaling-stroke; stroke-linejoin: round; transition: fill 0.12s, opacity 0.12s;
+  }
+  polygon title { pointer-events: none; }
+  /* Focus one class: it turns solid, the rest fade. */
+  .focus polygon { opacity: 0.25; }
+  .focus polygon.on { opacity: 1; fill: color-mix(in srgb, var(--c) 80%, transparent); stroke-width: 2; }
+  .hover-name {
+    position: absolute; left: 8px; bottom: 8px; line-height: 1.2; padding: 4px 8px; border-radius: 6px;
+    background: rgb(0 0 0 / 0.7); color: #fff; font-size: 0.8rem; font-weight: 600; pointer-events: none;
+  }
+  .hover-name:empty { display: none; }
+  /* Toolbar: "Hide masks" shows the photo alone; "Solid masks" is what a segmentation model outputs. */
+  :global(.no-masks) svg { display: none; }
+  :global(.solid) polygon { fill: var(--c); stroke: #000; stroke-opacity: 0.35; }
+  :global(.solid) .frame img { opacity: 0; }
+  figcaption { padding: 10px 12px 12px; }
+  .scene { margin: 0 0 8px; font-size: 0.78rem; text-transform: capitalize; }
+  .legend { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 0; font-size: 0.78rem; }
+  .chip { display: inline-flex; align-items: center; gap: 5px; padding: 1px 7px 1px 5px; border: 1px solid var(--border); border-radius: 999px; cursor: default; }
+  .chip i { width: 9px; height: 9px; border-radius: 3px; background: var(--c); flex: none; }
+  .chip.on { border-color: var(--c); background: color-mix(in srgb, var(--c) 15%, transparent); }
+</style>

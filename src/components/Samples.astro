@@ -15,13 +15,14 @@ import Translation from './kinds/Translation.astro';
 import Annotated from './kinds/Annotated.astro';
 import ImageMCQ from './kinds/ImageMCQ.astro';
 import Preference from './kinds/Preference.astro';
+import Segmentation from './kinds/Segmentation.astro';
 
 interface Props { ds: Dataset; samples: Samples }
 const { ds, samples: s } = Astro.props;
 const d = ds.data.display;
 const rows = s.rows;
 // How many samples to show at once, per kind.
-const SHOW: Record<string, number> = { image: 24, boxes: 6, text: 4, qa: 3, extractive: 3, mcq: 4, code: 2, audio: 4, grid: 2, record: 9, table: 8, translation: 6, annotated: 6, image_mcq: 3, preference: 3 };
+const SHOW: Record<string, number> = { image: 24, boxes: 6, text: 4, qa: 3, extractive: 3, mcq: 4, code: 2, audio: 4, grid: 2, record: 9, table: 8, translation: 6, annotated: 6, image_mcq: 3, preference: 3, segmentation: 4 };
 const k = d.kind === 'image' && d.thumb ? 12 : SHOW[d.kind];
 const first = rows[0];
 const splitInfo = s.parts && s.parts.length > 1
@@ -42,6 +43,8 @@ const revUrl = s.revision ? `https://huggingface.co/datasets/${s.source.hf}/tree
     <span class="buttons">
       {d.kind === 'image' && !d.thumb && <button type="button" data-toggle-class="native" aria-pressed="false">Actual pixel size</button>}
       {d.kind === 'boxes' && <button type="button" data-toggle-class="no-boxes" aria-pressed="false">Hide boxes</button>}
+      {d.kind === 'segmentation' && <button type="button" data-toggle-class="no-masks" aria-pressed="false">Hide masks</button>}
+      {d.kind === 'segmentation' && <button type="button" data-toggle-class="solid" aria-pressed="false">Solid masks</button>}
       {rows.length > k && <button type="button" data-shuffle>Shuffle</button>}
     </span>
   </div>
@@ -61,6 +64,7 @@ const revUrl = s.revision ? `https://huggingface.co/datasets/${s.source.hf}/tree
   {d.kind === 'annotated' && <Annotated s={s} d={d} rows={rows} k={k} />}
   {d.kind === 'image_mcq' && <ImageMCQ d={d} rows={rows} k={k} />}
   {d.kind === 'preference' && <Preference d={d} rows={rows} k={k} />}
+  {d.kind === 'segmentation' && <Segmentation d={d} rows={rows} k={k} />}
 
   {first && (
     <details class="raw">

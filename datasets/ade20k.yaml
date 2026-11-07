@@ -1,0 +1,49 @@
+name: ADE20K
+year: 2017
+modality: vision
+task: Semantic segmentation and scene parsing
+one_liner: 27,000 scenes where every object, and often its parts, is outlined and named.
+creators: Bolei Zhou, Hang Zhao, Xavier Puig, Sanja Fidler, Adela Barriuso, Antonio Torralba (MIT)
+size: 27,574 images, 3,688 object classes (full 2021 release)
+splits: { train: 25574, validation: 2000 }
+input: RGB photo of an indoor or outdoor scene
+labels: A polygon and a name for every object, plus parts and a scene category
+license: Research and educational use (images from SUN and Places)
+paper:
+  title: Scene Parsing through ADE20K Dataset
+  url: https://openaccess.thecvf.com/content_cvpr_2017/papers/Zhou_Scene_Parsing_Through_CVPR_2017_paper.pdf
+homepage: https://groups.csail.mit.edu/vision/datasets/ADE20K/
+why: >-
+  Classification says what is in a photo and detection draws boxes;
+  segmentation labels every pixel. ADE20K's 150-class "SceneParsing"
+  benchmark, covering walls, floors, sky and roads as well as things, became
+  the standard test for segmentation models, scored by mean intersection over
+  union (mIoU): PSPNet, DeepLab, SegFormer and Mask2Former all report it, and
+  it is now a common test of general vision backbones.
+trivia:
+  - Almost all images were annotated by one person, Adela Barriuso, for consistency. Re-annotating 61 images six months later, she matched her own labels on about 82% of pixels.
+  - Objects have parts, and parts have parts (a door has a handle). The masks here show whole objects only.
+  - The benchmark keeps the 150 most frequent classes, which cover most of the pixels; the full release names over 3,600.
+  - Hover over a mask or a name to highlight that class, or switch to solid masks to see what a segmentation model is asked to output.
+lineage:
+  - { name: PASCAL VOC, note: "2005–2012, had a 20-class segmentation track", hf: TNILab/pascal_voc2012_det_train_val, id: pascal-voc }
+  - { name: MS COCO, note: "2014, instance masks; COCO-Stuff adds walls, sky and the like", hf: rafaelpadilla/coco2017, id: coco }
+  - { name: Cityscapes, note: "2016, street scenes for self-driving", url: "https://www.cityscapes-dataset.com/" }
+  - { name: SA-1B, note: "2023, 1.1 billion masks without class names, for Segment Anything", url: "https://ai.meta.com/datasets/segment-anything/" }
+landmark_papers:
+  - { title: "Pyramid Scene Parsing Network (PSPNet)", year: 2017, url: "https://arxiv.org/abs/1612.01105" }
+  - { title: "Encoder-Decoder with Atrous Separable Convolution (DeepLabv3+)", year: 2018, url: "https://arxiv.org/abs/1802.02611" }
+  - { title: "SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers", year: 2021, url: "https://arxiv.org/abs/2105.15203" }
+  - { title: "Masked-attention Mask Transformer for Universal Image Segmentation (Mask2Former)", year: 2021, url: "https://arxiv.org/abs/2112.01527" }
+source:
+  hf: 1aurent/ADE20K
+  config: default
+  split: validation
+  n: 12
+  seed: 41
+  rows_per_page: 1
+  drop: [segmentations, instances]
+  max_image_px: 1024
+display: { kind: segmentation, image: image, objects: objects, scene: scene }
+download:
+  note: "A community Parquet copy of the full 2021 release, with mask images and polygons. The 150-class benchmark version (SceneParsing) is on the MIT site."

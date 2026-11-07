@@ -75,13 +75,16 @@ Without the worktree, `.samples/` is just a local cache and the first `npm run f
    | `table` | optional `chart: {type: scatter \| rate, x, y, color}`, `columns` | Iris, Titanic, Palmer Penguins, MovieLens |
 | `annotated` | `image`, `captions` (list) or `attributes: true` (yes/no columns), `thumb` | Flickr30k, CelebA |
 | `image_mcq` | `images` (list of image columns), `question`, `options`, `answer` (letter), `subject` | MMMU |
+| `segmentation` | `image`, `objects` (ADE20K-style: `name`, `polygon {x, y}`, `depth_ordering_rank`, `parts.part_level`), `scene` | ADE20K |
 | `preference` | `chosen`, `rejected` (Human:/Assistant: transcripts) | Anthropic HH-RLHF |
 | `translation` | `translation` (a Translation feature), `source`, `target` (language codes) | WMT14 |
 
    Useful `source` options: `n` (rows to sample), `seed`, `fetch_all: true` (small tables, needed for
    charts), `configs: [...]` (sample several configs, like GLUE's tasks), and `rows_per_page`
    (default 8; lower it when the split is sorted by a label with many values, as ImageNet's is),
-   and `min_length: {field: n}` (skip rows whose field is shorter, like WikiText's blank lines).
+   `min_length: {field: n}` (skip rows whose field is shorter, like WikiText's blank lines),
+   `drop: [columns]` (leave columns out of the sample) and `max_image_px` (downscale big photos;
+   annotations keep their original coordinates).
 
    Each page has a "Get the data" box with copy-paste snippets for the `hf` CLI, 🤗 `datasets` and
    Polars, built from `source`. Override it with an optional `download` block: `hf` (the canonical
