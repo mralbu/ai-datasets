@@ -20,7 +20,7 @@ away knowing the data.
 datasets/<id>.yaml      one file per dataset: facts, description, Hugging Face source, how to display it
 scripts/sample.py       (uv: polars, altair, pillow) samples rows from the Hugging Face dataset viewer
                         into a snapshot, then copies it to src/generated/ and public/samples/
-src/                    Astro site: catalog, timeline, one page per dataset
+src/                    Astro site: catalog, timeline, one page per dataset, search (press /)
 samples branch          the snapshot: sampled rows, media and a manifest (generated, data only)
 justfile                shortcuts for everything below (run `just` to list them)
 ```
