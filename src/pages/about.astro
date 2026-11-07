@@ -1,25 +1,38 @@
 ---
 import Base from '../layouts/Base.astro';
+import { getDatasets } from '../lib/data';
+const count = (await getDatasets()).length;
 ---
 <Base title="About · AI Datasets">
   <article class="prose">
     <h1>About</h1>
     <p>
-      Hugging Face and Papers with Code list thousands of datasets. This site goes the other way: a few
-      dozen that shaped AI, each shown well enough that you come away knowing what the data looks like.
+      Hugging Face lists hundreds of thousands of datasets. This site goes the other way: {count} that
+      shaped AI, across vision, language models, text, tabular data and audio, each shown well enough that
+      you come away knowing what the data looks like.
     </p>
     <h2>How entries are chosen</h2>
     <ul>
-      <li>It changed the field (ImageNet, MNIST, SQuAD), or</li>
-      <li>it is still used everywhere (COCO, MMLU, GSM8K), or</li>
+      <li>It changed the field (ImageNet, MNIST, SQuAD, Anthropic HH-RLHF), or</li>
+      <li>it was the standard benchmark for years (COCO, GLUE, MMLU, GSM8K), or</li>
       <li>it is in every introductory course (Iris, Titanic, CIFAR-10).</li>
     </ul>
     <h2>Where the samples come from</h2>
     <p>
-      At build time a script picks a fixed random sample of rows from the
-      <a href="https://huggingface.co/docs/dataset-viewer">Hugging Face dataset viewer</a>.
+      When a dataset is added, a script picks a fixed random sample of rows from the{' '}
+      <a href="https://huggingface.co/docs/dataset-viewer">Hugging Face dataset viewer</a> and keeps it,
+      so the pages do not change from one visit to the next. Where the official copy cannot be read by
+      the viewer, a community copy is used; the Hugging Face button and the line under the samples name
+      the exact repository and revision.
       Samples stay under each dataset's license, which is listed on its page.
-      For benchmarks whose authors ask that test items not be posted online, only sample or dev items are shown.
+      Gated benchmarks, whose authors ask that questions not be published, such as GPQA and
+      Humanity's Last Exam, are linked but not sampled.
+    </p>
+    <h2>Getting the data</h2>
+    <p>
+      Every page has a "Get the data" box with a command for the Hugging Face CLI, and the same in Python
+      with the <code>datasets</code> library or Polars. Check the license and size first: some datasets are
+      for research use only, and some are hundreds of gigabytes.
     </p>
   </article>
 </Base>
