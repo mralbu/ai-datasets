@@ -31,7 +31,10 @@ const nav = [
           <nav>
             {nav.map((n) => <a href={n.href} aria-current={n.active ? 'page' : undefined}>{n.label}</a>)}
           </nav>
-          <button type="button" class="theme" data-theme-toggle aria-label="Switch color theme" title="Switch color theme">
+          <a class="round tip tip-end" href="https://github.com/mralbu/ai-datasets" aria-label="Source on GitHub" data-tip="Source on GitHub">
+            <svg viewBox="0 0 16 16" width="17" height="17" aria-hidden="true" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
+          </a>
+          <button type="button" class="theme round" data-theme-toggle aria-label="Switch color theme" title="Switch color theme">
             <span class="to-dark" aria-hidden="true">☾&#xFE0E;</span>
             <span class="to-light" aria-hidden="true">☀&#xFE0E;</span>
           </button>
@@ -65,13 +68,17 @@ const nav = [
   .bar { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
   .brand { font-weight: 700; color: var(--text); white-space: nowrap; }
   .right { display: flex; align-items: center; gap: 14px; }
+  .right .round + .round { margin-left: -6px; }
   nav { display: flex; gap: 16px; }
   nav a { color: var(--muted); }
   nav a[aria-current='page'] { color: var(--text); font-weight: 600; }
-  .theme {
+  .round {
     width: 34px; height: 34px; padding: 0; border-radius: 50%; display: grid; place-items: center;
-    font-size: 1.05rem; line-height: 1; color: var(--text); font-family: 'Segoe UI Symbol', 'DejaVu Sans', system-ui, sans-serif;
+    border: 1px solid var(--border); background: var(--surface); color: var(--text);
   }
+  a.round:hover { text-decoration: none; border-color: var(--accent); }
+  .theme { font-size: 1.05rem; line-height: 1; font-family: 'Segoe UI Symbol', 'DejaVu Sans', system-ui, sans-serif; }
+  .right :global(.tip)::after { bottom: auto; top: calc(100% + 8px); }
   /* Show the icon of the mode you would switch to. */
   .to-light { display: none; }
   :global(:root[data-theme='dark']) .to-dark { display: none; }
@@ -80,7 +87,13 @@ const nav = [
     :global(:root:not([data-theme='light'])) .to-dark { display: none; }
     :global(:root:not([data-theme='light'])) .to-light { display: inline; }
   }
-  @media (max-width: 420px) { nav { gap: 12px; font-size: 0.92rem; } .right { gap: 10px; } }
+  @media (max-width: 420px) {
+    nav { gap: 12px; font-size: 0.92rem; }
+    .right { gap: 10px; }
+    .round { width: 32px; height: 32px; }
+  }
+  /* Very narrow phones: "Catalog" already links home, so drop the name to make room. */
+  @media (max-width: 380px) { .brand { display: none; } .bar { justify-content: flex-end; } }
   main { padding-bottom: 48px; }
   footer { font-size: 0.85rem; padding-top: 24px; padding-bottom: 32px; border-top: 1px solid var(--border); }
 </style>
