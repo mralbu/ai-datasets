@@ -24,8 +24,8 @@ trivia:
   - Answers are all-or-nothing. A grid with one wrong cell counts as a miss.
   - These samples come from the ARC-AGI-2 public training set, which includes many ARC-AGI-1 tasks.
 lineage:
-  - { name: ARC-AGI-2, note: "2025, harder tasks, 1,000 for training" }
-  - { name: ConceptARC, note: "2023, tasks grouped by concept" }
+  - { name: ARC-AGI-2, note: "2025, harder tasks, 1,000 for training", url: "https://github.com/arcprize/ARC-AGI-2" }
+  - { name: ConceptARC, note: "2023, tasks grouped by concept", url: "https://github.com/victorvikram/ConceptARC" }
 landmark_papers:
   - { title: "On the Measure of Intelligence", year: 2019, url: "https://arxiv.org/abs/1911.01547" }
   - { title: "ARC Prize 2024: Technical Report", year: 2024, url: "https://arxiv.org/abs/2412.04604" }

@@ -26,9 +26,9 @@ trivia:
   - A 2021 study estimated roughly 6% of validation labels are wrong; many images contain several classes but have one label.
   - These samples come from a mirror resized to 256 px on the short side, not the gated original.
 lineage:
-  - { name: ImageNet-21k, note: "the full 21k-class hierarchy" }
-  - { name: ImageNetV2, note: "2019, new test set, accuracy drops ~11–14 points" }
-  - { name: Imagenette, note: "2019, 10 easy classes for quick experiments" }
+  - { name: ImageNet-21k, note: "the full 21k-class hierarchy", hf: timm/imagenet-22k-wds }
+  - { name: ImageNetV2, note: "2019, new test set, accuracy drops ~11–14 points", hf: vaishaal/ImageNetV2 }
+  - { name: Imagenette, note: "2019, 10 easy classes for quick experiments", url: "https://github.com/fastai/imagenette" }
 landmark_papers:
   - { title: "ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)", year: 2012, url: "https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks" }
   - { title: "Very Deep Convolutional Networks (VGG)", year: 2014, url: "https://arxiv.org/abs/1409.1556" }

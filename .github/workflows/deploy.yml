@@ -1,20 +1,27 @@
 name: Deploy to GitHub Pages
 
+# Samples are kept on the `samples` branch (an orphan branch holding only data).
+# Each build reuses them and fetches from Hugging Face only datasets that are new
+# or whose config changed, then commits the result back to `samples`.
+
 on:
   push:
     branches: [main]
   workflow_dispatch:
-  schedule:
-    - cron: '17 4 * * 1' # weekly, so a broken upstream dataset shows up quickly
+    inputs:
+      refetch:
+        description: Dataset ids to re-fetch even if unchanged (space-separated), or "all"
+        required: false
+        default: ''
 
 permissions:
-  contents: read
+  contents: write # push to the samples branch
   pages: write
   id-token: write
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false # never interrupt a push to the samples branch
 
 jobs:
   build:
@@ -27,8 +34,43 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Fetch dataset samples
-        run: uv run scripts/sample.py
+
+      - name: Check out sample snapshot
+        run: |
+          if git ls-remote --exit-code --heads origin samples >/dev/null; then
+            git fetch --depth=1 origin samples:samples
+            git worktree add .samples samples
+          else
+            echo "No samples branch yet; starting an empty one."
+            git worktree add --orphan -b samples .samples
+          fi
+
+      - name: Fetch new or changed samples
+        env:
+          REFETCH: ${{ inputs.refetch }}
+        run: |
+          if [ "$REFETCH" = "all" ]; then
+            uv run scripts/sample.py --strict --force
+          elif [ -n "$REFETCH" ]; then
+            uv run scripts/sample.py --strict --force $REFETCH
+            uv run scripts/sample.py --strict  # then the rest as usual
+          else
+            uv run scripts/sample.py --strict
+          fi
+
+      - name: Save snapshot to the samples branch
+        working-directory: .samples
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Snapshot unchanged."
+          else
+            git -c user.name="github-actions[bot]" \
+                -c user.email="41898088+github-actions[bot]@users.noreply.github.com" \
+                commit -q -m "Update samples for ${GITHUB_SHA::7}"
+            git push origin HEAD:samples
+          fi
+
       - name: Build site
         run: npm run build
       - uses: actions/upload-pages-artifact@v5

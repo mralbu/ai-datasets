@@ -17,21 +17,43 @@ historically important datasets, each shown well enough that you come away knowi
 
 ```
 datasets/<id>.yaml      one file per dataset: facts, description, HF source, display kind
-scripts/sample.py       (uv + polars + altair) fetches a seeded random sample of rows from the
-                        Hugging Face dataset viewer API → src/generated/<id>.json + public/samples/<id>/
+scripts/sample.py       (uv + polars + altair) samples rows from the Hugging Face dataset viewer
+                        into a snapshot, then copies it to src/generated/ and public/samples/
 src/                    Astro site: catalog, timeline, one page per dataset
+samples branch          the snapshot: sampled rows, media and a manifest (generated, data only)
 ```
 
-Samples are fetched at build time and are not committed (see `.gitignore`).
+### Where samples come from
+
+Samples are fetched once and kept on the **`samples` branch**, an orphan branch that holds only
+data. Each dataset has a fingerprint (its `source` block and chart config). On every deploy the
+workflow checks out `samples` into `.samples/`, re-fetches only datasets that are new or whose
+fingerprint changed, prunes removed ones, commits the snapshot back to `samples`, and builds.
+A normal push touches Hugging Face not at all.
+
+- `--strict` in CI: if a fetch fails, the build fails and Pages keeps serving the last good site.
+  The previous sample of that dataset is kept in the snapshot.
+- `manifest.json` on the branch records, per dataset, the Hugging Face revision and fetch time;
+  each page shows it under the samples.
+- To re-fetch on purpose: run the deploy workflow manually with `refetch` set to dataset ids or
+  `all`, or bump `SAMPLER_VERSION` in `scripts/sample.py`.
+- Taking a sample down: delete or edit it on the `samples` branch (squash or recreate the branch
+  if it must leave history); nothing on `main` needs rewriting.
+- A monthly workflow (`check-sources.yml`) makes one tiny request per source and fails if a
+  dataset was renamed, gated or deleted upstream.
 
 ## Develop
 
 ```sh
 npm install
-npm run fetch              # uv run scripts/sample.py  (or: uv run scripts/sample.py mnist iris)
-                           # a failed dataset only warns; add --strict to make it an error
+git fetch origin samples && git worktree add .samples samples   # reuse the published snapshot
+npm run fetch              # uv run scripts/sample.py: fetches only what is missing or changed
 BASE_PATH=/ npm run dev    # http://localhost:4321
 ```
+
+Without the worktree, `.samples/` is just a local cache and the first `npm run fetch` fills it
+(about 3 minutes). Other options: `uv run scripts/sample.py <id>` (only that dataset),
+`--force` (re-fetch even if unchanged), `--check` (health check only).
 
 ## Add a dataset
 
@@ -56,10 +78,12 @@ BASE_PATH=/ npm run dev    # http://localhost:4321
    charts), `configs: [...]` (sample several configs, like GLUE's tasks), and `rows_per_page`
    (default 8; lower it when the split is sorted by a label with many values, as ImageNet's is).
 2. `uv run scripts/sample.py <id>` and check the page with `BASE_PATH=/ npm run dev`.
+3. Related datasets (`lineage`) take `hf: <owner/name>` to link to Hugging Face, or `url:` when
+   there is no HF copy, and `id:` when the dataset also has a page on this site.
 
 The schema lives in `src/content.config.ts`; the build fails on a malformed entry.
 
 ## Deploy
 
-`.github/workflows/deploy.yml` fetches samples, builds, and publishes to GitHub Pages on every push
-to `main` (and weekly). In the repo settings, set **Pages → Source** to **GitHub Actions**.
+`.github/workflows/deploy.yml` updates the snapshot, builds, and publishes to GitHub Pages on every
+push to `main`. In the repo settings, set **Pages → Source** to **GitHub Actions**.

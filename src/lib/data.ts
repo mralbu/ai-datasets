@@ -12,6 +12,7 @@ export interface Samples {
   source: { hf: string; config?: string; split?: string };
   num_rows_total: number;
   fetched_at: string;
+  revision?: string | null; // Hub commit the sample was taken from
   features: Feature[];
   parts?: Part[];
   rows: SampleRow[];

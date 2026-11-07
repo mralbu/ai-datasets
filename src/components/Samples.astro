@@ -26,6 +26,8 @@ const splitInfo = s.parts && s.parts.length > 1
 // Raw JSON can be huge (ARC grids); keep the preview readable.
 const raw = first ? JSON.stringify(first.row, null, 2) : '';
 const rawShown = raw.length > 6000 ? raw.slice(0, 6000) + '\n… (truncated)' : raw;
+const fetched = s.fetched_at.slice(0, 10);
+const revUrl = s.revision ? `https://huggingface.co/datasets/${s.source.hf}/tree/${s.revision}` : undefined;
 ---
 <section class="samples" data-k={k}>
   <div class="toolbar">
@@ -59,6 +61,10 @@ const rawShown = raw.length > 6000 ? raw.slice(0, 6000) + '\n… (truncated)' : 
       <p class="muted">Media fields point at a local copy; on Hugging Face they are bytes in a Parquet file.</p>
     </details>
   )}
+  <p class="provenance muted">
+    Sampled {fetched} from <a href={`https://huggingface.co/datasets/${s.source.hf}`}>{s.source.hf}</a>
+    {revUrl && <> at revision <a href={revUrl}><code>{s.revision!.slice(0, 7)}</code></a></>}
+  </p>
 </section>
 
 <script>
@@ -125,6 +131,7 @@ const rawShown = raw.length > 6000 ? raw.slice(0, 6000) + '\n… (truncated)' : 
   .raw { margin-top: 18px; }
   .raw summary { cursor: pointer; color: var(--muted); font-size: 0.9rem; }
   .raw pre { max-height: 360px; }
+  .provenance { font-size: 0.8rem; margin: 10px 0 0; }
 
   /* Shared by the sample renderers in ./kinds */
   .samples :global(.list) { display: grid; gap: 14px; }

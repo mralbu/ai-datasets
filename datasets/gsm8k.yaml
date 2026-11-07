@@ -23,8 +23,8 @@ trivia:
   - The final answer always follows "####", which makes automatic grading a simple string match.
   - Written by human contractors to avoid web text, but later studies found signs of contamination and released fresh look-alike sets (e.g. GSM1k).
 lineage:
-  - { name: MATH, note: "2021, competition-level math, much harder" }
-  - { name: GSM-Symbolic, note: "2024, templated variants to probe robustness" }
+  - { name: MATH, note: "2021, competition-level math, much harder", hf: EleutherAI/hendrycks_math }
+  - { name: GSM-Symbolic, note: "2024, templated variants to probe robustness", hf: apple/GSM-Symbolic }
 landmark_papers:
   - { title: "Training Verifiers to Solve Math Word Problems", year: 2021, url: "https://arxiv.org/abs/2110.14168" }
   - { title: "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models", year: 2022, url: "https://arxiv.org/abs/2201.11903" }

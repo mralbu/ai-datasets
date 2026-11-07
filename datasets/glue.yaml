@@ -34,8 +34,8 @@ config_notes:
   rte: "RTE: does the first sentence entail the second?"
   wnli: "WNLI: with the pronoun resolved, is the second sentence implied?"
 lineage:
-  - { name: SuperGLUE, note: "2019, harder successor" }
-  - { name: MMLU, note: "2020, knowledge-heavy benchmark for the LLM era" }
+  - { name: SuperGLUE, note: "2019, harder successor", hf: aps/super_glue }
+  - { name: MMLU, note: "2020, knowledge-heavy benchmark for the LLM era", hf: cais/mmlu, id: mmlu }
 landmark_papers:
   - { title: "BERT: Pre-training of Deep Bidirectional Transformers", year: 2018, url: "https://arxiv.org/abs/1810.04805" }
   - { title: "RoBERTa: A Robustly Optimized BERT Pretraining Approach", year: 2019, url: "https://arxiv.org/abs/1907.11692" }
