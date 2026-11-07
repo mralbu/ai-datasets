@@ -1,0 +1,274 @@
+{
+ "features": [
+  {
+   "name": "audio",
+   "type": {
+    "_type": "Audio",
+    "sampling_rate": 16000
+   }
+  },
+  {
+   "name": "label",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "file",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "speaker_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "utterance_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "int32"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T22:24:16+00:00",
+ "id": "speech-commands",
+ "num_rows_total": 11005,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "audio",
+     "type": {
+      "_type": "Audio",
+      "sampling_rate": 16000
+     }
+    },
+    {
+     "name": "label",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "file",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "speaker_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "utterance_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    }
+   ],
+   "num_rows_total": 11005,
+   "split": "test"
+  }
+ ],
+ "revision": "278418261b4161f6603e06431fa05f9416aaee99",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/speech-commands/3884-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "seven/a1533da4_nohash_0.wav",
+    "label": "seven",
+    "speaker_id": "a1533da4",
+    "utterance_id": 0
+   },
+   "row_idx": 3884,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/speech-commands/210-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "eight/cfbedff9_nohash_2.wav",
+    "label": "eight",
+    "speaker_id": "cfbedff9",
+    "utterance_id": 2
+   },
+   "row_idx": 210,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/speech-commands/10168-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "learn/cfbedff9_nohash_3.wav",
+    "label": "learn",
+    "speaker_id": "cfbedff9",
+    "utterance_id": 3
+   },
+   "row_idx": 10168,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/speech-commands/2536-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "left/3b4f8f24_nohash_3.wav",
+    "label": "left",
+    "speaker_id": "3b4f8f24",
+    "utterance_id": 3
+   },
+   "row_idx": 2536,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/speech-commands/7758-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "right/7257420c_nohash_0.wav",
+    "label": "right",
+    "speaker_id": "7257420c",
+    "utterance_id": 0
+   },
+   "row_idx": 7758,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/speech-commands/8465-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "zero/ad6a46f1_nohash_0.wav",
+    "label": "zero",
+    "speaker_id": "ad6a46f1",
+    "utterance_id": 0
+   },
+   "row_idx": 8465,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/speech-commands/6656-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "six/8ea6dec6_nohash_0.wav",
+    "label": "six",
+    "speaker_id": "8ea6dec6",
+    "utterance_id": 0
+   },
+   "row_idx": 6656,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/speech-commands/5157-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "two/af8b2f2c_nohash_1.wav",
+    "label": "two",
+    "speaker_id": "af8b2f2c",
+    "utterance_id": 1
+   },
+   "row_idx": 5157,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/speech-commands/5955-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "down/87070229_nohash_0.wav",
+    "label": "down",
+    "speaker_id": "87070229",
+    "utterance_id": 0
+   },
+   "row_idx": 5955,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/speech-commands/9388-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "stop/ffb86d3c_nohash_0.wav",
+    "label": "stop",
+    "speaker_id": "ffb86d3c",
+    "utterance_id": 0
+   },
+   "row_idx": 9388,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/speech-commands/1119-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "yes/b83c1acf_nohash_0.wav",
+    "label": "yes",
+    "speaker_id": "b83c1acf",
+    "utterance_id": 0
+   },
+   "row_idx": 1119,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/speech-commands/2961-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "bed/62ff07ef_nohash_0.wav",
+    "label": "bed",
+    "speaker_id": "62ff07ef",
+    "utterance_id": 0
+   },
+   "row_idx": 2961,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "pollen-robotics/speech-commands-v0.02",
+  "split": "test"
+ }
+}

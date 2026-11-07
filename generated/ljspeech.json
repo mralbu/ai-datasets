@@ -1,0 +1,192 @@
+{
+ "features": [
+  {
+   "name": "file",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "spoken_text",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "normalized_text",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "audio",
+   "type": {
+    "_type": "Audio",
+    "sampling_rate": 22050
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T22:24:07+00:00",
+ "id": "ljspeech",
+ "num_rows_total": 13100,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "file",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "spoken_text",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "normalized_text",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "audio",
+     "type": {
+      "_type": "Audio",
+      "sampling_rate": 22050
+     }
+    }
+   ],
+   "num_rows_total": 13100,
+   "split": "full"
+  }
+ ],
+ "revision": "f04bb20ddce4b1dbcfb95b10e5573121d871bf5f",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/ljspeech/9024-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "lj-034-0058.wav",
+    "normalized_text": "the Commission considered the possibility that Oswald handled these cartons as part of his normal duties.",
+    "spoken_text": "the Commission considered the possibility that Oswald handled these cartons as part of his normal duties."
+   },
+   "row_idx": 9024,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/ljspeech/9016-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "lj-034-0050.wav",
+    "normalized_text": "Most of the prints were found to have been placed on the cartons by an FBI clerk",
+    "spoken_text": "Most of the prints were found to have been placed on the cartons by an FBI clerk"
+   },
+   "row_idx": 9016,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/ljspeech/9056-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "lj-034-0090.wav",
+    "normalized_text": "Eyewitness Identification of Assassin",
+    "spoken_text": "Eyewitness Identification of Assassin"
+   },
+   "row_idx": 9056,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/ljspeech/9057-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "lj-034-0091.wav",
+    "normalized_text": "Howard L. Brennan was an eyewitness to the shooting. As indicated previously the Commission considered his testimony as probative",
+    "spoken_text": "Howard L. Brennan was an eyewitness to the shooting. As indicated previously the Commission considered his testimony as probative"
+   },
+   "row_idx": 9057,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/ljspeech/8991-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "lj-034-0025.wav",
+    "normalized_text": "as being the left palmprint and right index fingerprint of Lee Harvey Oswald.",
+    "spoken_text": "as being the left palmprint and right index fingerprint of Lee Harvey Oswald."
+   },
+   "row_idx": 8991,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/ljspeech/9030-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "lj-034-0064.wav",
+    "normalized_text": "This finding, in addition to the freshness of one of the prints and the presence of Oswald's prints on two of the four cartons and the paper bag",
+    "spoken_text": "This finding, in addition to the freshness of one of the prints and the presence of Oswald's prints on two of the four cartons and the paper bag"
+   },
+   "row_idx": 9030,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/ljspeech/8989-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "lj-034-0023.wav",
+    "normalized_text": "The carton on the windowsill and the large carton below the window contained no prints which could be identified as being those of Lee Harvey Oswald.",
+    "spoken_text": "The carton on the windowsill and the large carton below the window contained no prints which could be identified as being those of Lee Harvey Oswald."
+   },
+   "row_idx": 8989,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "audio": {
+     "src": "samples/ljspeech/9045-audio.wav",
+     "type": "audio/wav"
+    },
+    "file": "lj-034-0079.wav",
+    "normalized_text": "and rode down in the east elevator.",
+    "spoken_text": "and rode down in the east elevator."
+   },
+   "row_idx": 9045,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "MikhailT/lj-speech",
+  "split": "full"
+ }
+}

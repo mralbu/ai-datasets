@@ -1,0 +1,274 @@
+{
+ "features": [
+  {
+   "name": "video_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "audio",
+   "type": {
+    "_type": "Audio"
+   }
+  },
+  {
+   "name": "labels",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "_type": "Value",
+     "dtype": "string"
+    }
+   }
+  },
+  {
+   "name": "human_labels",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "_type": "Value",
+     "dtype": "string"
+    }
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T22:24:01+00:00",
+ "id": "audioset",
+ "num_rows_total": 17141,
+ "parts": [
+  {
+   "config": "balanced",
+   "features": [
+    {
+     "name": "video_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "audio",
+     "type": {
+      "_type": "Audio"
+     }
+    },
+    {
+     "name": "labels",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "string"
+      }
+     }
+    },
+    {
+     "name": "human_labels",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "string"
+      }
+     }
+    }
+   ],
+   "num_rows_total": 17141,
+   "split": "test"
+  }
+ ],
+ "revision": "0c609e8302cf139307f639c57652032af0a88041",
+ "rows": [
+  {
+   "config": "balanced",
+   "row": {
+    "audio": {
+     "src": "samples/audioset/15733-audio.flac",
+     "type": "audio/flac"
+    },
+    "human_labels": [
+     "Organ",
+     "Hammond organ",
+     "Keyboard (musical)",
+     "Piano"
+    ],
+    "labels": [
+     "/m/013y1f",
+     "/m/03gvt",
+     "/m/05148p4",
+     "/m/05r5c"
+    ],
+    "video_id": "tXrnuwZreHg"
+   },
+   "row_idx": 15733,
+   "truncated": []
+  },
+  {
+   "config": "balanced",
+   "row": {
+    "audio": {
+     "src": "samples/audioset/15793-audio.flac",
+     "type": "audio/flac"
+    },
+    "human_labels": [
+     "Crowd",
+     "Hubbub, speech noise, speech babble",
+     "Speech"
+    ],
+    "labels": [
+     "/m/03qtwd",
+     "/m/07qfr4h",
+     "/m/09x0r"
+    ],
+    "video_id": "tqmDKJ4ubns"
+   },
+   "row_idx": 15793,
+   "truncated": []
+  },
+  {
+   "config": "balanced",
+   "row": {
+    "audio": {
+     "src": "samples/audioset/15813-audio.flac",
+     "type": "audio/flac"
+    },
+    "human_labels": [
+     "Glass",
+     "Inside, small room"
+    ],
+    "labels": [
+     "/m/039jq",
+     "/t/dd00125"
+    ],
+    "video_id": "txK943PxyAc"
+   },
+   "row_idx": 15813,
+   "truncated": []
+  },
+  {
+   "config": "balanced",
+   "row": {
+    "audio": {
+     "src": "samples/audioset/15759-audio.flac",
+     "type": "audio/flac"
+    },
+    "human_labels": [
+     "Mantra",
+     "Folk music",
+     "Music",
+     "Middle Eastern music",
+     "Song"
+    ],
+    "labels": [
+     "/m/01c194",
+     "/m/02w4v",
+     "/m/04rlf",
+     "/m/06j64v",
+     "/m/074ft"
+    ],
+    "video_id": "tdrz4EkIsow"
+   },
+   "row_idx": 15759,
+   "truncated": []
+  },
+  {
+   "config": "balanced",
+   "row": {
+    "audio": {
+     "src": "samples/audioset/15749-audio.flac",
+     "type": "audio/flac"
+    },
+    "human_labels": [
+     "Vibration",
+     "Vehicle",
+     "Aircraft"
+    ],
+    "labels": [
+     "/m/01jwx6",
+     "/m/07yv9",
+     "/m/0k5j"
+    ],
+    "video_id": "taEmEF13T0s"
+   },
+   "row_idx": 15749,
+   "truncated": []
+  },
+  {
+   "config": "balanced",
+   "row": {
+    "audio": {
+     "src": "samples/audioset/15756-audio.flac",
+     "type": "audio/flac"
+    },
+    "human_labels": [
+     "Singing",
+     "Country",
+     "Yodeling",
+     "Acoustic guitar",
+     "Music",
+     "Steel guitar, slide guitar"
+    ],
+    "labels": [
+     "/m/015lz1",
+     "/m/01lyv",
+     "/m/01swy6",
+     "/m/042v_gx",
+     "/m/04rlf",
+     "/m/06w87"
+    ],
+    "video_id": "tcOHcop3sCQ"
+   },
+   "row_idx": 15756,
+   "truncated": []
+  },
+  {
+   "config": "balanced",
+   "row": {
+    "audio": {
+     "src": "samples/audioset/15760-audio.flac",
+     "type": "audio/flac"
+    },
+    "human_labels": [
+     "Singing",
+     "Music",
+     "Sad music"
+    ],
+    "labels": [
+     "/m/015lz1",
+     "/m/04rlf",
+     "/t/dd00033"
+    ],
+    "video_id": "teyDfFbVMSY"
+   },
+   "row_idx": 15760,
+   "truncated": []
+  },
+  {
+   "config": "balanced",
+   "row": {
+    "audio": {
+     "src": "samples/audioset/15732-audio.flac",
+     "type": "audio/flac"
+    },
+    "human_labels": [
+     "Shuffle",
+     "Speech"
+    ],
+    "labels": [
+     "/m/07qv_x_",
+     "/m/09x0r"
+    ],
+    "video_id": "tWSMfxwuaUU"
+   },
+   "row_idx": 15732,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "balanced",
+  "hf": "agkphysics/AudioSet",
+  "split": "test"
+ }
+}

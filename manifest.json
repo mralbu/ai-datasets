@@ -8,6 +8,13 @@
    "fetched_at": "2026-11-07T15:45:36+00:00",
    "rows": 12
   },
+  "audioset": {
+   "fingerprint": "af20673929041f6d",
+   "hf": "agkphysics/AudioSet",
+   "revision": "0c609e8302cf139307f639c57652032af0a88041",
+   "fetched_at": "2026-11-07T22:24:01+00:00",
+   "rows": 8
+  },
   "cifar10": {
    "fingerprint": "ec2ef70e1bfa8044",
    "hf": "uoft-cs/cifar10",
@@ -85,6 +92,13 @@
    "fetched_at": "2026-11-07T15:47:49+00:00",
    "rows": 10
   },
+  "ljspeech": {
+   "fingerprint": "e102a8e0fb79cfa4",
+   "hf": "MikhailT/lj-speech",
+   "revision": "f04bb20ddce4b1dbcfb95b10e5573121d871bf5f",
+   "fetched_at": "2026-11-07T22:24:07+00:00",
+   "rows": 8
+  },
   "math": {
    "fingerprint": "8627b222466fa828",
    "hf": "EleutherAI/hendrycks_math",
@@ -133,6 +147,13 @@
    "revision": "cdb5c3d5eed6ead6e5a341c8e56e669bb666725b",
    "fetched_at": "2026-11-07T21:34:31+00:00",
    "rows": 24
+  },
+  "speech-commands": {
+   "fingerprint": "98f46db3189de87f",
+   "hf": "pollen-robotics/speech-commands-v0.02",
+   "revision": "278418261b4161f6603e06431fa05f9416aaee99",
+   "fetched_at": "2026-11-07T22:24:16+00:00",
+   "rows": 12
   },
   "squad": {
    "fingerprint": "a7ffcdd131e5e772",
