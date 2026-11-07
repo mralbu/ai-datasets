@@ -8,6 +8,13 @@
    "fetched_at": "2026-11-07T22:33:04+00:00",
    "rows": 24
   },
+  "ade20k": {
+   "fingerprint": "1f7d0185eaa4f958",
+   "hf": "1aurent/ADE20K",
+   "revision": "bbf21e2662a83fa741b7daac9cfd5a074b1b1056",
+   "fetched_at": "2026-11-07T22:45:30+00:00",
+   "rows": 12
+  },
   "ai2-arc": {
    "fingerprint": "b5642bdca83aad20",
    "hf": "allenai/ai2_arc",
