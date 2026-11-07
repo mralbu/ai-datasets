@@ -1,0 +1,28 @@
+---
+import type { SampleRow } from '../../lib/data';
+interface Props { d: { translation: string; source: string; target: string }; rows: SampleRow[]; k: number }
+const { d, rows, k } = Astro.props;
+// Language names for the codes WMT uses.
+const NAMES: Record<string, string> = { de: 'German', en: 'English', fr: 'French', cs: 'Czech', ru: 'Russian', hi: 'Hindi' };
+const name = (c: string) => NAMES[c] ?? c;
+---
+<div class="list">
+  {rows.map((r, i) => {
+    const t = r.row[d.translation] ?? {};
+    return (
+      <article class="card pair" data-item hidden={i >= k}>
+        <div lang={d.source}><span class="lang">{name(d.source)}</span><p>{t[d.source]}</p></div>
+        <div lang={d.target}><span class="lang">{name(d.target)}</span><p>{t[d.target]}</p></div>
+      </article>
+    );
+  })}
+</div>
+<style>
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .pair[hidden] { display: none; }
+  @media (max-width: 640px) { .pair { grid-template-columns: 1fr; gap: 8px; } }
+  .pair p { margin: 4px 0 0; }
+  .lang { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+  .pair > div + div { border-left: 1px solid var(--border); padding-left: 18px; }
+  @media (max-width: 640px) { .pair > div + div { border-left: 0; padding-left: 0; border-top: 1px solid var(--border); padding-top: 8px; } }
+</style>

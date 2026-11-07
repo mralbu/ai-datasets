@@ -1,0 +1,40 @@
+name: MATH
+year: 2021
+modality: benchmark
+task: Competition mathematics with worked solutions
+one_liner: 12,500 competition problems (AMC, AIME and others) in 7 subjects and 5 difficulty levels.
+creators: Dan Hendrycks, Collin Burns, Saurav Kadavath, Akul Arora, Steven Basart, Eric Tang, Dawn Song, Jacob Steinhardt
+size: 12,500 problems
+splits: { train: 7500, test: 5000 }
+input: A problem written in LaTeX
+labels: A step-by-step solution with the final answer in \boxed{}
+license: MIT
+paper:
+  title: Measuring Mathematical Problem Solving With the MATH Dataset
+  url: https://arxiv.org/abs/2103.03874
+homepage: https://github.com/hendrycks/math
+why: >-
+  GSM8K tests arithmetic word problems; MATH tests the kind of problem solving
+  needed in high-school competitions. At release, large models solved only a
+  few percent, and the authors doubted that scale alone would close the gap.
+  Minerva reached 50% in 2022, and reasoning models trained with
+  reinforcement learning now solve almost all of it. The 500-problem
+  MATH-500 subset is the version most reports use.
+trivia:
+  - Problems come from AMC 10, AMC 12, AIME and similar contests, collected through the Art of Problem Solving community.
+  - Every answer is in \boxed{}, so grading is automatic, but answers must be normalized first (1/2, 0.5 and \frac{1}{2} are all the same answer).
+  - Geometry problems draw their figures in Asymptote code, so a model has to read the drawing as code. The samples below leave it out.
+  - Level 1 is easiest and level 5 hardest, within each subject.
+lineage:
+  - { name: GSM8K, note: "2021, grade-school word problems", hf: openai/gsm8k, id: gsm8k }
+  - { name: MATH-500, note: "2023, the subset used in most reports", hf: HuggingFaceH4/MATH-500 }
+landmark_papers:
+  - { title: "Solving Quantitative Reasoning Problems with Language Models (Minerva)", year: 2022, url: "https://arxiv.org/abs/2206.14858" }
+  - { title: "Let's Verify Step by Step", year: 2023, url: "https://arxiv.org/abs/2305.20050" }
+source:
+  hf: EleutherAI/hendrycks_math
+  split: test
+  n: 3
+  seed: 23
+  configs: [algebra, counting_and_probability, geometry, intermediate_algebra, number_theory, prealgebra, precalculus]
+display: { kind: qa, question: problem, answer: solution, tags: [type, level], math: true }

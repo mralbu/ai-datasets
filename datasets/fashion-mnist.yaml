@@ -1,0 +1,34 @@
+name: Fashion-MNIST
+year: 2017
+modality: vision
+task: Image classification (clothing)
+one_liner: 70,000 Zalando product images, 28×28 grayscale, 10 classes. A harder MNIST.
+creators: Han Xiao, Kashif Rasul, Roland Vollgraf (Zalando Research)
+size: 70,000 images
+splits: { train: 60000, test: 10000 }
+input: 28×28 grayscale image
+labels: T-shirt/top, trouser, pullover, dress, coat, sandal, shirt, sneaker, bag, ankle boot
+license: MIT
+paper:
+  title: "Fashion-MNIST: a Novel Image Dataset for Benchmarking Machine Learning Algorithms"
+  url: https://arxiv.org/abs/1708.07747
+homepage: https://github.com/zalandoresearch/fashion-mnist
+why: >-
+  Built as a drop-in replacement for MNIST: same image size, same format, same
+  60k/10k split, so any MNIST code runs unchanged. The authors' case was that
+  MNIST had become too easy (classic methods reach 97%, CNNs 99.7%) and too
+  unlike modern vision problems. Fashion-MNIST leaves more room between a
+  linear model and a good CNN, and it became the second dataset in countless
+  tutorials and papers.
+trivia:
+  - "Each image is a Zalando catalog photo that was trimmed, resized so its longest edge is 28 px, sharpened, centered, inverted and converted to grayscale."
+  - Shirt is the hardest class. It is easily confused with T-shirt/top, pullover and coat, and even humans disagree on it.
+  - A small crowd-sourced test in the project README put untrained human accuracy at about 83.5%, while good CNNs pass 93%.
+lineage:
+  - { name: MNIST, note: "1998, the dataset it replaces", hf: ylecun/mnist, id: mnist }
+  - { name: KMNIST, note: "2018, cursive Japanese characters in the same format", url: "https://github.com/rois-codh/kmnist" }
+landmark_papers:
+  - { title: "Fashion-MNIST: a Novel Image Dataset for Benchmarking Machine Learning Algorithms", year: 2017, url: "https://arxiv.org/abs/1708.07747" }
+  - { title: "Random Erasing Data Augmentation", year: 2017, url: "https://arxiv.org/abs/1708.04896" }
+source: { hf: zalando-datasets/fashion_mnist, config: fashion_mnist, split: test, n: 60, seed: 17 }
+display: { kind: image, image: image, label: label, scale: 4, class_grid: true }

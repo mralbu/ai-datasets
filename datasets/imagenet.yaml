@@ -36,3 +36,8 @@ landmark_papers:
   - { title: "An Image is Worth 16x16 Words (ViT)", year: 2020, url: "https://arxiv.org/abs/2010.11929" }
 source: { hf: evanarlian/imagenet_1k_resized_256, config: default, split: val, n: 32, seed: 4, rows_per_page: 1 }
 display: { kind: image, image: image, label: label, thumb: 150, short_labels: true }
+download:
+  hf: ILSVRC/imagenet-1k
+  split: validation
+  gated: true
+  note: "The samples on this page come from a resized mirror; the snippets point at the official copy (~150 GB)."

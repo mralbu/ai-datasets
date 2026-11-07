@@ -62,21 +62,28 @@ Without the worktree, `.samples/` is just a local cache and the first `npm run f
 
    | kind | fields | used by |
    |---|---|---|
-   | `image` | `image`, `label`, `scale` (enlarge tiny images), `thumb` (px height for photos), `class_grid`, `short_labels` | MNIST, CIFAR-10, ImageNet |
-   | `boxes` | `image`, `objects` (COCO-style `bbox` `[x, y, w, h]` + `label`) | COCO |
+   | `image` | `image`, `label`, `scale` (enlarge tiny images), `thumb` (px height for photos), `class_grid`, `short_labels` | MNIST, Fashion-MNIST, CIFAR-10, ImageNet |
+   | `boxes` | `image`, `objects` (COCO-style `bbox` `[x, y, w, h]` + a label list), `label` (its name, default `label`) | COCO, Pascal VOC |
    | `text` | `text`, `label` | IMDB |
    | `extractive` | `context`, `question`, `answers`, `title` | SQuAD |
-   | `record` | `label`; shows every text field, per config | GLUE |
-   | `qa` | `question`, `answer` | GSM8K |
+   | `record` | `label`; shows every text field, per config | GLUE, SuperGLUE, SNLI |
+   | `qa` | `question`, `answer`, `tags` (fields shown as tags), `math` (render LaTeX with KaTeX) | GSM8K, MATH |
    | `mcq` | `question`, `choices`, `answer`, `subject` | MMLU, HellaSwag |
-   | `code` | `prompt`, `solution`, `tests`, `title` | HumanEval |
+   | `code` | `prompt`, `solution`, `tests`, `title`; `*_lang` (Shiki language, `text` for prose) and `*_label` | HumanEval, SWE-bench |
    | `audio` | `audio`, `text`, `speaker` | LibriSpeech |
    | `grid` | `train`, `test` (ARC-style pairs of integer grids) | ARC-AGI |
-   | `table` | optional `chart: {type: scatter \| rate, x, y, color}` | Iris, Titanic |
+   | `table` | optional `chart: {type: scatter \| rate, x, y, color}`, `columns` | Iris, Titanic, Palmer Penguins, MovieLens |
+| `translation` | `translation` (a Translation feature), `source`, `target` (language codes) | WMT14 |
 
    Useful `source` options: `n` (rows to sample), `seed`, `fetch_all: true` (small tables, needed for
    charts), `configs: [...]` (sample several configs, like GLUE's tasks), and `rows_per_page`
-   (default 8; lower it when the split is sorted by a label with many values, as ImageNet's is).
+   (default 8; lower it when the split is sorted by a label with many values, as ImageNet's is),
+   and `min_length: {field: n}` (skip rows whose field is shorter, like WikiText's blank lines).
+
+   Each page has a "Get the data" box with copy-paste snippets for the `hf` CLI, 🤗 `datasets` and
+   Polars, built from `source`. Override it with an optional `download` block: `hf` (the canonical
+   repo when the sample comes from a mirror), `config`, `split`, `include` (glob for
+   `hf download --include`, for one config of a big repo), `revision`, `gated: true` and `note`.
 2. `uv run scripts/sample.py <id>` and check the page with `BASE_PATH=/ npm run dev`.
 3. Related datasets (`lineage`) take `hf: <owner/name>` to link to Hugging Face, or `url:` when
    there is no HF copy, and `id:` when the dataset also has a page on this site.

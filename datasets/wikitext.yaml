@@ -1,0 +1,37 @@
+name: WikiText-103
+year: 2016
+modality: text
+task: Language modeling (predict the next word)
+one_liner: 103 million words from 28,475 good and featured Wikipedia articles, kept whole.
+creators: Stephen Merity, Caiming Xiong, James Bradbury, Richard Socher (MetaMind / Salesforce)
+size: 28,595 articles, ~103M training tokens, ~1.8M lines
+splits: { train: 1801350, validation: 3760, test: 4358 }
+input: Running text, one paragraph or heading per line
+labels: None. The next word is the target.
+license: CC BY-SA 3.0
+paper:
+  title: Pointer Sentinel Mixture Models
+  url: https://arxiv.org/abs/1609.07843
+why: >-
+  Before it, the standard language-modeling benchmark was Penn Treebank:
+  about a million words, all lower case, with numbers replaced by N and a
+  10k-word vocabulary. WikiText-103 is a hundred times bigger and keeps case,
+  punctuation, numbers and whole articles, so models can use long context.
+  Perplexity on it tracked the move from LSTMs to Transformers: Transformer-XL
+  reached 18.3, and GPT-2 reported 17.5 without training on it at all.
+trivia:
+  - Tokens like "@-@", "@,@" and "@.@" mark a hyphen, comma or period inside a word or number, as in "1 @,@ 000".
+  - Headings look like " = Title = ", with more equals signs for subsections. Blank lines and headings are skipped in the samples below.
+  - The non-raw version replaces words seen fewer than 3 times with <unk>; this page shows the raw version.
+  - Validation and test are only 60 articles each, so a test perplexity is computed over about 245k tokens.
+lineage:
+  - { name: Penn Treebank (WSJ), note: "1993, the earlier ~1M-word benchmark", url: "https://catalog.ldc.upenn.edu/LDC99T42" }
+  - { name: WikiText-2, note: "2016, a 2M-word subset for quick experiments", hf: Salesforce/wikitext }
+  - { name: C4, note: "2019, web-scale pretraining corpus behind T5", hf: allenai/c4 }
+landmark_papers:
+  - { title: "Adaptive Input Representations for Neural Language Modeling", year: 2018, url: "https://arxiv.org/abs/1809.10853" }
+  - { title: "Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context", year: 2019, url: "https://arxiv.org/abs/1901.02860" }
+  - { title: "Language Models are Unsupervised Multitask Learners (GPT-2)", year: 2019, url: "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf" }
+source: { hf: Salesforce/wikitext, config: wikitext-103-raw-v1, split: test, n: 16, seed: 21, min_length: { text: 120 } }
+display: { kind: text, text: text }
+download: { include: "wikitext-103-raw-v1/*" }

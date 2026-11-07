@@ -43,10 +43,10 @@ export function labelOf(s: Samples, field: string, value: unknown, row?: SampleR
 }
 
 /** Class names of a ClassLabel feature (possibly nested, e.g. objects.label in COCO). */
-export function classNames(s: Samples, field: string): string[] {
+export function classNames(s: Samples, field: string, sub = 'label'): string[] {
   const f = s.features.find((f) => f.name === field);
   const t: any = f?.type;
-  return t?.names ?? t?.label?.feature?.names ?? [];
+  return t?.names ?? t?.[sub]?.feature?.names ?? [];
 }
 
 /** Prefix a site-relative path with the configured base. */

@@ -95,6 +95,11 @@ def fetch_rows(client: httpx.Client, src: dict, offset: int, length: int) -> dic
     ).json()
 
 
+def long_enough(row: dict, src: dict) -> bool:
+    """source.min_length: {field: n} drops rows whose field is shorter (e.g. blank lines)."""
+    return all(len(str(row["row"].get(f) or "").strip()) >= n for f, n in (src.get("min_length") or {}).items())
+
+
 def stratified_sample(client: httpx.Client, src: dict, total: int, n: int, rng: random.Random) -> list[dict]:
     """Sample n rows with few requests, without trusting the dataset's order.
 
@@ -115,6 +120,7 @@ def stratified_sample(client: httpx.Client, src: dict, total: int, n: int, rng: 
         page = fetch_rows(client, src, offset, length)["rows"]
         # Very large cells (long texts, big grids) come back truncated; avoid them.
         page = [r for r in page if not r.get("truncated_cells")] or page
+        page = [r for r in page if long_enough(r, src)] or page
         want = n // k + (1 if j < n % k else 0)
         rows += rng.sample(page, min(want, len(page)))
     return rows
@@ -130,7 +136,8 @@ def sample_part(client: httpx.Client, src: dict, n: int, rng: random.Random) -> 
         all_rows = []
         for off in range(0, total, PAGE):
             all_rows += fetch_rows(client, src, off, PAGE)["rows"]
-        rows = rng.sample(all_rows, min(n, total))
+        pool = [r for r in all_rows if long_enough(r, src)] or all_rows
+        rows = rng.sample(pool, min(n, len(pool)))
     else:
         rows = stratified_sample(client, src, total, n, rng)
     # Fetched in index order; present in a seeded random order so the first

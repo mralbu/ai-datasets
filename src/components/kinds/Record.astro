@@ -10,6 +10,7 @@ const labelText = (r: SampleRow) => {
   const v = r.row[d.label];
   const f = featuresFor(s, r).find((f) => f.name === d.label);
   if (f?.type._type !== 'ClassLabel' && typeof v === 'number') return `${v.toFixed(1)} / 5`;
+  if (f?.type._type === 'ClassLabel' && v === -1) return 'no consensus (-1)';
   return labelOf(s, d.label, v, r).replaceAll('_', ' ');
 };
 ---
