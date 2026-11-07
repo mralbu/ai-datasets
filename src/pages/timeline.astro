@@ -13,97 +13,55 @@ const decades = [...new Set(all.map((d) => Math.floor(d.data.year / 10) * 10))];
 
   <CategoryFilter counts={counts} />
 
-  <div class="layout">
-    <ol class="tl">
-      {decades.map((dec) => (
-        <>
-          <li class="decade" data-decade={dec}>{dec}s</li>
-          {all.filter((ds) => Math.floor(ds.data.year / 10) * 10 === dec).map((ds) => (
-            <li class="item" data-filter-item data-m={ds.data.modality} data-decade={dec} data-id={ds.id}>
-              <span class="y">{ds.data.year}</span>
-              <div class="body">
-                <a href={url(`/d/${ds.id}`)}><strong>{ds.data.name}</strong></a>
-                <span class="tag" data-m={ds.data.modality}>{MODALITIES[ds.data.modality]}</span>
-                <p class="muted">{ds.data.one_liner}</p>
-                <div class="inline-preview"><Preview ds={ds} /></div>
-              </div>
-            </li>
-          ))}
-        </>
-      ))}
-    </ol>
-
-    <!-- Wide screens: a sticky panel previews whichever entry is hovered or focused. -->
-    <aside class="peek" aria-hidden="true">
-      {all.map((ds, i) => (
-        <a class="card peek-card" href={url(`/d/${ds.id}`)} data-peek={ds.id} data-m={ds.data.modality} hidden={i !== 0} tabindex="-1">
-          <div class="top"><strong>{ds.data.name}</strong><span class="muted">{ds.data.year}</span></div>
-          <span class="tag" data-m={ds.data.modality}>{MODALITIES[ds.data.modality]}</span>
-          <Preview ds={ds} />
-          <dl>
-            <dt>Task</dt><dd>{ds.data.task}</dd>
-            <dt>Size</dt><dd>{ds.data.size}</dd>
-            <dt>Input</dt><dd>{ds.data.input}</dd>
-          </dl>
-          <span class="go">Open page →</span>
-        </a>
-      ))}
-    </aside>
-  </div>
+  <ol class="tl">
+    {decades.map((dec) => (
+      <>
+        <li class="decade" data-decade={dec}>{dec}s</li>
+        {all.filter((ds) => Math.floor(ds.data.year / 10) * 10 === dec).map((ds) => (
+          <li class="item" data-filter-item data-m={ds.data.modality} data-decade={dec}>
+            <span class="y">{ds.data.year}</span>
+            <div class="body">
+              <a href={url(`/d/${ds.id}`)}><strong>{ds.data.name}</strong></a>
+              <span class="tag" data-m={ds.data.modality}>{MODALITIES[ds.data.modality]}</span>
+              <p class="muted">{ds.data.one_liner}</p>
+            </div>
+            <a class="preview" href={url(`/d/${ds.id}`)} tabindex="-1" aria-hidden="true"><Preview ds={ds} /></a>
+          </li>
+        ))}
+      </>
+    ))}
+  </ol>
 </Base>
 
 <script>
-  // Filtering itself is done by CategoryFilter; here we tidy decades and the preview panel.
+  // Filtering is done by CategoryFilter; here we only hide decades with nothing visible.
   const items = [...document.querySelectorAll<HTMLElement>('.tl .item')];
   const decades = [...document.querySelectorAll<HTMLElement>('.tl .decade')];
-  const peeks = [...document.querySelectorAll<HTMLElement>('[data-peek]')];
-  const peek = (id: string) => peeks.forEach((p) => (p.hidden = p.dataset.peek !== id));
-
-  const refresh = () => {
-    // Hide a decade heading when nothing under it is visible.
+  const refresh = () =>
     decades.forEach((h) => (h.hidden = !items.some((li) => !li.hidden && li.dataset.decade === h.dataset.decade)));
-    const firstVisible = items.find((li) => !li.hidden);
-    peeks.forEach((p) => (p.hidden = true));
-    if (firstVisible) peek(firstVisible.dataset.id!);
-  };
   window.addEventListener('categoryfilter', refresh);
   refresh();
-
-  items.forEach((li) => {
-    li.addEventListener('mouseenter', () => peek(li.dataset.id!));
-    li.addEventListener('focusin', () => peek(li.dataset.id!));
-  });
 </script>
 
 <style>
-  .layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 40px; align-items: start; }
-
   .tl { list-style: none; padding: 0; margin: 16px 0; border-left: 2px solid var(--border); }
   .tl [hidden] { display: none; }
-  .decade { font-weight: 700; color: var(--muted); font-size: 0.85rem; letter-spacing: 0.08em; padding: 10px 0 10px 16px; }
-  .item { display: grid; grid-template-columns: 56px 1fr; gap: 12px; padding: 8px 10px 12px 16px; position: relative; border-radius: 8px; }
-  .item::before { content: ''; position: absolute; left: -7px; top: 15px; width: 12px; height: 12px; border-radius: 50%; background: var(--c, var(--accent)); box-shadow: 0 0 0 3px var(--bg); }
-  .item:hover, .item:focus-within { background: var(--surface); }
-  .y { font-weight: 700; font-variant-numeric: tabular-nums; }
+  .decade { font-weight: 700; color: var(--muted); font-size: 0.85rem; letter-spacing: 0.08em; padding: 14px 0 8px 16px; }
+  /* Every entry shows its data inline: beside the text on wide screens, under it on narrow ones. */
+  .item {
+    display: grid; grid-template-columns: 56px minmax(0, 1fr) 320px; grid-template-areas: 'y body preview';
+    gap: 8px 20px; align-items: start; padding: 12px 12px 14px 16px; position: relative; border-radius: 10px;
+  }
+  .item::before { content: ''; position: absolute; left: -7px; top: 19px; width: 12px; height: 12px; border-radius: 50%; background: var(--c, var(--accent)); box-shadow: 0 0 0 3px var(--bg); }
+  .item:hover { background: var(--surface); }
+  .y { grid-area: y; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .body { grid-area: body; }
   .body p { margin: 4px 0 0; font-size: 0.92rem; }
   .tag { margin-left: 8px; vertical-align: 2px; }
-  .inline-preview { display: none; margin-top: 8px; max-width: 360px; }
-
-  .peek { position: sticky; top: 76px; margin-top: 16px; }
-  .peek-card { display: flex; flex-direction: column; gap: 12px; padding: 16px; color: var(--text); box-shadow: var(--shadow); border-top: 3px solid var(--c); }
-  .peek-card .tag { align-self: flex-start; margin-top: -4px; }
-  .peek-card[hidden] { display: none; }
-  .peek-card:hover { text-decoration: none; border-color: var(--c); }
-  .peek-card .top { display: flex; justify-content: space-between; gap: 8px; }
-  .peek-card dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; margin: 0; font-size: 0.82rem; }
-  .peek-card dt { color: var(--muted); }
-  .peek-card dd { margin: 0; }
-  .go { font-size: 0.85rem; color: var(--accent); }
-
-  /* No hover or no room: drop the side panel and show a small preview under each entry. */
-  @media (max-width: 860px), (hover: none) {
-    .layout { grid-template-columns: 1fr; }
-    .peek { display: none; }
-    .inline-preview { display: block; }
+  .preview { grid-area: preview; display: block; color: inherit; }
+  .preview:hover { text-decoration: none; }
+  @media (max-width: 860px) {
+    .item { grid-template-columns: 56px minmax(0, 1fr); grid-template-areas: 'y body' '. preview'; }
+    .preview { max-width: 360px; }
   }
 </style>

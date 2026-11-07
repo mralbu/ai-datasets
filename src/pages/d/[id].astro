@@ -36,17 +36,17 @@ const facts: [string, string][] = [
       <h2>Why it matters</h2>
       <p>{d.why}</p>
       <div class="links">
-        {d.paper && (
-          <a class="paper tip" href={d.paper.url} data-tip={`Original paper · ${hostOf(d.paper.url)}`}>
-            <span class="emoji" aria-hidden="true">📄</span><span>{d.paper.title}</span>
-          </a>
-        )}
         <span class="icon-links">
           {d.homepage && (
             <a class="icon-btn tip" href={d.homepage} aria-label="Homepage" data-tip={`Homepage · ${hostOf(d.homepage)}`}>🏠</a>
           )}
           <a class="icon-btn tip" href={`https://huggingface.co/datasets/${d.source.hf}`} aria-label="On Hugging Face" data-tip={`Hugging Face · ${d.source.hf}`}>🤗</a>
         </span>
+        {d.paper && (
+          <a class="paper tip" href={d.paper.url} data-tip={`Original paper · ${hostOf(d.paper.url)}`}>
+            <span class="emoji" aria-hidden="true">📄</span><span>{d.paper.title}</span>
+          </a>
+        )}
       </div>
     </section>
     <dl class="facts card">
