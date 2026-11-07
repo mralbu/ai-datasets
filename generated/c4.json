@@ -1,0 +1,186 @@
+{
+ "features": [
+  {
+   "name": "text",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "timestamp",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "url",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T22:33:07+00:00",
+ "id": "c4",
+ "num_rows_total": 364608,
+ "parts": [
+  {
+   "config": "en",
+   "features": [
+    {
+     "name": "text",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "timestamp",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "url",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 364608,
+   "split": "validation"
+  }
+ ],
+ "revision": "1588ec454efa1a09f29cd18ddd04fe05fc8653a2",
+ "rows": [
+  {
+   "config": "en",
+   "row": {
+    "text": "Mucha Firebasket, by Jake Bowers.\nLast Saturday’s open meeting of the St Leonards Community Forum saw most present agree that the area has been on the up for the last few years, a pleasing state of affairs mainly attributed to the effect of the physical regeneration that has seen many of our streets get a much needed makeover and to the positive impact of the burgeoning arts economy.\nWith hip new shops and galleries popping up all over, St Leonards is getting lots of valuable press, which imminent design jamboree UPmarket hopes to capitalise on to seal the deal about the town’s coming of age as a happening coastal creative hub.\nOver three days this weekend, from 28 to 30 March, the town plays host to a co-ordinated programme of events, showcasing the best in applied art and design across a fast emerging network of showrooms, galleries and bars.\nThe headliner is UPmarket, a showcase designers’ and makers’ fair for established talent curated at the vast, critically applauded Baker Mamonova Gallery on Norman Road, the undisputed frontline for recent trendification.\nFollowing last year’s expansion into the former builders’ merchants, the gallery offers a hangar like space combining contemporary Russian art and a chilled café area (check out the to-die-for chocolate cheesecake), which will host 21 designers working in a broad base of materials and styles. Featuring jewellers, ceramicists, light makers, fashion designers, furniture makers and interiors specialists, the fair is all about demonstrating the quality and range of the local arts economy, whilst unashamedly plugging the option for us to buy these unique and beautiful objects in a super-cool single space. Such is the new-found confidence that UPmarket will be charging a £3 entrance charge.\nUPmarket is just part of the mix, however, with men’s fashion and accessories on show UPstairs at the Admiral Benbow, music, poetry and film at the Kave Gallery, live UPbeat music at Miki’s seafront bar, and, perhaps most interestingly, UPcoming, which presents new and emerging talent at the Claremont Studios on the increasingly enticing Kings Road.\nCog bangles by Sarah Connelley (the writer's wife).\nClaremont is a community interest company that occupies a large building, comprising five working studios upstairs (also open over the weekend and branded UPabove) as well as a ground-floor multi-purpose former retail space. This will be given over to a smaller show showcasing the work of 10 exhibitors to watch out for in a carefully curated setting articulated around the themes of light and dark. The focus here is on the fusion between fine art and applied design, with some amazing jewellery, jaw-dropping metal work and smile-inducing acrylic products on show from young and returning talent, including students at nearby Sussex Coast College.\nCaroline Le Breton, one of the Claremont’s three directors, pitches UPcoming as the edgy and ‘out there’ fringe, or Deptford to the slightly hackneyed Shoreditch comparators that St Leonards now routinely attracts, emphasising the real promotional value for her exhibitors of a weekend that organisers hope will bring in large numbers of visitors from near and far.\nThat such a small town is able to mount such an ambitious prospectus is testimony to the UPturn in fortunes that Central St Leonards is currently enjoying after years in the doldrums. All that is needed now is some half decent weather and for hordes of inquisitive folk to turn UP and make the event a resounding success.\nFullest details about the weekend here.",
+    "timestamp": "2019-04-21 20:52:53",
+    "url": "http://hastingsonlinetimes.co.uk/hastings-life/shops-things/st-leonards-on-the-up"
+   },
+   "row_idx": 329893,
+   "truncated": []
+  },
+  {
+   "config": "en",
+   "row": {
+    "text": ". Finally, we find that by changing the graphene Fermi energy from 0.7 eV to 0 eV, the absorbance of the absorbers can be easily tuned from more than 90% to lower than 20%. The proposed absorber may have promising applications in terahertz sensing, detecting, imaging, and cloaking.\nCruz, Alice L. S. Cordeiro, Cristiano M. B. Franco, Marcos A. R.\nThree-Dimensional Terahertz Coded-Aperture Imaging Based on Single Input Multiple Output Technology.",
+    "timestamp": "2019-04-19 18:13:52",
+    "url": "https://www.mysciencework.com/search/publications?facets%5Bkeywords%5D%5B0%5D=terahertz&page=5"
+   },
+   "row_idx": 329889,
+   "truncated": []
+  },
+  {
+   "config": "en",
+   "row": {
+    "text": "Your employees are the lifeblood of your business. Without them, you wouldn’t be able to grow and serve your market. And they also need to be productive. Striking this balance is difficult to achieve. However, with virtualization solutions like Citrix, this is becoming more and more possible.\nVirtualization allows your employees to work from anywhere, at anytime. It does this by delivering secure versions of Windows, Linux, or SaaS apps to any web connected device. This remote work ability allows you to slash costs and be more efficient with how your workforce works and collaborates.\nVirtualization can mimic hardware capabilities and organization. For instance, if your servers run on a certain type of hardware but need to be updated to communicate with new part of your IT network, you don’t need to worry about the time and expense of replacing all of them. Run a virtualization solution that is plug and play so you can make the servers (hardware) believe they are interfacing with the same system (software delivered by virtualization). It’s a more agile solution with lower overhead.\nEntire web platforms can be run on virtualization software. This is the magic of solutions like dynamic web hosting. Instead of paying too much for web servers in advance, you can use software to virtualize web servers that act in exactly the same ways but can deployed instantly. This flexible approach allows you to achieve redundancy without the added expense, and can truly transform any business.\nThe major corporations of old were plagued with massive data centers. These centers had to be managed by individuals. That means they had to screen, hire, train, and manage these individuals. That’s not to mention the land they bought, the rent they paid, the cooling requirements and expenses that go along with data centers, or the ongoing costs in electricity. Why do that when you can store data in the cloud with secure encryption solutions offered by virtualizing your storage and being able to access it whenever you want?\nIn your business, there are certain applications that are fundamental to your success. However, they likely only run on one operating system. This requires you to install that system on your host machine or device for each employee. In addition to licensing fees, this can also be a pain if you simply need a one-time use of another operating system (Windows, Mac, Linux, etc.). Instead, virtualize an operating system by running it on the host system inside of a software container that gives you all the same features and functions but can be completely shut off and forgotten about when you’re done with it without making any permanent changes to your system.\nEach network is a complex collection of connections between devices. This includes your servers, devices, and routers. And proper security protocols need to be in place to ensure that a hacker can’t simply access one part of the network and gain access to all of it as a result. Virtualization technology enables you to monitor these connections in real time and emulate attack vectors so you can have a plan in advance.\nIf you want to adapt to the modern digital age, then technology needs to be at the top of the list for your growth strategies. Leveraging the right technology can mean all the difference between not making profit and exceeding all expectations. So use the virtualization strategies above to take your business to the next level and dominate the competition.",
+    "timestamp": "2019-04-20 18:34:10",
+    "url": "https://idahobusiness.net/transform-business-virtualization/"
+   },
+   "row_idx": 329839,
+   "truncated": []
+  },
+  {
+   "config": "en",
+   "row": {
+    "text": "Alfresco uses Open Office to convert documents to PDF but by default it doesn’t generate tagged PDF. This note describes how to configure Alfresco so that it does produce tagged PDF.\nSo what is a tagged PDF? Well, it’s a PDF that contains structural information about the content, e.g reading order, the presence of tables etc. This allows screen-readers to read the PDF document – it makes the PDF accessible. In order to get the most out of the conversion process, as much structural information as possible needs to be present in the original document. I came across these recently when doing some work for a local authority that is using Alfresco.\nRestart Alfresco. That’s it! The next time you convert a document to PDF it should be tagged. You can test that the conversion worked (on the Mac) by using Adobe Reader 8.0. Open up the PDF file. Go to Document -> Security -> Show Security Properties. Click on the ‘Description’ tag. The ‘Tagged PDF’ entry should be set to ‘Yes’ if the conversion worked correctly. You can also check the document for accessibility by clicking on Document -> Accessibility Quick Check.\nYou can download the modified configuration file here.\nThis entry was posted in Tech Tips on June 16, 2007 by admin.\nI am not familiar with http://www.alfresco.com/ – could you meial me a Tagged PDF file so I might examine it ? Of course, be sure there are objects in the PDF that have useful tags !",
+    "timestamp": "2019-04-23 10:29:30",
+    "url": "http://www.simonbuckle.com/2007/06/16/tagged-pdf/"
+   },
+   "row_idx": 329897,
+   "truncated": []
+  },
+  {
+   "config": "en",
+   "row": {
+    "text": "On this particular page you will find the solution to Like common chords crossword clue crossword clue. This clue was last seen on New York Times Crossword on November 8 2018 In case the clue doesn’t fit or there’s something wrong please contact us!\nDone with Like common chords crossword clue? Go back and see the other crossword clues for New York Times Crossword November 8 2018.",
+    "timestamp": "2019-04-22 14:03:39",
+    "url": "https://newyorktimescrossword.net/like-common-chords-crossword-clue/"
+   },
+   "row_idx": 55035,
+   "truncated": []
+  },
+  {
+   "config": "en",
+   "row": {
+    "text": "Cqc,ce,fcc,ccc. Hemp chandeliers. Corridor, passageway, parlor, bedroom, kid's room, home decoration, balcony, office, hotel. Dining room,bedroom,restaurant,hotel,industrial,living room,study. Wholesale iron forgedCcc,ce,emc,fcc. Creative simple modern. Light ceiling fans. Light plant. Degree: Spot lights wall. Wholesale : Z170727.\nLofter style: Lamps restaurant. Pl-6214. Key words 7: Shiny chandelier. 8 arm lights size : Industrial design. Staircase,stairway,stairwell,hotel lobby. Modern led round chandelier for pendant. Wholesale machinate coffe.\nBlack,yellow,red. Pl-011. Wholesale chandelier european style. Indoor lighting  fixtures. 3500lm. Small:d40cm/15.74''xh23cm/9.05''   large:d50cm/19.68''xh23cm/9.05''. 560lux (0.6m), 280lux(1.2m), 70lux(1.8m). Lamps for livingroom: 3 yeas. Bulb is not included : Hotel hall. Pendant lamps colored: Hand knitted wicker. Wholesale retro switch. Lamps old fashioned.",
+    "timestamp": "2019-04-24 02:45:45",
+    "url": "http://sotremont.ru/go8ek6gn.php"
+   },
+   "row_idx": 329807,
+   "truncated": []
+  },
+  {
+   "config": "en",
+   "row": {
+    "text": "\"He could not use his rusty iron.\"\n\"He gathered all the scrap iron.\"\n\"She uses an electric iron on her dress shirts.\"\n\"She uses a curling iron on her hair every morning.\"\n\"Be careful of the hot iron.\"\n\"Germany is known to produce lots of iron.\"\n\"Our outdoor furniture is made out of iron.\"\n\"She needs foods that contain iron.\"\n\"She uses an iron on her dress pants.\"\n\"He tripped over an iron bar.\"\n\"They had to walk through an iron gate.\"\n\"She began to take iron pills.\"\n\"She has an iron deficiency.\"\n\"I need to iron my clothes.\"\n\"He has an iron will to survive.\"\n\"She promised not to let go of her iron grip.\"",
+    "timestamp": "2019-04-20 07:05:39",
+    "url": "http://www.englishcollocation.com/how-to-use/iron"
+   },
+   "row_idx": 329852,
+   "truncated": []
+  },
+  {
+   "config": "en",
+   "row": {
+    "text": "Juquiá QIBLA DIRECTION There are many methods to find the Qiblah direction. One of the easiest ways is using compass. Qibla direction changes from city to city or country to country depending on the distance. From this site, you will easily find Qibla direction.",
+    "timestamp": "2019-04-22 19:05:02",
+    "url": "http://qibladirection.org/juquia-qibla-direction.html"
+   },
+   "row_idx": 55061,
+   "truncated": []
+  },
+  {
+   "config": "en",
+   "row": {
+    "text": "There is need of coming close to the people by personal effort. If less time were given to sermonizing, and more time were spent in personal ministry, greater results would be seen. The poor are to be relieved, the sick cared for, the sorrowing and the bereaved comforted, the ignorant instructed, the inexperienced counselled. We are to weep with those that weep, and rejoice with those that rejoice. Accompanied by the power of persuasion, the power of prayer, the power of the love of God, this work will not, cannot, be without fruit.\nIf you were to rate your church on a score of 1 (being terrible) and 10 (being effective) in regards to how well your church meets the needs of the unchurched in your community what score would you give? Be honest! We can plan and run great evangelistic activities but are they really meeting the needs of those to whom we have been called to be the salt and light? What are some ways we can intentionally practice needs oriented evangelism?\nIn my ministry I have learnt that there is one question and 5 essential words to meeting the needs in the community, “How can I help you?” When was the last time you asked that question to your friend, neighbour, work colleagues and houses in your street? For many members and attenders they just go about their day to day life and are never really active in their community. But when we intentionally seek to be present in our community as Jesus did and begin to mingle with and care for needs we open up new and exciting opportunities just by sharing Jesus love in a real, life changing way.\nWhen thinking through how to intentionally practice needs-oriented evangelism, a great place to start is to encourage new Christians to get involved in evangelism. Why? Because these new Christians will more than likely know and understand the needs that the community has and how best to meet them. They don’t need a degree to evangelise they just need their testimony and to tell that wonderful story of how Jesus has changed their life to all those they meet and reach out to. In my experience I have found these new disciples to be the best source of inspiration as to how best connect with the surrounding community.\nYou need to identify the needs that exist in your community. Some free and easy ways to do this include visiting real estate websites and enter the suburbs surrounding your church and home, then click on a house in the area and scroll down, they will more often than not have a community profile that will give you insight into the needs that may exist. You might also drive around your community taking note of houses, cars, people etc giving you an insight into the needs that may be present. If you see overgrown lawns and gardens, run down houses and the like you immediately have an indicator of needs. Other ways you can find out needs is to connect with key community leaders including local government and councils. You might also wish to undertake a community survey asking the question, “How can we as a church better meet your needs?” you will be surprised what those around you may share and when you have this information it is gold and becomes the basis for your evangelistic planning!\nAnother important factor in meeting needs is prayer and intentionally praying for opportunities! Pray for your friends, family and neighbours who don’t yet know Jesus that you may see their needs and be given opportunities to meet them. If there is one thing we don’t do enough of, it is praying for those around us. Do prayer walks in your neighbourhood, leave prayer cards in letter boxes and/or knock on doors offering the gift of prayer. When you do, you open up opportunities for the power of the Holy Spirit to impact the community like never before.\nMeeting the obvious needs in the community is an easy way to start. Do mini service activities in your community like cleaning front and back yards, painting fences, mowing lawns, holding kids fun days in the park, there are plenty of ideas you can do to meet needs. You might also seek to reach the homeless, needy and broken people in your community. In churches I have ministered in we have started various ministries that reach out and meet the needs of these people including burger vans, late night street vans, food parcel ministries, toy drives, tin can drives, welfare bus, food pantries and even exercises classes and groups all seeking to meet the obvious needs of those in the community and the amazing thing is it not only impacts the lives of those who you are meeting their needs but it impacts the lives of those who are serving them too.\nIt is also important that you have a clear and simple discipleship track that you will lead new Christians on to grow in their faith and relationship with Jesus. Don’t over complicate it. Keep it simple and keep it Christ centred as you want them to know Jesus and then make Him known in all you teach, say and do.\nI have only outlined some brief and simple initial thoughts and insights that may assist pastors and leader to begin to identify and meet the needs of our communities. You may wish to take some of these ideas to your next board or personal ministries meetings where you can discuss and possibly implement some into your church and evangelistic planning in order that we the church may intentionally meet the needs of our communities and love them into a personal relationship with Jesus. You may have other thoughts and ideas for incorporating needs-oriented evangelism in your ministry and church, we would love for you to leave a comment and share them too.",
+    "timestamp": "2019-04-22 08:50:27",
+    "url": "http://aucministerial.org/changing-your-community-through-need-oriented-evangelism/"
+   },
+   "row_idx": 55060,
+   "truncated": []
+  },
+  {
+   "config": "en",
+   "row": {
+    "text": "IGNOU MES-04 Study Material/Books in Hindi– If you come to this page for download each collection of MES-04 Study Material in Hindi so you are come at right place. Here you will get everything for which you have come to here. We have downloaded all available Study Material in Hindi of MES-04 to our System and it is ready and available for all MES-04 Students.\nIf candidates are looking to download IGNOU MES-04 Books and Study Materials in Hindi then our team has uploaded all that materials on our site with Hindi medium of instruction. So MES-04 candidates can easily get all that boos from following list without any need of registration.\nYou can also download MES-04 Study Materials for English medium which is already available in our collection.\nIs it required to download MES-04 Materials (Hindi)?\nFor attend IGNOU MES-04 TEE Examination, it is necessary to first submit your Assignments to IGNOU and it is possible from IGNOU Study Materials. You can solve your MES-04 Assignments with using Books/Materials. Not only Assignments, but you can use it for preparation of Examination and you can get good marks in your Annual Exams with good grade.",
+    "timestamp": "2019-04-24 21:59:08",
+    "url": "http://www.ignouhelp.in/ignou-mes-04-study-material-in-hindi/"
+   },
+   "row_idx": 55039,
+   "truncated": []
+  },
+  {
+   "config": "en",
+   "row": {
+    "text": "PreVet students, what's your class/work/experience hours schedule?\nIs this a good experience for my application?\nHow to classify reception experience?",
+    "timestamp": "2019-04-18 15:30:41",
+    "url": "https://forums.studentdoctor.net/tags/animal/"
+   },
+   "row_idx": 55044,
+   "truncated": []
+  },
+  {
+   "config": "en",
+   "row": {
+    "text": "The Empire Company, a national distributor of building industry products, introduces Kamo Panel featuring Mossy Oak Break-Up Country.\nMade exclusively in the U.S.A, Kamo Panel provides outdoor enthusiasts with the ultimate alternative to heavy, non-durable composite sheet goods.\nFeaturing the Mossy Oak Break-Up Country pattern printed in U.V. ink on lightweight, corrugated plastic sheets, Kamo Panel provides users with a fade-resistant, waterproof panel that is easy to maneuver, simple to work with, and impervious to harsh weather conditions, year after year.\nKamo Panel can be utilized for a variety of purposes including fixed and portable hunting blinds, exterior wall coverings, and interior wall décor. The panels are 48-in by 48-in, scored and folded into 24-in by 48-in making Kamo Panel easy to transport to any location.\nAvailable through Lowe’s® by special order starting November 2016 in the continental U.S. and participating Lowe’s stores.\nThe Empire Company is an officially licensed partner of Haas Outdoors Inc.\nMenard County is known as the turkey hunting capital of Texas. A fellow by the name of Bruce Brady from Brookhaven, Mississippi, an outdoor writer, started hunting here in the mid 1980s around the time Mossy Oak got started in 1986. At that time, I never had heard of the Mossy Oak, but I wasn’t alone because no one else had either. Because he was from Brookhaven, he knew Ronnie “Cuz” Strickland.\nOutdoor Cap has added eight new Mossy Oak hats to our 2018 line including three OneTouch by Outdoor Cap styles, and launched an exclusive website: https://mossyoakheadwear.com/.\nAspectSolar, a leading manufacturer of solar panel technology and portable power solutions, has partnered with Mossy Oak to offer innovative portable power solutions designed to fit the specific needs of outdoor enthusiasts. AspectSolar products feature best-in-class solar panel technology and a proprietary Advanced Battery Management System (BMS) that optimizes battery performance. All of this is housed in products that are up to 40-60% lighter than the competition and engineered to outperform in every category.",
+    "timestamp": "2019-04-20 22:33:29",
+    "url": "https://www.mossyoak.com/our-obsession/blogs/press-releases/the-empire-company-announces-release-of-kamo-panelr"
+   },
+   "row_idx": 55014,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "en",
+  "hf": "allenai/c4",
+  "split": "validation"
+ }
+}

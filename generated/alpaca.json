@@ -1,0 +1,212 @@
+{
+ "features": [
+  {
+   "name": "instruction",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "input",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "output",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "text",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T22:33:06+00:00",
+ "id": "alpaca",
+ "num_rows_total": 52002,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "instruction",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "input",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "output",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "text",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 52002,
+   "split": "train"
+  }
+ ],
+ "revision": "dce01c9b08f87459cf36a430d809084718273017",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "input": "[1, 2, 3, 4, 5, 6, 7, 8]",
+    "instruction": "Write a function that takes an array and returns a new array with only the even numbers from the original array.",
+    "output": "const evenNumberArray = (array) => {\n    let newArray = [];\n    for (let i = 0; i < array.length; i++) {\n        const num = array[i];\n        if (num % 2 === 0) {\n            newArray.push(num);\n        }\n    }\n    return newArray;\n}\n \nconst array = [1, 2, 3, 4, 5, 6, 7, 8];\n\nconsole.log(evenNumberArray(array)); // Output: [2, 4, 6, 8]",
+    "text": "Below is an instruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.\n\n### Instruction:\nWrite a function that takes an array and returns a new array with only the even numbers from the original array.\n\n### Input:\n[1, 2, 3, 4, 5, 6, 7, 8]\n\n### Response:\nconst evenNumberArray = (array) => {\n    let newArray = [];\n    for (let i = 0; i < array.length; i++) {\n        const num = array[i];\n        if (num % 2 === 0) {\n            newArray.push(num);\n        }\n    }\n    return newArray;\n}\n \nconst array = [1, 2, 3, 4, 5, 6, 7, 8];\n\nconsole.log(evenNumberArray(array)); // Output: [2, 4, 6, 8]"
+   },
+   "row_idx": 28181,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "input": "",
+    "instruction": "Describe the human brain",
+    "output": "The human brain is an amazing and complex organ made up of billions of neurons that are responsible for processing sensory information as well as initiating and controlling body functions. It is composed of three major parts: the cerebrum, the cerebellum, and the brainstem. The cerebrum is responsible for our thoughts, actions, language, and higher level functions. The cerebellum is responsible for balance and muscle coordination. The brainstem connects the brain to the spinal cord, and is responsible for basic body functions such as breathing, blood pressure, and involuntary movements.",
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nDescribe the human brain\n\n### Response:\nThe human brain is an amazing and complex organ made up of billions of neurons that are responsible for processing sensory information as well as initiating and controlling body functions. It is composed of three major parts: the cerebrum, the cerebellum, and the brainstem. The cerebrum is responsible for our thoughts, actions, language, and higher level functions. The cerebellum is responsible for balance and muscle coordination. The brainstem connects the brain to the spinal cord, and is responsible for basic body functions such as breathing, blood pressure, and involuntary movements."
+   },
+   "row_idx": 28159,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "input": "",
+    "instruction": "Compare and contrast the roles of nature versus nurture in human behavior.",
+    "output": "Nature versus nurture is the debate between whether human behavior is determined by inherited genes and traits or if it is shaped by environment and experiences. Nature-focused theorists believe that biological factors such as genetics and hormones are the primary influences on behavior, while nurture-focused theorists believe that behavior is determined by environmental influences such as parental rearing and social interaction. While it is clear that both nature and nurture play a role in determining human behavior, the exact balance and contribution of each is still an area of discussion and debate.",
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nCompare and contrast the roles of nature versus nurture in human behavior.\n\n### Response:\nNature versus nurture is the debate between whether human behavior is determined by inherited genes and traits or if it is shaped by environment and experiences. Nature-focused theorists believe that biological factors such as genetics and hormones are the primary influences on behavior, while nurture-focused theorists believe that behavior is determined by environmental influences such as parental rearing and social interaction. While it is clear that both nature and nurture play a role in determining human behavior, the exact balance and contribution of each is still an area of discussion and debate."
+   },
+   "row_idx": 17361,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "input": "Name: John Smith, Age: 25, Ticket Class: 3, Sex: male",
+    "instruction": "Predict the probability of a passenger surviving the Titanic.",
+    "output": "The probability of John Smith surviving the Titanic is 0.19, as passengers in third class are less likely to survive due to limited access to lifeboats.",
+    "text": "Below is an instruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.\n\n### Instruction:\nPredict the probability of a passenger surviving the Titanic.\n\n### Input:\nName: John Smith, Age: 25, Ticket Class: 3, Sex: male\n\n### Response:\nThe probability of John Smith surviving the Titanic is 0.19, as passengers in third class are less likely to survive due to limited access to lifeboats."
+   },
+   "row_idx": 28155,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "input": "Occipital",
+    "instruction": "Given the following words, determine the most appropriate definition.",
+    "output": "Occipital: Of or relating to the occiput, or the back of the head.",
+    "text": "Below is an instruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.\n\n### Instruction:\nGiven the following words, determine the most appropriate definition.\n\n### Input:\nOccipital\n\n### Response:\nOccipital: Of or relating to the occiput, or the back of the head."
+   },
+   "row_idx": 28128,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "input": "",
+    "instruction": "Write an upbeat original poem about perseverance",
+    "output": "We have all faced trying times,\nBut we stayed strong through the grime.\nThe sun will always find a way to shine,\nSo never give up on your dream divine. \n\nKeep faith in yourself no matter what,\nNo one can keep you down with your tenacity in strut.\nBelieve that everyone has a unique purpose,\nStay focused on the task, do not lose the surface.\n\nThere might be storms, but the clouds will soon part,\nHear the sound of hope with the echoing of your heart.\nDon't worry about any failures you find,\nPersevere and remember you're worth more than your mind. \n\nHave courage in facing every challenge,\nStay positive and never stop rearranging.\nYour own success story you have to keep writing,\nAnd trust that you have the power of perpetual enlightening.",
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nWrite an upbeat original poem about perseverance\n\n### Response:\nWe have all faced trying times,\nBut we stayed strong through the grime.\nThe sun will always find a way to shine,\nSo never give up on your dream divine. \n\nKeep faith in yourself no matter what,\nNo one can keep you down with your tenacity in strut.\nBelieve that everyone has a unique purpose,\nStay focused on the task, do not lose the surface.\n\nThere might be storms, but the clouds will soon part,\nHear the sound of hope with the echoing of your heart.\nDon't worry about any failures you find,\nPersevere and remember you're worth more than your mind. \n\nHave courage in facing every challenge,\nStay positive and never stop rearranging.\nYour own success story you have to keep writing,\nAnd trust that you have the power of perpetual enlightening."
+   },
+   "row_idx": 28190,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "input": "She gazed adoringly at her newborn baby.",
+    "instruction": "Edit this sentence by replacing the bold word with a synonym",
+    "output": "She gazed lovingly at her newborn baby.",
+    "text": "Below is an instruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.\n\n### Instruction:\nEdit this sentence by replacing the bold word with a synonym\n\n### Input:\nShe gazed adoringly at her newborn baby.\n\n### Response:\nShe gazed lovingly at her newborn baby."
+   },
+   "row_idx": 28170,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "input": "",
+    "instruction": "Compose a 1-2 sentence slogan for a brand that specializes in outdoor lifestyle apparel.",
+    "output": "Outdoor adventures begin with the right gear - get ready for life outdoors with us!",
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nCompose a 1-2 sentence slogan for a brand that specializes in outdoor lifestyle apparel.\n\n### Response:\nOutdoor adventures begin with the right gear - get ready for life outdoors with us!"
+   },
+   "row_idx": 17377,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "input": "",
+    "instruction": "Create a 2-3 sentence metaphor that describes the feeling of being overwhelmed.",
+    "output": "Feeling overwhelmed is like walking through a dark tunnel with no end in sight, or being stuck in a whirlpool with no way to escape the spinning.",
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nCreate a 2-3 sentence metaphor that describes the feeling of being overwhelmed.\n\n### Response:\nFeeling overwhelmed is like walking through a dark tunnel with no end in sight, or being stuck in a whirlpool with no way to escape the spinning."
+   },
+   "row_idx": 17378,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "input": "",
+    "instruction": "Name five things that people can do to reduce their carbon footprint.",
+    "output": "People can reduce their carbon footprint by using public transportation, eating plant-based foods, using renewable sources of energy, using less water, and recycling and repurposing materials.",
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nName five things that people can do to reduce their carbon footprint.\n\n### Response:\nPeople can reduce their carbon footprint by using public transportation, eating plant-based foods, using renewable sources of energy, using less water, and recycling and repurposing materials."
+   },
+   "row_idx": 17381,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "input": "",
+    "instruction": "Describe the effects of smoking on the respiratory system.",
+    "output": "Smoking has a range of negative effects on the respiratory system. It leads to poor lung function and increased risk of developing respiratory diseases such as chronic bronchitis and emphysema. It can also lead to irritation of the airways, inflammation, and damage to the alveoli (tiny air sacs in the lungs). Cigarette smoking is also a leading cause of cancer of the lung and other organs.",
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nDescribe the effects of smoking on the respiratory system.\n\n### Response:\nSmoking has a range of negative effects on the respiratory system. It leads to poor lung function and increased risk of developing respiratory diseases such as chronic bronchitis and emphysema. It can also lead to irritation of the airways, inflammation, and damage to the alveoli (tiny air sacs in the lungs). Cigarette smoking is also a leading cause of cancer of the lung and other organs."
+   },
+   "row_idx": 17406,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "input": "XXVII",
+    "instruction": "Convert the following Roman numeral to its equivalent value.",
+    "output": "27",
+    "text": "Below is an instruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.\n\n### Instruction:\nConvert the following Roman numeral to its equivalent value.\n\n### Input:\nXXVII\n\n### Response:\n27"
+   },
+   "row_idx": 17335,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "tatsu-lab/alpaca",
+  "split": "train"
+ }
+}

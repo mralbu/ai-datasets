@@ -1,6 +1,27 @@
 {
  "sampler_version": 1,
  "datasets": {
+  "20-newsgroups": {
+   "fingerprint": "0f84b08bd8616fbf",
+   "hf": "SetFit/20_newsgroups",
+   "revision": "f1b91292074e7cfb69be58b642d583ec262f30ed",
+   "fetched_at": "2026-11-07T22:33:04+00:00",
+   "rows": 24
+  },
+  "ai2-arc": {
+   "fingerprint": "b5642bdca83aad20",
+   "hf": "allenai/ai2_arc",
+   "revision": "210d026faf9955653af8916fad021475a3f00453",
+   "fetched_at": "2026-11-07T22:33:05+00:00",
+   "rows": 20
+  },
+  "alpaca": {
+   "fingerprint": "81d4093f21f177a2",
+   "hf": "tatsu-lab/alpaca",
+   "revision": "dce01c9b08f87459cf36a430d809084718273017",
+   "fetched_at": "2026-11-07T22:33:06+00:00",
+   "rows": 12
+  },
   "arc-agi": {
    "fingerprint": "29190a28600a5808",
    "hf": "zhmz90/arc-agi-2",
@@ -15,12 +36,33 @@
    "fetched_at": "2026-11-07T22:24:01+00:00",
    "rows": 8
   },
+  "c4": {
+   "fingerprint": "9b485ef47f4dcee0",
+   "hf": "allenai/c4",
+   "revision": "1588ec454efa1a09f29cd18ddd04fe05fc8653a2",
+   "fetched_at": "2026-11-07T22:33:07+00:00",
+   "rows": 12
+  },
+  "celeba": {
+   "fingerprint": "0aad024a24f2131d",
+   "hf": "tpremoli/CelebA-attrs",
+   "revision": "ed9021d2871ceddbd3cf0fb642544bd7c60c5152",
+   "fetched_at": "2026-11-07T22:33:14+00:00",
+   "rows": 18
+  },
   "cifar10": {
    "fingerprint": "ec2ef70e1bfa8044",
    "hf": "uoft-cs/cifar10",
    "revision": "0b2714987fa478483af9968de7c934580d0bb9a2",
    "fetched_at": "2026-11-07T15:45:52+00:00",
    "rows": 60
+  },
+  "cnn-dailymail": {
+   "fingerprint": "0bd2857794fae985",
+   "hf": "abisee/cnn_dailymail",
+   "revision": "96df5e686bee6baa90b8bee7c28b81fa3fa6223d",
+   "fetched_at": "2026-11-07T22:33:15+00:00",
+   "rows": 12
   },
   "coco": {
    "fingerprint": "3995a4c29ae86935",
@@ -35,6 +77,13 @@
    "revision": "531be5e2ccc9dba0c201ad3ae567a4f3d16ecdd2",
    "fetched_at": "2026-11-07T21:34:13+00:00",
    "rows": 60
+  },
+  "flickr30k": {
+   "fingerprint": "0d182165f1468559",
+   "hf": "nlphuji/flickr30k",
+   "revision": "2b239befc81b6e3f035ce6bd52f5f4d60f5625f7",
+   "fetched_at": "2026-11-07T22:33:20+00:00",
+   "rows": 12
   },
   "glue": {
    "fingerprint": "f919a7b699e6dcd1",
@@ -56,6 +105,13 @@
    "revision": "218ec52e09a7e7462a5400043bb9a69a41d06b76",
    "fetched_at": "2026-11-07T15:46:09+00:00",
    "rows": 20
+  },
+  "hh-rlhf": {
+   "fingerprint": "b778a1d7e721165f",
+   "hf": "Anthropic/hh-rlhf",
+   "revision": "09be8c5bbc57cb3887f3a9732ad6aa7ec602a1fa",
+   "fetched_at": "2026-11-07T22:33:21+00:00",
+   "rows": 9
   },
   "humaneval": {
    "fingerprint": "acdad41f0bc2bf49",
@@ -111,6 +167,13 @@
    "hf": "cais/mmlu",
    "revision": "c30699e8356da336a370243923dbaf21066bb9fe",
    "fetched_at": "2026-11-07T15:48:58+00:00",
+   "rows": 24
+  },
+  "mmmu": {
+   "fingerprint": "f5abdfb03a1a296d",
+   "hf": "MMMU/MMMU",
+   "revision": "876ce5cb130f7f7e290ce4d9984357737d4db5cf",
+   "fetched_at": "2026-11-07T22:34:46+00:00",
    "rows": 24
   },
   "mnist": {
@@ -169,6 +232,13 @@
    "fetched_at": "2026-11-07T21:35:42+00:00",
    "rows": 21
   },
+  "svhn": {
+   "fingerprint": "741deb5061cb005a",
+   "hf": "ufldl-stanford/svhn",
+   "revision": "f9e1717d73324ebbc1ece84267ccd80d0aca0690",
+   "fetched_at": "2026-11-07T22:35:08+00:00",
+   "rows": 60
+  },
   "swe-bench": {
    "fingerprint": "212a7d7c9e08a5fa",
    "hf": "princeton-nlp/SWE-bench",
@@ -181,6 +251,13 @@
    "hf": "phihung/titanic",
    "revision": "9753139e0b9d454ab4fd22e884290260db5fc7b6",
    "fetched_at": "2026-11-07T15:49:15+00:00",
+   "rows": 16
+  },
+  "truthfulqa": {
+   "fingerprint": "16cae6fc2d8c49a7",
+   "hf": "truthfulqa/truthful_qa",
+   "revision": "741b8276f2d1982aa3d5b832d3ee81ed3b896490",
+   "fetched_at": "2026-11-07T22:35:09+00:00",
    "rows": 16
   },
   "wikitext": {

@@ -1,0 +1,466 @@
+{
+ "features": [
+  {
+   "name": "image",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "caption",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "_type": "Value",
+     "dtype": "string"
+    }
+   }
+  },
+  {
+   "name": "sentids",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "_type": "Value",
+     "dtype": "string"
+    }
+   }
+  },
+  {
+   "name": "split",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "img_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "filename",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T22:33:20+00:00",
+ "id": "flickr30k",
+ "num_rows_total": 31014,
+ "parts": [
+  {
+   "config": "TEST",
+   "features": [
+    {
+     "name": "image",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "caption",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "string"
+      }
+     }
+    },
+    {
+     "name": "sentids",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "string"
+      }
+     }
+    },
+    {
+     "name": "split",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "img_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "filename",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 31014,
+   "split": "test"
+  }
+ ],
+ "revision": "2b239befc81b6e3f035ce6bd52f5f4d60f5625f7",
+ "rows": [
+  {
+   "config": "TEST",
+   "row": {
+    "caption": [
+     "A wakeboarder performs a flip while being towed at high speed.",
+     "An upside down man doing a flip on a waterski board",
+     "A person did a side flip while water boarding.",
+     "A man hangs upside in the air over the water.",
+     "A person upside down on a water board."
+    ],
+    "filename": "1396064003.jpg",
+    "image": {
+     "height": 500,
+     "src": "samples/flickr30k/1306-image.jpg",
+     "width": 376
+    },
+    "img_id": "1306",
+    "sentids": [
+     "6530",
+     "6531",
+     "6532",
+     "6533",
+     "6534"
+    ],
+    "split": "test"
+   },
+   "row_idx": 1306,
+   "truncated": []
+  },
+  {
+   "config": "TEST",
+   "row": {
+    "caption": [
+     "A man wearing a green shirt and an orange safety hat works on mechanical equipment inside a fenced area, while a group of people walk on a lawn behind him.",
+     "A man wearing safety gear operates a machine with tents on the background.",
+     "Man demonstrating an industrial saw at a fair.",
+     "A man works outdoors with some machinery",
+     "A man is milling wood at a festival."
+    ],
+    "filename": "140774394.jpg",
+    "image": {
+     "height": 375,
+     "src": "samples/flickr30k/1357-image.jpg",
+     "width": 500
+    },
+    "img_id": "1357",
+    "sentids": [
+     "6785",
+     "6786",
+     "6787",
+     "6788",
+     "6789"
+    ],
+    "split": "train"
+   },
+   "row_idx": 1357,
+   "truncated": []
+  },
+  {
+   "config": "TEST",
+   "row": {
+    "caption": [
+     "Shoppers purchase produce from a busy grocery store in Asia.",
+     "A large crowd of people are checking out at a public store.",
+     "Busy checkout in a oriental grocery store.",
+     "A crowd of people are at a supermarket.",
+     "Asian people in a SuperMarket."
+    ],
+    "filename": "3711851074.jpg",
+    "image": {
+     "height": 333,
+     "src": "samples/flickr30k/15970-image.jpg",
+     "width": 500
+    },
+    "img_id": "15970",
+    "sentids": [
+     "79850",
+     "79851",
+     "79852",
+     "79853",
+     "79854"
+    ],
+    "split": "train"
+   },
+   "row_idx": 15970,
+   "truncated": []
+  },
+  {
+   "config": "TEST",
+   "row": {
+    "caption": [
+     "A young girl wearing a pink dress jumps through the air over playground equipment.",
+     "A girl in a pink dress in midair over a large yellow object.",
+     "A young girl jumping through the air on a playground.",
+     "A girl in a pink shirt has jumped into the air.",
+     "A girl is jumping."
+    ],
+    "filename": "3710353645.jpg",
+    "image": {
+     "height": 500,
+     "src": "samples/flickr30k/15946-image.jpg",
+     "width": 333
+    },
+    "img_id": "15946",
+    "sentids": [
+     "79730",
+     "79731",
+     "79732",
+     "79733",
+     "79734"
+    ],
+    "split": "train"
+   },
+   "row_idx": 15946,
+   "truncated": []
+  },
+  {
+   "config": "TEST",
+   "row": {
+    "caption": [
+     "Two people are standing on sidewalk in front of a large building.",
+     "A man crouches down and a little girl stops on the sidewalk.",
+     "A man is kneeling on the sidewalk to talk to a little girl.",
+     "A man crouches on the sidewalk next to a little girl.",
+     "A man bends down to speak to a little girl."
+    ],
+    "filename": "3715201165.jpg",
+    "image": {
+     "height": 333,
+     "src": "samples/flickr30k/15997-image.jpg",
+     "width": 500
+    },
+    "img_id": "15997",
+    "sentids": [
+     "79985",
+     "79986",
+     "79987",
+     "79988",
+     "79989"
+    ],
+    "split": "train"
+   },
+   "row_idx": 15997,
+   "truncated": []
+  },
+  {
+   "config": "TEST",
+   "row": {
+    "caption": [
+     "A group of four girls are in the back of a vehicle looking at a book with a pink cover.",
+     "Four young girls reading a book in the back of a car with boxes of produce.",
+     "A group of kids sitting in the back of a van together looking at a book.",
+     "Several young girls are sitting in a minivan.",
+     "A group of young girls peer at a book."
+    ],
+    "filename": "1393205795.jpg",
+    "image": {
+     "height": 333,
+     "src": "samples/flickr30k/1286-image.jpg",
+     "width": 500
+    },
+    "img_id": "1286",
+    "sentids": [
+     "6430",
+     "6431",
+     "6432",
+     "6433",
+     "6434"
+    ],
+    "split": "val"
+   },
+   "row_idx": 1286,
+   "truncated": []
+  },
+  {
+   "config": "TEST",
+   "row": {
+    "caption": [
+     "Two mimes dressed in black mime tug-of-war in a field while a small white dog runs between them.",
+     "Two mimes are playing tug-of-war while a dog is running between them.",
+     "Two people and a small white dog are playing at the park.",
+     "Mimes trying to pull one another.",
+     "Mimes are playing tug-of-war."
+    ],
+    "filename": "1394673080.jpg",
+    "image": {
+     "height": 333,
+     "src": "samples/flickr30k/1298-image.jpg",
+     "width": 500
+    },
+    "img_id": "1298",
+    "sentids": [
+     "6490",
+     "6491",
+     "6492",
+     "6493",
+     "6494"
+    ],
+    "split": "train"
+   },
+   "row_idx": 1298,
+   "truncated": []
+  },
+  {
+   "config": "TEST",
+   "row": {
+    "caption": [
+     "Two children and a dog play in the snow with a woods behind them.",
+     "Two children and a black dog are playing out in the snow.",
+     "Two children and a dog running around in snow.",
+     "Two children and their dog play in the snow.",
+     "Two kids and a dog play in the snow."
+    ],
+    "filename": "3710468717.jpg",
+    "image": {
+     "height": 335,
+     "src": "samples/flickr30k/15947-image.jpg",
+     "width": 500
+    },
+    "img_id": "15947",
+    "sentids": [
+     "79735",
+     "79736",
+     "79737",
+     "79738",
+     "79739"
+    ],
+    "split": "train"
+   },
+   "row_idx": 15947,
+   "truncated": []
+  },
+  {
+   "config": "TEST",
+   "row": {
+    "caption": [
+     "A white dog lifts its paw as it stands on the grass near striped poles.",
+     "The small furry white dog is walking in the green grass.",
+     "A white dog competing in an agility event.",
+     "A dog trots through the grass.",
+     "A fluffy white dog is outside."
+    ],
+    "filename": "1402843760.jpg",
+    "image": {
+     "height": 474,
+     "src": "samples/flickr30k/1331-image.jpg",
+     "width": 500
+    },
+    "img_id": "1331",
+    "sentids": [
+     "6655",
+     "6656",
+     "6657",
+     "6658",
+     "6659"
+    ],
+    "split": "train"
+   },
+   "row_idx": 1331,
+   "truncated": []
+  },
+  {
+   "config": "TEST",
+   "row": {
+    "caption": [
+     "A man with clown makeup on is holding a guitar and a harmonica while standing in front of a microphone.",
+     "A man with the face paint of a clown holds a ukulele and harmonica.",
+     "A man in suit with face paint is playing a guitar on stage.",
+     "A mime performing on stage holds a ukulele (mandolin?).",
+     "A man with face paint playing a small guitar."
+    ],
+    "filename": "3705560226.jpg",
+    "image": {
+     "height": 500,
+     "src": "samples/flickr30k/15909-image.jpg",
+     "width": 375
+    },
+    "img_id": "15909",
+    "sentids": [
+     "79545",
+     "79546",
+     "79547",
+     "79548",
+     "79549"
+    ],
+    "split": "train"
+   },
+   "row_idx": 15909,
+   "truncated": []
+  },
+  {
+   "config": "TEST",
+   "row": {
+    "caption": [
+     "A boy contorts his face while holding an electronic device.",
+     "A young man is concentrating on playing with a notebook.",
+     "A young boy makes a face as he plays on a game system.",
+     "A young child playing video games on a Nintendo DS.",
+     "Young boy playing a handheld video gaming system."
+    ],
+    "filename": "3706064643.jpg",
+    "image": {
+     "height": 333,
+     "src": "samples/flickr30k/15917-image.jpg",
+     "width": 500
+    },
+    "img_id": "15917",
+    "sentids": [
+     "79585",
+     "79586",
+     "79587",
+     "79588",
+     "79589"
+    ],
+    "split": "train"
+   },
+   "row_idx": 15917,
+   "truncated": []
+  },
+  {
+   "config": "TEST",
+   "row": {
+    "caption": [
+     "The dog is running through the water carrying a black and yellow object in its mouth.",
+     "A dog with a water pack is walking through clear green water.",
+     "The Irish Setter is retrieving a flashlight from the pond.",
+     "A brown dog carrying a black object.",
+     "A dog retrieving in the water."
+    ],
+    "filename": "1394396709.jpg",
+    "image": {
+     "height": 375,
+     "src": "samples/flickr30k/1295-image.jpg",
+     "width": 500
+    },
+    "img_id": "1295",
+    "sentids": [
+     "6475",
+     "6476",
+     "6477",
+     "6478",
+     "6479"
+    ],
+    "split": "train"
+   },
+   "row_idx": 1295,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "TEST",
+  "hf": "nlphuji/flickr30k",
+  "split": "test"
+ }
+}

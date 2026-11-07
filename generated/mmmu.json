@@ -1,0 +1,2150 @@
+{
+ "features": [
+  {
+   "name": "id",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "question",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "options",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "explanation",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "image_1",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "image_2",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "image_3",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "image_4",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "image_5",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "image_6",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "image_7",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "img_type",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "answer",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "topic_difficulty",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "question_type",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "subfield",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T22:34:46+00:00",
+ "id": "mmmu",
+ "num_rows_total": 360,
+ "parts": [
+  {
+   "config": "Art",
+   "features": [
+    {
+     "name": "id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "options",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "explanation",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "image_1",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_2",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_3",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_4",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_5",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_6",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_7",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "img_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answer",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "topic_difficulty",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "subfield",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 30,
+   "split": "validation"
+  },
+  {
+   "config": "Biology",
+   "features": [
+    {
+     "name": "id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "options",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "explanation",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "image_1",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_2",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_3",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_4",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_5",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_6",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_7",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "img_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answer",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "topic_difficulty",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "subfield",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 30,
+   "split": "validation"
+  },
+  {
+   "config": "Chemistry",
+   "features": [
+    {
+     "name": "id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "options",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "explanation",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "image_1",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_2",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_3",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_4",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_5",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_6",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_7",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "img_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answer",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "topic_difficulty",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "subfield",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 30,
+   "split": "validation"
+  },
+  {
+   "config": "Clinical_Medicine",
+   "features": [
+    {
+     "name": "id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "options",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "explanation",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "image_1",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_2",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_3",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_4",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_5",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_6",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_7",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "img_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answer",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "topic_difficulty",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "subfield",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 30,
+   "split": "validation"
+  },
+  {
+   "config": "Computer_Science",
+   "features": [
+    {
+     "name": "id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "options",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "explanation",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "image_1",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_2",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_3",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_4",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_5",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_6",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_7",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "img_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answer",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "topic_difficulty",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "subfield",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 30,
+   "split": "validation"
+  },
+  {
+   "config": "Economics",
+   "features": [
+    {
+     "name": "id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "options",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "explanation",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "image_1",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_2",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_3",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_4",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_5",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_6",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_7",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "img_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answer",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "topic_difficulty",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "subfield",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 30,
+   "split": "validation"
+  },
+  {
+   "config": "Geography",
+   "features": [
+    {
+     "name": "id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "options",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "explanation",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "image_1",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_2",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_3",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_4",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_5",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_6",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_7",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "img_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answer",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "topic_difficulty",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "subfield",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 30,
+   "split": "validation"
+  },
+  {
+   "config": "History",
+   "features": [
+    {
+     "name": "id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "options",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "explanation",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "image_1",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_2",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_3",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_4",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_5",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_6",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_7",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "img_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answer",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "topic_difficulty",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "subfield",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 30,
+   "split": "validation"
+  },
+  {
+   "config": "Math",
+   "features": [
+    {
+     "name": "id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "options",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "explanation",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "image_1",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_2",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_3",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_4",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_5",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_6",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_7",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "img_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answer",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "topic_difficulty",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "subfield",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 30,
+   "split": "validation"
+  },
+  {
+   "config": "Music",
+   "features": [
+    {
+     "name": "id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "options",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "explanation",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "image_1",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_2",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_3",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_4",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_5",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_6",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_7",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "img_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answer",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "topic_difficulty",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "subfield",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 30,
+   "split": "validation"
+  },
+  {
+   "config": "Physics",
+   "features": [
+    {
+     "name": "id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "options",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "explanation",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "image_1",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_2",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_3",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_4",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_5",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_6",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_7",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "img_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answer",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "topic_difficulty",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "subfield",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 30,
+   "split": "validation"
+  },
+  {
+   "config": "Psychology",
+   "features": [
+    {
+     "name": "id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "options",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "explanation",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "image_1",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_2",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_3",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_4",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_5",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_6",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_7",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "img_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answer",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "topic_difficulty",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "subfield",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 30,
+   "split": "validation"
+  }
+ ],
+ "revision": "876ce5cb130f7f7e290ce4d9984357737d4db5cf",
+ "rows": [
+  {
+   "config": "Art",
+   "row": {
+    "answer": "C",
+    "explanation": "Judith Slaying Holofernes by Artemisia Gentileschi 1612-13 Italian Baroque painter & first successful woman painter. This was one of three paintings telling the story of the slaying of Holofernes. The story comes from the First Testiment in the Bible.",
+    "id": "validation_Art_21",
+    "image_1": {
+     "height": 998,
+     "src": "samples/mmmu/Art-20-image_1.png",
+     "width": 744
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Portraits']",
+    "options": "['Peter Paul Rubens 1675', 'Caravaggio 1635', 'Artemisia Gentileschi 1612-13', 'Francisco de Zurbarán 1614']",
+    "question": "This depiction of <image 1> was a popular subject matter painted by several artists in the 16th and 17th centuries...  who painted this one?  ",
+    "question_type": "multiple-choice",
+    "subfield": "Drawing and Painting",
+    "topic_difficulty": "Easy"
+   },
+   "row_idx": 20,
+   "truncated": []
+  },
+  {
+   "config": "Biology",
+   "row": {
+    "answer": "C",
+    "explanation": "",
+    "id": "validation_Biology_29",
+    "image_1": {
+     "height": 320,
+     "src": "samples/mmmu/Biology-28-image_1.png",
+     "width": 774
+    },
+    "image_2": {
+     "height": 316,
+     "src": "samples/mmmu/Biology-28-image_2.png",
+     "width": 766
+    },
+    "image_3": {
+     "height": 414,
+     "src": "samples/mmmu/Biology-28-image_3.png",
+     "width": 696
+    },
+    "image_4": {
+     "height": 330,
+     "src": "samples/mmmu/Biology-28-image_4.png",
+     "width": 614
+    },
+    "image_5": {
+     "height": 326,
+     "src": "samples/mmmu/Biology-28-image_5.png",
+     "width": 614
+    },
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Chemical Structures']",
+    "options": "['<image 1>', '<image 2>', '<image 3>', '<image 4>', '<image 5>']",
+    "question": "The primary disaccharide digestion product of starch is",
+    "question_type": "multiple-choice",
+    "subfield": "Cell Biology",
+    "topic_difficulty": "Easy"
+   },
+   "row_idx": 28,
+   "truncated": []
+  },
+  {
+   "config": "Chemistry",
+   "row": {
+    "answer": "B",
+    "explanation": "",
+    "id": "validation_Chemistry_22",
+    "image_1": {
+     "height": 410,
+     "src": "samples/mmmu/Chemistry-21-image_1.jpg",
+     "width": 658
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Plots and Charts']",
+    "options": "['(A)', '(B)', '(C)', '(D)', '(E)']",
+    "question": "See the following phase diagram below, where there are 5 points labeled as (A), (B), (C), (D), and (E), respectively. <image 1> At which point will the substancemce represented by the phase diagram be solely in the solid phase at equilibrium?",
+    "question_type": "multiple-choice",
+    "subfield": "Inorganic Chemistry",
+    "topic_difficulty": "Easy"
+   },
+   "row_idx": 21,
+   "truncated": []
+  },
+  {
+   "config": "Clinical_Medicine",
+   "row": {
+    "answer": "D",
+    "explanation": "",
+    "id": "validation_Clinical_Medicine_22",
+    "image_1": {
+     "height": 330,
+     "src": "samples/mmmu/Clinical_Medicine-21-image_1.jpg",
+     "width": 504
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Photographs']",
+    "options": "['Keratoacanthomas', 'Seborrheic keratoses', 'Fibroepithelial polyps', 'Nevocellular nevi', 'Epidermal inclusion cysts']",
+    "question": "A 33-year-old man goes to his physician for a routine check of his health status. On physical examination he has the skin lesions seen here. These lesions have not increased in size since childhood. Which of the following is the most likely diagnosis? <image 1> ",
+    "question_type": "multiple-choice",
+    "subfield": "Clinical Medicine",
+    "topic_difficulty": "Medium"
+   },
+   "row_idx": 21,
+   "truncated": []
+  },
+  {
+   "config": "Computer_Science",
+   "row": {
+    "answer": "D",
+    "explanation": "",
+    "id": "validation_Computer_Science_14",
+    "image_1": {
+     "height": 348,
+     "src": "samples/mmmu/Computer_Science-13-image_1.png",
+     "width": 504
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Diagrams']",
+    "options": "['T3 -> T1 -> T2', 'T2 -> T1 -> T3', 'T1 -> T2 -> T3', 'There are no serial schedules for the graph.']",
+    "question": "Which schedule is an equivalent serial schedule for the precendence graph in <image 1>?",
+    "question_type": "multiple-choice",
+    "subfield": "Operating System",
+    "topic_difficulty": "Medium"
+   },
+   "row_idx": 13,
+   "truncated": []
+  },
+  {
+   "config": "Economics",
+   "row": {
+    "answer": "C",
+    "explanation": "",
+    "id": "validation_Economics_24",
+    "image_1": {
+     "height": 705,
+     "src": "samples/mmmu/Economics-23-image_1.png",
+     "width": 876
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Tables']",
+    "options": "['The null must be rejected at the 5% significance level.', 'The null cannot be rejected at the 5% significance level.', 'There is not enough information in the problem statement to test this null.']",
+    "question": "According to the results in Model 2, if we want to test the null that the Coefficient associated to a level C3 branch is equal to that of a C4 branch, and knowing that $Prob[t(545) $ \\leqslant $ -2]=0.025$ <image 1> ",
+    "question_type": "multiple-choice",
+    "subfield": "Econometrics",
+    "topic_difficulty": "Medium"
+   },
+   "row_idx": 23,
+   "truncated": []
+  },
+  {
+   "config": "Geography",
+   "row": {
+    "answer": "D",
+    "explanation": "",
+    "id": "validation_Geography_11",
+    "image_1": {
+     "height": 912,
+     "src": "samples/mmmu/Geography-10-image_1.png",
+     "width": 1208
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Photographs']",
+    "options": "['aretes', 'eskers', 'a hanging valley', 'lateral moraines ']",
+    "question": "<image 1>The idges indicated with a rows are:",
+    "question_type": "multiple-choice",
+    "subfield": "International Geography Olympiad",
+    "topic_difficulty": "Medium"
+   },
+   "row_idx": 10,
+   "truncated": []
+  },
+  {
+   "config": "History",
+   "row": {
+    "answer": "A",
+    "explanation": "",
+    "id": "validation_History_28",
+    "image_1": {
+     "height": 591,
+     "src": "samples/mmmu/History-27-image_1.jpg",
+     "width": 499
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Sculpture']",
+    "options": "['Women in Japan exercised influence on society, despite the persistence of patriarchy elsewhere.', 'Women in Japan of all classes had equal opportunities like men.', 'Japanese society was highly patriarchal, much like Chinese society.', 'Chinese views of women influenced Japanese gender roles.']",
+    "question": "The <image 1>  represents which of the following characteristics of the period 600-1450 C.E.?    ",
+    "question_type": "multiple-choice",
+    "subfield": "World History",
+    "topic_difficulty": "Easy"
+   },
+   "row_idx": 27,
+   "truncated": []
+  },
+  {
+   "config": "Math",
+   "row": {
+    "answer": "A",
+    "explanation": "",
+    "id": "validation_Math_29",
+    "image_1": {
+     "height": 196,
+     "src": "samples/mmmu/Math-28-image_1.jpg",
+     "width": 546
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Tables']",
+    "options": "['1.9', '2.1', '2.3', '2.5']",
+    "question": "<image 1>The table above gives selected values for the derivative of a function fon the interval -1 $\\le $ x $\\le $ 0.6 If f(-1) = 1.5 and Euler's method is used to approximate f(0.6) with step size of 0.8, what is theresulting approximation?",
+    "question_type": "multiple-choice",
+    "subfield": "Calculus",
+    "topic_difficulty": "Medium"
+   },
+   "row_idx": 28,
+   "truncated": []
+  },
+  {
+   "config": "Music",
+   "row": {
+    "answer": "B",
+    "explanation": "",
+    "id": "validation_Music_4",
+    "image_1": {
+     "height": 156,
+     "src": "samples/mmmu/Music-3-image_1.png",
+     "width": 1054
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Sheet Music']",
+    "options": "['6', '7', '5', '4']",
+    "question": "<image 1> Based on the time signature, the number of measures/bars in the following music score is _____.",
+    "question_type": "multiple-choice",
+    "subfield": "Music",
+    "topic_difficulty": "Medium"
+   },
+   "row_idx": 3,
+   "truncated": []
+  },
+  {
+   "config": "Physics",
+   "row": {
+    "answer": "A",
+    "explanation": "",
+    "id": "validation_Physics_17",
+    "image_1": {
+     "height": 308,
+     "src": "samples/mmmu/Physics-16-image_1.jpg",
+     "width": 1036
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Plots and Charts']",
+    "options": "['A', 'B', 'C', 'D']",
+    "question": "Which graph shows how power dissipated P varies with current I in a component that obeys Ohm's law?<image 1>",
+    "question_type": "multiple-choice",
+    "subfield": "Electromagnetism",
+    "topic_difficulty": "Easy"
+   },
+   "row_idx": 16,
+   "truncated": []
+  },
+  {
+   "config": "Psychology",
+   "row": {
+    "answer": "B",
+    "explanation": "",
+    "id": "validation_Psychology_12",
+    "image_1": {
+     "height": 521,
+     "src": "samples/mmmu/Psychology-11-image_1.png",
+     "width": 867
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Plots and Charts']",
+    "options": "['Piaget', 'Vygotsky', 'Whorfian', 'Weak linguistic determinism']",
+    "question": "One of the central questions in language is of linguistic determinism. Language is an important component of one's ability to comprehend numbers and quantities. Counting takes many forms depending on culture. Researchers have not yet found a language that does not represent numbers. Some cultures use body parts to count or forms of recursion using a small numerical base. Gumulgal South Sea Islanders count utilizing a recursive binary system. The Piraha are a monolingual population (< 200 population) that have rejected assimilation with the Brazilian culture. A predominantly hunter-gatherer population, the Piraha live in villages of between 10 and 20 people on the banks of the Maici River in Brazil's Lowland Amazonia region. The Piraha counting system consists of what is termed the \"one-two-many\" system. Quantities beyond two are described as many, in this system of counting. A researcher visited the Piraha tribe to test the impact of counting systems on the ability to estimate quantity. Members of the Piraha tribe were given a visual counting task to test the impact of numerical systems on visual estimation. Each tribe member was allowed to inspect a group of nuts for a few seconds. The nuts were placed in an opaque can, so the quantity could not be viewed. For each trial, a nut was removed from the can, and the tribe member was asked to tell the researcher if the can still contained nuts. Tribe members who were able to estimate the quantity of nuts in the can would be able to tell when there were none left. Figure 1 shows the proportion of correct responses averaged for each target number of nuts over all trials. Figure 1: Results for the Piraha tribe members' trials averaged for each target number (n = 63). For each trial, each tribe member estimated the number of nuts left in the can (target). The proportion of correct responses is shown (the first and last nut were excluded). <image 1> Which theory would support the viewpoint: the Piraha have not needed a counting system that uses numbers beyond two and when a better numbering system is necessary, their language will create it?",
+    "question_type": "multiple-choice",
+    "subfield": "Cognitive Psychology",
+    "topic_difficulty": "Easy"
+   },
+   "row_idx": 11,
+   "truncated": []
+  },
+  {
+   "config": "Art",
+   "row": {
+    "answer": "C",
+    "explanation": "Maggi Hambling's four-metre high monument was created in remembrance of the Aldeburgh resident and composer Benjamin Britten, who died in 1976. The artist described the shell as a conversation with the sea, and it symbolises Britten's 1945 opera, Peter Grimes, which features the line: 'I hear those voices that will not be drowned.' Image: Scallop: A Conversation with the Sea, 2003, Maggi Hambling (b.1945) and Sam Dennis Pegg",
+    "id": "validation_Art_8",
+    "image_1": {
+     "height": 462,
+     "src": "samples/mmmu/Art-7-image_1.png",
+     "width": 610
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Photographs']",
+    "options": "['Herne Bay, Kent', 'St Ives, Cornwall', 'Aldeburgh, Suffolk', 'Sandown, Isle of Wight']",
+    "question": "<image 1>: A Conversation with the Sea stands in which British seaside town?",
+    "question_type": "multiple-choice",
+    "subfield": "Sculpture",
+    "topic_difficulty": "Easy"
+   },
+   "row_idx": 7,
+   "truncated": []
+  },
+  {
+   "config": "Biology",
+   "row": {
+    "answer": "C",
+    "explanation": "",
+    "id": "validation_Biology_21",
+    "image_1": {
+     "height": 882,
+     "src": "samples/mmmu/Biology-20-image_1.png",
+     "width": 998
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Microscopic Images']",
+    "options": "['Flagellum', 'Plasma membrane', 'Nucleus', 'Cell wall', 'Cytoplasm', 'Mitochondria', 'Centrioles']",
+    "question": "What is the part of the cell labeled 'B' in <image 1>?",
+    "question_type": "multiple-choice",
+    "subfield": "Microbiology",
+    "topic_difficulty": "Medium"
+   },
+   "row_idx": 20,
+   "truncated": []
+  },
+  {
+   "config": "Chemistry",
+   "row": {
+    "answer": "B",
+    "explanation": "",
+    "id": "validation_Chemistry_17",
+    "image_1": {
+     "height": 166,
+     "src": "samples/mmmu/Chemistry-16-image_1.jpg",
+     "width": 643
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Chemical Structures']",
+    "options": "['P, Q', 'P, R', 'R, S', 'Q, S']",
+    "question": "Among the following, the Newmann projections of meso-2, 3-butanediol are : <image 1>",
+    "question_type": "multiple-choice",
+    "subfield": "Organic Chemistry",
+    "topic_difficulty": "Medium"
+   },
+   "row_idx": 16,
+   "truncated": []
+  },
+  {
+   "config": "Clinical_Medicine",
+   "row": {
+    "answer": "C",
+    "explanation": "",
+    "id": "validation_Clinical_Medicine_10",
+    "image_1": {
+     "height": 467,
+     "src": "samples/mmmu/Clinical_Medicine-9-image_1.jpg",
+     "width": 316
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Medical Images']",
+    "options": "['Liquefactive necrosis', 'Caseous necrosis', 'Coagulative necrosis', 'Wet gangrene']",
+    "question": "A 49-year-old man has had marked chest pain for the last 4 hours. An EKG shows ST segment elevation. Laboratory studies show cardiac troponin of 10 ng/mL. The representative gross appearance of his disease process is depicted here. Which of the following findings is most likely to occur in this man? <image 1> ",
+    "question_type": "multiple-choice",
+    "subfield": "Clinical Pathology",
+    "topic_difficulty": "Medium"
+   },
+   "row_idx": 9,
+   "truncated": []
+  },
+  {
+   "config": "Computer_Science",
+   "row": {
+    "answer": "D",
+    "explanation": "",
+    "id": "validation_Computer_Science_10",
+    "image_1": {
+     "height": 146,
+     "src": "samples/mmmu/Computer_Science-9-image_1.jpg",
+     "width": 177
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Plots and Charts']",
+    "options": "['22', '20', '15', '8']",
+    "question": "Given the adjacency matrix of a weighted undirected graph as follows, the total weight of its minimum spanning tree is:<image 1>",
+    "question_type": "multiple-choice",
+    "subfield": "Data Structure and Algorithm",
+    "topic_difficulty": "Medium"
+   },
+   "row_idx": 9,
+   "truncated": []
+  },
+  {
+   "config": "Economics",
+   "row": {
+    "answer": "8",
+    "explanation": "",
+    "id": "validation_Economics_20",
+    "image_1": {
+     "height": 585,
+     "src": "samples/mmmu/Economics-19-image_1.png",
+     "width": 675
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Plots and Charts']",
+    "options": "[]",
+    "question": "The graph below shows the supply and demand curves and the world price for bagels. <image 1> What is the equilibrium price if this country does not trade?",
+    "question_type": "open",
+    "subfield": "Macroeconomics",
+    "topic_difficulty": "Medium"
+   },
+   "row_idx": 19,
+   "truncated": []
+  },
+  {
+   "config": "Geography",
+   "row": {
+    "answer": "C",
+    "explanation": "",
+    "id": "validation_Geography_30",
+    "image_1": {
+     "height": 215,
+     "src": "samples/mmmu/Geography-29-image_1.jpg",
+     "width": 560
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Plots and Charts']",
+    "options": "['10.7m', '21.3m', '24.0m', '48.0m']",
+    "question": "The average wave velocity value of the bored pile body at a certain site is 3555.6m/s, and the low strain reflected wave dynamic test curve of a certain column is shown in Figure 10-3, corresponding to the values of time t1, t2, and t3 in the figure ,Which of the following options is the closest value to the length of the pile? ()()<image 1>",
+    "question_type": "multiple-choice",
+    "subfield": "Geotechnical Engineering",
+    "topic_difficulty": "Medium"
+   },
+   "row_idx": 29,
+   "truncated": []
+  },
+  {
+   "config": "History",
+   "row": {
+    "answer": "D",
+    "explanation": "The sentiments expressed in the cartoon most directly contributed to the passage of the Fifteenth Amendment. The Fifteenth Amendment states that the vote may not be denied to someone based on \"race, color, or previous condition of servitude.\" Voting rights for African Americans was a key element of the Reconstruction program of the radical Republicans. The cartoon shows empathy for African Americans, depicted being pushed to the ground and having the vote denied them. The other choices all reflect the point of view of white southern opponents of Reconstruction. The compromise in 1877 that allowed Republican Rutherford B. Hayes to assume the White House also led to the end of Reconstruction, allowing Democrats in the South to reestablish power (A). One factor in pushing African Americans from meaningful participation in the political process was the rise of the Ku Klux Klan in the South (B). After Reconstruction southern states enacted segregation laws (C), further solidifying the second-class status of African Americans.",
+    "id": "validation_History_2",
+    "image_1": {
+     "height": 778,
+     "src": "samples/mmmu/History-1-image_1.png",
+     "width": 890
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Comics and Cartoons']",
+    "options": "['The compromise ending Reconstruction', 'The rise of the Ku Klux Klan in the South', 'The enactment of segregation laws in Southern states', 'The passage of the Fifteenth Amendment']",
+    "question": "<image 1> The sentiments expressed in the cartoon most directly contributed to which of the following?",
+    "question_type": "multiple-choice",
+    "subfield": "U.S. History",
+    "topic_difficulty": "Easy"
+   },
+   "row_idx": 1,
+   "truncated": []
+  },
+  {
+   "config": "Math",
+   "row": {
+    "answer": "A",
+    "explanation": "",
+    "id": "validation_Math_7",
+    "image_1": {
+     "height": 1224,
+     "src": "samples/mmmu/Math-6-image_1.png",
+     "width": 1498
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Sketches and Drafts']",
+    "options": "['(1), (2), (3), (4), (5), (6)', '(1), (3), (4), (5), (2), (6)', '(1), (3), (5), (2), (4), (6)', '(1), (3), (5), (6), (2), (4)']",
+    "question": "Match the six example contra dance in sequence, Circle Right, Ladies' Chain, Swing on side, Gents Allemande, Right and Left Through, Caifornia Twirl, with the figures <image 1>",
+    "question_type": "multiple-choice",
+    "subfield": "Group Theory",
+    "topic_difficulty": "Medium"
+   },
+   "row_idx": 6,
+   "truncated": []
+  },
+  {
+   "config": "Music",
+   "row": {
+    "answer": "C",
+    "explanation": "",
+    "id": "validation_Music_21",
+    "image_1": {
+     "height": 2057,
+     "src": "samples/mmmu/Music-20-image_1.png",
+     "width": 1557
+    },
+    "image_2": {
+     "height": 1530,
+     "src": "samples/mmmu/Music-20-image_2.png",
+     "width": 1586
+    },
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Sheet Music']",
+    "options": "['perfect 4th', 'major 9th/ compound major 2nd', 'augmented 5th', 'perfect unison']",
+    "question": "<image 1><image 2>Describe fully the numbered and bracketed harmonic intervals sounding between third horn and second violins, bar 11",
+    "question_type": "multiple-choice",
+    "subfield": "Music",
+    "topic_difficulty": "Hard"
+   },
+   "row_idx": 20,
+   "truncated": []
+  },
+  {
+   "config": "Physics",
+   "row": {
+    "answer": "B",
+    "explanation": "",
+    "id": "validation_Physics_9",
+    "image_1": {
+     "height": 176,
+     "src": "samples/mmmu/Physics-8-image_1.jpg",
+     "width": 250
+    },
+    "image_2": null,
+    "image_3": null,
+    "image_4": null,
+    "image_5": null,
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Diagrams']",
+    "options": "['1', '2', '3', '4', '1, 2, or 3']",
+    "question": "<image 1>The uniform rod shown below is held in place by the rope and wall. Suppose you know the weight of the rod and all dimensions. Then you can solve a single equation for the force exerted by the rope, provided you write expressions for the torques about the point:",
+    "question_type": "multiple-choice",
+    "subfield": "Classical Mechanics",
+    "topic_difficulty": "Medium"
+   },
+   "row_idx": 8,
+   "truncated": []
+  },
+  {
+   "config": "Psychology",
+   "row": {
+    "answer": "A",
+    "explanation": "The relationship between arousal and performance is known as the Yerkes-Dodson law and is expressed by a graph that looks like an inverted 'U'. As arousal increases, so does performance-up to a point. When arousal becomes too high, performance suffers.",
+    "id": "validation_Psychology_17",
+    "image_1": {
+     "height": 284,
+     "src": "samples/mmmu/Psychology-16-image_1.png",
+     "width": 394
+    },
+    "image_2": {
+     "height": 276,
+     "src": "samples/mmmu/Psychology-16-image_2.png",
+     "width": 394
+    },
+    "image_3": {
+     "height": 276,
+     "src": "samples/mmmu/Psychology-16-image_3.png",
+     "width": 394
+    },
+    "image_4": {
+     "height": 276,
+     "src": "samples/mmmu/Psychology-16-image_4.png",
+     "width": 394
+    },
+    "image_5": {
+     "height": 276,
+     "src": "samples/mmmu/Psychology-16-image_5.png",
+     "width": 394
+    },
+    "image_6": null,
+    "image_7": null,
+    "img_type": "['Diagrams']",
+    "options": "['<image 1>', '<image 2>', '<image 3>', '<image 4>', '<image 5>']",
+    "question": "Which of the following graphs best represents the relationship between arousal and performance?",
+    "question_type": "multiple-choice",
+    "subfield": "",
+    "topic_difficulty": "Medium"
+   },
+   "row_idx": 16,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "Art",
+  "hf": "MMMU/MMMU",
+  "split": "validation"
+ }
+}

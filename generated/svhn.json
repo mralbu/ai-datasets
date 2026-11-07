@@ -1,0 +1,852 @@
+{
+ "features": [
+  {
+   "name": "image",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "label",
+   "type": {
+    "_type": "ClassLabel",
+    "names": [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9"
+    ]
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T22:35:08+00:00",
+ "id": "svhn",
+ "num_rows_total": 26032,
+ "parts": [
+  {
+   "config": "cropped_digits",
+   "features": [
+    {
+     "name": "image",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "label",
+     "type": {
+      "_type": "ClassLabel",
+      "names": [
+       "0",
+       "1",
+       "2",
+       "3",
+       "4",
+       "5",
+       "6",
+       "7",
+       "8",
+       "9"
+      ]
+     }
+    }
+   ],
+   "num_rows_total": 26032,
+   "split": "test"
+  }
+ ],
+ "revision": "f9e1717d73324ebbc1ece84267ccd80d0aca0690",
+ "rows": [
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/20998-image.jpg",
+     "width": 32
+    },
+    "label": 6
+   },
+   "row_idx": 20998,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/67-image.jpg",
+     "width": 32
+    },
+    "label": 9
+   },
+   "row_idx": 67,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/10676-image.jpg",
+     "width": 32
+    },
+    "label": 5
+   },
+   "row_idx": 10676,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/110-image.jpg",
+     "width": 32
+    },
+    "label": 3
+   },
+   "row_idx": 110,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/21006-image.jpg",
+     "width": 32
+    },
+    "label": 2
+   },
+   "row_idx": 21006,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/13885-image.jpg",
+     "width": 32
+    },
+    "label": 1
+   },
+   "row_idx": 13885,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/3782-image.jpg",
+     "width": 32
+    },
+    "label": 1
+   },
+   "row_idx": 3782,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/25009-image.jpg",
+     "width": 32
+    },
+    "label": 1
+   },
+   "row_idx": 25009,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/13951-image.jpg",
+     "width": 32
+    },
+    "label": 8
+   },
+   "row_idx": 13951,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/9237-image.jpg",
+     "width": 32
+    },
+    "label": 2
+   },
+   "row_idx": 9237,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/3718-image.jpg",
+     "width": 32
+    },
+    "label": 7
+   },
+   "row_idx": 3718,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/17228-image.jpg",
+     "width": 32
+    },
+    "label": 5
+   },
+   "row_idx": 17228,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/17232-image.jpg",
+     "width": 32
+    },
+    "label": 8
+   },
+   "row_idx": 17232,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/24979-image.jpg",
+     "width": 32
+    },
+    "label": 9
+   },
+   "row_idx": 24979,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/68-image.jpg",
+     "width": 32
+    },
+    "label": 3
+   },
+   "row_idx": 68,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/20997-image.jpg",
+     "width": 32
+    },
+    "label": 6
+   },
+   "row_idx": 20997,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/13901-image.jpg",
+     "width": 32
+    },
+    "label": 4
+   },
+   "row_idx": 13901,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/10603-image.jpg",
+     "width": 32
+    },
+    "label": 3
+   },
+   "row_idx": 10603,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/10699-image.jpg",
+     "width": 32
+    },
+    "label": 1
+   },
+   "row_idx": 10699,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/3805-image.jpg",
+     "width": 32
+    },
+    "label": 1
+   },
+   "row_idx": 3805,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/10626-image.jpg",
+     "width": 32
+    },
+    "label": 6
+   },
+   "row_idx": 10626,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/24980-image.jpg",
+     "width": 32
+    },
+    "label": 1
+   },
+   "row_idx": 24980,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/10652-image.jpg",
+     "width": 32
+    },
+    "label": 1
+   },
+   "row_idx": 10652,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/17164-image.jpg",
+     "width": 32
+    },
+    "label": 8
+   },
+   "row_idx": 17164,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/17165-image.jpg",
+     "width": 32
+    },
+    "label": 1
+   },
+   "row_idx": 17165,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/10616-image.jpg",
+     "width": 32
+    },
+    "label": 2
+   },
+   "row_idx": 10616,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/3743-image.jpg",
+     "width": 32
+    },
+    "label": 6
+   },
+   "row_idx": 3743,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/13909-image.jpg",
+     "width": 32
+    },
+    "label": 9
+   },
+   "row_idx": 13909,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/21028-image.jpg",
+     "width": 32
+    },
+    "label": 6
+   },
+   "row_idx": 21028,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/100-image.jpg",
+     "width": 32
+    },
+    "label": 4
+   },
+   "row_idx": 100,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/9287-image.jpg",
+     "width": 32
+    },
+    "label": 9
+   },
+   "row_idx": 9287,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/9272-image.jpg",
+     "width": 32
+    },
+    "label": 8
+   },
+   "row_idx": 9272,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/64-image.jpg",
+     "width": 32
+    },
+    "label": 1
+   },
+   "row_idx": 64,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/25000-image.jpg",
+     "width": 32
+    },
+    "label": 6
+   },
+   "row_idx": 25000,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/17211-image.jpg",
+     "width": 32
+    },
+    "label": 8
+   },
+   "row_idx": 17211,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/137-image.jpg",
+     "width": 32
+    },
+    "label": 1
+   },
+   "row_idx": 137,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/20983-image.jpg",
+     "width": 32
+    },
+    "label": 1
+   },
+   "row_idx": 20983,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/13905-image.jpg",
+     "width": 32
+    },
+    "label": 0
+   },
+   "row_idx": 13905,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/13935-image.jpg",
+     "width": 32
+    },
+    "label": 7
+   },
+   "row_idx": 13935,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/3810-image.jpg",
+     "width": 32
+    },
+    "label": 5
+   },
+   "row_idx": 3810,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/9288-image.jpg",
+     "width": 32
+    },
+    "label": 1
+   },
+   "row_idx": 9288,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/55-image.jpg",
+     "width": 32
+    },
+    "label": 8
+   },
+   "row_idx": 55,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/3732-image.jpg",
+     "width": 32
+    },
+    "label": 3
+   },
+   "row_idx": 3732,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/9313-image.jpg",
+     "width": 32
+    },
+    "label": 8
+   },
+   "row_idx": 9313,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/17181-image.jpg",
+     "width": 32
+    },
+    "label": 1
+   },
+   "row_idx": 17181,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/25008-image.jpg",
+     "width": 32
+    },
+    "label": 0
+   },
+   "row_idx": 25008,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/25036-image.jpg",
+     "width": 32
+    },
+    "label": 2
+   },
+   "row_idx": 25036,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/10612-image.jpg",
+     "width": 32
+    },
+    "label": 9
+   },
+   "row_idx": 10612,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/13890-image.jpg",
+     "width": 32
+    },
+    "label": 3
+   },
+   "row_idx": 13890,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/20991-image.jpg",
+     "width": 32
+    },
+    "label": 1
+   },
+   "row_idx": 20991,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/9249-image.jpg",
+     "width": 32
+    },
+    "label": 9
+   },
+   "row_idx": 9249,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/25046-image.jpg",
+     "width": 32
+    },
+    "label": 6
+   },
+   "row_idx": 25046,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/9227-image.jpg",
+     "width": 32
+    },
+    "label": 7
+   },
+   "row_idx": 9227,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/147-image.jpg",
+     "width": 32
+    },
+    "label": 3
+   },
+   "row_idx": 147,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/10644-image.jpg",
+     "width": 32
+    },
+    "label": 5
+   },
+   "row_idx": 10644,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/3808-image.jpg",
+     "width": 32
+    },
+    "label": 3
+   },
+   "row_idx": 3808,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/21074-image.jpg",
+     "width": 32
+    },
+    "label": 3
+   },
+   "row_idx": 21074,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/17242-image.jpg",
+     "width": 32
+    },
+    "label": 3
+   },
+   "row_idx": 17242,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/9277-image.jpg",
+     "width": 32
+    },
+    "label": 4
+   },
+   "row_idx": 9277,
+   "truncated": []
+  },
+  {
+   "config": "cropped_digits",
+   "row": {
+    "image": {
+     "height": 32,
+     "src": "samples/svhn/3731-image.jpg",
+     "width": 32
+    },
+    "label": 5
+   },
+   "row_idx": 3731,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "cropped_digits",
+  "hf": "ufldl-stanford/svhn",
+  "split": "test"
+ }
+}

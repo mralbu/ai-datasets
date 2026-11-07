@@ -1,0 +1,1564 @@
+{
+ "features": [
+  {
+   "name": "image",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "5_o_Clock_Shadow",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Arched_Eyebrows",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Attractive",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Bags_Under_Eyes",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Bald",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Bangs",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Big_Lips",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Big_Nose",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Black_Hair",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Blond_Hair",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Blurry",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Brown_Hair",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Bushy_Eyebrows",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Chubby",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Double_Chin",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Eyeglasses",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Goatee",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Gray_Hair",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Heavy_Makeup",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "High_Cheekbones",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Male",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Mouth_Slightly_Open",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Mustache",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Narrow_Eyes",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "No_Beard",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Oval_Face",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Pale_Skin",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Pointy_Nose",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Receding_Hairline",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Rosy_Cheeks",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Sideburns",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Smiling",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Straight_Hair",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Wavy_Hair",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Wearing_Earrings",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Wearing_Hat",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Wearing_Lipstick",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Wearing_Necklace",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Wearing_Necktie",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "Young",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "prompt_string",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T22:33:14+00:00",
+ "id": "celeba",
+ "num_rows_total": 19962,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "image",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "5_o_Clock_Shadow",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Arched_Eyebrows",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Attractive",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Bags_Under_Eyes",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Bald",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Bangs",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Big_Lips",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Big_Nose",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Black_Hair",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Blond_Hair",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Blurry",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Brown_Hair",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Bushy_Eyebrows",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Chubby",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Double_Chin",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Eyeglasses",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Goatee",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Gray_Hair",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Heavy_Makeup",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "High_Cheekbones",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Male",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Mouth_Slightly_Open",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Mustache",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Narrow_Eyes",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "No_Beard",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Oval_Face",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Pale_Skin",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Pointy_Nose",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Receding_Hairline",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Rosy_Cheeks",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Sideburns",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Smiling",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Straight_Hair",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Wavy_Hair",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Wearing_Earrings",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Wearing_Hat",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Wearing_Lipstick",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Wearing_Necklace",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Wearing_Necktie",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "Young",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "prompt_string",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 19962,
+   "split": "validation"
+  }
+ ],
+ "revision": "ed9021d2871ceddbd3cf0fb642544bd7c60c5152",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "5_o_Clock_Shadow": -1,
+    "Arched_Eyebrows": 1,
+    "Attractive": 1,
+    "Bags_Under_Eyes": -1,
+    "Bald": -1,
+    "Bangs": -1,
+    "Big_Lips": 1,
+    "Big_Nose": -1,
+    "Black_Hair": -1,
+    "Blond_Hair": -1,
+    "Blurry": -1,
+    "Brown_Hair": 1,
+    "Bushy_Eyebrows": -1,
+    "Chubby": -1,
+    "Double_Chin": -1,
+    "Eyeglasses": -1,
+    "Goatee": -1,
+    "Gray_Hair": -1,
+    "Heavy_Makeup": 1,
+    "High_Cheekbones": 1,
+    "Male": -1,
+    "Mouth_Slightly_Open": 1,
+    "Mustache": -1,
+    "Narrow_Eyes": -1,
+    "No_Beard": 1,
+    "Oval_Face": -1,
+    "Pale_Skin": -1,
+    "Pointy_Nose": 1,
+    "Receding_Hairline": -1,
+    "Rosy_Cheeks": 1,
+    "Sideburns": -1,
+    "Smiling": 1,
+    "Straight_Hair": -1,
+    "Wavy_Hair": 1,
+    "Wearing_Earrings": -1,
+    "Wearing_Hat": -1,
+    "Wearing_Lipstick": 1,
+    "Wearing_Necklace": 1,
+    "Wearing_Necktie": -1,
+    "Young": 1,
+    "image": {
+     "height": 218,
+     "src": "samples/celeba/8778-image.jpg",
+     "width": 178
+    },
+    "prompt_string": "[-1, 1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, -1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, 1]"
+   },
+   "row_idx": 8778,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "5_o_Clock_Shadow": -1,
+    "Arched_Eyebrows": -1,
+    "Attractive": 1,
+    "Bags_Under_Eyes": -1,
+    "Bald": -1,
+    "Bangs": -1,
+    "Big_Lips": -1,
+    "Big_Nose": -1,
+    "Black_Hair": 1,
+    "Blond_Hair": -1,
+    "Blurry": -1,
+    "Brown_Hair": -1,
+    "Bushy_Eyebrows": -1,
+    "Chubby": -1,
+    "Double_Chin": -1,
+    "Eyeglasses": -1,
+    "Goatee": -1,
+    "Gray_Hair": -1,
+    "Heavy_Makeup": 1,
+    "High_Cheekbones": 1,
+    "Male": -1,
+    "Mouth_Slightly_Open": 1,
+    "Mustache": -1,
+    "Narrow_Eyes": 1,
+    "No_Beard": 1,
+    "Oval_Face": -1,
+    "Pale_Skin": -1,
+    "Pointy_Nose": 1,
+    "Receding_Hairline": -1,
+    "Rosy_Cheeks": -1,
+    "Sideburns": -1,
+    "Smiling": 1,
+    "Straight_Hair": 1,
+    "Wavy_Hair": -1,
+    "Wearing_Earrings": -1,
+    "Wearing_Hat": -1,
+    "Wearing_Lipstick": 1,
+    "Wearing_Necklace": -1,
+    "Wearing_Necktie": -1,
+    "Young": 1,
+    "image": {
+     "height": 218,
+     "src": "samples/celeba/17154-image.jpg",
+     "width": 178
+    },
+    "prompt_string": "[-1, -1, 1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, -1, -1, -1, 1, -1, -1, 1]"
+   },
+   "row_idx": 17154,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "5_o_Clock_Shadow": -1,
+    "Arched_Eyebrows": -1,
+    "Attractive": 1,
+    "Bags_Under_Eyes": -1,
+    "Bald": -1,
+    "Bangs": -1,
+    "Big_Lips": 1,
+    "Big_Nose": -1,
+    "Black_Hair": -1,
+    "Blond_Hair": 1,
+    "Blurry": -1,
+    "Brown_Hair": -1,
+    "Bushy_Eyebrows": -1,
+    "Chubby": -1,
+    "Double_Chin": -1,
+    "Eyeglasses": -1,
+    "Goatee": -1,
+    "Gray_Hair": -1,
+    "Heavy_Makeup": 1,
+    "High_Cheekbones": 1,
+    "Male": -1,
+    "Mouth_Slightly_Open": 1,
+    "Mustache": -1,
+    "Narrow_Eyes": -1,
+    "No_Beard": 1,
+    "Oval_Face": -1,
+    "Pale_Skin": -1,
+    "Pointy_Nose": 1,
+    "Receding_Hairline": -1,
+    "Rosy_Cheeks": -1,
+    "Sideburns": -1,
+    "Smiling": 1,
+    "Straight_Hair": -1,
+    "Wavy_Hair": -1,
+    "Wearing_Earrings": -1,
+    "Wearing_Hat": -1,
+    "Wearing_Lipstick": 1,
+    "Wearing_Necklace": -1,
+    "Wearing_Necktie": -1,
+    "Young": 1,
+    "image": {
+     "height": 218,
+     "src": "samples/celeba/8811-image.jpg",
+     "width": 178
+    },
+    "prompt_string": "[-1, -1, 1, -1, -1, -1, 1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, -1, -1, 1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1]"
+   },
+   "row_idx": 8811,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "5_o_Clock_Shadow": 1,
+    "Arched_Eyebrows": -1,
+    "Attractive": -1,
+    "Bags_Under_Eyes": -1,
+    "Bald": -1,
+    "Bangs": -1,
+    "Big_Lips": 1,
+    "Big_Nose": -1,
+    "Black_Hair": -1,
+    "Blond_Hair": -1,
+    "Blurry": 1,
+    "Brown_Hair": 1,
+    "Bushy_Eyebrows": -1,
+    "Chubby": -1,
+    "Double_Chin": -1,
+    "Eyeglasses": -1,
+    "Goatee": -1,
+    "Gray_Hair": -1,
+    "Heavy_Makeup": -1,
+    "High_Cheekbones": -1,
+    "Male": 1,
+    "Mouth_Slightly_Open": -1,
+    "Mustache": -1,
+    "Narrow_Eyes": -1,
+    "No_Beard": -1,
+    "Oval_Face": -1,
+    "Pale_Skin": -1,
+    "Pointy_Nose": -1,
+    "Receding_Hairline": -1,
+    "Rosy_Cheeks": -1,
+    "Sideburns": -1,
+    "Smiling": -1,
+    "Straight_Hair": -1,
+    "Wavy_Hair": -1,
+    "Wearing_Earrings": -1,
+    "Wearing_Hat": -1,
+    "Wearing_Lipstick": -1,
+    "Wearing_Necklace": -1,
+    "Wearing_Necktie": -1,
+    "Young": 1,
+    "image": {
+     "height": 218,
+     "src": "samples/celeba/4442-image.jpg",
+     "width": 178
+    },
+    "prompt_string": "[1, -1, -1, -1, -1, -1, 1, -1, -1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1]"
+   },
+   "row_idx": 4442,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "5_o_Clock_Shadow": 1,
+    "Arched_Eyebrows": -1,
+    "Attractive": -1,
+    "Bags_Under_Eyes": 1,
+    "Bald": -1,
+    "Bangs": -1,
+    "Big_Lips": 1,
+    "Big_Nose": 1,
+    "Black_Hair": 1,
+    "Blond_Hair": -1,
+    "Blurry": -1,
+    "Brown_Hair": -1,
+    "Bushy_Eyebrows": 1,
+    "Chubby": -1,
+    "Double_Chin": -1,
+    "Eyeglasses": -1,
+    "Goatee": -1,
+    "Gray_Hair": -1,
+    "Heavy_Makeup": -1,
+    "High_Cheekbones": 1,
+    "Male": 1,
+    "Mouth_Slightly_Open": 1,
+    "Mustache": -1,
+    "Narrow_Eyes": 1,
+    "No_Beard": 1,
+    "Oval_Face": -1,
+    "Pale_Skin": -1,
+    "Pointy_Nose": -1,
+    "Receding_Hairline": -1,
+    "Rosy_Cheeks": -1,
+    "Sideburns": -1,
+    "Smiling": 1,
+    "Straight_Hair": -1,
+    "Wavy_Hair": -1,
+    "Wearing_Earrings": -1,
+    "Wearing_Hat": -1,
+    "Wearing_Lipstick": -1,
+    "Wearing_Necklace": -1,
+    "Wearing_Necktie": -1,
+    "Young": 1,
+    "image": {
+     "height": 218,
+     "src": "samples/celeba/4419-image.jpg",
+     "width": 178
+    },
+    "prompt_string": "[1, -1, -1, 1, -1, -1, 1, 1, 1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 1]"
+   },
+   "row_idx": 4419,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "5_o_Clock_Shadow": -1,
+    "Arched_Eyebrows": 1,
+    "Attractive": -1,
+    "Bags_Under_Eyes": -1,
+    "Bald": -1,
+    "Bangs": -1,
+    "Big_Lips": 1,
+    "Big_Nose": -1,
+    "Black_Hair": -1,
+    "Blond_Hair": 1,
+    "Blurry": -1,
+    "Brown_Hair": -1,
+    "Bushy_Eyebrows": -1,
+    "Chubby": -1,
+    "Double_Chin": -1,
+    "Eyeglasses": -1,
+    "Goatee": -1,
+    "Gray_Hair": -1,
+    "Heavy_Makeup": 1,
+    "High_Cheekbones": 1,
+    "Male": -1,
+    "Mouth_Slightly_Open": 1,
+    "Mustache": -1,
+    "Narrow_Eyes": 1,
+    "No_Beard": 1,
+    "Oval_Face": -1,
+    "Pale_Skin": -1,
+    "Pointy_Nose": 1,
+    "Receding_Hairline": -1,
+    "Rosy_Cheeks": -1,
+    "Sideburns": -1,
+    "Smiling": 1,
+    "Straight_Hair": 1,
+    "Wavy_Hair": -1,
+    "Wearing_Earrings": 1,
+    "Wearing_Hat": -1,
+    "Wearing_Lipstick": 1,
+    "Wearing_Necklace": -1,
+    "Wearing_Necktie": -1,
+    "Young": 1,
+    "image": {
+     "height": 218,
+     "src": "samples/celeba/17091-image.jpg",
+     "width": 178
+    },
+    "prompt_string": "[-1, 1, -1, -1, -1, -1, 1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, -1, 1, -1, 1, -1, -1, 1]"
+   },
+   "row_idx": 17091,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "5_o_Clock_Shadow": -1,
+    "Arched_Eyebrows": 1,
+    "Attractive": 1,
+    "Bags_Under_Eyes": -1,
+    "Bald": -1,
+    "Bangs": -1,
+    "Big_Lips": 1,
+    "Big_Nose": -1,
+    "Black_Hair": -1,
+    "Blond_Hair": -1,
+    "Blurry": -1,
+    "Brown_Hair": -1,
+    "Bushy_Eyebrows": -1,
+    "Chubby": -1,
+    "Double_Chin": -1,
+    "Eyeglasses": -1,
+    "Goatee": -1,
+    "Gray_Hair": -1,
+    "Heavy_Makeup": 1,
+    "High_Cheekbones": 1,
+    "Male": -1,
+    "Mouth_Slightly_Open": -1,
+    "Mustache": -1,
+    "Narrow_Eyes": -1,
+    "No_Beard": 1,
+    "Oval_Face": -1,
+    "Pale_Skin": -1,
+    "Pointy_Nose": 1,
+    "Receding_Hairline": -1,
+    "Rosy_Cheeks": 1,
+    "Sideburns": -1,
+    "Smiling": 1,
+    "Straight_Hair": -1,
+    "Wavy_Hair": 1,
+    "Wearing_Earrings": 1,
+    "Wearing_Hat": -1,
+    "Wearing_Lipstick": 1,
+    "Wearing_Necklace": -1,
+    "Wearing_Necktie": -1,
+    "Young": 1,
+    "image": {
+     "height": 218,
+     "src": "samples/celeba/17119-image.jpg",
+     "width": 178
+    },
+    "prompt_string": "[-1, 1, 1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, -1, -1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, 1, 1, -1, 1, -1, -1, 1]"
+   },
+   "row_idx": 17119,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "5_o_Clock_Shadow": -1,
+    "Arched_Eyebrows": -1,
+    "Attractive": 1,
+    "Bags_Under_Eyes": 1,
+    "Bald": -1,
+    "Bangs": -1,
+    "Big_Lips": 1,
+    "Big_Nose": -1,
+    "Black_Hair": -1,
+    "Blond_Hair": -1,
+    "Blurry": -1,
+    "Brown_Hair": 1,
+    "Bushy_Eyebrows": -1,
+    "Chubby": -1,
+    "Double_Chin": -1,
+    "Eyeglasses": -1,
+    "Goatee": -1,
+    "Gray_Hair": -1,
+    "Heavy_Makeup": -1,
+    "High_Cheekbones": 1,
+    "Male": -1,
+    "Mouth_Slightly_Open": 1,
+    "Mustache": -1,
+    "Narrow_Eyes": -1,
+    "No_Beard": 1,
+    "Oval_Face": -1,
+    "Pale_Skin": -1,
+    "Pointy_Nose": 1,
+    "Receding_Hairline": -1,
+    "Rosy_Cheeks": -1,
+    "Sideburns": -1,
+    "Smiling": 1,
+    "Straight_Hair": -1,
+    "Wavy_Hair": 1,
+    "Wearing_Earrings": 1,
+    "Wearing_Hat": -1,
+    "Wearing_Lipstick": 1,
+    "Wearing_Necklace": -1,
+    "Wearing_Necktie": -1,
+    "Young": -1,
+    "image": {
+     "height": 218,
+     "src": "samples/celeba/17108-image.jpg",
+     "width": 178
+    },
+    "prompt_string": "[-1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1, 1, -1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, 1, -1, -1, -1]"
+   },
+   "row_idx": 17108,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "5_o_Clock_Shadow": -1,
+    "Arched_Eyebrows": -1,
+    "Attractive": 1,
+    "Bags_Under_Eyes": -1,
+    "Bald": -1,
+    "Bangs": 1,
+    "Big_Lips": -1,
+    "Big_Nose": -1,
+    "Black_Hair": -1,
+    "Blond_Hair": 1,
+    "Blurry": -1,
+    "Brown_Hair": -1,
+    "Bushy_Eyebrows": -1,
+    "Chubby": -1,
+    "Double_Chin": -1,
+    "Eyeglasses": -1,
+    "Goatee": -1,
+    "Gray_Hair": -1,
+    "Heavy_Makeup": 1,
+    "High_Cheekbones": 1,
+    "Male": -1,
+    "Mouth_Slightly_Open": -1,
+    "Mustache": -1,
+    "Narrow_Eyes": -1,
+    "No_Beard": 1,
+    "Oval_Face": -1,
+    "Pale_Skin": -1,
+    "Pointy_Nose": 1,
+    "Receding_Hairline": -1,
+    "Rosy_Cheeks": 1,
+    "Sideburns": -1,
+    "Smiling": 1,
+    "Straight_Hair": -1,
+    "Wavy_Hair": 1,
+    "Wearing_Earrings": 1,
+    "Wearing_Hat": -1,
+    "Wearing_Lipstick": 1,
+    "Wearing_Necklace": -1,
+    "Wearing_Necktie": -1,
+    "Young": -1,
+    "image": {
+     "height": 218,
+     "src": "samples/celeba/4499-image.jpg",
+     "width": 178
+    },
+    "prompt_string": "[-1, -1, 1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, -1, -1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, 1, 1, -1, 1, -1, -1, -1]"
+   },
+   "row_idx": 4499,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "5_o_Clock_Shadow": -1,
+    "Arched_Eyebrows": 1,
+    "Attractive": -1,
+    "Bags_Under_Eyes": -1,
+    "Bald": -1,
+    "Bangs": -1,
+    "Big_Lips": 1,
+    "Big_Nose": -1,
+    "Black_Hair": 1,
+    "Blond_Hair": -1,
+    "Blurry": -1,
+    "Brown_Hair": -1,
+    "Bushy_Eyebrows": -1,
+    "Chubby": -1,
+    "Double_Chin": -1,
+    "Eyeglasses": -1,
+    "Goatee": -1,
+    "Gray_Hair": -1,
+    "Heavy_Makeup": -1,
+    "High_Cheekbones": -1,
+    "Male": -1,
+    "Mouth_Slightly_Open": -1,
+    "Mustache": -1,
+    "Narrow_Eyes": 1,
+    "No_Beard": 1,
+    "Oval_Face": -1,
+    "Pale_Skin": -1,
+    "Pointy_Nose": -1,
+    "Receding_Hairline": -1,
+    "Rosy_Cheeks": -1,
+    "Sideburns": -1,
+    "Smiling": -1,
+    "Straight_Hair": 1,
+    "Wavy_Hair": -1,
+    "Wearing_Earrings": -1,
+    "Wearing_Hat": -1,
+    "Wearing_Lipstick": 1,
+    "Wearing_Necklace": -1,
+    "Wearing_Necktie": -1,
+    "Young": 1,
+    "image": {
+     "height": 218,
+     "src": "samples/celeba/8843-image.jpg",
+     "width": 178
+    },
+    "prompt_string": "[-1, 1, -1, -1, -1, -1, 1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, 1]"
+   },
+   "row_idx": 8843,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "5_o_Clock_Shadow": 1,
+    "Arched_Eyebrows": -1,
+    "Attractive": 1,
+    "Bags_Under_Eyes": -1,
+    "Bald": -1,
+    "Bangs": -1,
+    "Big_Lips": -1,
+    "Big_Nose": -1,
+    "Black_Hair": 1,
+    "Blond_Hair": -1,
+    "Blurry": -1,
+    "Brown_Hair": -1,
+    "Bushy_Eyebrows": -1,
+    "Chubby": -1,
+    "Double_Chin": -1,
+    "Eyeglasses": -1,
+    "Goatee": -1,
+    "Gray_Hair": -1,
+    "Heavy_Makeup": -1,
+    "High_Cheekbones": -1,
+    "Male": 1,
+    "Mouth_Slightly_Open": -1,
+    "Mustache": -1,
+    "Narrow_Eyes": -1,
+    "No_Beard": -1,
+    "Oval_Face": -1,
+    "Pale_Skin": -1,
+    "Pointy_Nose": -1,
+    "Receding_Hairline": -1,
+    "Rosy_Cheeks": -1,
+    "Sideburns": -1,
+    "Smiling": -1,
+    "Straight_Hair": 1,
+    "Wavy_Hair": -1,
+    "Wearing_Earrings": -1,
+    "Wearing_Hat": -1,
+    "Wearing_Lipstick": -1,
+    "Wearing_Necklace": -1,
+    "Wearing_Necktie": -1,
+    "Young": 1,
+    "image": {
+     "height": 218,
+     "src": "samples/celeba/4495-image.jpg",
+     "width": 178
+    },
+    "prompt_string": "[1, -1, 1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 1]"
+   },
+   "row_idx": 4495,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "5_o_Clock_Shadow": -1,
+    "Arched_Eyebrows": -1,
+    "Attractive": -1,
+    "Bags_Under_Eyes": -1,
+    "Bald": 1,
+    "Bangs": -1,
+    "Big_Lips": 1,
+    "Big_Nose": -1,
+    "Black_Hair": -1,
+    "Blond_Hair": -1,
+    "Blurry": -1,
+    "Brown_Hair": -1,
+    "Bushy_Eyebrows": -1,
+    "Chubby": 1,
+    "Double_Chin": -1,
+    "Eyeglasses": 1,
+    "Goatee": -1,
+    "Gray_Hair": -1,
+    "Heavy_Makeup": -1,
+    "High_Cheekbones": 1,
+    "Male": 1,
+    "Mouth_Slightly_Open": 1,
+    "Mustache": -1,
+    "Narrow_Eyes": -1,
+    "No_Beard": 1,
+    "Oval_Face": -1,
+    "Pale_Skin": -1,
+    "Pointy_Nose": -1,
+    "Receding_Hairline": -1,
+    "Rosy_Cheeks": -1,
+    "Sideburns": -1,
+    "Smiling": 1,
+    "Straight_Hair": -1,
+    "Wavy_Hair": -1,
+    "Wearing_Earrings": -1,
+    "Wearing_Hat": -1,
+    "Wearing_Lipstick": -1,
+    "Wearing_Necklace": -1,
+    "Wearing_Necktie": -1,
+    "Young": -1,
+    "image": {
+     "height": 218,
+     "src": "samples/celeba/4453-image.jpg",
+     "width": 178
+    },
+    "prompt_string": "[-1, -1, -1, -1, 1, -1, 1, -1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1]"
+   },
+   "row_idx": 4453,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "5_o_Clock_Shadow": -1,
+    "Arched_Eyebrows": 1,
+    "Attractive": 1,
+    "Bags_Under_Eyes": -1,
+    "Bald": -1,
+    "Bangs": -1,
+    "Big_Lips": 1,
+    "Big_Nose": 1,
+    "Black_Hair": 1,
+    "Blond_Hair": -1,
+    "Blurry": -1,
+    "Brown_Hair": -1,
+    "Bushy_Eyebrows": -1,
+    "Chubby": -1,
+    "Double_Chin": -1,
+    "Eyeglasses": -1,
+    "Goatee": -1,
+    "Gray_Hair": -1,
+    "Heavy_Makeup": 1,
+    "High_Cheekbones": 1,
+    "Male": -1,
+    "Mouth_Slightly_Open": 1,
+    "Mustache": -1,
+    "Narrow_Eyes": -1,
+    "No_Beard": 1,
+    "Oval_Face": -1,
+    "Pale_Skin": -1,
+    "Pointy_Nose": 1,
+    "Receding_Hairline": -1,
+    "Rosy_Cheeks": -1,
+    "Sideburns": -1,
+    "Smiling": 1,
+    "Straight_Hair": 1,
+    "Wavy_Hair": -1,
+    "Wearing_Earrings": 1,
+    "Wearing_Hat": -1,
+    "Wearing_Lipstick": 1,
+    "Wearing_Necklace": -1,
+    "Wearing_Necktie": -1,
+    "Young": -1,
+    "image": {
+     "height": 218,
+     "src": "samples/celeba/8767-image.jpg",
+     "width": 178
+    },
+    "prompt_string": "[-1, 1, 1, -1, -1, -1, 1, 1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, -1, -1, 1, -1, -1, 1, -1, -1, -1, 1, 1, -1, 1, -1, 1, -1, -1, -1]"
+   },
+   "row_idx": 8767,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "5_o_Clock_Shadow": 1,
+    "Arched_Eyebrows": -1,
+    "Attractive": -1,
+    "Bags_Under_Eyes": -1,
+    "Bald": -1,
+    "Bangs": -1,
+    "Big_Lips": -1,
+    "Big_Nose": 1,
+    "Black_Hair": -1,
+    "Blond_Hair": -1,
+    "Blurry": -1,
+    "Brown_Hair": -1,
+    "Bushy_Eyebrows": -1,
+    "Chubby": -1,
+    "Double_Chin": -1,
+    "Eyeglasses": -1,
+    "Goatee": -1,
+    "Gray_Hair": -1,
+    "Heavy_Makeup": -1,
+    "High_Cheekbones": -1,
+    "Male": 1,
+    "Mouth_Slightly_Open": -1,
+    "Mustache": -1,
+    "Narrow_Eyes": 1,
+    "No_Beard": -1,
+    "Oval_Face": -1,
+    "Pale_Skin": -1,
+    "Pointy_Nose": -1,
+    "Receding_Hairline": -1,
+    "Rosy_Cheeks": -1,
+    "Sideburns": -1,
+    "Smiling": -1,
+    "Straight_Hair": -1,
+    "Wavy_Hair": 1,
+    "Wearing_Earrings": -1,
+    "Wearing_Hat": -1,
+    "Wearing_Lipstick": -1,
+    "Wearing_Necklace": -1,
+    "Wearing_Necktie": -1,
+    "Young": -1,
+    "image": {
+     "height": 218,
+     "src": "samples/celeba/4494-image.jpg",
+     "width": 178
+    },
+    "prompt_string": "[1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1]"
+   },
+   "row_idx": 4494,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "5_o_Clock_Shadow": -1,
+    "Arched_Eyebrows": 1,
+    "Attractive": 1,
+    "Bags_Under_Eyes": -1,
+    "Bald": -1,
+    "Bangs": -1,
+    "Big_Lips": 1,
+    "Big_Nose": -1,
+    "Black_Hair": -1,
+    "Blond_Hair": -1,
+    "Blurry": -1,
+    "Brown_Hair": -1,
+    "Bushy_Eyebrows": -1,
+    "Chubby": -1,
+    "Double_Chin": -1,
+    "Eyeglasses": -1,
+    "Goatee": -1,
+    "Gray_Hair": -1,
+    "Heavy_Makeup": 1,
+    "High_Cheekbones": -1,
+    "Male": -1,
+    "Mouth_Slightly_Open": -1,
+    "Mustache": -1,
+    "Narrow_Eyes": -1,
+    "No_Beard": 1,
+    "Oval_Face": -1,
+    "Pale_Skin": -1,
+    "Pointy_Nose": 1,
+    "Receding_Hairline": -1,
+    "Rosy_Cheeks": -1,
+    "Sideburns": -1,
+    "Smiling": -1,
+    "Straight_Hair": -1,
+    "Wavy_Hair": -1,
+    "Wearing_Earrings": 1,
+    "Wearing_Hat": -1,
+    "Wearing_Lipstick": 1,
+    "Wearing_Necklace": -1,
+    "Wearing_Necktie": -1,
+    "Young": 1,
+    "image": {
+     "height": 218,
+     "src": "samples/celeba/8809-image.jpg",
+     "width": 178
+    },
+    "prompt_string": "[-1, 1, 1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, 1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1, 1]"
+   },
+   "row_idx": 8809,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "5_o_Clock_Shadow": 1,
+    "Arched_Eyebrows": -1,
+    "Attractive": -1,
+    "Bags_Under_Eyes": 1,
+    "Bald": -1,
+    "Bangs": -1,
+    "Big_Lips": -1,
+    "Big_Nose": 1,
+    "Black_Hair": 1,
+    "Blond_Hair": -1,
+    "Blurry": -1,
+    "Brown_Hair": -1,
+    "Bushy_Eyebrows": -1,
+    "Chubby": -1,
+    "Double_Chin": -1,
+    "Eyeglasses": -1,
+    "Goatee": -1,
+    "Gray_Hair": -1,
+    "Heavy_Makeup": -1,
+    "High_Cheekbones": -1,
+    "Male": 1,
+    "Mouth_Slightly_Open": 1,
+    "Mustache": 1,
+    "Narrow_Eyes": -1,
+    "No_Beard": -1,
+    "Oval_Face": 1,
+    "Pale_Skin": -1,
+    "Pointy_Nose": -1,
+    "Receding_Hairline": 1,
+    "Rosy_Cheeks": -1,
+    "Sideburns": -1,
+    "Smiling": 1,
+    "Straight_Hair": -1,
+    "Wavy_Hair": -1,
+    "Wearing_Earrings": -1,
+    "Wearing_Hat": -1,
+    "Wearing_Lipstick": -1,
+    "Wearing_Necklace": -1,
+    "Wearing_Necktie": -1,
+    "Young": 1,
+    "image": {
+     "height": 218,
+     "src": "samples/celeba/8771-image.jpg",
+     "width": 178
+    },
+    "prompt_string": "[1, -1, -1, 1, -1, -1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, 1, -1, -1, 1, -1, -1, 1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, 1]"
+   },
+   "row_idx": 8771,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "5_o_Clock_Shadow": -1,
+    "Arched_Eyebrows": -1,
+    "Attractive": -1,
+    "Bags_Under_Eyes": 1,
+    "Bald": -1,
+    "Bangs": -1,
+    "Big_Lips": -1,
+    "Big_Nose": -1,
+    "Black_Hair": -1,
+    "Blond_Hair": -1,
+    "Blurry": -1,
+    "Brown_Hair": -1,
+    "Bushy_Eyebrows": -1,
+    "Chubby": -1,
+    "Double_Chin": -1,
+    "Eyeglasses": -1,
+    "Goatee": -1,
+    "Gray_Hair": -1,
+    "Heavy_Makeup": -1,
+    "High_Cheekbones": 1,
+    "Male": 1,
+    "Mouth_Slightly_Open": -1,
+    "Mustache": -1,
+    "Narrow_Eyes": -1,
+    "No_Beard": 1,
+    "Oval_Face": -1,
+    "Pale_Skin": -1,
+    "Pointy_Nose": -1,
+    "Receding_Hairline": -1,
+    "Rosy_Cheeks": -1,
+    "Sideburns": -1,
+    "Smiling": 1,
+    "Straight_Hair": -1,
+    "Wavy_Hair": -1,
+    "Wearing_Earrings": -1,
+    "Wearing_Hat": -1,
+    "Wearing_Lipstick": -1,
+    "Wearing_Necklace": -1,
+    "Wearing_Necktie": -1,
+    "Young": -1,
+    "image": {
+     "height": 218,
+     "src": "samples/celeba/17088-image.jpg",
+     "width": 178
+    },
+    "prompt_string": "[-1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1]"
+   },
+   "row_idx": 17088,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "5_o_Clock_Shadow": -1,
+    "Arched_Eyebrows": -1,
+    "Attractive": -1,
+    "Bags_Under_Eyes": -1,
+    "Bald": -1,
+    "Bangs": -1,
+    "Big_Lips": -1,
+    "Big_Nose": -1,
+    "Black_Hair": 1,
+    "Blond_Hair": -1,
+    "Blurry": -1,
+    "Brown_Hair": -1,
+    "Bushy_Eyebrows": -1,
+    "Chubby": -1,
+    "Double_Chin": -1,
+    "Eyeglasses": -1,
+    "Goatee": -1,
+    "Gray_Hair": -1,
+    "Heavy_Makeup": -1,
+    "High_Cheekbones": -1,
+    "Male": -1,
+    "Mouth_Slightly_Open": -1,
+    "Mustache": -1,
+    "Narrow_Eyes": -1,
+    "No_Beard": 1,
+    "Oval_Face": -1,
+    "Pale_Skin": -1,
+    "Pointy_Nose": -1,
+    "Receding_Hairline": -1,
+    "Rosy_Cheeks": -1,
+    "Sideburns": -1,
+    "Smiling": -1,
+    "Straight_Hair": -1,
+    "Wavy_Hair": -1,
+    "Wearing_Earrings": -1,
+    "Wearing_Hat": -1,
+    "Wearing_Lipstick": -1,
+    "Wearing_Necklace": -1,
+    "Wearing_Necktie": -1,
+    "Young": 1,
+    "image": {
+     "height": 218,
+     "src": "samples/celeba/17097-image.jpg",
+     "width": 178
+    },
+    "prompt_string": "[-1, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1]"
+   },
+   "row_idx": 17097,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "tpremoli/CelebA-attrs",
+  "split": "validation"
+ }
+}
