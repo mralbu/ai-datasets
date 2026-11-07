@@ -1,7 +1,14 @@
 # AI Datasets
 
+[![Live site](https://img.shields.io/badge/live%20site-mralbu.github.io%2Fai--datasets-2f5bd3?style=flat-square)](https://mralbu.github.io/ai-datasets/)
+[![Deploy](https://img.shields.io/github/actions/workflow/status/mralbu/ai-datasets/deploy.yml?branch=main&label=deploy&style=flat-square)](https://github.com/mralbu/ai-datasets/actions/workflows/deploy.yml)
+
 A small static site showing what classic AI datasets and benchmarks actually look like:
 a short description, the key facts, and real samples for each one.
+
+**→ [mralbu.github.io/ai-datasets](https://mralbu.github.io/ai-datasets/)**
+
+[![The MNIST page: key facts, a digit at its real 28×28 size next to an 8× enlargement, and a grid of samples](docs/screenshot.png)](https://mralbu.github.io/ai-datasets/d/mnist)
 
 Not a catalog. Hugging Face and Papers with Code already do that. The goal is a few dozen
 historically important datasets, each shown well enough that you come away knowing the data.
@@ -22,6 +29,7 @@ Samples are fetched at build time and are not committed (see `.gitignore`).
 ```sh
 npm install
 npm run fetch              # uv run scripts/sample.py  (or: uv run scripts/sample.py mnist iris)
+                           # a failed dataset only warns; add --strict to make it an error
 BASE_PATH=/ npm run dev    # http://localhost:4321
 ```
 
