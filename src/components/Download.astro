@@ -64,10 +64,12 @@ const themes = { light: 'github-light', dark: 'github-dark' } as const;
       <button type="button" class="copy" data-copy={t.code} aria-label={`Copy ${t.label} snippet`}>Copy</button>
     </div>
   ))}
-  <p class="muted note">
-    {dl.gated && <><strong>Gated:</strong> log in and accept the terms on <a href={`https://huggingface.co/datasets/${repo}`}>the dataset page</a>. </>}
-    {dl.note ?? (dl.include ? 'The CLI command fetches only the files matching --include; drop it for the whole repository.' : 'The CLI command fetches the whole repository; Polars reads a single split.')}
-  </p>
+  {(dl.gated || dl.note) && (
+    <p class="muted note">
+      {dl.gated && <><strong>Gated:</strong> log in and accept the terms on <a href={`https://huggingface.co/datasets/${repo}`}>the dataset page</a>. </>}
+      {dl.note}
+    </p>
+  )}
 </section>
 
 <script>
@@ -102,14 +104,14 @@ const themes = { light: 'github-light', dark: 'github-dark' } as const;
 </script>
 
 <style>
-  .download { padding: 14px 16px 12px; margin-top: 14px; min-width: 0; }
-  .head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
-  h2 { margin: 0; font-size: 1rem; }
-  .tabs { display: flex; gap: 2px; padding: 2px; border: 1px solid var(--border); border-radius: 8px; }
-  .tabs button { border: 0; background: none; padding: 3px 10px; font-size: 0.8rem; border-radius: 6px; color: var(--muted); }
+  .download { padding: 8px 10px; margin: 0 0 1rem; min-width: 0; }
+  .head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 6px; }
+  h2 { margin: 0; font-size: 0.85rem; font-weight: 600; color: var(--muted); }
+  .tabs { display: flex; gap: 2px; padding: 1px; border: 1px solid var(--border); border-radius: 7px; }
+  .tabs button { border: 0; background: none; padding: 1px 8px; font-size: 0.75rem; border-radius: 6px; color: var(--muted); }
   .tabs button[aria-selected='true'] { background: var(--accent-soft); color: var(--text); }
   .panel { position: relative; }
-  .panel :global(pre) { margin: 0; font-size: 0.78rem; padding: 10px 12px; padding-right: 64px; white-space: pre; }
-  .copy { position: absolute; top: 6px; right: 6px; font-size: 0.75rem; padding: 2px 8px; }
-  .note { font-size: 0.78rem; margin: 8px 0 0; }
+  .panel :global(pre) { margin: 0; font-size: 0.74rem; line-height: 1.45; padding: 7px 10px; padding-right: 58px; white-space: pre; }
+  .copy { position: absolute; top: 4px; right: 4px; font-size: 0.7rem; padding: 1px 7px; }
+  .note { font-size: 0.74rem; margin: 6px 0 0; }
 </style>
