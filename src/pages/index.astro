@@ -25,7 +25,7 @@ const counts = Object.fromEntries(groups.map((g) => [g.m, g.items.length]));
       <h2><span class="cat-dot" aria-hidden="true"></span>{MODALITIES[m]}</h2>
       <div class="cards">
         {items.map((ds) => (
-          <a class="card entry" href={url(`/d/${ds.id}`)}>
+          <a class="card entry" href={url(`/d/${ds.id}`)} data-m={m}>
             <div class="top">
               <h3>{ds.data.name}</h3>
               <span class="year">{ds.data.year}</span>
@@ -45,8 +45,8 @@ const counts = Object.fromEntries(groups.map((g) => [g.m, g.items.length]));
   section[hidden] { display: none; }
   h2 { scroll-margin-top: 120px; }
   .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
-  .entry { display: flex; flex-direction: column; gap: 10px; padding: 16px; color: var(--text); transition: border-color 0.15s; }
-  .entry:hover { border-color: var(--accent); text-decoration: none; }
+  .entry { display: flex; flex-direction: column; gap: 10px; padding: 16px; color: var(--text); border-top: 3px solid var(--c); transition: border-color 0.15s; }
+  .entry:hover { border-color: var(--c); text-decoration: none; }
   .top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
   h3 { margin: 0; font-size: 1.05rem; }
   .year { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 0.9rem; }
