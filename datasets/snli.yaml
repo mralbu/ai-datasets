@@ -28,6 +28,7 @@ config_notes:
   plain_text: "Does the premise entail, contradict, or say nothing about the hypothesis?"
 lineage:
   - { name: MultiNLI, note: "2017, 433k pairs across ten genres, part of GLUE", hf: nyu-mll/multi_nli, id: glue }
+  - { name: Flickr30k, note: "2014, the captions SNLI premises come from", hf: nlphuji/flickr30k, id: flickr30k }
   - { name: ANLI, note: "2019, collected adversarially against strong models", hf: facebook/anli }
 landmark_papers:
   - { title: "Enhanced LSTM for Natural Language Inference (ESIM)", year: 2016, url: "https://arxiv.org/abs/1609.06038" }

@@ -1,0 +1,36 @@
+name: SVHN
+year: 2011
+modality: vision
+task: Digit classification in real-world photos
+one_liner: 600k digits cropped from Google Street View photos of house numbers.
+creators: Yuval Netzer, Tao Wang, Adam Coates, Alessandro Bissacco, Bo Wu, Andrew Y. Ng
+size: 630,420 digit images (73k train, 26k test, 531k extra)
+splits: { train: 73257, test: 26032, extra: 531131 }
+input: 32×32 RGB crop centered on one digit
+labels: Digit 0–9
+license: Non-commercial use
+paper:
+  title: Reading Digits in Natural Images with Unsupervised Feature Learning
+  url: http://ufldl.stanford.edu/housenumbers/nips2011_housenumbers.pdf
+homepage: http://ufldl.stanford.edu/housenumbers/
+why: >-
+  MNIST's task with real photos: digits on house fronts, in any font and color,
+  blurred, tilted, badly lit and often with other digits squeezed in at the
+  sides. It became the third standard small-image benchmark after MNIST and
+  CIFAR-10, and its huge "extra" split made it a favorite for semi-supervised
+  learning. Reading whole house numbers with one deep network (Goodfellow et
+  al., 2013) was an early real-world win for deep learning at Google.
+trivia:
+  - The label is the digit in the center. Neighboring digits often show at the edges as distractors.
+  - In the original .mat files, the digit 0 is stored as label 10.
+  - The 531k "extra" images are described as somewhat easier than the core training set.
+  - A "full numbers" version keeps the whole photo with a box around every digit.
+lineage:
+  - { name: MNIST, note: "1998, clean handwritten digits", hf: ylecun/mnist, id: mnist }
+  - { name: CIFAR-10, note: "2009, tiny color photos of objects", hf: uoft-cs/cifar10, id: cifar10 }
+landmark_papers:
+  - { title: "Maxout Networks", year: 2013, url: "https://arxiv.org/abs/1302.4389" }
+  - { title: "Multi-digit Number Recognition from Street View Imagery using Deep Convolutional Neural Networks", year: 2013, url: "https://arxiv.org/abs/1312.6082" }
+source: { hf: ufldl-stanford/svhn, config: cropped_digits, split: test, n: 60, seed: 31 }
+display: { kind: image, image: image, label: label, scale: 3, class_grid: true }
+download: { include: "cropped_digits/*" }

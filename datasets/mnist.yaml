@@ -27,6 +27,7 @@ lineage:
   - { name: Fashion-MNIST, note: "2017, drop-in replacement with clothing images", hf: zalando-datasets/fashion_mnist, id: fashion-mnist }
   - { name: EMNIST, note: "2017, adds letters", url: "https://www.nist.gov/itl/products-and-services/emnist-dataset" }
   - { name: KMNIST, note: "2018, cursive Japanese characters", url: "https://github.com/rois-codh/kmnist" }
+  - { name: SVHN, note: "2011, digits from Street View photos", hf: ufldl-stanford/svhn, id: svhn }
 landmark_papers:
   - { title: "Gradient-Based Learning Applied to Document Recognition (LeNet-5)", year: 1998, url: "http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf" }
   - { title: "Dropout: A Simple Way to Prevent Neural Networks from Overfitting", year: 2014, url: "https://jmlr.org/papers/v15/srivastava14a.html" }

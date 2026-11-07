@@ -1,0 +1,31 @@
+name: 20 Newsgroups
+year: 1995
+modality: text
+task: Topic classification of Usenet posts
+one_liner: About 18,800 Usenet posts from 1993, sorted into 20 discussion groups.
+creators: Ken Lang
+size: 18,846 posts (the "by date" version)
+splits: { train: 11314, test: 7532 }
+input: The text of a newsgroup post
+labels: One of 20 groups (comp.graphics, rec.autos, sci.space, talk.politics.guns, …)
+license: No formal license (public Usenet posts)
+homepage: http://qwone.com/~jason/20Newsgroups/
+why: >-
+  Collected for NewsWeeder, an early system that learned which posts a reader
+  wanted, it became the classic text-classification and clustering dataset.
+  Naive Bayes, tf-idf with SVMs and topic models like LDA were all
+  demonstrated on it, and it ships with scikit-learn as
+  fetch_20newsgroups, so it is still many people's first text dataset.
+trivia:
+  - Some groups are close cousins (five comp.* groups, three talk.politics.*), so the confusions are as instructive as the accuracy.
+  - Headers, signatures and quoted replies give the answer away. scikit-learn recommends removing them, and this copy has the headers stripped.
+  - In the "by date" split, test posts were written after the training posts.
+lineage:
+  - { name: Reuters-21578, note: "1987 newswire, the other classic", url: "https://archive.ics.uci.edu/dataset/137/reuters+21578+text+categorization+collection" }
+  - { name: AG News, note: "2015, 120k news articles in 4 topics", hf: fancyzhx/ag_news }
+  - { name: IMDB, note: "2011, sentiment instead of topic", hf: stanfordnlp/imdb, id: imdb }
+landmark_papers:
+  - { title: "A Comparison of Event Models for Naive Bayes Text Classification", year: 1998, url: "https://www.cs.cmu.edu/~knigam/papers/multinomial-aaaiws98.pdf" }
+  - { title: "Latent Dirichlet Allocation", year: 2003, url: "https://www.jmlr.org/papers/v3/blei03a.html" }
+source: { hf: SetFit/20_newsgroups, config: default, split: test, n: 24, seed: 37, min_length: { text: 120 } }
+display: { kind: text, text: text, label: label_text }

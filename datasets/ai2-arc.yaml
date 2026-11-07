@@ -1,0 +1,34 @@
+name: AI2 ARC
+year: 2018
+modality: benchmark
+task: Grade-school science multiple choice
+one_liner: 7,787 real science exam questions; the Challenge set is the 2,590 that simple methods fail.
+creators: Peter Clark, Isaac Cowhey, Oren Etzioni, Tushar Khot, Ashish Sabharwal, Carissa Schoenick, Oyvind Tafjord (Allen Institute for AI)
+size: 7,787 questions (2,590 Challenge, 5,197 Easy)
+splits: { train: 1119, validation: 299, test: 1172 }
+input: A science question with (usually) four options
+labels: The correct option key
+license: CC BY-SA 4.0
+paper:
+  title: "Think you have Solved Question Answering? Try ARC, the AI2 Reasoning Challenge"
+  url: https://arxiv.org/abs/1803.05457
+homepage: https://allenai.org/data/arc
+why: >-
+  Questions from US grade 3–9 science exams, split so that the Challenge set
+  holds only questions both a retrieval system and a word co-association
+  method got wrong. It was meant to need reasoning rather than lookup.
+  ARC-Challenge became a fixture of LLM evaluation and one of the six tasks of
+  the original Open LLM Leaderboard, alongside HellaSwag, MMLU, TruthfulQA,
+  WinoGrande and GSM8K.
+trivia:
+  - Not to be confused with ARC-AGI, François Chollet's grid puzzles, also called "ARC".
+  - Most questions have four options, but a few have three or five, and some use 1–4 instead of A–D as keys.
+  - Splits shown here are the Challenge set; the Easy set is about twice as large.
+lineage:
+  - { name: ARC-AGI, note: "2019, abstract grid puzzles, a different ARC", hf: zhmz90/arc-agi-2, id: arc-agi }
+  - { name: OpenBookQA, note: "2018, science questions plus a book of facts", hf: allenai/openbookqa }
+  - { name: MMLU, note: "2020, exam questions across 57 subjects", hf: cais/mmlu, id: mmlu }
+landmark_papers:
+  - { title: "Language Models are Few-Shot Learners (GPT-3)", year: 2020, url: "https://arxiv.org/abs/2005.14165" }
+source: { hf: allenai/ai2_arc, config: ARC-Challenge, split: test, n: 20, seed: 36 }
+display: { kind: mcq, question: question, choices: choices, answer: answerKey }

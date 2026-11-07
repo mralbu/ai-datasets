@@ -1,0 +1,36 @@
+name: Flickr30k
+year: 2014
+modality: vision
+task: Image captioning and image–text retrieval
+one_liner: 31,000 Flickr photos of people and everyday scenes, each with five written captions.
+creators: Peter Young, Alice Lai, Micah Hodosh, Julia Hockenmaier (UIUC)
+size: 31,783 images, 158,915 captions
+splits: { train: 29000, validation: 1014, test: 1000 }
+input: A photo
+labels: Five independent one-sentence descriptions
+license: Captions for research use; images under their Flickr terms
+paper:
+  title: "From image descriptions to visual denotations: New similarity metrics for semantic inference over event descriptions"
+  url: https://aclanthology.org/Q14-1006/
+homepage: https://shannon.cs.illinois.edu/DenotationGraph/
+why: >-
+  With COCO Captions, the benchmark that turned "describe this picture" into a
+  deep-learning problem: CNN-plus-RNN captioners (Show and Tell, Karpathy's
+  alignment model) were scored on it. Its retrieval task, find the caption
+  for this image and vice versa, outlived captioning: CLIP and later
+  vision-language models still report zero-shot Flickr30k retrieval.
+trivia:
+  - Most papers use the "Karpathy split" of 29k / 1k / 1k images, not an official one.
+  - SNLI's premises are Flickr30k captions; crowdworkers wrote hypotheses about them.
+  - Annotators often guessed age, gender or ethnicity, as in the captions below, which a 2016 study ("Stereotyping and Bias in the Flickr30K Dataset") documented.
+  - Flickr30k Entities (2015) later linked phrases in the captions to boxes in the images.
+lineage:
+  - { name: Flickr8k, note: "2013, the 8k-image predecessor", url: "https://hockenmaier.cs.illinois.edu/8k-pictures.html" }
+  - { name: MS COCO Captions, note: "2015, 5 captions on 120k+ COCO images", hf: rafaelpadilla/coco2017, id: coco }
+  - { name: SNLI, note: "2015, inference pairs built on these captions", hf: stanfordnlp/snli, id: snli }
+landmark_papers:
+  - { title: "Show and Tell: A Neural Image Caption Generator", year: 2014, url: "https://arxiv.org/abs/1411.4555" }
+  - { title: "Deep Visual-Semantic Alignments for Generating Image Descriptions", year: 2015, url: "https://arxiv.org/abs/1412.2306" }
+  - { title: "Learning Transferable Visual Models From Natural Language Supervision (CLIP)", year: 2021, url: "https://arxiv.org/abs/2103.00020" }
+source: { hf: nlphuji/flickr30k, config: TEST, split: test, n: 12, seed: 32 }
+display: { kind: annotated, image: image, captions: caption, thumb: 220 }

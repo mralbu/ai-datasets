@@ -1,0 +1,34 @@
+name: CNN/DailyMail
+year: 2015
+modality: text
+task: Summarization of news articles
+one_liner: 312,000 news articles paired with the bullet-point highlights their editors wrote.
+creators: Karl Moritz Hermann et al. (DeepMind); summarization version by Nallapati et al. and See et al.
+size: 311,971 article–summary pairs
+splits: { train: 287113, validation: 13368, test: 11490 }
+input: A news article, about 780 words on average
+labels: The article's highlights, 3–4 sentences
+license: Research use (articles © CNN and the Daily Mail)
+paper:
+  title: Teaching Machines to Read and Comprehend
+  url: https://arxiv.org/abs/1506.03340
+why: >-
+  Built first as a reading-comprehension test, it became the main benchmark
+  for abstractive summarization: pointer-generator networks, BERTSum, BART,
+  PEGASUS and T5 all reported ROUGE on it. It shows both the promise and the
+  trap of found data: highlights are free and plentiful, but they lean heavily
+  on an article's opening sentences.
+trivia:
+  - Just copying the first three sentences ("lead-3") is a strong baseline that many early neural models failed to beat.
+  - In the original version, names were replaced by tokens like @entity3, for the question-answering task. Version 3.0.0, shown here, keeps the real text.
+  - XSum (2018) asked for one-sentence summaries of BBC articles, partly to escape this lead bias.
+lineage:
+  - { name: XSum, note: "2018, one-sentence BBC summaries", hf: EdinburghNLP/xsum }
+  - { name: SQuAD, note: "2016, the reading-comprehension benchmark that replaced its QA use", hf: rajpurkar/squad, id: squad }
+landmark_papers:
+  - { title: "Get To The Point: Summarization with Pointer-Generator Networks", year: 2017, url: "https://arxiv.org/abs/1704.04368" }
+  - { title: "BART: Denoising Sequence-to-Sequence Pre-training", year: 2019, url: "https://arxiv.org/abs/1910.13461" }
+  - { title: "PEGASUS: Pre-training with Extracted Gap-sentences for Abstractive Summarization", year: 2019, url: "https://arxiv.org/abs/1912.08777" }
+source: { hf: abisee/cnn_dailymail, config: 3.0.0, split: test, n: 12, seed: 38 }
+display: { kind: text, text: article, summary: highlights }
+download: { include: "3.0.0/*" }

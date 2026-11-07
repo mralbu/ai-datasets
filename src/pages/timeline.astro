@@ -57,6 +57,8 @@ const decades = [...new Set(all.map((d) => Math.floor(d.data.year / 10) * 10))];
   .item:hover { background: var(--surface); }
   .y { grid-area: y; font-weight: 700; font-variant-numeric: tabular-nums; }
   .body { grid-area: body; }
+  /* Dataset names take their category color, like the dot and the tag. */
+  .body > a { color: var(--c, var(--accent)); }
   .body p { margin: 4px 0 0; font-size: 0.92rem; }
   .tag { margin-left: 8px; vertical-align: 2px; }
   .preview { grid-area: preview; display: block; color: inherit; max-width: 420px; }

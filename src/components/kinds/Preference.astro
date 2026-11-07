@@ -1,0 +1,54 @@
+---
+import type { SampleRow } from '../../lib/data';
+interface Props { d: { chosen: string; rejected: string }; rows: SampleRow[]; k: number }
+const { d, rows, k } = Astro.props;
+type Turn = { who: string; text: string };
+// HH-RLHF transcripts: "\n\nHuman: …\n\nAssistant: …". Split into turns.
+const turns = (t: string): Turn[] =>
+  String(t).split(/\n\n(?=(?:Human|Assistant):)/).map((s) => s.trim()).filter(Boolean).map((s) => {
+    const m = s.match(/^(Human|Assistant):\s*([\s\S]*)$/);
+    return m ? { who: m[1], text: m[2] } : { who: '', text: s };
+  });
+// The preferred answer is shown on the left or right depending on the row, so the order gives nothing away.
+// Both versions share the conversation up to the last turn; show that once.
+const split = (a: Turn[], b: Turn[]) => {
+  let n = 0;
+  while (n < a.length - 1 && n < b.length - 1 && a[n].who === b[n].who && a[n].text === b[n].text) n++;
+  return { shared: a.slice(0, n), chosen: a.slice(n), rejected: b.slice(n) };
+};
+---
+<div class="list">
+  {rows.map((r, i) => {
+    const p = split(turns(r.row[d.chosen]), turns(r.row[d.rejected]));
+    return (
+      <article class="card" data-item hidden={i >= k}>
+        <div class="convo">
+          {p.shared.map((t) => <p class:list={['turn', t.who.toLowerCase()]}><span class="who">{t.who}</span>{t.text}</p>)}
+        </div>
+        <div class="pair reveal-box">
+          {(r.row_idx % 2 ? [[p.rejected, false], [p.chosen, true]] : [[p.chosen, true], [p.rejected, false]]).map(([ts, good], j) => (
+            <div class:list={['side', { good }]}>
+              <p class="side-label">Response {'AB'[j]}<span class="verdict">{good ? ' · preferred by the rater' : ' · rejected'}</span></p>
+              {(ts as Turn[]).map((t) => <p class:list={['turn', t.who.toLowerCase()]}><span class="who">{t.who}</span>{t.text}</p>)}
+            </div>
+          ))}
+        </div>
+        <button type="button" data-reveal>Which did the rater prefer?</button>
+      </article>
+    );
+  })}
+</div>
+<style>
+  .convo { display: grid; gap: 8px; margin-bottom: 12px; }
+  .turn { margin: 0; white-space: pre-line; font-size: 0.92rem; }
+  .who { display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 2px; }
+  .human .who { color: var(--accent); }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  @media (max-width: 640px) { .pair { grid-template-columns: 1fr; } }
+  .side { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; display: grid; gap: 8px; align-content: start; min-width: 0; overflow-wrap: anywhere; }
+  .side-label { margin: 0; font-size: 0.78rem; font-weight: 700; color: var(--muted); }
+  .verdict { display: none; font-weight: 500; }
+  :global(.revealed) .verdict { display: inline; }
+  :global(.revealed) .good { border-color: var(--pos); background: color-mix(in srgb, var(--pos) 8%, transparent); }
+  :global(.revealed) .good .side-label { color: var(--pos); }
+</style>

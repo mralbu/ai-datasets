@@ -1,6 +1,6 @@
 ---
 import { labelOf, type Samples, type SampleRow } from '../../lib/data';
-interface Props { s: Samples; d: { text: string; label?: string }; rows: SampleRow[]; k: number }
+interface Props { s: Samples; d: { text: string; label?: string; summary?: string; caption?: string }; rows: SampleRow[]; k: number }
 const { s, d, rows, k } = Astro.props;
 const clean = (t: string) => t.replace(/<br\s*\/?>/g, '\n');
 ---
@@ -12,7 +12,19 @@ const clean = (t: string) => t.replace(/<br\s*\/?>/g, '\n');
         {label && <span class:list={['label', label]}>{label}</span>}
         <p class="clamp">{clean(String(r.row[d.text]))}</p>
         <button type="button" class="more" data-more>Show all</button>
+        {d.summary && (
+          <details>
+            <summary>Reference summary</summary>
+            <p class="pre summary">{String(r.row[d.summary])}</p>
+          </details>
+        )}
+        {d.caption && <p class="muted caption">{r.row[d.caption]}</p>}
       </article>
     );
   })}
 </div>
+<style>
+  details { margin-top: 10px; }
+  .summary { margin: 6px 0 0; font-weight: 500; }
+  .caption { font-size: 0.78rem; margin: 8px 0 0; overflow-wrap: anywhere; }
+</style>

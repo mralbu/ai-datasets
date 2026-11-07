@@ -1,0 +1,38 @@
+name: CelebA
+year: 2015
+modality: vision
+task: Face attribute recognition; a staple for generative models
+one_liner: 202,599 celebrity face photos, each tagged with 40 yes/no attributes.
+creators: Ziwei Liu, Ping Luo, Xiaogang Wang, Xiaoou Tang (CUHK)
+size: 202,599 images of 10,177 people
+splits: { train: 162770, valid: 19867, test: 19962 }
+input: Aligned, cropped face, 178×218 px
+labels: 40 binary attributes (Smiling, Eyeglasses, Bangs, …), identity, 5 landmarks
+license: Non-commercial research only
+paper:
+  title: Deep Learning Face Attributes in the Wild
+  url: https://arxiv.org/abs/1411.7766
+homepage: https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html
+why: >-
+  For years the default dataset for generating and editing faces: VAEs, GANs
+  and their attribute editors (make this face smile, add glasses) were shown
+  on CelebA, and Progressive GAN's high-resolution CelebA-HQ set the bar for
+  photorealism in 2017. Its labels also made it a standard test bed for
+  fairness research, because some attributes are subjective and the
+  celebrities are far from representative.
+trivia:
+  - Faces are aligned by the eye positions and cropped, so eyes sit in almost the same place in every image.
+  - Some labels are matters of opinion. "Attractive" is one of the 40 attributes, and gender is a single "Male" flag.
+  - The people are celebrities, so most are young and many are white, a known skew for any model trained on it.
+  - The tags below are the attributes marked true for each photo.
+lineage:
+  - { name: CelebA-HQ, note: "2017, 30k faces at 1024×1024, from Progressive GAN", url: "https://github.com/tkarras/progressive_growing_of_gans" }
+  - { name: FFHQ, note: "2019, 70k Flickr faces, made for StyleGAN", url: "https://github.com/NVlabs/ffhq-dataset" }
+  - { name: LFW, note: "2007, the classic face-verification benchmark", url: "http://vis-www.cs.umass.edu/lfw/" }
+landmark_papers:
+  - { title: "Progressive Growing of GANs for Improved Quality, Stability, and Variation", year: 2017, url: "https://arxiv.org/abs/1710.10196" }
+  - { title: "StarGAN: Unified Generative Adversarial Networks for Multi-Domain Image-to-Image Translation", year: 2017, url: "https://arxiv.org/abs/1711.09020" }
+source: { hf: tpremoli/CelebA-attrs, config: default, split: validation, n: 18, seed: 30 }
+display: { kind: annotated, image: image, attributes: true, thumb: 150 }
+download:
+  note: "A community Parquet copy of the aligned images with their attributes. The originals, with identities and landmarks, are on the CelebA homepage."

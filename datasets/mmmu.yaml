@@ -1,0 +1,45 @@
+name: MMMU
+year: 2023
+modality: benchmark
+task: College-level multiple choice with images (multimodal models)
+one_liner: 11,500 exam questions over charts, diagrams, maps, music and more, across 30 subjects.
+creators: Xiang Yue, Yuansheng Ni, Kai Zhang et al.
+size: 11,550 questions, 30 subjects, 183 subfields
+splits: { dev: 150, validation: 900, test: 10500 }
+input: A question with one or more images, usually with 4 options
+labels: The correct letter (or a short answer for open questions)
+license: Apache 2.0
+paper:
+  title: "MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI"
+  url: https://arxiv.org/abs/2311.16502
+homepage: https://mmmu-benchmark.github.io/
+why: >-
+  MMLU for models that can see. Questions come from college exams and
+  textbooks, and the image is needed to answer: a circuit diagram, a
+  chemical structure, sheet music, a painting, a medical scan. GPT-4V scored
+  about 56% at release, and MMMU became the headline vision number in
+  multimodal model announcements.
+trivia:
+  - Images come in about 30 formats, from tables and plots to comics, sheet music and microscope slides.
+  - "Questions refer to their images inline, like \"<image 1>\"; some have several images, shown as [image 1], [image 2] below."
+  - A few questions are open-ended instead of multiple choice.
+  - MMMU-Pro (2024) removed questions a text-only model could answer and raised the options to 10.
+lineage:
+  - { name: MMLU, note: "2020, the text-only original", hf: cais/mmlu, id: mmlu }
+  - { name: MMMU-Pro, note: "2024, harder and less guessable", hf: MMMU/MMMU_Pro }
+  - { name: VQA v2, note: "2017, open-ended questions about photos", url: "https://visualqa.org/" }
+landmark_papers:
+  - { title: "MMMU-Pro: A More Robust Multi-discipline Multimodal Understanding Benchmark", year: 2024, url: "https://arxiv.org/abs/2409.02813" }
+source:
+  hf: MMMU/MMMU
+  split: validation
+  n: 2
+  seed: 33
+  configs: [Art, Biology, Chemistry, Clinical_Medicine, Computer_Science, Economics, Geography, History, Math, Music, Physics, Psychology]
+display:
+  kind: image_mcq
+  images: [image_1, image_2, image_3, image_4, image_5, image_6, image_7]
+  question: question
+  options: options
+  answer: answer
+  subject: subfield

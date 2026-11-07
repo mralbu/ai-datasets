@@ -6,13 +6,19 @@ const letters = 'ABCDEFGHIJ';
 ---
 <div class="list">
   {rows.map((r, i) => {
-    const correct = Number(r.row[d.answer]); // ClassLabel int (MMLU) or "3" (HellaSwag)
+    // Choices: a list (MMLU, HellaSwag) or {text: [...], label: ["A", ...]} (AI2 ARC).
+    const raw = r.row[d.choices];
+    const choices: string[] = Array.isArray(raw) ? raw : raw.text;
+    const keys: string[] | undefined = Array.isArray(raw) ? undefined : raw.label;
+    // Answer: ClassLabel int (MMLU), "3" (HellaSwag) or a key like "B" or "4" (ARC).
+    const a = r.row[d.answer];
+    const correct = keys ? keys.indexOf(String(a)) : Number(a);
     return (
       <article class="card reveal-box" data-item hidden={i >= k}>
         {d.subject && <span class="tag">{String(r.row[d.subject]).replaceAll('_', ' ')}</span>}
         <p class="q pre">{r.row[d.question]}</p>
         <ol class="choices">
-          {(r.row[d.choices] as string[]).map((c, j) => (
+          {choices.map((c, j) => (
             <li class:list={{ correct: j === correct }}><span class="letter">{letters[j]}</span><span>{c}</span></li>
           ))}
         </ol>

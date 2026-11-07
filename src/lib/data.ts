@@ -59,7 +59,7 @@ export function url(path: string): string {
 export const MODALITIES: Record<string, string> = {
   vision: 'Vision',
   text: 'Text',
-  benchmark: 'LLM benchmarks',
+  benchmark: 'LLMs', // benchmarks and training data (instructions, preferences) for language models
   tabular: 'Tabular',
   audio: 'Audio',
   other: 'Other',

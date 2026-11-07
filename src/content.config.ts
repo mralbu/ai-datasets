@@ -21,7 +21,13 @@ const display = z.discriminatedUnion('kind', [
     objects: z.string(), // COCO-style struct of lists: bbox [x, y, w, h] in pixels, plus a label list
     label: z.string().default('label'), // name of the label list inside objects (Pascal VOC copies call it category)
   }),
-  z.object({ kind: z.literal('text'), text: z.string(), label: z.string().optional() }),
+  z.object({
+    kind: z.literal('text'),
+    text: z.string(),
+    label: z.string().optional(),
+    summary: z.string().optional(), // reference summary, shown on demand (CNN/DailyMail)
+    caption: z.string().optional(), // small muted line under the text, e.g. the source URL (C4)
+  }),
   z.object({
     kind: z.literal('table'),
     chart: z
@@ -41,6 +47,9 @@ const display = z.discriminatedUnion('kind', [
     question: z.string(),
     answer: z.string(),
     tags: z.array(z.string()).default([]), // fields shown as small tags (e.g. MATH's subject and level)
+    input: z.string().optional(), // extra input under the question (Alpaca)
+    wrong: z.string().optional(), // list of incorrect answers, shown with the solution (TruthfulQA)
+    answer_label: z.string().default('Show solution'),
     math: z.boolean().default(false), // render $…$ LaTeX with KaTeX
   }),
   z.object({ kind: z.literal('extractive'), context: z.string(), question: z.string(), answers: z.string(), title: z.string().optional() }),
@@ -68,6 +77,12 @@ const display = z.discriminatedUnion('kind', [
   }),
   z.object({ kind: z.literal('grid'), train: z.string(), test: z.string() }),
   z.object({ kind: z.literal('record'), label: z.string().optional() }),
+  // A photo with what annotators said about it: a list of captions, or true/false attributes.
+  z.object({ kind: z.literal('annotated'), image: z.string(), captions: z.string().optional(), attributes: z.boolean().default(false), thumb: z.number().default(220) }),
+  // Multiple choice over one or more images (MMMU); options may be a list or a Python-style list string.
+  z.object({ kind: z.literal('image_mcq'), images: z.array(z.string()), question: z.string(), options: z.string(), answer: z.string(), subject: z.string().optional() }),
+  // Two answers to the same conversation, one preferred by a human rater (RLHF data).
+  z.object({ kind: z.literal('preference'), chosen: z.string(), rejected: z.string() }),
   // A Translation feature, e.g. {de: …, en: …}; source/target pick the order.
   z.object({ kind: z.literal('translation'), translation: z.string(), source: z.string(), target: z.string() }),
 ]);
