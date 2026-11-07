@@ -1,0 +1,852 @@
+{
+ "features": [
+  {
+   "name": "image",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "label",
+   "type": {
+    "_type": "ClassLabel",
+    "names": [
+     "T - shirt / top",
+     "Trouser",
+     "Pullover",
+     "Dress",
+     "Coat",
+     "Sandal",
+     "Shirt",
+     "Sneaker",
+     "Bag",
+     "Ankle boot"
+    ]
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T21:34:13+00:00",
+ "id": "fashion-mnist",
+ "num_rows_total": 10000,
+ "parts": [
+  {
+   "config": "fashion_mnist",
+   "features": [
+    {
+     "name": "image",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "label",
+     "type": {
+      "_type": "ClassLabel",
+      "names": [
+       "T - shirt / top",
+       "Trouser",
+       "Pullover",
+       "Dress",
+       "Coat",
+       "Sandal",
+       "Shirt",
+       "Sneaker",
+       "Bag",
+       "Ankle boot"
+      ]
+     }
+    }
+   ],
+   "num_rows_total": 10000,
+   "split": "test"
+  }
+ ],
+ "revision": "531be5e2ccc9dba0c201ad3ae567a4f3d16ecdd2",
+ "rows": [
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/6595-image.jpg",
+     "width": 28
+    },
+    "label": 2
+   },
+   "row_idx": 6595,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/7650-image.jpg",
+     "width": 28
+    },
+    "label": 2
+   },
+   "row_idx": 7650,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/4128-image.jpg",
+     "width": 28
+    },
+    "label": 2
+   },
+   "row_idx": 4128,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/1872-image.jpg",
+     "width": 28
+    },
+    "label": 8
+   },
+   "row_idx": 1872,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/4127-image.jpg",
+     "width": 28
+    },
+    "label": 6
+   },
+   "row_idx": 4127,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/3242-image.jpg",
+     "width": 28
+    },
+    "label": 8
+   },
+   "row_idx": 3242,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/1167-image.jpg",
+     "width": 28
+    },
+    "label": 6
+   },
+   "row_idx": 1167,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/6604-image.jpg",
+     "width": 28
+    },
+    "label": 5
+   },
+   "row_idx": 6604,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/7652-image.jpg",
+     "width": 28
+    },
+    "label": 2
+   },
+   "row_idx": 7652,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/5193-image.jpg",
+     "width": 28
+    },
+    "label": 5
+   },
+   "row_idx": 5193,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/4130-image.jpg",
+     "width": 28
+    },
+    "label": 6
+   },
+   "row_idx": 4130,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/4149-image.jpg",
+     "width": 28
+    },
+    "label": 5
+   },
+   "row_idx": 4149,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/5180-image.jpg",
+     "width": 28
+    },
+    "label": 5
+   },
+   "row_idx": 5180,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/1868-image.jpg",
+     "width": 28
+    },
+    "label": 7
+   },
+   "row_idx": 1868,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/1138-image.jpg",
+     "width": 28
+    },
+    "label": 9
+   },
+   "row_idx": 1138,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/8811-image.jpg",
+     "width": 28
+    },
+    "label": 7
+   },
+   "row_idx": 8811,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/8831-image.jpg",
+     "width": 28
+    },
+    "label": 7
+   },
+   "row_idx": 8831,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/7701-image.jpg",
+     "width": 28
+    },
+    "label": 8
+   },
+   "row_idx": 7701,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/7611-image.jpg",
+     "width": 28
+    },
+    "label": 5
+   },
+   "row_idx": 7611,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/4146-image.jpg",
+     "width": 28
+    },
+    "label": 2
+   },
+   "row_idx": 4146,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/1115-image.jpg",
+     "width": 28
+    },
+    "label": 6
+   },
+   "row_idx": 1115,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/4085-image.jpg",
+     "width": 28
+    },
+    "label": 8
+   },
+   "row_idx": 4085,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/1822-image.jpg",
+     "width": 28
+    },
+    "label": 7
+   },
+   "row_idx": 1822,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/6627-image.jpg",
+     "width": 28
+    },
+    "label": 2
+   },
+   "row_idx": 6627,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/4101-image.jpg",
+     "width": 28
+    },
+    "label": 7
+   },
+   "row_idx": 4101,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/4074-image.jpg",
+     "width": 28
+    },
+    "label": 2
+   },
+   "row_idx": 4074,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/6587-image.jpg",
+     "width": 28
+    },
+    "label": 8
+   },
+   "row_idx": 6587,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/1883-image.jpg",
+     "width": 28
+    },
+    "label": 8
+   },
+   "row_idx": 1883,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/7679-image.jpg",
+     "width": 28
+    },
+    "label": 3
+   },
+   "row_idx": 7679,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/8827-image.jpg",
+     "width": 28
+    },
+    "label": 4
+   },
+   "row_idx": 8827,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/1851-image.jpg",
+     "width": 28
+    },
+    "label": 2
+   },
+   "row_idx": 1851,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/1107-image.jpg",
+     "width": 28
+    },
+    "label": 6
+   },
+   "row_idx": 1107,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/6542-image.jpg",
+     "width": 28
+    },
+    "label": 0
+   },
+   "row_idx": 6542,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/8791-image.jpg",
+     "width": 28
+    },
+    "label": 0
+   },
+   "row_idx": 8791,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/1122-image.jpg",
+     "width": 28
+    },
+    "label": 2
+   },
+   "row_idx": 1122,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/6592-image.jpg",
+     "width": 28
+    },
+    "label": 5
+   },
+   "row_idx": 6592,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/8790-image.jpg",
+     "width": 28
+    },
+    "label": 3
+   },
+   "row_idx": 8790,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/5222-image.jpg",
+     "width": 28
+    },
+    "label": 4
+   },
+   "row_idx": 5222,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/5201-image.jpg",
+     "width": 28
+    },
+    "label": 5
+   },
+   "row_idx": 5201,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/1159-image.jpg",
+     "width": 28
+    },
+    "label": 9
+   },
+   "row_idx": 1159,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/3220-image.jpg",
+     "width": 28
+    },
+    "label": 4
+   },
+   "row_idx": 3220,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/1850-image.jpg",
+     "width": 28
+    },
+    "label": 8
+   },
+   "row_idx": 1850,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/3167-image.jpg",
+     "width": 28
+    },
+    "label": 3
+   },
+   "row_idx": 3167,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/3157-image.jpg",
+     "width": 28
+    },
+    "label": 4
+   },
+   "row_idx": 3157,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/3201-image.jpg",
+     "width": 28
+    },
+    "label": 0
+   },
+   "row_idx": 3201,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/6583-image.jpg",
+     "width": 28
+    },
+    "label": 3
+   },
+   "row_idx": 6583,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/3231-image.jpg",
+     "width": 28
+    },
+    "label": 8
+   },
+   "row_idx": 3231,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/1833-image.jpg",
+     "width": 28
+    },
+    "label": 3
+   },
+   "row_idx": 1833,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/8774-image.jpg",
+     "width": 28
+    },
+    "label": 2
+   },
+   "row_idx": 8774,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/5151-image.jpg",
+     "width": 28
+    },
+    "label": 9
+   },
+   "row_idx": 5151,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/5205-image.jpg",
+     "width": 28
+    },
+    "label": 1
+   },
+   "row_idx": 5205,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/5217-image.jpg",
+     "width": 28
+    },
+    "label": 8
+   },
+   "row_idx": 5217,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/7699-image.jpg",
+     "width": 28
+    },
+    "label": 4
+   },
+   "row_idx": 7699,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/1914-image.jpg",
+     "width": 28
+    },
+    "label": 1
+   },
+   "row_idx": 1914,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/8787-image.jpg",
+     "width": 28
+    },
+    "label": 6
+   },
+   "row_idx": 8787,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/7666-image.jpg",
+     "width": 28
+    },
+    "label": 1
+   },
+   "row_idx": 7666,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/1091-image.jpg",
+     "width": 28
+    },
+    "label": 1
+   },
+   "row_idx": 1091,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/3237-image.jpg",
+     "width": 28
+    },
+    "label": 2
+   },
+   "row_idx": 3237,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/1106-image.jpg",
+     "width": 28
+    },
+    "label": 5
+   },
+   "row_idx": 1106,
+   "truncated": []
+  },
+  {
+   "config": "fashion_mnist",
+   "row": {
+    "image": {
+     "height": 28,
+     "src": "samples/fashion-mnist/3175-image.jpg",
+     "width": 28
+    },
+    "label": 1
+   },
+   "row_idx": 3175,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "fashion_mnist",
+  "hf": "zalando-datasets/fashion_mnist",
+  "split": "test"
+ }
+}

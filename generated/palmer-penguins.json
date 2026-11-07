@@ -1,0 +1,2094 @@
+{
+ "chart": {
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json",
+  "config": {
+   "view": {
+    "continuousHeight": 300,
+    "continuousWidth": 300
+   }
+  },
+  "data": {
+   "values": [
+    {
+     "bill_depth_mm": 18.7,
+     "bill_length_mm": 39.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.4,
+     "bill_length_mm": 39.5,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.0,
+     "bill_length_mm": 40.3,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": null,
+     "bill_length_mm": null,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.3,
+     "bill_length_mm": 36.7,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 20.6,
+     "bill_length_mm": 39.3,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.8,
+     "bill_length_mm": 38.9,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.6,
+     "bill_length_mm": 39.2,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.1,
+     "bill_length_mm": 34.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 20.2,
+     "bill_length_mm": 42.0,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.1,
+     "bill_length_mm": 37.8,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.3,
+     "bill_length_mm": 37.8,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.6,
+     "bill_length_mm": 41.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 21.2,
+     "bill_length_mm": 38.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 21.1,
+     "bill_length_mm": 34.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.8,
+     "bill_length_mm": 36.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.0,
+     "bill_length_mm": 38.7,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 20.7,
+     "bill_length_mm": 42.5,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.4,
+     "bill_length_mm": 34.4,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 21.5,
+     "bill_length_mm": 46.0,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.3,
+     "bill_length_mm": 37.8,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.7,
+     "bill_length_mm": 37.7,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.2,
+     "bill_length_mm": 35.9,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.1,
+     "bill_length_mm": 38.2,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.2,
+     "bill_length_mm": 38.8,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.9,
+     "bill_length_mm": 35.3,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.6,
+     "bill_length_mm": 40.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.9,
+     "bill_length_mm": 40.5,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.6,
+     "bill_length_mm": 37.9,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.9,
+     "bill_length_mm": 40.5,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 16.7,
+     "bill_length_mm": 39.5,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.1,
+     "bill_length_mm": 37.2,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.8,
+     "bill_length_mm": 39.5,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.9,
+     "bill_length_mm": 40.9,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.0,
+     "bill_length_mm": 36.4,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 21.1,
+     "bill_length_mm": 39.2,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 20.0,
+     "bill_length_mm": 38.8,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.5,
+     "bill_length_mm": 42.2,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.3,
+     "bill_length_mm": 37.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.1,
+     "bill_length_mm": 39.8,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.0,
+     "bill_length_mm": 36.5,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.4,
+     "bill_length_mm": 40.8,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.5,
+     "bill_length_mm": 36.0,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.7,
+     "bill_length_mm": 44.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 16.9,
+     "bill_length_mm": 37.0,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.8,
+     "bill_length_mm": 39.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.0,
+     "bill_length_mm": 41.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.9,
+     "bill_length_mm": 37.5,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.9,
+     "bill_length_mm": 36.0,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 21.2,
+     "bill_length_mm": 42.3,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.7,
+     "bill_length_mm": 39.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.9,
+     "bill_length_mm": 40.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.9,
+     "bill_length_mm": 35.0,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.5,
+     "bill_length_mm": 42.0,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.1,
+     "bill_length_mm": 34.5,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.6,
+     "bill_length_mm": 41.4,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.5,
+     "bill_length_mm": 39.0,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.8,
+     "bill_length_mm": 40.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 16.6,
+     "bill_length_mm": 36.5,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.1,
+     "bill_length_mm": 37.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 16.9,
+     "bill_length_mm": 35.7,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 21.1,
+     "bill_length_mm": 41.3,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.0,
+     "bill_length_mm": 37.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.2,
+     "bill_length_mm": 41.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.1,
+     "bill_length_mm": 36.4,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.0,
+     "bill_length_mm": 41.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 16.2,
+     "bill_length_mm": 35.5,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.1,
+     "bill_length_mm": 41.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 16.6,
+     "bill_length_mm": 35.9,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.4,
+     "bill_length_mm": 41.8,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.0,
+     "bill_length_mm": 33.5,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.4,
+     "bill_length_mm": 39.7,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.2,
+     "bill_length_mm": 39.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.9,
+     "bill_length_mm": 45.8,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.5,
+     "bill_length_mm": 35.5,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.5,
+     "bill_length_mm": 42.8,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 16.8,
+     "bill_length_mm": 40.9,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.4,
+     "bill_length_mm": 37.2,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 16.1,
+     "bill_length_mm": 36.2,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.1,
+     "bill_length_mm": 42.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.2,
+     "bill_length_mm": 34.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.6,
+     "bill_length_mm": 42.9,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.8,
+     "bill_length_mm": 36.7,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.4,
+     "bill_length_mm": 35.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.8,
+     "bill_length_mm": 37.3,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 20.3,
+     "bill_length_mm": 41.3,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.5,
+     "bill_length_mm": 36.3,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.6,
+     "bill_length_mm": 36.9,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.2,
+     "bill_length_mm": 38.3,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.8,
+     "bill_length_mm": 38.9,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.0,
+     "bill_length_mm": 35.7,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.1,
+     "bill_length_mm": 41.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.1,
+     "bill_length_mm": 34.0,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.1,
+     "bill_length_mm": 39.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.3,
+     "bill_length_mm": 36.2,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.9,
+     "bill_length_mm": 40.8,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.6,
+     "bill_length_mm": 38.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.5,
+     "bill_length_mm": 40.3,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 16.1,
+     "bill_length_mm": 33.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.5,
+     "bill_length_mm": 43.2,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.9,
+     "bill_length_mm": 35.0,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 20.0,
+     "bill_length_mm": 41.0,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 16.0,
+     "bill_length_mm": 37.7,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 20.0,
+     "bill_length_mm": 37.8,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.6,
+     "bill_length_mm": 37.9,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.9,
+     "bill_length_mm": 39.7,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.2,
+     "bill_length_mm": 38.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 20.0,
+     "bill_length_mm": 38.2,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.0,
+     "bill_length_mm": 38.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.0,
+     "bill_length_mm": 43.2,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 16.5,
+     "bill_length_mm": 38.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 20.3,
+     "bill_length_mm": 45.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.7,
+     "bill_length_mm": 39.7,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.5,
+     "bill_length_mm": 42.2,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 20.7,
+     "bill_length_mm": 39.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.3,
+     "bill_length_mm": 42.7,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.0,
+     "bill_length_mm": 38.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 20.5,
+     "bill_length_mm": 37.3,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.0,
+     "bill_length_mm": 35.7,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.6,
+     "bill_length_mm": 41.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.2,
+     "bill_length_mm": 36.2,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.8,
+     "bill_length_mm": 37.7,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.0,
+     "bill_length_mm": 40.2,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.5,
+     "bill_length_mm": 41.4,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 15.9,
+     "bill_length_mm": 35.2,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.0,
+     "bill_length_mm": 40.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.6,
+     "bill_length_mm": 38.8,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.3,
+     "bill_length_mm": 41.5,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.1,
+     "bill_length_mm": 39.0,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.0,
+     "bill_length_mm": 44.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.9,
+     "bill_length_mm": 38.5,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 19.2,
+     "bill_length_mm": 43.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.5,
+     "bill_length_mm": 36.8,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.5,
+     "bill_length_mm": 37.5,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.6,
+     "bill_length_mm": 38.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.5,
+     "bill_length_mm": 41.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.5,
+     "bill_length_mm": 35.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 20.1,
+     "bill_length_mm": 40.2,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 16.5,
+     "bill_length_mm": 37.0,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.9,
+     "bill_length_mm": 39.7,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.1,
+     "bill_length_mm": 40.2,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.2,
+     "bill_length_mm": 40.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 15.5,
+     "bill_length_mm": 32.1,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.0,
+     "bill_length_mm": 40.7,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 16.8,
+     "bill_length_mm": 37.3,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.7,
+     "bill_length_mm": 39.0,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.6,
+     "bill_length_mm": 39.2,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.4,
+     "bill_length_mm": 36.6,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.8,
+     "bill_length_mm": 36.0,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.1,
+     "bill_length_mm": 37.8,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 17.1,
+     "bill_length_mm": 36.0,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 18.5,
+     "bill_length_mm": 41.5,
+     "species": "Adelie"
+    },
+    {
+     "bill_depth_mm": 13.2,
+     "bill_length_mm": 46.1,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 16.3,
+     "bill_length_mm": 50.0,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.1,
+     "bill_length_mm": 48.7,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.2,
+     "bill_length_mm": 50.0,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.5,
+     "bill_length_mm": 47.6,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.5,
+     "bill_length_mm": 46.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.6,
+     "bill_length_mm": 45.4,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.3,
+     "bill_length_mm": 46.7,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.4,
+     "bill_length_mm": 43.3,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.4,
+     "bill_length_mm": 46.8,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.7,
+     "bill_length_mm": 40.9,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 16.1,
+     "bill_length_mm": 49.0,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.7,
+     "bill_length_mm": 45.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.6,
+     "bill_length_mm": 48.4,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.6,
+     "bill_length_mm": 45.8,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.7,
+     "bill_length_mm": 49.3,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.5,
+     "bill_length_mm": 42.0,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.2,
+     "bill_length_mm": 49.2,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.5,
+     "bill_length_mm": 46.2,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.1,
+     "bill_length_mm": 48.7,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.3,
+     "bill_length_mm": 50.2,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.5,
+     "bill_length_mm": 45.1,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.5,
+     "bill_length_mm": 46.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.8,
+     "bill_length_mm": 46.3,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.1,
+     "bill_length_mm": 42.9,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.1,
+     "bill_length_mm": 46.1,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.3,
+     "bill_length_mm": 44.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.0,
+     "bill_length_mm": 47.8,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.3,
+     "bill_length_mm": 48.2,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.3,
+     "bill_length_mm": 50.0,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.3,
+     "bill_length_mm": 47.3,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.2,
+     "bill_length_mm": 42.8,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.5,
+     "bill_length_mm": 45.1,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 17.0,
+     "bill_length_mm": 59.6,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.8,
+     "bill_length_mm": 49.1,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 16.3,
+     "bill_length_mm": 48.4,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.7,
+     "bill_length_mm": 42.6,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 17.3,
+     "bill_length_mm": 44.4,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.6,
+     "bill_length_mm": 44.0,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.7,
+     "bill_length_mm": 48.7,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.7,
+     "bill_length_mm": 42.7,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 16.0,
+     "bill_length_mm": 49.6,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.7,
+     "bill_length_mm": 45.3,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.0,
+     "bill_length_mm": 49.6,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.9,
+     "bill_length_mm": 50.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.9,
+     "bill_length_mm": 43.6,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.9,
+     "bill_length_mm": 45.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.9,
+     "bill_length_mm": 50.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.3,
+     "bill_length_mm": 44.9,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.8,
+     "bill_length_mm": 45.2,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.2,
+     "bill_length_mm": 46.6,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.1,
+     "bill_length_mm": 48.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.4,
+     "bill_length_mm": 45.1,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.0,
+     "bill_length_mm": 50.1,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.4,
+     "bill_length_mm": 46.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.4,
+     "bill_length_mm": 45.0,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.9,
+     "bill_length_mm": 43.8,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.0,
+     "bill_length_mm": 45.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.5,
+     "bill_length_mm": 43.2,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.3,
+     "bill_length_mm": 50.4,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.8,
+     "bill_length_mm": 45.3,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.9,
+     "bill_length_mm": 46.2,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.9,
+     "bill_length_mm": 45.7,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.7,
+     "bill_length_mm": 54.3,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.2,
+     "bill_length_mm": 45.8,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 16.8,
+     "bill_length_mm": 49.8,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.4,
+     "bill_length_mm": 46.2,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 16.2,
+     "bill_length_mm": 49.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.2,
+     "bill_length_mm": 43.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.0,
+     "bill_length_mm": 50.7,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.0,
+     "bill_length_mm": 47.7,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.6,
+     "bill_length_mm": 46.4,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.6,
+     "bill_length_mm": 48.2,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.8,
+     "bill_length_mm": 46.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.0,
+     "bill_length_mm": 46.4,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 16.0,
+     "bill_length_mm": 48.6,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.2,
+     "bill_length_mm": 47.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 16.3,
+     "bill_length_mm": 51.1,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.8,
+     "bill_length_mm": 45.2,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 16.4,
+     "bill_length_mm": 45.2,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.5,
+     "bill_length_mm": 49.1,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.6,
+     "bill_length_mm": 52.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.6,
+     "bill_length_mm": 47.4,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.9,
+     "bill_length_mm": 50.0,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.8,
+     "bill_length_mm": 44.9,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 17.3,
+     "bill_length_mm": 50.8,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.4,
+     "bill_length_mm": 43.4,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.2,
+     "bill_length_mm": 51.3,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.0,
+     "bill_length_mm": 47.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 17.0,
+     "bill_length_mm": 52.1,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.0,
+     "bill_length_mm": 47.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 17.1,
+     "bill_length_mm": 52.2,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.5,
+     "bill_length_mm": 45.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 16.1,
+     "bill_length_mm": 49.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.7,
+     "bill_length_mm": 44.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.7,
+     "bill_length_mm": 50.8,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.8,
+     "bill_length_mm": 49.4,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.6,
+     "bill_length_mm": 46.9,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.4,
+     "bill_length_mm": 48.4,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 16.5,
+     "bill_length_mm": 51.1,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.0,
+     "bill_length_mm": 48.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 17.0,
+     "bill_length_mm": 55.9,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.5,
+     "bill_length_mm": 47.2,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.0,
+     "bill_length_mm": 49.1,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.8,
+     "bill_length_mm": 47.3,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 16.1,
+     "bill_length_mm": 46.8,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.7,
+     "bill_length_mm": 41.7,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.8,
+     "bill_length_mm": 53.4,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.0,
+     "bill_length_mm": 43.3,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.1,
+     "bill_length_mm": 48.1,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.2,
+     "bill_length_mm": 50.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.9,
+     "bill_length_mm": 49.8,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.2,
+     "bill_length_mm": 43.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 16.3,
+     "bill_length_mm": 51.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.1,
+     "bill_length_mm": 46.2,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 16.0,
+     "bill_length_mm": 55.1,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.7,
+     "bill_length_mm": 44.5,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 16.2,
+     "bill_length_mm": 48.8,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 13.7,
+     "bill_length_mm": 47.2,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": null,
+     "bill_length_mm": null,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.3,
+     "bill_length_mm": 46.8,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 15.7,
+     "bill_length_mm": 50.4,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 14.8,
+     "bill_length_mm": 45.2,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 16.1,
+     "bill_length_mm": 49.9,
+     "species": "Gentoo"
+    },
+    {
+     "bill_depth_mm": 17.9,
+     "bill_length_mm": 46.5,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.5,
+     "bill_length_mm": 50.0,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.2,
+     "bill_length_mm": 51.3,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 18.7,
+     "bill_length_mm": 45.4,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.8,
+     "bill_length_mm": 52.7,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 17.8,
+     "bill_length_mm": 45.2,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 18.2,
+     "bill_length_mm": 46.1,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 18.2,
+     "bill_length_mm": 51.3,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 18.9,
+     "bill_length_mm": 46.0,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.9,
+     "bill_length_mm": 51.3,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 17.8,
+     "bill_length_mm": 46.6,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 20.3,
+     "bill_length_mm": 51.7,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 17.3,
+     "bill_length_mm": 47.0,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 18.1,
+     "bill_length_mm": 52.0,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 17.1,
+     "bill_length_mm": 45.9,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.6,
+     "bill_length_mm": 50.5,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 20.0,
+     "bill_length_mm": 50.3,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 17.8,
+     "bill_length_mm": 58.0,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 18.6,
+     "bill_length_mm": 46.4,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 18.2,
+     "bill_length_mm": 49.2,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 17.3,
+     "bill_length_mm": 42.4,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 17.5,
+     "bill_length_mm": 48.5,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 16.6,
+     "bill_length_mm": 43.2,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.4,
+     "bill_length_mm": 50.6,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 17.9,
+     "bill_length_mm": 46.7,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.0,
+     "bill_length_mm": 52.0,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 18.4,
+     "bill_length_mm": 50.5,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.0,
+     "bill_length_mm": 49.5,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 17.8,
+     "bill_length_mm": 46.4,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 20.0,
+     "bill_length_mm": 52.8,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 16.6,
+     "bill_length_mm": 40.9,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 20.8,
+     "bill_length_mm": 54.2,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 16.7,
+     "bill_length_mm": 42.5,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 18.8,
+     "bill_length_mm": 51.0,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 18.6,
+     "bill_length_mm": 49.7,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 16.8,
+     "bill_length_mm": 47.5,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 18.3,
+     "bill_length_mm": 47.6,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 20.7,
+     "bill_length_mm": 52.0,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 16.6,
+     "bill_length_mm": 46.9,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.9,
+     "bill_length_mm": 53.5,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.5,
+     "bill_length_mm": 49.0,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 17.5,
+     "bill_length_mm": 46.2,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.1,
+     "bill_length_mm": 50.9,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 17.0,
+     "bill_length_mm": 45.5,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 17.9,
+     "bill_length_mm": 50.9,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 18.5,
+     "bill_length_mm": 50.8,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 17.9,
+     "bill_length_mm": 50.1,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.6,
+     "bill_length_mm": 49.0,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 18.7,
+     "bill_length_mm": 51.5,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 17.3,
+     "bill_length_mm": 49.8,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 16.4,
+     "bill_length_mm": 48.1,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.0,
+     "bill_length_mm": 51.4,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 17.3,
+     "bill_length_mm": 45.7,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.7,
+     "bill_length_mm": 50.7,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 17.3,
+     "bill_length_mm": 42.5,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 18.8,
+     "bill_length_mm": 52.2,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 16.6,
+     "bill_length_mm": 45.2,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.9,
+     "bill_length_mm": 49.3,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 18.8,
+     "bill_length_mm": 50.2,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.4,
+     "bill_length_mm": 45.6,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.5,
+     "bill_length_mm": 51.9,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 16.5,
+     "bill_length_mm": 46.8,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 17.0,
+     "bill_length_mm": 45.7,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.8,
+     "bill_length_mm": 55.8,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 18.1,
+     "bill_length_mm": 43.5,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 18.2,
+     "bill_length_mm": 49.6,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 19.0,
+     "bill_length_mm": 50.8,
+     "species": "Chinstrap"
+    },
+    {
+     "bill_depth_mm": 18.7,
+     "bill_length_mm": 50.2,
+     "species": "Chinstrap"
+    }
+   ]
+  },
+  "encoding": {
+   "color": {
+    "field": "species",
+    "legend": {
+     "orient": "top"
+    },
+    "type": "nominal"
+   },
+   "tooltip": [
+    {
+     "field": "bill_length_mm",
+     "type": "quantitative"
+    },
+    {
+     "field": "bill_depth_mm",
+     "type": "quantitative"
+    },
+    {
+     "field": "species",
+     "type": "nominal"
+    }
+   ],
+   "x": {
+    "field": "bill_length_mm",
+    "scale": {
+     "zero": false
+    },
+    "type": "quantitative"
+   },
+   "y": {
+    "field": "bill_depth_mm",
+    "scale": {
+     "zero": false
+    },
+    "type": "quantitative"
+   }
+  },
+  "height": 320,
+  "mark": {
+   "opacity": 0.75,
+   "size": 60,
+   "type": "circle"
+  },
+  "title": "All 344 penguins: bill length vs depth (Simpson's paradox)",
+  "width": "container"
+ },
+ "features": [
+  {
+   "name": "species",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "island",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "bill_length_mm",
+   "type": {
+    "_type": "Value",
+    "dtype": "float64"
+   }
+  },
+  {
+   "name": "bill_depth_mm",
+   "type": {
+    "_type": "Value",
+    "dtype": "float64"
+   }
+  },
+  {
+   "name": "flipper_length_mm",
+   "type": {
+    "_type": "Value",
+    "dtype": "float64"
+   }
+  },
+  {
+   "name": "body_mass_g",
+   "type": {
+    "_type": "Value",
+    "dtype": "float64"
+   }
+  },
+  {
+   "name": "sex",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "year",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T21:34:21+00:00",
+ "id": "palmer-penguins",
+ "num_rows_total": 344,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "species",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "island",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "bill_length_mm",
+     "type": {
+      "_type": "Value",
+      "dtype": "float64"
+     }
+    },
+    {
+     "name": "bill_depth_mm",
+     "type": {
+      "_type": "Value",
+      "dtype": "float64"
+     }
+    },
+    {
+     "name": "flipper_length_mm",
+     "type": {
+      "_type": "Value",
+      "dtype": "float64"
+     }
+    },
+    {
+     "name": "body_mass_g",
+     "type": {
+      "_type": "Value",
+      "dtype": "float64"
+     }
+    },
+    {
+     "name": "sex",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "year",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    }
+   ],
+   "num_rows_total": 344,
+   "split": "train"
+  }
+ ],
+ "revision": "e13dbb8b1feeec1416b0a3d949e2fa38ab74975a",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "bill_depth_mm": 14.5,
+    "bill_length_mm": 45.5,
+    "body_mass_g": 4750.0,
+    "flipper_length_mm": 212.0,
+    "island": "Biscoe",
+    "sex": "female",
+    "species": "Gentoo",
+    "year": 2009
+   },
+   "row_idx": 244,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bill_depth_mm": 16.1,
+    "bill_length_mm": 46.8,
+    "body_mass_g": 5500.0,
+    "flipper_length_mm": 215.0,
+    "island": "Biscoe",
+    "sex": "male",
+    "species": "Gentoo",
+    "year": 2009
+   },
+   "row_idx": 257,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bill_depth_mm": 20.8,
+    "bill_length_mm": 54.2,
+    "body_mass_g": 4300.0,
+    "flipper_length_mm": 201.0,
+    "island": "Dream",
+    "sex": "male",
+    "species": "Chinstrap",
+    "year": 2008
+   },
+   "row_idx": 307,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bill_depth_mm": 18.0,
+    "bill_length_mm": 41.6,
+    "body_mass_g": 3950.0,
+    "flipper_length_mm": 192.0,
+    "island": "Biscoe",
+    "sex": "male",
+    "species": "Adelie",
+    "year": 2008
+   },
+   "row_idx": 65,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bill_depth_mm": 20.0,
+    "bill_length_mm": 37.8,
+    "body_mass_g": 4250.0,
+    "flipper_length_mm": 190.0,
+    "island": "Biscoe",
+    "sex": "male",
+    "species": "Adelie",
+    "year": 2009
+   },
+   "row_idx": 103,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bill_depth_mm": 16.5,
+    "bill_length_mm": 46.8,
+    "body_mass_g": 3650.0,
+    "flipper_length_mm": 189.0,
+    "island": "Dream",
+    "sex": "female",
+    "species": "Chinstrap",
+    "year": 2009
+   },
+   "row_idx": 337,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bill_depth_mm": 19.2,
+    "bill_length_mm": 51.3,
+    "body_mass_g": 3650.0,
+    "flipper_length_mm": 193.0,
+    "island": "Dream",
+    "sex": "male",
+    "species": "Chinstrap",
+    "year": 2007
+   },
+   "row_idx": 278,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bill_depth_mm": 18.7,
+    "bill_length_mm": 37.7,
+    "body_mass_g": 3600.0,
+    "flipper_length_mm": 180.0,
+    "island": "Biscoe",
+    "sex": "male",
+    "species": "Adelie",
+    "year": 2007
+   },
+   "row_idx": 21,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bill_depth_mm": 15.0,
+    "bill_length_mm": 50.7,
+    "body_mass_g": 5550.0,
+    "flipper_length_mm": 223.0,
+    "island": "Biscoe",
+    "sex": "male",
+    "species": "Gentoo",
+    "year": 2008
+   },
+   "row_idx": 221,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bill_depth_mm": 18.9,
+    "bill_length_mm": 40.5,
+    "body_mass_g": 3950.0,
+    "flipper_length_mm": 180.0,
+    "island": "Biscoe",
+    "sex": "male",
+    "species": "Adelie",
+    "year": 2007
+   },
+   "row_idx": 29,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bill_depth_mm": 17.0,
+    "bill_length_mm": 45.5,
+    "body_mass_g": 3500.0,
+    "flipper_length_mm": 196.0,
+    "island": "Dream",
+    "sex": "female",
+    "species": "Chinstrap",
+    "year": 2008
+   },
+   "row_idx": 319,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bill_depth_mm": 18.9,
+    "bill_length_mm": 39.7,
+    "body_mass_g": 3550.0,
+    "flipper_length_mm": 184.0,
+    "island": "Biscoe",
+    "sex": "male",
+    "species": "Adelie",
+    "year": 2009
+   },
+   "row_idx": 105,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "SIH/palmer-penguins",
+  "split": "train"
+ }
+}

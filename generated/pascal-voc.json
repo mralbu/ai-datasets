@@ -1,0 +1,1090 @@
+{
+ "features": [
+  {
+   "name": "image_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "image",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "width",
+   "type": {
+    "_type": "Value",
+    "dtype": "int32"
+   }
+  },
+  {
+   "name": "height",
+   "type": {
+    "_type": "Value",
+    "dtype": "int32"
+   }
+  },
+  {
+   "name": "objects",
+   "type": {
+    "area": {
+     "_type": "List",
+     "feature": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    "bbox": {
+     "_type": "List",
+     "feature": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "float32"
+      },
+      "length": 4
+     }
+    },
+    "category": {
+     "_type": "List",
+     "feature": {
+      "_type": "ClassLabel",
+      "names": [
+       "aeroplane",
+       "bicycle",
+       "bird",
+       "boat",
+       "bottle",
+       "bus",
+       "car",
+       "cat",
+       "chair",
+       "cow",
+       "diningtable",
+       "dog",
+       "horse",
+       "motorbike",
+       "person",
+       "pottedplant",
+       "sheep",
+       "sofa",
+       "train",
+       "tvmonitor"
+      ]
+     }
+    },
+    "id": {
+     "_type": "List",
+     "feature": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    }
+   }
+  },
+  {
+   "name": "major_class",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T21:34:29+00:00",
+ "id": "pascal-voc",
+ "num_rows_total": 5823,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "image_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "image",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "width",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    {
+     "name": "height",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    {
+     "name": "objects",
+     "type": {
+      "area": {
+       "_type": "List",
+       "feature": {
+        "_type": "Value",
+        "dtype": "int32"
+       }
+      },
+      "bbox": {
+       "_type": "List",
+       "feature": {
+        "_type": "List",
+        "feature": {
+         "_type": "Value",
+         "dtype": "float32"
+        },
+        "length": 4
+       }
+      },
+      "category": {
+       "_type": "List",
+       "feature": {
+        "_type": "ClassLabel",
+        "names": [
+         "aeroplane",
+         "bicycle",
+         "bird",
+         "boat",
+         "bottle",
+         "bus",
+         "car",
+         "cat",
+         "chair",
+         "cow",
+         "diningtable",
+         "dog",
+         "horse",
+         "motorbike",
+         "person",
+         "pottedplant",
+         "sheep",
+         "sofa",
+         "train",
+         "tvmonitor"
+        ]
+       }
+      },
+      "id": {
+       "_type": "List",
+       "feature": {
+        "_type": "Value",
+        "dtype": "int64"
+       }
+      }
+     }
+    },
+    {
+     "name": "major_class",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    }
+   ],
+   "num_rows_total": 5823,
+   "split": "validation"
+  }
+ ],
+ "revision": "9c22fd683717086d5dd5ec93a57ed1cdd5eca067",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "height": 333,
+    "image": {
+     "height": 333,
+     "src": "samples/pascal-voc/386-image.jpg",
+     "width": 500
+    },
+    "image_id": 386,
+    "major_class": 3,
+    "objects": {
+     "area": [
+      1419,
+      130083
+     ],
+     "bbox": [
+      [
+       250.0,
+       281.0,
+       43.0,
+       33.0
+      ],
+      [
+       49.0,
+       1.0,
+       393.0,
+       331.0
+      ]
+     ],
+     "category": [
+      14,
+      3
+     ],
+     "id": [
+      0,
+      1
+     ]
+    },
+    "width": 500
+   },
+   "row_idx": 386,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "height": 500,
+    "image": {
+     "height": 500,
+     "src": "samples/pascal-voc/401-image.jpg",
+     "width": 400
+    },
+    "image_id": 401,
+    "major_class": 14,
+    "objects": {
+     "area": [
+      58764,
+      10880,
+      9006,
+      14256
+     ],
+     "bbox": [
+      [
+       2.0,
+       99.0,
+       177.0,
+       332.0
+      ],
+      [
+       197.0,
+       169.0,
+       68.0,
+       160.0
+      ],
+      [
+       244.0,
+       184.0,
+       57.0,
+       158.0
+      ],
+      [
+       207.0,
+       255.0,
+       108.0,
+       132.0
+      ]
+     ],
+     "category": [
+      14,
+      14,
+      14,
+      14
+     ],
+     "id": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    "width": 400
+   },
+   "row_idx": 401,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "height": 375,
+    "image": {
+     "height": 375,
+     "src": "samples/pascal-voc/5730-image.jpg",
+     "width": 500
+    },
+    "image_id": 5730,
+    "major_class": 3,
+    "objects": {
+     "area": [
+      3360,
+      2028,
+      1260
+     ],
+     "bbox": [
+      [
+       166.0,
+       273.0,
+       70.0,
+       48.0
+      ],
+      [
+       84.0,
+       295.0,
+       78.0,
+       26.0
+      ],
+      [
+       454.0,
+       288.0,
+       45.0,
+       28.0
+      ]
+     ],
+     "category": [
+      3,
+      3,
+      3
+     ],
+     "id": [
+      0,
+      1,
+      2
+     ]
+    },
+    "width": 500
+   },
+   "row_idx": 5730,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "height": 375,
+    "image": {
+     "height": 375,
+     "src": "samples/pascal-voc/455-image.jpg",
+     "width": 500
+    },
+    "image_id": 455,
+    "major_class": 14,
+    "objects": {
+     "area": [
+      48360,
+      63114
+     ],
+     "bbox": [
+      [
+       81.0,
+       114.0,
+       186.0,
+       260.0
+      ],
+      [
+       209.0,
+       60.0,
+       201.0,
+       314.0
+      ]
+     ],
+     "category": [
+      14,
+      14
+     ],
+     "id": [
+      0,
+      1
+     ]
+    },
+    "width": 500
+   },
+   "row_idx": 455,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "height": 375,
+    "image": {
+     "height": 375,
+     "src": "samples/pascal-voc/5786-image.jpg",
+     "width": 500
+    },
+    "image_id": 5786,
+    "major_class": 15,
+    "objects": {
+     "area": [
+      22155,
+      18871,
+      4998
+     ],
+     "bbox": [
+      [
+       79.0,
+       15.0,
+       105.0,
+       211.0
+      ],
+      [
+       126.0,
+       145.0,
+       113.0,
+       167.0
+      ],
+      [
+       286.0,
+       145.0,
+       49.0,
+       102.0
+      ]
+     ],
+     "category": [
+      15,
+      8,
+      8
+     ],
+     "id": [
+      0,
+      1,
+      2
+     ]
+    },
+    "width": 500
+   },
+   "row_idx": 5786,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "height": 375,
+    "image": {
+     "height": 375,
+     "src": "samples/pascal-voc/2980-image.jpg",
+     "width": 500
+    },
+    "image_id": 2980,
+    "major_class": 2,
+    "objects": {
+     "area": [
+      741,
+      2280,
+      1704,
+      3007,
+      3663,
+      1242,
+      2925,
+      4536,
+      1408
+     ],
+     "bbox": [
+      [
+       486.0,
+       172.0,
+       13.0,
+       57.0
+      ],
+      [
+       459.0,
+       167.0,
+       30.0,
+       76.0
+      ],
+      [
+       326.0,
+       170.0,
+       24.0,
+       71.0
+      ],
+      [
+       236.0,
+       155.0,
+       31.0,
+       97.0
+      ],
+      [
+       215.0,
+       153.0,
+       37.0,
+       99.0
+      ],
+      [
+       200.0,
+       202.0,
+       27.0,
+       46.0
+      ],
+      [
+       183.0,
+       174.0,
+       39.0,
+       75.0
+      ],
+      [
+       108.0,
+       181.0,
+       56.0,
+       81.0
+      ],
+      [
+       122.0,
+       161.0,
+       22.0,
+       64.0
+      ]
+     ],
+     "category": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+     ],
+     "id": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+     ]
+    },
+    "width": 500
+   },
+   "row_idx": 2980,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "height": 333,
+    "image": {
+     "height": 333,
+     "src": "samples/pascal-voc/3023-image.jpg",
+     "width": 500
+    },
+    "image_id": 3023,
+    "major_class": 17,
+    "objects": {
+     "area": [
+      82940,
+      157080
+     ],
+     "bbox": [
+      [
+       110.0,
+       58.0,
+       319.0,
+       260.0
+      ],
+      [
+       2.0,
+       2.0,
+       476.0,
+       330.0
+      ]
+     ],
+     "category": [
+      7,
+      17
+     ],
+     "id": [
+      0,
+      1
+     ]
+    },
+    "width": 500
+   },
+   "row_idx": 3023,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "height": 500,
+    "image": {
+     "height": 500,
+     "src": "samples/pascal-voc/5731-image.jpg",
+     "width": 500
+    },
+    "image_id": 5731,
+    "major_class": 4,
+    "objects": {
+     "area": [
+      19224
+     ],
+     "bbox": [
+      [
+       405.0,
+       155.0,
+       89.0,
+       216.0
+      ]
+     ],
+     "category": [
+      4
+     ],
+     "id": [
+      0
+     ]
+    },
+    "width": 500
+   },
+   "row_idx": 5731,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "height": 375,
+    "image": {
+     "height": 375,
+     "src": "samples/pascal-voc/2966-image.jpg",
+     "width": 500
+    },
+    "image_id": 2966,
+    "major_class": 13,
+    "objects": {
+     "area": [
+      115500
+     ],
+     "bbox": [
+      [
+       63.0,
+       57.0,
+       385.0,
+       300.0
+      ]
+     ],
+     "category": [
+      13
+     ],
+     "id": [
+      0
+     ]
+    },
+    "width": 500
+   },
+   "row_idx": 2966,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "height": 369,
+    "image": {
+     "height": 369,
+     "src": "samples/pascal-voc/3004-image.jpg",
+     "width": 500
+    },
+    "image_id": 3004,
+    "major_class": 14,
+    "objects": {
+     "area": [
+      16720,
+      21942
+     ],
+     "bbox": [
+      [
+       178.0,
+       197.0,
+       110.0,
+       152.0
+      ],
+      [
+       179.0,
+       104.0,
+       106.0,
+       207.0
+      ]
+     ],
+     "category": [
+      1,
+      14
+     ],
+     "id": [
+      0,
+      1
+     ]
+    },
+    "width": 500
+   },
+   "row_idx": 3004,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "height": 375,
+    "image": {
+     "height": 375,
+     "src": "samples/pascal-voc/5739-image.jpg",
+     "width": 500
+    },
+    "image_id": 5739,
+    "major_class": 9,
+    "objects": {
+     "area": [
+      50400,
+      17600
+     ],
+     "bbox": [
+      [
+       109.0,
+       101.0,
+       288.0,
+       175.0
+      ],
+      [
+       1.0,
+       109.0,
+       110.0,
+       160.0
+      ]
+     ],
+     "category": [
+      9,
+      9
+     ],
+     "id": [
+      0,
+      1
+     ]
+    },
+    "width": 500
+   },
+   "row_idx": 5739,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "height": 500,
+    "image": {
+     "height": 500,
+     "src": "samples/pascal-voc/3001-image.jpg",
+     "width": 333
+    },
+    "image_id": 3001,
+    "major_class": 6,
+    "objects": {
+     "area": [
+      54750,
+      783,
+      1406
+     ],
+     "bbox": [
+      [
+       82.0,
+       146.0,
+       250.0,
+       219.0
+      ],
+      [
+       295.0,
+       180.0,
+       29.0,
+       27.0
+      ],
+      [
+       160.0,
+       170.0,
+       38.0,
+       37.0
+      ]
+     ],
+     "category": [
+      6,
+      14,
+      14
+     ],
+     "id": [
+      0,
+      1,
+      2
+     ]
+    },
+    "width": 333
+   },
+   "row_idx": 3001,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "height": 225,
+    "image": {
+     "height": 225,
+     "src": "samples/pascal-voc/5723-image.jpg",
+     "width": 400
+    },
+    "image_id": 5723,
+    "major_class": 6,
+    "objects": {
+     "area": [
+      918,
+      7808,
+      1302
+     ],
+     "bbox": [
+      [
+       187.0,
+       181.0,
+       27.0,
+       34.0
+      ],
+      [
+       1.0,
+       159.0,
+       122.0,
+       64.0
+      ],
+      [
+       280.0,
+       181.0,
+       31.0,
+       42.0
+      ]
+     ],
+     "category": [
+      15,
+      6,
+      15
+     ],
+     "id": [
+      0,
+      1,
+      2
+     ]
+    },
+    "width": 400
+   },
+   "row_idx": 5723,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "height": 333,
+    "image": {
+     "height": 333,
+     "src": "samples/pascal-voc/413-image.jpg",
+     "width": 500
+    },
+    "image_id": 413,
+    "major_class": 14,
+    "objects": {
+     "area": [
+      66045
+     ],
+     "bbox": [
+      [
+       25.0,
+       66.0,
+       357.0,
+       185.0
+      ]
+     ],
+     "category": [
+      14
+     ],
+     "id": [
+      0
+     ]
+    },
+    "width": 500
+   },
+   "row_idx": 413,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "height": 375,
+    "image": {
+     "height": 375,
+     "src": "samples/pascal-voc/428-image.jpg",
+     "width": 500
+    },
+    "image_id": 428,
+    "major_class": 14,
+    "objects": {
+     "area": [
+      69542
+     ],
+     "bbox": [
+      [
+       135.0,
+       55.0,
+       218.0,
+       319.0
+      ]
+     ],
+     "category": [
+      14
+     ],
+     "id": [
+      0
+     ]
+    },
+    "width": 500
+   },
+   "row_idx": 428,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "height": 333,
+    "image": {
+     "height": 333,
+     "src": "samples/pascal-voc/3006-image.jpg",
+     "width": 500
+    },
+    "image_id": 3006,
+    "major_class": 10,
+    "objects": {
+     "area": [
+      29892,
+      8960,
+      77145,
+      25920
+     ],
+     "bbox": [
+      [
+       17.0,
+       118.0,
+       141.0,
+       212.0
+      ],
+      [
+       387.0,
+       110.0,
+       112.0,
+       80.0
+      ],
+      [
+       82.0,
+       147.0,
+       417.0,
+       185.0
+      ],
+      [
+       99.0,
+       86.0,
+       160.0,
+       162.0
+      ]
+     ],
+     "category": [
+      8,
+      8,
+      10,
+      14
+     ],
+     "id": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    "width": 500
+   },
+   "row_idx": 3006,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "height": 375,
+    "image": {
+     "height": 375,
+     "src": "samples/pascal-voc/396-image.jpg",
+     "width": 500
+    },
+    "image_id": 396,
+    "major_class": 6,
+    "objects": {
+     "area": [
+      4450
+     ],
+     "bbox": [
+      [
+       169.0,
+       216.0,
+       89.0,
+       50.0
+      ]
+     ],
+     "category": [
+      6
+     ],
+     "id": [
+      0
+     ]
+    },
+    "width": 500
+   },
+   "row_idx": 396,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "height": 419,
+    "image": {
+     "height": 419,
+     "src": "samples/pascal-voc/5713-image.jpg",
+     "width": 500
+    },
+    "image_id": 5713,
+    "major_class": 13,
+    "objects": {
+     "area": [
+      141128,
+      81446
+     ],
+     "bbox": [
+      [
+       14.0,
+       99.0,
+       472.0,
+       299.0
+      ],
+      [
+       150.0,
+       11.0,
+       211.0,
+       386.0
+      ]
+     ],
+     "category": [
+      13,
+      14
+     ],
+     "id": [
+      0,
+      1
+     ]
+    },
+    "width": 500
+   },
+   "row_idx": 5713,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "TNILab/pascal_voc2012_det_train_val",
+  "split": "validation"
+ }
+}

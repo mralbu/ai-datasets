@@ -22,6 +22,13 @@
    "fetched_at": "2026-11-07T15:46:00+00:00",
    "rows": 18
   },
+  "fashion-mnist": {
+   "fingerprint": "cf3451b55d606543",
+   "hf": "zalando-datasets/fashion_mnist",
+   "revision": "531be5e2ccc9dba0c201ad3ae567a4f3d16ecdd2",
+   "fetched_at": "2026-11-07T21:34:13+00:00",
+   "rows": 60
+  },
   "glue": {
    "fingerprint": "f919a7b699e6dcd1",
    "hf": "nyu-mll/glue",
@@ -78,6 +85,13 @@
    "fetched_at": "2026-11-07T15:47:49+00:00",
    "rows": 10
   },
+  "math": {
+   "fingerprint": "8627b222466fa828",
+   "hf": "EleutherAI/hendrycks_math",
+   "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+   "fetched_at": "2026-11-07T21:34:17+00:00",
+   "rows": 21
+  },
   "mmlu": {
    "fingerprint": "51947459d1786af2",
    "hf": "cais/mmlu",
@@ -92,6 +106,34 @@
    "fetched_at": "2026-11-07T15:49:11+00:00",
    "rows": 60
   },
+  "movielens": {
+   "fingerprint": "eb59d8c033c039e3",
+   "hf": "ashraq/movielens_ratings",
+   "revision": "a1c7c3304f31f9be882a2c90726d25b94dd2d8f1",
+   "fetched_at": "2026-11-07T21:34:18+00:00",
+   "rows": 16
+  },
+  "palmer-penguins": {
+   "fingerprint": "efd2e9e6e790d4f4",
+   "hf": "SIH/palmer-penguins",
+   "revision": "e13dbb8b1feeec1416b0a3d949e2fa38ab74975a",
+   "fetched_at": "2026-11-07T21:34:21+00:00",
+   "rows": 12
+  },
+  "pascal-voc": {
+   "fingerprint": "6fcd19044985f764",
+   "hf": "TNILab/pascal_voc2012_det_train_val",
+   "revision": "9c22fd683717086d5dd5ec93a57ed1cdd5eca067",
+   "fetched_at": "2026-11-07T21:34:29+00:00",
+   "rows": 18
+  },
+  "snli": {
+   "fingerprint": "15564e3b87300951",
+   "hf": "stanfordnlp/snli",
+   "revision": "cdb5c3d5eed6ead6e5a341c8e56e669bb666725b",
+   "fetched_at": "2026-11-07T21:34:31+00:00",
+   "rows": 24
+  },
   "squad": {
    "fingerprint": "a7ffcdd131e5e772",
    "hf": "rajpurkar/squad",
@@ -99,12 +141,40 @@
    "fetched_at": "2026-11-07T15:49:12+00:00",
    "rows": 16
   },
+  "superglue": {
+   "fingerprint": "cb975e0fb8dfe198",
+   "hf": "aps/super_glue",
+   "revision": "3de24cf8022e94f4ee4b9d55a6f539891524d646",
+   "fetched_at": "2026-11-07T21:35:42+00:00",
+   "rows": 21
+  },
+  "swe-bench": {
+   "fingerprint": "212a7d7c9e08a5fa",
+   "hf": "princeton-nlp/SWE-bench",
+   "revision": "e48e2bd1e9fecd5bbd641e9414ac59da9f2e69f6",
+   "fetched_at": "2026-11-07T21:35:43+00:00",
+   "rows": 10
+  },
   "titanic": {
    "fingerprint": "ef468f65ad128b57",
    "hf": "phihung/titanic",
    "revision": "9753139e0b9d454ab4fd22e884290260db5fc7b6",
    "fetched_at": "2026-11-07T15:49:15+00:00",
    "rows": 16
+  },
+  "wikitext": {
+   "fingerprint": "8726ec7ef57e1087",
+   "hf": "Salesforce/wikitext",
+   "revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+   "fetched_at": "2026-11-07T21:35:45+00:00",
+   "rows": 16
+  },
+  "wmt14": {
+   "fingerprint": "43f14f19e80176f7",
+   "hf": "wmt/wmt14",
+   "revision": "b199e406369ec1b7634206d3ded5ba45de2fe696",
+   "fetched_at": "2026-11-07T21:35:47+00:00",
+   "rows": 18
   }
  }
 }

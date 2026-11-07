@@ -1,0 +1,242 @@
+{
+ "features": [
+  {
+   "name": "translation",
+   "type": {
+    "_type": "Translation",
+    "languages": [
+     "de",
+     "en"
+    ]
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T21:35:47+00:00",
+ "id": "wmt14",
+ "num_rows_total": 3003,
+ "parts": [
+  {
+   "config": "de-en",
+   "features": [
+    {
+     "name": "translation",
+     "type": {
+      "_type": "Translation",
+      "languages": [
+       "de",
+       "en"
+      ]
+     }
+    }
+   ],
+   "num_rows_total": 3003,
+   "split": "test"
+  }
+ ],
+ "revision": "b199e406369ec1b7634206d3ded5ba45de2fe696",
+ "rows": [
+  {
+   "config": "de-en",
+   "row": {
+    "translation": {
+     "de": "Er schrieb eine Theologie des Computers und fragte, was einen Menschen von einer Maschine unterscheidet, den Schöpfer von seinem Geschöpf.",
+     "en": "He wrote a 'Theology of the Computer' and questioned what separates humans from the machine, the creator from the creation."
+    }
+   },
+   "row_idx": 1153,
+   "truncated": []
+  },
+  {
+   "config": "de-en",
+   "row": {
+    "translation": {
+     "de": "Jim Snabe, stellvertretender Geschäftsführer von SAP, sagt: „Wir sehen eine neue Frage von Kunden, die es vor einem Jahr noch nicht gab – sie lautet: Wo werden meine Daten gespeichert und können Sie garantieren, dass diese physisch in diesem Rechtsraum bleiben?“",
+     "en": "Jim Snabe, co-chief executive at SAP, says: \"We see a new question from customers that didn't come up a year ago - which is where is my data stored and can you guarantee that it stays physically in that jurisdiction.\""
+    }
+   },
+   "row_idx": 1207,
+   "truncated": []
+  },
+  {
+   "config": "de-en",
+   "row": {
+    "translation": {
+     "de": "Antizipation des Anschlags: So funktioniert auch Obamas Drohnen-Philosophie und -Praxis.",
+     "en": "Anticipation of attack: This is also how Obama's drone philosophy and practices work."
+    }
+   },
+   "row_idx": 1168,
+   "truncated": []
+  },
+  {
+   "config": "de-en",
+   "row": {
+    "translation": {
+     "de": "Seine Storys haben Filmregisseure wie Ridley Scott, Paul Verhoeven und Steven Spielberg inspiriert.",
+     "en": "His stories have inspired film producers such as Ridley Scott, Paul Verhoeven and Steven Spielberg."
+    }
+   },
+   "row_idx": 1158,
+   "truncated": []
+  },
+  {
+   "config": "de-en",
+   "row": {
+    "translation": {
+     "de": "Anscheinend suchte der erschöpfte Vogel Zuflucht auf der Bohrinsel.",
+     "en": "It seems the bird became exhausted and managed to find refuge on the oil rig."
+    }
+   },
+   "row_idx": 2092,
+   "truncated": []
+  },
+  {
+   "config": "de-en",
+   "row": {
+    "translation": {
+     "de": "Fluglinien bieten Passagieren schon seit einigen Jahren Wi-Fi, wenn die Flughöhe erreicht ist.",
+     "en": "Airlines have been offering Wi-Fi use at cruising altitudes to passengers for several years."
+    }
+   },
+   "row_idx": 2074,
+   "truncated": []
+  },
+  {
+   "config": "de-en",
+   "row": {
+    "translation": {
+     "de": "Bürgermeister Thomas Haas widersprach: Der Bahnübergang \"Hirschen\" werde regelmäßig für Langholztransporte genutzt.",
+     "en": "Mayor Thomas Haas retorted: The \"Hirschen\" railway crossing is used regularly for the transportation of long logs."
+    }
+   },
+   "row_idx": 232,
+   "truncated": []
+  },
+  {
+   "config": "de-en",
+   "row": {
+    "translation": {
+     "de": "Die wirtschaftlichen Rahmendaten stimmen, und die Finanzierungsmöglichkeiten sind hervorragend.",
+     "en": "The economic situation is right, and the financing options are fantastic."
+    }
+   },
+   "row_idx": 2122,
+   "truncated": []
+  },
+  {
+   "config": "de-en",
+   "row": {
+    "translation": {
+     "de": "Die Polizei gibt an, sie sei im Besitz eines Videos, auf dem angeblich zu sehen sei, wie Bürgermeister Rob Ford eine Crack-Pfeife rauche.",
+     "en": "Police say they have a video that appears to show Mayor Rob Ford smoking a crack pipe."
+    }
+   },
+   "row_idx": 2139,
+   "truncated": []
+  },
+  {
+   "config": "de-en",
+   "row": {
+    "translation": {
+     "de": "Soll der Bahnübergang \"Am Hirschen\" aufwändig umgebaut werden, um die Verkehrssicherheit zu erhöhen?",
+     "en": "Should the \"Am Hirschen\" railway crossing be reconstructed at great cost, in order to increase traffic safety?"
+    }
+   },
+   "row_idx": 221,
+   "truncated": []
+  },
+  {
+   "config": "de-en",
+   "row": {
+    "translation": {
+     "de": "Am 15. März soll es einen offiziellen Auftakt zum Jubiläumsjahr geben, und da Geisingen derzeit keine Halle hat, findet diese Auftaktveranstaltung in dem Ort statt, wo vor 1250 Jahren beide erstmals erwähnt wurde, in Kirchen-Hausen.",
+     "en": "On 15 March, the anniversary year will be officially launched, and because Geisingen currently has no suitable venues, this launch event will take place in the location where the two towns were first documented 1,250 years ago, in Kirchen-Hausen."
+    }
+   },
+   "row_idx": 200,
+   "truncated": []
+  },
+  {
+   "config": "de-en",
+   "row": {
+    "translation": {
+     "de": "Es besteht allerdings die Sorge, dass kleine und mittlere Unternehmen angreifbar gegenüber Hacking und Überwachung bleiben.",
+     "en": "However, there is concern that small and medium-sized companies remain vulnerable to hacking and surveillance."
+    }
+   },
+   "row_idx": 1218,
+   "truncated": []
+  },
+  {
+   "config": "de-en",
+   "row": {
+    "translation": {
+     "de": "Geschäftsführer Phillip Hare wurde über einen Fall befragt, bei dem ein YMCA-Mitarbeiter wegen Vergehen mit Kinderpornografie angeklagt worden war, und einen anderen, bei dem ein Sportlehrer der YMCA Caringbah Hall 1991 wegen des Missbrauchs ihm anvertrauter Kinder verurteilt worden war.",
+     "en": "Chief executive officer Phillip Hare was asked about one case where a YMCA employee was charged child pornography offences, and another when a gym instructor at the YMCA Caringbah Hall was convicted of child sexual offences against children in his care in 1991."
+    }
+   },
+   "row_idx": 2145,
+   "truncated": []
+  },
+  {
+   "config": "de-en",
+   "row": {
+    "translation": {
+     "de": "Diese forciert auf der Basis einer Expertenstudie eine Neuordnung der fünf Musikhochschulen in Baden-Württemberg.",
+     "en": "On the basis of an expert study, this government is urging the reorganisation of the five music colleges in Baden-Wuerttemberg."
+    }
+   },
+   "row_idx": 166,
+   "truncated": []
+  },
+  {
+   "config": "de-en",
+   "row": {
+    "translation": {
+     "de": "Die Abwasserkanäle größer zu dimensionieren, würde Millionen verschlingen.",
+     "en": "To make the sewerage channels wider would gobble up millions."
+    }
+   },
+   "row_idx": 1134,
+   "truncated": []
+  },
+  {
+   "config": "de-en",
+   "row": {
+    "translation": {
+     "de": "An die Drogenbanden gewandt versicherte Duffy: \"Wenn Ihr weiter solche Tunnel baut und versucht, sie zu nutzen, sind wir entschlossen, das zu einer riesigen Verschwendung Eures schmutzigen Geldes zu machen\".",
+     "en": "Referring to the drug gangs, Duffy assured: \"If you continue to build and attempt to use these tunnels, we are determined to make this a big waste of your dirty money\"."
+    }
+   },
+   "row_idx": 174,
+   "truncated": []
+  },
+  {
+   "config": "de-en",
+   "row": {
+    "translation": {
+     "de": "Später gab es Wurstsalat.",
+     "en": "Later on, a sausage salad was provided."
+    }
+   },
+   "row_idx": 146,
+   "truncated": []
+  },
+  {
+   "config": "de-en",
+   "row": {
+    "translation": {
+     "de": "In Großbritannien lag das Plus nur bei 6%, in Frankreich bei 19%.",
+     "en": "In Great Britain, growth stands at just 6%, and in France at 19%."
+    }
+   },
+   "row_idx": 2128,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "de-en",
+  "hf": "wmt/wmt14",
+  "split": "test"
+ }
+}

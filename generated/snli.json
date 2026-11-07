@@ -1,0 +1,314 @@
+{
+ "features": [
+  {
+   "name": "premise",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "hypothesis",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "label",
+   "type": {
+    "_type": "ClassLabel",
+    "names": [
+     "entailment",
+     "neutral",
+     "contradiction"
+    ]
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T21:34:31+00:00",
+ "id": "snli",
+ "num_rows_total": 10000,
+ "parts": [
+  {
+   "config": "plain_text",
+   "features": [
+    {
+     "name": "premise",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "hypothesis",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "label",
+     "type": {
+      "_type": "ClassLabel",
+      "names": [
+       "entailment",
+       "neutral",
+       "contradiction"
+      ]
+     }
+    }
+   ],
+   "num_rows_total": 10000,
+   "split": "validation"
+  }
+ ],
+ "revision": "cdb5c3d5eed6ead6e5a341c8e56e669bb666725b",
+ "rows": [
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "The people are all sitting.",
+    "label": 2,
+    "premise": "A crowd of people are standing against a railing."
+   },
+   "row_idx": 4592,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "The men are on the beach.",
+    "label": 0,
+    "premise": "Two tanned men wearing shorts are pulling a fishing net along a beach shore."
+   },
+   "row_idx": 4552,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "The little girl is preparing for bed",
+    "label": 1,
+    "premise": "A small girl in a blue shirt with a posy pattern brushes her teeth with a red and yellow toothbrush."
+   },
+   "row_idx": 7205,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "some cyclists jump",
+    "label": 2,
+    "premise": "Cyclist participating in an organized event cross a large suspension bridge and two women riders have stopped to pose for a picture."
+   },
+   "row_idx": 7179,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "A black woman walks by a window.",
+    "label": 0,
+    "premise": "A black woman wearing black walking by a window with a mannequin in it."
+   },
+   "row_idx": 7186,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "Four people are waiting for the school to open.",
+    "label": -1,
+    "premise": "Three adults and one child are waiting outside of a building, perhaps a school."
+   },
+   "row_idx": 2823,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "Several friends are playing a game of basketball.",
+    "label": 1,
+    "premise": "Young boys playing indoor basketball, one team has black and white uniforms, the other has orange and white."
+   },
+   "row_idx": 4594,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "The band is unloading their equipment from their van.",
+    "label": 2,
+    "premise": "A band on stage playing a song with a banner in the background that says Screaming Orphans."
+   },
+   "row_idx": 7146,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "a young kid eats a bagel in the pool",
+    "label": 2,
+    "premise": "A young boy with blue shorts, at an indoor pool jumping into the water."
+   },
+   "row_idx": 2798,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "A man at a deli.",
+    "label": 0,
+    "premise": "A male is placing an order in a deli."
+   },
+   "row_idx": 2840,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "A child is playing with a toy airplane.",
+    "label": 0,
+    "premise": "The blond-haired and blue eyed child holds the wooden airplane in his hands."
+   },
+   "row_idx": 7109,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "The athlete is performing a karate toss.",
+    "label": 2,
+    "premise": "An athlete executes a judo throw while a judge watches."
+   },
+   "row_idx": 7116,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "A women sits at home and talks on the phone.",
+    "label": 2,
+    "premise": "A woman with an umbrella listens on a mobile phone on the street in front of a graffiti-tagged wall."
+   },
+   "row_idx": 4551,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "The two men are wearing black dresses.",
+    "label": 2,
+    "premise": "Two men in white suits cheer"
+   },
+   "row_idx": 4536,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "A man buying a sandwich at a deli.",
+    "label": 1,
+    "premise": "A male is placing an order in a deli."
+   },
+   "row_idx": 2839,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "A man is wearing a suit and glasses.",
+    "label": 0,
+    "premise": "A man dressed in a bronze suit, wearing bronze colored glasses, is accompanied with a bronze old fashion movie camera, motions taking a movie."
+   },
+   "row_idx": 2778,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "A man and women take their dogs for a walk on the beach.",
+    "label": 1,
+    "premise": "A woman wearing a brown jacket and brown pants is walking her two dogs along the beach as they follow another person."
+   },
+   "row_idx": 4570,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "The girl is swimming in a pool.",
+    "label": 2,
+    "premise": "A girl jumping rope on a sidewalk near a parking garage."
+   },
+   "row_idx": 7132,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "A runner is watching people run.",
+    "label": 2,
+    "premise": "A runner in a yellow shirt is running a race."
+   },
+   "row_idx": 2788,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "The man has nothing on his face.",
+    "label": 2,
+    "premise": "A man with a blue shirt and glasses points to a picture in a book in front of a little girl and a stack of books."
+   },
+   "row_idx": 4531,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "A man is staring at the blue bike.",
+    "label": 1,
+    "premise": "The man wearing jacket is looking at he bike."
+   },
+   "row_idx": 4559,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "The boy is holding an item.",
+    "label": 0,
+    "premise": "A boy is carrying a black body board across the sand."
+   },
+   "row_idx": 7148,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "A photographer is taking photos at the golf championship.",
+    "label": 1,
+    "premise": "A man in a navy polo shirt snaps photos at a golf course while a crowd of spectators looks on in the background."
+   },
+   "row_idx": 2838,
+   "truncated": []
+  },
+  {
+   "config": "plain_text",
+   "row": {
+    "hypothesis": "A man is walking on the sidewalk with one hand in his pocket",
+    "label": -1,
+    "premise": "A man in glasses and a striped shirt walks down the street with one hand in his pocket."
+   },
+   "row_idx": 2817,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "plain_text",
+  "hf": "stanfordnlp/snli",
+  "split": "validation"
+ }
+}

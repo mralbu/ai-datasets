@@ -1,0 +1,166 @@
+{
+ "features": [
+  {
+   "name": "text",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T21:35:45+00:00",
+ "id": "wikitext",
+ "num_rows_total": 4358,
+ "parts": [
+  {
+   "config": "wikitext-103-raw-v1",
+   "features": [
+    {
+     "name": "text",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 4358,
+   "split": "test"
+  }
+ ],
+ "revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+ "rows": [
+  {
+   "config": "wikitext-103-raw-v1",
+   "row": {
+    "text": " Teku – local Indian tracker and independent witness at the trial ; previously the search party 's guide who had abandoned them when they insisted on entering uncharted regions of the jungle , he continued tracking them from a distance before revealing himself . \n"
+   },
+   "row_idx": 759,
+   "truncated": []
+  },
+  {
+   "config": "wikitext-103-raw-v1",
+   "row": {
+    "text": " The first text to suggest that Nero ordered the execution of an apostle is a letter by Clement to the Corinthians traditional dated to around 96 A.D. The apocryphal Ascension of Isaiah , a Christian writing from the 2nd century says , \" the slayer of his mother , who himself ( even ) this king , will persecute the plant which the Twelve Apostles of the Beloved have planted . Of the Twelve one will be delivered into his hands \" was interpreted to mean Nero . \n"
+   },
+   "row_idx": 2978,
+   "truncated": []
+  },
+  {
+   "config": "wikitext-103-raw-v1",
+   "row": {
+    "text": " The attention Hitler is receiving , however , renews his strength , and when the trial begins , he brushes aside his \" defence attorney \" and begins a long speech in four parts in his own defence : \n"
+   },
+   "row_idx": 743,
+   "truncated": []
+  },
+  {
+   "config": "wikitext-103-raw-v1",
+   "row": {
+    "text": " In the 13th century , Manila consisted of a fortified settlement and trading quarter at the shores of the Pasig River , on top of previous older towns . Manila was then settled by the Indianized empire of Majapahit as referenced in the epic eulogy poem Nagarakretagama which inscribed its conquest by Maharaja Hayam Wuruk . Selurong \" षेलुरोन ् ग ् \" which is a historical name for the city of Manila is listed in Canto 14 alongside Sulot , which is now Sulu , and Kalka . \n"
+   },
+   "row_idx": 3004,
+   "truncated": []
+  },
+  {
+   "config": "wikitext-103-raw-v1",
+   "row": {
+    "text": " In 1571 Spanish Conquistadors arrived from Mexico , from across the Pacific , and founded present @-@ day Manila in what today is Intramuros . Spanish missionaries soon Christianized the city and incorporated Tondo under Manila and then built some of the oldest churches in the country , including San Agustin Church . The Conquistadors renamed the area Nuevo Reino de Castilla ( New Kingdom of Castille ) and shortened the name to Manila . \n"
+   },
+   "row_idx": 2997,
+   "truncated": []
+  },
+  {
+   "config": "wikitext-103-raw-v1",
+   "row": {
+    "text": " The histories of Tiberius , Caius , Claudius and Nero , while they were in power , were falsified through terror , and after their death were written under the irritation of a recent hatred . \n"
+   },
+   "row_idx": 2957,
+   "truncated": []
+  },
+  {
+   "config": "wikitext-103-raw-v1",
+   "row": {
+    "text": " Critics classify Little Gidding as a poem of fire with an emphasis on purgation and the Pentecostal fire . The beginning of the poem discusses time and winter , with attention paid to the arrival of summer . The images of snow , which provoke desires for a spiritual life , transition into an analysis of the four classical elements of fire , earth , air and water and how fire is the primary element of the four . Following this is a discussion on death and destruction , things unaccomplished , and regret for past events . \n"
+   },
+   "row_idx": 718,
+   "truncated": []
+  },
+  {
+   "config": "wikitext-103-raw-v1",
+   "row": {
+    "text": " The Kingdom of Tondo once ruled in the vicinity of Manila before it briefly became a province of the Hindu Majapahit Empire . During the Brunei invasion of the Philippines , Sultan Bolkiah of Brunei captured Seludong ( a village in modern @-@ day Manila ) and renamed it Maynilà , a Tagalog term referring to the presence of the Nila shrub . Maynila was a vassal state of Brunei , established to overpower Tondo . Maynilà had been Indianized since the sixth century CE and earlier . It had become partly Islamic and Hindu @-@ animist by the 15th century CE . \n"
+   },
+   "row_idx": 2996,
+   "truncated": []
+  },
+  {
+   "config": "wikitext-103-raw-v1",
+   "row": {
+    "text": " The poem uses the combined image of fire and Pentecostal fire to emphasise the need for purification and purgation . According to the poet , humanity 's flawed understanding of life and turning away from God leads to a cycle of warfare , but this can be overcome by recognising the lessons of the past . Within the poem , the narrator meets a ghost that is a combination of various poets and literary figures . Little Gidding focuses on the unity of past , present , and future , and claims that understanding this unity is necessary for salvation . \n"
+   },
+   "row_idx": 707,
+   "truncated": []
+  },
+  {
+   "config": "wikitext-103-raw-v1",
+   "row": {
+    "text": " The Portage to San Cristobal of A.H. is a 1981 literary and philosophical novella by George Steiner , in which Jewish Nazi hunters find a fictional Adolf Hitler ( A.H. ) alive in the Amazon jungle thirty years after the end of World War II . The book generated considerable controversy after its publication because in it , Steiner , who is Jewish , allows Hitler to defend himself when he is put on trial in the jungle by his captors . There Hitler maintains that Israel owes its existence to the Holocaust and that he is the \" benefactor of the Jews \" . \n"
+   },
+   "row_idx": 736,
+   "truncated": []
+  },
+  {
+   "config": "wikitext-103-raw-v1",
+   "row": {
+    "text": " In 1948 , President Elpidio Quirino moved the seat of government of the Philippines to Quezon City , a new capital city in the suburbs and fields northeast of Manila , created in 1938 by former President Manuel L. Quezon , which was named after him . The move ended any implementation of the Burnham Plan 's intent for the government centre to be at Luneta . \n"
+   },
+   "row_idx": 3017,
+   "truncated": []
+  },
+  {
+   "config": "wikitext-103-raw-v1",
+   "row": {
+    "text": " Isaac Amsel – an 18 @-@ year @-@ old boy and witness at the trial ; he is the son of Isaac Amsel senior , former member of the search party killed earlier in a skirmish in São Paulo ; he joined the party to avenge his father 's death . \n"
+   },
+   "row_idx": 757,
+   "truncated": []
+  },
+  {
+   "config": "wikitext-103-raw-v1",
+   "row": {
+    "text": " The bulk of what is known of Nero comes from Tacitus , Suetonius and Cassius Dio , who were all of the senatorial class . Tacitus and Suetonius wrote their histories on Nero over fifty years after his death , while Cassius Dio wrote his history over 150 years after Nero 's death . These sources contradict on a number of events in Nero 's life including the death of Claudius , the death of Agrippina , and the Roman fire of 64 , but they are consistent in their condemnation of Nero . \n"
+   },
+   "row_idx": 2930,
+   "truncated": []
+  },
+  {
+   "config": "wikitext-103-raw-v1",
+   "row": {
+    "text": " The Portage to San Cristobal of A.H. was adapted for the theatre in 1982 by British playwright Christopher Hampton . It was staged in April 1982 at London 's Mermaid Theatre under the direction of John Dexter with Alec McCowen playing the part of Adolf Hitler . McCowen won the 1982 Evening Standard Theatre Award for best actor for this performance . In 1983 the production moved to the United States where it played at the Hartford Stage Company in Hartford , Connecticut , directed by Mark Lamos and starring John Cullum as Hitler . \n"
+   },
+   "row_idx": 770,
+   "truncated": []
+  },
+  {
+   "config": "wikitext-103-raw-v1",
+   "row": {
+    "text": " George Steiner , literary critic for The New Yorker and The New York Times , had written about the Holocaust in some of his previous books , including Anno Domini ( 1964 ) , Language and Silence ( 1967 ) and In Bluebeard 's Castle ( 1971 ) . Many of the ideas Steiner expresses in The Portage to San Cristobal of A.H. were reworked from these earlier works . Steiner told New York Times editor D. J. R. Bruckner that this book arose out of his lifelong work on language . \" Central to everything I am and believe and have written is my astonishment ... that you can use human speech both to bless , to love , to build , to forgive and also to torture , to hate , to destroy and to annihilate . \" \n"
+   },
+   "row_idx": 764,
+   "truncated": []
+  },
+  {
+   "config": "wikitext-103-raw-v1",
+   "row": {
+    "text": " Alfredo Lim once again ran for mayor and defeated Atienza 's son Ali in the 2007 city election and immediately reversed all of Atienza 's projects claiming Atienza 's projects made little contribution to the improvements of the city . The relationship of both parties turned bitter , with the two pitting again during the 2010 city elections in which Lim won against Atienza . \n"
+   },
+   "row_idx": 3022,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "wikitext-103-raw-v1",
+  "hf": "Salesforce/wikitext",
+  "split": "test"
+ }
+}

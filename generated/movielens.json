@@ -1,0 +1,376 @@
+{
+ "features": [
+  {
+   "name": "imdbId",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "tmdbId",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "movie_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "user_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "rating",
+   "type": {
+    "_type": "Value",
+    "dtype": "float64"
+   }
+  },
+  {
+   "name": "title",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "genres",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "posters",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-07T21:34:18+00:00",
+ "id": "movielens",
+ "num_rows_total": 99043,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "imdbId",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "tmdbId",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "movie_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "user_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "rating",
+     "type": {
+      "_type": "Value",
+      "dtype": "float64"
+     }
+    },
+    {
+     "name": "title",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "genres",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "posters",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 99043,
+   "split": "validation"
+  }
+ ],
+ "revision": "a1c7c3304f31f9be882a2c90726d25b94dd2d8f1",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "genres": "Adventure|Comedy",
+    "imdbId": "tt2332579",
+    "movie_id": 343,
+    "posters": "https://m.media-amazon.com/images/M/MV5BMTk3Mjk5NjUxNF5BMl5BanBnXkFtZTcwMTk3OTA4OQ@@._V1_SX300.jpg",
+    "rating": 3.0,
+    "title": "Crystal Fairy & the Magical Cactus and 2012 (2013)",
+    "tmdbId": "157409",
+    "user_id": 42486
+   },
+   "row_idx": 66351,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "genres": "Action|Sci-Fi|Thriller",
+    "imdbId": "tt2908446",
+    "movie_id": 1844,
+    "posters": "https://m.media-amazon.com/images/M/MV5BMTgxOTYxMTg3OF5BMl5BanBnXkFtZTgwMDgyMzA2NDE@._V1_SX300.jpg",
+    "rating": 0.5,
+    "title": "Insurgent (2015)",
+    "tmdbId": "262500",
+    "user_id": 30441
+   },
+   "row_idx": 24743,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "genres": "Comedy|Drama|Romance",
+    "imdbId": "tt3783958",
+    "movie_id": 6119,
+    "posters": "https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_SX300.jpg",
+    "rating": 4.0,
+    "title": "La La Land (2016)",
+    "tmdbId": "313369",
+    "user_id": 10801
+   },
+   "row_idx": 24705,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "genres": "Drama|Thriller",
+    "imdbId": "tt2267998",
+    "movie_id": 739,
+    "posters": "https://m.media-amazon.com/images/M/MV5BMTk0MDQ3MzAzOV5BMl5BanBnXkFtZTgwNzU1NzE3MjE@._V1_SX300.jpg",
+    "rating": 5.0,
+    "title": "Gone Girl (2014)",
+    "tmdbId": "210577",
+    "user_id": 16037
+   },
+   "row_idx": 66350,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "genres": "Action|Sci-Fi",
+    "imdbId": "tt2872732",
+    "movie_id": 663,
+    "posters": "https://m.media-amazon.com/images/M/MV5BODcxMzY3ODY1NF5BMl5BanBnXkFtZTgwNzg1NDY4MTE@._V1_SX300.jpg",
+    "rating": 1.5,
+    "title": "Lucy (2014)",
+    "tmdbId": "240832",
+    "user_id": 42432
+   },
+   "row_idx": 66353,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "genres": "Drama|Sci-Fi|Thriller",
+    "imdbId": "tt2737304",
+    "movie_id": 12462,
+    "posters": "https://m.media-amazon.com/images/M/MV5BMjAzMTI1MjMyN15BMl5BanBnXkFtZTgwNzU5MTE2NjM@._V1_SX300.jpg",
+    "rating": 1.5,
+    "title": "Bird Box (2018)",
+    "tmdbId": "405774",
+    "user_id": 39680
+   },
+   "row_idx": 24802,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "genres": "Action|Adventure|Sci-Fi",
+    "imdbId": "tt2015381",
+    "movie_id": 759,
+    "posters": "https://m.media-amazon.com/images/M/MV5BMTAwMjU5OTgxNjZeQTJeQWpwZ15BbWU4MDUxNDYxODEx._V1_SX300.jpg",
+    "rating": 4.5,
+    "title": "Guardians of the Galaxy (2014)",
+    "tmdbId": "118340",
+    "user_id": 26878
+   },
+   "row_idx": 24785,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "genres": "Drama|Thriller",
+    "imdbId": "tt4550098",
+    "movie_id": 3986,
+    "posters": "https://m.media-amazon.com/images/M/MV5BMTYwMzMwMzgxNl5BMl5BanBnXkFtZTgwMTA0MTUzMDI@._V1_SX300.jpg",
+    "rating": 4.5,
+    "title": "Nocturnal Animals",
+    "tmdbId": "340666",
+    "user_id": 16977
+   },
+   "row_idx": 24800,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "genres": "Action|Thriller",
+    "imdbId": "tt7456310",
+    "movie_id": 14381,
+    "posters": "https://m.media-amazon.com/images/M/MV5BOWUyYTU4NTQtYWQ2Mi00NzE0LTk0OTMtN2MzNjRkZjFkZTU2XkEyXkFqcGdeQXVyNDkzNTM2ODg@._V1_SX300.jpg",
+    "rating": 1.5,
+    "title": "Anna (2019)",
+    "tmdbId": "484641",
+    "user_id": 15108
+   },
+   "row_idx": 66332,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "genres": "Horror|IMAX",
+    "imdbId": "tt2109184",
+    "movie_id": 65,
+    "posters": "https://m.media-amazon.com/images/M/MV5BNjAxMzM0MjYwM15BMl5BanBnXkFtZTcwMjMwMjAyOA@@._V1_SX300.jpg",
+    "rating": 0.5,
+    "title": "Paranormal Activity 4 (2012)",
+    "tmdbId": "82990",
+    "user_id": 37234
+   },
+   "row_idx": 66293,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "genres": "Horror",
+    "imdbId": "tt3322940",
+    "movie_id": 893,
+    "posters": "https://m.media-amazon.com/images/M/MV5BOTQwZmQyYzEtODk5ZC00OTY3LWExMjAtYzRjNWFhNGM3MzBlXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX300.jpg",
+    "rating": 3.5,
+    "title": "Annabelle (2014)",
+    "tmdbId": "250546",
+    "user_id": 22975
+   },
+   "row_idx": 24731,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "genres": "Comedy|Drama",
+    "imdbId": "tt3824458",
+    "movie_id": 2966,
+    "posters": "https://m.media-amazon.com/images/M/MV5BMjEzNzY2NjYwOV5BMl5BanBnXkFtZTgwOTY1MDU1NTE@._V1_SX300.jpg",
+    "rating": 3.5,
+    "title": "Tangerine (2015)",
+    "tmdbId": "308084",
+    "user_id": 31265
+   },
+   "row_idx": 24764,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "genres": "Action|Comedy|Crime",
+    "imdbId": "tt2294449",
+    "movie_id": 704,
+    "posters": "https://m.media-amazon.com/images/M/MV5BMTcwNzAxMDU1M15BMl5BanBnXkFtZTgwNDE2NTU1MTE@._V1_SX300.jpg",
+    "rating": 5.0,
+    "title": "22 Jump Street (2014)",
+    "tmdbId": "187017",
+    "user_id": 35025
+   },
+   "row_idx": 66317,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "genres": "Action|Sci-Fi|Thriller",
+    "imdbId": "tt2908446",
+    "movie_id": 1844,
+    "posters": "https://m.media-amazon.com/images/M/MV5BMTgxOTYxMTg3OF5BMl5BanBnXkFtZTgwMDgyMzA2NDE@._V1_SX300.jpg",
+    "rating": 4.5,
+    "title": "Insurgent (2015)",
+    "tmdbId": "262500",
+    "user_id": 5779
+   },
+   "row_idx": 66290,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "genres": "Crime|Drama|Thriller",
+    "imdbId": "tt2039393",
+    "movie_id": 1445,
+    "posters": "https://m.media-amazon.com/images/M/MV5BMjA5MjIzODE3N15BMl5BanBnXkFtZTgwNzUwNzYwMzE@._V1_SX300.jpg",
+    "rating": 3.0,
+    "title": "The Gambler (2014)",
+    "tmdbId": "284536",
+    "user_id": 31447
+   },
+   "row_idx": 66282,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "genres": "Sci-Fi",
+    "imdbId": "tt2543164",
+    "movie_id": 5946,
+    "posters": "https://m.media-amazon.com/images/M/MV5BNGU0NTA2YjctYWNlYy00ZDg1LTg5ZTItZWM3MWZiMDI5OGYzL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNDM3ODU2NDM@._V1_SX300.jpg",
+    "rating": 3.5,
+    "title": "Arrival (2016)",
+    "tmdbId": "329865",
+    "user_id": 32381
+   },
+   "row_idx": 24709,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "ashraq/movielens_ratings",
+  "split": "validation"
+ }
+}
