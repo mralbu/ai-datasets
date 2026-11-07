@@ -13,7 +13,7 @@ const decades = [...new Set(all.map((d) => Math.floor(d.data.year / 10) * 10))];
   <div class="chips" role="group" aria-label="Filter by category">
     <button type="button" class="chip" data-filter="all" aria-pressed="true">All<span class="n">{all.length}</span></button>
     {Object.entries(MODALITIES).filter(([m]) => counts[m]).map(([m, label]) => (
-      <button type="button" class="chip" data-filter={m} aria-pressed="false">{label}<span class="n">{counts[m]}</span></button>
+      <button type="button" class="chip" data-filter={m} data-m={m} aria-pressed="false"><span class="dot" aria-hidden="true"></span>{label}<span class="n">{counts[m]}</span></button>
     ))}
   </div>
 
