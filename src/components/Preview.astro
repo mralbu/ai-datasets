@@ -28,7 +28,7 @@ const stripMath = (t: unknown) => String(t ?? '').replace(/\$+/g, '');
   {s && d.kind === 'text' && <p>“{snippet(r0[d.text])}”</p>}
   {s && (d.kind === 'qa' || d.kind === 'extractive' || d.kind === 'mcq') && <p>{snippet(d.kind === 'qa' && d.math ? stripMath(r0[d.question]) : r0[d.question])}</p>}
   {s && d.kind === 'record' && <p>{snippet(Object.values(r0).find((v) => typeof v === 'string'))}</p>}
-  {s && d.kind === 'audio' && <p class="mono">♪ {snippet(r0[d.text], 110)}</p>}
+  {s && d.kind === 'audio' && <p class="mono">♪ {snippet(d.text ? r0[d.text] : [r0[d.label ?? '']].flat().join(', '), 110)}</p>}
   {s && d.kind === 'code' && (d.prompt_lang === 'python'
     ? <code>{firstLine(String(r0[d.prompt]))}</code>
     : <p>{d.title && <code>{r0[d.title]}</code>} {snippet(r0[d.prompt], 110)}</p>)}

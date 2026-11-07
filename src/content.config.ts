@@ -59,7 +59,13 @@ const display = z.discriminatedUnion('kind', [
     solution_label: z.string().default('Reference solution'),
     tests_label: z.string().default('Hidden unit tests'),
   }),
-  z.object({ kind: z.literal('audio'), audio: z.string(), text: z.string(), speaker: z.string().optional() }),
+  z.object({
+    kind: z.literal('audio'),
+    audio: z.string(),
+    text: z.string().optional(), // transcript (speech recognition, text-to-speech)
+    label: z.string().optional(), // class name, or a list of them (sound classification)
+    speaker: z.string().optional(),
+  }),
   z.object({ kind: z.literal('grid'), train: z.string(), test: z.string() }),
   z.object({ kind: z.literal('record'), label: z.string().optional() }),
   // A Translation feature, e.g. {de: …, en: …}; source/target pick the order.

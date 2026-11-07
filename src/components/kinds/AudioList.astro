@@ -1,19 +1,27 @@
 ---
-import { url, type SampleRow } from '../../lib/data';
-interface Props { d: { audio: string; text: string; speaker?: string }; rows: SampleRow[]; k: number }
-const { d, rows, k } = Astro.props;
+import { labelOf, url, type Samples, type SampleRow } from '../../lib/data';
+interface Props { s: Samples; d: { audio: string; text?: string; label?: string; speaker?: string }; rows: SampleRow[]; k: number }
+const { s, d, rows, k } = Astro.props;
+// A label is a class name, a ClassLabel id, or a list of names (AudioSet clips have several).
+const labels = (r: SampleRow): string[] => {
+  if (!d.label) return [];
+  const v = r.row[d.label];
+  return Array.isArray(v) ? v.map(String) : [labelOf(s, d.label, v, r)];
+};
 ---
 <div class="list">
   {rows.map((r, i) => (
     <article class="card" data-item hidden={i >= k}>
       <audio controls preload="none" src={url(r.row[d.audio].src)}></audio>
-      <p class="transcript">{r.row[d.text]}</p>
+      {d.label && <p class="tags">{labels(r).map((l) => <span class="tag">{l}</span>)}</p>}
+      {d.text && <p class="transcript">{r.row[d.text]}</p>}
       {d.speaker && <p class="muted small">speaker {r.row[d.speaker]}</p>}
     </article>
   ))}
 </div>
 <style>
   audio { width: 100%; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; }
   .transcript { font-family: ui-monospace, Menlo, monospace; font-size: 0.85rem; margin: 10px 0 0; letter-spacing: 0.02em; }
   .small { font-size: 0.8rem; margin: 6px 0 0; }
 </style>
