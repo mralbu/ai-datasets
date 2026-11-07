@@ -35,11 +35,19 @@ const facts: [string, string][] = [
     <section class="why">
       <h2>Why it matters</h2>
       <p>{d.why}</p>
-      <p class="links">
-        {d.paper && <a href={d.paper.url}>Paper: {d.paper.title}</a>}
-        {d.homepage && <a href={d.homepage}>Homepage</a>}
-        <a href={`https://huggingface.co/datasets/${d.source.hf}`}>On Hugging Face</a>
-      </p>
+      <div class="links">
+        {d.paper && (
+          <a class="paper tip" href={d.paper.url} data-tip={`Original paper · ${hostOf(d.paper.url)}`}>
+            <span class="emoji" aria-hidden="true">📄</span><span>{d.paper.title}</span>
+          </a>
+        )}
+        <span class="icon-links">
+          {d.homepage && (
+            <a class="icon-btn tip" href={d.homepage} aria-label="Homepage" data-tip={`Homepage · ${hostOf(d.homepage)}`}>🏠</a>
+          )}
+          <a class="icon-btn tip" href={`https://huggingface.co/datasets/${d.source.hf}`} aria-label="On Hugging Face" data-tip={`Hugging Face · ${d.source.hf}`}>🤗</a>
+        </span>
+      </div>
     </section>
     <dl class="facts card">
       {facts.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
@@ -100,7 +108,16 @@ const facts: [string, string][] = [
   .lede { font-size: 1.1rem; margin: 0 0 8px; }
   .top { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 28px; align-items: start; }
   @media (max-width: 760px) { .top { grid-template-columns: 1fr; } }
-  .links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 0.92rem; }
+  .links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; font-size: 0.92rem; margin: 4px 0 1rem; }
+  .paper { display: inline-flex; align-items: baseline; gap: 8px; }
+  .paper .emoji { font-size: 1.05rem; text-decoration: none; }
+  .icon-links { display: inline-flex; gap: 8px; }
+  .icon-btn {
+    width: 34px; height: 34px; display: grid; place-items: center; font-size: 1.05rem; line-height: 1;
+    border: 1px solid var(--border); border-radius: 50%; background: var(--surface);
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .icon-btn:hover { text-decoration: none; border-color: var(--accent); transform: translateY(-1px); }
   .facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; padding: 16px 18px; margin: 2.2rem 0 0; font-size: 0.9rem; }
   dt { color: var(--muted); }
   dd { margin: 0; }
