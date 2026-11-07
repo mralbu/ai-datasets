@@ -35,12 +35,27 @@ BASE_PATH=/ npm run dev    # http://localhost:4321
 
 ## Add a dataset
 
-1. Copy one of `datasets/*.yaml` and fill it in. `display.kind` is one of:
-   - `image`: `image` field, optional `label`, `scale` (enlargement factor for the grid)
-   - `text`: `text` field, optional `label`
-   - `qa`: `question` and `answer` fields
-   - `table`: optional `chart: {x, y, color}`; set `source.fetch_all: true` so the chart sees every row
-2. `uv run scripts/sample.py <id>` and check the page.
+1. Copy a similar entry in `datasets/*.yaml` and fill it in. `display.kind` picks the renderer
+   (field names are columns of the Hugging Face dataset):
+
+   | kind | fields | used by |
+   |---|---|---|
+   | `image` | `image`, `label`, `scale` (enlarge tiny images), `thumb` (px height for photos), `class_grid`, `short_labels` | MNIST, CIFAR-10, ImageNet |
+   | `boxes` | `image`, `objects` (COCO-style `bbox` `[x, y, w, h]` + `label`) | COCO |
+   | `text` | `text`, `label` | IMDB |
+   | `extractive` | `context`, `question`, `answers`, `title` | SQuAD |
+   | `record` | `label`; shows every text field, per config | GLUE |
+   | `qa` | `question`, `answer` | GSM8K |
+   | `mcq` | `question`, `choices`, `answer`, `subject` | MMLU, HellaSwag |
+   | `code` | `prompt`, `solution`, `tests`, `title` | HumanEval |
+   | `audio` | `audio`, `text`, `speaker` | LibriSpeech |
+   | `grid` | `train`, `test` (ARC-style pairs of integer grids) | ARC-AGI |
+   | `table` | optional `chart: {type: scatter \| rate, x, y, color}` | Iris, Titanic |
+
+   Useful `source` options: `n` (rows to sample), `seed`, `fetch_all: true` (small tables, needed for
+   charts), `configs: [...]` (sample several configs, like GLUE's tasks), and `rows_per_page`
+   (default 8; lower it when the split is sorted by a label with many values, as ImageNet's is).
+2. `uv run scripts/sample.py <id>` and check the page with `BASE_PATH=/ npm run dev`.
 
 The schema lives in `src/content.config.ts`; the build fails on a malformed entry.
 

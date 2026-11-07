@@ -3,7 +3,13 @@ import '../styles/global.css';
 import { url } from '../lib/data';
 interface Props { title: string; description?: string }
 const { title, description = 'A small museum of classic AI datasets and benchmarks: what they are and what the data actually looks like.' } = Astro.props;
-const path = Astro.url.pathname;
+const path = Astro.url.pathname.replace(/\/$/, '');
+const home = url('/').replace(/\/$/, '');
+const nav = [
+  { href: url('/'), label: 'Catalog', active: path === home },
+  { href: url('/timeline'), label: 'Timeline', active: path.startsWith(url('/timeline')) },
+  { href: url('/about'), label: 'About', active: path.startsWith(url('/about')) },
+];
 ---
 <!doctype html>
 <html lang="en">
@@ -12,16 +18,24 @@ const path = Astro.url.pathname;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <script is:inline>
+      // Apply a saved theme before first paint, so there is no flash.
+      try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}
+    </script>
   </head>
   <body>
     <header class="site">
       <div class="wrap bar">
         <a class="brand" href={url('/')}>AI Datasets</a>
-        <nav>
-          <a href={url('/')} aria-current={path === url('/') || path === url('/') + '/' ? 'page' : undefined}>Catalog</a>
-          <a href={url('/timeline')} aria-current={path.startsWith(url('/timeline')) ? 'page' : undefined}>Timeline</a>
-          <a href={url('/about')} aria-current={path.startsWith(url('/about')) ? 'page' : undefined}>About</a>
-        </nav>
+        <div class="right">
+          <nav>
+            {nav.map((n) => <a href={n.href} aria-current={n.active ? 'page' : undefined}>{n.label}</a>)}
+          </nav>
+          <button type="button" class="theme" data-theme-toggle aria-label="Switch color theme" title="Switch color theme">
+            <span class="to-dark" aria-hidden="true">☾&#xFE0E;</span>
+            <span class="to-light" aria-hidden="true">☀&#xFE0E;</span>
+          </button>
+        </div>
       </div>
     </header>
     <main class="wrap"><slot /></main>
@@ -29,15 +43,44 @@ const path = Astro.url.pathname;
       Samples come from the <a href="https://huggingface.co/docs/dataset-viewer">Hugging Face dataset viewer</a>{' '}
       and remain under each dataset's own license. Shown for education.
     </footer>
+    <script>
+      const root = document.documentElement;
+      const btn = document.querySelector<HTMLButtonElement>('[data-theme-toggle]')!;
+      const current = () =>
+        root.dataset.theme ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const label = () => btn.setAttribute('aria-label', current() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      label();
+      btn.addEventListener('click', () => {
+        const next = current() === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        try { localStorage.setItem('theme', next); } catch {}
+        label();
+        window.dispatchEvent(new CustomEvent('themechange', { detail: next }));
+      });
+    </script>
   </body>
 </html>
 <style>
-  header.site { border-bottom: 1px solid var(--border); background: var(--surface); }
+  header.site { border-bottom: 1px solid var(--border); background: var(--surface); position: sticky; top: 0; z-index: 20; }
   .bar { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
-  .brand { font-weight: 700; color: var(--text); }
-  nav { display: flex; gap: 18px; }
+  .brand { font-weight: 700; color: var(--text); white-space: nowrap; }
+  .right { display: flex; align-items: center; gap: 14px; }
+  nav { display: flex; gap: 16px; }
   nav a { color: var(--muted); }
   nav a[aria-current='page'] { color: var(--text); font-weight: 600; }
+  .theme {
+    width: 34px; height: 34px; padding: 0; border-radius: 50%; display: grid; place-items: center;
+    font-size: 1.05rem; line-height: 1; color: var(--text); font-family: 'Segoe UI Symbol', 'DejaVu Sans', system-ui, sans-serif;
+  }
+  /* Show the icon of the mode you would switch to. */
+  .to-light { display: none; }
+  :global(:root[data-theme='dark']) .to-dark { display: none; }
+  :global(:root[data-theme='dark']) .to-light { display: inline; }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .to-dark { display: none; }
+    :global(:root:not([data-theme='light'])) .to-light { display: inline; }
+  }
+  @media (max-width: 420px) { nav { gap: 12px; font-size: 0.92rem; } .right { gap: 10px; } }
   main { padding-bottom: 48px; }
   footer { font-size: 0.85rem; padding-top: 24px; padding-bottom: 32px; border-top: 1px solid var(--border); }
 </style>

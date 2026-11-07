@@ -1,0 +1,49 @@
+name: GLUE
+year: 2018
+modality: text
+task: Benchmark suite of 9 sentence-understanding tasks
+one_liner: Nine English language-understanding tasks rolled into one score.
+creators: Alex Wang, Amanpreet Singh, Julian Michael, Felix Hill, Omer Levy, Samuel Bowman
+size: ~1.4M examples across tasks (QQP and MNLI are most of it)
+splits: { tasks: 9 }
+input: One sentence or a pair of sentences
+labels: Per task, e.g. grammatical?, positive?, paraphrase?, entails?
+license: Varies by task (each underlying dataset keeps its own)
+paper:
+  title: "GLUE: A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding"
+  url: https://arxiv.org/abs/1804.07461
+homepage: https://gluebenchmark.com/
+why: >-
+  GLUE turned "general language understanding" into one leaderboard number
+  just as pretrained models arrived. ELMo, GPT and then BERT climbed it, and
+  within about a year models passed the human baseline (87.1), which led to
+  the harder SuperGLUE. It defined the pretrain-then-fine-tune era of NLP.
+trivia:
+  - Most tasks predate GLUE; it bundled existing datasets (SST-2 is movie-review sentences, MRPC is news paraphrases, RTE is textual-entailment challenge data).
+  - STS-B is a regression task, scored 0–5 for similarity, so not every label is a class.
+  - On WNLI, nearly every model scored below simply predicting the majority class, because its dev set is adversarial against the train set.
+  - The samples below are from validation sets; test labels are kept private.
+config_notes:
+  cola: "CoLA: is the sentence grammatical?"
+  sst2: "SST-2: is the movie-review sentence positive or negative?"
+  mrpc: "MRPC: do the two news sentences mean the same thing?"
+  qqp: "QQP: are the two Quora questions duplicates?"
+  stsb: "STS-B: how similar are the sentences, from 0 to 5?"
+  mnli: "MNLI: does the premise entail, contradict, or say nothing about the hypothesis?"
+  qnli: "QNLI: does the sentence answer the question?"
+  rte: "RTE: does the first sentence entail the second?"
+  wnli: "WNLI: with the pronoun resolved, is the second sentence implied?"
+lineage:
+  - { name: SuperGLUE, note: "2019, harder successor" }
+  - { name: MMLU, note: "2020, knowledge-heavy benchmark for the LLM era" }
+landmark_papers:
+  - { title: "BERT: Pre-training of Deep Bidirectional Transformers", year: 2018, url: "https://arxiv.org/abs/1810.04805" }
+  - { title: "RoBERTa: A Robustly Optimized BERT Pretraining Approach", year: 2019, url: "https://arxiv.org/abs/1907.11692" }
+  - { title: "SuperGLUE: A Stickier Benchmark", year: 2019, url: "https://arxiv.org/abs/1905.00537" }
+source:
+  hf: nyu-mll/glue
+  split: validation
+  n: 4
+  seed: 8
+  configs: [cola, sst2, mrpc, qqp, stsb, { config: mnli, split: validation_matched }, qnli, rte, wnli]
+display: { kind: record, label: label }

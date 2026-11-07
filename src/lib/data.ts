@@ -1,15 +1,19 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 export type Dataset = CollectionEntry<'datasets'>;
+export type Display = Dataset['data']['display'];
 
-export interface Feature { name: string; type: { _type?: string; names?: string[]; dtype?: string } }
-export interface SampleRow { row_idx: number; row: Record<string, any>; truncated: string[] }
+export interface FeatureType { _type?: string; names?: string[]; dtype?: string; [k: string]: unknown }
+export interface Feature { name: string; type: FeatureType }
+export interface SampleRow { row_idx: number; config?: string; row: Record<string, any>; truncated: string[] }
+export interface Part { config: string; split: string; num_rows_total: number; features: Feature[] }
 export interface Samples {
   id: string;
   source: { hf: string; config?: string; split?: string };
   num_rows_total: number;
   fetched_at: string;
   features: Feature[];
+  parts?: Part[];
   rows: SampleRow[];
   chart?: Record<string, unknown>;
 }
@@ -22,14 +26,26 @@ export function getSamples(id: string): Samples | undefined {
 }
 
 export async function getDatasets(): Promise<Dataset[]> {
-  return (await getCollection('datasets')).sort((a, b) => a.data.year - b.data.year);
+  return (await getCollection('datasets')).sort((a, b) => a.data.year - b.data.year || a.data.name.localeCompare(b.data.name));
+}
+
+/** Features for a row: per-config for suites like GLUE, else the dataset's. */
+export function featuresFor(s: Samples, row?: SampleRow): Feature[] {
+  return s.parts?.find((p) => p.config === row?.config)?.features ?? s.features;
 }
 
 /** Map a ClassLabel integer to its name, otherwise return the value unchanged. */
-export function labelOf(samples: Samples, field: string, value: unknown): string {
-  const f = samples.features.find((f) => f.name === field);
+export function labelOf(s: Samples, field: string, value: unknown, row?: SampleRow): string {
+  const f = featuresFor(s, row).find((f) => f.name === field);
   if (f?.type._type === 'ClassLabel' && typeof value === 'number') return f.type.names?.[value] ?? String(value);
   return String(value);
+}
+
+/** Class names of a ClassLabel feature (possibly nested, e.g. objects.label in COCO). */
+export function classNames(s: Samples, field: string): string[] {
+  const f = s.features.find((f) => f.name === field);
+  const t: any = f?.type;
+  return t?.names ?? t?.label?.feature?.names ?? [];
 }
 
 /** Prefix a site-relative path with the configured base. */
@@ -46,3 +62,6 @@ export const MODALITIES: Record<string, string> = {
   benchmark: 'LLM benchmarks',
   other: 'Other',
 };
+
+/** The standard ARC display palette for colors 0–9. */
+export const ARC_COLORS = ['#000000', '#0074D9', '#FF4136', '#2ECC40', '#FFDC00', '#AAAAAA', '#F012BE', '#FF851B', '#7FDBFF', '#870C25'];

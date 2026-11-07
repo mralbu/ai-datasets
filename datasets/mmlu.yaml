@@ -1,0 +1,33 @@
+name: MMLU
+year: 2020
+modality: benchmark
+task: Multiple-choice knowledge and reasoning across 57 subjects
+one_liner: 15,908 four-option exam questions, from high-school math to law and medicine.
+creators: Dan Hendrycks, Collin Burns, Steven Basart et al.
+size: 15,908 questions
+splits: { dev: 285, validation: 1531, test: 14042 }
+input: A question and four answer choices
+labels: The correct letter (A–D)
+license: MIT
+paper:
+  title: Measuring Massive Multitask Language Understanding
+  url: https://arxiv.org/abs/2009.03300
+homepage: https://github.com/hendrycks/test
+why: >-
+  For years the headline number on every LLM release. It tested broad,
+  exam-style knowledge at a time when GPT-3 scored 43.9% (random is 25%).
+  Frontier models now score around 90%, near the authors' estimate of expert
+  level, so MMLU is mostly saturated and replaced by harder variants.
+trivia:
+  - The 5 dev questions per subject exist for few-shot prompting, so "5-shot MMLU" means those exact examples.
+  - "A 2024 audit (\"Are We Done with MMLU?\") estimated about 6.5% of questions have errors, such as wrong answer keys or unclear wording."
+  - Small changes in prompt format or answer extraction can move scores by several points, so numbers from different reports are not always comparable.
+lineage:
+  - { name: MMLU-Pro, note: "2024, 10 options and harder questions" }
+  - { name: MMLU-Redux, note: "2024, re-annotated subset" }
+  - { name: GPQA, note: "2023, graduate-level, Google-proof questions" }
+landmark_papers:
+  - { title: "Language Models are Few-Shot Learners (GPT-3)", year: 2020, url: "https://arxiv.org/abs/2005.14165" }
+  - { title: "Are We Done with MMLU?", year: 2024, url: "https://arxiv.org/abs/2406.04127" }
+source: { hf: cais/mmlu, config: all, split: test, n: 24, seed: 12, rows_per_page: 2 }
+display: { kind: mcq, question: question, choices: choices, answer: answer, subject: subject }

@@ -1,0 +1,16 @@
+---
+import { ARC_COLORS } from '../../lib/data';
+interface Props { g: number[][]; cell?: number; max?: number }
+const { g } = Astro.props;
+const h = g.length, w = g[0]?.length ?? 0;
+// Cap the drawn size so 30×30 grids don't dominate; tiny grids get bigger cells.
+const max = Astro.props.max ?? 120;
+const cell = Astro.props.cell ?? Math.max(2, Math.min(14, Math.floor(max / Math.max(w, h))));
+---
+<svg class="arc" width={w * cell} height={h * cell} viewBox={`0 0 ${w} ${h}`} shape-rendering="crispEdges" role="img" aria-label={`${w}×${h} grid`}>
+  {g.map((row, y) => row.map((v, x) => <rect x={x} y={y} width="1" height="1" fill={ARC_COLORS[v]} />))}
+  <path d={[...Array(w + 1).keys()].map((x) => `M${x} 0V${h}`).join('') + [...Array(h + 1).keys()].map((y) => `M0 ${y}H${w}`).join('')} stroke="#555" stroke-width="0.06" fill="none" />
+</svg>
+<style>
+  .arc { display: block; border-radius: 3px; max-width: 100%; height: auto; }
+</style>

@@ -9,24 +9,32 @@
   --pos: #1d7a46;
   --neg: #b3361f;
   --code-bg: #f3f1ec;
+  --mark: #fff1b8;
+  --shadow: 0 10px 30px rgb(20 20 30 / 0.12);
   --radius: 10px;
   --maxw: 1080px;
   color-scheme: light;
 }
+/* Dark tokens: follow the OS unless the visitor picked a theme with the toggle. */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #131316;
-    --surface: #1c1c21;
-    --text: #ececef;
-    --muted: #9c9ca6;
-    --border: #2e2e35;
-    --accent: #8aa8ff;
-    --accent-soft: #232b45;
-    --pos: #5cc98a;
-    --neg: #f08a73;
-    --code-bg: #24242a;
+  :root:not([data-theme='light']) {
+    --bg: #131316; --surface: #1c1c21; --text: #ececef; --muted: #9c9ca6; --border: #2e2e35;
+    --accent: #8aa8ff; --accent-soft: #232b45; --pos: #5cc98a; --neg: #f08a73; --code-bg: #24242a;
+    --mark: #5a4a12; --shadow: 0 10px 30px rgb(0 0 0 / 0.5);
     color-scheme: dark;
   }
+}
+:root[data-theme='dark'] {
+  --bg: #131316; --surface: #1c1c21; --text: #ececef; --muted: #9c9ca6; --border: #2e2e35;
+  --accent: #8aa8ff; --accent-soft: #232b45; --pos: #5cc98a; --neg: #f08a73; --code-bg: #24242a;
+  --mark: #5a4a12; --shadow: 0 10px 30px rgb(0 0 0 / 0.5);
+  color-scheme: dark;
+}
+/* Shiki dual themes (astro:components <Code>): switch to the dark colors with the theme. */
+.astro-code { background-color: var(--code-bg) !important; }
+:root[data-theme='dark'] .astro-code span { color: var(--shiki-dark) !important; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .astro-code span { color: var(--shiki-dark) !important; }
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -55,3 +63,10 @@ button {
 button:hover { border-color: var(--accent); }
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
 .pixelated { image-rendering: pixelated; image-rendering: crisp-edges; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font-size: 0.85rem; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border);
+  background: var(--surface); color: var(--text); cursor: pointer;
+}
+.chip[aria-pressed='true'] { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.chip .n { opacity: 0.65; margin-left: 4px; font-variant-numeric: tabular-nums; }

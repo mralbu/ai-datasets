@@ -1,0 +1,34 @@
+name: LibriSpeech
+year: 2015
+modality: audio
+task: Automatic speech recognition (speech to text)
+one_liner: About 1,000 hours of read English audiobooks with transcripts.
+creators: Vassil Panayotov, Guoguo Chen, Daniel Povey, Sanjeev Khudanpur
+size: ~1,000 hours from 2,484 speakers
+splits: { train-clean-100: 28539, train-clean-360: 104014, train-other-500: 148688, test-clean: 2620, test-other: 2939 }
+input: 16 kHz mono audio of one utterance (a few seconds to ~35 s)
+labels: Uppercase transcript, no punctuation
+license: CC BY 4.0
+paper:
+  title: "Librispeech: An ASR Corpus Based on Public Domain Audio Books"
+  url: https://www.danielpovey.com/files/2015_icassp_librispeech.pdf
+homepage: https://www.openslr.org/12
+why: >-
+  The default speech recognition benchmark for a decade. Free, large and
+  clean, it let deep learning ASR (Deep Speech 2, wav2vec 2.0, Conformer) be
+  compared on one number, word error rate. Test-clean WER fell from about 5%
+  to under 2%.
+trivia:
+  - Audio comes from LibriVox volunteers reading public-domain books, so the language is often 19th-century prose.
+  - Transcripts are uppercase with no punctuation, the convention of older ASR systems. Listen and compare.
+  - '"clean" and "other" split speakers by how easy an earlier system found them; "other" is the harder half.'
+  - Speakers do not overlap between train, dev and test.
+lineage:
+  - { name: TIMIT, note: "1993, phonetically labeled, much smaller" }
+  - { name: Common Voice, note: "2017, crowd-sourced, many languages" }
+landmark_papers:
+  - { title: "Deep Speech 2", year: 2015, url: "https://arxiv.org/abs/1512.02595" }
+  - { title: "wav2vec 2.0", year: 2020, url: "https://arxiv.org/abs/2006.11477" }
+  - { title: "Robust Speech Recognition via Large-Scale Weak Supervision (Whisper)", year: 2022, url: "https://arxiv.org/abs/2212.04356" }
+source: { hf: openslr/librispeech_asr, config: clean, split: test, n: 10, seed: 15 }
+display: { kind: audio, audio: audio, text: text, speaker: speaker_id }

@@ -1,0 +1,33 @@
+name: ARC-AGI
+year: 2019
+modality: benchmark
+task: Few-shot abstract reasoning on colored grids
+one_liner: Infer the rule from a few input→output grid pairs, then apply it to a new grid.
+creators: François Chollet
+size: 800 public tasks in ARC-AGI-1 (400 training, 400 evaluation); 1,000 training tasks in ARC-AGI-2
+splits: { training: 400, evaluation: 400 }
+input: 2–5 demonstration pairs of grids (up to 30×30, 10 colors) and a test input
+labels: The exact output grid (every cell must match)
+license: Apache 2.0
+paper:
+  title: On the Measure of Intelligence
+  url: https://arxiv.org/abs/1911.01547
+homepage: https://arcprize.org/
+why: >-
+  Designed to measure skill acquisition rather than memorized knowledge: every
+  task is a new puzzle, and humans solve most of them easily. Deep learning made
+  little progress on it for five years, until test-time search and reasoning
+  models (OpenAI's o3, late 2024) scored highly. ARC-AGI-2 (2025) raised the bar again.
+trivia:
+  - The colors are just symbols 0–9; the standard palette shown here is a display convention.
+  - Tasks only assume "core knowledge" priors such as objects, counting, symmetry and basic geometry. No language or world facts.
+  - Answers are all-or-nothing. A grid with one wrong cell counts as a miss.
+  - These samples come from the ARC-AGI-2 public training set, which includes many ARC-AGI-1 tasks.
+lineage:
+  - { name: ARC-AGI-2, note: "2025, harder tasks, 1,000 for training" }
+  - { name: ConceptARC, note: "2023, tasks grouped by concept" }
+landmark_papers:
+  - { title: "On the Measure of Intelligence", year: 2019, url: "https://arxiv.org/abs/1911.01547" }
+  - { title: "ARC Prize 2024: Technical Report", year: 2024, url: "https://arxiv.org/abs/2412.04604" }
+source: { hf: zhmz90/arc-agi-2, config: default, split: train, n: 12, seed: 16 }
+display: { kind: grid, train: train, test: test }

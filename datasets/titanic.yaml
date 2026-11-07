@@ -1,0 +1,29 @@
+name: Titanic
+year: 2012
+modality: tabular
+task: Binary classification (did the passenger survive?)
+one_liner: 891 Titanic passengers with class, sex, age and fare. Predict who survived.
+creators: Kaggle (passenger records from Encyclopedia Titanica)
+size: 1,309 passengers (891 labeled)
+splits: { train: 891, test: 418 }
+input: 11 columns, numeric and categorical, with missing values
+labels: Survived (1) or not (0)
+license: Kaggle competition data
+homepage: https://www.kaggle.com/competitions/titanic
+why: >-
+  Kaggle's "getting started" competition and, for many people, their first
+  end-to-end ML project. It has everything a real tabular problem has in
+  miniature: missing values, categorical features, feature engineering
+  (titles hidden in names, family size) and a strong signal you can explain.
+trivia:
+  - "\"Women and children first\" is plainly visible: about 74% of women survived, against about 19% of men."
+  - Class mattered too. About 63% of first-class passengers survived, against 24% in third class.
+  - Cabin is missing for about 77% of passengers and Age for about 20%, so imputation is part of the exercise.
+  - The ship carried about 2,224 people; the dataset covers the 1,309 passengers, not the crew.
+lineage:
+  - { name: Spaceship Titanic, note: "2022, Kaggle's sci-fi remake" }
+landmark_papers: []
+source: { hf: phihung/titanic, config: default, split: train, n: 16, seed: 9, fetch_all: true }
+display:
+  kind: table
+  chart: { type: rate, x: Pclass, y: Survived, color: Sex, y_title: survival rate, title: "Survival rate by class and sex (all 891 labeled passengers)" }

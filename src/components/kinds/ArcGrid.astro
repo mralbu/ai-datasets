@@ -1,0 +1,48 @@
+---
+import { ARC_COLORS, type SampleRow } from '../../lib/data';
+import Grid from './Grid.astro';
+interface Props { d: { train: string; test: string }; rows: SampleRow[]; k: number }
+const { d, rows, k } = Astro.props;
+type Pair = { input: number[][]; output: number[][] };
+---
+<div class="list">
+  {rows.map((r, i) => {
+    const train = r.row[d.train] as Pair[];
+    const test = (r.row[d.test] as Pair[])[0];
+    return (
+      <article class="card reveal-box" data-item hidden={i >= k}>
+        {r.row.filename && <span class="tag">task {String(r.row.filename).replace('.json', '')}</span>}
+        <p class="muted small">Demonstrations: work out the rule.</p>
+        <div class="pairs">
+          {train.map((p) => (
+            <div class="pair"><Grid g={p.input} /><span class="arrow">→</span><Grid g={p.output} /></div>
+          ))}
+        </div>
+        <p class="muted small">Test: what is the output?</p>
+        <div class="pair test">
+          <Grid g={test.input} /><span class="arrow">→</span>
+          <span class="hidden-answer"><Grid g={test.output} /></span>
+          <span class="qmark" aria-hidden="true">?</span>
+        </div>
+        <button type="button" data-reveal>Show answer</button>
+      </article>
+    );
+  })}
+</div>
+<p class="muted legend">
+  Colors 0–9: {ARC_COLORS.map((c, i) => <span class="sw" style={`background:${c}`} title={String(i)}></span>)}
+</p>
+<style>
+  .tag { margin-bottom: 6px; }
+  .small { font-size: 0.82rem; margin: 8px 0 6px; }
+  .pairs { display: flex; flex-wrap: wrap; gap: 14px 22px; }
+  .pair { display: flex; align-items: center; gap: 8px; }
+  .arrow { color: var(--muted); }
+  .test { margin-bottom: 12px; }
+  .hidden-answer { display: none; }
+  .qmark { width: 64px; height: 64px; display: grid; place-items: center; border: 2px dashed var(--border); border-radius: 6px; color: var(--muted); font-size: 1.4rem; }
+  .revealed .hidden-answer { display: inline-block; }
+  .revealed .qmark { display: none; }
+  .legend { font-size: 0.8rem; display: flex; align-items: center; gap: 4px; margin-top: 10px; }
+  .sw { width: 12px; height: 12px; display: inline-block; border-radius: 2px; border: 1px solid var(--border); }
+</style>

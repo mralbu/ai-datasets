@@ -1,0 +1,33 @@
+name: SQuAD
+year: 2016
+modality: text
+task: Extractive question answering (reading comprehension)
+one_liner: 100k+ questions about Wikipedia paragraphs; the answer is a span of the text.
+creators: Pranav Rajpurkar, Jian Zhang, Konstantin Lopyrev, Percy Liang (Stanford)
+size: 98,169 questions on 536 Wikipedia articles
+splits: { train: 87599, validation: 10570 }
+input: A Wikipedia paragraph and a question about it
+labels: Answer text and its character offset in the paragraph
+license: CC BY-SA 4.0
+paper:
+  title: "SQuAD: 100,000+ Questions for Machine Comprehension of Text"
+  url: https://arxiv.org/abs/1606.05250
+homepage: https://rajpurkar.github.io/SQuAD-explorer/
+why: >-
+  The benchmark of the "reading comprehension" era. Its public leaderboard
+  drove a fast run of attention models (BiDAF and others) and then BERT, whose
+  ensembles passed the human baseline in 2018. Framing QA as span selection is
+  still common in information extraction.
+trivia:
+  - Every answer is a substring of the paragraph, so a model only has to point at a start and an end position.
+  - Validation questions have several reference answers from different annotators (usually three); scoring takes the best match.
+  - Scored with exact match and token-level F1. Humans scored about 91 F1 in the original paper.
+  - SQuAD 2.0 (2018) added 50k unanswerable questions, because models had learned to always pick some plausible span.
+lineage:
+  - { name: SQuAD 2.0, note: "2018, adds unanswerable questions" }
+  - { name: Natural Questions, note: "2019, real Google search questions" }
+landmark_papers:
+  - { title: "Bidirectional Attention Flow for Machine Comprehension (BiDAF)", year: 2016, url: "https://arxiv.org/abs/1611.01603" }
+  - { title: "BERT: Pre-training of Deep Bidirectional Transformers", year: 2018, url: "https://arxiv.org/abs/1810.04805" }
+source: { hf: rajpurkar/squad, config: plain_text, split: validation, n: 16, seed: 6 }
+display: { kind: extractive, context: context, question: question, answers: answers, title: title }
