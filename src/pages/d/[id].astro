@@ -23,10 +23,10 @@ const ICONS = {
   paper: 'M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Zm0 0v5h5M9 13h6M9 17h6',
 };
 const links = [
-  d.homepage && { href: d.homepage, label: 'Homepage', icon: ICONS.home, tip: hostOf(d.homepage) },
+  d.homepage && { href: d.homepage, label: 'Homepage', icon: ICONS.home, tip: hostOf(d.homepage), color: 'var(--c-vision)' },
   { href: hfUrl(d.source.hf), label: 'Hugging Face', icon: '', tip: d.source.hf, logo: hfLogo },
-  d.paper && { href: d.paper.url, label: 'Paper', icon: ICONS.paper, tip: hostOf(d.paper.url) },
-].filter(Boolean) as { href: string; label: string; icon: string; tip: string; logo?: string }[];
+  d.paper && { href: d.paper.url, label: 'Paper', icon: ICONS.paper, tip: hostOf(d.paper.url), color: 'var(--c-tabular)' },
+].filter(Boolean) as { href: string; label: string; icon: string; tip: string; logo?: string; color?: string }[];
 const facts: [string, string][] = [
   ['Year', String(d.year)],
   ['Creators', d.creators],
@@ -49,7 +49,7 @@ const facts: [string, string][] = [
       <p>{d.why}</p>
       <div class="links icon-links">
         {links.map((l) => (
-          <a class="link-btn tip" href={l.href} data-tip={l.tip}>
+          <a class="link-btn tip" href={l.href} data-tip={l.tip} style={l.color && `--ic: ${l.color}`}>
             {l.logo ? <Fragment set:html={l.logo} /> : <svg viewBox="0 0 24 24" aria-hidden="true"><path d={l.icon} /></svg>}{l.label}
           </a>
         ))}
@@ -123,9 +123,9 @@ const facts: [string, string][] = [
     color: var(--text); font-size: 0.85rem; font-weight: 500;
     transition: border-color 0.15s, color 0.15s;
   }
-  .link-btn svg { width: 16px; height: 16px; fill: none; stroke: var(--muted); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.15s; }
+  /* Each line icon has its own color (--ic) with a faint tint inside, to sit next to the color Hugging Face logo. */
+  .link-btn svg { width: 16px; height: 16px; fill: color-mix(in srgb, var(--ic, var(--muted)) 16%, transparent); stroke: var(--ic, var(--muted)); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
   .link-btn:hover { text-decoration: none; border-color: var(--accent); color: var(--accent); }
-  .link-btn:hover svg { stroke: var(--accent); }
   .link-btn :global(svg.logo) { width: 18px; height: 17px; flex: none; }
   @media (max-width: 420px) { .links { gap: 6px; } .link-btn { padding: 0 9px; gap: 5px; font-size: 0.8rem; } }
   .facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; padding: 16px 18px; margin: 2.2rem 0 0; font-size: 0.9rem; }
