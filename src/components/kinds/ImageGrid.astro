@@ -1,0 +1,67 @@
+---
+import { classNames, labelOf, url, type Samples, type SampleRow } from '../../lib/data';
+interface Props { s: Samples; d: { image: string; label?: string; scale: number; thumb?: number; class_grid: boolean; short_labels: boolean }; rows: SampleRow[]; k: number }
+const { s, d, rows, k } = Astro.props;
+const lab = (r: SampleRow) => {
+  if (!d.label) return '';
+  const l = labelOf(s, d.label, r.row[d.label], r);
+  return d.short_labels ? l.split(',')[0] : l;
+};
+const first = rows[0]?.row[d.image];
+const tiny = first && first.width <= 64; // the "actual size vs enlarged" spotlight only makes sense for tiny images
+const imgStyle = (img: any) => (d.thumb ? `--h:${d.thumb}px` : `--w:${img.width}px;--scale:${d.scale}`);
+// One example per class, in class order.
+const names = d.label ? classNames(s, d.label) : [];
+const perClass = d.class_grid && d.label
+  ? names.map((_, i) => rows.find((r) => r.row[d.label!] === i)).filter((r): r is SampleRow => !!r)
+  : [];
+---
+{tiny && (
+  <div class="spotlight card">
+    <figure>
+      <img src={url(first.src)} width={first.width} height={first.height} alt="" />
+      <figcaption>Actual size<br /><span class="muted">{first.width}×{first.height} px</span></figcaption>
+    </figure>
+    <figure>
+      <img class="pixelated" src={url(first.src)} width={first.width * 8} height={first.height * 8} alt="" />
+      <figcaption>Enlarged 8×, pixelated<br /><span class="muted">this is all the model sees</span></figcaption>
+    </figure>
+  </div>
+)}
+{perClass.length > 0 && (
+  <>
+    <h3 class="sub">One of each class</h3>
+    <div class:list={['grid-img', { thumbs: d.thumb }]}>
+      {perClass.map((r) => (
+        <figure>
+          <img class="pixelated" src={url(r.row[d.image].src)} width={r.row[d.image].width} height={r.row[d.image].height} style={imgStyle(r.row[d.image])} alt={lab(r)} loading="lazy" />
+          <figcaption>{lab(r)}</figcaption>
+        </figure>
+      ))}
+    </div>
+    <h3 class="sub">Random samples</h3>
+  </>
+)}
+<div class:list={['grid-img', { thumbs: d.thumb }]}>
+  {rows.map((r, i) => (
+    <figure data-item hidden={i >= k}>
+      <img class:list={[{ pixelated: !d.thumb }]} src={url(r.row[d.image].src)} width={r.row[d.image].width} height={r.row[d.image].height} style={imgStyle(r.row[d.image])} alt={lab(r) ? `label: ${lab(r)}` : ''} loading="lazy" />
+      {d.label && <figcaption title={d.label ? labelOf(s, d.label, r.row[d.label], r) : ''}>{lab(r)}</figcaption>}
+    </figure>
+  ))}
+</div>
+<style>
+  .spotlight { display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; padding: 20px; margin-bottom: 18px; }
+  .spotlight figure { margin: 0; text-align: center; font-size: 0.85rem; }
+  .spotlight img { display: block; margin: 0 auto 8px; max-width: 100%; height: auto; }
+  .sub { font-size: 0.95rem; margin: 18px 0 10px; color: var(--muted); font-weight: 600; }
+  .grid-img { display: flex; flex-wrap: wrap; gap: 10px; }
+  .grid-img figure { margin: 0; text-align: center; }
+  .grid-img figure[hidden] { display: none; }
+  .grid-img img { display: block; width: calc(var(--w) * var(--scale)); height: auto; max-width: 100%; border-radius: 4px; }
+  .thumbs img { width: auto; height: var(--h); max-width: 100%; object-fit: cover; }
+  .thumbs figure { max-width: calc(var(--h, 150px) * 1.6); }
+  :global(.native) .grid-img:not(.thumbs) img { width: var(--w); }
+  .grid-img figcaption { font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .thumbs figcaption { max-width: 220px; }
+</style>

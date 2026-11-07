@@ -1,0 +1,27 @@
+---
+import type { Samples, SampleRow } from '../../lib/data';
+interface Props { s: Samples; rows: SampleRow[]; k: number }
+const { s, rows, k } = Astro.props;
+const cols = s.features.map((f) => f.name);
+const fmt = (v: unknown) => (v === null || v === undefined ? '∅' : String(v));
+---
+<div class="table-wrap card">
+  <table>
+    <thead><tr>{cols.map((c) => <th>{c}</th>)}</tr></thead>
+    <tbody>
+      {rows.map((r, i) => (
+        <tr data-item hidden={i >= k}>{cols.map((c) => <td class:list={{ missing: r.row[c] == null }}>{fmt(r.row[c])}</td>)}</tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+<p class="muted note">∅ = missing value</p>
+<style>
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  th { font-weight: 600; background: var(--code-bg); }
+  tr[hidden] { display: none; }
+  .missing { color: var(--muted); }
+  .note { font-size: 0.8rem; margin: 6px 0 0; }
+</style>

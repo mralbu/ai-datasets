@@ -1,0 +1,34 @@
+---
+import { featuresFor, labelOf, type Samples, type SampleRow } from '../../lib/data';
+interface Props { s: Samples; d: { label?: string }; notes: Record<string, string>; rows: SampleRow[]; k: number }
+const { s, d, notes, rows, k } = Astro.props;
+// Show every text field of the row (they differ per GLUE task), then the label.
+const textFields = (r: SampleRow) =>
+  featuresFor(s, r).filter((f) => f.type.dtype === 'string' && f.name !== d.label).map((f) => f.name);
+const labelText = (r: SampleRow) => {
+  if (!d.label) return '';
+  const v = r.row[d.label];
+  const f = featuresFor(s, r).find((f) => f.name === d.label);
+  if (f?.type._type !== 'ClassLabel' && typeof v === 'number') return `${v.toFixed(1)} / 5`;
+  return labelOf(s, d.label, v, r).replaceAll('_', ' ');
+};
+---
+<div class="list">
+  {rows.map((r, i) => (
+    <article class="card" data-item hidden={i >= k}>
+      <p class="task"><span class="tag">{r.config}</span> <span class="muted">{notes[r.config ?? ''] ?? ''}</span></p>
+      <dl>
+        {textFields(r).map((f) => (<><dt>{f}</dt><dd>{r.row[f]}</dd></>))}
+        {d.label && (<><dt>label</dt><dd class="lab">{labelText(r)}</dd></>)}
+      </dl>
+    </article>
+  ))}
+</div>
+<style>
+  .task { margin: 0 0 10px; font-size: 0.88rem; }
+  .tag { text-transform: uppercase; }
+  dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; margin: 0; font-size: 0.93rem; }
+  dt { color: var(--muted); font-family: ui-monospace, Menlo, monospace; font-size: 0.8rem; padding-top: 2px; }
+  dd { margin: 0; }
+  .lab { font-weight: 700; color: var(--accent); }
+</style>

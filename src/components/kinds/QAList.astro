@@ -1,0 +1,26 @@
+---
+import type { SampleRow } from '../../lib/data';
+interface Props { d: { question: string; answer: string }; rows: SampleRow[]; k: number }
+const { d, rows, k } = Astro.props;
+// GSM8K-style answers: highlight <<calc>> annotations and the final "#### n" line.
+const segments = (t: string) => t.split(/(<<[^>]*>>|^####.*$)/m).filter(Boolean);
+---
+<div class="list">
+  {rows.map((r, i) => (
+    <article class="card" data-item hidden={i >= k}>
+      <p class="q">{r.row[d.question]}</p>
+      <details>
+        <summary>Show solution</summary>
+        <p class="pre">
+          {segments(String(r.row[d.answer])).map((seg) =>
+            seg.startsWith('<<') ? <mark class="calc">{seg}</mark> : seg.startsWith('####') ? <strong class="final">{seg}</strong> : seg,
+          )}
+        </p>
+      </details>
+    </article>
+  ))}
+</div>
+<style>
+  mark.calc { background: var(--code-bg); color: var(--muted); font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; padding: 0 2px; border-radius: 3px; }
+  .final { color: var(--pos); }
+</style>

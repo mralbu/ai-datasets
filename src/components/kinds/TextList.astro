@@ -1,0 +1,18 @@
+---
+import { labelOf, type Samples, type SampleRow } from '../../lib/data';
+interface Props { s: Samples; d: { text: string; label?: string }; rows: SampleRow[]; k: number }
+const { s, d, rows, k } = Astro.props;
+const clean = (t: string) => t.replace(/<br\s*\/?>/g, '\n');
+---
+<div class="list">
+  {rows.map((r, i) => {
+    const label = d.label ? labelOf(s, d.label, r.row[d.label], r) : undefined;
+    return (
+      <article class="card text" data-item hidden={i >= k}>
+        {label && <span class:list={['label', label]}>{label}</span>}
+        <p class="clamp">{clean(String(r.row[d.text]))}</p>
+        <button type="button" class="more" data-more>Show all</button>
+      </article>
+    );
+  })}
+</div>

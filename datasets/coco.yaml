@@ -1,0 +1,36 @@
+name: MS COCO
+year: 2014
+modality: vision
+task: Object detection, segmentation and captioning
+one_liner: 330k everyday scenes with 1.5M labeled objects in 80 categories.
+creators: Tsung-Yi Lin et al. (Microsoft and academic partners)
+size: ~330k images, ~200k annotated
+splits: { train2017: 118287, val2017: 5000, test2017: 40670 }
+input: RGB photo, typically 640 px on the long side
+labels: Boxes and masks for 80 object categories, 5 captions per image
+license: Annotations CC BY 4.0; images under their Flickr licenses
+paper:
+  title: "Microsoft COCO: Common Objects in Context"
+  url: https://arxiv.org/abs/1405.0312
+homepage: https://cocodataset.org/
+why: >-
+  ImageNet asks "what is in this photo?"; COCO asks "where is every object?".
+  Its cluttered, non-iconic scenes and its box AP metric became the yardstick
+  for object detection (Faster R-CNN, YOLO, Mask R-CNN, DETR), and its captions
+  helped start image captioning and vision-language models.
+trivia:
+  - Boxes are stored as [x, y, width, height] in pixels, from the top-left corner. Many bugs come from assuming [x1, y1, x2, y2].
+  - The label list has 91 slots but only 80 are used; ids like "street sign" and "hat" were dropped, which is why category ids have gaps.
+  - The standard metric averages precision over IoU thresholds from 0.5 to 0.95, which rewards tight boxes.
+  - About 1 in 10 annotations is a "crowd" region (a group of people or objects) handled specially in scoring.
+lineage:
+  - { name: Pascal VOC, note: "2005–2012, 20 classes, the predecessor" }
+  - { name: LVIS, note: "2019, 1,200+ categories on COCO images" }
+  - { name: Objects365, note: "2019, 365 categories, 2M images" }
+landmark_papers:
+  - { title: "Faster R-CNN", year: 2015, url: "https://arxiv.org/abs/1506.01497" }
+  - { title: "You Only Look Once (YOLO)", year: 2015, url: "https://arxiv.org/abs/1506.02640" }
+  - { title: "Mask R-CNN", year: 2017, url: "https://arxiv.org/abs/1703.06870" }
+  - { title: "End-to-End Object Detection with Transformers (DETR)", year: 2020, url: "https://arxiv.org/abs/2005.12872" }
+source: { hf: rafaelpadilla/coco2017, config: default, split: val, n: 18, seed: 11 }
+display: { kind: boxes, image: image, objects: objects }

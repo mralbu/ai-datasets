@@ -1,0 +1,38 @@
+name: ImageNet (ILSVRC)
+year: 2009
+modality: vision
+task: Image classification (1,000 classes)
+one_liner: 1.28 million photos across 1,000 classes, the dataset behind the deep learning boom.
+creators: Jia Deng, Wei Dong, Richard Socher, Li-Jia Li, Kai Li, Li Fei-Fei
+size: ~1.33M images in the ILSVRC-2012 subset (14M in full ImageNet)
+splits: { train: 1281167, validation: 50000, test: 100000 }
+input: Variable-size RGB photo (models usually see a 224×224 crop)
+labels: 1,000 WordNet synsets, from "tench" to "toilet tissue"
+license: Non-commercial research and education (ImageNet terms of access)
+paper:
+  title: "ImageNet: A Large-Scale Hierarchical Image Database"
+  url: https://www.image-net.org/static_files/papers/imagenet_cvpr09.pdf
+homepage: https://www.image-net.org/
+why: >-
+  In 2012 AlexNet, a GPU-trained convolutional network, cut the ImageNet
+  challenge's top-5 error from 26% to 15%, and the field switched to deep
+  learning almost overnight. ImageNet then served as the scoreboard for VGG,
+  ResNet and ViT, and "pretrained on ImageNet" became the default starting
+  point for computer vision.
+trivia:
+  - Labels were crowdsourced on Amazon Mechanical Turk, against the WordNet noun hierarchy.
+  - About 120 of the 1,000 classes are dog breeds, so a good model must be a dog expert.
+  - Andrej Karpathy measured his own top-5 error at about 5.1%. ResNet (2015) reached 3.6%.
+  - A 2021 study estimated roughly 6% of validation labels are wrong; many images contain several classes but have one label.
+  - These samples come from a mirror resized to 256 px on the short side, not the gated original.
+lineage:
+  - { name: ImageNet-21k, note: "the full 21k-class hierarchy" }
+  - { name: ImageNetV2, note: "2019, new test set, accuracy drops ~11–14 points" }
+  - { name: Imagenette, note: "2019, 10 easy classes for quick experiments" }
+landmark_papers:
+  - { title: "ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)", year: 2012, url: "https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks" }
+  - { title: "Very Deep Convolutional Networks (VGG)", year: 2014, url: "https://arxiv.org/abs/1409.1556" }
+  - { title: "Deep Residual Learning for Image Recognition (ResNet)", year: 2015, url: "https://arxiv.org/abs/1512.03385" }
+  - { title: "An Image is Worth 16x16 Words (ViT)", year: 2020, url: "https://arxiv.org/abs/2010.11929" }
+source: { hf: evanarlian/imagenet_1k_resized_256, config: default, split: val, n: 32, seed: 4, rows_per_page: 1 }
+display: { kind: image, image: image, label: label, thumb: 150, short_labels: true }

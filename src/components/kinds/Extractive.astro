@@ -1,0 +1,33 @@
+---
+import type { SampleRow } from '../../lib/data';
+interface Props { d: { context: string; question: string; answers: string; title?: string }; rows: SampleRow[]; k: number }
+const { d, rows, k } = Astro.props;
+---
+<div class="list">
+  {rows.map((r, i) => {
+    const ctx = String(r.row[d.context]);
+    const ans = r.row[d.answers] as { text: string[]; answer_start: number[] };
+    const start = ans.answer_start[0];
+    const end = start + ans.text[0].length;
+    const variants = [...new Set(ans.text)];
+    return (
+      <article class="card reveal-box" data-item hidden={i >= k}>
+        {d.title && <span class="tag">{String(r.row[d.title]).replaceAll('_', ' ')}</span>}
+        <p class="q">{r.row[d.question]}</p>
+        <p class="ctx">{ctx.slice(0, start)}<mark class="ans">{ctx.slice(start, end)}</mark>{ctx.slice(end)}</p>
+        <button type="button" data-reveal>Show answer span</button>
+        <p class="answers muted">
+          Reference answers ({ans.text.length}): {variants.map((v, j) => <>{j > 0 && ' · '}<q>{v}</q></>)}
+        </p>
+      </article>
+    );
+  })}
+</div>
+<style>
+  .tag { margin-bottom: 8px; }
+  .ctx { font-size: 0.93rem; line-height: 1.6; }
+  mark.ans { background: transparent; color: inherit; border-radius: 3px; transition: background 0.2s; }
+  .revealed mark.ans { background: var(--mark); box-shadow: 0 0 0 2px var(--mark); }
+  .answers { display: none; font-size: 0.85rem; margin-bottom: 0; }
+  .revealed .answers { display: block; }
+</style>

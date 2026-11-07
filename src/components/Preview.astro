@@ -1,32 +1,50 @@
 ---
-// A tiny glimpse of the data for catalog cards.
-import { getSamples, labelOf, url, type Dataset } from '../lib/data';
+// A tiny glimpse of the data, for catalog cards and timeline popovers.
+import { getSamples, url, type Dataset } from '../lib/data';
+import Grid from './kinds/Grid.astro';
 interface Props { ds: Dataset }
 const { ds } = Astro.props;
 const d = ds.data.display;
 const s = getSamples(ds.id);
 const rows = s?.rows ?? [];
-const snippet = (t: string, n = 140) => (t.length > n ? t.slice(0, n).trimEnd() + '…' : t);
+const r0 = rows[0]?.row ?? {};
+const snippet = (t: unknown, n = 140) => {
+  const str = String(t ?? '').replace(/<br\s*\/?>/g, ' ').replace(/\s+/g, ' ').trim();
+  return str.length > n ? str.slice(0, n).trimEnd() + '…' : str;
+};
+const imageField = d.kind === 'image' || d.kind === 'boxes' ? d.image : undefined;
+const firstLine = (code: string) => code.split('\n').find((l) => l.startsWith('def ')) ?? '';
 ---
 <div class="preview">
-  {!s && <span class="muted">Samples not fetched</span>}
-  {s && d.kind === 'image' && (
-    <div class="strip">
-      {rows.slice(0, 8).map((r) => (
-        <img class="pixelated" src={url(r.row[d.image].src)} alt={d.label ? labelOf(s, d.label, r.row[d.label]) : ''} loading="lazy" />
+  {!s && <span>Samples not fetched</span>}
+  {s && imageField && (
+    <div class:list={['strip', { photos: d.kind === 'boxes' || (d.kind === 'image' && d.thumb) }]}>
+      {rows.slice(0, d.kind === 'image' && !d.thumb ? 8 : 4).map((r) => (
+        <img class="pixelated" src={url(r.row[imageField].src)} alt="" loading="lazy" />
       ))}
     </div>
   )}
-  {s && d.kind === 'text' && <p>“{snippet(String(rows[0]?.row[d.text] ?? '').replace(/<br\s*\/?>/g, ' '))}”</p>}
-  {s && d.kind === 'qa' && <p>{snippet(String(rows[0]?.row[d.question] ?? ''))}</p>}
-  {s && d.kind === 'table' && (
-    <code>{s.features.map((f) => f.name).join(' · ')}</code>
+  {s && d.kind === 'text' && <p>“{snippet(r0[d.text])}”</p>}
+  {s && (d.kind === 'qa' || d.kind === 'extractive' || d.kind === 'mcq') && <p>{snippet(r0[d.question])}</p>}
+  {s && d.kind === 'record' && <p>{snippet(Object.values(r0).find((v) => typeof v === 'string'))}</p>}
+  {s && d.kind === 'audio' && <p class="mono">♪ {snippet(r0[d.text], 110)}</p>}
+  {s && d.kind === 'code' && <code>{firstLine(String(r0[d.prompt]))}</code>}
+  {s && d.kind === 'table' && <code>{s.features.map((f) => f.name).join(' · ')}</code>}
+  {s && d.kind === 'grid' && r0[d.train]?.[0] && (
+    <div class="arc-mini">
+      <Grid g={r0[d.train][0].input} max={64} /><span>→</span><Grid g={r0[d.train][0].output} max={64} />
+    </div>
   )}
 </div>
 <style>
   .preview { min-height: 64px; font-size: 0.85rem; color: var(--muted); }
   .preview p { margin: 0; font-style: italic; }
+  .mono { font-family: ui-monospace, Menlo, monospace; font-style: normal !important; font-size: 0.78rem; }
   .strip { display: grid; grid-template-columns: repeat(8, 1fr); gap: 3px; }
   .strip img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 3px; background: #000; }
+  .strip.photos { grid-template-columns: repeat(4, 1fr); }
+  .strip.photos img { image-rendering: auto; }
   code { word-break: break-word; }
+  .arc-mini { display: flex; align-items: center; gap: 6px; }
+  .arc-mini :global(svg) { max-height: 64px; width: auto; }
 </style>

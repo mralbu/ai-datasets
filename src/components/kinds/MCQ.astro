@@ -1,0 +1,31 @@
+---
+import type { SampleRow } from '../../lib/data';
+interface Props { d: { question: string; choices: string; answer: string; subject?: string }; rows: SampleRow[]; k: number }
+const { d, rows, k } = Astro.props;
+const letters = 'ABCDEFGHIJ';
+---
+<div class="list">
+  {rows.map((r, i) => {
+    const correct = Number(r.row[d.answer]); // ClassLabel int (MMLU) or "3" (HellaSwag)
+    return (
+      <article class="card reveal-box" data-item hidden={i >= k}>
+        {d.subject && <span class="tag">{String(r.row[d.subject]).replaceAll('_', ' ')}</span>}
+        <p class="q pre">{r.row[d.question]}</p>
+        <ol class="choices">
+          {(r.row[d.choices] as string[]).map((c, j) => (
+            <li class:list={{ correct: j === correct }}><span class="letter">{letters[j]}</span><span>{c}</span></li>
+          ))}
+        </ol>
+        <button type="button" data-reveal>Show answer</button>
+      </article>
+    );
+  })}
+</div>
+<style>
+  .tag { margin-bottom: 8px; text-transform: capitalize; }
+  .choices { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 6px; }
+  .choices li { display: flex; gap: 10px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.93rem; }
+  .letter { font-weight: 700; color: var(--muted); min-width: 1ch; }
+  .revealed .correct { border-color: var(--pos); background: color-mix(in srgb, var(--pos) 12%, transparent); }
+  .revealed .correct .letter { color: var(--pos); }
+</style>

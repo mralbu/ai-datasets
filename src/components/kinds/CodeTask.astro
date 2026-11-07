@@ -1,0 +1,32 @@
+---
+import { Code } from 'astro:components';
+import type { SampleRow } from '../../lib/data';
+interface Props { d: { prompt: string; solution: string; tests?: string; title?: string }; rows: SampleRow[]; k: number }
+const { d, rows, k } = Astro.props;
+const themes = { light: 'github-light', dark: 'github-dark' } as const;
+---
+<div class="list">
+  {rows.map((r, i) => (
+    <article class="card" data-item hidden={i >= k}>
+      {d.title && <span class="tag">{r.row[d.title]}</span>}
+      <p class="muted small">The prompt the model sees:</p>
+      <Code code={String(r.row[d.prompt]).replace(/^\s*\n/, '').trimEnd()} lang="python" themes={themes} />
+      <details>
+        <summary>Reference solution</summary>
+        <Code code={String(r.row[d.solution]).replace(/\s+$/, '')} lang="python" themes={themes} />
+      </details>
+      {d.tests && (
+        <details>
+          <summary>Hidden unit tests</summary>
+          <Code code={String(r.row[d.tests]).trim()} lang="python" themes={themes} />
+        </details>
+      )}
+    </article>
+  ))}
+</div>
+<style>
+  .tag { margin-bottom: 6px; }
+  .small { font-size: 0.82rem; margin: 8px 0 4px; }
+  details { margin-top: 8px; }
+  article :global(pre) { margin: 6px 0; font-size: 0.82rem; }
+</style>

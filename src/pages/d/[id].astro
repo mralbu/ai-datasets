@@ -33,7 +33,7 @@ const facts: [string, string][] = [
       <h2>Why it matters</h2>
       <p>{d.why}</p>
       <p class="links">
-        <a href={d.paper.url}>Paper: {d.paper.title}</a>
+        {d.paper && <a href={d.paper.url}>Paper: {d.paper.title}</a>}
         {d.homepage && <a href={d.homepage}>Homepage</a>}
         <a href={`https://huggingface.co/datasets/${d.source.hf}`}>On Hugging Face</a>
       </p>
