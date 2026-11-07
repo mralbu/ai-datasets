@@ -104,5 +104,7 @@ button:hover { border-color: var(--accent); }
   padding: 6px 9px; border-radius: 6px; opacity: 0; transition: opacity 0.12s, transform 0.12s; z-index: 30;
 }
 .tip:hover::after, .tip:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
-.tip.paper::after { left: 0; transform: translate(0, 4px); }
-.tip.paper:hover::after, .tip.paper:focus-visible::after { transform: translate(0, 0); }
+/* Left-anchored variant for tips near the start of a line (e.g. the first icon). */
+.tip-start::after, .icon-links > .tip:first-child::after { left: 0; transform: translate(0, 4px); }
+.tip-start:hover::after, .tip-start:focus-visible::after,
+.icon-links > .tip:first-child:hover::after, .icon-links > .tip:first-child:focus-visible::after { transform: translate(0, 0); }
