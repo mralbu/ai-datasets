@@ -64,15 +64,18 @@ Without the worktree, `.samples/` is just a local cache and the first `npm run f
    |---|---|---|
    | `image` | `image`, `label`, `scale` (enlarge tiny images), `thumb` (px height for photos), `class_grid`, `short_labels` | MNIST, Fashion-MNIST, CIFAR-10, ImageNet |
    | `boxes` | `image`, `objects` (COCO-style `bbox` `[x, y, w, h]` + a label list), `label` (its name, default `label`) | COCO, Pascal VOC |
-   | `text` | `text`, `label` | IMDB |
+   | `text` | `text`, `label`, `summary` (shown on demand), `caption` (small line, e.g. a URL) | IMDB, 20 Newsgroups, CNN/DailyMail, C4 |
    | `extractive` | `context`, `question`, `answers`, `title` | SQuAD |
    | `record` | `label`; shows every text field, per config | GLUE, SuperGLUE, SNLI |
-   | `qa` | `question`, `answer`, `tags` (fields shown as tags), `math` (render LaTeX with KaTeX) | GSM8K, MATH |
-   | `mcq` | `question`, `choices`, `answer`, `subject` | MMLU, HellaSwag |
+   | `qa` | `question`, `answer`, `tags` (fields shown as tags), `math` (render LaTeX with KaTeX), `input`, `wrong` (list of false answers), `answer_label` | GSM8K, MATH, TruthfulQA, Alpaca |
+   | `mcq` | `question`, `choices` (a list, or `{text, label}`), `answer` (index or key), `subject` | MMLU, HellaSwag, AI2 ARC |
    | `code` | `prompt`, `solution`, `tests`, `title`; `*_lang` (Shiki language, `text` for prose) and `*_label` | HumanEval, SWE-bench |
-   | `audio` | `audio`, `text`, `speaker` | LibriSpeech |
+   | `audio` | `audio`, `text` and/or `label` (class or list of classes), `speaker` | LibriSpeech, AudioSet, Speech Commands, LJSpeech |
    | `grid` | `train`, `test` (ARC-style pairs of integer grids) | ARC-AGI |
    | `table` | optional `chart: {type: scatter \| rate, x, y, color}`, `columns` | Iris, Titanic, Palmer Penguins, MovieLens |
+| `annotated` | `image`, `captions` (list) or `attributes: true` (yes/no columns), `thumb` | Flickr30k, CelebA |
+| `image_mcq` | `images` (list of image columns), `question`, `options`, `answer` (letter), `subject` | MMMU |
+| `preference` | `chosen`, `rejected` (Human:/Assistant: transcripts) | Anthropic HH-RLHF |
 | `translation` | `translation` (a Translation feature), `source`, `target` (language codes) | WMT14 |
 
    Useful `source` options: `n` (rows to sample), `seed`, `fetch_all: true` (small tables, needed for

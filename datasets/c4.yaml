@@ -1,0 +1,36 @@
+name: C4
+year: 2019
+modality: text
+task: Pretraining corpus (cleaned web text)
+one_liner: "The Colossal Clean Crawled Corpus: 365 million English web pages, filtered with simple rules."
+creators: Colin Raffel et al. (Google); public copy by the Allen Institute for AI
+size: ~365M documents, ~156B tokens, ~305 GB compressed (English)
+splits: { train: 364868892, validation: 364608 }
+input: The text of one web page
+labels: None (self-supervised)
+license: ODC-BY
+paper:
+  title: Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer (T5)
+  url: https://arxiv.org/abs/1910.10683
+why: >-
+  What a pretraining dataset actually looks like. C4 took one month of Common
+  Crawl and kept only lines that look like prose. T5 was trained on it, and
+  it became a common ingredient of later corpora. It was also one of the
+  first such datasets to be audited in detail, which showed what simple
+  filters keep and what they throw away.
+trivia:
+  - "The rules: keep lines that end in punctuation, drop pages with fewer than three sentences, code braces, \"lorem ipsum\" or any word from a list of bad words, and remove repeated three-sentence spans."
+  - A 2021 audit found that the bad-word filter removed text by and about minority groups disproportionately, and that patents.google.com was the most common website.
+  - It was built from the April 2019 Common Crawl snapshot.
+lineage:
+  - { name: FineWeb, note: "2024, 15T tokens with model-based filtering", hf: HuggingFaceFW/fineweb }
+  - { name: The Pile, note: "2020, 825 GB from 22 curated sources", url: "https://pile.eleuther.ai/" }
+  - { name: WikiText-103, note: "2016, curated Wikipedia articles", hf: Salesforce/wikitext, id: wikitext }
+landmark_papers:
+  - { title: "Documenting Large Webtext Corpora: A Case Study on the Colossal Clean Crawled Corpus", year: 2021, url: "https://arxiv.org/abs/2104.08758" }
+  - { title: "Deduplicating Training Data Makes Language Models Better", year: 2021, url: "https://arxiv.org/abs/2107.06499" }
+source: { hf: allenai/c4, config: en, split: validation, n: 12, seed: 39 }
+display: { kind: text, text: text, caption: url }
+download:
+  include: "en/c4-validation.*"
+  note: "The command fetches the English validation set (~40 MB per shard, 8 shards); the full English training set is about 305 GB."

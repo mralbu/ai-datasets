@@ -1,0 +1,51 @@
+---
+import { url, type SampleRow } from '../../lib/data';
+interface Props { d: { images: string[]; question: string; options: string; answer: string; subject?: string }; rows: SampleRow[]; k: number }
+const { d, rows, k } = Astro.props;
+const letters = 'ABCDEFGHIJ';
+// MMMU stores options as a Python list literal, e.g. "['Aurelia', 'Matilda']".
+const parseOptions = (v: unknown): string[] => {
+  if (Array.isArray(v)) return v.map(String);
+  const t = String(v ?? '').trim();
+  try { return JSON.parse(t); } catch {}
+  const m = t.match(/'((?:\\'|[^'])*)'|"((?:\\"|[^"])*)"/g) ?? [];
+  return m.map((x) => x.slice(1, -1).replace(/\\'/g, "'"));
+};
+---
+<div class="list">
+  {rows.map((r, i) => {
+    const opts = parseOptions(r.row[d.options]);
+    const correct = letters.indexOf(String(r.row[d.answer]).trim());
+    const imgs = d.images.map((f) => r.row[f]).filter((x) => x?.src);
+    return (
+      <article class="card reveal-box" data-item hidden={i >= k}>
+        {d.subject && <span class="tag">{String(r.row[d.subject]).replaceAll('_', ' ')}</span>}
+        <div class="imgs">{imgs.map((img, j) => (
+          <figure><img src={url(img.src)} width={img.width} height={img.height} alt="" loading="lazy" />{imgs.length > 1 && <figcaption>image {j + 1}</figcaption>}</figure>
+        ))}</div>
+        <p class="q pre">{String(r.row[d.question]).replace(/<image (\d+)>/g, '[image $1]')}</p>
+        {opts.length > 0 ? (
+          <ol class="choices">
+            {opts.map((c, j) => (
+              <li class:list={{ correct: j === correct }}><span class="letter">{letters[j]}</span><span>{c.replace(/<image (\d+)>/g, '[image $1]')}</span></li>
+            ))}
+          </ol>
+        ) : <p class="muted open">Open answer: <span class="ans">{r.row[d.answer]}</span></p>}
+        <button type="button" data-reveal>Show answer</button>
+      </article>
+    );
+  })}
+</div>
+<style>
+  .tag { margin-bottom: 10px; }
+  .imgs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+  .imgs figure { margin: 0; font-size: 0.75rem; color: var(--muted); text-align: center; }
+  .imgs img { display: block; max-height: 260px; max-width: 100%; width: auto; height: auto; border-radius: 6px; border: 1px solid var(--border); background: #fff; }
+  .choices { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 6px; }
+  .choices li { display: flex; gap: 10px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.93rem; }
+  .letter { font-weight: 700; color: var(--muted); min-width: 1ch; }
+  .revealed .correct { border-color: var(--pos); background: color-mix(in srgb, var(--pos) 12%, transparent); }
+  .revealed .correct .letter { color: var(--pos); }
+  .ans { visibility: hidden; color: var(--pos); font-weight: 600; }
+  .revealed .ans { visibility: visible; }
+</style>

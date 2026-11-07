@@ -1,0 +1,41 @@
+---
+import { url, type Samples, type SampleRow } from '../../lib/data';
+interface Props { s: Samples; d: { image: string; captions?: string; attributes: boolean; thumb: number }; rows: SampleRow[]; k: number }
+const { s, d, rows, k } = Astro.props;
+// Yes/no columns (CelebA's 40 attributes), stored as booleans or as -1/1; show the ones that are set.
+const first = rows[0]?.row ?? {};
+const boolCols = d.attributes
+  ? s.features.map((f) => f.name).filter((n) => typeof first[n] === 'boolean' || first[n] === 1 || first[n] === -1)
+  : [];
+const isSet = (v: unknown) => v === true || v === 1;
+const pretty = (n: string) => n.replaceAll('_', ' ');
+---
+<div class:list={['ann', { wide: !!d.captions }]}>
+  {rows.map((r, i) => {
+    const img = r.row[d.image];
+    return (
+      <figure class="card" data-item hidden={i >= k}>
+        <img src={url(img.src)} width={img.width} height={img.height} style={`--h:${d.thumb}px`} alt="" loading="lazy" />
+        <figcaption>
+          {d.captions && <ol class="caps">{(r.row[d.captions] as string[]).map((c) => <li>{c}</li>)}</ol>}
+          {boolCols.length > 0 && (
+            <p class="attrs">{boolCols.filter((c) => isSet(r.row[c])).map((c) => <span class="tag">{pretty(c)}</span>)}</p>
+          )}
+        </figcaption>
+      </figure>
+    );
+  })}
+</div>
+<style>
+  .ann { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; align-items: start; }
+  .ann.wide { grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); }
+  figure { margin: 0; padding: 12px; display: flex; gap: 12px; }
+  .wide figure { flex-direction: column; }
+  figure[hidden] { display: none; }
+  img { height: var(--h); width: auto; max-width: 45%; object-fit: cover; border-radius: 6px; flex: none; }
+  .wide img { width: 100%; max-width: 100%; height: var(--h); }
+  figcaption { min-width: 0; font-size: 0.88rem; }
+  .caps { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+  .attrs { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; }
+  .attrs .tag { font-size: 0.7rem; }
+</style>

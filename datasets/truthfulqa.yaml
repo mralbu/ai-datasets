@@ -1,0 +1,32 @@
+name: TruthfulQA
+year: 2021
+modality: benchmark
+task: Truthfulness (avoid repeating common falsehoods)
+one_liner: 817 questions written so that the popular answer is false.
+creators: Stephanie Lin, Jacob Hilton, Owain Evans
+size: 817 questions in 38 categories
+splits: { validation: 817 }
+input: A question (health, law, myths, conspiracies, …)
+labels: A best answer, other true answers, and common false answers
+license: Apache 2.0
+paper:
+  title: "TruthfulQA: Measuring How Models Mimic Human Falsehoods"
+  url: https://arxiv.org/abs/2109.07958
+homepage: https://github.com/sylinrl/TruthfulQA
+why: >-
+  A model trained to imitate internet text also learns its misconceptions.
+  TruthfulQA showed that larger models were often less truthful: the best
+  GPT-3 was truthful on 58% of questions against 94% for people, and bigger
+  versions did worse. It became one of the standard safety-flavored numbers
+  in model reports and was part of the original Open LLM Leaderboard.
+trivia:
+  - Questions were written adversarially, keeping those that GPT-3 tended to get wrong.
+  - Answering "I have no comment" counts as truthful, which is why the paper also scores informativeness.
+  - The multiple-choice versions (MC1, MC2) became more common than the original free-form grading with a fine-tuned GPT-3 judge.
+lineage:
+  - { name: SimpleQA, note: "2024, short factual questions with one answer", url: "https://openai.com/index/introducing-simpleqa/" }
+  - { name: MMLU, note: "2020, broad exam knowledge", hf: cais/mmlu, id: mmlu }
+landmark_papers:
+  - { title: "Training language models to follow instructions with human feedback (InstructGPT)", year: 2022, url: "https://arxiv.org/abs/2203.02155" }
+source: { hf: truthfulqa/truthful_qa, config: generation, split: validation, n: 16, seed: 35 }
+display: { kind: qa, question: question, answer: best_answer, wrong: incorrect_answers, tags: [category], answer_label: Show the truthful answer }

@@ -24,6 +24,7 @@ trivia:
   - Both splits are exactly balanced (12,500 pos / 12,500 neg) and the files are sorted by label. Shuffle before you slice.
   - Reviews contain leftover HTML like <br /><br />.
 lineage:
+  - { name: 20 Newsgroups, note: "1995, topic instead of sentiment", hf: SetFit/20_newsgroups, id: 20-newsgroups }
   - { name: "SST / SST-2", note: "2013, sentence-level sentiment, part of GLUE", hf: stanfordnlp/sst2, id: glue }
 landmark_papers:
   - { title: "Learning Word Vectors for Sentiment Analysis", year: 2011, url: "https://aclanthology.org/P11-1015/" }

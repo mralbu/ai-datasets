@@ -27,7 +27,7 @@ trivia:
 lineage:
   - { name: Penn Treebank (WSJ), note: "1993, the earlier ~1M-word benchmark", url: "https://catalog.ldc.upenn.edu/LDC99T42" }
   - { name: WikiText-2, note: "2016, a 2M-word subset for quick experiments", hf: Salesforce/wikitext }
-  - { name: C4, note: "2019, web-scale pretraining corpus behind T5", hf: allenai/c4 }
+  - { name: C4, note: "2019, web-scale pretraining corpus behind T5", hf: allenai/c4, id: c4 }
 landmark_papers:
   - { title: "Adaptive Input Representations for Neural Language Modeling", year: 2018, url: "https://arxiv.org/abs/1809.10853" }
   - { title: "Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context", year: 2019, url: "https://arxiv.org/abs/1901.02860" }

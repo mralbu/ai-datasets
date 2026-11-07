@@ -1,0 +1,36 @@
+name: Anthropic HH-RLHF
+year: 2022
+modality: benchmark
+task: Human preference data for RLHF (helpful and harmless)
+one_liner: "170k pairs of assistant replies to the same conversation, and which one a person preferred."
+creators: Yuntao Bai et al. (Anthropic)
+size: 169,352 comparisons
+splits: { train: 160800, test: 8552 }
+input: A conversation between a person and an AI assistant
+labels: Two final assistant replies; one marked chosen, one rejected
+license: MIT
+paper:
+  title: Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback
+  url: https://arxiv.org/abs/2204.05862
+homepage: https://github.com/anthropics/hh-rlhf
+why: >-
+  One of the first large public datasets of the human comparisons behind
+  RLHF. A reward model learns to score the chosen reply above the rejected
+  one, and the assistant is then trained to get high scores. It became the
+  standard open dataset for reward models and preference methods: the DPO
+  paper and many after it report results on "Anthropic HH".
+trivia:
+  - "Crowdworkers chatted with early Anthropic models and picked the better of two replies at each turn. Helpfulness data rewards the more helpful reply; harmlessness data comes from people trying to get a harmful one."
+  - Because of the red-teaming, the dataset contains offensive and harmful requests on purpose. Samples here were picked to avoid the worst.
+  - Chosen and rejected share the whole conversation and differ only in the last assistant reply.
+  - Preference labels are noisy; the two replies are often both fine, or both bad.
+lineage:
+  - { name: Alpaca, note: "2023, instruction data for the step before RLHF", hf: tatsu-lab/alpaca, id: alpaca }
+  - { name: UltraFeedback, note: "2023, preferences rated by GPT-4 instead of people", hf: openbmb/UltraFeedback }
+  - { name: Chatbot Arena Conversations, note: "2023, real user votes between two models (gated)", hf: lmsys/chatbot_arena_conversations }
+landmark_papers:
+  - { title: "Training language models to follow instructions with human feedback (InstructGPT)", year: 2022, url: "https://arxiv.org/abs/2203.02155" }
+  - { title: "Constitutional AI: Harmlessness from AI Feedback", year: 2022, url: "https://arxiv.org/abs/2212.08073" }
+  - { title: "Direct Preference Optimization (DPO)", year: 2023, url: "https://arxiv.org/abs/2305.18290" }
+source: { hf: Anthropic/hh-rlhf, config: default, split: test, n: 9, seed: 40 }
+display: { kind: preference, chosen: chosen, rejected: rejected }
