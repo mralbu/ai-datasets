@@ -26,6 +26,7 @@ trivia:
 lineage:
   - { name: TIMIT, note: "1993, phonetically labeled, much smaller", hf: timit-asr/timit_asr }
   - { name: Common Voice, note: "2017, crowd-sourced, many languages", hf: mozilla-foundation/common_voice_17_0 }
+  - { name: LJSpeech, note: "2017, one LibriVox reader, for text-to-speech", hf: MikhailT/lj-speech, id: ljspeech }
 landmark_papers:
   - { title: "Deep Speech 2", year: 2015, url: "https://arxiv.org/abs/1512.02595" }
   - { title: "wav2vec 2.0", year: 2020, url: "https://arxiv.org/abs/2006.11477" }

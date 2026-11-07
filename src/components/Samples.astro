@@ -50,7 +50,7 @@ const revUrl = s.revision ? `https://huggingface.co/datasets/${s.source.hf}/tree
   {d.kind === 'extractive' && <Extractive d={d} rows={rows} k={k} />}
   {d.kind === 'mcq' && <MCQ d={d} rows={rows} k={k} />}
   {d.kind === 'code' && <CodeTask d={d} rows={rows} k={k} />}
-  {d.kind === 'audio' && <AudioList d={d} rows={rows} k={k} />}
+  {d.kind === 'audio' && <AudioList s={s} d={d} rows={rows} k={k} />}
   {d.kind === 'grid' && <ArcGrid d={d} rows={rows} k={k} />}
   {d.kind === 'record' && <Record s={s} d={d} notes={ds.data.config_notes} rows={rows} k={k} />}
   {d.kind === 'table' && <Table s={s} d={d} rows={rows} k={k} />}

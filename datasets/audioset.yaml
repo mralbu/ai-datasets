@@ -1,0 +1,38 @@
+name: AudioSet
+year: 2017
+modality: audio
+task: Sound event classification (multi-label)
+one_liner: 2 million 10-second YouTube clips labeled with 527 kinds of sound.
+creators: Jort F. Gemmeke, Daniel P. W. Ellis et al. (Google)
+size: ~2.1M clips originally (~1.77M still downloadable in this copy)
+splits: { balanced_train: 18683, unbalanced_train: 1738657, eval: 17141 }
+input: 10 seconds of audio from a YouTube video
+labels: One or more of 527 classes from a 632-node sound ontology
+license: Labels CC BY 4.0; audio under the YouTube uploaders' terms
+paper:
+  title: "Audio Set: An ontology and human-labeled dataset for audio events"
+  url: https://research.google.com/pubs/archive/45857.pdf
+homepage: https://research.google.com/audioset/
+why: >-
+  AudioSet did for sound what ImageNet did for images: a large, labeled,
+  general-purpose dataset, from barking dogs and sirens to music genres and
+  speech. Audio classifiers are compared on its mean average precision, and
+  most modern audio encoders (PANNs, the Audio Spectrogram Transformer, CLAP)
+  were trained or pretrained on it.
+trivia:
+  - Labels are "weak". They say a sound occurs somewhere in the 10 seconds, not when.
+  - Google released only YouTube ids and precomputed embeddings, not audio. Everyone downloads the clips themselves, and videos keep disappearing, so no two labs have exactly the same copy.
+  - Speech and Music are by far the most common labels, while rare classes have a few dozen clips. The balanced subset has at least 59 clips per class.
+  - The ontology is a tree, from "Human sounds" and "Animal" down to labels like "Whale vocalization" and "Theremin".
+lineage:
+  - { name: ESC-50, note: "2015, 2,000 clips in 50 environmental-sound classes", hf: ashraq/esc50 }
+  - { name: VGGSound, note: "2020, 200k clips where the sound source is visible", url: "https://www.robots.ox.ac.uk/~vgg/data/vggsound/" }
+landmark_papers:
+  - { title: "CNN Architectures for Large-Scale Audio Classification (VGGish)", year: 2017, url: "https://arxiv.org/abs/1609.09430" }
+  - { title: "PANNs: Large-Scale Pretrained Audio Neural Networks for Audio Pattern Recognition", year: 2019, url: "https://arxiv.org/abs/1912.10211" }
+  - { title: "AST: Audio Spectrogram Transformer", year: 2021, url: "https://arxiv.org/abs/2104.01778" }
+source: { hf: agkphysics/AudioSet, config: balanced, split: test, n: 8, seed: 27 }
+display: { kind: audio, audio: audio, label: human_labels }
+download:
+  include: "data/bal_train/*"
+  note: "A community copy with re-downloaded audio. The command fetches the balanced training set (~18k clips); the full set is about 1.7M clips."

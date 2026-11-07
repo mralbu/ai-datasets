@@ -1,0 +1,35 @@
+name: Speech Commands
+year: 2018
+modality: audio
+task: Keyword spotting (recognize short spoken words)
+one_liner: 105,000 one-second recordings of 35 spoken words, for wake-word models.
+creators: Pete Warden (Google)
+size: 105,829 utterances from 2,618 speakers (v0.02)
+splits: { train: 84849, validation: 9981, test: 11005 }
+input: 1 second of 16 kHz audio
+labels: One of 35 words (yes, no, up, down, the digits, …)
+license: CC BY 4.0
+paper:
+  title: "Speech Commands: A Dataset for Limited-Vocabulary Speech Recognition"
+  url: https://arxiv.org/abs/1804.03209
+homepage: https://www.tensorflow.org/datasets/catalog/speech_commands
+why: >-
+  The benchmark for tiny speech models, the kind that listen for a wake word on
+  a phone or a microcontroller with a few hundred kilobytes of memory. It is
+  open, small and has a fixed task, so it became the keyword-spotting test in
+  TensorFlow tutorials and in the MLPerf Tiny benchmark.
+trivia:
+  - Volunteers recorded themselves in a web browser on their own phones and laptops, so the audio has real background noise and cheap microphones.
+  - "The usual task has 12 classes: ten command words, \"unknown\" for any other word, and \"silence\", made from the included background-noise files."
+  - Filler words like "marvin", "sheila", "bed" and "wow" are there to train the "unknown" class.
+  - Speakers are assigned to train, validation or test by a hash of their id, so no speaker appears in two splits.
+lineage:
+  - { name: Multilingual Spoken Words, note: "2021, 340k keywords in 50 languages", url: "https://mlcommons.org/datasets/multilingual-spoken-words/" }
+  - { name: LibriSpeech, note: "2015, full sentences for speech recognition", hf: openslr/librispeech_asr, id: librispeech }
+landmark_papers:
+  - { title: "Hello Edge: Keyword Spotting on Microcontrollers", year: 2017, url: "https://arxiv.org/abs/1711.07128" }
+  - { title: "MLPerf Tiny Benchmark", year: 2021, url: "https://arxiv.org/abs/2106.07597" }
+source: { hf: pollen-robotics/speech-commands-v0.02, config: default, split: test, n: 12, seed: 28, rows_per_page: 1 }
+display: { kind: audio, audio: audio, label: label, speaker: speaker_id }
+download:
+  note: "A community Parquet copy of v0.02 (~2 GB). The original tar file is linked from the paper."

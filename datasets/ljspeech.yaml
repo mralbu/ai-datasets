@@ -1,0 +1,37 @@
+name: LJSpeech
+year: 2017
+modality: audio
+task: Text-to-speech (single speaker)
+one_liner: 24 hours of one woman reading non-fiction books, the standard text-to-speech dataset.
+creators: Keith Ito and Linda Johnson
+size: 13,100 clips, about 24 hours
+splits: { all: 13100 }
+input: A sentence of text
+labels: The same sentence read aloud (22,050 Hz audio)
+license: Public domain
+homepage: https://keithito.com/LJ-Speech-Dataset/
+why: >-
+  Text-to-speech research needs many hours of one clear voice, and
+  that data was usually proprietary. LJSpeech is a free public-domain one, cut
+  from LibriVox audiobooks, so almost every open TTS model (WaveGlow,
+  FastSpeech, Glow-TTS, VITS) trained and reported on it. Quality is judged
+  by listeners, with a mean opinion score (MOS), because there is no single
+  correct audio for a sentence.
+trivia:
+  - Linda Johnson is a LibriVox volunteer; the passages come from 7 non-fiction books published between 1884 and 1964.
+  - Clips are 1 to 10 seconds long and are cut at sentence or phrase boundaries.
+  - Each clip has the raw transcript and a normalized one where numbers and abbreviations are spelled out, since a TTS model must know how "1884" is said.
+  - Because one voice dominates open-source TTS demos, many people have heard Linda Johnson without knowing her name.
+lineage:
+  - { name: LibriSpeech, note: "2015, the same LibriVox source, built for recognition", hf: openslr/librispeech_asr, id: librispeech }
+  - { name: LibriTTS, note: "2019, 585 hours from many speakers", hf: mythicinfinity/libritts }
+  - { name: VCTK, note: "110 English speakers, for multi-speaker TTS", url: "https://datashare.ed.ac.uk/handle/10283/3443" }
+landmark_papers:
+  - { title: "Natural TTS Synthesis by Conditioning WaveNet on Mel Spectrogram Predictions (Tacotron 2)", year: 2017, url: "https://arxiv.org/abs/1712.05884" }
+  - { title: "WaveGlow: A Flow-based Generative Network for Speech Synthesis", year: 2018, url: "https://arxiv.org/abs/1811.00002" }
+  - { title: "FastSpeech: Fast, Robust and Controllable Text to Speech", year: 2019, url: "https://arxiv.org/abs/1905.09263" }
+  - { title: "VITS: Conditional Variational Autoencoder with Adversarial Learning for End-to-End TTS", year: 2021, url: "https://arxiv.org/abs/2106.06103" }
+source: { hf: MikhailT/lj-speech, config: default, split: full, n: 8, seed: 29 }
+display: { kind: audio, audio: audio, text: spoken_text }
+download:
+  note: "A community Parquet copy (~3 GB). The original tar file is on the LJSpeech homepage."
