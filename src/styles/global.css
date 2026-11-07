@@ -94,3 +94,15 @@ button:hover { border-color: var(--accent); }
 .cat-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--c); margin-right: 10px; vertical-align: 2px; }
 /* Category tags pick up their category color when marked with data-m. */
 .tag[data-m] { background: color-mix(in srgb, var(--c) 14%, transparent); color: var(--c); }
+
+/* Small tooltip for links and buttons: <a class="tip" data-tip="…">. Shown on hover and keyboard focus. */
+.tip { position: relative; }
+.tip::after {
+  content: attr(data-tip); position: absolute; left: 50%; bottom: calc(100% + 8px);
+  transform: translate(-50%, 4px); white-space: nowrap; pointer-events: none;
+  background: var(--text); color: var(--bg); font-size: 0.75rem; font-weight: 500; line-height: 1;
+  padding: 6px 9px; border-radius: 6px; opacity: 0; transition: opacity 0.12s, transform 0.12s; z-index: 30;
+}
+.tip:hover::after, .tip:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
+.tip.paper::after { left: 0; transform: translate(0, 4px); }
+.tip.paper:hover::after, .tip.paper:focus-visible::after { transform: translate(0, 0); }
