@@ -9,11 +9,13 @@ Outputs (both git-ignored, regenerated on every build):
 Usage:
   uv run scripts/sample.py            # all datasets
   uv run scripts/sample.py mnist iris # only these ids
+  uv run scripts/sample.py --strict   # exit 1 if any dataset fails
 """
 
 from __future__ import annotations
 
 import json
+import os
 import random
 import sys
 import time
@@ -34,23 +36,33 @@ OUT_MEDIA = ROOT / "public" / "samples"
 API = "https://datasets-server.huggingface.co"
 PAGE = 100  # max rows per /rows request
 FETCH_ALL_LIMIT = 5_000  # small tabular datasets are fetched whole (for charts)
+ROWS_PER_PAGE_USED = 8  # sample this many rows from each fetched page
+PAUSE = 0.15  # seconds between requests, to stay under the rate limit
 
 
 def get(client: httpx.Client, url: str, **params) -> httpx.Response:
-    """GET with simple exponential backoff (the viewer API rate-limits)."""
-    for attempt in range(5):
+    """GET with backoff. The viewer API rate-limits bursts (429) and sometimes 5xx."""
+    attempts = 8
+    for attempt in range(attempts):
+        time.sleep(PAUSE)
         try:
             r = client.get(url, params=params or None)
-            if r.status_code == 429 or r.status_code >= 500:
-                raise httpx.HTTPStatusError("retryable", request=r.request, response=r)
-            r.raise_for_status()
-            return r
-        except (httpx.HTTPStatusError, httpx.TransportError) as e:
-            if attempt == 4:
-                raise
-            wait = 2**attempt
-            print(f"    retry in {wait}s ({e})", file=sys.stderr)
-            time.sleep(wait)
+        except httpx.TransportError as e:
+            reason = f"{type(e).__name__}"
+            retry_after = None
+        else:
+            if r.status_code != 429 and r.status_code < 500:
+                r.raise_for_status()
+                return r
+            reason = f"HTTP {r.status_code}"
+            retry_after = r.headers.get("retry-after")
+        if attempt == attempts - 1:
+            raise RuntimeError(f"giving up after {attempts} attempts ({reason})")
+        wait = min(60.0, 2.0 ** (attempt + 1)) + random.random()
+        if retry_after and retry_after.isdigit():
+            wait = max(wait, float(retry_after))
+        print(f"    {reason}, retry in {wait:.0f}s", file=sys.stderr)
+        time.sleep(wait)
     raise AssertionError("unreachable")
 
 
@@ -64,6 +76,28 @@ def fetch_rows(client: httpx.Client, src: dict, offset: int, length: int) -> dic
         offset=offset,
         length=length,
     ).json()
+
+
+def stratified_sample(client: httpx.Client, src: dict, total: int, n: int, rng: random.Random) -> list[dict]:
+    """Sample n rows with few requests, without trusting the dataset's order.
+
+    Many datasets are sorted by label (IMDB is all negatives, then all
+    positives), so one contiguous slice would mislead. Instead split the index
+    range into k equal strata, fetch one random page inside each, and take
+    about n/k random rows from every page. k pages instead of n single-row calls.
+    """
+    n = min(n, total)
+    k = max(1, min(-(-n // ROWS_PER_PAGE_USED), total // PAGE or 1))
+    bounds = [round(total * j / k) for j in range(k + 1)]
+    rows: list[dict] = []
+    for j in range(k):
+        lo, hi = bounds[j], bounds[j + 1]
+        length = min(PAGE, hi - lo)
+        offset = rng.randint(lo, hi - length)
+        page = fetch_rows(client, src, offset, length)["rows"]
+        want = n // k + (1 if j < n % k else 0)
+        rows += rng.sample(page, min(want, len(page)))
+    return rows
 
 
 def sample_dataset(client: httpx.Client, meta: dict) -> dict:
@@ -85,12 +119,7 @@ def sample_dataset(client: httpx.Client, meta: dict) -> dict:
         picked = sorted(rng.sample(range(total), min(n, total)))
         rows = [all_rows[i] for i in picked]
     else:
-        # Random offsets, one row each: many datasets are sorted by label
-        # (IMDB is all negatives, then all positives), so a contiguous slice lies.
-        picked = sorted(rng.sample(range(total), min(n, total)))
-        rows = []
-        for i in picked:
-            rows += fetch_rows(client, src, i, 1)["rows"]
+        rows = stratified_sample(client, src, total, n, rng)
 
     # Fetched in index order; present in a (seeded) random order so the first
     # rows on the page are not, say, all from one class.
@@ -155,7 +184,8 @@ def build_chart(all_rows: list[dict], cfg: dict) -> dict:
 
 
 def main(argv: list[str]) -> int:
-    only = set(argv)
+    strict = "--strict" in argv
+    only = {a for a in argv if not a.startswith("--")}
     OUT_JSON.mkdir(parents=True, exist_ok=True)
     failures = []
     headers = {"User-Agent": "ai-datasets-sampler/0.1 (static educational site)"}
@@ -178,8 +208,11 @@ def main(argv: list[str]) -> int:
             (OUT_JSON / f"{meta['id']}.json").write_text(json.dumps(data, ensure_ascii=False))
             print(f"    {len(data['rows'])} rows of {data['num_rows_total']:,}")
     if failures:
-        print(f"failed: {', '.join(failures)}", file=sys.stderr)
-        return 1
+        # A dataset without samples still gets a page, so by default warn and
+        # carry on rather than block the whole deploy. --strict makes it fatal.
+        msg = f"no samples for: {', '.join(failures)}"
+        print(f"::warning::{msg}" if os.environ.get("GITHUB_ACTIONS") else msg, file=sys.stderr)
+        return 1 if strict else 0
     return 0
 
 
