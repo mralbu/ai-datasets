@@ -55,12 +55,13 @@ export function url(path: string): string {
   return `${base}/${path.replace(/^\//, '')}`;
 }
 
+// Display order of categories everywhere (catalog sections, filter chips).
 export const MODALITIES: Record<string, string> = {
   vision: 'Vision',
   text: 'Text',
+  benchmark: 'LLM benchmarks',
   tabular: 'Tabular',
   audio: 'Audio',
-  benchmark: 'LLM benchmarks',
   other: 'Other',
 };
 
