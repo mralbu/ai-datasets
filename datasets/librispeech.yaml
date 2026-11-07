@@ -24,8 +24,8 @@ trivia:
   - '"clean" and "other" split speakers by how easy an earlier system found them; "other" is the harder half.'
   - Speakers do not overlap between train, dev and test.
 lineage:
-  - { name: TIMIT, note: "1993, phonetically labeled, much smaller" }
-  - { name: Common Voice, note: "2017, crowd-sourced, many languages" }
+  - { name: TIMIT, note: "1993, phonetically labeled, much smaller", hf: timit-asr/timit_asr }
+  - { name: Common Voice, note: "2017, crowd-sourced, many languages", hf: mozilla-foundation/common_voice_17_0 }
 landmark_papers:
   - { title: "Deep Speech 2", year: 2015, url: "https://arxiv.org/abs/1512.02595" }
   - { title: "wav2vec 2.0", year: 2020, url: "https://arxiv.org/abs/2006.11477" }

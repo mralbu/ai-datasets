@@ -24,9 +24,9 @@ trivia:
   - The standard metric averages precision over IoU thresholds from 0.5 to 0.95, which rewards tight boxes.
   - About 1 in 10 annotations is a "crowd" region (a group of people or objects) handled specially in scoring.
 lineage:
-  - { name: Pascal VOC, note: "2005–2012, 20 classes, the predecessor" }
-  - { name: LVIS, note: "2019, 1,200+ categories on COCO images" }
-  - { name: Objects365, note: "2019, 365 categories, 2M images" }
+  - { name: Pascal VOC, note: "2005–2012, 20 classes, the predecessor", hf: HuggingFaceM4/pascal_voc }
+  - { name: LVIS, note: "2019, 1,200+ categories on COCO images", url: "https://www.lvisdataset.org/" }
+  - { name: Objects365, note: "2019, 365 categories, 2M images", url: "https://www.objects365.org/" }
 landmark_papers:
   - { title: "Faster R-CNN", year: 2015, url: "https://arxiv.org/abs/1506.01497" }
   - { title: "You Only Look Once (YOLO)", year: 2015, url: "https://arxiv.org/abs/1506.02640" }

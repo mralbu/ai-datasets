@@ -24,9 +24,9 @@ trivia:
   - LeNet-5 got about 0.95% test error in 1998. Modern models reach about 0.2%, and most remaining errors are arguably mislabeled or ambiguous digits.
 lineage:
   - { name: NIST Special Database 1 & 3, note: source data }
-  - { name: Fashion-MNIST, note: "2017, drop-in replacement with clothing images" }
-  - { name: EMNIST, note: "2017, adds letters" }
-  - { name: KMNIST, note: "2018, cursive Japanese characters" }
+  - { name: Fashion-MNIST, note: "2017, drop-in replacement with clothing images", hf: zalando-datasets/fashion_mnist }
+  - { name: EMNIST, note: "2017, adds letters", url: "https://www.nist.gov/itl/products-and-services/emnist-dataset" }
+  - { name: KMNIST, note: "2018, cursive Japanese characters", url: "https://github.com/rois-codh/kmnist" }
 landmark_papers:
   - { title: "Gradient-Based Learning Applied to Document Recognition (LeNet-5)", year: 1998, url: "http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf" }
   - { title: "Dropout: A Simple Way to Prevent Neural Networks from Overfitting", year: 2014, url: "https://jmlr.org/papers/v15/srivastava14a.html" }

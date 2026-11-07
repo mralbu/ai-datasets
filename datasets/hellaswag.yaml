@@ -23,8 +23,8 @@ trivia:
   - The test split's labels are hidden, which is why these samples come from validation.
   - Its predecessor SWAG (2018) was "solved" by BERT within months of release, which motivated the harsher filtering here.
 lineage:
-  - { name: SWAG, note: "2018, the predecessor" }
-  - { name: WinoGrande, note: "2019, adversarial Winograd schemas" }
+  - { name: SWAG, note: "2018, the predecessor", hf: allenai/swag }
+  - { name: WinoGrande, note: "2019, adversarial Winograd schemas", hf: allenai/winogrande }
 landmark_papers:
   - { title: "SWAG: A Large-Scale Adversarial Dataset for Grounded Commonsense Inference", year: 2018, url: "https://arxiv.org/abs/1808.05326" }
 source: { hf: Rowan/hellaswag, config: default, split: validation, n: 20, seed: 14, rows_per_page: 2 }

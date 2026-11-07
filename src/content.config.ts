@@ -59,7 +59,11 @@ const datasets = defineCollection({
     why: z.string(),
     trivia: z.array(z.string()).default([]),
     config_notes: z.record(z.string(), z.string()).default({}),
-    lineage: z.array(z.object({ name: z.string(), note: z.string().optional() })).default([]),
+    // Related datasets: link to Hugging Face (hf), or a homepage (url) when there is no HF copy,
+    // plus id when the dataset also has a page on this site.
+    lineage: z
+      .array(z.object({ name: z.string(), note: z.string().optional(), hf: z.string().optional(), url: z.string().url().optional(), id: z.string().optional() }))
+      .default([]),
     landmark_papers: z
       .array(z.object({ title: z.string(), year: z.number().int(), url: z.string().url() }))
       .default([]),

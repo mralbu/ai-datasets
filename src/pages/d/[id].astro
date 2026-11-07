@@ -9,6 +9,9 @@ export async function getStaticPaths() {
   return all.map((ds, i) => ({ params: { id: ds.id }, props: { ds, prev: all[i - 1], next: all[i + 1] } }));
 }
 const { ds, prev, next } = Astro.props;
+const byId = new Map((await getDatasets()).map((x) => [x.id, x]));
+const hfUrl = (id: string) => `https://huggingface.co/datasets/${id}`;
+const hostOf = (u: string) => new URL(u).hostname.replace(/^www\./, '');
 const d = ds.data;
 const s = getSamples(ds.id);
 const splits = Object.entries(d.splits).map(([k, v]) => `${k} ${v.toLocaleString('en-US')}`).join(' · ');
@@ -61,7 +64,20 @@ const facts: [string, string][] = [
     {d.lineage.length > 0 && (
       <section>
         <h2>Related datasets</h2>
-        <ul>{d.lineage.map((l) => <li><strong>{l.name}</strong>{l.note && <span class="muted">: {l.note}</span>}</li>)}</ul>
+        <ul class="lineage">
+          {d.lineage.map((l) => {
+            const href = l.hf ? hfUrl(l.hf) : l.url;
+            const here = l.id ? byId.get(l.id) : undefined;
+            return (
+              <li>
+                {href ? <a href={href}><strong>{l.name}</strong></a> : <strong>{l.name}</strong>}
+                {l.note && <span class="muted">: {l.note}</span>}
+                {href && <span class="where">{l.hf ? 'Hugging Face' : hostOf(href)} ↗</span>}
+                {here && <a class="here" href={url(`/d/${here.id}`)}>{here.data.name} on this site →</a>}
+              </li>
+            );
+          })}
+        </ul>
       </section>
     )}
     {d.landmark_papers.length > 0 && (
@@ -90,6 +106,9 @@ const facts: [string, string][] = [
   dd { margin: 0; }
   .empty { padding: 16px; }
   .trivia li { margin-bottom: 6px; }
+  .lineage li { margin-bottom: 4px; }
+  .where { margin-left: 6px; font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
+  .here { margin-left: 8px; font-size: 0.8rem; white-space: nowrap; }
   .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0 28px; }
   .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 0.92rem; }
 </style>

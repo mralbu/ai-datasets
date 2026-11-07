@@ -21,7 +21,7 @@ trivia:
   - Cabin is missing for about 77% of passengers and Age for about 20%, so imputation is part of the exercise.
   - The ship carried about 2,224 people; the dataset covers the 1,309 passengers, not the crew.
 lineage:
-  - { name: Spaceship Titanic, note: "2022, Kaggle's sci-fi remake" }
+  - { name: Spaceship Titanic, note: "2022, Kaggle's sci-fi remake", url: "https://www.kaggle.com/competitions/spaceship-titanic" }
 landmark_papers: []
 source: { hf: phihung/titanic, config: default, split: train, n: 16, seed: 9, fetch_all: true }
 display:

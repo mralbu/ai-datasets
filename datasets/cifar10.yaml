@@ -24,9 +24,9 @@ trivia:
   - It is a hand-labeled subset of the 80 Million Tiny Images collection, which was withdrawn in 2020 over offensive labels. CIFAR's own labels were checked by hand and are unaffected.
   - CIFAR-10.1 (2018) built a new test set the same way, and accuracy dropped by about 4–10 points, a famous sign of overfitting to the test set.
 lineage:
-  - { name: CIFAR-100, note: "2009, same images style, 100 fine-grained classes" }
-  - { name: CIFAR-10.1, note: "2018, fresh test set" }
-  - { name: CINIC-10, note: "2018, CIFAR plus downsampled ImageNet" }
+  - { name: CIFAR-100, note: "2009, same images style, 100 fine-grained classes", hf: uoft-cs/cifar100 }
+  - { name: CIFAR-10.1, note: "2018, fresh test set", url: "https://github.com/modestyachts/CIFAR-10.1" }
+  - { name: CINIC-10, note: "2018, CIFAR plus downsampled ImageNet", hf: flwrlabs/cinic10 }
 landmark_papers:
   - { title: "Deep Residual Learning for Image Recognition (ResNet)", year: 2015, url: "https://arxiv.org/abs/1512.03385" }
   - { title: "Do CIFAR-10 Classifiers Generalize to CIFAR-10?", year: 2018, url: "https://arxiv.org/abs/1806.00451" }

@@ -23,9 +23,9 @@ trivia:
   - "A 2024 audit (\"Are We Done with MMLU?\") estimated about 6.5% of questions have errors, such as wrong answer keys or unclear wording."
   - Small changes in prompt format or answer extraction can move scores by several points, so numbers from different reports are not always comparable.
 lineage:
-  - { name: MMLU-Pro, note: "2024, 10 options and harder questions" }
-  - { name: MMLU-Redux, note: "2024, re-annotated subset" }
-  - { name: GPQA, note: "2023, graduate-level, Google-proof questions" }
+  - { name: MMLU-Pro, note: "2024, 10 options and harder questions", hf: TIGER-Lab/MMLU-Pro }
+  - { name: MMLU-Redux, note: "2024, re-annotated subset", hf: edinburgh-dawg/mmlu-redux }
+  - { name: GPQA, note: "2023, graduate-level, Google-proof questions", hf: Idavidrein/gpqa }
 landmark_papers:
   - { title: "Language Models are Few-Shot Learners (GPT-3)", year: 2020, url: "https://arxiv.org/abs/2005.14165" }
   - { title: "Are We Done with MMLU?", year: 2024, url: "https://arxiv.org/abs/2406.04127" }

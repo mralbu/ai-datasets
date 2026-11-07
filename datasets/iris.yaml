@@ -23,7 +23,7 @@ trivia:
   - The widely copied UCI version differs from Fisher's paper in two rows (samples 35 and 38), noted by Bezdek et al. in 1999.
   - Fisher published it in the Annals of Eugenics, which is why some courses now prefer the Palmer Penguins dataset (2020) as a replacement.
 lineage:
-  - { name: Palmer Penguins, note: "2020, a popular modern substitute" }
+  - { name: Palmer Penguins, note: "2020, a popular modern substitute", url: "https://allisonhorst.github.io/palmerpenguins/" }
 landmark_papers:
   - { title: "The Use of Multiple Measurements in Taxonomic Problems", year: 1936, url: "https://doi.org/10.1111/j.1469-1809.1936.tb02137.x" }
 source: { hf: scikit-learn/iris, config: default, split: train, n: 12, seed: 3, fetch_all: true }

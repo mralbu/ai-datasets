@@ -6,3 +6,4 @@ __pycache__/
 # fetched at build time by scripts/sample.py
 public/samples/
 src/generated/
+.samples/

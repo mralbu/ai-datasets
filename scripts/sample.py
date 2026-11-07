@@ -2,21 +2,33 @@
 
 Rows come from the Hugging Face dataset viewer API, so nothing large is downloaded.
 
-Outputs (both git-ignored, regenerated on every build):
-  public/samples/<id>/<row_idx>.<ext>   images referenced by the samples
-  src/generated/<id>.json               features, sampled rows, optional chart spec
+Samples live in a snapshot folder (default ``.samples/``; in CI it is a worktree of
+the ``samples`` branch), so they are fetched once and reused:
+
+  .samples/manifest.json            fingerprint, upstream revision, fetch time per dataset
+  .samples/generated/<id>.json      features, sampled rows, optional chart spec
+  .samples/samples/<id>/<file>      images and audio referenced by the rows
+
+A dataset is re-fetched only when its fingerprint (its ``source`` block, its chart
+config and SAMPLER_VERSION) changes. Datasets removed from the catalog are pruned.
+The snapshot is then copied to where the site reads it (src/generated, public/samples).
 
 Usage:
-  uv run scripts/sample.py            # all datasets
-  uv run scripts/sample.py mnist iris # only these ids
-  uv run scripts/sample.py --strict   # exit 1 if any dataset fails
+  uv run scripts/sample.py              # fetch what is missing or changed, then install
+  uv run scripts/sample.py mnist iris   # only consider these ids (no pruning)
+  uv run scripts/sample.py --force mnist  # re-fetch even if unchanged
+  uv run scripts/sample.py --strict     # exit 1 if any dataset fails (used in CI)
+  uv run scripts/sample.py --check      # only check every source still resolves
+  uv run scripts/sample.py --snapshot DIR
 """
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import random
+import shutil
 import sys
 import time
 from datetime import datetime, timezone
@@ -31,8 +43,12 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG = ROOT / "datasets"
-OUT_JSON = ROOT / "src" / "generated"
-OUT_MEDIA = ROOT / "public" / "samples"
+SITE_JSON = ROOT / "src" / "generated"
+SITE_MEDIA = ROOT / "public" / "samples"
+DEFAULT_SNAPSHOT = ROOT / ".samples"
+
+# Bump to re-fetch everything after a change to how samples are produced.
+SAMPLER_VERSION = 1
 
 API = "https://datasets-server.huggingface.co"
 PAGE = 100  # max rows per /rows request
@@ -123,12 +139,11 @@ def sample_part(client: httpx.Client, src: dict, n: int, rng: random.Random) -> 
     return {"total": total, "features": features, "rows": rows, "all_rows": all_rows}
 
 
-def save_media(client: httpx.Client, ds_id: str, tag: str, features: list[dict], rows: list[dict]) -> None:
+def save_media(client: httpx.Client, media_dir: Path, ds_id: str, tag: str, features: list[dict], rows: list[dict]) -> None:
     """Download images/audio next to the site; signed viewer URLs expire."""
     media_cols = {f["name"]: f["type"].get("_type") for f in features if f["type"].get("_type") in ("Image", "Audio")}
     if not media_cols:
         return
-    media_dir = OUT_MEDIA / ds_id
     media_dir.mkdir(parents=True, exist_ok=True)
     for r in rows:
         for col, kind in media_cols.items():
@@ -148,7 +163,7 @@ def save_media(client: httpx.Client, ds_id: str, tag: str, features: list[dict],
             r["row"][col] = local
 
 
-def sample_dataset(client: httpx.Client, meta: dict) -> dict:
+def sample_dataset(client: httpx.Client, meta: dict, media_dir: Path) -> dict:
     ds_id = meta["id"]
     src = meta["source"]
     n = int(src.get("n", 48))
@@ -164,7 +179,7 @@ def sample_dataset(client: httpx.Client, meta: dict) -> dict:
         part_src = src | {"config": c["config"], "split": c.get("split", src.get("split", "train"))}
         part = sample_part(client, part_src, n, rng)
         tag = f"{c['config']}-" if multi else ""
-        save_media(client, ds_id, tag, part["features"], part["rows"])
+        save_media(client, media_dir, ds_id, tag, part["features"], part["rows"])
         parts.append({
             "config": part_src["config"],
             "split": part_src["split"],
@@ -234,40 +249,166 @@ def build_chart(all_rows: list[dict], cfg: dict) -> dict:
     return chart.properties(width="container", height=320, title=title).to_dict()
 
 
+SNAPSHOT_README = """# Sample snapshot (generated, do not edit)
+
+This branch holds the dataset samples shown on the site. It is written by
+`scripts/sample.py` in the deploy workflow on `main`; do not open pull requests
+against it.
+
+- `manifest.json`: per dataset, the fingerprint of its config, the Hugging Face
+  revision it was sampled from and when.
+- `generated/<id>.json`: sampled rows.
+- `samples/<id>/`: images and audio those rows reference.
+
+To change a sample, edit `datasets/<id>.yaml` on `main` (or run the deploy
+workflow with "force refetch"). Samples remain under each dataset's own license.
+"""
+
+
+def fingerprint(meta: dict) -> str:
+    """What the sample depends on. Display tweaks (scale, labels) don't need a re-fetch."""
+    key = {
+        "v": SAMPLER_VERSION,
+        "source": meta.get("source"),
+        "chart": (meta.get("display") or {}).get("chart"),
+    }
+    return hashlib.sha256(json.dumps(key, sort_keys=True).encode()).hexdigest()[:16]
+
+
+def upstream_revision(client: httpx.Client, hf_id: str) -> str | None:
+    """The dataset repo's commit on the Hub, to record which version was sampled."""
+    try:
+        return get(client, f"https://huggingface.co/api/datasets/{hf_id}").json().get("sha")
+    except Exception:
+        return None
+
+
+def load_catalog() -> tuple[dict[str, dict], list[str]]:
+    catalog, bad = {}, []
+    for path in sorted(CATALOG.glob("*.yaml")):
+        try:
+            meta = yaml.safe_load(path.read_text())
+        except yaml.YAMLError as e:
+            print(f"- {path.stem}: invalid YAML: {e}", file=sys.stderr)
+            bad.append(path.stem)
+            continue
+        meta["id"] = path.stem
+        catalog[path.stem] = meta
+    return catalog, bad
+
+
+def install(snap: Path) -> None:
+    """Copy the snapshot to where Astro reads it."""
+    for src, dst in ((snap / "generated", SITE_JSON), (snap / "samples", SITE_MEDIA)):
+        shutil.rmtree(dst, ignore_errors=True)
+        if src.exists():
+            shutil.copytree(src, dst)
+        else:
+            dst.mkdir(parents=True, exist_ok=True)
+
+
+def check_sources(client: httpx.Client, catalog: dict[str, dict]) -> list[str]:
+    """Cheap health check: can the viewer still serve one row of every source?"""
+    broken = []
+    for ds_id, meta in catalog.items():
+        src = meta.get("source", {})
+        configs = src.get("configs") or [{"config": src.get("config", "default"), "split": src.get("split", "train")}]
+        for c in configs:
+            c = c if isinstance(c, dict) else {"config": c}
+            part = src | {"config": c["config"], "split": c.get("split", src.get("split", "train"))}
+            try:
+                fetch_rows(client, part, 0, 1)
+                print(f"  ok      {ds_id} ({part['config']}/{part['split']})")
+            except Exception as e:
+                print(f"  BROKEN  {ds_id} ({part['config']}/{part['split']}): {e}")
+                broken.append(ds_id)
+    return broken
+
+
+def warn(msg: str) -> None:
+    print(f"::warning::{msg}" if os.environ.get("GITHUB_ACTIONS") else f"warning: {msg}", file=sys.stderr)
+
+
 def main(argv: list[str]) -> int:
-    strict = "--strict" in argv
-    only = {a for a in argv if not a.startswith("--")}
-    OUT_JSON.mkdir(parents=True, exist_ok=True)
-    failures = []
+    flags = {a for a in argv if a.startswith("--")}
+    args = [a for a in argv if not a.startswith("--")]
+    snap = DEFAULT_SNAPSHOT
+    if "--snapshot" in argv:
+        i = argv.index("--snapshot")
+        snap = Path(argv[i + 1]).resolve()
+        args.remove(argv[i + 1])
+    only = set(args)
+    strict, force = "--strict" in flags, "--force" in flags
+
+    catalog, failures = load_catalog()
     headers = {"User-Agent": "ai-datasets-sampler/0.1 (static educational site)"}
     with httpx.Client(timeout=60, headers=headers, follow_redirects=True) as client:
-        for path in sorted(CATALOG.glob("*.yaml")):
-            try:
-                meta = yaml.safe_load(path.read_text())
-            except yaml.YAMLError as e:
-                print(f"- {path.stem}: invalid YAML: {e}", file=sys.stderr)
-                failures.append(path.stem)
-                continue
-            meta["id"] = path.stem
-            if only and meta["id"] not in only:
+        if "--check" in flags:
+            broken = check_sources(client, catalog)
+            if broken:
+                warn(f"broken sources: {', '.join(sorted(set(broken)))}")
+            return 1 if broken or failures else 0
+
+        manifest_path = snap / "manifest.json"
+        manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
+        entries: dict = manifest.get("datasets", {})
+        (snap / "generated").mkdir(parents=True, exist_ok=True)
+
+        for ds_id, meta in catalog.items():
+            if only and ds_id not in only:
                 continue
             if not meta.get("source", {}).get("hf"):
-                print(f"- {meta['id']}: no source, skipped")
+                print(f"- {ds_id}: no source, skipped")
                 continue
-            print(f"- {meta['id']}: {meta['source']['hf']}", flush=True)
+            fp = fingerprint(meta)
+            json_path = snap / "generated" / f"{ds_id}.json"
+            if not force and entries.get(ds_id, {}).get("fingerprint") == fp and json_path.exists():
+                print(f"- {ds_id}: unchanged, reusing snapshot")
+                continue
+            print(f"- {ds_id}: fetching {meta['source']['hf']}", flush=True)
+            # Fetch into a scratch dir and swap in only on success, so a failed
+            # fetch leaves the previous (stale but complete) sample in place.
+            tmp_media = snap / ".tmp" / ds_id
+            shutil.rmtree(tmp_media, ignore_errors=True)
             try:
-                data = sample_dataset(client, meta)
-            except Exception as e:  # keep going; the site renders without samples
+                data = sample_dataset(client, meta, tmp_media)
+                data["revision"] = upstream_revision(client, meta["source"]["hf"])
+            except Exception as e:
                 print(f"    FAILED: {e}", file=sys.stderr)
-                failures.append(meta["id"])
+                failures.append(ds_id)
                 continue
-            (OUT_JSON / f"{meta['id']}.json").write_text(json.dumps(data, ensure_ascii=False))
+            media_dir = snap / "samples" / ds_id
+            shutil.rmtree(media_dir, ignore_errors=True)
+            if tmp_media.exists():
+                media_dir.parent.mkdir(parents=True, exist_ok=True)
+                tmp_media.rename(media_dir)
+            # Stable, indented JSON so changes read well as diffs on the samples branch.
+            json_path.write_text(json.dumps(data, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
+            entries[ds_id] = {
+                "fingerprint": fp,
+                "hf": meta["source"]["hf"],
+                "revision": data["revision"],
+                "fetched_at": data["fetched_at"],
+                "rows": len(data["rows"]),
+            }
             print(f"    {len(data['rows'])} rows of {data['num_rows_total']:,}")
+        shutil.rmtree(snap / ".tmp", ignore_errors=True)
+
+        # Prune datasets that left the catalog (only on a full run).
+        if not only:
+            for ds_id in sorted(set(entries) - set(catalog)):
+                print(f"- {ds_id}: removed from catalog, pruning")
+                entries.pop(ds_id)
+                (snap / "generated" / f"{ds_id}.json").unlink(missing_ok=True)
+                shutil.rmtree(snap / "samples" / ds_id, ignore_errors=True)
+
+        (snap / "README.md").write_text(SNAPSHOT_README)
+        manifest = {"sampler_version": SAMPLER_VERSION, "datasets": dict(sorted(entries.items()))}
+        manifest_path.write_text(json.dumps(manifest, indent=1) + "\n")
+
+    install(snap)
     if failures:
-        # A dataset without samples still gets a page, so by default warn and
-        # carry on rather than block the whole deploy. --strict makes it fatal.
-        msg = f"no samples for: {', '.join(failures)}"
-        print(f"::warning::{msg}" if os.environ.get("GITHUB_ACTIONS") else msg, file=sys.stderr)
+        warn(f"no fresh samples for: {', '.join(failures)} (previous snapshot kept if there was one)")
         return 1 if strict else 0
     return 0
 
