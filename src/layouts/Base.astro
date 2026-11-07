@@ -1,0 +1,43 @@
+---
+import '../styles/global.css';
+import { url } from '../lib/data';
+interface Props { title: string; description?: string }
+const { title, description = 'A small museum of classic AI datasets and benchmarks: what they are and what the data actually looks like.' } = Astro.props;
+const path = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site">
+      <div class="wrap bar">
+        <a class="brand" href={url('/')}>AI Datasets</a>
+        <nav>
+          <a href={url('/')} aria-current={path === url('/') || path === url('/') + '/' ? 'page' : undefined}>Catalog</a>
+          <a href={url('/timeline')} aria-current={path.startsWith(url('/timeline')) ? 'page' : undefined}>Timeline</a>
+          <a href={url('/about')} aria-current={path.startsWith(url('/about')) ? 'page' : undefined}>About</a>
+        </nav>
+      </div>
+    </header>
+    <main class="wrap"><slot /></main>
+    <footer class="wrap muted">
+      Samples come from the <a href="https://huggingface.co/docs/dataset-viewer">Hugging Face dataset viewer</a>{' '}
+      and remain under each dataset's own license. Shown for education.
+    </footer>
+  </body>
+</html>
+<style>
+  header.site { border-bottom: 1px solid var(--border); background: var(--surface); }
+  .bar { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
+  .brand { font-weight: 700; color: var(--text); }
+  nav { display: flex; gap: 18px; }
+  nav a { color: var(--muted); }
+  nav a[aria-current='page'] { color: var(--text); font-weight: 600; }
+  main { padding-bottom: 48px; }
+  footer { font-size: 0.85rem; padding-top: 24px; padding-bottom: 32px; border-top: 1px solid var(--border); }
+</style>

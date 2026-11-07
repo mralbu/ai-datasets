@@ -1,0 +1,33 @@
+name: GSM8K
+year: 2021
+modality: benchmark
+task: Multi-step grade-school math word problems
+one_liner: 8.5k grade-school math word problems with step-by-step solutions.
+creators: Karl Cobbe et al. (OpenAI)
+size: 8,792 problems
+splits: { train: 7473, test: 1319 }
+input: A word problem in English
+labels: A worked solution ending in "#### <number>"
+license: MIT
+paper:
+  title: Training Verifiers to Solve Math Word Problems
+  url: https://arxiv.org/abs/2110.14168
+homepage: https://github.com/openai/grade-school-math
+why: >-
+  The benchmark that made "can LLMs reason?" measurable. Problems take 2–8
+  steps of basic arithmetic, so failures come from multi-step reasoning, not
+  hard math. It became the standard test for chain-of-thought prompting and
+  is now largely saturated by frontier models.
+trivia:
+  - "Solutions include calculator annotations like <<16-3-4=9>>; the original paper used them to call a calculator during generation."
+  - The final answer always follows "####", which makes automatic grading a simple string match.
+  - Written by human contractors to avoid web text, but later studies found signs of contamination and released fresh look-alike sets (e.g. GSM1k).
+lineage:
+  - { name: MATH, note: "2021, competition-level math, much harder" }
+  - { name: GSM-Symbolic, note: "2024, templated variants to probe robustness" }
+landmark_papers:
+  - { title: "Training Verifiers to Solve Math Word Problems", year: 2021, url: "https://arxiv.org/abs/2110.14168" }
+  - { title: "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models", year: 2022, url: "https://arxiv.org/abs/2201.11903" }
+  - { title: "Self-Consistency Improves Chain of Thought Reasoning", year: 2022, url: "https://arxiv.org/abs/2203.11171" }
+source: { hf: openai/gsm8k, config: main, split: test, n: 20, seed: 5 }
+display: { kind: qa, question: question, answer: answer }

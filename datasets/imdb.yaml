@@ -1,0 +1,32 @@
+name: IMDB Large Movie Review
+year: 2011
+modality: text
+task: Binary sentiment classification
+one_liner: 50,000 movie reviews from IMDb, labeled positive or negative.
+creators: Andrew L. Maas et al. (Stanford)
+size: 50,000 labeled reviews + 50,000 unlabeled
+splits: { train: 25000, test: 25000, unsupervised: 50000 }
+input: Free-form English review text (often several paragraphs)
+labels: neg (rating ≤ 4/10) or pos (rating ≥ 7/10)
+license: Research use (no formal license)
+paper:
+  title: Learning Word Vectors for Sentiment Analysis
+  url: https://aclanthology.org/P11-1015/
+homepage: https://ai.stanford.edu/~amaas/data/sentiment/
+why: >-
+  The default "first text classifier" dataset, used in Keras, fastai and
+  PyTorch tutorials. It is big enough that bag-of-words baselines are
+  respectable but long-range context helps, so it charted the move from
+  n-grams to RNNs, ULMFiT and fine-tuned transformers.
+trivia:
+  - Neutral reviews (5–6/10) were left out, so the task is easier than real-world sentiment.
+  - At most 30 reviews per movie, and train and test use disjoint movies, so a model can't just memorize titles.
+  - Both splits are exactly balanced (12,500 pos / 12,500 neg) and the files are sorted by label. Shuffle before you slice.
+  - Reviews contain leftover HTML like <br /><br />.
+lineage:
+  - { name: "SST / SST-2", note: "2013, sentence-level sentiment, part of GLUE" }
+landmark_papers:
+  - { title: "Learning Word Vectors for Sentiment Analysis", year: 2011, url: "https://aclanthology.org/P11-1015/" }
+  - { title: "Universal Language Model Fine-tuning for Text Classification (ULMFiT)", year: 2018, url: "https://arxiv.org/abs/1801.06146" }
+source: { hf: stanfordnlp/imdb, config: plain_text, split: test, n: 24, seed: 7 }
+display: { kind: text, text: text, label: label }

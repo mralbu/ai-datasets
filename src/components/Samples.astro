@@ -1,0 +1,181 @@
+---
+import { labelOf, url, type Dataset, type Samples } from '../lib/data';
+interface Props { ds: Dataset; samples: Samples }
+const { ds, samples: s } = Astro.props;
+const d = ds.data.display;
+const rows = s.rows;
+const k = { image: 24, text: 4, qa: 3, table: 8 }[d.kind];
+
+const cleanText = (t: string) => t.replace(/<br\s*\/?>/g, '\n');
+// GSM8K-style answers: highlight <<calc>> annotations and the final "#### n" line.
+const segments = (t: string) => t.split(/(<<[^>]*>>|^####.*$)/m).filter(Boolean);
+const cols = s.features.map((f) => f.name);
+const first = rows[0];
+---
+<section class="samples" data-k={k}>
+  <div class="toolbar">
+    <span class="muted">
+      Showing <span data-count>{Math.min(k, rows.length)}</span> of {rows.length} sampled rows
+      (from {s.num_rows_total.toLocaleString('en-US')} in the <code>{s.source.split}</code> split)
+    </span>
+    <span class="buttons">
+      {d.kind === 'image' && <button type="button" data-native aria-pressed="false">Actual pixel size</button>}
+      {rows.length > k && <button type="button" data-shuffle>Shuffle</button>}
+    </span>
+  </div>
+
+  {d.kind === 'image' && first && (
+    <div class="spotlight card">
+      <figure>
+        <img src={url(first.row[d.image].src)} width={first.row[d.image].width} height={first.row[d.image].height} alt="" />
+        <figcaption>Actual size<br /><span class="muted">{first.row[d.image].width}×{first.row[d.image].height} px</span></figcaption>
+      </figure>
+      <figure>
+        <img class="pixelated" src={url(first.row[d.image].src)} width={first.row[d.image].width * 8} height={first.row[d.image].height * 8} alt="" />
+        <figcaption>Enlarged 8×, pixelated<br /><span class="muted">this is all the model sees</span></figcaption>
+      </figure>
+    </div>
+  )}
+
+  {d.kind === 'image' && (
+    <div class="grid-img" style={`--scale:${d.scale}`}>
+      {rows.map((r, i) => (
+        <figure data-item hidden={i >= k}>
+          <img class="pixelated" src={url(r.row[d.image].src)} width={r.row[d.image].width} height={r.row[d.image].height} style={`--w:${r.row[d.image].width}px`} alt={d.label ? `label ${labelOf(s, d.label, r.row[d.label])}` : ''} loading="lazy" />
+          {d.label && <figcaption>{labelOf(s, d.label, r.row[d.label])}</figcaption>}
+        </figure>
+      ))}
+    </div>
+  )}
+
+  {d.kind === 'text' && (
+    <div class="list">
+      {rows.map((r, i) => {
+        const label = d.label ? labelOf(s, d.label, r.row[d.label]) : undefined;
+        return (
+          <article class="card text" data-item hidden={i >= k}>
+            {label && <span class:list={['label', label]}>{label}</span>}
+            <p>{cleanText(String(r.row[d.text]))}</p>
+            <button type="button" class="more" data-more>Show all</button>
+          </article>
+        );
+      })}
+    </div>
+  )}
+
+  {d.kind === 'qa' && (
+    <div class="list">
+      {rows.map((r, i) => (
+        <article class="card qa" data-item hidden={i >= k}>
+          <p class="q">{r.row[d.question]}</p>
+          <details>
+            <summary>Show solution</summary>
+            <p class="a">
+              {segments(String(r.row[d.answer])).map((seg) =>
+                seg.startsWith('<<') ? <mark class="calc">{seg}</mark> : seg.startsWith('####') ? <strong class="final">{seg}</strong> : seg,
+              )}
+            </p>
+          </details>
+        </article>
+      ))}
+    </div>
+  )}
+
+  {d.kind === 'table' && (
+    <div class="table-wrap card">
+      <table>
+        <thead><tr>{cols.map((c) => <th>{c}</th>)}</tr></thead>
+        <tbody>
+          {rows.map((r, i) => (
+            <tr data-item hidden={i >= k}>{cols.map((c) => <td>{String(r.row[c] ?? '')}</td>)}</tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+
+  {first && (
+    <details class="raw">
+      <summary>What one record actually looks like (raw JSON, row {first.row_idx})</summary>
+      <pre>{JSON.stringify(first.row, null, 2)}</pre>
+      <p class="muted">Image fields point at a local copy; on Hugging Face they are bytes in a Parquet file.</p>
+    </details>
+  )}
+</section>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>('section.samples')) {
+    const k = Number(root.dataset.k);
+    const items = [...root.querySelectorAll<HTMLElement>('[data-item]')];
+    root.querySelector('[data-shuffle]')?.addEventListener('click', () => {
+      const idx = items.map((_, i) => i);
+      for (let i = idx.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [idx[i], idx[j]] = [idx[j], idx[i]];
+      }
+      const show = new Set(idx.slice(0, k));
+      items.forEach((el, i) => (el.hidden = !show.has(i)));
+      // Keep picked items in a new random order, not dataset order.
+      const parent = items[0].parentElement!;
+      idx.slice(0, k).forEach((i) => parent.appendChild(items[i]));
+    });
+    const native = root.querySelector<HTMLButtonElement>('[data-native]');
+    native?.addEventListener('click', () => {
+      const on = root.classList.toggle('native');
+      native.setAttribute('aria-pressed', String(on));
+    });
+    for (const btn of root.querySelectorAll<HTMLButtonElement>('[data-more]')) {
+      const card = btn.closest('article')!;
+      const p = card.querySelector('p')!;
+      // Only offer "Show all" when the text is actually clamped.
+      requestAnimationFrame(() => { if (p.scrollHeight <= p.clientHeight + 2) btn.remove(); });
+      btn.addEventListener('click', () => {
+        const open = card.classList.toggle('open');
+        btn.textContent = open ? 'Show less' : 'Show all';
+      });
+    }
+  }
+</script>
+
+<style>
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px 16px; justify-content: space-between; align-items: center; margin-bottom: 14px; font-size: 0.9rem; }
+  .buttons { display: flex; gap: 8px; }
+  button[aria-pressed='true'] { background: var(--accent-soft); border-color: var(--accent); }
+
+  .spotlight { display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; padding: 20px; margin-bottom: 18px; }
+  .spotlight figure { margin: 0; text-align: center; font-size: 0.85rem; }
+  .spotlight img { display: block; margin: 0 auto 8px; max-width: 100%; height: auto; }
+
+  .grid-img { display: flex; flex-wrap: wrap; gap: 10px; }
+  .grid-img figure { margin: 0; text-align: center; }
+  .grid-img figure[hidden] { display: none; }
+  .grid-img img { display: block; width: calc(var(--w) * var(--scale)); height: auto; max-width: 100%; border-radius: 4px; }
+  .native .grid-img img { width: var(--w); }
+  .grid-img figcaption { font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  .list { display: grid; gap: 14px; }
+  .list [hidden] { display: none; }
+  article { padding: 16px 18px; }
+  .text p { white-space: pre-line; margin: 8px 0 0; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+  .text.open p { display: block; -webkit-line-clamp: unset; }
+  .more { margin-top: 8px; font-size: 0.8rem; padding: 3px 10px; }
+  .label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .label.pos { color: var(--pos); }
+  .label.neg { color: var(--neg); }
+
+  .qa .q { margin: 0 0 8px; font-weight: 500; }
+  .qa summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; }
+  .qa .a { white-space: pre-line; margin: 8px 0 0; }
+  mark.calc { background: var(--code-bg); color: var(--muted); font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; padding: 0 2px; border-radius: 3px; }
+  .final { color: var(--pos); }
+
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  th { font-weight: 600; background: var(--code-bg); }
+  tr[hidden] { display: none; }
+
+  .raw { margin-top: 18px; }
+  .raw summary { cursor: pointer; color: var(--muted); font-size: 0.9rem; }
+  .raw pre { max-height: 360px; }
+</style>

@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import Preview from '../components/Preview.astro';
+import { getDatasets, MODALITIES, url } from '../lib/data';
+const all = await getDatasets();
+const groups = Object.keys(MODALITIES)
+  .map((m) => ({ m, items: all.filter((d) => d.data.modality === m) }))
+  .filter((g) => g.items.length);
+---
+<Base title="AI Datasets">
+  <section class="hero">
+    <h1>What do famous AI datasets actually look like?</h1>
+    <p class="muted">
+      A small, curated collection of datasets and benchmarks that shaped AI. Each entry
+      has the key facts, why it matters, and real samples you can shuffle through.
+    </p>
+  </section>
+  {groups.map(({ m, items }) => (
+    <section>
+      <h2>{MODALITIES[m]}</h2>
+      <div class="cards">
+        {items.map((ds) => (
+          <a class="card entry" href={url(`/d/${ds.id}`)}>
+            <div class="top">
+              <h3>{ds.data.name}</h3>
+              <span class="year">{ds.data.year}</span>
+            </div>
+            <p class="one">{ds.data.one_liner}</p>
+            <Preview ds={ds} />
+          </a>
+        ))}
+      </div>
+    </section>
+  ))}
+</Base>
+<style>
+  .hero { padding: 40px 0 8px; max-width: 680px; }
+  .hero h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0 0 12px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .entry { display: flex; flex-direction: column; gap: 10px; padding: 16px; color: var(--text); transition: border-color 0.15s; }
+  .entry:hover { border-color: var(--accent); text-decoration: none; }
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  h3 { margin: 0; font-size: 1.05rem; }
+  .year { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 0.9rem; }
+  .one { margin: 0; font-size: 0.92rem; }
+</style>
