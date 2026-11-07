@@ -1,0 +1,115 @@
+---
+// "Get the data": copy-paste snippets for the full dataset (Hub CLI, 🤗 datasets, Polars).
+import { Code } from 'astro:components';
+import type { Dataset } from '../lib/data';
+interface Props { ds: Dataset }
+const { ds } = Astro.props;
+const { source, download: dl } = ds.data;
+
+const repo = dl.hf ?? source.hf;
+const configs = (source.configs ?? []).map((c) => (typeof c === 'string' ? c : c.config));
+const config = dl.config ?? (dl.hf ? undefined : configs[0] ?? source.config);
+const first = source.configs?.[0];
+const split = dl.split ?? (dl.hf ? undefined : (typeof first === 'object' ? first.split : undefined) ?? source.split) ?? 'train';
+const named = config && config !== 'default';
+const q = (v: string) => JSON.stringify(v);
+
+const others = configs.length > 1 ? `  # or any of: ${configs.slice(1, 6).join(', ')}${configs.length > 6 ? ', …' : ''}` : '';
+const cli = [
+  '# pip install -U huggingface_hub',
+  ...(dl.gated ? ['hf auth login   # gated: accept the terms on the dataset page first'] : []),
+  [
+    `hf download ${repo} --repo-type dataset`,
+    dl.include && `--include ${q(dl.include)}`,
+    dl.revision && `--revision ${dl.revision}`,
+    `--local-dir ${ds.id}`,
+  ].filter(Boolean).join(' \\\n  '),
+].join('\n');
+
+const py = [
+  'from datasets import load_dataset   # pip install datasets',
+  '',
+  `ds = load_dataset(${[q(repo), named && q(config!), dl.revision && `revision=${q(dl.revision)}`].filter(Boolean).join(', ')})${others}`,
+  'print(ds)',
+].join('\n');
+
+// The Hub's Parquet conversion (refs/convert/parquet, "@~parquet") exists for every dataset the viewer can show.
+const polars = [
+  'import polars as pl',
+  '',
+  `df = pl.read_parquet(${q(`hf://datasets/${repo}@~parquet/${config ?? 'default'}/${split}/*.parquet`)})`,
+  ...(dl.gated ? ['# gated: set HF_TOKEN, or run `hf auth login` first'] : []),
+  'print(df.shape)',
+].join('\n');
+
+const tabs = [
+  { id: 'cli', label: 'CLI', lang: 'bash', code: cli },
+  { id: 'datasets', label: 'datasets', lang: 'python', code: py },
+  { id: 'polars', label: 'Polars', lang: 'python', code: polars },
+] as const;
+const themes = { light: 'github-light', dark: 'github-dark' } as const;
+---
+<section class="download card" data-download>
+  <div class="head">
+    <h2>Get the data</h2>
+    <div class="tabs" role="tablist" aria-label="Download method">
+      {tabs.map((t, i) => (
+        <button type="button" role="tab" id={`dl-tab-${t.id}`} aria-controls={`dl-${t.id}`} aria-selected={String(i === 0)} data-tab={t.id}>{t.label}</button>
+      ))}
+    </div>
+  </div>
+  {tabs.map((t, i) => (
+    <div class="panel" role="tabpanel" id={`dl-${t.id}`} aria-labelledby={`dl-tab-${t.id}`} data-panel={t.id} hidden={i !== 0}>
+      <Code code={t.code} lang={t.lang} themes={themes} />
+      <button type="button" class="copy" data-copy={t.code} aria-label={`Copy ${t.label} snippet`}>Copy</button>
+    </div>
+  ))}
+  <p class="muted note">
+    {dl.gated && <><strong>Gated:</strong> log in and accept the terms on <a href={`https://huggingface.co/datasets/${repo}`}>the dataset page</a>. </>}
+    {dl.note ?? (dl.include ? 'The CLI command fetches only the files matching --include; drop it for the whole repository.' : 'The CLI command fetches the whole repository; Polars reads a single split.')}
+  </p>
+</section>
+
+<script>
+  const KEY = 'download-tab';
+  for (const box of document.querySelectorAll<HTMLElement>('[data-download]')) {
+    const select = (id: string) => {
+      box.querySelectorAll<HTMLButtonElement>('[data-tab]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === id)));
+      box.querySelectorAll<HTMLElement>('[data-panel]').forEach((p) => (p.hidden = p.dataset.panel !== id));
+    };
+    try {
+      const saved = localStorage.getItem(KEY);
+      if (saved && box.querySelector(`[data-tab="${saved}"]`)) select(saved);
+    } catch {}
+    box.querySelectorAll<HTMLButtonElement>('[data-tab]').forEach((b) =>
+      b.addEventListener('click', () => {
+        select(b.dataset.tab!);
+        try { localStorage.setItem(KEY, b.dataset.tab!); } catch {}
+      }),
+    );
+    box.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((b) =>
+      b.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(b.dataset.copy!);
+          b.textContent = 'Copied';
+        } catch {
+          b.textContent = 'Copy failed';
+        }
+        setTimeout(() => (b.textContent = 'Copy'), 1500);
+      }),
+    );
+  }
+</script>
+
+<style>
+  .download { padding: 14px 16px 12px; margin-top: 14px; min-width: 0; }
+  .head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+  h2 { margin: 0; font-size: 1rem; }
+  .tabs { display: flex; gap: 2px; padding: 2px; border: 1px solid var(--border); border-radius: 8px; }
+  .tabs button { border: 0; background: none; padding: 3px 10px; font-size: 0.8rem; border-radius: 6px; color: var(--muted); }
+  .tabs button[aria-selected='true'] { background: var(--accent-soft); color: var(--text); }
+  .panel { position: relative; }
+  .panel :global(pre) { margin: 0; font-size: 0.78rem; padding: 10px 12px; padding-right: 64px; white-space: pre; }
+  .copy { position: absolute; top: 6px; right: 6px; font-size: 0.75rem; padding: 2px 8px; }
+  .note { font-size: 0.78rem; margin: 8px 0 0; }
+</style>

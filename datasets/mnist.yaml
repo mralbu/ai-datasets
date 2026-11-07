@@ -24,7 +24,7 @@ trivia:
   - LeNet-5 got about 0.95% test error in 1998. Modern models reach about 0.2%, and most remaining errors are arguably mislabeled or ambiguous digits.
 lineage:
   - { name: NIST Special Database 1 & 3, note: source data }
-  - { name: Fashion-MNIST, note: "2017, drop-in replacement with clothing images", hf: zalando-datasets/fashion_mnist }
+  - { name: Fashion-MNIST, note: "2017, drop-in replacement with clothing images", hf: zalando-datasets/fashion_mnist, id: fashion-mnist }
   - { name: EMNIST, note: "2017, adds letters", url: "https://www.nist.gov/itl/products-and-services/emnist-dataset" }
   - { name: KMNIST, note: "2018, cursive Japanese characters", url: "https://github.com/rois-codh/kmnist" }
 landmark_papers:

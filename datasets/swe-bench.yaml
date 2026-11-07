@@ -1,0 +1,47 @@
+name: SWE-bench
+year: 2023
+modality: benchmark
+task: Fix real GitHub issues in real Python repositories
+one_liner: 2,294 GitHub issues from 12 Python projects; a fix counts only if the project's tests pass.
+creators: Carlos E. Jimenez, John Yang, Alexander Wettig, Shunyu Yao, Kexin Pei, Ofir Press, Karthik Narasimhan (Princeton)
+size: 2,294 test tasks (plus 19k for training)
+splits: { test: 2294, dev: 225, train: 19008 }
+input: An issue description and the repository at the commit before the fix
+labels: The developers' patch, and tests that must go from failing to passing
+license: MIT
+paper:
+  title: "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?"
+  url: https://arxiv.org/abs/2310.06770
+homepage: https://www.swebench.com/
+why: >-
+  HumanEval asks for one self-contained function. SWE-bench puts the model in
+  a real codebase (Django, sympy, scikit-learn, matplotlib and others) and
+  asks for a patch that fixes a reported bug. At release, the best model
+  solved under 2%. Agent tools that browse files, run tests and edit code drove
+  scores up quickly, and its human-checked subset, SWE-bench Verified, became
+  the headline number for coding agents.
+trivia:
+  - Grading runs two groups of tests. FAIL_TO_PASS tests must start passing, and PASS_TO_PASS tests must keep passing.
+  - Django alone accounts for more than a third of the tasks.
+  - The test patch is hidden from the model. It sees only the issue text and the code.
+  - Reviewers for SWE-bench Verified (2024) found many original tasks underspecified or with tests that reject valid fixes, and kept 500 that were fair.
+lineage:
+  - { name: HumanEval, note: "2021, single-function problems", hf: openai/openai_humaneval, id: humaneval }
+  - { name: SWE-bench Lite, note: "2024, a cheaper 300-task subset", hf: princeton-nlp/SWE-bench_Lite }
+  - { name: SWE-bench Verified, note: "2024, 500 human-validated tasks", hf: princeton-nlp/SWE-bench_Verified }
+landmark_papers:
+  - { title: "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering", year: 2024, url: "https://arxiv.org/abs/2405.15793" }
+  - { title: "Introducing SWE-bench Verified", year: 2024, url: "https://openai.com/index/introducing-swe-bench-verified/" }
+source: { hf: princeton-nlp/SWE-bench, config: default, split: test, n: 10, seed: 24 }
+display:
+  kind: code
+  title: instance_id
+  prompt: problem_statement
+  prompt_lang: text
+  prompt_label: "The issue the model is given, along with the repository:"
+  solution: patch
+  solution_lang: diff
+  solution_label: The developers' fix (gold patch)
+  tests: test_patch
+  tests_lang: diff
+  tests_label: Tests added with the fix (hidden from the model)

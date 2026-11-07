@@ -14,6 +14,7 @@ const snippet = (t: unknown, n = 140) => {
 };
 const imageField = d.kind === 'image' || d.kind === 'boxes' ? d.image : undefined;
 const firstLine = (code: string) => code.split('\n').find((l) => l.startsWith('def ')) ?? '';
+const stripMath = (t: unknown) => String(t ?? '').replace(/\$+/g, '');
 ---
 <div class="preview">
   {!s && <span>Samples not fetched</span>}
@@ -25,10 +26,15 @@ const firstLine = (code: string) => code.split('\n').find((l) => l.startsWith('d
     </div>
   )}
   {s && d.kind === 'text' && <p>“{snippet(r0[d.text])}”</p>}
-  {s && (d.kind === 'qa' || d.kind === 'extractive' || d.kind === 'mcq') && <p>{snippet(r0[d.question])}</p>}
+  {s && (d.kind === 'qa' || d.kind === 'extractive' || d.kind === 'mcq') && <p>{snippet(d.kind === 'qa' && d.math ? stripMath(r0[d.question]) : r0[d.question])}</p>}
   {s && d.kind === 'record' && <p>{snippet(Object.values(r0).find((v) => typeof v === 'string'))}</p>}
   {s && d.kind === 'audio' && <p class="mono">♪ {snippet(r0[d.text], 110)}</p>}
-  {s && d.kind === 'code' && <code>{firstLine(String(r0[d.prompt]))}</code>}
+  {s && d.kind === 'code' && (d.prompt_lang === 'python'
+    ? <code>{firstLine(String(r0[d.prompt]))}</code>
+    : <p>{d.title && <code>{r0[d.title]}</code>} {snippet(r0[d.prompt], 110)}</p>)}
+  {s && d.kind === 'translation' && r0[d.translation] && (
+    <p>{snippet(r0[d.translation][d.source], 80)} → {snippet(r0[d.translation][d.target], 80)}</p>
+  )}
   {s && d.kind === 'table' && <code>{s.features.map((f) => f.name).join(' · ')}</code>}
   {s && d.kind === 'grid' && r0[d.train]?.[0] && (
     <div class="arc-mini">

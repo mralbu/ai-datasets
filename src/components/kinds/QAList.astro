@@ -1,6 +1,8 @@
 ---
+import 'katex/dist/katex.min.css';
+import { renderMath } from '../../lib/math';
 import type { SampleRow } from '../../lib/data';
-interface Props { d: { question: string; answer: string }; rows: SampleRow[]; k: number }
+interface Props { d: { question: string; answer: string; tags: string[]; math: boolean }; rows: SampleRow[]; k: number }
 const { d, rows, k } = Astro.props;
 // GSM8K-style answers: highlight <<calc>> annotations and the final "#### n" line.
 const segments = (t: string) => t.split(/(<<[^>]*>>|^####.*$)/m).filter(Boolean);
@@ -8,14 +10,17 @@ const segments = (t: string) => t.split(/(<<[^>]*>>|^####.*$)/m).filter(Boolean)
 <div class="list">
   {rows.map((r, i) => (
     <article class="card" data-item hidden={i >= k}>
-      <p class="q">{r.row[d.question]}</p>
+      {d.tags.length > 0 && <p class="tags">{d.tags.map((t) => <span class="tag">{r.row[t]}</span>)}</p>}
+      {d.math ? <p class="q pre" set:html={renderMath(String(r.row[d.question]))} /> : <p class="q">{r.row[d.question]}</p>}
       <details>
         <summary>Show solution</summary>
-        <p class="pre">
-          {segments(String(r.row[d.answer])).map((seg) =>
-            seg.startsWith('<<') ? <mark class="calc">{seg}</mark> : seg.startsWith('####') ? <strong class="final">{seg}</strong> : seg,
-          )}
-        </p>
+        {d.math ? <p class="pre" set:html={renderMath(String(r.row[d.answer]))} /> : (
+          <p class="pre">
+            {segments(String(r.row[d.answer])).map((seg) =>
+              seg.startsWith('<<') ? <mark class="calc">{seg}</mark> : seg.startsWith('####') ? <strong class="final">{seg}</strong> : seg,
+            )}
+          </p>
+        )}
       </details>
     </article>
   ))}
@@ -23,4 +28,9 @@ const segments = (t: string) => t.split(/(<<[^>]*>>|^####.*$)/m).filter(Boolean)
 <style>
   mark.calc { background: var(--code-bg); color: var(--muted); font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; padding: 0 2px; border-radius: 3px; }
   .final { color: var(--pos); }
+  .tags { display: flex; gap: 6px; margin: 0 0 8px; }
+  article :global(.katex-display) { overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
+  article :global(.asy) { color: var(--muted); font-style: italic; font-size: 0.88em; }
+  /* \boxed{} answers: tint the box like the GSM8K final answer. */
+  article :global(.katex .boxpad) { color: var(--pos); }
 </style>

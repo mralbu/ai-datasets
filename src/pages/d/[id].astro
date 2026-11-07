@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Samples from '../../components/Samples.astro';
 import Chart from '../../components/Chart.astro';
+import Download from '../../components/Download.astro';
 import { getDatasets, getSamples, MODALITIES, url } from '../../lib/data';
 
 export async function getStaticPaths() {
@@ -49,9 +50,12 @@ const facts: [string, string][] = [
         )}
       </div>
     </section>
-    <dl class="facts card">
-      {facts.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
-    </dl>
+    <aside class="side">
+      <dl class="facts card">
+        {facts.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
+      </dl>
+      <Download ds={ds} />
+    </aside>
   </div>
 
   <h2>Samples</h2>
@@ -118,6 +122,7 @@ const facts: [string, string][] = [
     transition: border-color 0.15s, transform 0.15s;
   }
   .icon-btn:hover { text-decoration: none; border-color: var(--accent); transform: translateY(-1px); }
+  .side { min-width: 0; }
   .facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; padding: 16px 18px; margin: 2.2rem 0 0; font-size: 0.9rem; }
   dt { color: var(--muted); }
   dd { margin: 0; }

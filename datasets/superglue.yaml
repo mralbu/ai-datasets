@@ -1,0 +1,50 @@
+name: SuperGLUE
+year: 2019
+modality: text
+task: Benchmark suite of 8 harder language-understanding tasks
+one_liner: "GLUE's harder successor: eight tasks, from yes/no questions to pronoun resolution."
+creators: Alex Wang, Yada Pruksachatkun, Nikita Nangia, Amanpreet Singh, Julian Michael, Felix Hill, Omer Levy, Samuel R. Bowman
+size: ~200k examples across tasks (ReCoRD is most of it)
+splits: { tasks: 8 }
+input: Per task, e.g. a passage and a question, a premise and two choices, two sentences sharing a word
+labels: Per task, e.g. yes/no, entails?, cause or effect?, same meaning?
+license: Varies by task (each underlying dataset keeps its own)
+paper:
+  title: "SuperGLUE: A Stickier Benchmark for General-Purpose Language Understanding Systems"
+  url: https://arxiv.org/abs/1905.00537
+homepage: https://super.gluebenchmark.com/
+why: >-
+  Models passed the human baseline on GLUE about a year after it launched, so
+  the same group picked harder tasks with more reasoning and less
+  surface matching. BERT scored about 69 against a human baseline of 89.8.
+  In January 2021 DeBERTa and T5 + Meena both passed it. After that,
+  attention moved to few-shot benchmarks for large language models. GPT-3's
+  paper already reported SuperGLUE with no fine-tuning at all.
+trivia:
+  - WSC is the Winograd Schema Challenge, reworded as "does this pronoun refer to this noun?".
+  - COPA (2011) asks which of two sentences is the more plausible cause or effect, and it has only 1,000 questions.
+  - ReCoRD, the biggest task, is cloze-style questions over CNN and Daily Mail news. It is not shown below because its answers are entity lists rather than a label.
+  - Two diagnostic sets, AX-b (broad linguistic phenomena) and AX-g (gender bias, from Winogender), are not part of the score.
+  - The samples below are from validation sets; test labels are kept private.
+config_notes:
+  boolq: "BoolQ: answer yes or no to the question about the passage (questions are real Google searches)."
+  cb: "CB (CommitmentBank): does the speaker commit to the embedded clause being true?"
+  copa: "COPA: which choice is the more plausible cause or effect of the premise?"
+  multirc: "MultiRC: is this candidate answer to the question about the paragraph correct?"
+  rte: "RTE: does the premise entail the hypothesis?"
+  wic: "WiC: is the word used with the same meaning in both sentences?"
+  wsc.fixed: "WSC: does the pronoun (span2) refer to span1?"
+lineage:
+  - { name: GLUE, note: "2018, the predecessor", hf: nyu-mll/glue, id: glue }
+  - { name: MMLU, note: "2020, knowledge-heavy benchmark for the LLM era", hf: cais/mmlu, id: mmlu }
+landmark_papers:
+  - { title: "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer (T5)", year: 2019, url: "https://arxiv.org/abs/1910.10683" }
+  - { title: "Language Models are Few-Shot Learners (GPT-3)", year: 2020, url: "https://arxiv.org/abs/2005.14165" }
+  - { title: "DeBERTa: Decoding-enhanced BERT with Disentangled Attention", year: 2020, url: "https://arxiv.org/abs/2006.03654" }
+source:
+  hf: aps/super_glue
+  split: validation
+  n: 3
+  seed: 20
+  configs: [boolq, cb, copa, multirc, rte, wic, wsc.fixed]
+display: { kind: record, label: label }

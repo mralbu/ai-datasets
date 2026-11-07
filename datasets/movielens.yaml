@@ -1,0 +1,38 @@
+name: MovieLens
+year: 1998
+modality: tabular
+task: Recommendation (predict how a user rates a movie)
+one_liner: Millions of 0.5–5 star movie ratings from the MovieLens site, the classic recommender dataset.
+creators: GroupLens Research (University of Minnesota)
+size: Versions from 100k to 25M+ ratings; the copy sampled here has ~1M
+splits: { train: 891382, validation: 99043 }
+input: User id, movie id (with title and genres)
+labels: Rating, 0.5–5 stars
+license: GroupLens research license (non-commercial use)
+paper:
+  title: "The MovieLens Datasets: History and Context"
+  url: https://doi.org/10.1145/2827872
+homepage: https://grouplens.org/datasets/movielens/
+why: >-
+  For two decades, the default dataset for recommender systems. Each row is
+  one (user, movie, rating) triple, so the data is a huge, mostly empty
+  matrix. The task is to fill in the gaps: collaborative filtering, matrix
+  factorization, then neural recommenders. The ratings come from a real
+  research site that people used to get movie suggestions, which made it
+  realistic and, unlike commercial data, freely shareable.
+trivia:
+  - The matrix is very sparse. MovieLens 25M has 25 million ratings from 162k users on 62k movies, so about 0.25% of the cells are filled.
+  - Every user in the standard releases rated at least 20 movies; less active users were left out.
+  - "Main releases: 100K (1998), 1M (2003), 10M (2009), 20M (2015), 25M (2019). Half-star ratings date from 2003; the older sets use whole stars."
+  - The Netflix Prize (2006–2009) used much bigger proprietary data, but MovieLens is what most papers can actually share and reproduce.
+lineage:
+  - { name: Netflix Prize, note: "2006, 100M ratings and a $1M prize", url: "https://en.wikipedia.org/wiki/Netflix_Prize" }
+  - { name: MovieLens 100K, note: "1998, the original release, with user demographics", hf: DukeNLPGroup/movielens-100k }
+landmark_papers:
+  - { title: "Item-Based Collaborative Filtering Recommendation Algorithms", year: 2001, url: "https://doi.org/10.1145/371920.372071" }
+  - { title: "Matrix Factorization Techniques for Recommender Systems", year: 2009, url: "https://doi.org/10.1109/MC.2009.263" }
+  - { title: "Neural Collaborative Filtering", year: 2017, url: "https://arxiv.org/abs/1708.05031" }
+source: { hf: ashraq/movielens_ratings, config: default, split: validation, n: 16, seed: 25 }
+display: { kind: table, columns: [user_id, movie_id, title, genres, rating] }
+download:
+  note: "This is a community copy of about 1M ratings with titles and poster links. The official releases (100K to 32M) are zip files on the GroupLens site."

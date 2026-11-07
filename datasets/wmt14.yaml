@@ -1,0 +1,39 @@
+name: WMT14 English–German
+year: 2014
+modality: text
+task: Machine translation
+one_liner: "4.5M English–German sentence pairs: the benchmark in the Transformer paper."
+creators: Ondřej Bojar et al. (Workshop on Statistical Machine Translation)
+size: 4.5M training pairs; newstest2014 has 3,003 sentences
+splits: { train: 4508785, validation: 3000, test: 3003 }
+input: A sentence in English (or German)
+labels: Its human translation
+license: Research use; varies by source corpus
+paper:
+  title: Findings of the 2014 Workshop on Statistical Machine Translation
+  url: https://aclanthology.org/W14-3302/
+homepage: https://www.statmt.org/wmt14/
+why: >-
+  WMT runs a news-translation shared task every year, but the 2014
+  English→German and English→French sets stuck as the fixed yardstick for
+  neural machine translation: sequence-to-sequence models, attention, Google's
+  GNMT, convolutional seq2seq, and "Attention Is All You Need", whose 28.4
+  BLEU on English→German was the headline result. The test set is still
+  reported, though it is long saturated by modern systems.
+trivia:
+  - "Training data mixes Europarl (European Parliament proceedings), News Commentary and a noisy Common Crawl web scrape."
+  - The test set is news articles translated by professionals. Some were written in English and some in German, and systems score differently on each direction ("translationese").
+  - BLEU depends on tokenization, so scores from different papers were often not comparable. SacreBLEU (2018) standardized it.
+  - The Transformer used one shared byte-pair vocabulary of about 37,000 tokens for both languages.
+lineage:
+  - { name: WMT14 English–French, note: "36M pairs, the other Transformer benchmark", hf: wmt/wmt14 }
+  - { name: WMT16, note: "2016, adds Romanian and more", hf: wmt/wmt16 }
+  - { name: FLORES-200, note: "2022, evaluation sets for 200 languages", url: "https://github.com/facebookresearch/flores" }
+landmark_papers:
+  - { title: "Sequence to Sequence Learning with Neural Networks", year: 2014, url: "https://arxiv.org/abs/1409.3215" }
+  - { title: "Neural Machine Translation by Jointly Learning to Align and Translate", year: 2014, url: "https://arxiv.org/abs/1409.0473" }
+  - { title: "Attention Is All You Need", year: 2017, url: "https://arxiv.org/abs/1706.03762" }
+  - { title: "A Call for Clarity in Reporting BLEU Scores (SacreBLEU)", year: 2018, url: "https://arxiv.org/abs/1804.08771" }
+source: { hf: wmt/wmt14, config: de-en, split: test, n: 18, seed: 22 }
+display: { kind: translation, translation: translation, source: en, target: de }
+download: { include: "de-en/*" }

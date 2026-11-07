@@ -24,7 +24,7 @@ trivia:
   - The standard metric averages precision over IoU thresholds from 0.5 to 0.95, which rewards tight boxes.
   - About 1 in 10 annotations is a "crowd" region (a group of people or objects) handled specially in scoring.
 lineage:
-  - { name: Pascal VOC, note: "2005–2012, 20 classes, the predecessor", hf: HuggingFaceM4/pascal_voc }
+  - { name: Pascal VOC, note: "2005–2012, 20 classes, the predecessor", hf: TNILab/pascal_voc2012_det_train_val, id: pascal-voc }
   - { name: LVIS, note: "2019, 1,200+ categories on COCO images", url: "https://www.lvisdataset.org/" }
   - { name: Objects365, note: "2019, 365 categories, 2M images", url: "https://www.objects365.org/" }
 landmark_papers:
@@ -34,3 +34,6 @@ landmark_papers:
   - { title: "End-to-End Object Detection with Transformers (DETR)", year: 2020, url: "https://arxiv.org/abs/2005.12872" }
 source: { hf: rafaelpadilla/coco2017, config: default, split: val, n: 18, seed: 11 }
 display: { kind: boxes, image: image, objects: objects }
+download:
+  revision: refs/convert/parquet
+  note: "This copy uses a loading script, so the snippets use the Hub's Parquet conversion (train + val, ~19 GB). The original zips are on cocodataset.org."

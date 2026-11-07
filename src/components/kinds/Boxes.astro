@@ -1,8 +1,8 @@
 ---
 import { classNames, url, type Samples, type SampleRow } from '../../lib/data';
-interface Props { s: Samples; d: { image: string; objects: string }; rows: SampleRow[]; k: number }
+interface Props { s: Samples; d: { image: string; objects: string; label: string }; rows: SampleRow[]; k: number }
 const { s, d, rows, k } = Astro.props;
-const names = classNames(s, d.objects);
+const names = classNames(s, d.objects, d.label);
 const palette = ['#e6194b', '#3cb44b', '#4363d8', '#f58231', '#911eb4', '#42d4f4', '#f032e6', '#bfef45', '#fabed4', '#469990', '#dcbeff', '#9a6324'];
 const color = (id: number) => palette[id % palette.length];
 const counts = (labels: number[]) => {
@@ -15,21 +15,22 @@ const counts = (labels: number[]) => {
   {rows.map((r, i) => {
     const img = r.row[d.image];
     const o = r.row[d.objects];
+    const labels: number[] = o[d.label];
     return (
       <figure class="card" data-item hidden={i >= k}>
         <div class="frame">
           <img src={url(img.src)} width={img.width} height={img.height} alt="" loading="lazy" />
           <svg viewBox={`0 0 ${img.width} ${img.height}`} preserveAspectRatio="none" aria-hidden="true">
             {o.bbox.map(([x, y, w, h]: number[], j: number) => (
-              <g style={`--c:${color(o.label[j])}`}>
+              <g style={`--c:${color(labels[j])}`}>
                 <rect x={x} y={y} width={w} height={h} />
-                <text x={x + 3} y={y + 14}>{names[o.label[j]]}</text>
+                <text x={x + 3} y={y + 14}>{names[labels[j]]}</text>
               </g>
             ))}
           </svg>
         </div>
         <figcaption>
-          {counts(o.label).map(([n, c]) => <span class="obj">{n}{c > 1 && <span class="muted"> ×{c}</span>}</span>)}
+          {counts(labels).map(([n, c]) => <span class="obj">{n}{c > 1 && <span class="muted"> ×{c}</span>}</span>)}
         </figcaption>
       </figure>
     );

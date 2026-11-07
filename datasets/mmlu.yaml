@@ -31,3 +31,4 @@ landmark_papers:
   - { title: "Are We Done with MMLU?", year: 2024, url: "https://arxiv.org/abs/2406.04127" }
 source: { hf: cais/mmlu, config: all, split: test, n: 24, seed: 12, rows_per_page: 2 }
 display: { kind: mcq, question: question, choices: choices, answer: answer, subject: subject }
+download: { include: "all/*" }

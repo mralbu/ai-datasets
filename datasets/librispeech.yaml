@@ -32,3 +32,4 @@ landmark_papers:
   - { title: "Robust Speech Recognition via Large-Scale Weak Supervision (Whisper)", year: 2022, url: "https://arxiv.org/abs/2212.04356" }
 source: { hf: openslr/librispeech_asr, config: clean, split: test, n: 10, seed: 15 }
 display: { kind: audio, audio: audio, text: text, speaker: speaker_id }
+download: { include: "clean/test/*" }

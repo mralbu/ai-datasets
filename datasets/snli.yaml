@@ -1,0 +1,37 @@
+name: SNLI
+year: 2015
+modality: text
+task: Natural language inference (entailment)
+one_liner: "570k sentence pairs: does the premise entail, contradict, or say nothing about the hypothesis?"
+creators: Samuel R. Bowman, Gabor Angeli, Christopher Potts, Christopher D. Manning (Stanford)
+size: 570,152 sentence pairs
+splits: { train: 550152, validation: 10000, test: 10000 }
+input: A premise (an image caption) and a hypothesis written by a crowdworker
+labels: entailment, neutral or contradiction
+license: CC BY-SA 4.0
+paper:
+  title: A large annotated corpus for learning natural language inference
+  url: https://arxiv.org/abs/1508.05326
+homepage: https://nlp.stanford.edu/projects/snli/
+why: >-
+  Earlier entailment datasets (the RTE challenges) had a few thousand
+  examples. SNLI had half a million, enough to train neural networks on
+  "does this sentence follow from that one?". It drove a run of attention
+  models and sentence encoders (InferSent was trained on it). It also became
+  the standard example of annotation artifacts: models could guess the label
+  from the hypothesis alone, without reading the premise.
+trivia:
+  - Premises are Flickr30k image captions. Workers saw only the caption and wrote one hypothesis that is definitely true, one that might be true and one that is definitely false.
+  - A hypothesis-only classifier gets about 67% (chance is 33%). Negation words like "nobody" or "sleeping" are strong hints for contradiction.
+  - Validation and test pairs were relabeled by four more annotators. Pairs without a majority get label -1 and are usually dropped.
+config_notes:
+  plain_text: "Does the premise entail, contradict, or say nothing about the hypothesis?"
+lineage:
+  - { name: MultiNLI, note: "2017, 433k pairs across ten genres, part of GLUE", hf: nyu-mll/multi_nli, id: glue }
+  - { name: ANLI, note: "2019, collected adversarially against strong models", hf: facebook/anli }
+landmark_papers:
+  - { title: "Enhanced LSTM for Natural Language Inference (ESIM)", year: 2016, url: "https://arxiv.org/abs/1609.06038" }
+  - { title: "Supervised Learning of Universal Sentence Representations from NLI Data (InferSent)", year: 2017, url: "https://arxiv.org/abs/1705.02364" }
+  - { title: "Annotation Artifacts in Natural Language Inference Data", year: 2018, url: "https://arxiv.org/abs/1803.02324" }
+source: { hf: stanfordnlp/snli, config: plain_text, split: validation, n: 24, seed: 19 }
+display: { kind: record, label: label }

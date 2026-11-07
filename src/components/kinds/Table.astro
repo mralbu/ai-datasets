@@ -1,8 +1,8 @@
 ---
 import type { Samples, SampleRow } from '../../lib/data';
-interface Props { s: Samples; rows: SampleRow[]; k: number }
-const { s, rows, k } = Astro.props;
-const cols = s.features.map((f) => f.name);
+interface Props { s: Samples; d: { columns?: string[] }; rows: SampleRow[]; k: number }
+const { s, d, rows, k } = Astro.props;
+const cols = d.columns ?? s.features.map((f) => f.name);
 const fmt = (v: unknown) => (v === null || v === undefined ? '∅' : String(v));
 ---
 <div class="table-wrap card">
