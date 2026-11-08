@@ -1,0 +1,1420 @@
+{
+ "features": [
+  {
+   "name": "question_type",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "multiple_choice_answer",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "answers",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "answer": {
+      "_type": "Value",
+      "dtype": "string"
+     },
+     "answer_confidence": {
+      "_type": "Value",
+      "dtype": "string"
+     },
+     "answer_id": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    }
+   }
+  },
+  {
+   "name": "image_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "answer_type",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "question_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "question",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "image",
+   "type": {
+    "_type": "Image"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-08T04:10:51+00:00",
+ "id": "vqa-v2",
+ "num_rows_total": 214354,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "question_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "multiple_choice_answer",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answers",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "answer": {
+        "_type": "Value",
+        "dtype": "string"
+       },
+       "answer_confidence": {
+        "_type": "Value",
+        "dtype": "string"
+       },
+       "answer_id": {
+        "_type": "Value",
+        "dtype": "int64"
+       }
+      }
+     }
+    },
+    {
+     "name": "image_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "answer_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "image",
+     "type": {
+      "_type": "Image"
+     }
+    }
+   ],
+   "num_rows_total": 214354,
+   "split": "validation"
+  }
+ ],
+ "revision": "32665d35052eb4a6d4414851c3c829a72754915a",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "answer_type": "other",
+    "answers": [
+     {
+      "answer": "forehand",
+      "answer_confidence": "yes",
+      "answer_id": 1
+     },
+     {
+      "answer": "forehand",
+      "answer_confidence": "yes",
+      "answer_id": 2
+     },
+     {
+      "answer": "forehand",
+      "answer_confidence": "maybe",
+      "answer_id": 3
+     },
+     {
+      "answer": "forehand",
+      "answer_confidence": "maybe",
+      "answer_id": 4
+     },
+     {
+      "answer": "forehand",
+      "answer_confidence": "yes",
+      "answer_id": 5
+     },
+     {
+      "answer": "forehand",
+      "answer_confidence": "yes",
+      "answer_id": 6
+     },
+     {
+      "answer": "forehand",
+      "answer_confidence": "yes",
+      "answer_id": 7
+     },
+     {
+      "answer": "forehand",
+      "answer_confidence": "yes",
+      "answer_id": 8
+     },
+     {
+      "answer": "forehand",
+      "answer_confidence": "yes",
+      "answer_id": 9
+     },
+     {
+      "answer": "forehand",
+      "answer_confidence": "yes",
+      "answer_id": 10
+     }
+    ],
+    "image": {
+     "height": 640,
+     "src": "samples/vqa-v2/147216-image.jpg",
+     "width": 480
+    },
+    "image_id": 86988,
+    "multiple_choice_answer": "forehand",
+    "question": "Is a forehand or backhand stroke shown in the scene?",
+    "question_id": 86988003,
+    "question_type": "is"
+   },
+   "row_idx": 147216,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer_type": "other",
+    "answers": [
+     {
+      "answer": "yellow",
+      "answer_confidence": "yes",
+      "answer_id": 1
+     },
+     {
+      "answer": "orange",
+      "answer_confidence": "yes",
+      "answer_id": 2
+     },
+     {
+      "answer": "orange",
+      "answer_confidence": "yes",
+      "answer_id": 3
+     },
+     {
+      "answer": "orange",
+      "answer_confidence": "yes",
+      "answer_id": 4
+     },
+     {
+      "answer": "yellow",
+      "answer_confidence": "yes",
+      "answer_id": 5
+     },
+     {
+      "answer": "yellow",
+      "answer_confidence": "yes",
+      "answer_id": 6
+     },
+     {
+      "answer": "silver",
+      "answer_confidence": "yes",
+      "answer_id": 7
+     },
+     {
+      "answer": "orange",
+      "answer_confidence": "yes",
+      "answer_id": 8
+     },
+     {
+      "answer": "yellow",
+      "answer_confidence": "yes",
+      "answer_id": 9
+     },
+     {
+      "answer": "orange",
+      "answer_confidence": "yes",
+      "answer_id": 10
+     }
+    ],
+    "image": {
+     "height": 427,
+     "src": "samples/vqa-v2/4252-image.jpg",
+     "width": 640
+    },
+    "image_id": 2139,
+    "multiple_choice_answer": "orange",
+    "question": "What color is the bike wheels rims?",
+    "question_id": 2139003,
+    "question_type": "what color is the"
+   },
+   "row_idx": 4252,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer_type": "yes/no",
+    "answers": [
+     {
+      "answer": "yes",
+      "answer_confidence": "maybe",
+      "answer_id": 1
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 2
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 3
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "maybe",
+      "answer_id": 4
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 5
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "maybe",
+      "answer_id": 6
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "maybe",
+      "answer_id": 7
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 8
+     },
+     {
+      "answer": "maybe",
+      "answer_confidence": "maybe",
+      "answer_id": 9
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 10
+     }
+    ],
+    "image": {
+     "height": 480,
+     "src": "samples/vqa-v2/133399-image.jpg",
+     "width": 640
+    },
+    "image_id": 208991,
+    "multiple_choice_answer": "yes",
+    "question": "Is this a Middle Eastern town?",
+    "question_id": 208991000,
+    "question_type": "is this a"
+   },
+   "row_idx": 133399,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer_type": "other",
+    "answers": [
+     {
+      "answer": "black",
+      "answer_confidence": "yes",
+      "answer_id": 1
+     },
+     {
+      "answer": "purple",
+      "answer_confidence": "yes",
+      "answer_id": 2
+     },
+     {
+      "answer": "black",
+      "answer_confidence": "maybe",
+      "answer_id": 3
+     },
+     {
+      "answer": "blue",
+      "answer_confidence": "maybe",
+      "answer_id": 4
+     },
+     {
+      "answer": "purple",
+      "answer_confidence": "yes",
+      "answer_id": 5
+     },
+     {
+      "answer": "black",
+      "answer_confidence": "yes",
+      "answer_id": 6
+     },
+     {
+      "answer": "purple",
+      "answer_confidence": "yes",
+      "answer_id": 7
+     },
+     {
+      "answer": "purple",
+      "answer_confidence": "yes",
+      "answer_id": 8
+     },
+     {
+      "answer": "blue and black",
+      "answer_confidence": "yes",
+      "answer_id": 9
+     },
+     {
+      "answer": "blue",
+      "answer_confidence": "yes",
+      "answer_id": 10
+     }
+    ],
+    "image": {
+     "height": 427,
+     "src": "samples/vqa-v2/23141-image.jpg",
+     "width": 640
+    },
+    "image_id": 405762,
+    "multiple_choice_answer": "purple",
+    "question": "What color are the mans socks?",
+    "question_id": 405762003,
+    "question_type": "what color are the"
+   },
+   "row_idx": 23141,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer_type": "other",
+    "answers": [
+     {
+      "answer": "ocean",
+      "answer_confidence": "yes",
+      "answer_id": 1
+     },
+     {
+      "answer": "in summer",
+      "answer_confidence": "maybe",
+      "answer_id": 2
+     },
+     {
+      "answer": "ocean",
+      "answer_confidence": "maybe",
+      "answer_id": 3
+     },
+     {
+      "answer": "ocean",
+      "answer_confidence": "yes",
+      "answer_id": 4
+     },
+     {
+      "answer": "ocean",
+      "answer_confidence": "yes",
+      "answer_id": 5
+     },
+     {
+      "answer": "on lake",
+      "answer_confidence": "maybe",
+      "answer_id": 6
+     },
+     {
+      "answer": "1998",
+      "answer_confidence": "no",
+      "answer_id": 7
+     },
+     {
+      "answer": "on sea",
+      "answer_confidence": "yes",
+      "answer_id": 8
+     },
+     {
+      "answer": "ocean",
+      "answer_confidence": "maybe",
+      "answer_id": 9
+     },
+     {
+      "answer": "water",
+      "answer_confidence": "yes",
+      "answer_id": 10
+     }
+    ],
+    "image": {
+     "height": 640,
+     "src": "samples/vqa-v2/80162-image.jpg",
+     "width": 472
+    },
+    "image_id": 44536,
+    "multiple_choice_answer": "ocean",
+    "question": "Where was this taken?",
+    "question_id": 44536000,
+    "question_type": "none of the above"
+   },
+   "row_idx": 80162,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer_type": "other",
+    "answers": [
+     {
+      "answer": "irfca delhi",
+      "answer_confidence": "yes",
+      "answer_id": 1
+     },
+     {
+      "answer": "unknown",
+      "answer_confidence": "yes",
+      "answer_id": 2
+     },
+     {
+      "answer": "photo by nin bhardoni",
+      "answer_confidence": "maybe",
+      "answer_id": 3
+     },
+     {
+      "answer": "irfca-delhi",
+      "answer_confidence": "maybe",
+      "answer_id": 4
+     },
+     {
+      "answer": "photo by: nhim bharduaf",
+      "answer_confidence": "maybe",
+      "answer_id": 5
+     },
+     {
+      "answer": "photo by",
+      "answer_confidence": "maybe",
+      "answer_id": 6
+     },
+     {
+      "answer": "hrfca",
+      "answer_confidence": "yes",
+      "answer_id": 7
+     },
+     {
+      "answer": "photo by njan burberry",
+      "answer_confidence": "no",
+      "answer_id": 8
+     },
+     {
+      "answer": "unknown",
+      "answer_confidence": "no",
+      "answer_id": 9
+     },
+     {
+      "answer": "photo by",
+      "answer_confidence": "yes",
+      "answer_id": 10
+     }
+    ],
+    "image": {
+     "height": 422,
+     "src": "samples/vqa-v2/170936-image.jpg",
+     "width": 640
+    },
+    "image_id": 364587,
+    "multiple_choice_answer": "unknown",
+    "question": "What does the corner of the picture say?",
+    "question_id": 364587000,
+    "question_type": "what does the"
+   },
+   "row_idx": 170936,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer_type": "number",
+    "answers": [
+     {
+      "answer": "15 mph",
+      "answer_confidence": "yes",
+      "answer_id": 1
+     },
+     {
+      "answer": "15",
+      "answer_confidence": "yes",
+      "answer_id": 2
+     },
+     {
+      "answer": "15",
+      "answer_confidence": "yes",
+      "answer_id": 3
+     },
+     {
+      "answer": "15",
+      "answer_confidence": "yes",
+      "answer_id": 4
+     },
+     {
+      "answer": "15 mph",
+      "answer_confidence": "yes",
+      "answer_id": 5
+     },
+     {
+      "answer": "15",
+      "answer_confidence": "yes",
+      "answer_id": 6
+     },
+     {
+      "answer": "15",
+      "answer_confidence": "yes",
+      "answer_id": 7
+     },
+     {
+      "answer": "15",
+      "answer_confidence": "yes",
+      "answer_id": 8
+     },
+     {
+      "answer": "15",
+      "answer_confidence": "yes",
+      "answer_id": 9
+     },
+     {
+      "answer": "15",
+      "answer_confidence": "yes",
+      "answer_id": 10
+     }
+    ],
+    "image": {
+     "height": 640,
+     "src": "samples/vqa-v2/182477-image.jpg",
+     "width": 596
+    },
+    "image_id": 503277,
+    "multiple_choice_answer": "15",
+    "question": "What is the speed limit?",
+    "question_id": 503277000,
+    "question_type": "what is the"
+   },
+   "row_idx": 182477,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer_type": "other",
+    "answers": [
+     {
+      "answer": "brown",
+      "answer_confidence": "maybe",
+      "answer_id": 1
+     },
+     {
+      "answer": "tan",
+      "answer_confidence": "yes",
+      "answer_id": 2
+     },
+     {
+      "answer": "tan",
+      "answer_confidence": "yes",
+      "answer_id": 3
+     },
+     {
+      "answer": "brown",
+      "answer_confidence": "yes",
+      "answer_id": 4
+     },
+     {
+      "answer": "brown",
+      "answer_confidence": "yes",
+      "answer_id": 5
+     },
+     {
+      "answer": "brown",
+      "answer_confidence": "maybe",
+      "answer_id": 6
+     },
+     {
+      "answer": "brown",
+      "answer_confidence": "yes",
+      "answer_id": 7
+     },
+     {
+      "answer": "brown",
+      "answer_confidence": "yes",
+      "answer_id": 8
+     },
+     {
+      "answer": "brown",
+      "answer_confidence": "yes",
+      "answer_id": 9
+     },
+     {
+      "answer": "tan",
+      "answer_confidence": "yes",
+      "answer_id": 10
+     }
+    ],
+    "image": {
+     "height": 432,
+     "src": "samples/vqa-v2/34506-image.jpg",
+     "width": 640
+    },
+    "image_id": 543409,
+    "multiple_choice_answer": "brown",
+    "question": "What color is the table?",
+    "question_id": 543409000,
+    "question_type": "what color is the"
+   },
+   "row_idx": 34506,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer_type": "other",
+    "answers": [
+     {
+      "answer": "zipped open",
+      "answer_confidence": "yes",
+      "answer_id": 1
+     },
+     {
+      "answer": "open",
+      "answer_confidence": "yes",
+      "answer_id": 2
+     },
+     {
+      "answer": "open",
+      "answer_confidence": "yes",
+      "answer_id": 3
+     },
+     {
+      "answer": "zipped open",
+      "answer_confidence": "yes",
+      "answer_id": 4
+     },
+     {
+      "answer": "open",
+      "answer_confidence": "yes",
+      "answer_id": 5
+     },
+     {
+      "answer": "open",
+      "answer_confidence": "yes",
+      "answer_id": 6
+     },
+     {
+      "answer": "open",
+      "answer_confidence": "yes",
+      "answer_id": 7
+     },
+     {
+      "answer": "open",
+      "answer_confidence": "yes",
+      "answer_id": 8
+     },
+     {
+      "answer": "open",
+      "answer_confidence": "yes",
+      "answer_id": 9
+     },
+     {
+      "answer": "open",
+      "answer_confidence": "yes",
+      "answer_id": 10
+     }
+    ],
+    "image": {
+     "height": 427,
+     "src": "samples/vqa-v2/102343-image.jpg",
+     "width": 640
+    },
+    "image_id": 57091,
+    "multiple_choice_answer": "open",
+    "question": "Was the suitcase zipper open or closed as the photo was being taken?",
+    "question_id": 57091001,
+    "question_type": "was"
+   },
+   "row_idx": 102343,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer_type": "other",
+    "answers": [
+     {
+      "answer": "floor and walls",
+      "answer_confidence": "yes",
+      "answer_id": 1
+     },
+     {
+      "answer": "floor",
+      "answer_confidence": "no",
+      "answer_id": 2
+     },
+     {
+      "answer": "nothing",
+      "answer_confidence": "yes",
+      "answer_id": 3
+     },
+     {
+      "answer": "stove",
+      "answer_confidence": "yes",
+      "answer_id": 4
+     },
+     {
+      "answer": "stove",
+      "answer_confidence": "yes",
+      "answer_id": 5
+     },
+     {
+      "answer": "cabinets",
+      "answer_confidence": "maybe",
+      "answer_id": 6
+     },
+     {
+      "answer": "wall",
+      "answer_confidence": "maybe",
+      "answer_id": 7
+     },
+     {
+      "answer": "wall",
+      "answer_confidence": "yes",
+      "answer_id": 8
+     },
+     {
+      "answer": "pot on stove",
+      "answer_confidence": "yes",
+      "answer_id": 9
+     },
+     {
+      "answer": "cabinets",
+      "answer_confidence": "yes",
+      "answer_id": 10
+     }
+    ],
+    "image": {
+     "height": 640,
+     "src": "samples/vqa-v2/88187-image.jpg",
+     "width": 480
+    },
+    "image_id": 95569,
+    "multiple_choice_answer": "cabinets",
+    "question": "What is brightly colored in the kitchen?",
+    "question_id": 95569014,
+    "question_type": "what is"
+   },
+   "row_idx": 88187,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer_type": "yes/no",
+    "answers": [
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 1
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 2
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 3
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 4
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 5
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 6
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 7
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "maybe",
+      "answer_id": 8
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 9
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 10
+     }
+    ],
+    "image": {
+     "height": 425,
+     "src": "samples/vqa-v2/51328-image.jpg",
+     "width": 640
+    },
+    "image_id": 28508,
+    "multiple_choice_answer": "yes",
+    "question": "Does this look like a natural habitat?",
+    "question_id": 28508011,
+    "question_type": "does this"
+   },
+   "row_idx": 51328,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer_type": "other",
+    "answers": [
+     {
+      "answer": "1",
+      "answer_confidence": "yes",
+      "answer_id": 1
+     },
+     {
+      "answer": "cows",
+      "answer_confidence": "yes",
+      "answer_id": 2
+     },
+     {
+      "answer": "cows/calves",
+      "answer_confidence": "yes",
+      "answer_id": 3
+     },
+     {
+      "answer": "cows",
+      "answer_confidence": "yes",
+      "answer_id": 4
+     },
+     {
+      "answer": "cows",
+      "answer_confidence": "yes",
+      "answer_id": 5
+     },
+     {
+      "answer": "cows",
+      "answer_confidence": "yes",
+      "answer_id": 6
+     },
+     {
+      "answer": "cows",
+      "answer_confidence": "yes",
+      "answer_id": 7
+     },
+     {
+      "answer": "cows",
+      "answer_confidence": "yes",
+      "answer_id": 8
+     },
+     {
+      "answer": "cows",
+      "answer_confidence": "yes",
+      "answer_id": 9
+     },
+     {
+      "answer": "cow",
+      "answer_confidence": "yes",
+      "answer_id": 10
+     }
+    ],
+    "image": {
+     "height": 427,
+     "src": "samples/vqa-v2/199561-image.jpg",
+     "width": 640
+    },
+    "image_id": 532145,
+    "multiple_choice_answer": "cows",
+    "question": "What type of animals are shown?",
+    "question_id": 532145000,
+    "question_type": "what type of"
+   },
+   "row_idx": 199561,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer_type": "other",
+    "answers": [
+     {
+      "answer": "right",
+      "answer_confidence": "yes",
+      "answer_id": 1
+     },
+     {
+      "answer": "left",
+      "answer_confidence": "yes",
+      "answer_id": 2
+     },
+     {
+      "answer": "left",
+      "answer_confidence": "yes",
+      "answer_id": 3
+     },
+     {
+      "answer": "left",
+      "answer_confidence": "yes",
+      "answer_id": 4
+     },
+     {
+      "answer": "left",
+      "answer_confidence": "yes",
+      "answer_id": 5
+     },
+     {
+      "answer": "left",
+      "answer_confidence": "yes",
+      "answer_id": 6
+     },
+     {
+      "answer": "left",
+      "answer_confidence": "yes",
+      "answer_id": 7
+     },
+     {
+      "answer": "left",
+      "answer_confidence": "yes",
+      "answer_id": 8
+     },
+     {
+      "answer": "left",
+      "answer_confidence": "yes",
+      "answer_id": 9
+     },
+     {
+      "answer": "left",
+      "answer_confidence": "yes",
+      "answer_id": 10
+     }
+    ],
+    "image": {
+     "height": 427,
+     "src": "samples/vqa-v2/118405-image.jpg",
+     "width": 640
+    },
+    "image_id": 198768,
+    "multiple_choice_answer": "left",
+    "question": "Is the man right handed or left handed?",
+    "question_id": 198768003,
+    "question_type": "is the man"
+   },
+   "row_idx": 118405,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer_type": "yes/no",
+    "answers": [
+     {
+      "answer": "no",
+      "answer_confidence": "yes",
+      "answer_id": 1
+     },
+     {
+      "answer": "no",
+      "answer_confidence": "yes",
+      "answer_id": 2
+     },
+     {
+      "answer": "no",
+      "answer_confidence": "maybe",
+      "answer_id": 3
+     },
+     {
+      "answer": "no",
+      "answer_confidence": "yes",
+      "answer_id": 4
+     },
+     {
+      "answer": "no",
+      "answer_confidence": "yes",
+      "answer_id": 5
+     },
+     {
+      "answer": "no",
+      "answer_confidence": "yes",
+      "answer_id": 6
+     },
+     {
+      "answer": "no",
+      "answer_confidence": "yes",
+      "answer_id": 7
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 8
+     },
+     {
+      "answer": "no",
+      "answer_confidence": "yes",
+      "answer_id": 9
+     },
+     {
+      "answer": "no",
+      "answer_confidence": "yes",
+      "answer_id": 10
+     }
+    ],
+    "image": {
+     "height": 480,
+     "src": "samples/vqa-v2/209494-image.jpg",
+     "width": 640
+    },
+    "image_id": 521008,
+    "multiple_choice_answer": "no",
+    "question": "Is this a private bathroom?",
+    "question_id": 521008004,
+    "question_type": "is this a"
+   },
+   "row_idx": 209494,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer_type": "yes/no",
+    "answers": [
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 1
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 2
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 3
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 4
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 5
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 6
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 7
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 8
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 9
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 10
+     }
+    ],
+    "image": {
+     "height": 640,
+     "src": "samples/vqa-v2/61678-image.jpg",
+     "width": 424
+    },
+    "image_id": 296393,
+    "multiple_choice_answer": "yes",
+    "question": "Is the boy standing on brick?",
+    "question_id": 296393001,
+    "question_type": "is the"
+   },
+   "row_idx": 61678,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer_type": "yes/no",
+    "answers": [
+     {
+      "answer": "no",
+      "answer_confidence": "yes",
+      "answer_id": 1
+     },
+     {
+      "answer": "no",
+      "answer_confidence": "yes",
+      "answer_id": 2
+     },
+     {
+      "answer": "no",
+      "answer_confidence": "yes",
+      "answer_id": 3
+     },
+     {
+      "answer": "no",
+      "answer_confidence": "yes",
+      "answer_id": 4
+     },
+     {
+      "answer": "no",
+      "answer_confidence": "yes",
+      "answer_id": 5
+     },
+     {
+      "answer": "no",
+      "answer_confidence": "yes",
+      "answer_id": 6
+     },
+     {
+      "answer": "no",
+      "answer_confidence": "yes",
+      "answer_id": 7
+     },
+     {
+      "answer": "no",
+      "answer_confidence": "maybe",
+      "answer_id": 8
+     },
+     {
+      "answer": "no",
+      "answer_confidence": "yes",
+      "answer_id": 9
+     },
+     {
+      "answer": "no",
+      "answer_confidence": "yes",
+      "answer_id": 10
+     }
+    ],
+    "image": {
+     "height": 640,
+     "src": "samples/vqa-v2/46644-image.jpg",
+     "width": 480
+    },
+    "image_id": 550162,
+    "multiple_choice_answer": "no",
+    "question": "Is the fruit ripe?",
+    "question_id": 550162011,
+    "question_type": "is the"
+   },
+   "row_idx": 46644,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer_type": "yes/no",
+    "answers": [
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 1
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 2
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "maybe",
+      "answer_id": 3
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 4
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 5
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 6
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 7
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 8
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 9
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 10
+     }
+    ],
+    "image": {
+     "height": 640,
+     "src": "samples/vqa-v2/119330-image.jpg",
+     "width": 479
+    },
+    "image_id": 330387,
+    "multiple_choice_answer": "yes",
+    "question": "Is this the ocean?",
+    "question_id": 330387001,
+    "question_type": "is this"
+   },
+   "row_idx": 119330,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer_type": "yes/no",
+    "answers": [
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 1
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 2
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 3
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 4
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 5
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 6
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 7
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 8
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 9
+     },
+     {
+      "answer": "yes",
+      "answer_confidence": "yes",
+      "answer_id": 10
+     }
+    ],
+    "image": {
+     "height": 427,
+     "src": "samples/vqa-v2/161970-image.jpg",
+     "width": 640
+    },
+    "image_id": 489850,
+    "multiple_choice_answer": "yes",
+    "question": "Is it winter?",
+    "question_id": 489850002,
+    "question_type": "is it"
+   },
+   "row_idx": 161970,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "lmms-lab-encoder/VQAv2",
+  "split": "validation"
+ }
+}

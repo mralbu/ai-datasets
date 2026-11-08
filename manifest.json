@@ -358,6 +358,20 @@
    "fetched_at": "2026-11-07T22:35:09+00:00",
    "rows": 16
   },
+  "visual-genome": {
+   "fingerprint": "b43d29dd9ae7883c",
+   "hf": "ljnlonoljpiljm/visual_genome",
+   "revision": "87c825ca1e070d9bc2f9d86f84e60b2346b96c45",
+   "fetched_at": "2026-11-08T04:10:38+00:00",
+   "rows": 8
+  },
+  "vqa-v2": {
+   "fingerprint": "f0d4b01893bc31cf",
+   "hf": "lmms-lab-encoder/VQAv2",
+   "revision": "32665d35052eb4a6d4414851c3c829a72754915a",
+   "fetched_at": "2026-11-08T04:10:51+00:00",
+   "rows": 18
+  },
   "wikitext": {
    "fingerprint": "8726ec7ef57e1087",
    "hf": "Salesforce/wikitext",
