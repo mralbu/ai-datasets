@@ -28,6 +28,7 @@ trivia:
 lineage:
   - { name: GSM8K, note: "2021, grade-school word problems", hf: openai/gsm8k, id: gsm8k }
   - { name: MATH-500, note: "2023, the subset used in most reports", hf: HuggingFaceH4/MATH-500 }
+  - { name: AIME 2025, note: "2025, fresh competition problems for reasoning models", hf: MathArena/aime_2025, id: aime-2025 }
 landmark_papers:
   - { title: "Solving Quantitative Reasoning Problems with Language Models (Minerva)", year: 2022, url: "https://arxiv.org/abs/2206.14858" }
   - { title: "Let's Verify Step by Step", year: 2023, url: "https://arxiv.org/abs/2305.20050" }

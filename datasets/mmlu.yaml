@@ -23,7 +23,7 @@ trivia:
   - "A 2024 audit (\"Are We Done with MMLU?\") estimated about 6.5% of questions have errors, such as wrong answer keys or unclear wording."
   - Small changes in prompt format or answer extraction can move scores by several points, so numbers from different reports are not always comparable.
 lineage:
-  - { name: MMLU-Pro, note: "2024, 10 options and harder questions", hf: TIGER-Lab/MMLU-Pro }
+  - { name: MMLU-Pro, note: "2024, 10 options and harder questions", hf: TIGER-Lab/MMLU-Pro, id: mmlu-pro }
   - { name: MMLU-Redux, note: "2024, re-annotated subset", hf: edinburgh-dawg/mmlu-redux }
   - { name: MMMU, note: "2023, the multimodal counterpart", hf: MMMU/MMMU, id: mmmu }
   - { name: GPQA, note: "2023, graduate-level, Google-proof questions", hf: Idavidrein/gpqa }
