@@ -1,17 +1,20 @@
 ---
 import { classNames, url, type Samples, type SampleRow } from '../../lib/data';
-interface Props { s: Samples; d: { image: string; objects: string; label: string }; rows: SampleRow[]; k: number }
+interface Props { s: Samples; d: { image: string; objects: string; label: string; names?: string[]; ignore: string[] }; rows: SampleRow[]; k: number }
 const { s, d, rows, k } = Astro.props;
-const names = classNames(s, d.objects, d.label);
+const names = d.names ?? classNames(s, d.objects, d.label);
+const ignored = (id: number) => d.ignore.includes(names[id]);
 const palette = ['#e6194b', '#3cb44b', '#4363d8', '#f58231', '#911eb4', '#42d4f4', '#f032e6', '#bfef45', '#fabed4', '#469990', '#dcbeff', '#9a6324'];
 const color = (id: number) => palette[id % palette.length];
 const counts = (labels: number[]) => {
   const m = new Map<string, number>();
-  for (const l of labels) m.set(names[l] ?? String(l), (m.get(names[l] ?? String(l)) ?? 0) + 1);
+  for (const l of labels) if (!ignored(l)) m.set(names[l] ?? String(l), (m.get(names[l] ?? String(l)) ?? 0) + 1);
   return [...m.entries()].sort((a, b) => b[1] - a[1]);
 };
+const first = rows[0]?.row[d.image];
+const wide = first && first.width / first.height > 2;
 ---
-<div class="boxes-grid">
+<div class:list={['boxes-grid', { wide: wide }]}>
   {rows.map((r, i) => {
     const img = r.row[d.image];
     const o = r.row[d.objects];
@@ -21,7 +24,9 @@ const counts = (labels: number[]) => {
         <div class="frame">
           <img src={url(img.src)} width={img.width} height={img.height} alt="" loading="lazy" />
           <svg viewBox={`0 0 ${img.width} ${img.height}`} preserveAspectRatio="none" aria-hidden="true">
-            {o.bbox.map(([x, y, w, h]: number[], j: number) => (
+            {o.bbox.map(([x, y, w, h]: number[], j: number) => ignored(labels[j]) ? (
+              <rect class="ignore" x={x} y={y} width={w} height={h}><title>{names[labels[j]]}</title></rect>
+            ) : (
               <g style={`--c:${color(labels[j])}`}>
                 <rect x={x} y={y} width={w} height={h} />
                 <text x={x + 3} y={y + 14}>{names[labels[j]]}</text>
@@ -31,6 +36,7 @@ const counts = (labels: number[]) => {
         </div>
         <figcaption>
           {counts(labels).map(([n, c]) => <span class="obj">{n}{c > 1 && <span class="muted"> ×{c}</span>}</span>)}
+          {labels.some(ignored) && <span class="obj muted">┄ {labels.filter(ignored).length} ignored {labels.filter(ignored).length > 1 ? 'regions' : 'region'}</span>}
         </figcaption>
       </figure>
     );
@@ -38,6 +44,8 @@ const counts = (labels: number[]) => {
 </div>
 <style>
   .boxes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; align-items: start; }
+  /* Panoramic frames (KITTI is 1242×375) get wider columns. */
+  .boxes-grid.wide { grid-template-columns: repeat(auto-fill, minmax(min(100%, 460px), 1fr)); }
   figure { margin: 0; overflow: hidden; }
   figure[hidden] { display: none; }
   .frame { position: relative; line-height: 0; }
@@ -45,6 +53,7 @@ const counts = (labels: number[]) => {
   svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   rect { fill: none; stroke: var(--c); stroke-width: 3; vector-effect: non-scaling-stroke; }
   text { fill: #fff; font: 600 13px system-ui, sans-serif; paint-order: stroke; stroke: var(--c); stroke-width: 4px; }
+  rect.ignore { fill: rgb(255 255 255 / 0.12); stroke: #fff; stroke-width: 1.5; stroke-dasharray: 4 3; stroke-opacity: 0.8; }
   :global(.no-boxes) svg { display: none; }
   figcaption { display: flex; flex-wrap: wrap; gap: 4px 10px; padding: 10px 12px; font-size: 0.82rem; }
 </style>
