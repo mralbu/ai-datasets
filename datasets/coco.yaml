@@ -29,6 +29,8 @@ lineage:
   - { name: Flickr30k, note: "2014, 31k captioned photos, the captioning benchmark before COCO Captions", hf: nlphuji/flickr30k, id: flickr30k }
   - { name: LVIS, note: "2019, 1,200+ categories on COCO images", url: "https://www.lvisdataset.org/" }
   - { name: Objects365, note: "2019, 365 categories, 638k images at release", url: "https://www.objects365.org/" }
+  - { name: Visual Genome, note: "2016, scene graphs on about half of COCO's images", hf: ljnlonoljpiljm/visual_genome, id: visual-genome }
+  - { name: VQA v2, note: "2017, 1.1 million questions about COCO images", hf: lmms-lab-encoder/VQAv2, id: vqa-v2 }
 landmark_papers:
   - { title: "Faster R-CNN", year: 2015, url: "https://arxiv.org/abs/1506.01497" }
   - { title: "You Only Look Once (YOLO)", year: 2015, url: "https://arxiv.org/abs/1506.02640" }

@@ -1,0 +1,189 @@
+---
+// Visual Genome scene graphs. Each image lists its objects (with attributes), the relationships between
+// them, region descriptions and questions. Hovering a relationship draws both boxes and an arrow from
+// subject to object; hovering an object or a region phrase draws its box. Boxes are [x1, y1, x2, y2]
+// as fractions of the image.
+import { url, type SampleRow } from '../../lib/data';
+interface Props { d: { image: string; objects: string; relationships: string; regions?: string; qa?: string }; rows: SampleRow[]; k: number }
+const { d, rows, k } = Astro.props;
+
+type Box = [number, number, number, number];
+interface Obj { object_id: number; labels: string[]; attributes?: string[]; bbox: Box }
+interface Rel { subject: number; participant: number; predicate: string }
+const MAX_REL = 24, MAX_OBJ = 30, MAX_REGION = 12, MAX_QA = 8;
+const r3 = (b: Box) => b.map((v) => Math.round(v * 1000) / 1000).join(',');
+
+const view = (r: SampleRow) => {
+  const objs = (r.row[d.objects] ?? []) as Obj[];
+  const byId = new Map(objs.map((o) => [o.object_id, o]));
+  const name = (o: Obj) => o.labels?.[0] ?? '?';
+  // Relationships, deduplicated ("teddy bear against pillow" is often entered twice).
+  const seen = new Set<string>();
+  const rels = ((r.row[d.relationships] ?? []) as Rel[]).flatMap((x) => {
+    const s = byId.get(x.subject), o = byId.get(x.participant);
+    if (!s || !o) return [];
+    const pred = x.predicate.toLowerCase().trim();
+    const key = `${name(s)}|${pred}|${name(o)}`;
+    if (seen.has(key)) return [];
+    seen.add(key);
+    return [{ s: name(s), p: pred, o: name(o), sb: r3(s.bbox), ob: r3(o.bbox) }];
+  });
+  // Objects with their attributes, most described first.
+  const seenObj = new Set<string>();
+  const objects = [...objs]
+    .sort((a, b) => (b.attributes?.length ?? 0) - (a.attributes?.length ?? 0))
+    .flatMap((o) => {
+      const attrs = [...new Set((o.attributes ?? []).map((a) => a.trim().toLowerCase()).filter(Boolean))];
+      const key = `${attrs.join(' ')} ${name(o)}`;
+      if (seenObj.has(key)) return [];
+      seenObj.add(key);
+      return [{ name: name(o), attrs, b: r3(o.bbox) }];
+    });
+  const regions = d.regions ? ((r.row[d.regions] ?? []) as { phrase: string; bbox: Box }[]) : [];
+  const qa = d.qa ? ((r.row[d.qa] ?? []) as { question: string; answer: string }[]) : [];
+  return { objs, rels, objects, regions, qa };
+};
+---
+<div class="sg-list">
+  {rows.map((r, i) => {
+    const img = r.row[d.image];
+    const v = view(r);
+    return (
+      <article class="card sg" data-item data-sg hidden={i >= k}>
+        <div class="frame">
+          <img src={url(img.src)} width={img.width} height={img.height} alt="" loading="lazy" />
+          <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <marker id={`ah-${i}`} viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0 0 10 5 0 10z" fill="#fff" />
+              </marker>
+            </defs>
+            <rect class="b1" hidden /><rect class="b2" hidden />
+            <line class="ln" marker-end={`url(#ah-${i})`} hidden />
+          </svg>
+          <span class="say" aria-hidden="true"></span>
+        </div>
+        <div class="panel">
+          <p class="counts muted">
+            {v.objs.length} objects · {(r.row[d.relationships] ?? []).length} relationships
+            {d.regions && <> · {v.regions.length} region descriptions</>}
+            {d.qa && <> · {v.qa.length} questions</>}
+          </p>
+          <h4>Relationships</h4>
+          <p class="chips">
+            {v.rels.slice(0, MAX_REL).map((x) => (
+              <span class="rel" data-sb={x.sb} data-ob={x.ob} data-say={`${x.s} ${x.p} ${x.o}`}>
+                <b class="s">{x.s}</b> <span class="p">{x.p}</span> <b class="o">{x.o}</b>
+              </span>
+            ))}
+            {v.rels.length > MAX_REL && <span class="muted more">+{v.rels.length - MAX_REL} more</span>}
+          </p>
+          <h4>Objects and attributes</h4>
+          <p class="chips">
+            {v.objects.slice(0, MAX_OBJ).map((o) => (
+              <span class="obj" data-sb={o.b} data-say={[...o.attrs, o.name].join(' ')}>
+                {o.attrs.length > 0 && <span class="attr">{o.attrs.join(', ')}</span>} {o.name}
+              </span>
+            ))}
+            {v.objects.length > MAX_OBJ && <span class="muted more">+{v.objects.length - MAX_OBJ} more</span>}
+          </p>
+          {v.regions.length > 0 && (
+            <details>
+              <summary>Region descriptions ({v.regions.length})</summary>
+              <ul class="lines">
+                {v.regions.slice(0, MAX_REGION).map((x) => <li class="reg" data-sb={r3(x.bbox)} data-say={x.phrase}>{x.phrase}</li>)}
+              </ul>
+            </details>
+          )}
+          {v.qa.length > 0 && (
+            <details>
+              <summary>Questions ({v.qa.length})</summary>
+              <ul class="lines">
+                {v.qa.slice(0, MAX_QA).map((x) => <li>{x.question} <span class="ans">{x.answer}</span></li>)}
+              </ul>
+            </details>
+          )}
+        </div>
+      </article>
+    );
+  })}
+</div>
+
+<script>
+  // Draw the hovered relationship (two boxes and an arrow), object or region.
+  for (const card of document.querySelectorAll<HTMLElement>('[data-sg]')) {
+    const svg = card.querySelector('svg')!;
+    const b1 = svg.querySelector<SVGRectElement>('.b1')!, b2 = svg.querySelector<SVGRectElement>('.b2')!;
+    const ln = svg.querySelector<SVGLineElement>('.ln')!;
+    const say = card.querySelector<HTMLElement>('.say')!;
+    const parse = (s?: string) => (s ? s.split(',').map((v) => Number(v) * 1000) : null);
+    const place = (el: SVGRectElement, b: number[] | null) => {
+      el.toggleAttribute('hidden', !b);
+      if (!b) return;
+      el.setAttribute('x', String(b[0])); el.setAttribute('y', String(b[1]));
+      el.setAttribute('width', String(Math.max(b[2] - b[0], 4))); el.setAttribute('height', String(Math.max(b[3] - b[1], 4)));
+    };
+    const show = (el: HTMLElement | null) => {
+      const s = parse(el?.dataset.sb), o = parse(el?.dataset.ob);
+      place(b1, s); place(b2, o);
+      ln.toggleAttribute('hidden', !(s && o));
+      if (s && o) {
+        ln.setAttribute('x1', String((s[0] + s[2]) / 2)); ln.setAttribute('y1', String((s[1] + s[3]) / 2));
+        ln.setAttribute('x2', String((o[0] + o[2]) / 2)); ln.setAttribute('y2', String((o[1] + o[3]) / 2));
+      }
+      say.textContent = el?.dataset.say ?? '';
+      card.querySelectorAll('.on').forEach((x) => x.classList.remove('on'));
+      el?.classList.add('on');
+    };
+    card.querySelectorAll<HTMLElement>('[data-sb]').forEach((el) => {
+      el.addEventListener('pointerenter', () => show(el));
+      el.addEventListener('pointerleave', () => show(null));
+    });
+    // Start with the first relationship drawn, so the idea is visible before any hover.
+    const first = card.querySelector<HTMLElement>('.rel');
+    if (first) { show(first); first.classList.remove('on'); }
+  }
+</script>
+
+<style>
+  .sg-list { display: grid; gap: 16px; }
+  .sg { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); overflow: hidden; }
+  .sg[hidden] { display: none; }
+  @media (max-width: 760px) { .sg { grid-template-columns: 1fr; } }
+  .frame { position: relative; line-height: 0; align-self: start; background: #000; }
+  .frame img { width: 100%; height: auto; display: block; }
+  svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  rect { fill: none; stroke-width: 3; vector-effect: non-scaling-stroke; }
+  .b1 { stroke: #ff9f1c; fill: rgb(255 159 28 / 0.15); }
+  .b2 { stroke: #4cc9f0; fill: rgb(76 201 240 / 0.15); }
+  .ln { stroke: #fff; stroke-width: 2.5; vector-effect: non-scaling-stroke; stroke-dasharray: 6 4; }
+  [hidden] { display: none; }
+  .say {
+    position: absolute; left: 8px; bottom: 8px; right: 8px; width: fit-content; line-height: 1.3; padding: 4px 8px; border-radius: 6px;
+    background: rgb(0 0 0 / 0.72); color: #fff; font-size: 0.82rem; font-weight: 600; pointer-events: none;
+  }
+  .say:empty { display: none; }
+  .panel { padding: 12px 14px 14px; min-width: 0; font-size: 0.85rem; }
+  .counts { margin: 0 0 6px; font-size: 0.8rem; }
+  h4 { margin: 12px 0 6px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+  .chips { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; }
+  .rel, .obj { padding: 1px 8px; border: 1px solid var(--border); border-radius: 999px; cursor: default; white-space: nowrap; }
+  .rel .s { color: #c46a00; font-weight: 600; }
+  .rel .o { color: #1b86b0; font-weight: 600; }
+  :global(:root[data-theme='dark']) .rel .s { color: #ffb050; }
+  :global(:root[data-theme='dark']) .rel .o { color: #7fd8f5; }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .rel .s { color: #ffb050; }
+    :global(:root:not([data-theme='light'])) .rel .o { color: #7fd8f5; }
+  }
+  .rel .p { color: var(--muted); }
+  .attr { color: var(--muted); }
+  .rel.on, .obj.on { border-color: var(--accent); background: var(--accent-soft); }
+  .more { align-self: center; font-size: 0.8rem; }
+  details { margin-top: 10px; }
+  summary { cursor: pointer; color: var(--accent); }
+  .lines { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 3px; }
+  .reg { cursor: default; }
+  .reg.on { color: var(--accent); }
+  .ans { color: var(--pos); font-weight: 600; margin-left: 4px; }
+</style>

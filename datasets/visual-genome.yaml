@@ -1,0 +1,54 @@
+name: Visual Genome
+year: 2016
+modality: vision
+task: Scene graphs, dense captions and visual question answering
+one_liner: 108,000 images where crowd workers named every object, its attributes and how objects relate.
+creators: Ranjay Krishna, Yuke Zhu, Oliver Groth, Justin Johnson, Kenji Hata, Joshua Kravitz, Stephanie Chen, Yannis Kalantidis, Li-Jia Li, David A. Shamma, Michael S. Bernstein, Li Fei-Fei (Stanford and others)
+size: 108,077 images; 3.8M objects, 2.8M attributes, 2.3M relationships, 5.4M region descriptions, 1.7M questions
+splits: { images: 108077 }
+input: A photo (about half are also in COCO)
+labels: Boxes for objects with attributes ("blue", "drawn"), relationships between them ("pillow on couch"), region phrases and Q&A, mapped to WordNet
+license: CC BY 4.0
+paper:
+  title: "Visual Genome: Connecting Language and Vision Using Crowdsourced Dense Image Annotations"
+  url: https://arxiv.org/abs/1602.07332
+homepage: https://homes.cs.washington.edu/~ranjay/visualgenome/
+why: >-
+  ImageNet says what is in a picture and COCO where. Visual Genome tried to
+  capture what is going on: every object, what it looks like and how it
+  relates to the others, as a graph. The annotations were too dense to use
+  whole at first, but an object detector trained on them gave the "bottom-up"
+  image features that powered VQA, captioning and early vision-language
+  transformers (ViLBERT, LXMERT, Oscar) from 2017 to about 2020. It also
+  started scene graph generation as a task, and GQA built its questions from
+  these graphs.
+trivia:
+  - An average image has about 35 objects, 26 attributes and 21 relationships, plus 50 region descriptions written by different workers.
+  - Relationships are dominated by a few predicates. "on", "has", "wearing" and "of" cover a large share, which makes predicting the rare ones the real challenge.
+  - Labels are free text, later mapped to WordNet synsets, so the same thing appears as "curtains", "curtain" and "drape".
+  - Hover over a relationship to draw its subject (orange), its object (blue) and the arrow between them; hover over an object or a region phrase to see its box.
+lineage:
+  - { name: MS COCO, note: "2014, half of Visual Genome's images come from it", hf: rafaelpadilla/coco2017, id: coco }
+  - { name: Flickr30k, note: "2014, captions with phrases linked to boxes (Entities)", hf: nlphuji/flickr30k, id: flickr30k }
+  - { name: VQA v2, note: "2017, the VQA benchmark on COCO images", hf: lmms-lab-encoder/VQAv2, id: vqa-v2 }
+  - { name: GQA, note: "2019, 22 million questions generated from these scene graphs", url: "https://cs.stanford.edu/people/dorarad/gqa/" }
+  - { name: Open Images V6, note: "2020, relationships and localized narratives at larger scale", url: "https://storage.googleapis.com/openimages/web/index.html" }
+  - { name: Panoptic Scene Graph, note: "2022, relationships between segmentation masks instead of boxes", url: "https://psgdataset.org/" }
+landmark_papers:
+  - { title: "Neural Motifs: Scene Graph Parsing with Global Context", year: 2018, url: "https://arxiv.org/abs/1711.06640" }
+  - { title: "Bottom-Up and Top-Down Attention for Image Captioning and Visual Question Answering", year: 2018, url: "https://arxiv.org/abs/1707.07998" }
+  - { title: "LXMERT: Learning Cross-Modality Encoder Representations from Transformers", year: 2019, url: "https://arxiv.org/abs/1908.07490" }
+source:
+  hf: ljnlonoljpiljm/visual_genome
+  config: default
+  split: train
+  n: 8
+  seed: 17
+  rows_per_page: 1
+  page: 10
+  max_image_px: 900
+  drop: [url, coco_id, flickr_id]
+display: { kind: scene_graph, image: image, objects: objects, relationships: relationships, regions: region_phrases, qa: vqa }
+download:
+  hf: ranjaykrishna/visual_genome
+  note: "The samples come from a Parquet copy (ljnlonoljpiljm/visual_genome) with images, objects, relationships, regions and Q&A in one table; the official repository uses a loading script."

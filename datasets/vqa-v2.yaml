@@ -1,0 +1,52 @@
+name: VQA v2
+year: 2017
+modality: vision
+task: Visual question answering
+one_liner: 1.1 million questions about COCO photos, each answered by ten people.
+creators: Yash Goyal, Tejas Khot, Douglas Summers-Stay, Dhruv Batra, Devi Parikh (Virginia Tech, Army Research Laboratory, Georgia Tech)
+size: 204,721 images, 1.1 million questions, 11 million answers
+splits: { train: 443757, validation: 214354, test: 447793 }
+input: A COCO photo and an open-ended question about it
+labels: Ten free-form answers per question, typed as yes/no, number or other
+license: CC BY 4.0 (annotations); images under COCO's Flickr terms
+paper:
+  title: "Making the V in VQA Matter: Elevating the Role of Image Understanding in Visual Question Answering"
+  url: https://arxiv.org/abs/1612.00837
+homepage: https://visualqa.org/
+why: >-
+  The first VQA dataset (2015) asked people to write questions about a photo
+  that a smart robot could not answer without seeing it. Models soon did well
+  anyway, partly without looking: "what color is the banana?" is usually
+  yellow, and "is there a…?" is usually yes. Version 2 fixed this by pairing
+  each question with a similar image that has a different answer, so language
+  priors alone stop working. It became the standard test of vision-language
+  models for years, from bottom-up attention and ViLBERT to Flamingo and the
+  first multimodal LLMs.
+trivia:
+  - A model's answer gets full credit if at least three of the ten people gave it, and a third of the credit per person otherwise. That is the percentage shown with each answer.
+  - About 38% of questions are yes/no, 12% are about numbers, and the rest are "other".
+  - Many questions have no single right answer. Ten people often disagree on counting, colors and how much detail to give.
+  - The images are COCO's, so VQA, COCO captions and Visual Genome often describe the same photos.
+lineage:
+  - { name: DAQUAR, note: "2014, 12,000 questions about indoor scenes from NYU Depth V2", url: "https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/research/vision-and-language/visual-turing-challenge" }
+  - { name: VQA v1, note: "2015, the first version, with the language-prior problem", url: "https://visualqa.org/vqa_v1_download.html" }
+  - { name: Visual Genome, note: "2016, 1.7 million questions plus scene graphs", hf: ljnlonoljpiljm/visual_genome, id: visual-genome }
+  - { name: VizWiz, note: "2018, photos and spoken questions from blind people", url: "https://vizwiz.org/" }
+  - { name: GQA, note: "2019, compositional questions generated from Visual Genome's scene graphs", url: "https://cs.stanford.edu/people/dorarad/gqa/" }
+  - { name: MMMU, note: "2023, college-level questions about images", hf: MMMU/MMMU, id: mmmu }
+landmark_papers:
+  - { title: "Bottom-Up and Top-Down Attention for Image Captioning and Visual Question Answering", year: 2018, url: "https://arxiv.org/abs/1707.07998" }
+  - { title: "ViLBERT: Pretraining Task-Agnostic Visiolinguistic Representations for Vision-and-Language Tasks", year: 2019, url: "https://arxiv.org/abs/1908.02265" }
+  - { title: "Flamingo: a Visual Language Model for Few-Shot Learning", year: 2022, url: "https://arxiv.org/abs/2204.14198" }
+source:
+  hf: lmms-lab-encoder/VQAv2
+  config: default
+  split: validation
+  n: 18
+  seed: 13
+  rows_per_page: 1
+  page: 20
+  max_image_px: 640
+display: { kind: vqa, image: image, question: question, answers: answers, type: answer_type }
+download:
+  note: "A Parquet copy of the validation and test questions with their COCO images and all ten answers. Training questions and annotations are on visualqa.org."
