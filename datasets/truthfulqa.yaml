@@ -25,6 +25,7 @@ trivia:
   - The multiple-choice versions (MC1, MC2) became more common than the original free-form grading with a fine-tuned GPT-3 judge.
 lineage:
   - { name: SimpleQA, note: "2024, short factual questions with one answer", url: "https://openai.com/index/introducing-simpleqa/" }
+  - { name: SimpleQA Verified, note: "2025, Google's cleaned 1,000-question version", hf: google/simpleqa-verified, id: simpleqa-verified }
   - { name: MMLU, note: "2020, broad exam knowledge", hf: cais/mmlu, id: mmlu }
 landmark_papers:
   - { title: "Training language models to follow instructions with human feedback (InstructGPT)", year: 2022, url: "https://arxiv.org/abs/2203.02155" }
