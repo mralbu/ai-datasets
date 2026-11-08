@@ -36,7 +36,9 @@ from itertools import zip_longest
 from pathlib import Path
 from urllib.parse import urlparse
 
+import base64
 import io
+import tarfile
 
 import altair as alt
 import httpx
@@ -104,6 +106,31 @@ def long_enough(row: dict, src: dict) -> bool:
     return all(len(str(row["row"].get(f) or "").strip()) >= n for f, n in (src.get("min_length") or {}).items())
 
 
+def unpack(rows: list[dict], src: dict) -> list[dict]:
+    """source.unpack: {column, files: {name: path}} reads files out of a .tar.gz binary column.
+
+    Terminal-Bench packs each task (instruction, Dockerfile, solution, tests) as one archive;
+    this turns the files worth showing into ordinary text columns. Members are only read, never
+    extracted to disk. A file missing from an archive becomes None (pair with min_length to skip it).
+    """
+    spec = src.get("unpack")
+    if not spec:
+        return rows
+    for r in rows:
+        cell = r["row"].get(spec["column"])
+        found: dict[str, str] = {}
+        if isinstance(cell, str) and cell:  # the viewer returns binary cells as base64
+            with tarfile.open(fileobj=io.BytesIO(base64.b64decode(cell)), mode="r:gz") as tar:
+                members = {m.name.removeprefix("./"): m for m in tar.getmembers() if m.isfile()}
+                for name, path in spec["files"].items():
+                    m = members.get(path)
+                    if m is not None and m.size <= 200_000:
+                        found[name] = tar.extractfile(m).read().decode("utf-8", errors="replace")
+        for name in spec["files"]:
+            r["row"][name] = found.get(name)
+    return rows
+
+
 def stratified_sample(client: httpx.Client, src: dict, total: int, n: int, rng: random.Random) -> list[dict]:
     """Sample n rows with few requests, without trusting the dataset's order.
 
@@ -123,7 +150,7 @@ def stratified_sample(client: httpx.Client, src: dict, total: int, n: int, rng: 
         lo, hi = bounds[j], bounds[j + 1]
         length = min(page_len, hi - lo)
         offset = rng.randint(lo, hi - length)
-        page = fetch_rows(client, src, offset, length)["rows"]
+        page = unpack(fetch_rows(client, src, offset, length)["rows"], src)
         # Very large cells (long texts, big grids) come back truncated; avoid them.
         page = [r for r in page if not r.get("truncated_cells")] or page
         page = [r for r in page if long_enough(r, src)] or page
@@ -137,11 +164,13 @@ def sample_part(client: httpx.Client, src: dict, n: int, rng: random.Random) -> 
     head = fetch_rows(client, src, 0, 1)  # cheap: schema + total row count
     total = head["num_rows_total"]
     features = [{"name": f["name"], "type": f["type"]} for f in head["features"]]
+    features += [{"name": name, "type": {"dtype": "string", "_type": "Value"}}
+                 for name in (src.get("unpack") or {}).get("files", {})]
     all_rows: list[dict] | None = None
     if src.get("fetch_all") and total <= FETCH_ALL_LIMIT:
         all_rows = []
         for off in range(0, total, PAGE):
-            all_rows += fetch_rows(client, src, off, PAGE)["rows"]
+            all_rows += unpack(fetch_rows(client, src, off, PAGE)["rows"], src)
         pool = [r for r in all_rows if long_enough(r, src)] or all_rows
         rows = rng.sample(pool, min(n, len(pool)))
     else:

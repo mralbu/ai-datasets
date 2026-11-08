@@ -1,0 +1,40 @@
+name: AIME 2025
+year: 2025
+modality: benchmark
+task: Competition math with integer answers, the standard test for reasoning models
+one_liner: The 30 problems of the 2025 American Invitational Mathematics Examination; each answer is an integer from 0 to 999.
+creators: Mathematical Association of America (problems); MathArena, ETH Zurich (this dataset)
+size: 30 problems (AIME I and AIME II, 15 each)
+splits: { train: 30 }
+input: A competition problem in LaTeX
+labels: The integer answer
+license: CC BY-NC-SA 4.0 (this dataset); problems © MAA
+paper:
+  title: "MathArena: Evaluating LLMs on Uncontaminated Math Competitions"
+  url: https://arxiv.org/abs/2505.23281
+homepage: https://matharena.ai/
+why: >-
+  Once models solved most of MATH, labs needed harder problems with answers
+  that can be checked automatically. AIME, the exam between the AMC and the
+  USA Math Olympiad, fits: 15 problems in 3 hours, each answer an integer. It
+  became the headline number for reasoning models when OpenAI's o1 (2024) went
+  from GPT-4o's 12% to 74% on AIME 2024. A new exam every February gives fresh
+  problems that cannot be in older training data; MathArena found strong signs
+  that AIME 2024 already was. By late 2025 GPT-5 scored 94.6% on AIME 2025 without
+  tools, and attention moved to harder contests and proofs.
+trivia:
+  - "Only the final integer is graded, so models are usually scored on several samples per problem and averaged (pass@1), because one run of 30 problems is noisy: each problem is worth 3.3 points."
+  - The exam is given in two sittings, AIME I and AIME II, a week apart in February.
+  - "Students qualify through the AMC 10 or AMC 12, roughly the top 2.5% and 5% of scorers."
+  - MathArena evaluates models on each new competition within days of the exam, before the problems can reach training data.
+lineage:
+  - { name: MATH, note: "2021, 12,500 competition problems, now saturated", hf: EleutherAI/hendrycks_math, id: math }
+  - { name: AIME 2024, note: "2024, the o1-era headline set, with signs of contamination", hf: HuggingFaceH4/aime_2024 }
+  - { name: HMMT February 2025, note: "2025, a harder university-run contest", hf: MathArena/hmmt_feb_2025 }
+  - { name: USAMO 2025, note: "2025, full proofs graded by humans", hf: MathArena/usamo_2025 }
+  - { name: GSM8K, note: "2021, grade-school word problems", hf: openai/gsm8k, id: gsm8k }
+landmark_papers:
+  - { title: "Learning to Reason with LLMs (OpenAI o1)", year: 2024, url: "https://openai.com/index/learning-to-reason-with-llms/" }
+  - { title: "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning", year: 2025, url: "https://arxiv.org/abs/2501.12948" }
+source: { hf: MathArena/aime_2025, config: default, split: train, n: 12, seed: 25, fetch_all: true }
+display: { kind: qa, question: problem, answer: answer, tags: [problem_type], math: true, answer_label: Show answer }

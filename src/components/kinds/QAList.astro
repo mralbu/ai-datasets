@@ -6,16 +6,19 @@ interface Props { d: { question: string; answer: string; tags: string[]; math: b
 const { d, rows, k } = Astro.props;
 // GSM8K-style answers: highlight <<calc>> annotations and the final "#### n" line.
 const segments = (t: string) => t.split(/(<<[^>]*>>|^####.*$)/m).filter(Boolean);
+// A list-valued field (AIME's problem types, IFEval's instruction ids) becomes one tag or item per entry.
+const list = (v: unknown): string[] => (Array.isArray(v) ? v.map(String) : v == null || v === '' ? [] : [String(v)]);
 ---
 <div class="list">
   {rows.map((r, i) => (
     <article class="card" data-item hidden={i >= k}>
-      {d.tags.length > 0 && <p class="tags">{d.tags.map((t) => <span class="tag">{r.row[t]}</span>)}</p>}
+      {d.tags.length > 0 && <p class="tags">{d.tags.flatMap((t) => list(r.row[t])).map((t) => <span class="tag">{t}</span>)}</p>}
       {d.math ? <p class="q pre" set:html={renderMath(String(r.row[d.question]))} /> : <p class="q">{r.row[d.question]}</p>}
       {d.input && r.row[d.input] && <p class="input pre">{r.row[d.input]}</p>}
       <details>
         <summary>{d.answer_label}</summary>
-        {d.math ? <p class="pre" set:html={renderMath(String(r.row[d.answer]))} /> : (
+        {Array.isArray(r.row[d.answer]) ? <ul class="items">{list(r.row[d.answer]).map((a) => <li><code>{a}</code></li>)}</ul> :
+         d.math ? <p class="pre" set:html={renderMath(String(r.row[d.answer]))} /> : (
           <p class="pre">
             {segments(String(r.row[d.answer])).map((seg) =>
               seg.startsWith('<<') ? <mark class="calc">{seg}</mark> : seg.startsWith('####') ? <strong class="final">{seg}</strong> : seg,
@@ -35,7 +38,8 @@ const segments = (t: string) => t.split(/(<<[^>]*>>|^####.*$)/m).filter(Boolean)
 <style>
   mark.calc { background: var(--code-bg); color: var(--muted); font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; padding: 0 2px; border-radius: 3px; }
   .final { color: var(--pos); }
-  .tags { display: flex; gap: 6px; margin: 0 0 8px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 8px; }
+  .items { margin: 6px 0 0; padding-left: 20px; font-size: 0.9rem; }
   .input { margin: -4px 0 10px; padding: 8px 12px; border-left: 3px solid var(--border); color: var(--muted); font-size: 0.92rem; }
   .wrong { margin-top: 10px; font-size: 0.92rem; }
   .wrong p { margin: 0 0 4px; font-size: 0.85rem; }

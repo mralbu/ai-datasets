@@ -1,0 +1,36 @@
+name: SimpleQA Verified
+year: 2025
+modality: benchmark
+task: Short factual questions with one indisputable answer (hallucination test)
+one_liner: 1,000 hard trivia questions; a model is rewarded for being right and for saying "I don't know" over guessing.
+creators: Lukas Haas, Gal Yona, Giovanni D'Antonio, Sasha Goldshtein, Dipanjan Das (Google DeepMind, Google Research)
+size: 1,000 questions, from SimpleQA's 4,326
+splits: { eval: 1000 }
+input: A short fact-seeking question, answered without search
+labels: A short gold answer, a topic and answer type, and at least two supporting URLs
+license: MIT
+paper:
+  title: "SimpleQA Verified: A Reliable Factuality Benchmark to Measure Parametric Knowledge"
+  url: https://arxiv.org/abs/2509.07968
+homepage: https://www.kaggle.com/benchmarks/deepmind/simpleqa-verified
+why: >-
+  OpenAI's SimpleQA (2024) asked whether models know what they know: 4,326
+  questions written so that GPT-4 got them wrong, each with one short answer
+  that is easy to grade. GPT-4o answered under 40% correctly, and the
+  benchmark became the standard hallucination number in model reports. SimpleQA
+  Verified is Google's cleaned-up 1,000-question version. It removes duplicates
+  and wrong labels, rebalances topics and answer types, and improves the
+  grader prompt. Gemini 2.5 Pro led at release with an F1 score of 55.6.
+trivia:
+  - "An autorater (GPT-4.1) grades each response as correct, incorrect or not attempted. Not attempting costs less than a wrong answer in the F1 score."
+  - It measures what is stored in the model's weights. With a search tool the questions become easy, which defeats the purpose.
+  - "In the original SimpleQA, a second trainer answered every question independently, and only questions where both agreed were kept."
+  - Original SimpleQA leaned heavily toward some topics and asked many near-identical questions. The Verified version rebalances them.
+lineage:
+  - { name: SimpleQA, note: "2024, OpenAI's original 4,326 questions", hf: basicv8vc/SimpleQA }
+  - { name: TruthfulQA, note: "2021, questions designed around common misconceptions", hf: truthfulqa/truthful_qa, id: truthfulqa }
+landmark_papers:
+  - { title: "Measuring short-form factuality in large language models (SimpleQA)", year: 2024, url: "https://arxiv.org/abs/2411.04368" }
+source: { hf: google/simpleqa-verified, config: simpleqa_verified, split: eval, n: 16, seed: 3 }
+display: { kind: qa, question: problem, answer: answer, tags: [topic, answer_type], answer_label: Show the gold answer }
+download: { note: "Official copy also on Kaggle, with the grader prompt and leaderboard." }
