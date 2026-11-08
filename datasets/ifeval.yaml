@@ -1,0 +1,32 @@
+name: IFEval
+year: 2023
+modality: benchmark
+task: Following instructions that a program can check
+one_liner: 541 prompts with constraints like "no commas" or "at least 300 words", checked by code instead of a judge model.
+creators: Jeffrey Zhou, Tianjian Lu, Swaroop Mishra et al. (Google)
+size: 541 prompts, 25 types of instruction
+splits: { train: 541 }
+input: A prompt containing one or more verifiable instructions
+labels: The instruction ids (and their parameters) that the response is checked against
+license: Apache 2.0
+paper:
+  title: Instruction-Following Evaluation for Large Language Models
+  url: https://arxiv.org/abs/2311.07911
+homepage: https://github.com/google-research/google-research/tree/master/instruction_following_eval
+why: >-
+  Whether a model follows instructions is usually judged by people, which is
+  slow, or by another model, which is biased. IFEval only uses instructions a
+  short Python function can verify: a word count, a required keyword, JSON
+  output, all lowercase, exactly three bullet points. Scoring is cheap and fully
+  reproducible, so it became the default instruction-following number in model
+  reports and one of the six benchmarks of Hugging Face's Open LLM Leaderboard v2.
+trivia:
+  - "There are two scores: prompt-level (every instruction in a prompt followed) and instruction-level (the share of individual instructions followed)."
+  - "\"Loose\" accuracy retries each check after stripping Markdown asterisks and the first or last line, so a response is not failed for adding \"Sure, here it is:\"."
+  - The prompts only test form, not content. A summary can be wrong and still pass.
+  - "Frontier models now score above 90%, so newer sets like IFBench (2025) test instructions not seen in training."
+lineage:
+  - { name: IFBench, note: "2025, 58 new out-of-distribution constraints", hf: allenai/IFBench_test }
+  - { name: Alpaca, note: "2023, instruction-tuning data, the training side", hf: tatsu-lab/alpaca, id: alpaca }
+source: { hf: google/IFEval, config: default, split: train, n: 16, seed: 9, drop: [kwargs] }
+display: { kind: qa, question: prompt, answer: instruction_id_list, answer_label: Show what the response is checked for }

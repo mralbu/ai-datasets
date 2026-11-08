@@ -1,0 +1,37 @@
+name: MMLU-Pro
+year: 2024
+modality: benchmark
+task: Harder, reasoning-heavy multiple choice with ten options
+one_liner: 12,032 exam questions in 14 subjects, each with ten options instead of MMLU's four.
+creators: Yubo Wang, Xueguang Ma, Ge Zhang et al. (TIGER-Lab, University of Waterloo)
+size: 12,102 questions
+splits: { test: 12032, validation: 70 }
+input: A question and ten answer options
+labels: The correct letter (A–J)
+license: MIT
+paper:
+  title: "MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark"
+  url: https://arxiv.org/abs/2406.01574
+homepage: https://github.com/TIGER-AI-Lab/MMLU-Pro
+why: >-
+  By 2024 frontier models were bunched together near 90% on MMLU, and some of
+  the remaining errors were mistakes in the answer key. MMLU-Pro removed the
+  trivial and noisy questions, added harder ones from STEM sites and exams, and
+  raised the options from four to ten, so guessing gives 10% instead of 25%.
+  Scores dropped by 16 to 33 points against MMLU. Unlike on MMLU, models do
+  better on it with chain-of-thought, a sign that it tests reasoning and not
+  only recall. It replaced MMLU in Hugging Face's Open LLM Leaderboard v2 and
+  in many model reports.
+trivia:
+  - "Extra distractors were written by GPT-4 Turbo and then reviewed by experts, who also caught wrong answer keys."
+  - "Across 24 prompt styles, scores moved by about 2 points, against 4 to 5 points on MMLU."
+  - "Questions come from the original MMLU, STEM websites, TheoremQA and SciBench; the src column says which."
+  - "Each of the 70 validation questions has a worked chain-of-thought answer, used as 5-shot examples."
+lineage:
+  - { name: MMLU, note: "2020, four-option questions in 57 subjects", hf: cais/mmlu, id: mmlu }
+  - { name: GPQA, note: "2023, graduate-level, Google-proof questions (gated)", hf: Idavidrein/gpqa }
+  - { name: "Humanity's Last Exam", note: "2025, expert-written questions at the frontier of knowledge (gated)", hf: cais/hle }
+landmark_papers:
+  - { title: "Open LLM Leaderboard v2 (Hugging Face)", year: 2024, url: "https://huggingface.co/spaces/open-llm-leaderboard/blog" }
+source: { hf: TIGER-Lab/MMLU-Pro, config: default, split: test, n: 20, seed: 14, rows_per_page: 2 }
+display: { kind: mcq, question: question, choices: options, answer: answer_index, subject: category }
