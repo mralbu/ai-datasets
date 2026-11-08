@@ -1,13 +1,14 @@
 ---
 // Site search: a header button that opens a small palette. Press "/" (or Ctrl/⌘ K) anywhere to open it.
 // The index is tiny (one entry per dataset), so it is inlined as JSON and searched in the browser.
-import { getDatasets, url, MODALITIES } from '../lib/data';
+import { getDatasets, url, MODALITIES, TAGS } from '../lib/data';
 const index = (await getDatasets()).map((d) => ({
   id: d.id,
   name: d.data.name,
   year: d.data.year,
   m: d.data.modality,
   cat: MODALITIES[d.data.modality] ?? d.data.modality,
+  tags: d.data.tags.map((t) => TAGS[t]).join(' '),
   task: d.data.task,
   line: d.data.one_liner,
   who: d.data.creators ?? '',
@@ -39,7 +40,7 @@ const index = (await getDatasets()).map((d) => ({
 <script type="application/json" id="search-index" set:html={JSON.stringify(index).replace(/</g, '\\u003c')} />
 
 <script>
-  interface Entry { id: string; name: string; year: number; m: string; cat: string; task: string; line: string; who: string; rel: string[]; href: string }
+  interface Entry { id: string; name: string; year: number; m: string; cat: string; tags: string; task: string; line: string; who: string; rel: string[]; href: string }
   const index: Entry[] = JSON.parse(document.getElementById('search-index')!.textContent!);
   const dialog = document.querySelector<HTMLDialogElement>('dialog.search')!;
   const input = dialog.querySelector('input')!;
@@ -52,7 +53,7 @@ const index = (await getDatasets()).map((d) => ({
     e,
     name: squash(e.name) + ' ' + squash(e.id),
     words: norm(`${e.name} ${e.id}`).split(/[^a-z0-9]+/),
-    rest: norm(`${e.task} ${e.line} ${e.cat} ${e.year} ${e.who}`),
+    rest: norm(`${e.task} ${e.line} ${e.cat} ${e.tags} ${e.year} ${e.who}`),
     rel: e.rel.map(norm),
   }));
 

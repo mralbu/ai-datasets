@@ -1,0 +1,57 @@
+name: ChestX-ray14
+year: 2017
+modality: vision
+tags: [medical]
+task: Multi-label classification of chest X-rays (14 findings)
+one_liner: 112,120 chest X-rays from 30,805 patients, labeled with 14 findings mined from radiology reports.
+creators: Xiaosong Wang, Yifan Peng, Le Lu, Zhiyong Lu, Mohammadhadi Bagheri, Ronald M. Summers (NIH Clinical Center)
+size: 112,120 frontal X-rays (1024×1024), 984 boxes around findings
+splits: { train: 86524, test: 25596 }
+input: Frontal chest X-ray, grayscale, 1024×1024 (downscaled here)
+labels: Any of 14 findings (atelectasis, cardiomegaly, effusion, pneumonia…) or "No Finding", plus age, sex and view
+license: Unrestricted use with citation (NIH Clinical Center)
+paper:
+  title: "ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases"
+  url: https://arxiv.org/abs/1705.02315
+homepage: https://nihcc.app.box.com/v/ChestXray-NIHCC
+why: >-
+  The first medical imaging dataset on the scale of ImageNet that anyone could
+  download. Instead of paying radiologists to label 100,000 images, the NIH
+  team extracted labels from the existing radiology reports with text mining.
+  Months later, CheXNet (Stanford, 2017) trained on it and claimed
+  radiologist-level pneumonia detection, the start of the "AI will replace
+  radiologists" debate. It also became the standard case study for what goes
+  wrong in medical AI: noisy labels, shortcuts such as chest drains standing in
+  for disease, and models that work less well for some patient groups.
+trivia:
+  - Labels come from the reports, not from looking at the image. Checks by radiologists found many of them wrong, for some findings in a large share of cases.
+  - Pneumothorax is easy to "detect" for the wrong reason, because many positive images already show the chest drain used to treat it.
+  - The split is by patient, so the same person never appears in both train and test. Many patients have dozens of follow-up images.
+  - A "No Finding" label means the report mentioned none of the 14 findings, not that the X-ray is normal.
+  - The dataset was first released with 8 findings as ChestX-ray8, then extended to 14.
+lineage:
+  - { name: OpenI (Indiana University), note: "2015, 7,470 X-rays with full reports", url: "https://openi.nlm.nih.gov/" }
+  - { name: CheXpert, note: "2019, 224,316 X-rays from Stanford, with uncertainty labels (registration)", url: "https://stanfordmlgroup.github.io/competitions/chexpert/" }
+  - { name: MIMIC-CXR, note: "2019, 377,110 X-rays with reports (credentialed access)", url: "https://physionet.org/content/mimic-cxr/" }
+  - { name: PadChest, note: "2019, 160,000 X-rays from Spain, labeled by physicians in part", url: "https://bimcv.cipf.es/bimcv-projects/padchest/" }
+  - { name: VinDr-CXR, note: "2020, 18,000 X-rays from Vietnam, each read by radiologists", url: "https://vindr.ai/datasets/cxr" }
+landmark_papers:
+  - { title: "CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning", year: 2017, url: "https://arxiv.org/abs/1711.05225" }
+  - { title: "Hidden Stratification Causes Clinically Meaningful Failures in Machine Learning for Medical Imaging", year: 2019, url: "https://arxiv.org/abs/1909.12475" }
+  - { title: "Underdiagnosis bias of artificial intelligence algorithms applied to chest radiographs in under-served patient populations", year: 2021, url: "https://www.nature.com/articles/s41591-021-01595-0" }
+source:
+  hf: timm/nih-chest-xray-14
+  config: default
+  split: train
+  n: 18
+  seed: 21
+  max_image_px: 512
+display:
+  kind: annotated
+  image: image
+  labels: label_names
+  none: No Finding
+  thumb: 220
+  details: { Age: patient_age, Sex: patient_sex, View: view_position, Patient: patient_id }
+download:
+  note: "A Parquet copy with the official train/test split, labels as lists, patient metadata and the boxes. The original PNGs are on the NIH Box folder."

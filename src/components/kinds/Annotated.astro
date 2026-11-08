@@ -1,6 +1,6 @@
 ---
 import { url, type Samples, type SampleRow } from '../../lib/data';
-interface Props { s: Samples; d: { image: string; captions?: string; attributes: boolean; thumb: number }; rows: SampleRow[]; k: number }
+interface Props { s: Samples; d: { image: string; captions?: string; attributes: boolean; thumb: number; labels?: string; none: string; details: Record<string, string> }; rows: SampleRow[]; k: number }
 const { s, d, rows, k } = Astro.props;
 // Yes/no columns (CelebA's 40 attributes), stored as booleans or as -1/1; show the ones that are set.
 const first = rows[0]?.row ?? {};
@@ -18,6 +18,18 @@ const pretty = (n: string) => n.replaceAll('_', ' ');
         <img src={url(img.src)} width={img.width} height={img.height} style={`--h:${d.thumb}px`} alt="" loading="lazy" />
         <figcaption>
           {d.captions && <ol class="caps">{(r.row[d.captions] as string[]).map((c) => <li>{c}</li>)}</ol>}
+          {d.labels && (
+            <p class="attrs findings">
+              {(r.row[d.labels] as string[]).length
+                ? (r.row[d.labels] as string[]).map((c) => <span class="tag">{c}</span>)
+                : <span class="tag none">{d.none}</span>}
+            </p>
+          )}
+          {Object.keys(d.details).length > 0 && (
+            <dl class="details">
+              {Object.entries(d.details).map(([k, f]) => r.row[f] != null && <div><dt>{k}</dt><dd>{String(r.row[f])}</dd></div>)}
+            </dl>
+          )}
           {boolCols.length > 0 && (
             <p class="attrs">{boolCols.filter((c) => isSet(r.row[c])).map((c) => <span class="tag">{pretty(c)}</span>)}</p>
           )}
@@ -38,4 +50,10 @@ const pretty = (n: string) => n.replaceAll('_', ' ');
   .caps { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
   .attrs { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; }
   .attrs .tag { font-size: 0.7rem; }
+  .findings .tag { font-size: 0.78rem; }
+  .findings .tag.none { background: color-mix(in srgb, var(--pos) 14%, transparent); color: var(--pos); }
+  .details { display: flex; flex-wrap: wrap; gap: 2px 12px; margin: 10px 0 0; font-size: 0.8rem; }
+  .details div { display: flex; gap: 4px; }
+  .details dt { color: var(--muted); }
+  .details dd { margin: 0; }
 </style>

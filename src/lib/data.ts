@@ -65,5 +65,7 @@ export const MODALITIES: Record<string, string> = {
   other: 'Other',
 };
 
+export { TAGS, type Tag } from './tags';
+
 /** The standard ARC display palette for colors 0–9. */
 export const ARC_COLORS = ['#000000', '#0074D9', '#FF4136', '#2ECC40', '#FFDC00', '#AAAAAA', '#F012BE', '#FF851B', '#7FDBFF', '#870C25'];

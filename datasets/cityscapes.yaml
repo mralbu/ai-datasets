@@ -1,6 +1,7 @@
 name: Cityscapes
 year: 2016
 modality: vision
+tags: [driving]
 task: Semantic segmentation of street scenes
 one_liner: 5,000 street photos from 50 cities, every pixel labeled as road, car, person, sky and so on.
 creators: Marius Cordts, Mohamed Omran, Sebastian Ramos, Timo Rehfeld, Markus Enzweiler, Rodrigo Benenson, Uwe Franke, Stefan Roth, Bernt Schiele (Daimler, MPI Informatics, TU Darmstadt)

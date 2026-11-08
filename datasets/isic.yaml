@@ -1,0 +1,63 @@
+name: ISIC 2018 (skin lesions)
+year: 2018
+modality: vision
+tags: [medical]
+task: Skin lesion segmentation and melanoma classification
+one_liner: Dermoscopy photos of moles and other skin lesions, each with an expert outline of the lesion.
+creators: International Skin Imaging Collaboration (Noel Codella, Veronica Rotemberg, Philipp Tschandl, M. Emre Celebi, Allan Halpern and others)
+size: 2,694 images with lesion masks (task 1); 10,015 images in 7 diagnoses (task 3, HAM10000)
+splits: { train: 2594, validation: 100, test: 1000 }
+input: Dermoscopy photo (a magnified, lit view of the skin), from 540×722 to 6,708×4,439 pixels
+labels: A mask of the lesion (task 1); its dermoscopic features (task 2); one of 7 diagnoses (task 3)
+license: CC BY-NC 4.0
+paper:
+  title: "Skin Lesion Analysis Toward Melanoma Detection 2018: A Challenge Hosted by the International Skin Imaging Collaboration (ISIC)"
+  url: https://arxiv.org/abs/1902.03368
+homepage: https://challenge.isic-archive.com/landing/2018/
+why: >-
+  Melanoma is curable when caught early, and dermatologists judge moles by
+  looking at them through a dermatoscope, a task that seemed made for image
+  models. The ISIC archive and its yearly challenges (2016 to 2020) gave the
+  field its public benchmark. Images from the archive were part of the data
+  behind Esteva et al. (Nature, 2017), the paper that reported
+  dermatologist-level skin cancer classification, and the 2018 lesion outlines
+  are a standard test for medical segmentation models like U-Net.
+trivia:
+  - Models learned shortcuts. Surgical ink marks and rulers, which dermatologists add to suspicious lesions, made a network more likely to call a mole melanoma.
+  - Almost all images are of light skin. Models trained on ISIC do noticeably worse on darker skin, which later datasets (Fitzpatrick 17k, DDI) set out to measure.
+  - Task 1 was scored by the overlap (Jaccard index) of the predicted and the expert outline, counting any image below 0.65 as a failure.
+  - The task 3 images, HAM10000, were collected over 20 years in Vienna and Queensland.
+lineage:
+  - { name: PH2, note: "2013, 200 dermoscopy images from Portugal", url: "https://www.fc.up.pt/addi/ph2%20database.html" }
+  - { name: HAM10000, note: "2018, the 10,015 images of task 3, with diagnoses", url: "https://doi.org/10.7910/DVN/DBW86T" }
+  - { name: SIIM-ISIC Melanoma (ISIC 2020), note: "2020, 33,126 images from 2,056 patients, a Kaggle competition", url: "https://challenge.isic-archive.com/landing/2020/" }
+  - { name: Fitzpatrick 17k, note: "2021, clinical photos labeled with skin type", url: "https://github.com/mattgroh/fitzpatrick17k" }
+  - { name: ChestX-ray14, note: "2017, the other big public medical image benchmark", hf: timm/nih-chest-xray-14, id: chestx-ray14 }
+landmark_papers:
+  - { title: "U-Net: Convolutional Networks for Biomedical Image Segmentation", year: 2015, url: "https://arxiv.org/abs/1505.04597" }
+  - { title: "Dermatologist-level classification of skin cancer with deep neural networks", year: 2017, url: "https://www.nature.com/articles/nature21056" }
+  - { title: "Association Between Surgical Skin Markings in Dermoscopic Images and Diagnostic Performance of a Deep Learning Convolutional Neural Network for Melanoma Recognition", year: 2019, url: "https://jamanetwork.com/journals/jamadermatology/fullarticle/2740808" }
+  - { title: "Disparities in dermatology AI performance on a diverse, curated clinical image set", year: 2022, url: "https://www.science.org/doi/10.1126/sciadv.abq6147" }
+source:
+  hf: MedOtter/ISIC2018
+  config: default
+  split: train
+  n: 12
+  seed: 9
+  rows_per_page: 2
+  page: 10
+  max_image_px: 768
+  dense: { mask: mask }
+display:
+  kind: dense
+  image: image
+  layers:
+    - field: mask
+      type: labels
+      name: Lesion outline
+      outline: true
+      classes:
+        - { id: 0, name: skin }
+        - { id: 1, name: lesion, color: "#39ff88" }
+download:
+  note: "A Parquet copy of the task 1 images and lesion masks. Every year's challenge data, including the diagnoses, is on the ISIC Challenge site."

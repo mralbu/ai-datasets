@@ -4,7 +4,7 @@ import Samples from '../../components/Samples.astro';
 import Chart from '../../components/Chart.astro';
 import Download from '../../components/Download.astro';
 import hfLogo from '../../assets/hf-logo.svg?raw';
-import { getDatasets, getSamples, MODALITIES, url } from '../../lib/data';
+import { getDatasets, getSamples, MODALITIES, TAGS, url } from '../../lib/data';
 
 export async function getStaticPaths() {
   const all = await getDatasets();
@@ -39,7 +39,7 @@ const facts: [string, string][] = [
 ];
 ---
 <Base title={`${d.name} · AI Datasets`} description={d.one_liner}>
-  <p class="crumb"><a href={url('/')}>Catalog</a> / <span class="tag" data-m={d.modality}>{MODALITIES[d.modality]}</span></p>
+  <p class="crumb"><a href={url('/')}>Catalog</a> / <span class="tag" data-m={d.modality}>{MODALITIES[d.modality]}</span>{d.tags.map((t) => <> <a class="dtag" href={url(`/?tag=${t}`)}>{TAGS[t]}</a></>)}</p>
   <h1>{d.name} <span class="muted">({d.year})</span></h1>
   <p class="lede">{d.one_liner}</p>
 
