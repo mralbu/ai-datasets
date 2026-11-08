@@ -35,6 +35,8 @@ config_notes:
   wnli: "WNLI: with the pronoun resolved, is the second sentence implied?"
 lineage:
   - { name: SuperGLUE, note: "2019, harder successor", hf: aps/super_glue, id: superglue }
+  - { name: SNLI, note: "2015, the single-genre predecessor of MNLI", hf: stanfordnlp/snli, id: snli }
+  - { name: IMDB Large Movie Review, note: "2011, document-level sentiment, vs. SST-2's single sentences", hf: stanfordnlp/imdb, id: imdb }
   - { name: MMLU, note: "2020, knowledge-heavy benchmark for the LLM era", hf: cais/mmlu, id: mmlu }
 landmark_papers:
   - { title: "BERT: Pre-training of Deep Bidirectional Transformers", year: 2018, url: "https://arxiv.org/abs/1810.04805" }

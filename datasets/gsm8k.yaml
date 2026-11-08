@@ -26,7 +26,6 @@ lineage:
   - { name: MATH, note: "2021, competition-level math, much harder", hf: EleutherAI/hendrycks_math, id: math }
   - { name: GSM-Symbolic, note: "2024, templated variants to probe robustness", hf: apple/GSM-Symbolic }
 landmark_papers:
-  - { title: "Training Verifiers to Solve Math Word Problems", year: 2021, url: "https://arxiv.org/abs/2110.14168" }
   - { title: "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models", year: 2022, url: "https://arxiv.org/abs/2201.11903" }
   - { title: "Self-Consistency Improves Chain of Thought Reasoning", year: 2022, url: "https://arxiv.org/abs/2203.11171" }
 source: { hf: openai/gsm8k, config: main, split: test, n: 20, seed: 5 }

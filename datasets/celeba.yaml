@@ -28,7 +28,7 @@ trivia:
 lineage:
   - { name: CelebA-HQ, note: "2017, 30k faces at 1024×1024, from Progressive GAN", url: "https://github.com/tkarras/progressive_growing_of_gans" }
   - { name: FFHQ, note: "2019, 70k Flickr faces, made for StyleGAN", url: "https://github.com/NVlabs/ffhq-dataset" }
-  - { name: LFW, note: "2007, the classic face-verification benchmark", url: "http://vis-www.cs.umass.edu/lfw/" }
+  - { name: LFW, note: "2007, the classic face-verification benchmark", url: "https://www.tensorflow.org/datasets/catalog/lfw" }
 landmark_papers:
   - { title: "Progressive Growing of GANs for Improved Quality, Stability, and Variation", year: 2017, url: "https://arxiv.org/abs/1710.10196" }
   - { title: "StarGAN: Unified Generative Adversarial Networks for Multi-Domain Image-to-Image Translation", year: 2017, url: "https://arxiv.org/abs/1711.09020" }

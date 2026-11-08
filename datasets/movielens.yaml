@@ -4,7 +4,7 @@ modality: tabular
 task: Recommendation (predict how a user rates a movie)
 one_liner: Millions of 0.5–5 star movie ratings from the MovieLens site, the classic recommender dataset.
 creators: GroupLens Research (University of Minnesota)
-size: Versions from 100k to 25M+ ratings; the copy sampled here has ~1M
+size: Versions from 100k to 32M ratings; the copy sampled here has ~1M
 splits: { train: 891382, validation: 99043 }
 input: User id, movie id (with title and genres)
 labels: Rating, 0.5–5 stars
@@ -23,7 +23,7 @@ why: >-
 trivia:
   - The matrix is very sparse. MovieLens 25M has 25 million ratings from 162k users on 62k movies, so about 0.25% of the cells are filled.
   - Every user in the standard releases rated at least 20 movies; less active users were left out.
-  - "Main releases: 100K (1998), 1M (2003), 10M (2009), 20M (2015), 25M (2019). Half-star ratings date from 2003; the older sets use whole stars."
+  - "Main releases: 100K (1998), 1M (2003), 10M (2009), 20M (2015), 25M (2019), 32M (2024). 100K and 1M use whole stars; half-star ratings appear from 10M on."
   - The Netflix Prize (2006–2009) used much bigger proprietary data, but MovieLens is what most papers can actually share and reproduce.
 lineage:
   - { name: Netflix Prize, note: "2006, 100M ratings and a $1M prize", url: "https://en.wikipedia.org/wiki/Netflix_Prize" }

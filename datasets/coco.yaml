@@ -26,8 +26,9 @@ trivia:
 lineage:
   - { name: Pascal VOC, note: "2005–2012, 20 classes, the predecessor", hf: TNILab/pascal_voc2012_det_train_val, id: pascal-voc }
   - { name: ADE20K, note: "2017, every pixel labeled, 150-class benchmark", hf: 1aurent/ADE20K, id: ade20k }
+  - { name: Flickr30k, note: "2014, 31k captioned photos, the captioning benchmark before COCO Captions", hf: nlphuji/flickr30k, id: flickr30k }
   - { name: LVIS, note: "2019, 1,200+ categories on COCO images", url: "https://www.lvisdataset.org/" }
-  - { name: Objects365, note: "2019, 365 categories, 2M images", url: "https://www.objects365.org/" }
+  - { name: Objects365, note: "2019, 365 categories, 638k images at release", url: "https://www.objects365.org/" }
 landmark_papers:
   - { title: "Faster R-CNN", year: 2015, url: "https://arxiv.org/abs/1506.01497" }
   - { title: "You Only Look Once (YOLO)", year: 2015, url: "https://arxiv.org/abs/1506.02640" }
