@@ -20,6 +20,8 @@ const display = z.discriminatedUnion('kind', [
     image: z.string(),
     objects: z.string(), // COCO-style struct of lists: bbox [x, y, w, h] in pixels, plus a label list
     label: z.string().default('label'), // name of the label list inside objects (Pascal VOC copies call it category)
+    names: z.array(z.string()).optional(), // class names by id, when the labels are plain integers (KITTI's copy)
+    ignore: z.array(z.string()).default([]), // classes drawn as dashed "don't care" regions, without a label
   }),
   z.object({
     kind: z.literal('text'),

@@ -1,0 +1,60 @@
+name: KITTI
+year: 2012
+modality: vision
+task: Driving benchmarks (object detection, stereo, optical flow, odometry, depth)
+one_liner: A car with cameras and a laser scanner drove around Karlsruhe; the recordings became a dozen benchmarks.
+creators: Andreas Geiger, Philip Lenz, Raquel Urtasun (Karlsruhe Institute of Technology, Toyota Technological Institute at Chicago)
+size: 14,999 images in the object benchmark (80,256 labeled objects); about 6 hours of raw drives
+splits: { train: 7481, test: 7518 }
+input: 1242×375 color photo from a stereo pair, with a synchronized Velodyne laser scan
+labels: 2D and 3D boxes for cars, vans, trucks, pedestrians, cyclists and trams (this copy keeps the 2D boxes)
+license: CC BY-NC-SA 3.0
+paper:
+  title: "Are we ready for Autonomous Driving? The KITTI Vision Benchmark Suite"
+  url: https://www.cvlibs.net/publications/Geiger2012CVPR.pdf
+homepage: https://www.cvlibs.net/datasets/kitti/
+why: >-
+  Before KITTI, self-driving research was tested on small or private data.
+  Geiger, Lenz and Urtasun put two stereo camera pairs, a 64-beam laser
+  scanner and GPS on a station wagon, drove it through Karlsruhe, and released
+  benchmarks with public leaderboards for stereo matching, optical flow,
+  visual odometry, 2D and 3D object detection and tracking, and later depth
+  prediction. For most of the 2010s it was the outdoor benchmark: 3D detectors
+  from VoxelNet to PointPillars, SLAM systems and self-supervised depth
+  models all reported KITTI numbers first.
+trivia:
+  - The name joins the two institutes, KIT and TTI-Chicago. The car was a Volkswagen Passat station wagon.
+  - Results are split into Easy, Moderate and Hard by box height, occlusion and truncation; the leaderboard ranks by Moderate.
+  - Gray dashed boxes are "DontCare" regions, mostly objects too far away or too small to label. Detections there are neither rewarded nor penalized.
+  - Every object also has a 3D box in meters, from the laser scan. That is what made KITTI the first big benchmark for 3D detection.
+  - The 2017 depth benchmark added 93,000 depth maps built by combining several laser scans, since one scan covers only about 5% of the pixels.
+lineage:
+  - { name: CamVid, note: "2008, labeled video from a car in Cambridge", url: "https://mi.eng.cam.ac.uk/research/projects/VideoRec/CamVid/" }
+  - { name: NYU Depth V2, note: "2012, the indoor depth benchmark", hf: tanganke/nyuv2, id: nyu-depth-v2 }
+  - { name: Cityscapes, note: "2016, pixel-level street labels from 50 cities", hf: Antreas/Cityscapes, id: cityscapes }
+  - { name: Virtual KITTI, note: "2016, synthetic copies of KITTI scenes from a game engine", url: "https://europe.naverlabs.com/research/computer-vision/proxy-virtual-worlds-vkitti-2/" }
+  - { name: nuScenes, note: "2019, full 360° sensors, radar, night and rain, Boston and Singapore", url: "https://www.nuscenes.org/" }
+  - { name: Waymo Open Dataset, note: "2019, about 20 times larger, five lidars", url: "https://waymo.com/open/" }
+  - { name: KITTI-360, note: "2021, the successor, with 360° labels", url: "https://www.cvlibs.net/datasets/kitti-360/" }
+landmark_papers:
+  - { title: "Unsupervised Monocular Depth Estimation with Left-Right Consistency (Monodepth)", year: 2017, url: "https://arxiv.org/abs/1609.03677" }
+  - { title: "ORB-SLAM2: an Open-Source SLAM System for Monocular, Stereo and RGB-D Cameras", year: 2017, url: "https://arxiv.org/abs/1610.06475" }
+  - { title: "VoxelNet: End-to-End Learning for Point Cloud Based 3D Object Detection", year: 2018, url: "https://arxiv.org/abs/1711.06396" }
+  - { title: "PointPillars: Fast Encoders for Object Detection from Point Clouds", year: 2019, url: "https://arxiv.org/abs/1812.05784" }
+source:
+  hf: KingRam/Kitti-Object-Detection-Evaluation-2012
+  config: default
+  split: train
+  n: 18
+  seed: 5
+  rows_per_page: 3
+display:
+  kind: boxes
+  image: image
+  objects: objects
+  label: category
+  # This copy stores classes as numbers; the order was checked against KITTI's own label files.
+  names: [Car, Pedestrian, Cyclist, Van, Truck, Misc, Tram, Person_sitting, DontCare]
+  ignore: [DontCare]
+download:
+  note: "A community Parquet copy of the 2D object benchmark's training images and boxes (classes as numbers, in the order Car, Pedestrian, Cyclist, Van, Truck, Misc, Tram, Person_sitting, DontCare). 3D boxes, laser scans, stereo, flow and depth are on the KITTI site, after registration."

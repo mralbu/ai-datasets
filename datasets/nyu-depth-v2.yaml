@@ -30,7 +30,7 @@ trivia:
 lineage:
   - { name: Make3D, note: "2008, outdoor photos with laser depth from Stanford", url: "http://make3d.cs.cornell.edu/data.html" }
   - { name: NYU Depth V1, note: "2011, 64 scenes, the first version", url: "https://cs.nyu.edu/~fergus/datasets/nyu_depth_v1.html" }
-  - { name: KITTI, note: "2012, outdoor driving depth from a laser scanner", url: "https://www.cvlibs.net/datasets/kitti/eval_depth_all.php" }
+  - { name: KITTI, note: "2012, outdoor driving depth from a laser scanner", hf: KingRam/Kitti-Object-Detection-Evaluation-2012, id: kitti }
   - { name: SUN RGB-D, note: "2015, 10,335 RGB-D images including NYU's", url: "https://rgbd.cs.princeton.edu/" }
   - { name: ScanNet, note: "2017, 1,513 scanned rooms in 3D", url: "http://www.scan-net.org/" }
   - { name: Cityscapes, note: "2016, outdoor segmentation, with stereo depth", hf: Antreas/Cityscapes, id: cityscapes }

@@ -29,7 +29,7 @@ trivia:
   - Hover over a photo to see the class under the pointer. The colors are the official Cityscapes palette.
 lineage:
   - { name: CamVid, note: "2008, 701 labeled frames of video from Cambridge, the first of its kind", url: "https://mi.eng.cam.ac.uk/research/projects/VideoRec/CamVid/" }
-  - { name: KITTI, note: "2012, driving benchmark with laser depth; a few hundred segmentation labels", url: "https://www.cvlibs.net/datasets/kitti/" }
+  - { name: KITTI, note: "2012, driving benchmark with laser depth; a few hundred segmentation labels", hf: KingRam/Kitti-Object-Detection-Evaluation-2012, id: kitti }
   - { name: ADE20K, note: "2017, scene parsing of everyday scenes, 150 classes", hf: 1aurent/ADE20K, id: ade20k }
   - { name: Mapillary Vistas, note: "2017, 25,000 street images from around the world", url: "https://www.mapillary.com/dataset/vistas" }
   - { name: BDD100K, note: "2018, driving video from US cities, with weather and night", url: "https://bdd-data.berkeley.edu/" }
