@@ -21,6 +21,7 @@ datasets/<id>.yaml      one file per dataset: facts, description, Hugging Face s
 scripts/sample.py       (uv: polars, altair, pillow) samples rows from the Hugging Face dataset viewer
                         into a snapshot, then copies it to src/generated/ and public/samples/
 src/                    Astro site: catalog, timeline, one page per dataset, search (press /)
+                        and, for language models, /llms.txt, /llms-full.txt and /d/<id>.md (src/lib/llms.ts)
 samples branch          the snapshot: sampled rows, media and a manifest (generated, data only)
 justfile                shortcuts for everything below (run `just` to list them)
 ```

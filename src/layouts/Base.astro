@@ -2,8 +2,8 @@
 import '../styles/global.css';
 import { url } from '../lib/data';
 import Search from '../components/Search.astro';
-interface Props { title: string; description?: string }
-const { title, description = 'A small museum of classic AI datasets and benchmarks: what they are and what the data actually looks like.' } = Astro.props;
+interface Props { title: string; description?: string; markdown?: string }
+const { title, markdown, description = 'A small museum of classic AI datasets and benchmarks: what they are and what the data actually looks like.' } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '');
 const home = url('/').replace(/\/$/, '');
 const nav = [
@@ -19,6 +19,8 @@ const nav = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="alternate" type="text/plain" title="llms.txt" href={url('/llms.txt')} />
+    {markdown && <link rel="alternate" type="text/markdown" href={markdown} />}
     <script is:inline>
       // Apply a saved theme before first paint, so there is no flash.
       try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}
