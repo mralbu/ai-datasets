@@ -64,6 +64,13 @@
    "fetched_at": "2026-11-07T15:45:52+00:00",
    "rows": 60
   },
+  "cityscapes": {
+   "fingerprint": "bb41a0ebe5ba0c3c",
+   "hf": "Antreas/Cityscapes",
+   "revision": "25f5ec2398eaf27d79bca00c21e269a4d6784286",
+   "fetched_at": "2026-11-08T03:09:52+00:00",
+   "rows": 12
+  },
   "cnn-dailymail": {
    "fingerprint": "0bd2857794fae985",
    "hf": "abisee/cnn_dailymail",
@@ -196,6 +203,13 @@
    "revision": "a1c7c3304f31f9be882a2c90726d25b94dd2d8f1",
    "fetched_at": "2026-11-07T21:34:18+00:00",
    "rows": 16
+  },
+  "nyu-depth-v2": {
+   "fingerprint": "69107e7940a50b31",
+   "hf": "tanganke/nyuv2",
+   "revision": "b367b8b53c4dcefbcb4d9310b74976a63cc7f306",
+   "fetched_at": "2026-11-08T03:10:19+00:00",
+   "rows": 8
   },
   "palmer-penguins": {
    "fingerprint": "efd2e9e6e790d4f4",

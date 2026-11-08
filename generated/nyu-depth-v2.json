@@ -1,0 +1,390 @@
+{
+ "features": [
+  {
+   "name": "image",
+   "type": {
+    "_type": "Dense",
+    "kind": "image",
+    "was": "Array3D"
+   }
+  },
+  {
+   "name": "segmentation",
+   "type": {
+    "_type": "Dense",
+    "kind": "labels",
+    "was": "Array2D"
+   }
+  },
+  {
+   "name": "depth",
+   "type": {
+    "_type": "Dense",
+    "kind": "depth",
+    "was": "Array3D"
+   }
+  },
+  {
+   "name": "normal",
+   "type": {
+    "_type": "Dense",
+    "kind": "normals",
+    "was": "Array3D"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-08T03:10:19+00:00",
+ "id": "nyu-depth-v2",
+ "num_rows_total": 654,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "image",
+     "type": {
+      "_type": "Dense",
+      "kind": "image",
+      "was": "Array3D"
+     }
+    },
+    {
+     "name": "segmentation",
+     "type": {
+      "_type": "Dense",
+      "kind": "labels",
+      "was": "Array2D"
+     }
+    },
+    {
+     "name": "depth",
+     "type": {
+      "_type": "Dense",
+      "kind": "depth",
+      "was": "Array3D"
+     }
+    },
+    {
+     "name": "normal",
+     "type": {
+      "_type": "Dense",
+      "kind": "normals",
+      "was": "Array3D"
+     }
+    }
+   ],
+   "num_rows_total": 654,
+   "split": "val"
+  }
+ ],
+ "revision": "b367b8b53c4dcefbcb4d9310b74976a63cc7f306",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "depth": {
+     "height": 288,
+     "max": 3.381,
+     "min": 1.242,
+     "src": "samples/nyu-depth-v2/30-depth.png",
+     "width": 384
+    },
+    "image": {
+     "height": 288,
+     "src": "samples/nyu-depth-v2/30-image.jpg",
+     "width": 384
+    },
+    "normal": {
+     "height": 288,
+     "src": "samples/nyu-depth-v2/30-normal.png",
+     "width": 384
+    },
+    "segmentation": {
+     "classes": {
+      "0": 0.2384,
+      "11": 0.199,
+      "12": 0.098,
+      "4": 0.0182,
+      "5": 0.0129,
+      "6": 0.2096
+     },
+     "height": 288,
+     "src": "samples/nyu-depth-v2/30-segmentation.png",
+     "width": 384
+    }
+   },
+   "row_idx": 30,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "depth": {
+     "height": 288,
+     "max": 2.185,
+     "min": 1.076,
+     "src": "samples/nyu-depth-v2/322-depth.png",
+     "width": 384
+    },
+    "image": {
+     "height": 288,
+     "src": "samples/nyu-depth-v2/322-image.jpg",
+     "width": 384
+    },
+    "normal": {
+     "height": 288,
+     "src": "samples/nyu-depth-v2/322-normal.png",
+     "width": 384
+    },
+    "segmentation": {
+     "classes": {
+      "11": 0.1082,
+      "12": 0.1202,
+      "4": 0.0015,
+      "5": 0.6187,
+      "6": 0.061
+     },
+     "height": 288,
+     "src": "samples/nyu-depth-v2/322-segmentation.png",
+     "width": 384
+    }
+   },
+   "row_idx": 322,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "depth": {
+     "height": 288,
+     "max": 3.763,
+     "min": 0.888,
+     "src": "samples/nyu-depth-v2/244-depth.png",
+     "width": 384
+    },
+    "image": {
+     "height": 288,
+     "src": "samples/nyu-depth-v2/244-image.jpg",
+     "width": 384
+    },
+    "normal": {
+     "height": 288,
+     "src": "samples/nyu-depth-v2/244-normal.png",
+     "width": 384
+    },
+    "segmentation": {
+     "classes": {
+      "11": 0.2199,
+      "12": 0.1851,
+      "4": 0.0594,
+      "6": 0.1033,
+      "8": 0.3099,
+      "9": 0.0785
+     },
+     "height": 288,
+     "src": "samples/nyu-depth-v2/244-segmentation.png",
+     "width": 384
+    }
+   },
+   "row_idx": 244,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "depth": {
+     "height": 288,
+     "max": 7.029,
+     "min": 1.879,
+     "src": "samples/nyu-depth-v2/387-depth.png",
+     "width": 384
+    },
+    "image": {
+     "height": 288,
+     "src": "samples/nyu-depth-v2/387-image.jpg",
+     "width": 384
+    },
+    "normal": {
+     "height": 288,
+     "src": "samples/nyu-depth-v2/387-normal.png",
+     "width": 384
+    },
+    "segmentation": {
+     "classes": {
+      "0": 0.15,
+      "1": 0.005,
+      "11": 0.1943,
+      "3": 0.1499,
+      "4": 0.1671,
+      "5": 0.1432,
+      "6": 0.049,
+      "7": 0.0573
+     },
+     "height": 288,
+     "src": "samples/nyu-depth-v2/387-segmentation.png",
+     "width": 384
+    }
+   },
+   "row_idx": 387,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "depth": {
+     "height": 288,
+     "max": 5.335,
+     "min": 1.31,
+     "src": "samples/nyu-depth-v2/641-depth.png",
+     "width": 384
+    },
+    "image": {
+     "height": 288,
+     "src": "samples/nyu-depth-v2/641-image.jpg",
+     "width": 384
+    },
+    "normal": {
+     "height": 288,
+     "src": "samples/nyu-depth-v2/641-normal.png",
+     "width": 384
+    },
+    "segmentation": {
+     "classes": {
+      "11": 0.2721,
+      "3": 0.0537,
+      "4": 0.1758,
+      "5": 0.3267,
+      "6": 0.0199,
+      "7": 0.075,
+      "9": 0.005
+     },
+     "height": 288,
+     "src": "samples/nyu-depth-v2/641-segmentation.png",
+     "width": 384
+    }
+   },
+   "row_idx": 641,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "depth": {
+     "height": 288,
+     "max": 6.115,
+     "min": 1.178,
+     "src": "samples/nyu-depth-v2/129-depth.png",
+     "width": 384
+    },
+    "image": {
+     "height": 288,
+     "src": "samples/nyu-depth-v2/129-image.jpg",
+     "width": 384
+    },
+    "normal": {
+     "height": 288,
+     "src": "samples/nyu-depth-v2/129-normal.png",
+     "width": 384
+    },
+    "segmentation": {
+     "classes": {
+      "11": 0.0351,
+      "3": 0.0814,
+      "4": 0.237,
+      "5": 0.1256,
+      "6": 0.3656,
+      "7": 0.0548,
+      "9": 0.0283
+     },
+     "height": 288,
+     "src": "samples/nyu-depth-v2/129-segmentation.png",
+     "width": 384
+    }
+   },
+   "row_idx": 129,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "depth": {
+     "height": 288,
+     "max": 4.051,
+     "min": 0.714,
+     "src": "samples/nyu-depth-v2/479-depth.png",
+     "width": 384
+    },
+    "image": {
+     "height": 288,
+     "src": "samples/nyu-depth-v2/479-image.jpg",
+     "width": 384
+    },
+    "normal": {
+     "height": 288,
+     "src": "samples/nyu-depth-v2/479-normal.png",
+     "width": 384
+    },
+    "segmentation": {
+     "classes": {
+      "0": 0.301,
+      "11": 0.1717,
+      "12": 0.0725,
+      "3": 0.0173,
+      "4": 0.071,
+      "6": 0.1199,
+      "7": 0.0358,
+      "9": 0.1412
+     },
+     "height": 288,
+     "src": "samples/nyu-depth-v2/479-segmentation.png",
+     "width": 384
+    }
+   },
+   "row_idx": 479,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "depth": {
+     "height": 288,
+     "max": 5.325,
+     "min": 1.248,
+     "src": "samples/nyu-depth-v2/514-depth.png",
+     "width": 384
+    },
+    "image": {
+     "height": 288,
+     "src": "samples/nyu-depth-v2/514-image.jpg",
+     "width": 384
+    },
+    "normal": {
+     "height": 288,
+     "src": "samples/nyu-depth-v2/514-normal.png",
+     "width": 384
+    },
+    "segmentation": {
+     "classes": {
+      "0": 0.2742,
+      "11": 0.1683,
+      "4": 0.2961,
+      "5": 0.0034,
+      "6": 0.0169,
+      "7": 0.0223,
+      "8": 0.06
+     },
+     "height": 288,
+     "src": "samples/nyu-depth-v2/514-segmentation.png",
+     "width": 384
+    }
+   },
+   "row_idx": 514,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "tanganke/nyuv2",
+  "split": "val"
+ }
+}
