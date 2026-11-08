@@ -4,7 +4,7 @@ modality: vision
 task: Image classification (1,000 classes)
 one_liner: 1.28 million photos across 1,000 classes, the dataset behind the deep learning boom.
 creators: Jia Deng, Wei Dong, Richard Socher, Li-Jia Li, Kai Li, Li Fei-Fei
-size: ~1.33M images in the ILSVRC-2012 subset (14M in full ImageNet)
+size: ~1.43M images in the ILSVRC-2012 subset (14M in full ImageNet)
 splits: { train: 1281167, validation: 50000, test: 100000 }
 input: Variable-size RGB photo (models usually see a 224×224 crop)
 labels: 1,000 WordNet synsets, from "tench" to "toilet tissue"

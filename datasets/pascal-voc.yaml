@@ -28,6 +28,7 @@ trivia:
   - The challenge ended in 2012. Mark Everingham, who led it, died that year.
 lineage:
   - { name: MS COCO, note: "2014, 80 classes in cluttered scenes, the successor", hf: rafaelpadilla/coco2017, id: coco }
+  - { name: ADE20K, note: "2017, every pixel labeled across 150+ classes", hf: 1aurent/ADE20K, id: ade20k }
   - { name: ImageNet (ILSVRC), note: "2010–2017, ran its own detection track from 2013", id: imagenet, url: "https://www.image-net.org/challenges/LSVRC/" }
 landmark_papers:
   - { title: "Object Detection with Discriminatively Trained Part-Based Models (DPM)", year: 2010, url: "https://doi.org/10.1109/TPAMI.2009.167" }

@@ -66,7 +66,7 @@ const display = z.discriminatedUnion('kind', [
     tests_lang: z.string().default('python'),
     prompt_label: z.string().default('The prompt the model sees:'),
     solution_label: z.string().default('Reference solution'),
-    tests_label: z.string().default('Hidden unit tests'),
+    tests_label: z.string().default('Unit tests (not shown to the model)'),
   }),
   z.object({
     kind: z.literal('audio'),

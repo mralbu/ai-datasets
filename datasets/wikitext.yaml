@@ -4,7 +4,7 @@ modality: text
 task: Language modeling (predict the next word)
 one_liner: 103 million words from 28,475 good and featured Wikipedia articles, kept whole.
 creators: Stephen Merity, Caiming Xiong, James Bradbury, Richard Socher (MetaMind / Salesforce)
-size: 28,595 articles, ~103M training tokens, ~1.8M lines
+size: 28,595 articles (28,475 for training), ~103M training tokens, ~1.8M lines
 splits: { train: 1801350, validation: 3760, test: 4358 }
 input: Running text, one paragraph or heading per line
 labels: None. The next word is the target.

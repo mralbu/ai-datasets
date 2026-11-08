@@ -28,7 +28,6 @@ lineage:
   - { name: MNIST, note: "1998, the dataset it replaces", hf: ylecun/mnist, id: mnist }
   - { name: KMNIST, note: "2018, cursive Japanese characters in the same format", url: "https://github.com/rois-codh/kmnist" }
 landmark_papers:
-  - { title: "Fashion-MNIST: a Novel Image Dataset for Benchmarking Machine Learning Algorithms", year: 2017, url: "https://arxiv.org/abs/1708.07747" }
   - { title: "Random Erasing Data Augmentation", year: 2017, url: "https://arxiv.org/abs/1708.04896" }
 source: { hf: zalando-datasets/fashion_mnist, config: fashion_mnist, split: test, n: 60, seed: 17 }
 display: { kind: image, image: image, label: label, scale: 4, class_grid: true }

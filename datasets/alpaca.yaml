@@ -28,7 +28,6 @@ lineage:
   - { name: Dolly 15k, note: "2023, human-written and commercially usable", hf: databricks/databricks-dolly-15k }
   - { name: Anthropic HH-RLHF, note: "2022, preference data for the RLHF step", hf: Anthropic/hh-rlhf, id: hh-rlhf }
 landmark_papers:
-  - { title: "Self-Instruct: Aligning Language Models with Self-Generated Instructions", year: 2022, url: "https://arxiv.org/abs/2212.10560" }
   - { title: "Vicuna: An Open-Source Chatbot Impressing GPT-4", year: 2023, url: "https://lmsys.org/blog/2023-03-30-vicuna/" }
   - { title: "LIMA: Less Is More for Alignment", year: 2023, url: "https://arxiv.org/abs/2305.11206" }
 source: { hf: tatsu-lab/alpaca, config: default, split: train, n: 12, seed: 34 }

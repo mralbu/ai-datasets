@@ -4,7 +4,7 @@ modality: text
 task: Extractive question answering (reading comprehension)
 one_liner: 100k+ questions about Wikipedia paragraphs; the answer is a span of the text.
 creators: Pranav Rajpurkar, Jian Zhang, Konstantin Lopyrev, Percy Liang (Stanford)
-size: 98,169 questions on 536 Wikipedia articles
+size: 107,785 questions on 536 Wikipedia articles (98,169 public)
 splits: { train: 87599, validation: 10570 }
 input: A Wikipedia paragraph and a question about it
 labels: Answer text and its character offset in the paragraph
@@ -21,7 +21,7 @@ why: >-
 trivia:
   - Every answer is a substring of the paragraph, so a model only has to point at a start and an end position.
   - Validation questions have several reference answers from different annotators (usually three); scoring takes the best match.
-  - Scored with exact match and token-level F1. Humans scored about 91 F1 in the original paper.
+  - Scored with exact match and token-level F1. Humans scored 86.8 F1 on the test set in the original paper (about 91 on the later leaderboard).
   - SQuAD 2.0 (2018) added 50k unanswerable questions, because models had learned to always pick some plausible span.
 lineage:
   - { name: SQuAD 2.0, note: "2018, adds unanswerable questions", hf: rajpurkar/squad_v2 }

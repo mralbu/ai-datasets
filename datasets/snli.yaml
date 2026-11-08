@@ -21,7 +21,7 @@ why: >-
   the standard example of annotation artifacts: models could guess the label
   from the hypothesis alone, without reading the premise.
 trivia:
-  - Premises are Flickr30k image captions. Workers saw only the caption and wrote one hypothesis that is definitely true, one that might be true and one that is definitely false.
+  - Almost all premises are Flickr30k image captions. Workers saw only the caption and wrote one hypothesis that is definitely true, one that might be true and one that is definitely false.
   - A hypothesis-only classifier gets about 67% (chance is 33%). Negation words like "nobody" or "sleeping" are strong hints for contradiction.
   - Validation and test pairs were relabeled by four more annotators. Pairs without a majority get label -1 and are usually dropped.
 config_notes:

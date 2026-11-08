@@ -26,8 +26,8 @@ trivia:
 lineage:
   - { name: ARC-AGI-2, note: "2025, harder tasks, 1,000 for training", url: "https://github.com/arcprize/ARC-AGI-2" }
   - { name: ConceptARC, note: "2023, tasks grouped by concept", url: "https://github.com/victorvikram/ConceptARC" }
+  - { name: AI2 ARC, note: "2018, grade-school science questions, a different ARC", hf: allenai/ai2_arc, id: ai2-arc }
 landmark_papers:
-  - { title: "On the Measure of Intelligence", year: 2019, url: "https://arxiv.org/abs/1911.01547" }
   - { title: "ARC Prize 2024: Technical Report", year: 2024, url: "https://arxiv.org/abs/2412.04604" }
 source: { hf: zhmz90/arc-agi-2, config: default, split: train, n: 12, seed: 16 }
 display: { kind: grid, train: train, test: test }

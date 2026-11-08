@@ -23,7 +23,8 @@ trivia:
   - A 2021 audit found that the bad-word filter removed text by and about minority groups disproportionately, and that patents.google.com was the most common website.
   - It was built from the April 2019 Common Crawl snapshot.
 lineage:
-  - { name: FineWeb, note: "2024, 15T tokens with model-based filtering", hf: HuggingFaceFW/fineweb }
+  - { name: FineWeb, note: "2024, 15T tokens of filtered, deduplicated Common Crawl", hf: HuggingFaceFW/fineweb }
+  - { name: FineWeb-Edu, note: "2024, the 1.3T tokens of FineWeb an educational-quality classifier kept", hf: HuggingFaceFW/fineweb-edu }
   - { name: The Pile, note: "2020, 825 GB from 22 curated sources", url: "https://pile.eleuther.ai/" }
   - { name: WikiText-103, note: "2016, curated Wikipedia articles", hf: Salesforce/wikitext, id: wikitext }
 landmark_papers:
