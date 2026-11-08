@@ -2,15 +2,12 @@
 import Base from '../layouts/Base.astro';
 import Preview from '../components/Preview.astro';
 import CategoryFilter from '../components/CategoryFilter.astro';
-import { getDatasets, MODALITIES, TAGS, url, type Tag } from '../lib/data';
+import { getDatasets, MODALITIES, TAGS, url } from '../lib/data';
 const all = await getDatasets();
 const groups = Object.keys(MODALITIES)
   .map((m) => ({ m, items: all.filter((d) => d.data.modality === m) }))
   .filter((g) => g.items.length);
 const counts = Object.fromEntries(groups.map((g) => [g.m, g.items.length]));
-const tagCounts = (Object.keys(TAGS) as Tag[])
-  .map((t) => ({ t, n: all.filter((d) => d.data.tags.includes(t)).length }))
-  .filter((x) => x.n);
 ---
 <Base title="AI Datasets">
   <section class="hero">
@@ -19,13 +16,7 @@ const tagCounts = (Object.keys(TAGS) as Tag[])
       A small, curated collection of datasets and benchmarks that shaped AI. Each entry
       has the key facts, why it matters, and real samples you can shuffle through.
     </p>
-    {tagCounts.length > 0 && (
-      <p class="by-tag">
-        <span class="muted">Also by tag:</span>
-        {tagCounts.map(({ t, n }) => <a class="dtag" href={`?tag=${t}`} data-tag-link={t}>{TAGS[t]} <span class="muted">{n}</span></a>)}
-      </p>
-    )}
-    <p class="tag-banner" data-tag-banner hidden>
+    <p class="tag-banner" data-tag-banner data-names={JSON.stringify(TAGS)} hidden>
       Showing datasets tagged <strong data-tag-name></strong>. <a href={url('/')}>Show all</a>
     </p>
   </section>
@@ -56,11 +47,10 @@ const tagCounts = (Object.keys(TAGS) as Tag[])
   // ?tag=medical shows only the entries with that tag (links from tag pills on dataset pages).
   const tag = new URLSearchParams(location.search).get('tag');
   const banner = document.querySelector<HTMLElement>('[data-tag-banner]');
-  const label = document.querySelector<HTMLAnchorElement>(`[data-tag-link="${CSS.escape(tag ?? '')}"]`);
-  if (tag && banner && label) {
+  const names: Record<string, string> = JSON.parse(banner?.dataset.names ?? '{}');
+  if (tag && banner && names[tag]) {
     banner.hidden = false;
-    banner.querySelector('[data-tag-name]')!.textContent = label.firstChild!.textContent!.trim();
-    label.setAttribute('aria-current', 'true');
+    banner.querySelector('[data-tag-name]')!.textContent = names[tag];
     for (const g of document.querySelectorAll<HTMLElement>('[data-group]')) {
       let any = false;
       for (const c of g.querySelectorAll<HTMLElement>('.entry')) {
@@ -86,10 +76,6 @@ const tagCounts = (Object.keys(TAGS) as Tag[])
   .year { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 0.9rem; }
   .one { margin: 0; font-size: 0.92rem; }
   .tags { margin: -4px 0 0; display: flex; gap: 4px; flex-wrap: wrap; }
-  .by-tag { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 14px 0 0; font-size: 0.9rem; }
-  .by-tag .dtag { font-size: 0.8rem; padding: 2px 9px; }
-  .by-tag .dtag:hover { text-decoration: none; border-color: var(--accent); }
-  .by-tag .dtag[aria-current] { border-color: var(--accent); color: var(--accent); }
   .tag-banner { margin: 10px 0 0; font-size: 0.9rem; }
   .tag-banner[hidden] { display: none; }
   .off-tag { display: none !important; }
