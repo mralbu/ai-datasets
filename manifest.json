@@ -155,6 +155,13 @@
    "fetched_at": "2026-11-07T15:47:46+00:00",
    "rows": 12
   },
+  "kitti": {
+   "fingerprint": "f9b4fab569c33f7f",
+   "hf": "KingRam/Kitti-Object-Detection-Evaluation-2012",
+   "revision": "f712f68c2aa0f008a69b38a9c63ddfa1fd79a90c",
+   "fetched_at": "2026-11-08T03:17:49+00:00",
+   "rows": 18
+  },
   "librispeech": {
    "fingerprint": "8e3a54f885561e62",
    "hf": "openslr/librispeech_asr",
