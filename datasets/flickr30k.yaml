@@ -28,6 +28,7 @@ lineage:
   - { name: Flickr8k, note: "2013, the 8k-image predecessor", url: "https://hockenmaier.cs.illinois.edu/8k-pictures.html" }
   - { name: MS COCO Captions, note: "2015, 5 captions on 120k+ COCO images", hf: rafaelpadilla/coco2017, id: coco }
   - { name: SNLI, note: "2015, inference pairs built on these captions", hf: stanfordnlp/snli, id: snli }
+  - { name: Visual Genome, note: "2016, objects, attributes and relationships on 108k images", hf: ljnlonoljpiljm/visual_genome, id: visual-genome }
 landmark_papers:
   - { title: "Show and Tell: A Neural Image Caption Generator", year: 2014, url: "https://arxiv.org/abs/1411.4555" }
   - { title: "Deep Visual-Semantic Alignments for Generating Image Descriptions", year: 2015, url: "https://arxiv.org/abs/1412.2306" }

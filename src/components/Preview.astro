@@ -12,7 +12,7 @@ const snippet = (t: unknown, n = 140) => {
   const str = String(t ?? '').replace(/<br\s*\/?>/g, ' ').replace(/\s+/g, ' ').trim();
   return str.length > n ? str.slice(0, n).trimEnd() + '…' : str;
 };
-const imageField = d.kind === 'image' || d.kind === 'boxes' || d.kind === 'annotated' || d.kind === 'segmentation' || d.kind === 'dense' ? d.image : d.kind === 'image_mcq' ? d.images[0] : undefined;
+const imageField = d.kind === 'image' || d.kind === 'boxes' || d.kind === 'annotated' || d.kind === 'segmentation' || d.kind === 'dense' || d.kind === 'vqa' || d.kind === 'scene_graph' ? d.image : d.kind === 'image_mcq' ? d.images[0] : undefined;
 const firstLine = (code: string) => code.split('\n').find((l) => l.startsWith('def ')) ?? '';
 const stripMath = (t: unknown) => String(t ?? '').replace(/\$+/g, '');
 ---

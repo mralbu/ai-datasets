@@ -82,6 +82,8 @@ the first fetch fills it, which takes 10 minutes or more for the whole catalog.
    | `boxes` | `image`, `objects` (COCO-style `bbox` `[x, y, w, h]` + a label list), `label` (its name, default `label`), `names` (when labels are plain integers), `ignore` (classes drawn as dashed "don't care" regions) | COCO, PASCAL VOC, KITTI |
    | `segmentation` | `image`, `objects` (ADE20K-style: `name`, `polygon {x, y}`, `depth_ordering_rank`, `parts.part_level`), `scene` | ADE20K |
    | `dense` | `image`, `layers` (each a `field`, `type` (`labels`, `depth` or `normals`), `name`, and for labels `classes: [{id, name, color}]` and `outline`); needs `source.dense` | Cityscapes, NYU Depth V2, ISIC |
+   | `vqa` | `image`, `question`, `answers` (list of strings or `{answer}`), `answer_key`, `type` | VQA v2 |
+   | `scene_graph` | `image`, `objects` (`object_id`, `labels`, `attributes`, `bbox` as fractions `[x1, y1, x2, y2]`), `relationships` (`subject`, `predicate`, `participant`), `regions`, `qa` | Visual Genome |
    | `retrieval` | `query`, `passages` (a struct of lists: `text`, `selected`, `url`), `answers`, `type` | MS MARCO |
    | `annotated` | `image`, `captions` (list) or `attributes: true` (yes/no columns) or `labels` (a list of strings, `none` when empty), `details` (`{Label: field}`), `thumb` | Flickr30k, CelebA, ChestX-ray14 |
    | `text` | `text`, `label`, `summary` (shown on demand), `caption` (small line, e.g. a URL) | IMDB, 20 Newsgroups, WikiText-103, CNN/DailyMail, C4 |
