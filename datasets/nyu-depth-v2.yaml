@@ -1,0 +1,77 @@
+name: NYU Depth V2
+year: 2012
+modality: vision
+task: Monocular depth estimation and indoor scene segmentation
+one_liner: 1,449 indoor photos from a Kinect, each with a depth map and a class for every pixel.
+creators: Nathan Silberman, Derek Hoiem, Pushmeet Kohli, Rob Fergus (NYU, UIUC, Microsoft Research)
+size: 1,449 labeled RGB-D images (464 scenes), plus 407,024 unlabeled video frames
+splits: { train: 795, test: 654 }
+input: 640×480 indoor photo (288×384 in this copy)
+labels: Depth in meters per pixel, a class per pixel (894 raw names, usually grouped into 13 or 40), surface normals
+license: No explicit license; distributed by NYU for research
+paper:
+  title: Indoor Segmentation and Support Inference from RGBD Images
+  url: https://cs.nyu.edu/~fergus/datasets/indoor_seg_support.pdf
+homepage: https://cs.nyu.edu/~fergus/datasets/nyu_depth_v2.html
+why: >-
+  The Microsoft Kinect (2010) made depth sensing cheap, and NYU Depth V2 used
+  it to record homes, offices and stores in New York, Philadelphia and
+  Princeton. It became the benchmark for predicting depth from a single photo:
+  from Eigen et al. (2014), the first deep network for the task, to MiDaS,
+  DPT and Depth Anything, nearly every depth paper reports its error on NYU.
+  Its labels also made it a standard test for indoor segmentation and for
+  multi-task models that predict depth, classes and surface orientation at once.
+trivia:
+  - The Kinect gives no reading on shiny, dark or far surfaces and at object edges. In the labeled set these holes were filled by colorization (Levin et al.), so the depth maps look smoother than raw sensor data.
+  - The standard split is by scene, so test rooms never appear in training.
+  - Depth is scored as RMSE in meters and as δ<1.25, the share of pixels within 25% of the true depth. Modern models pass 98%.
+  - The surface normals are computed from the depth. Colors encode the direction a surface faces (x, y, z mapped to red, green, blue).
+  - Hover over a photo to read the depth and class under the pointer.
+lineage:
+  - { name: Make3D, note: "2008, outdoor photos with laser depth from Stanford", url: "http://make3d.cs.cornell.edu/data.html" }
+  - { name: NYU Depth V1, note: "2011, 64 scenes, the first version", url: "https://cs.nyu.edu/~fergus/datasets/nyu_depth_v1.html" }
+  - { name: KITTI, note: "2012, outdoor driving depth from a laser scanner", url: "https://www.cvlibs.net/datasets/kitti/eval_depth_all.php" }
+  - { name: SUN RGB-D, note: "2015, 10,335 RGB-D images including NYU's", url: "https://rgbd.cs.princeton.edu/" }
+  - { name: ScanNet, note: "2017, 1,513 scanned rooms in 3D", url: "http://www.scan-net.org/" }
+  - { name: Cityscapes, note: "2016, outdoor segmentation, with stereo depth", hf: Antreas/Cityscapes, id: cityscapes }
+landmark_papers:
+  - { title: "Depth Map Prediction from a Single Image using a Multi-Scale Deep Network", year: 2014, url: "https://arxiv.org/abs/1406.2283" }
+  - { title: "Towards Robust Monocular Depth Estimation: Mixing Datasets for Zero-shot Cross-dataset Transfer (MiDaS)", year: 2019, url: "https://arxiv.org/abs/1907.01341" }
+  - { title: "Vision Transformers for Dense Prediction (DPT)", year: 2021, url: "https://arxiv.org/abs/2103.13413" }
+  - { title: "Depth Anything: Unleashing the Power of Large-Scale Unlabeled Data", year: 2024, url: "https://arxiv.org/abs/2401.10891" }
+source:
+  hf: tanganke/nyuv2
+  config: default
+  split: val
+  n: 8
+  seed: 3
+  page: 1
+  rows_per_page: 1
+  drop: [noise]
+  dense: { image: image, depth: depth, segmentation: labels, normal: normals }
+display:
+  kind: dense
+  image: image
+  layers:
+    - { field: depth, type: depth, name: Depth }
+    - field: segmentation
+      type: labels
+      name: Labels
+      classes:
+        - { id: 0, name: bed, color: "#e8453c" }
+        - { id: 1, name: books, color: "#ffd166" }
+        - { id: 2, name: ceiling, color: "#3fbf6f" }
+        - { id: 3, name: chair, color: "#e655c8" }
+        - { id: 4, name: floor, color: "#8e5bd6" }
+        - { id: 5, name: furniture, color: "#f07f22" }
+        - { id: 6, name: objects, color: "#57d6c4" }
+        - { id: 7, name: picture, color: "#ff8fa3" }
+        - { id: 8, name: sofa, color: "#b03a5b" }
+        - { id: 9, name: table, color: "#e6cf3a" }
+        - { id: 10, name: tv, color: "#2f6fd6" }
+        - { id: 11, name: wall, color: "#d9a441" }
+        - { id: 12, name: window, color: "#5ab4e8" }
+    - { field: normal, type: normals, name: Surface normals }
+download:
+  hf: tanganke/nyuv2
+  note: "A community copy of the standard 795/654 split, resized to 288×384 with 13 classes and surface normals (from the MTAN multi-task benchmark). Images, depth and labels are raw arrays. The original 640×480 data, with 894 class names, is a MATLAB file on the NYU site."

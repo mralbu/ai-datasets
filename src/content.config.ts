@@ -85,6 +85,18 @@ const display = z.discriminatedUnion('kind', [
   z.object({ kind: z.literal('preference'), chosen: z.string(), rejected: z.string() }),
   // Polygon segmentation (ADE20K-style objects with name, polygon {x, y}, depth rank and part level).
   z.object({ kind: z.literal('segmentation'), image: z.string(), objects: z.string(), scene: z.string().optional() }),
+  // Per-pixel annotations rasterized by the sampler (source.dense): label maps, depth, surface normals.
+  z.object({
+    kind: z.literal('dense'),
+    image: z.string(),
+    layers: z.array(z.object({
+      field: z.string(),
+      type: z.enum(['labels', 'depth', 'normals']),
+      name: z.string(),
+      // labels: the pixel value is the id; classes without a color (void, unlabeled) stay transparent
+      classes: z.array(z.object({ id: z.number(), name: z.string(), color: z.string().optional() })).optional(),
+    })).min(1),
+  }),
   // A Translation feature, e.g. {de: …, en: …}; source/target pick the order.
   z.object({ kind: z.literal('translation'), translation: z.string(), source: z.string(), target: z.string() }),
 ]);
