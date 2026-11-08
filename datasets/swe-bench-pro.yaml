@@ -1,0 +1,56 @@
+name: SWE-bench Pro
+year: 2025
+modality: benchmark
+task: Long-horizon software engineering in real Go, Python and JavaScript repositories
+one_liner: Multi-file changes from 11 copyleft repositories, graded by hidden tests in a container.
+creators: Xiang Deng, Jeff Da, Edwin Pan et al. (Scale AI)
+size: 1,865 tasks in the paper; 642 public (V2), plus held-out and commercial sets
+splits: { test: 642 }
+input: A PR description, a list of requirements and the new interfaces, plus the repository at the base commit
+labels: The developers' patch, and tests that must go from failing to passing
+license: Not stated on the dataset card; the code comes from GPL and AGPL repositories
+paper:
+  title: "SWE-Bench Pro: Can AI Agents Solve Long-Horizon Software Engineering Tasks?"
+  url: https://arxiv.org/abs/2509.16941
+homepage: https://labs.scale.com/papers/swe-bench-pro
+why: >-
+  By 2025 SWE-bench Verified was close to saturated and suspected of leaking
+  into training data: its 12 Python projects have been public for years. SWE-bench
+  Pro keeps the same recipe (real issue, real repository, hidden tests) but asks
+  for much bigger changes in more languages. At release no model passed 25% of
+  the tasks; GPT-5 led with 23.3%. Frontier models score much closer together on
+  SWE-bench Verified, so labs now report SWE-bench Pro next to it as the
+  harder coding-agent number.
+trivia:
+  - "Reference fixes average 107 changed lines across 4.1 files; fixes of 10 lines or fewer were left out. In SWE-bench Verified, 161 of the 500 tasks need only a one- or two-line change."
+  - The public and held-out repositories were chosen for strong copyleft licenses (GPL), a legal barrier to putting them in commercial training data. The held-out set of 12 repositories stays private.
+  - A commercial set comes from 18 proprietary startup codebases. Only the scores are published.
+  - "Humans rewrote each issue into a PR-style description with explicit requirements and interfaces, so a task is solvable without guessing names the hidden tests expect."
+  - "V2 (September 2026) dropped 89 of the original 731 public tasks with broken tests and rewrote 529 problem statements so every graded behavior is stated in the text."
+lineage:
+  - { name: SWE-bench, note: "2023, 2,294 issues from 12 Python projects", hf: princeton-nlp/SWE-bench, id: swe-bench }
+  - { name: SWE-bench Verified, note: "2024, 500 human-validated SWE-bench tasks", hf: princeton-nlp/SWE-bench_Verified }
+  - { name: Terminal-Bench, note: "2025, agent tasks in a terminal rather than patches", hf: ia03/terminal-bench, id: terminal-bench }
+  - { name: DeepSWE, note: "2026, 113 original long-horizon tasks in five languages (gated)", url: "https://deepswe.datacurve.ai/" }
+landmark_papers:
+  - { title: "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering", year: 2024, url: "https://arxiv.org/abs/2405.15793" }
+source:
+  hf: ScaleAI/SWE-bench_Pro
+  config: default
+  split: test
+  n: 10
+  seed: 7
+  rows_per_page: 1
+  drop: [before_repo_set_cmd, dockerhub_tag, docker_image, selected_test_files_to_run, pass_to_pass]
+display:
+  kind: code
+  title: repo
+  prompt: problem_statement
+  prompt_lang: text
+  prompt_label: "The PR description the agent is given (with requirements, interfaces and the repository):"
+  solution: patch
+  solution_lang: diff
+  solution_label: The developers' fix (gold patch)
+  tests: test_patch
+  tests_lang: diff
+  tests_label: Tests added with the fix (hidden from the agent)

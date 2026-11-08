@@ -1,0 +1,54 @@
+name: Terminal-Bench
+year: 2025
+modality: benchmark
+task: End-to-end tasks for agents working in a real Linux terminal
+one_liner: Compile, debug, train, configure servers or crack a puzzle in a Docker container; tests check the result.
+creators: Mike A. Merrill, Alexander G. Shaw, Nicholas Carlini et al. (Stanford, Laude Institute)
+size: 112 tasks in this copy (the original repository); 89 in Terminal-Bench 2.0
+splits: { test: 112 }
+input: A task instruction and a container (Dockerfile) with the files and tools it needs
+labels: A human-written reference solution, and pytest checks run on the container's final state
+license: MIT (this copy); the Terminal-Bench repository is Apache 2.0
+paper:
+  title: "Terminal-Bench: Benchmarking Agents on Hard, Realistic Tasks in Command Line Interfaces"
+  url: https://arxiv.org/abs/2601.11868
+homepage: https://www.tbench.ai/
+why: >-
+  Coding agents do much more than write patches: they install packages, read
+  logs, build software and fix broken systems. Terminal-Bench gives an agent a
+  shell inside a container and a task such as "build a Linux kernel and boot it
+  in QEMU" or "recover the rows of a truncated SQLite database", then checks the container's final
+  state with tests. It does not grade a diff. Within months of its May 2025
+  release it became, next to SWE-bench, one of the two coding-agent scores most
+  labs report. Terminal-Bench 2.0 (late 2025) replaced the task set with 89 harder
+  tasks, each checked by three reviewers. Frontier agents solved under 65% of them.
+trivia:
+  - Every task file carries a canary string so that training pipelines can find and drop it.
+  - "Each task has a time limit, usually 6 minutes and up to 30 or more for heavy ones such as kernel builds, after which the tests run."
+  - "The tasks range from cryptanalysis and installing Windows XP in an emulator to playing Zork, besides everyday jobs like fixing git or resolving conda conflicts."
+  - The tests never see the agent's transcript, only the files and processes it leaves behind, so any approach that works counts.
+lineage:
+  - { name: Terminal-Bench 2.0, note: "2025, 89 harder, triple-reviewed tasks; the current leaderboard", url: "https://www.tbench.ai/" }
+  - { name: SWE-bench Pro, note: "2025, long-horizon patches in real repositories", hf: ScaleAI/SWE-bench_Pro, id: swe-bench-pro }
+  - { name: SWE-bench, note: "2023, GitHub issues graded by hidden tests", hf: princeton-nlp/SWE-bench, id: swe-bench }
+source:
+  hf: ia03/terminal-bench
+  config: default
+  split: test
+  n: 10
+  seed: 11
+  unpack: { column: archive, files: { solution: solution.sh, tests: tests/test_outputs.py, dockerfile: Dockerfile } }
+  min_length: { solution: 200, tests: 50 }
+  drop: [archive, tar_sha256, author_email, task_yaml]
+display:
+  kind: code
+  title: task_id
+  prompt: base_description
+  prompt_lang: text
+  prompt_label: "The instruction the agent is given, along with a shell in the container:"
+  solution: solution
+  solution_lang: bash
+  solution_label: Reference solution (solution.sh)
+  tests: tests
+  tests_lang: python
+  tests_label: Tests run on the container afterwards (hidden from the agent)
