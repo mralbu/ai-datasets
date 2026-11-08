@@ -4,7 +4,7 @@ modality: benchmark
 task: Multiple-choice knowledge and reasoning across 57 subjects
 one_liner: 15,908 four-option exam questions, from high-school math to law and medicine.
 creators: Dan Hendrycks, Collin Burns, Steven Basart et al.
-size: 15,908 questions
+size: 15,908 questions in the paper (15,858 in this copy)
 splits: { dev: 285, validation: 1531, test: 14042 }
 input: A question and four answer choices
 labels: The correct letter (A–D)
@@ -27,6 +27,7 @@ lineage:
   - { name: MMLU-Redux, note: "2024, re-annotated subset", hf: edinburgh-dawg/mmlu-redux }
   - { name: MMMU, note: "2023, the multimodal counterpart", hf: MMMU/MMMU, id: mmmu }
   - { name: GPQA, note: "2023, graduate-level, Google-proof questions", hf: Idavidrein/gpqa }
+  - { name: "Humanity's Last Exam", note: "2025, expert-written questions at the frontier of knowledge", hf: cais/hle }
 landmark_papers:
   - { title: "Language Models are Few-Shot Learners (GPT-3)", year: 2020, url: "https://arxiv.org/abs/2005.14165" }
   - { title: "Are We Done with MMLU?", year: 2024, url: "https://arxiv.org/abs/2406.04127" }
