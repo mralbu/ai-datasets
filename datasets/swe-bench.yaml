@@ -29,6 +29,8 @@ lineage:
   - { name: HumanEval, note: "2021, single-function problems", hf: openai/openai_humaneval, id: humaneval }
   - { name: SWE-bench Lite, note: "2024, a cheaper 300-task subset", hf: princeton-nlp/SWE-bench_Lite }
   - { name: SWE-bench Verified, note: "2024, 500 human-validated tasks", hf: princeton-nlp/SWE-bench_Verified }
+  - { name: SWE-bench Pro, note: "2025, long-horizon, multi-language, contamination-resistant", hf: ScaleAI/SWE-bench_Pro, id: swe-bench-pro }
+  - { name: Terminal-Bench, note: "2025, agent tasks in a real terminal", hf: ia03/terminal-bench, id: terminal-bench }
 landmark_papers:
   - { title: "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering", year: 2024, url: "https://arxiv.org/abs/2405.15793" }
   - { title: "Introducing SWE-bench Verified", year: 2024, url: "https://openai.com/index/introducing-swe-bench-verified/" }

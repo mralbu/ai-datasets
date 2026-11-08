@@ -86,10 +86,10 @@ the first fetch fills it, which takes 10 minutes or more for the whole catalog.
    | `record` | `label`; shows every text field, per config | GLUE, SuperGLUE, SNLI |
    | `extractive` | `context`, `question`, `answers`, `title` | SQuAD |
    | `translation` | `translation` (a Translation feature), `source`, `target` (language codes) | WMT14 |
-   | `qa` | `question`, `answer`, `tags` (fields shown as tags), `math` (LaTeX via KaTeX), `input`, `wrong` (list of false answers), `answer_label` | GSM8K, MATH, TruthfulQA, Alpaca |
-   | `mcq` | `question`, `choices` (a list, or `{text, label}`), `answer` (index or key), `subject` | MMLU, HellaSwag, AI2 ARC |
+   | `qa` | `question`, `answer` (a list renders as items), `tags` (fields shown as tags; lists become one tag each), `math` (LaTeX via KaTeX), `input`, `wrong` (list of false answers), `answer_label` | GSM8K, MATH, TruthfulQA, Alpaca, AIME 2025, IFEval, SimpleQA Verified |
+   | `mcq` | `question`, `choices` (a list, or `{text, label}`), `answer` (index or key), `subject` | MMLU, MMLU-Pro, HellaSwag, AI2 ARC |
    | `image_mcq` | `images` (list of image columns), `question`, `options`, `answer` (letter), `subject` | MMMU |
-   | `code` | `prompt`, `solution`, `tests`, `title`; `*_lang` (Shiki language, `text` for prose) and `*_label` | HumanEval, SWE-bench |
+   | `code` | `prompt`, `solution`, `tests`, `title`; `*_lang` (Shiki language, `text` for prose) and `*_label` | HumanEval, SWE-bench, SWE-bench Pro, Terminal-Bench |
    | `preference` | `chosen`, `rejected` (Human:/Assistant: transcripts) | Anthropic HH-RLHF |
    | `grid` | `train`, `test` (ARC-style pairs of integer grids) | ARC-AGI |
    | `audio` | `audio`, `text` and/or `label` (a class or a list of classes), `speaker` | LibriSpeech, AudioSet, Speech Commands, LJSpeech |
@@ -103,6 +103,8 @@ the first fetch fills it, which takes 10 minutes or more for the whole catalog.
      as ImageNet's is.
    - `min_length: {field: n}` skips rows whose field is shorter, like WikiText's blank lines.
    - `drop: [columns]` leaves columns out of the sample.
+   - `unpack: {column, files: {name: path}}` reads files out of a `.tar.gz` binary column into text
+     columns (Terminal-Bench's task archives); pair it with `min_length` to skip rows missing a file.
    - `max_image_px` downscales big photos; annotations keep their original coordinates.
    - `dense: {column: image | labels | depth | normals}` turns per-pixel annotations (mask images or
      raw arrays) into small PNGs the `dense` view colors and reads back on hover.
