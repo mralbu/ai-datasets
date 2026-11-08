@@ -40,9 +40,10 @@ import io
 
 import altair as alt
 import httpx
+import numpy as np
 import polars as pl
 import yaml
-from PIL import Image
+from PIL import Image, ImageFilter
 
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG = ROOT / "datasets"
@@ -113,12 +114,14 @@ def stratified_sample(client: httpx.Client, src: dict, total: int, n: int, rng: 
     """
     n = min(n, total)
     per_page = int(src.get("rows_per_page", ROWS_PER_PAGE_USED))
-    k = max(1, min(-(-n // per_page), total // PAGE or 1))
+    # source.page: fewer rows per request, for rows that are megabytes each (NYU's raw arrays).
+    page_len = int(src.get("page", PAGE))
+    k = max(1, min(-(-n // per_page), total // page_len or 1))
     bounds = [round(total * j / k) for j in range(k + 1)]
     rows: list[dict] = []
     for j in range(k):
         lo, hi = bounds[j], bounds[j + 1]
-        length = min(PAGE, hi - lo)
+        length = min(page_len, hi - lo)
         offset = rng.randint(lo, hi - length)
         page = fetch_rows(client, src, offset, length)["rows"]
         # Very large cells (long texts, big grids) come back truncated; avoid them.
@@ -158,6 +161,82 @@ def shrink(data: bytes, max_px: int) -> bytes:
     out = io.BytesIO()
     img.convert("RGB").save(out, "JPEG", quality=85, optimize=True)
     return out.getvalue()
+
+
+def to_png(img: Image.Image) -> bytes:
+    out = io.BytesIO()
+    img.save(out, "PNG", optimize=True)
+    return out.getvalue()
+
+
+def rasterize(client: httpx.Client, cell, how: str, max_px: int | None) -> tuple[bytes, str, dict]:
+    """source.dense: turn a per-pixel annotation into a small image the site can draw and read back.
+
+    The cell is a viewer Image (a mask image, like Cityscapes') or a raw array (NYU's Array3D).
+      image    float array, channels first, 0..1                    -> JPEG photo
+      labels   class id per pixel (-1 = void)                       -> grayscale PNG, id as the value, 255 = void
+      depth    meters per pixel, channels first (0 = no reading)    -> grayscale PNG, 1..255 spans 0..max, 0 = missing
+      normals  unit vectors, channels first, -1..1                  -> RGB PNG, the usual (n + 1) / 2 coloring
+    Returns the file bytes, its extension and metadata for the row (size; class shares; depth range).
+    """
+    if isinstance(cell, dict):  # an image from the viewer: download it
+        a = np.array(Image.open(io.BytesIO(get(client, cell["src"]).content)))
+    else:
+        a = np.asarray(cell, dtype=np.float32)
+    meta: dict = {}
+    if how == "image":
+        if a.dtype != np.uint8:
+            a = (np.clip(a.transpose(1, 2, 0) if a.shape[0] == 3 else a, 0, 1) * 255).round().astype(np.uint8)
+        img = Image.fromarray(a)
+        if max_px and max(img.size) > max_px:
+            img.thumbnail((max_px, max_px), Image.LANCZOS)
+        out = io.BytesIO()
+        img.convert("RGB").save(out, "JPEG", quality=88, optimize=True)
+        data, ext = out.getvalue(), ".jpg"
+    elif how == "labels":
+        ids = np.where(a < 0, 255, a).astype(np.uint8)
+        img = Image.fromarray(ids, "L")
+        if isinstance(cell, dict):
+            # Mask images come back from the viewer as JPEG, which smears ids along edges.
+            # A mode filter restores clean regions before the (nearest-neighbor) downscale.
+            img = img.filter(ImageFilter.ModeFilter(5)).filter(ImageFilter.ModeFilter(5))
+        if max_px and max(img.size) > max_px:
+            w, h = img.size
+            f = max_px / max(w, h)
+            img = img.resize((round(w * f), round(h * f)), Image.NEAREST)
+        v, c = np.unique(np.array(img), return_counts=True)
+        meta["classes"] = {str(int(i)): round(float(n) / c.sum(), 4) for i, n in zip(v, c) if i != 255}
+        data, ext = to_png(img), ".png"
+    elif how == "depth":
+        d = a[0] if a.ndim == 3 else a
+        top = float(d.max()) or 1.0
+        q = np.where(d > 0, 1 + np.round(d / top * 254), 0).astype(np.uint8)
+        img = Image.fromarray(q, "L")
+        meta |= {"min": round(float(d[d > 0].min()), 3) if (d > 0).any() else 0, "max": round(top, 3)}
+        data, ext = to_png(img), ".png"
+    elif how == "normals":
+        n = a.transpose(1, 2, 0) if a.shape[0] == 3 else a
+        img = Image.fromarray(np.round((np.clip(n, -1, 1) + 1) / 2 * 255).astype(np.uint8), "RGB")
+        data, ext = to_png(img), ".png"
+    else:
+        raise ValueError(f"unknown dense kind {how!r}")
+    meta |= {"width": img.size[0], "height": img.size[1]}
+    return data, ext, meta
+
+
+def save_dense(client: httpx.Client, media_dir: Path, ds_id: str, tag: str, features: list[dict], rows: list[dict],
+               dense: dict[str, str], max_px: int | None) -> None:
+    """Rasterize the source.dense columns of every row (see rasterize) and point the rows at the files."""
+    media_dir.mkdir(parents=True, exist_ok=True)
+    for r in rows:
+        for col, how in dense.items():
+            data, ext, meta = rasterize(client, r["row"][col], how, max_px)
+            name = f"{tag}{r['row_idx']}-{col}{ext}"
+            (media_dir / name).write_bytes(data)
+            r["row"][col] = {"src": f"samples/{ds_id}/{name}"} | meta
+    for f in features:
+        if f["name"] in dense:  # now a file, not an array or a viewer image: keep save_media off it
+            f["type"] = {"_type": "Dense", "kind": dense[f["name"]], "was": f["type"].get("_type")}
 
 
 def save_media(client: httpx.Client, media_dir: Path, ds_id: str, tag: str, features: list[dict], rows: list[dict],
@@ -215,6 +294,8 @@ def sample_dataset(client: httpx.Client, meta: dict, media_dir: Path) -> dict:
             for r in part["rows"]:
                 r["row"] = {k: v for k, v in r["row"].items() if k not in drop}
         tag = f"{c['config']}-" if multi else ""
+        if src.get("dense"):
+            save_dense(client, media_dir, ds_id, tag, part["features"], part["rows"], src["dense"], src.get("max_image_px"))
         save_media(client, media_dir, ds_id, tag, part["features"], part["rows"], src.get("max_image_px"))
         parts.append({
             "config": part_src["config"],
@@ -378,7 +459,7 @@ def main(argv: list[str]) -> int:
 
     catalog, failures = load_catalog()
     headers = {"User-Agent": "ai-datasets-sampler/0.1 (static educational site)"}
-    with httpx.Client(timeout=60, headers=headers, follow_redirects=True) as client:
+    with httpx.Client(timeout=180, headers=headers, follow_redirects=True) as client:
         if "--check" in flags:
             broken = check_sources(client, catalog)
             if broken:

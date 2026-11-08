@@ -1,0 +1,93 @@
+name: Cityscapes
+year: 2016
+modality: vision
+task: Semantic segmentation of street scenes
+one_liner: 5,000 street photos from 50 cities, every pixel labeled as road, car, person, sky and so on.
+creators: Marius Cordts, Mohamed Omran, Sebastian Ramos, Timo Rehfeld, Markus Enzweiler, Rodrigo Benenson, Uwe Franke, Stefan Roth, Bernt Schiele (Daimler, MPI Informatics, TU Darmstadt)
+size: 5,000 finely labeled images (2048×1024), plus 20,000 coarsely labeled
+splits: { train: 2975, validation: 500, test: 1525 }
+input: 2048×1024 photo from a car's windshield camera
+labels: A class per pixel (30 classes, 19 used in the benchmark), plus instance ids for people and vehicles
+license: Cityscapes license (non-commercial research and teaching; registration required)
+paper:
+  title: The Cityscapes Dataset for Semantic Urban Scene Understanding
+  url: https://arxiv.org/abs/1604.01685
+homepage: https://www.cityscapes-dataset.com/
+why: >-
+  Self-driving research needed more than boxes around cars: a car has to know
+  where the road ends and the sidewalk begins. Cityscapes gave 5,000 street
+  scenes from 50 cities with careful pixel-level labels, far more than the few
+  hundred of CamVid or KITTI before it. Its 19-class benchmark, scored by mean
+  IoU, became the standard for semantic segmentation alongside PASCAL VOC and
+  ADE20K, and its color palette (purple road, pink sidewalk, blue cars) is
+  what most people picture when they think of segmentation.
+trivia:
+  - Labeling one image finely took more than 1.5 hours on average, with a quality check after.
+  - The photos are from 50 cities, mostly in Germany, in spring, summer and fall, in daylight and good or medium weather. No night, rain or snow.
+  - The car's own hood at the bottom of the frame is a class of its own, "ego vehicle", and is not scored.
+  - The benchmark ignores rare classes like caravan, trailer and parking; the remaining 19 cover almost all labeled pixels.
+  - Hover over a photo to see the class under the pointer. The colors are the official Cityscapes palette.
+lineage:
+  - { name: CamVid, note: "2008, 701 labeled frames of video from Cambridge, the first of its kind", url: "https://mi.eng.cam.ac.uk/research/projects/VideoRec/CamVid/" }
+  - { name: KITTI, note: "2012, driving benchmark with laser depth; a few hundred segmentation labels", url: "https://www.cvlibs.net/datasets/kitti/" }
+  - { name: ADE20K, note: "2017, scene parsing of everyday scenes, 150 classes", hf: 1aurent/ADE20K, id: ade20k }
+  - { name: Mapillary Vistas, note: "2017, 25,000 street images from around the world", url: "https://www.mapillary.com/dataset/vistas" }
+  - { name: BDD100K, note: "2018, driving video from US cities, with weather and night", url: "https://bdd-data.berkeley.edu/" }
+landmark_papers:
+  - { title: "Pyramid Scene Parsing Network (PSPNet)", year: 2017, url: "https://arxiv.org/abs/1612.01105" }
+  - { title: "Encoder-Decoder with Atrous Separable Convolution (DeepLabv3+)", year: 2018, url: "https://arxiv.org/abs/1802.02611" }
+  - { title: "Deep High-Resolution Representation Learning for Visual Recognition (HRNet)", year: 2019, url: "https://arxiv.org/abs/1908.07919" }
+  - { title: "SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers", year: 2021, url: "https://arxiv.org/abs/2105.15203" }
+source:
+  hf: Antreas/Cityscapes
+  config: default
+  split: val
+  n: 12
+  seed: 7
+  rows_per_page: 2
+  max_image_px: 1024
+  dense: { semantic_segmentation: labels }
+display:
+  kind: dense
+  image: image
+  layers:
+    - field: semantic_segmentation
+      type: labels
+      name: Labels
+      classes:
+        - { id: 0, name: unlabeled }
+        - { id: 1, name: ego vehicle }
+        - { id: 2, name: rectification border }
+        - { id: 3, name: out of roi }
+        - { id: 4, name: static }
+        - { id: 5, name: dynamic, color: "#6f4a00" }
+        - { id: 6, name: ground, color: "#510051" }
+        - { id: 7, name: road, color: "#804080" }
+        - { id: 8, name: sidewalk, color: "#f423e8" }
+        - { id: 9, name: parking, color: "#faaaa0" }
+        - { id: 10, name: rail track, color: "#e6968c" }
+        - { id: 11, name: building, color: "#464646" }
+        - { id: 12, name: wall, color: "#66669c" }
+        - { id: 13, name: fence, color: "#be9999" }
+        - { id: 14, name: guard rail, color: "#b4a5b4" }
+        - { id: 15, name: bridge, color: "#966464" }
+        - { id: 16, name: tunnel, color: "#96785a" }
+        - { id: 17, name: pole, color: "#999999" }
+        - { id: 18, name: pole group, color: "#999999" }
+        - { id: 19, name: traffic light, color: "#faaa1e" }
+        - { id: 20, name: traffic sign, color: "#dcdc00" }
+        - { id: 21, name: vegetation, color: "#6b8e23" }
+        - { id: 22, name: terrain, color: "#98fb98" }
+        - { id: 23, name: sky, color: "#4682b4" }
+        - { id: 24, name: person, color: "#dc143c" }
+        - { id: 25, name: rider, color: "#ff0000" }
+        - { id: 26, name: car, color: "#00008e" }
+        - { id: 27, name: truck, color: "#000046" }
+        - { id: 28, name: bus, color: "#003c64" }
+        - { id: 29, name: caravan, color: "#00005a" }
+        - { id: 30, name: trailer, color: "#00006e" }
+        - { id: 31, name: train, color: "#005064" }
+        - { id: 32, name: motorcycle, color: "#0000e6" }
+        - { id: 33, name: bicycle, color: "#770b20" }
+download:
+  note: "A community Parquet copy of the finely labeled images, with label-id masks. The official download, with coarse labels, instances and video, needs a free account at cityscapes-dataset.com. The viewer serves masks as JPEG, so the sample cleans their edges."

@@ -1,0 +1,230 @@
+---
+// Per-pixel annotations (Cityscapes labels; NYU depth, labels and normals). The sampler stores each as a
+// small PNG (see rasterize in scripts/sample.py); here they are colored on a canvas over the photo, and
+// read back on hover to show the class or depth under the pointer.
+import { url, type SampleRow } from '../../lib/data';
+interface Layer { field: string; type: 'labels' | 'depth' | 'normals'; name: string; classes?: { id: number; name: string; color?: string }[] }
+interface Props { d: { image: string; layers: Layer[] }; rows: SampleRow[]; k: number }
+const { d, rows, k } = Astro.props;
+
+const pct = (x: number) => (x >= 0.1 ? `${Math.round(x * 100)}%` : x >= 0.01 ? `${(x * 100).toFixed(0)}%` : '<1%');
+const classesOf = (l: Layer) => Object.fromEntries((l.classes ?? []).map((c) => [c.id, c]));
+// Legend: classes covering at least 0.2% of the image, largest first; uncolored (void) classes left out.
+const legend = (l: Layer, cell: { classes?: Record<string, number> }) => {
+  const by = classesOf(l);
+  return Object.entries(cell?.classes ?? {})
+    .map(([id, share]) => ({ c: by[Number(id)], share }))
+    .filter((x) => x.c?.color && x.share >= 0.002)
+    .sort((a, b) => b.share - a.share);
+};
+const fmt = (m: number) => `${m.toFixed(1)} m`;
+// Inferno, reversed so that near is bright: the usual look of a depth map.
+const INFERNO = ['#fcffa4', '#fb9b06', '#ed6925', '#cf4446', '#a52c60', '#781c6d', '#4a0c6b', '#1b0c41', '#000004'];
+const palette = JSON.stringify(Object.fromEntries(d.layers.filter((l) => l.classes).map((l) => [l.field, l.classes])));
+---
+<div class="dense" data-dense data-layer={d.layers[0].field} data-palette={palette} data-ramp={JSON.stringify(INFERNO)}>
+  <div class="layers" role="group" aria-label="Show">
+    <button type="button" data-show="" aria-pressed="false">Photo</button>
+    {d.layers.map((l, i) => <button type="button" data-show={l.field} aria-pressed={i === 0 ? 'true' : 'false'}>{l.name}</button>)}
+  </div>
+  <div class="grid">
+    {rows.map((r, i) => {
+      const img = r.row[d.image];
+      return (
+        <figure class="card" data-item hidden={i >= k}>
+          <div class="frame" style={`aspect-ratio: ${img.width} / ${img.height}`}>
+            <img src={url(img.src)} width={img.width} height={img.height} alt="" loading="lazy" />
+            {d.layers.map((l) => {
+              const c = r.row[l.field];
+              return (
+                <canvas
+                  data-field={l.field} data-type={l.type} data-src={url(c.src)} width={c.width} height={c.height}
+                  data-min={c.min} data-max={c.max} aria-hidden="true"
+                />
+              );
+            })}
+            <span class="readout" aria-hidden="true"></span>
+          </div>
+          <figcaption>
+            {d.layers.map((l) => {
+              const c = r.row[l.field];
+              if (l.type === 'labels') return (
+                <p class="legend" data-for={l.field}>
+                  {legend(l, c).map(({ c: cl, share }) => (
+                    <span class="chip" data-id={cl.id} style={`--c:${cl.color}`}><i></i>{cl.name} <span class="muted">{pct(share)}</span></span>
+                  ))}
+                </p>
+              );
+              if (l.type === 'depth') return (
+                <p class="legend ramp" data-for={l.field}>
+                  <span>near {fmt(c.min)}</span>
+                  <span class="bar" style={`background: linear-gradient(to right, ${INFERNO.join(', ')})`}></span>
+                  <span>far {fmt(c.max)}</span>
+                  <span class="none-key"><i></i>no reading</span>
+                </p>
+              );
+              return <p class="legend muted" data-for={l.field}>Color shows which way each surface faces (its direction x, y, z as red, green, blue), so floors, walls and tabletops each get their own color.</p>;
+            })}
+          </figcaption>
+        </figure>
+      );
+    })}
+  </div>
+</div>
+
+<script>
+  type Klass = { id: number; name: string; color?: string };
+  const hex = (h: string) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+
+  for (const root of document.querySelectorAll<HTMLElement>('[data-dense]')) {
+    const palettes: Record<string, Klass[]> = JSON.parse(root.dataset.palette!);
+    const ramp = (JSON.parse(root.dataset.ramp!) as string[]).map(hex);
+    const lut: Record<string, { rgb: (number[] | null)[]; name: string[] }> = {};
+    for (const [field, cls] of Object.entries(palettes)) {
+      const rgb: (number[] | null)[] = Array(256).fill(null);
+      const name: string[] = Array(256).fill('');
+      for (const c of cls) { rgb[c.id] = c.color ? hex(c.color) : null; name[c.id] = c.name; }
+      lut[field] = { rgb, name };
+    }
+    const NONE = [58, 58, 64];
+    // Depth colors for the 255 stored levels (1 = nearest).
+    const depthRgb = Array.from({ length: 256 }, (_, v) => {
+      const t = Math.max(0, v - 1) / 254 * (ramp.length - 1);
+      const i = Math.min(Math.floor(t), ramp.length - 2), f = t - i;
+      return ramp[i].map((a, j) => Math.round(a + (ramp[i + 1][j] - a) * f));
+    });
+
+    // Layer buttons: one layer at a time, or the photo alone.
+    const buttons = root.querySelectorAll<HTMLButtonElement>('[data-show]');
+    const show = (layer: string) => {
+      root.dataset.layer = layer;
+      buttons.forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.show === layer)));
+      root.querySelectorAll<HTMLElement>('canvas, .legend').forEach((el) => el.classList.toggle('on', (el.dataset.field ?? el.dataset.for) === layer));
+    };
+    buttons.forEach((b) => b.addEventListener('click', () => show(b.dataset.show!)));
+    show(root.dataset.layer!);
+
+    for (const fig of root.querySelectorAll<HTMLElement>('figure')) {
+      const frame = fig.querySelector<HTMLElement>('.frame')!;
+      const readout = fig.querySelector<HTMLElement>('.readout')!;
+      const raw: Record<string, { data: Uint8ClampedArray; w: number; h: number; c: HTMLCanvasElement }> = {};
+      let focus = -1;
+
+      const paintLabels = (field: string) => {
+        const { data, w, h, c } = raw[field];
+        const ctx = c.getContext('2d')!;
+        const out = ctx.createImageData(w, h);
+        const { rgb } = lut[field];
+        for (let p = 0, q = 0; p < data.length; p += 4, q++) {
+          const id = data[p], col = rgb[id];
+          if (!col) continue;
+          out.data[p] = col[0]; out.data[p + 1] = col[1]; out.data[p + 2] = col[2];
+          out.data[p + 3] = focus < 0 ? 255 : id === focus ? 255 : 60;
+        }
+        ctx.putImageData(out, 0, 0);
+        fig.querySelectorAll<HTMLElement>(`[data-for="${field}"] .chip`).forEach((ch) => ch.classList.toggle('on', Number(ch.dataset.id) === focus));
+      };
+
+      const load = (c: HTMLCanvasElement) => new Promise<void>((resolve) => {
+        const im = new Image();
+        im.onload = () => {
+          const w = c.width, h = c.height;
+          const ctx = c.getContext('2d', { willReadFrequently: true })!;
+          ctx.drawImage(im, 0, 0, w, h);
+          const field = c.dataset.field!;
+          const data = ctx.getImageData(0, 0, w, h).data;
+          raw[field] = { data: new Uint8ClampedArray(data), w, h, c };
+          if (c.dataset.type === 'labels') paintLabels(field);
+          else if (c.dataset.type === 'depth') {
+            const out = ctx.createImageData(w, h);
+            for (let p = 0; p < data.length; p += 4) {
+              const v = data[p];
+              const col = v ? depthRgb[v] : NONE; // no reading: neutral gray, not the photo
+
+              out.data[p] = col[0]; out.data[p + 1] = col[1]; out.data[p + 2] = col[2]; out.data[p + 3] = 255;
+            }
+            ctx.putImageData(out, 0, 0);
+          }
+          resolve();
+        };
+        im.src = c.dataset.src!;
+      });
+      // Decode when the card is first near the screen.
+      const canvases = [...fig.querySelectorAll<HTMLCanvasElement>('canvas')];
+      const io = new IntersectionObserver((es) => {
+        if (es.some((e) => e.isIntersecting)) { io.disconnect(); canvases.forEach(load); }
+      }, { rootMargin: '300px' });
+      io.observe(fig);
+
+      const at = (field: string, ev: PointerEvent) => {
+        const r = raw[field];
+        if (!r) return null;
+        const box = frame.getBoundingClientRect();
+        const x = Math.min(r.w - 1, Math.floor((ev.clientX - box.left) / box.width * r.w));
+        const y = Math.min(r.h - 1, Math.floor((ev.clientY - box.top) / box.height * r.h));
+        return r.data[(y * r.w + x) * 4];
+      };
+      frame.addEventListener('pointermove', (ev) => {
+        const parts: string[] = [];
+        let hovered = -1;
+        for (const c of canvases) {
+          const v = at(c.dataset.field!, ev);
+          if (v == null) continue;
+          if (c.dataset.type === 'labels') {
+            const name = lut[c.dataset.field!].name[v];
+            if (name) parts.unshift(name);
+            if (root.dataset.layer === c.dataset.field && lut[c.dataset.field!].rgb[v]) hovered = v;
+          } else if (c.dataset.type === 'depth') {
+            parts.push(v ? `${((v - 1) / 254 * Number(c.dataset.max)).toFixed(2)} m` : 'no depth reading');
+          }
+        }
+        readout.textContent = parts.join(' · ');
+        const field = root.dataset.layer!;
+        if (hovered !== focus && raw[field] && lut[field]) { focus = hovered; paintLabels(field); }
+      });
+      frame.addEventListener('pointerleave', () => {
+        readout.textContent = '';
+        const field = root.dataset.layer!;
+        if (focus >= 0 && raw[field] && lut[field]) { focus = -1; paintLabels(field); }
+      });
+      // Hovering a legend chip highlights that class.
+      fig.querySelectorAll<HTMLElement>('.chip').forEach((ch) => {
+        const field = ch.closest<HTMLElement>('[data-for]')!.dataset.for!;
+        ch.addEventListener('pointerenter', () => { focus = Number(ch.dataset.id); if (raw[field]) paintLabels(field); });
+        ch.addEventListener('pointerleave', () => { focus = -1; if (raw[field]) paintLabels(field); });
+      });
+    }
+  }
+</script>
+
+<style>
+  .layers { display: inline-flex; margin-bottom: 12px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--surface); }
+  .layers button { border: 0; border-radius: 0; background: transparent; color: var(--muted); padding: 5px 12px; }
+  .layers button + button { border-left: 1px solid var(--border); }
+  .layers button[aria-pressed='true'] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr)); gap: 14px; align-items: start; }
+  figure { margin: 0; overflow: hidden; }
+  figure[hidden] { display: none; }
+  .frame { position: relative; line-height: 0; background: #16161a; cursor: crosshair; }
+  .frame img, canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  /* The chosen layer: labels blend with the photo; depth and normals replace it. */
+  canvas { display: none; }
+  canvas.on { display: block; }
+  canvas[data-type='labels'] { opacity: 0.62; }
+  figcaption { padding: 10px 12px 12px; }
+  .legend { display: none; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin: 0; font-size: 0.78rem; }
+  .legend.on { display: flex; }
+  .chip { display: inline-flex; align-items: center; gap: 5px; padding: 1px 7px 1px 5px; border: 1px solid var(--border); border-radius: 999px; cursor: default; }
+  .chip i { width: 9px; height: 9px; border-radius: 3px; background: var(--c); flex: none; }
+  .chip.on { border-color: var(--c); background: color-mix(in srgb, var(--c) 15%, transparent); }
+  .ramp { gap: 8px; color: var(--muted); }
+  .ramp .bar { flex: 1; height: 10px; border-radius: 3px; min-width: 80px; }
+  .none-key { display: inline-flex; align-items: center; gap: 5px; }
+  .none-key i { width: 10px; height: 10px; border-radius: 3px; background: rgb(58 58 64); }
+  p.muted.legend { line-height: 1.4; }
+  .readout {
+    position: absolute; left: 8px; bottom: 8px; line-height: 1.2; padding: 4px 8px; border-radius: 6px;
+    background: rgb(0 0 0 / 0.72); color: #fff; font-size: 0.8rem; font-weight: 600; pointer-events: none;
+  }
+  .readout:empty { display: none; }
+</style>

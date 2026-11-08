@@ -28,7 +28,8 @@ trivia:
 lineage:
   - { name: PASCAL VOC, note: "2005–2012, had a 20-class segmentation track", hf: TNILab/pascal_voc2012_det_train_val, id: pascal-voc }
   - { name: MS COCO, note: "2014, instance masks; COCO-Stuff adds walls, sky and the like", hf: rafaelpadilla/coco2017, id: coco }
-  - { name: Cityscapes, note: "2016, street scenes for self-driving", url: "https://www.cityscapes-dataset.com/" }
+  - { name: Cityscapes, note: "2016, street scenes for self-driving", hf: Antreas/Cityscapes, id: cityscapes }
+  - { name: NYU Depth V2, note: "2012, indoor scenes with depth and per-pixel classes", hf: tanganke/nyuv2, id: nyu-depth-v2 }
   - { name: SA-1B, note: "2023, 1.1 billion masks without class names, for Segment Anything", url: "https://ai.meta.com/datasets/segment-anything/" }
 landmark_papers:
   - { title: "Pyramid Scene Parsing Network (PSPNet)", year: 2017, url: "https://arxiv.org/abs/1612.01105" }
