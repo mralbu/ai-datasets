@@ -19,7 +19,7 @@ why: >-
   respectable but long-range context helps, so it charted the move from
   n-grams to RNNs, ULMFiT and fine-tuned transformers.
 trivia:
-  - Neutral reviews (5–6/10) were left out, so the task is easier than real-world sentiment.
+  - Neutral reviews (5–6/10) were left out of the labeled train and test sets (the unlabeled set keeps them), so the task is easier than real-world sentiment.
   - At most 30 reviews per movie, and train and test use disjoint movies, so a model can't just memorize titles.
   - Both splits are exactly balanced (12,500 pos / 12,500 neg) and the files are sorted by label. Shuffle before you slice.
   - Reviews contain leftover HTML like <br /><br />.
@@ -27,7 +27,6 @@ lineage:
   - { name: 20 Newsgroups, note: "1995, topic instead of sentiment", hf: SetFit/20_newsgroups, id: 20-newsgroups }
   - { name: "SST / SST-2", note: "2013, sentence-level sentiment, part of GLUE", hf: stanfordnlp/sst2, id: glue }
 landmark_papers:
-  - { title: "Learning Word Vectors for Sentiment Analysis", year: 2011, url: "https://aclanthology.org/P11-1015/" }
   - { title: "Universal Language Model Fine-tuning for Text Classification (ULMFiT)", year: 2018, url: "https://arxiv.org/abs/1801.06146" }
 source: { hf: stanfordnlp/imdb, config: plain_text, split: test, n: 24, seed: 7 }
 display: { kind: text, text: text, label: label }

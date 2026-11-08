@@ -3,7 +3,7 @@ year: 2017
 modality: vision
 task: Semantic segmentation and scene parsing
 one_liner: 27,000 scenes where every object, and often its parts, is outlined and named.
-creators: Bolei Zhou, Hang Zhao, Xavier Puig, Sanja Fidler, Adela Barriuso, Antonio Torralba (MIT)
+creators: Bolei Zhou, Hang Zhao, Xavier Puig, Sanja Fidler, Adela Barriuso, Antonio Torralba (MIT, U. Toronto)
 size: 27,574 images, 3,688 object classes (full 2021 release)
 splits: { train: 25574, validation: 2000 }
 input: RGB photo of an indoor or outdoor scene

@@ -4,7 +4,7 @@ modality: benchmark
 task: Commonsense sentence completion (pick the right ending)
 one_liner: Pick the most plausible ending for a video caption or how-to step. Easy for people, hard for 2019 models.
 creators: Rowan Zellers, Ari Holtzman, Yonatan Bisk, Ali Farhadi, Yejin Choi
-size: ~70,000 questions
+size: ~70,000 questions in the paper; 59,950 in the public splits
 splits: { train: 39905, validation: 10042, test: 10003 }
 input: A context from ActivityNet captions or WikiHow, plus 4 endings
 labels: Index of the correct ending
@@ -26,6 +26,6 @@ lineage:
   - { name: SWAG, note: "2018, the predecessor", hf: allenai/swag }
   - { name: WinoGrande, note: "2019, adversarial Winograd schemas", hf: allenai/winogrande }
 landmark_papers:
-  - { title: "SWAG: A Large-Scale Adversarial Dataset for Grounded Commonsense Inference", year: 2018, url: "https://arxiv.org/abs/1808.05326" }
+  - { title: "Language Models are Few-Shot Learners (GPT-3)", year: 2020, url: "https://arxiv.org/abs/2005.14165" }
 source: { hf: Rowan/hellaswag, config: default, split: validation, n: 20, seed: 14, rows_per_page: 2 }
 display: { kind: mcq, question: ctx, choices: endings, answer: label, subject: activity_label }

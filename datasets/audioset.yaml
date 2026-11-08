@@ -23,7 +23,7 @@ trivia:
   - Labels are "weak". They say a sound occurs somewhere in the 10 seconds, not when.
   - Google released only YouTube ids and precomputed embeddings, not audio. Everyone downloads the clips themselves, and videos keep disappearing, so no two labs have exactly the same copy.
   - Speech and Music are by far the most common labels, while rare classes have a few dozen clips. The balanced subset has at least 59 clips per class.
-  - The ontology is a tree, from "Human sounds" and "Animal" down to labels like "Whale vocalization" and "Theremin".
+  - The ontology is a hierarchy, from "Human sounds" and "Animal" down to labels like "Whale vocalization" and "Theremin". It is not a strict tree, since some labels sit under more than one parent.
 lineage:
   - { name: ESC-50, note: "2015, 2,000 clips in 50 environmental-sound classes", hf: ashraq/esc50 }
   - { name: VGGSound, note: "2020, 200k clips where the sound source is visible", url: "https://www.robots.ox.ac.uk/~vgg/data/vggsound/" }
@@ -34,5 +34,6 @@ landmark_papers:
 source: { hf: agkphysics/AudioSet, config: balanced, split: test, n: 8, seed: 27 }
 display: { kind: audio, audio: audio, label: human_labels }
 download:
+  split: train
   include: "data/bal_train/*"
   note: "A community copy with re-downloaded audio. The command fetches the balanced training set (~18k clips); the full set is about 1.7M clips."

@@ -11,7 +11,7 @@ labels: One of 20 groups (comp.graphics, rec.autos, sci.space, talk.politics.gun
 license: No formal license (public Usenet posts)
 homepage: http://qwone.com/~jason/20Newsgroups/
 why: >-
-  Collected for NewsWeeder, an early system that learned which posts a reader
+  Probably collected for NewsWeeder, an early system that learned which posts a reader
   wanted, it became the classic text-classification and clustering dataset.
   Naive Bayes, tf-idf with SVMs and topic models like LDA were all
   demonstrated on it, and it ships with scikit-learn as
