@@ -1,0 +1,43 @@
+name: MedQA (USMLE)
+year: 2020
+modality: benchmark
+tags: [medical]
+task: Multiple-choice medical licensing exam questions
+one_liner: Questions in the style of the US medical licensing exam, mostly short clinical cases with four options.
+creators: Di Jin, Eileen Pan, Nassim Oufattole, Wei-Hung Weng, Hanyi Fang, Peter Szolovits (MIT)
+size: 12,723 English questions (plus 34,251 Chinese and 14,123 Taiwanese); 10,178 / 1,272 / 1,273 in the 4-option English set
+splits: { train: 10178, validation: 1272, test: 1273 }
+input: A clinical vignette or a science question, with four answer options
+labels: The correct option, and the exam step (Step 1, or Steps 2 and 3)
+license: CC BY 4.0 (this copy); questions compiled from exam preparation material
+paper:
+  title: "What Disease does this Patient Have? A Large-scale Open Domain Question Answering Dataset from Medical Exams"
+  url: https://arxiv.org/abs/2009.13081
+homepage: https://github.com/jind11/MedQA
+why: >-
+  "Passes the medical licensing exam" was the headline that made medical LLMs
+  news. The US exam (USMLE) needs about 60% to pass. In December 2022,
+  Google's Med-PaLM was the first model to clear that bar on MedQA, with
+  67.6%; a few months later Med-PaLM 2 and GPT-4 scored over 85%, better than
+  most human test takers. It became the standard medical benchmark for LLMs,
+  and the standard example of why exam scores are not the same as being a
+  good doctor.
+trivia:
+  - Most questions are short clinical cases. A patient with symptoms, history and test results, then a question about the diagnosis, mechanism or next step.
+  - The dataset came with 18 medical textbooks, so it could also test retrieval. Large models now answer without them.
+  - Step 1 questions test basic science (how a drug works), Steps 2 and 3 clinical decisions (what to do next).
+  - The questions come from exam preparation sites, so some may have leaked into web-scale training data.
+lineage:
+  - { name: MMLU (medical subjects), note: "2020, clinical knowledge, anatomy and medical genetics among 57 subjects", hf: cais/mmlu, id: mmlu }
+  - { name: PubMedQA, note: "2019, yes/no/maybe questions answered from research abstracts", hf: qiaojin/PubMedQA, id: pubmedqa }
+  - { name: MedMCQA, note: "2022, 194,000 questions from Indian medical entrance exams", hf: openlifescienceai/medmcqa }
+  - { name: MultiMedQA, note: "2022, the suite Med-PaLM was evaluated on, including MedQA", url: "https://arxiv.org/abs/2212.13138" }
+  - { name: HealthBench, note: "2025, open-ended health conversations graded with physician-written rubrics", url: "https://openai.com/index/healthbench/" }
+landmark_papers:
+  - { title: "Large Language Models Encode Clinical Knowledge (Med-PaLM)", year: 2022, url: "https://arxiv.org/abs/2212.13138" }
+  - { title: "Capabilities of GPT-4 on Medical Challenge Problems", year: 2023, url: "https://arxiv.org/abs/2303.13375" }
+  - { title: "Towards Expert-Level Medical Question Answering with Large Language Models (Med-PaLM 2)", year: 2023, url: "https://arxiv.org/abs/2305.09617" }
+source: { hf: GBaker/MedQA-USMLE-4-options, config: default, split: test, n: 12, seed: 8 }
+display: { kind: mcq, question: question, choices: options, answer: answer_idx, subject: meta_info }
+download:
+  note: "The 4-option English version as Parquet. All languages, the 5-option version and the textbooks are linked from the authors' GitHub."

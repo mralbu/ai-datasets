@@ -30,7 +30,7 @@ trivia:
 lineage:
   - { name: SQuAD, note: "2016, questions written from Wikipedia paragraphs", hf: rajpurkar/squad, id: squad }
   - { name: TREC Deep Learning, note: "2019–2023, MS MARCO queries with deep human judgments", url: "https://microsoft.github.io/msmarco/TREC-Deep-Learning" }
-  - { name: Natural Questions, note: "2019, real Google queries answered from Wikipedia", hf: google-research-datasets/natural_questions }
+  - { name: Natural Questions, note: "2019, real Google queries answered from Wikipedia", hf: google-research-datasets/natural_questions, id: natural-questions }
   - { name: BEIR, note: "2021, 18 retrieval datasets to test models trained on MS MARCO elsewhere", hf: BeIR/msmarco }
   - { name: MTEB, note: "2022, the text embedding leaderboard; retrieval is one of its tasks", url: "https://huggingface.co/spaces/mteb/leaderboard" }
 landmark_papers:

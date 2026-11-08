@@ -1,0 +1,71 @@
+---
+// Multi-hop question answering (HotpotQA). Each question comes with ten Wikipedia paragraphs: two hold the
+// facts needed to answer it, eight are distractors. "Show the answer" reveals the answer, highlights the
+// supporting sentences, and fades the distractors.
+import type { SampleRow } from '../../lib/data';
+interface Props { d: { question: string; answer: string; context: string; supporting: string; tags: string[] }; rows: SampleRow[]; k: number }
+const { d, rows, k } = Astro.props;
+const paragraphs = (r: SampleRow) => {
+  const ctx = r.row[d.context] ?? { title: [], sentences: [] };
+  const sup = r.row[d.supporting] ?? { title: [], sent_id: [] };
+  const facts = new Set<string>((sup.title as string[]).map((t, i) => `${t}#${sup.sent_id[i]}`));
+  return (ctx.title as string[]).map((title, i) => {
+    const sents = (ctx.sentences[i] ?? []) as string[];
+    const marks = sents.map((_, j) => facts.has(`${title}#${j}`));
+    return { title, sents, marks, gold: marks.some(Boolean) };
+  });
+};
+---
+<div class="mh-list">
+  {rows.map((r, i) => {
+    const ps = paragraphs(r);
+    return (
+      <article class="card mh" data-item hidden={i >= k}>
+        {d.tags.length > 0 && <p class="tags">{d.tags.map((t) => r.row[t] && <span class="tag">{r.row[t]}</span>)}</p>}
+        <p class="q">{r.row[d.question]}</p>
+        <ol class="paras">
+          {ps.map((p) => (
+            <li class:list={{ gold: p.gold }} data-para>
+              <span class="t">{p.title}</span>
+              <span class="body">{p.sents.map((s, j) => (p.marks[j] ? <mark>{s}</mark> : s))}</span>
+            </li>
+          ))}
+        </ol>
+        <details>
+          <summary>Show the answer</summary>
+          <p class="ans"><span class="muted">Answer:</span> <strong>{r.row[d.answer]}</strong></p>
+          <p class="muted small">Highlighted: the sentences annotators marked as needed. The faded paragraphs are distractors.</p>
+        </details>
+      </article>
+    );
+  })}
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-para]').forEach((li) => li.addEventListener('click', () => li.classList.toggle('open')));
+</script>
+
+<style>
+  .mh-list { display: grid; gap: 14px; }
+  .mh { padding: 14px 16px; }
+  .mh[hidden] { display: none; }
+  .tags { display: flex; gap: 6px; margin: 0 0 8px; }
+  .q { margin: 0 0 10px; font-weight: 600; font-size: 1.02rem; }
+  .paras { margin: 0; padding-left: 24px; display: grid; gap: 4px; font-size: 0.86rem; }
+  .paras li { padding: 4px 8px; border-radius: 6px; border-left: 3px solid transparent; cursor: pointer; transition: opacity 0.2s; }
+  .paras li::marker { color: var(--muted); font-size: 0.8rem; }
+  .paras li:hover { background: var(--code-bg); }
+  .t { font-weight: 600; margin-right: 6px; }
+  .body { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; color: var(--muted); }
+  li.open .body { display: block; }
+  mark { background: transparent; color: inherit; }
+  /* Revealed: gold paragraphs open with their supporting sentences marked; distractors fade. */
+  .mh:has(details[open]) li:not(.gold) { opacity: 0.4; }
+  .mh:has(details[open]) li.gold { border-left-color: var(--pos); background: color-mix(in srgb, var(--pos) 8%, transparent); }
+  .mh:has(details[open]) li.gold .body { display: block; color: var(--text); }
+  .mh:has(details[open]) mark { background: var(--mark); border-radius: 3px; }
+  details { margin-top: 10px; }
+  summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; }
+  .ans { margin: 8px 0 4px; }
+  .small { font-size: 0.82rem; margin: 0; }
+</style>

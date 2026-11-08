@@ -50,12 +50,20 @@ const display = z.discriminatedUnion('kind', [
     question: z.string(),
     answer: z.string(),
     tags: z.array(z.string()).default([]), // fields shown as small tags (e.g. MATH's subject and level)
-    input: z.string().optional(), // extra input under the question (Alpaca)
+    input: z.string().optional(), // extra input under the question (Alpaca), or {contexts, labels} sections (PubMedQA)
+    verdict: z.string().optional(), // a short final answer shown as a badge above the answer (PubMedQA's yes/no/maybe)
     wrong: z.string().optional(), // list of incorrect answers, shown with the solution (TruthfulQA)
     answer_label: z.string().default('Show solution'),
     math: z.boolean().default(false), // render $…$ LaTeX with KaTeX
   }),
+  // answers: SQuAD's {text, answer_start}, or a list of {span_text, span_start} (Natural Questions);
+  // question: a string, or a list of {input_text}.
   z.object({ kind: z.literal('extractive'), context: z.string(), question: z.string(), answers: z.string(), title: z.string().optional() }),
+  // Multi-hop QA over several paragraphs (HotpotQA): context {title, sentences}, supporting_facts {title, sent_id}.
+  z.object({
+    kind: z.literal('multihop'), question: z.string(), answer: z.string(), context: z.string(), supporting: z.string(),
+    tags: z.array(z.string()).default([]),
+  }),
   z.object({ kind: z.literal('mcq'), question: z.string(), choices: z.string(), answer: z.string(), subject: z.string().optional() }),
   z.object({
     kind: z.literal('code'),

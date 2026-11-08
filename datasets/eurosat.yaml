@@ -28,7 +28,7 @@ trivia:
   - A ResNet-50 reached 98.6% accuracy in the paper; the hard cases are classes that look alike from above, like pasture and herbaceous vegetation, or annual and permanent crops.
   - At 10 m per pixel, a car is less than one pixel. A highway is a line a few pixels wide.
 lineage:
-  - { name: UC Merced Land Use, note: "2010, 2,100 aerial photos (30 cm per pixel), 21 classes", url: "http://weegee.vision.ucmerced.edu/datasets/landuse.html" }
+  - { name: UC Merced Land Use, note: "2010, 2,100 aerial photos (30 cm per pixel), 21 classes", hf: blanchon/UC_Merced, id: uc-merced }
   - { name: Functional Map of the World (fMoW), note: "2018, over a million satellite images, 62 classes", url: "https://github.com/fMoW/dataset" }
   - { name: xView, note: "2018, a million objects boxed in high-resolution satellite images", url: "https://xviewdataset.org/" }
   - { name: BigEarthNet, note: "2019, 590,000 Sentinel-2 patches with multiple labels each", url: "https://bigearth.net/" }

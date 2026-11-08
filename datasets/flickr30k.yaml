@@ -1,6 +1,7 @@
 name: Flickr30k
 year: 2014
 modality: vision
+tags: [retrieval]
 task: Image captioning and image–text retrieval
 one_liner: 31,000 Flickr photos of people and everyday scenes, each with five written captions.
 creators: Peter Young, Alice Lai, Micah Hodosh, Julia Hockenmaier (UIUC)

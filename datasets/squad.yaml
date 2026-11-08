@@ -25,7 +25,8 @@ trivia:
   - SQuAD 2.0 (2018) added 50k unanswerable questions, because models had learned to always pick some plausible span.
 lineage:
   - { name: SQuAD 2.0, note: "2018, adds unanswerable questions", hf: rajpurkar/squad_v2 }
-  - { name: Natural Questions, note: "2019, real Google search questions", hf: google-research-datasets/natural_questions }
+  - { name: Natural Questions, note: "2019, real Google search questions", hf: google-research-datasets/natural_questions, id: natural-questions }
+  - { name: HotpotQA, note: "2018, questions that need two paragraphs", hf: hotpotqa/hotpot_qa, id: hotpotqa }
 landmark_papers:
   - { title: "Bidirectional Attention Flow for Machine Comprehension (BiDAF)", year: 2016, url: "https://arxiv.org/abs/1611.01603" }
   - { title: "BERT: Pre-training of Deep Bidirectional Transformers", year: 2018, url: "https://arxiv.org/abs/1810.04805" }

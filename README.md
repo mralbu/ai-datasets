@@ -78,7 +78,7 @@ the first fetch fills it, which takes 10 minutes or more for the whole catalog.
 
    | kind | fields | used by |
    |---|---|---|
-   | `image` | `image`, `label`, `scale` (enlarge tiny images), `thumb` (px height for photos), `class_grid`, `short_labels` | MNIST, Fashion-MNIST, CIFAR-10, SVHN, ImageNet |
+   | `image` | `image`, `label`, `scale` (enlarge tiny images), `thumb` (px height for photos), `class_grid`, `short_labels` | MNIST, Fashion-MNIST, CIFAR-10, SVHN, ImageNet, EuroSAT, UC Merced |
    | `boxes` | `image`, `objects` (COCO-style `bbox` `[x, y, w, h]` + a label list), `label` (its name, default `label`), `names` (when labels are plain integers), `ignore` (classes drawn as dashed "don't care" regions) | COCO, PASCAL VOC, KITTI |
    | `segmentation` | `image`, `objects` (ADE20K-style: `name`, `polygon {x, y}`, `depth_ordering_rank`, `parts.part_level`), `scene` | ADE20K |
    | `dense` | `image`, `layers` (each a `field`, `type` (`labels`, `depth` or `normals`), `name`, and for labels `classes: [{id, name, color}]` and `outline`); needs `source.dense` | Cityscapes, NYU Depth V2, ISIC |
@@ -88,10 +88,11 @@ the first fetch fills it, which takes 10 minutes or more for the whole catalog.
    | `annotated` | `image`, `captions` (list) or `attributes: true` (yes/no columns) or `labels` (a list of strings, `none` when empty), `details` (`{Label: field}`), `thumb` | Flickr30k, CelebA, ChestX-ray14 |
    | `text` | `text`, `label`, `summary` (shown on demand), `caption` (small line, e.g. a URL) | IMDB, 20 Newsgroups, WikiText-103, CNN/DailyMail, C4 |
    | `record` | `label`; shows every text field, per config | GLUE, SuperGLUE, SNLI |
-   | `extractive` | `context`, `question`, `answers`, `title` | SQuAD |
+   | `extractive` | `context`, `question` (a string or a list of `{input_text}`), `answers` (SQuAD's `{text, answer_start}` or a list of `{span_text, span_start}`), `title` | SQuAD, Natural Questions |
+   | `multihop` | `question`, `answer`, `context` (`{title, sentences}`), `supporting` (`{title, sent_id}`), `tags` | HotpotQA |
    | `translation` | `translation` (a Translation feature), `source`, `target` (language codes) | WMT14 |
-   | `qa` | `question`, `answer` (a list renders as items), `tags` (fields shown as tags; lists become one tag each), `math` (LaTeX via KaTeX), `input`, `wrong` (list of false answers), `answer_label` | GSM8K, MATH, TruthfulQA, Alpaca, AIME 2025, IFEval, SimpleQA Verified |
-   | `mcq` | `question`, `choices` (a list, or `{text, label}`), `answer` (index or key), `subject` | MMLU, MMLU-Pro, HellaSwag, AI2 ARC |
+   | `qa` | `question`, `answer` (a list renders as items), `tags` (fields shown as tags; lists become one tag each), `math` (LaTeX via KaTeX), `input` (text, or `{contexts, labels}` sections), `verdict` (a short final answer as a badge), `wrong` (list of false answers), `answer_label` | GSM8K, MATH, TruthfulQA, Alpaca, AIME 2025, IFEval, SimpleQA Verified, PubMedQA |
+   | `mcq` | `question`, `choices` (a list, `{text, label}`, or `{A: text, …}`), `answer` (index or key), `subject` | MMLU, MMLU-Pro, HellaSwag, AI2 ARC, MedQA |
    | `image_mcq` | `images` (list of image columns), `question`, `options`, `answer` (letter), `subject` | MMMU |
    | `code` | `prompt`, `solution`, `tests`, `title`; `*_lang` (Shiki language, `text` for prose) and `*_label` | HumanEval, SWE-bench, SWE-bench Pro, Terminal-Bench |
    | `preference` | `chosen`, `rejected` (Human:/Assistant: transcripts) | Anthropic HH-RLHF |
