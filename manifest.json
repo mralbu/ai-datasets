@@ -22,6 +22,13 @@
    "fetched_at": "2026-11-07T22:33:05+00:00",
    "rows": 20
   },
+  "aime-2025": {
+   "fingerprint": "699a9beba1489a3a",
+   "hf": "MathArena/aime_2025",
+   "revision": "c94da77eb22bbd6439e62a323bec18493a421302",
+   "fetched_at": "2026-11-08T03:30:25+00:00",
+   "rows": 12
+  },
   "alpaca": {
    "fingerprint": "81d4093f21f177a2",
    "hf": "tatsu-lab/alpaca",
@@ -134,6 +141,13 @@
    "fetched_at": "2026-11-07T15:46:10+00:00",
    "rows": 12
   },
+  "ifeval": {
+   "fingerprint": "8b3e7bf1a46356c1",
+   "hf": "google/IFEval",
+   "revision": "966cd89545d6b6acfd7638bc708b98261ca58e84",
+   "fetched_at": "2026-11-08T03:30:29+00:00",
+   "rows": 16
+  },
   "imagenet": {
    "fingerprint": "95386929ed857ea1",
    "hf": "evanarlian/imagenet_1k_resized_256",
@@ -190,6 +204,13 @@
    "fetched_at": "2026-11-07T15:48:58+00:00",
    "rows": 24
   },
+  "mmlu-pro": {
+   "fingerprint": "cf6de1b56049ab96",
+   "hf": "TIGER-Lab/MMLU-Pro",
+   "revision": "b189ec765aa7ed75c8acfea42df31fdae71f97be",
+   "fetched_at": "2026-11-08T03:30:32+00:00",
+   "rows": 20
+  },
   "mmmu": {
    "fingerprint": "f5abdfb03a1a296d",
    "hf": "MMMU/MMMU",
@@ -232,6 +253,13 @@
    "fetched_at": "2026-11-07T21:34:29+00:00",
    "rows": 18
   },
+  "simpleqa-verified": {
+   "fingerprint": "eaeb75bb77ce2cee",
+   "hf": "google/simpleqa-verified",
+   "revision": "0dc97e0d28d8233463e005cdc4475cc2a13ba2dc",
+   "fetched_at": "2026-11-08T03:30:33+00:00",
+   "rows": 16
+  },
   "snli": {
    "fingerprint": "15564e3b87300951",
    "hf": "stanfordnlp/snli",
@@ -272,6 +300,20 @@
    "hf": "princeton-nlp/SWE-bench",
    "revision": "e48e2bd1e9fecd5bbd641e9414ac59da9f2e69f6",
    "fetched_at": "2026-11-07T21:35:43+00:00",
+   "rows": 10
+  },
+  "swe-bench-pro": {
+   "fingerprint": "c30ef64f35fe8733",
+   "hf": "ScaleAI/SWE-bench_Pro",
+   "revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+   "fetched_at": "2026-11-08T03:30:39+00:00",
+   "rows": 10
+  },
+  "terminal-bench": {
+   "fingerprint": "f39ec80e3780942d",
+   "hf": "ia03/terminal-bench",
+   "revision": "2e9f4a8195789dea113eba0fc4a02aa5eaf35b15",
+   "fetched_at": "2026-11-08T03:30:42+00:00",
    "rows": 10
   },
   "titanic": {

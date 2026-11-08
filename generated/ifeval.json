@@ -1,0 +1,275 @@
+{
+ "features": [
+  {
+   "name": "key",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "prompt",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "instruction_id_list",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "_type": "Value",
+     "dtype": "string"
+    }
+   }
+  }
+ ],
+ "fetched_at": "2026-11-08T03:30:29+00:00",
+ "id": "ifeval",
+ "num_rows_total": 541,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "key",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "prompt",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "instruction_id_list",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "string"
+      }
+     }
+    }
+   ],
+   "num_rows_total": 541,
+   "split": "train"
+  }
+ ],
+ "revision": "966cd89545d6b6acfd7638bc708b98261ca58e84",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "instruction_id_list": [
+     "keywords:frequency"
+    ],
+    "key": 3109,
+    "prompt": "Write a short fiction about adulthood. Make sure the word cousins appears more than 2 times."
+   },
+   "row_idx": 403,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "instruction_id_list": [
+     "combination:two_responses"
+    ],
+    "key": 1746,
+    "prompt": "Write an essay about the life of Benjamin Franklin. Then summarize your essay into a poem. Separate the essay and the poem with 6 asterisk symbols: ******\nIn other words, your response should have the following form:\n[essay]\n******\n[poem]"
+   },
+   "row_idx": 141,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "instruction_id_list": [
+     "change_case:english_lowercase",
+     "keywords:existence"
+    ],
+    "key": 3380,
+    "prompt": "create a job description for a clifford blu employee who works at the cash register, and also monitors the shelves for stock level. Use the keyword 'people' and 'skills'. use only lowercase letters."
+   },
+   "row_idx": 457,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "instruction_id_list": [
+     "length_constraints:number_paragraphs",
+     "detectable_format:number_bullet_lists"
+    ],
+    "key": 2118,
+    "prompt": "Write a rap for moms about the pros and cons of breast feeding versus formula. The rap song should have exactly 3 paragraphs each separated by *** and exactly 3 bullet points in markdown format."
+   },
+   "row_idx": 204,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "instruction_id_list": [
+     "startend:end_checker"
+    ],
+    "key": 1893,
+    "prompt": "Write a strange rap song about Alexander the Great becoming the king of Macedon. Finish the song with:\n\nPeace!\n\nNo additional words should follow \"Peace!\""
+   },
+   "row_idx": 165,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "instruction_id_list": [
+     "detectable_format:title",
+     "detectable_content:postscript"
+    ],
+    "key": 3131,
+    "prompt": "Write a blog post about the echoing biotechnology field in 2023, then criticize the blog post. Your answer must contain a title, wrapped in double angular brackets, such as <<blog post of ...>>. Also, add a postscript starting with P.S."
+   },
+   "row_idx": 408,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "instruction_id_list": [
+     "detectable_content:postscript"
+    ],
+    "key": 2070,
+    "prompt": "Could you give me a table of pros and cons of juvenile detention? Add a postscript that starts with P.S. at the end."
+   },
+   "row_idx": 196,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "instruction_id_list": [
+     "detectable_content:postscript",
+     "startend:end_checker"
+    ],
+    "key": 1705,
+    "prompt": "Write a professional email that you could send to ask your boss for a raise. At the end of your response, explicitly add a postscript starting with P.P.S\n\nFinish your entire response with this exact phrase: Hope you agree with me."
+   },
+   "row_idx": 135,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "instruction_id_list": [
+     "change_case:capital_word_frequency"
+    ],
+    "key": 3455,
+    "prompt": "Write a persuasive email to a teenager who lives in Aberdeen, Scotland. The main point is to encourage them to volunteer at a local soup kitchen. At least 5 words in the output should be in all caps."
+   },
+   "row_idx": 475,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "instruction_id_list": [
+     "change_case:english_lowercase",
+     "length_constraints:number_sentences",
+     "length_constraints:number_sentences"
+    ],
+    "key": 3534,
+    "prompt": "Write a tweet storm with a weird tone about a time when you found out that the earth is indeed not flat. Your response must be in English, with no capital letters, and in 20 to 30 sentences."
+   },
+   "row_idx": 487,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "instruction_id_list": [
+     "detectable_format:number_bullet_lists"
+    ],
+    "key": 1634,
+    "prompt": "Make a rubric for a home theater installation targeting moms. Your answer must contain exactly 4 bullet points. Use markdown bullet points such as:\n* This is point 1"
+   },
+   "row_idx": 118,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "instruction_id_list": [
+     "detectable_format:number_highlighted_sections",
+     "change_case:english_capital"
+    ],
+    "key": 3456,
+    "prompt": "Generate a list of 100 random names. Make sure that no name is repeated and every name is unique. All letters in your entire response should be capitalized. Italicize 5 of your favorite names. For example:\n1. *FAVORITE NAME 1*\n2. *FAVORITE NAME 2*\n3. ..."
+   },
+   "row_idx": 476,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "instruction_id_list": [
+     "length_constraints:number_sentences",
+     "length_constraints:number_words"
+    ],
+    "key": 1879,
+    "prompt": "Can you please continue and expand: \"A man is performing for a crowd on a stage, ...\"\nUse at least 60 sentences, but less than 600 words."
+   },
+   "row_idx": 161,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "instruction_id_list": [
+     "combination:repeat_prompt",
+     "length_constraints:number_words"
+    ],
+    "key": 332,
+    "prompt": "TLDR the article \"How to dress like a football manager: waistcoats and the style lessons from the Premier League\". Your entire response (including the repeated request) should have 45 or less words.\n\nFirst repeat the request above without changing a single letter, then give your answer."
+   },
+   "row_idx": 440,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "instruction_id_list": [
+     "change_case:english_capital",
+     "length_constraints:number_words"
+    ],
+    "key": 1813,
+    "prompt": "I want to write a reflective essay on how my life has changed since I started college. Do you have any recommendation? Please reply in English and capitalize all your words. Control the length of your reply. I don't want anything longer than 30 words."
+   },
+   "row_idx": 152,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "instruction_id_list": [
+     "detectable_format:multiple_sections",
+     "length_constraints:number_sentences"
+    ],
+    "key": 3429,
+    "prompt": "Write a story about a man who is in love with a woman who has turrets. The story should be in at least 4 sections with each section starting with Section X (where X is 1, 2, 3, 4) and the entire response should have at least 100 sentences."
+   },
+   "row_idx": 468,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "google/IFEval",
+  "split": "train"
+ }
+}

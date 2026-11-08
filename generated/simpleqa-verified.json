@@ -1,0 +1,376 @@
+{
+ "features": [
+  {
+   "name": "original_index",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "problem",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "answer",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "topic",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "answer_type",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "multi_step",
+   "type": {
+    "_type": "Value",
+    "dtype": "bool"
+   }
+  },
+  {
+   "name": "requires_reasoning",
+   "type": {
+    "_type": "Value",
+    "dtype": "bool"
+   }
+  },
+  {
+   "name": "urls",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-08T03:30:33+00:00",
+ "id": "simpleqa-verified",
+ "num_rows_total": 1000,
+ "parts": [
+  {
+   "config": "simpleqa_verified",
+   "features": [
+    {
+     "name": "original_index",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "problem",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answer",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "topic",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answer_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "multi_step",
+     "type": {
+      "_type": "Value",
+      "dtype": "bool"
+     }
+    },
+    {
+     "name": "requires_reasoning",
+     "type": {
+      "_type": "Value",
+      "dtype": "bool"
+     }
+    },
+    {
+     "name": "urls",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 1000,
+   "split": "eval"
+  }
+ ],
+ "revision": "0dc97e0d28d8233463e005cdc4475cc2a13ba2dc",
+ "rows": [
+  {
+   "config": "simpleqa_verified",
+   "row": {
+    "answer": "Sts. Simon and Jude",
+    "answer_type": "Place",
+    "multi_step": false,
+    "original_index": 862,
+    "problem": "What is the name of the first Catholic church in The Woodlands, Texas?",
+    "requires_reasoning": false,
+    "topic": "Geography",
+    "urls": "https://en.wikipedia.org/wiki/The_Woodlands,https://en.wikipedia.org/wiki/List_of_churches_in_the_Roman_Catholic_Archdiocese_of_Galveston%E2%80%93Houston,https://www.ssjwoodlands.com/about,https://communityimpact.com/houston/the-woodlands/2019/11/18/sts-simon-and-jude-catholic-parish-marks-40-years-in-the-woodlands/"
+   },
+   "row_idx": 190,
+   "truncated": []
+  },
+  {
+   "config": "simpleqa_verified",
+   "row": {
+    "answer": "H. T. Habershon's evangelical Christian boarding school",
+    "answer_type": "Other",
+    "multi_step": false,
+    "original_index": 815,
+    "problem": "What school was Aleister Crowley first sent to at the age of 8?",
+    "requires_reasoning": false,
+    "topic": "Other",
+    "urls": "https://en.wikipedia.org/wiki/Aleister_Crowley,https://rickontheater.blogspot.com/2019/09/the-wickedest-man-in-world-aleister.html,https://www.occult.live/index.php?title=Aleister_Crowley&mobileaction=toggle_view_desktop"
+   },
+   "row_idx": 181,
+   "truncated": []
+  },
+  {
+   "config": "simpleqa_verified",
+   "row": {
+    "answer": "3",
+    "answer_type": "Number",
+    "multi_step": false,
+    "original_index": 2523,
+    "problem": "What is the number of months that Kingda Ka was closed after being struck by lightning in 2009?",
+    "requires_reasoning": true,
+    "topic": "Other",
+    "urls": "https://www.coastergallery.com/1999/GA87.html,https://parklore.com/main/top-thrill-dragster/3/,https://en.wikipedia.org/wiki/Kingda_Ka"
+   },
+   "row_idx": 566,
+   "truncated": []
+  },
+  {
+   "config": "simpleqa_verified",
+   "row": {
+    "answer": "1270 mm (acceptable range: anything between 1257 and 1283 mm)",
+    "answer_type": "Number",
+    "multi_step": false,
+    "original_index": 880,
+    "problem": "What is the wheelbase of the 1969 Honda CL125 in millimeters?",
+    "requires_reasoning": false,
+    "topic": "Science and technology",
+    "urls": "https://www.motorbikecatalog.com/make/honda/cl125/cl125/1969.html,https://4-stroke.net/815-honda/honda-cl125/information.html,https://en.wikipedia.org/wiki/Honda_CL125"
+   },
+   "row_idx": 196,
+   "truncated": []
+  },
+  {
+   "config": "simpleqa_verified",
+   "row": {
+    "answer": "4 December 2001",
+    "answer_type": "Date",
+    "multi_step": false,
+    "original_index": 2658,
+    "problem": "On what date, month, and year was the Indian politician T. M. Selvaganapathy acquitted by the High Court in connection to the Pleasant Stay hotel case?",
+    "requires_reasoning": false,
+    "topic": "Politics",
+    "urls": "https://en.wikipedia.org/wiki/T._M._Selvaganapathy,https://dbpedia.org/page/Pleasant_Stay_hotel_case,https://en.wikipedia.org/wiki/Pleasant_Stay_hotel_case"
+   },
+   "row_idx": 603,
+   "truncated": []
+  },
+  {
+   "config": "simpleqa_verified",
+   "row": {
+    "answer": "Joshna Chinappa",
+    "answer_type": "Person",
+    "multi_step": false,
+    "original_index": 889,
+    "problem": "Who won the 19th edition of the Women’s Asian Individual Squash Championships (AISC)-2017?",
+    "requires_reasoning": false,
+    "topic": "Sports",
+    "urls": "https://www.gktoday.in/question/who-has-won-the-19th-edition-of-womens-asian-indiv,https://www.asiansquash.org/resources/docs/PAST%20ASIAN%20SQUASH%20INDIVIDUAL%20CHAMPIONSHIPS.pdf,https://en.wikipedia.org/wiki/Joshna_Chinappa,https://www.newindianexpress.com/sport/other/2017/Apr/30/joshna-chinappa-becomes-first-indian-to-win-asian-squash-title-1599594.html"
+   },
+   "row_idx": 198,
+   "truncated": []
+  },
+  {
+   "config": "simpleqa_verified",
+   "row": {
+    "answer": "Carlos Adolfo Altgelt and Hans Altgelt",
+    "answer_type": "Person",
+    "multi_step": false,
+    "original_index": 2623,
+    "problem": "Which two architects built the Pizzurno Palace?",
+    "requires_reasoning": false,
+    "topic": "Art",
+    "urls": "https://hive.blog/hive-178708/@dimascastillo90/sarmiento-palace-pizzurno-palace-engesp,https://en.wikipedia.org/wiki/Pizzurno_Palace"
+   },
+   "row_idx": 593,
+   "truncated": []
+  },
+  {
+   "config": "simpleqa_verified",
+   "row": {
+    "answer": "Caridea",
+    "answer_type": "Other",
+    "multi_step": false,
+    "original_index": 2382,
+    "problem": "Which infraorder in the animal kingdom does the superfamily Psalidopodoidea belong to?",
+    "requires_reasoning": false,
+    "topic": "Science and technology",
+    "urls": "https://en.wikipedia.org/wiki/Psalidopus,https://www.dutchcaribbeanspecies.org/linnaeus_ng/app/views/species/nsr_taxon.php?id=188590,https://en.wikipedia.org/wiki/Caridea,https://www.marinespecies.org/aphia.php?id=414748&p=taxdetails"
+   },
+   "row_idx": 534,
+   "truncated": []
+  },
+  {
+   "config": "simpleqa_verified",
+   "row": {
+    "answer": "Samuel Buckle",
+    "answer_type": "Person",
+    "multi_step": false,
+    "original_index": 755,
+    "problem": "What is the name and surname of the photographer who first invented a tool to coat calotype paper called the Buckle Brush?",
+    "requires_reasoning": false,
+    "topic": "Art",
+    "urls": "https://en.wikipedia.org/wiki/Samuel_Buckle,https://luminous-lint.com/app/photographer/Samuel__Buckle/A/"
+   },
+   "row_idx": 168,
+   "truncated": []
+  },
+  {
+   "config": "simpleqa_verified",
+   "row": {
+    "answer": "Saros 109",
+    "answer_type": "Other",
+    "multi_step": false,
+    "original_index": 597,
+    "problem": "The Partial Solar Eclipse of January 1, 1805 was a part of which Saros series?",
+    "requires_reasoning": false,
+    "topic": "Science and technology",
+    "urls": "https://wwpw.eclipsewise.com/solar/SEprime/1801-1900/SE1805Jan01Pprime.html,https://en.wikipedia.org/wiki/List_of_solar_eclipses_in_the_19th_century,https://eclipsewise.com/solar/SEprime/1801-1900/SE1805Jan01Pprime.html"
+   },
+   "row_idx": 137,
+   "truncated": []
+  },
+  {
+   "config": "simpleqa_verified",
+   "row": {
+    "answer": "Moritz Jagendorf",
+    "answer_type": "Person",
+    "multi_step": false,
+    "original_index": 897,
+    "problem": "Who started a \"Free Theatre\" at the Ferrer Center in late 1914?",
+    "requires_reasoning": false,
+    "topic": "Art",
+    "urls": "https://en.wikipedia.org/wiki/Ferrer_Center_and_Colony,https://oll.libertyfund.org/titles/liggio-literature-of-liberty-january-march-1979-vol-2-no-1,https://manifesto-library.espivblogs.net/files/2019/04/Paul-Avrich-The-Modern-School-Movement_-Anarchism-and-Education-in-the-U.S.pdf"
+   },
+   "row_idx": 201,
+   "truncated": []
+  },
+  {
+   "config": "simpleqa_verified",
+   "row": {
+    "answer": "23 August 1945",
+    "answer_type": "Date",
+    "multi_step": false,
+    "original_index": 876,
+    "problem": "On which day, month, and year was Max Vuyisile Sisulu born?",
+    "requires_reasoning": false,
+    "topic": "Politics",
+    "urls": "https://en.wikipedia.org/wiki/Max_Sisulu,https://www.geni.com/people/Max-Sisulu/6000000021268148329,https://canoncollins.org/people/max-sisulu/"
+   },
+   "row_idx": 195,
+   "truncated": []
+  },
+  {
+   "config": "simpleqa_verified",
+   "row": {
+    "answer": "56.70% (acceptable range: anything between 56.13% and 57.27%)",
+    "answer_type": "Number",
+    "multi_step": false,
+    "original_index": 2483,
+    "problem": "What was the voter participation percentage in the 1971 Federal elections in the Canton of the Grisons, also known as the Canton of Graubünden, in Switzerland?",
+    "requires_reasoning": false,
+    "topic": "Politics",
+    "urls": "https://www.atlas.bfs.admin.ch/maps/12/de/1140_1128_1127_242/2810.html,https://en.wikipedia.org/wiki/Grisons"
+   },
+   "row_idx": 557,
+   "truncated": []
+  },
+  {
+   "config": "simpleqa_verified",
+   "row": {
+    "answer": "Léon Gambetta",
+    "answer_type": "Person",
+    "multi_step": false,
+    "original_index": 2497,
+    "problem": "Who was the person who spoke out against naming a new Imperial Lord Privy Seal, which put him in direct conflict with the regime's de facto prime minister, Émile Ollivier?",
+    "requires_reasoning": false,
+    "topic": "Politics",
+    "urls": "https://kids.kiddle.co/L%C3%A9on_Gambetta,https://en.wikipedia.org/wiki/L%C3%A9on_Gambetta"
+   },
+   "row_idx": 562,
+   "truncated": []
+  },
+  {
+   "config": "simpleqa_verified",
+   "row": {
+    "answer": "Catherine Gurick",
+    "answer_type": "Person",
+    "multi_step": false,
+    "original_index": 2677,
+    "problem": "Who was Robert J. Mrazek's first wife?",
+    "requires_reasoning": false,
+    "topic": "Politics",
+    "urls": "https://www.encyclopedia.com/arts/educational-magazines/mrazek-robert-j-1945,https://en.wikipedia.org/wiki/Robert_J._Mrazek"
+   },
+   "row_idx": 610,
+   "truncated": []
+  },
+  {
+   "config": "simpleqa_verified",
+   "row": {
+    "answer": "18 August 1957",
+    "answer_type": "Date",
+    "multi_step": false,
+    "original_index": 2742,
+    "problem": "On what day, month, and year did Amédée Gibaud, a French chess master, die?",
+    "requires_reasoning": false,
+    "topic": "Sports",
+    "urls": "http://www.edochess.ca/players/p2552.html,https://en.wikipedia.org/wiki/Am%C3%A9d%C3%A9e_Gibaud,http://heritageechecsfra.free.fr/gibaud.htm"
+   },
+   "row_idx": 624,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "simpleqa_verified",
+  "hf": "google/simpleqa-verified",
+  "split": "eval"
+ }
+}

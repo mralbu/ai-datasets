@@ -1,0 +1,647 @@
+{
+ "features": [
+  {
+   "name": "question_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "question",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "options",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "_type": "Value",
+     "dtype": "string"
+    }
+   }
+  },
+  {
+   "name": "answer",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "answer_index",
+   "type": {
+    "_type": "Value",
+    "dtype": "int64"
+   }
+  },
+  {
+   "name": "cot_content",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "category",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "src",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-08T03:30:32+00:00",
+ "id": "mmlu-pro",
+ "num_rows_total": 12032,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "question_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "options",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "string"
+      }
+     }
+    },
+    {
+     "name": "answer",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answer_index",
+     "type": {
+      "_type": "Value",
+      "dtype": "int64"
+     }
+    },
+    {
+     "name": "cot_content",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "category",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "src",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 12032,
+   "split": "test"
+  }
+ ],
+ "revision": "b189ec765aa7ed75c8acfea42df31fdae71f97be",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "answer": "B",
+    "answer_index": 1,
+    "category": "economics",
+    "cot_content": "",
+    "options": [
+     "The equilibrium price level decreases while the equilibrium quantity of output increases.",
+     "The equilibrium price level increases while the equilibrium quantity of output decreases.",
+     "The equilibrium price level and quantity of output decrease.",
+     "The equilibrium price level remains constant while the equilibrium quantity of output decreases.",
+     "The equilibrium price level and quantity of output increase.",
+     "The equilibrium price level decreases while the equilibrium quantity of output decreases.",
+     "The equilibrium price level and quantity of output remain constant.",
+     "The equilibrium price level decreases while the equilibrium quantity of output remains constant.",
+     "The equilibrium price level increases while the equilibrium quantity of output remains constant.",
+     "The equilibrium price level and quantity of output both fluctuate unpredictably."
+    ],
+    "question": "What will happen to the equilibrium price level and the equilibrium quantity of output if the aggregate supply curve shifts to the left? Assume an upward sloping aggregate supply curve.",
+    "question_id": 7097,
+    "src": "ori_mmlu-high_school_macroeconomics"
+   },
+   "row_idx": 6927,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "H",
+    "answer_index": 7,
+    "category": "economics",
+    "cot_content": "",
+    "options": [
+     "A market with many buyers and one seller",
+     "A market with one buyer and one seller, but where the government regulates all transactions",
+     "A market with one buyer and many sellers",
+     "A market where multiple buyers and sellers exist, but only two dominate the market",
+     "A market with two buyers and two sellers, all of whom have equal market power",
+     "A market with many sellers, each selling a unique product to one buyer",
+     "A market structure where two sellers compete to sell to many buyers",
+     "A market situation in which a single seller faces a single buyer",
+     "A market with many sellers and many buyers",
+     "A market where a single seller faces many buyers, but all buyers coordinate their purchases"
+    ],
+    "question": "What is bilateral monopoly?",
+    "question_id": 7672,
+    "src": "stemez-Economics"
+   },
+   "row_idx": 7489,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "C",
+    "answer_index": 2,
+    "category": "computer science",
+    "cot_content": "",
+    "options": [
+     "{-10, -5, -2, -1, 0, 1, 2, 5, 10}",
+     "{-6, -2, -1, 0, 1, 2, 6}",
+     "{-6, -3, -2, -1, 1, 2, 3, 6}",
+     "{-6, -3, -2, -1, 0, 1, 2, 3, 6}"
+    ],
+    "question": "An integer c is a common divisor of two integers x and y if and only if c is a divisor of x and c is a divisor of y. Which of the following sets of integers could possibly be the set of all common divisors of two integers?",
+    "question_id": 10652,
+    "src": "ori_mmlu-college_computer_science"
+   },
+   "row_idx": 10444,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "E",
+    "answer_index": 4,
+    "category": "economics",
+    "cot_content": "",
+    "options": [
+     "An increase in national income has no effect on employment.",
+     "An increase in national income leads to an increase in employment when it is driven by technology advancements.",
+     "Yes, every increase in national income always results in an increase of employment.",
+     "An increase in national income results in an increase in employment only in the manufacturing sector.",
+     "No, every increase in national income does not necessarily result in an increase of employment.",
+     "An increase in national income always results in a decrease in employment.",
+     "An increase in national income is only related to employment in the service sector.",
+     "An increase in national income will result in increased employment if it is accompanied by equivalent productivity growth.",
+     "An increase in national income correlates with employment rates, but other factors such as labor market policies are more influential.",
+     "An increase in national income results in an increase in employment only when it exceeds inflation."
+    ],
+    "question": "Is an increase in national income equivalent to an increase in employment?",
+    "question_id": 7677,
+    "src": "stemez-Economics"
+   },
+   "row_idx": 7494,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "A",
+    "answer_index": 0,
+    "category": "chemistry",
+    "cot_content": "",
+    "options": [
+     "-69.89 Kcal/mole",
+     "-199.22 Kcal/mole",
+     "-279.56 Kcal/mole",
+     "-409.92 Kcal/mole",
+     "-172.30 Kcal/mole",
+     "-532.80 Kcal/mole",
+     "-328.15 Kcal/mole",
+     "-145.67 Kcal/mole",
+     "-88.14 Kcal/mole",
+     "-44.08 Kcal/mole"
+    ],
+    "question": "Calculate the standard enthalpy change, ∆H°, for the combustion of ammonia, NH_3(g), to give nitric oxide, NO(g), and water H_2O(l). The enthalpies of formation, ∆H°_f, are - 68.32 Kcal/mole for H_2O(l) , - 11.02 Kcal/mole for NH_3 (g) , and 21.57 Kcal/mole for NO(g).",
+    "question_id": 3938,
+    "src": "stemez-Chemistry"
+   },
+   "row_idx": 3815,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "D",
+    "answer_index": 3,
+    "category": "physics",
+    "cot_content": "",
+    "options": [
+     "0.5 N/kg",
+     "1 N/kg",
+     "2 N/kg",
+     "4 N/kg",
+     "12 N/kg",
+     "0.1 N/kg",
+     "8 N/kg",
+     "10 N/kg",
+     "6 N/kg",
+     "0.2 N/kg"
+    ],
+    "question": "The radius of Mars is about half that of Earth; the mass of Mars is about one-tenth that of Earth. Which of the following is closest to the gravitational field at the surface of Mars?",
+    "question_id": 9302,
+    "src": "ori_mmlu-high_school_physics"
+   },
+   "row_idx": 9113,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "F",
+    "answer_index": 5,
+    "category": "economics",
+    "cot_content": "",
+    "options": [
+     "In the long run, demand cannot adjust fully to changes in supply.",
+     "In the long run, supply is not able to adjust fully to changes in demand.",
+     "In the long run, all inputs are fixed.",
+     "In the short run, supply is able to adjust fully to changes in demand.",
+     "In the short run, demand is able to adjust fully to changes in supply.",
+     "In the long run, all inputs are variable.",
+     "In the short run, all inputs are variable."
+    ],
+    "question": "Which of the following is correct?",
+    "question_id": 7047,
+    "src": "ori_mmlu-high_school_microeconomics"
+   },
+   "row_idx": 6878,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "I",
+    "answer_index": 8,
+    "category": "engineering",
+    "cot_content": "",
+    "options": [
+     "0.625",
+     "0.683",
+     "0.350",
+     "1.125",
+     "1.000",
+     "0.500",
+     "0.764",
+     "0.942",
+     "0.859",
+     "0.725"
+    ],
+    "question": "Find the theoretical variance of the random variable with the following probability distribution. x Pr(X = x) 0 (1/4) 1 (1/2) 2 (1/8) 3 (1/8)",
+    "question_id": 11428,
+    "src": "stemez-ElectronicCommunications"
+   },
+   "row_idx": 11205,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "A",
+    "answer_index": 0,
+    "category": "chemistry",
+    "cot_content": "",
+    "options": [
+     "694 mm of Hg",
+     "720 mm of Hg",
+     "712 mm of Hg",
+     "680 mm of Hg",
+     "760 mm of Hg",
+     "665 mm of Hg",
+     "650 mm of Hg",
+     "700 mm of Hg",
+     "685 mm of Hg",
+     "675 mm of Hg"
+    ],
+    "question": "The air in a tank has a pressure of 640 mm of Hg at 23°C. When placed in sunlight the temperature rose to 48°C. What was the pressure in the tank?",
+    "question_id": 3965,
+    "src": "stemez-Chemistry"
+   },
+   "row_idx": 3842,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "I",
+    "answer_index": 8,
+    "category": "physics",
+    "cot_content": "",
+    "options": [
+     "5000 joules",
+     "450 joules",
+     "1500 joules",
+     "2000 joules",
+     "3000 joules",
+     "6000 joules",
+     "2500 joules",
+     "5880 joules",
+     "4410 joules",
+     "1470 joules"
+    ],
+    "question": "How much work in joules is done when a mass of 150 kilograms is dragged a distance of 10 meters if the coefficient of sliding friction is 0.30?",
+    "question_id": 9290,
+    "src": "stemez-Physics"
+   },
+   "row_idx": 9101,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "C",
+    "answer_index": 2,
+    "category": "biology",
+    "cot_content": "",
+    "options": [
+     "2.8 percent",
+     "6.1 percent",
+     "3.6 percent",
+     "5 percent",
+     "4.2 percent",
+     "0.5 percent",
+     "7.4 percent",
+     "8.3 percent",
+     "1.2 percent",
+     "2.0 percent"
+    ],
+    "question": "The gene frequency for theRhallele among American whites is 0.028. Among American blacks, the frequency is 0.446. Among East African blacks, the frequency of theRh allele is 0.630. Determine the degree of gene exchange (m) between the American whites and blacks.",
+    "question_id": 3084,
+    "src": "stemez-Genetics"
+   },
+   "row_idx": 2966,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "E",
+    "answer_index": 4,
+    "category": "business",
+    "cot_content": "",
+    "options": [
+     "Barnes: $20,000, Lee: $8,269",
+     "Barnes: $8,089, Lee: $20,180",
+     "Barnes: $15,600, Lee: $12,669",
+     "Barnes: $9,423, Lee: $18,846",
+     "Barnes: $19,823, Lee: $8,446",
+     "Barnes: $12,089, Lee: $16,180",
+     "Barnes: $11,423, Lee: $16,846",
+     "Barnes: $4,223, Lee: $24,046",
+     "Barnes: $10,089, Lee: $18,180",
+     "Barnes: $13,500, Lee: $14,769"
+    ],
+    "question": "Frank Lee and Steve Barnes are partners. Barnes receives a weekly salary of $300, and 1/3 of the remaining net income. The other 2/3 of the remaining income goes to Lee. If the profits are $28,269, how much does each partner receive?",
+    "question_id": 380,
+    "src": "stemez-Business"
+   },
+   "row_idx": 307,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "A",
+    "answer_index": 0,
+    "category": "computer science",
+    "cot_content": "",
+    "options": [
+     "Valid DV certificates provide more confidence to a user that she is connecting to the intended party than valid EV certificates.",
+     "OCSP stapling allows a server to prove to a browser that its certificate hasn’t been revoked.",
+     "DANE makes it difficult for an adversary to launch a SSL stripping attack.",
+     "Server key-pinning makes it harder for an adversary to convince a CA to mint a certificate for a site and launch an MITM attack on that site."
+    ],
+    "question": "Based on the paper “SoK: SSL and HTTPS: Revisiting past challenges and evaluating certificates trust model enhancements”, which of the following statements are false?",
+    "question_id": 10638,
+    "src": "ori_mmlu-computer_security"
+   },
+   "row_idx": 10430,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "A",
+    "answer_index": 0,
+    "category": "engineering",
+    "cot_content": "",
+    "options": [
+     "0.3 mm",
+     "0.15 mm",
+     "0.6 mm",
+     "0.05 mm",
+     "0.2 mm",
+     "0.25 mm",
+     "0.5 mm",
+     "1 mm",
+     "0.1 mm",
+     "0.75 mm"
+    ],
+    "question": "Of what diameter must a droplet of water (20°C) be tohave thepressure within it 1.0kPagreater than that outside?",
+    "question_id": 11377,
+    "src": "stemez-FluidMechanics"
+   },
+   "row_idx": 11155,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "F",
+    "answer_index": 5,
+    "category": "other",
+    "cot_content": "",
+    "options": [
+     "during vasocongestion",
+     "prior to the refractory period",
+     "during the resolution phase",
+     "immediately after orgasm",
+     "during the excitement phase",
+     "during the plateau phase",
+     "prior to vasocongestion",
+     "immediately before orgasm",
+     "following orgasm",
+     "following the refractory period"
+    ],
+    "question": "Secretions of Cowper's gland fluid at the tip of the penis are first evident:",
+    "question_id": 5672,
+    "src": "ori_mmlu-human_sexuality"
+   },
+   "row_idx": 5520,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "H",
+    "answer_index": 7,
+    "category": "psychology",
+    "cot_content": "",
+    "options": [
+     "Childhood experiences",
+     "Astrological signs and birth months",
+     "Educational background and intelligence quotient (IQ)",
+     "Exercise frequency and body mass index (BMI)",
+     "Use of technology and media consumption",
+     "Psychological trauma",
+     "Climate change and pollution levels",
+     "Hereditary factors, environmental factors, and biochemical factors are generally accepted as the causes of functional psychoses.",
+     "Dietary habits and sleep patterns",
+     "Lack of social interaction"
+    ],
+    "question": "What do psychologists generally accept as the causes of functional psychoses?",
+    "question_id": 2418,
+    "src": "stemez-Psychology"
+   },
+   "row_idx": 2316,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "E",
+    "answer_index": 4,
+    "category": "psychology",
+    "cot_content": "",
+    "options": [
+     "A schizo-affective disorder is a term used to describe a personality disorder with features similar to both schizophrenia and affective disorders.",
+     "A schizo-affective disorder exclusively involves psychotic symptoms without any mood disturbances.",
+     "A schizo-affective disorder is a psychological condition where mood disorders occur as a reaction to schizophrenia treatment.",
+     "A schizo-affective disorder is characterized by periods of well-being between episodes of schizophrenia and mood disorders.",
+     "A schizo-affective disorder is a combination of schizophrenic and affective disorders, where the affective symptoms must develop before or simultaneously with the psychotic symptoms.",
+     "A schizo-affective disorder is a subtype of affective disorders.",
+     "A schizo-affective disorder is a subtype of schizophrenia.",
+     "A schizo-affective disorder develops after the onset of psychosis.",
+     "A schizo-affective disorder is a chronic condition with only affective or mood-related symptoms.",
+     "A schizo-affective disorder is a mild form of schizophrenia that does not include affective symptoms."
+    ],
+    "question": "What is aschizo-affectivedisorder ?",
+    "question_id": 2415,
+    "src": "stemez-Psychology"
+   },
+   "row_idx": 2313,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "C",
+    "answer_index": 2,
+    "category": "business",
+    "cot_content": "",
+    "options": [
+     "30",
+     "50",
+     "0",
+     "25",
+     "150",
+     "75",
+     "90",
+     "120",
+     "100",
+     "60"
+    ],
+    "question": "Suppose that there are two firms in the market facing no costs of production and a demand curve given by Q = 150 - P for their identical products. Suppose the two firms choose prices simultaneously as in the Bertrand model. Compute the prices in the nash equilibrium.",
+    "question_id": 369,
+    "src": "theoremQA-Finance"
+   },
+   "row_idx": 296,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "B",
+    "answer_index": 1,
+    "category": "biology",
+    "cot_content": "",
+    "options": [
+     "Lack of available organs",
+     "Graft rejection due to immunological reaction",
+     "Incompatibility of blood types",
+     "Allergic reactions to anesthesia",
+     "Insufficient surgical expertise",
+     "Inadequate post-operative care",
+     "Genetic mutations in the donor organ",
+     "Infection due to non-sterile surgical environment",
+     "Organ malfunction post-transplant",
+     "Poor surgical procedures"
+    ],
+    "question": "Why are organ transplants generally unsuccessful?",
+    "question_id": 3142,
+    "src": "stemez-Biology"
+   },
+   "row_idx": 3022,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "D",
+    "answer_index": 3,
+    "category": "other",
+    "cot_content": "",
+    "options": [
+     "The activity is financed by grants and contributions that are restricted for specific purposes.",
+     "The activity's revenue is predominantly generated from investment income.",
+     "The activity is financed by debt that is secured partially by a pledge of the net revenues from fees and charges of the activity.",
+     "The pricing policies of the activity establish fees and charges designed to recover its cost.",
+     "The activity is financed by debt that is secured solely by a pledge of the general revenues from taxes.",
+     "The predominant customer is the primary government.",
+     "Laws or regulations require that the activity’s costs of providing services including capital costs be recovered with taxes or similar revenues.",
+     "Laws or regulations require that the activity's costs of providing services be subsidized by general fund appropriations.",
+     "The activity is funded primarily through intergovernmental revenues.",
+     "The activity's costs of providing services are primarily financed through sales of goods or services to the general public."
+    ],
+    "question": "Which of the following statements is the most significant characteristic in determining the classification of an enterprise fund?",
+    "question_id": 5643,
+    "src": "ori_mmlu-professional_accounting"
+   },
+   "row_idx": 5492,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "TIGER-Lab/MMLU-Pro",
+  "split": "test"
+ }
+}
