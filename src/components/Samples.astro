@@ -20,13 +20,14 @@ import Dense from './kinds/Dense.astro';
 import Retrieval from './kinds/Retrieval.astro';
 import VQA from './kinds/VQA.astro';
 import SceneGraph from './kinds/SceneGraph.astro';
+import MultiHop from './kinds/MultiHop.astro';
 
 interface Props { ds: Dataset; samples: Samples }
 const { ds, samples: s } = Astro.props;
 const d = ds.data.display;
 const rows = s.rows;
 // How many samples to show at once, per kind.
-const SHOW: Record<string, number> = { image: 24, boxes: 6, text: 4, qa: 3, extractive: 3, mcq: 4, code: 2, audio: 4, grid: 2, record: 9, table: 8, translation: 6, annotated: 6, image_mcq: 3, preference: 3, segmentation: 4, dense: 4, retrieval: 2, vqa: 6, scene_graph: 2 };
+const SHOW: Record<string, number> = { image: 24, boxes: 6, text: 4, qa: 3, extractive: 3, mcq: 4, code: 2, audio: 4, grid: 2, record: 9, table: 8, translation: 6, annotated: 6, image_mcq: 3, preference: 3, segmentation: 4, dense: 4, retrieval: 2, vqa: 6, scene_graph: 2, multihop: 2 };
 const k = d.kind === 'image' && d.thumb ? 12 : SHOW[d.kind];
 const first = rows[0];
 const splitInfo = s.parts && s.parts.length > 1
@@ -73,6 +74,7 @@ const revUrl = s.revision ? `https://huggingface.co/datasets/${s.source.hf}/tree
   {d.kind === 'retrieval' && <Retrieval d={d} rows={rows} k={k} />}
   {d.kind === 'vqa' && <VQA d={d} rows={rows} k={k} />}
   {d.kind === 'scene_graph' && <SceneGraph d={d} rows={rows} k={k} />}
+  {d.kind === 'multihop' && <MultiHop d={d} rows={rows} k={k} />}
 
   {first && (
     <details class="raw">

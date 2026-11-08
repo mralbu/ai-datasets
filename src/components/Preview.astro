@@ -26,7 +26,7 @@ const stripMath = (t: unknown) => String(t ?? '').replace(/\$+/g, '');
     </div>
   )}
   {s && d.kind === 'text' && <p>“{snippet(r0[d.text])}”</p>}
-  {s && (d.kind === 'qa' || d.kind === 'extractive' || d.kind === 'mcq') && <p>{snippet(d.kind === 'qa' && d.math ? stripMath(r0[d.question]) : r0[d.question])}</p>}
+  {s && (d.kind === 'qa' || d.kind === 'extractive' || d.kind === 'mcq' || d.kind === 'multihop') && <p>{snippet(d.kind === 'qa' && d.math ? stripMath(r0[d.question]) : Array.isArray(r0[d.question]) ? r0[d.question].map((q: any) => q.input_text ?? q).join(' / ') : r0[d.question])}</p>}
   {s && d.kind === 'retrieval' && <p>⌕ {snippet(r0[d.query])}</p>}
   {s && d.kind === 'preference' && <p>{snippet(String(r0[d.chosen]).replace(/^\s*Human:\s*/, ''))}</p>}
   {s && d.kind === 'record' && <p>{snippet(Object.values(r0).find((v) => typeof v === 'string'))}</p>}

@@ -1,0 +1,44 @@
+name: HotpotQA
+year: 2018
+modality: text
+tags: [retrieval]
+task: Multi-hop question answering over Wikipedia
+one_liner: 113,000 questions that need facts from two Wikipedia paragraphs, with the supporting sentences marked.
+creators: Zhilin Yang, Peng Qi, Saizheng Zhang, Yoshua Bengio, William W. Cohen, Ruslan Salakhutdinov, Christopher D. Manning (CMU, Stanford, Mila)
+size: 112,779 questions
+splits: { train: 90447, validation: 7405, test: 7405 }
+input: A question, with ten paragraphs (distractor setting) or all of Wikipedia (fullwiki setting)
+labels: A short answer, and the sentences needed to reach it
+license: CC BY-SA 4.0
+paper:
+  title: "HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering"
+  url: https://arxiv.org/abs/1809.09600
+homepage: https://hotpotqa.github.io/
+why: >-
+  SQuAD questions can be answered from one paragraph, often from one
+  sentence. HotpotQA's annotators were shown two linked Wikipedia paragraphs
+  and asked for questions that need both: find the bridge entity in one, then
+  the answer in the other, or compare two things. The supporting sentences
+  are labeled, so models can be scored on why they answered, not only what.
+  Its full-Wikipedia setting made it the benchmark for multi-step retrieval,
+  and later for LLM agents that search, from ReAct to retrieval
+  interleaved with chain-of-thought.
+trivia:
+  - In the distractor setting shown here, eight of the ten paragraphs are distractors retrieved by keyword similarity to the question.
+  - '"Bridge" questions chain two facts (the wife of X → her nationality); "comparison" questions compare two entities (which band formed first?).'
+  - Many questions turned out to be answerable with a single hop, by spotting the one entity that fits. Later datasets (2WikiMultiHopQA, MuSiQue) were built to close that shortcut.
+  - Click a paragraph to read it in full. "Show the answer" highlights the supporting sentences and fades the distractors.
+lineage:
+  - { name: SQuAD, note: "2016, single-paragraph questions", hf: rajpurkar/squad, id: squad }
+  - { name: Natural Questions, note: "2019, real Google queries answered from Wikipedia", hf: google-research-datasets/natural_questions, id: natural-questions }
+  - { name: MS MARCO, note: "2016, real Bing queries with web passages", hf: microsoft/ms_marco, id: ms-marco }
+  - { name: 2WikiMultiHopQA, note: "2020, multi-hop questions built from Wikidata relations", url: "https://github.com/Alab-NII/2wikimultihop" }
+  - { name: MuSiQue, note: "2022, 2–4 hop questions built to resist shortcuts", url: "https://github.com/StonyBrookNLP/musique" }
+landmark_papers:
+  - { title: "Answering Complex Open-Domain Questions with Multi-Hop Dense Retrieval", year: 2020, url: "https://arxiv.org/abs/2009.12756" }
+  - { title: "ReAct: Synergizing Reasoning and Acting in Language Models", year: 2022, url: "https://arxiv.org/abs/2210.03629" }
+  - { title: "Interleaving Retrieval with Chain-of-Thought Reasoning for Knowledge-Intensive Multi-Step Questions (IRCoT)", year: 2022, url: "https://arxiv.org/abs/2212.10509" }
+source: { hf: hotpotqa/hotpot_qa, config: distractor, split: validation, n: 8, seed: 19 }
+display: { kind: multihop, question: question, answer: answer, context: context, supporting: supporting_facts, tags: [type, level] }
+download:
+  config: distractor

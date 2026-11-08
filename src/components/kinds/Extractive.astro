@@ -6,14 +6,19 @@ const { d, rows, k } = Astro.props;
 <div class="list">
   {rows.map((r, i) => {
     const ctx = String(r.row[d.context]);
-    const ans = r.row[d.answers] as { text: string[]; answer_start: number[] };
+    const rawAns = r.row[d.answers];
+    const ans: { text: string[]; answer_start: number[] } = Array.isArray(rawAns)
+      ? { text: rawAns.map((a: any) => a.span_text ?? ''), answer_start: rawAns.map((a: any) => a.span_start ?? -1) }
+      : rawAns;
+    const rawQ = r.row[d.question];
+    const question = Array.isArray(rawQ) ? rawQ.map((q: any) => q.input_text ?? q).join(' / ') : rawQ;
     const start = ans.answer_start[0];
     const end = start + ans.text[0].length;
     const variants = [...new Set(ans.text)];
     return (
       <article class="card reveal-box" data-item hidden={i >= k}>
         {d.title && <span class="tag">{String(r.row[d.title]).replaceAll('_', ' ')}</span>}
-        <p class="q">{r.row[d.question]}</p>
+        <p class="q">{question}</p>
         <p class="ctx">{ctx.slice(0, start)}<mark class="ans">{ctx.slice(start, end)}</mark>{ctx.slice(end)}</p>
         <button type="button" data-reveal>Show answer span</button>
         <p class="answers muted">

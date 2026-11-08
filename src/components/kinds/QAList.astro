@@ -2,7 +2,7 @@
 import 'katex/dist/katex.min.css';
 import { renderMath } from '../../lib/math';
 import type { SampleRow } from '../../lib/data';
-interface Props { d: { question: string; answer: string; tags: string[]; math: boolean; input?: string; wrong?: string; answer_label: string }; rows: SampleRow[]; k: number }
+interface Props { d: { question: string; answer: string; tags: string[]; math: boolean; input?: string; verdict?: string; wrong?: string; answer_label: string }; rows: SampleRow[]; k: number }
 const { d, rows, k } = Astro.props;
 // GSM8K-style answers: highlight <<calc>> annotations and the final "#### n" line.
 const segments = (t: string) => t.split(/(<<[^>]*>>|^####.*$)/m).filter(Boolean);
@@ -14,9 +14,16 @@ const list = (v: unknown): string[] => (Array.isArray(v) ? v.map(String) : v == 
     <article class="card" data-item hidden={i >= k}>
       {d.tags.length > 0 && <p class="tags">{d.tags.flatMap((t) => list(r.row[t])).map((t) => <span class="tag">{t}</span>)}</p>}
       {d.math ? <p class="q pre" set:html={renderMath(String(r.row[d.question]))} /> : <p class="q">{r.row[d.question]}</p>}
-      {d.input && r.row[d.input] && <p class="input pre">{r.row[d.input]}</p>}
+      {d.input && r.row[d.input] && (typeof r.row[d.input] === 'object' && r.row[d.input].contexts ? (
+        <div class="input sections">
+          {(r.row[d.input].contexts as string[]).map((c, j) => (
+            <p>{r.row[d.input].labels?.[j] && <span class="sec">{String(r.row[d.input].labels[j]).toLowerCase()}</span>}{c}</p>
+          ))}
+        </div>
+      ) : <p class="input pre">{r.row[d.input]}</p>)}
       <details>
         <summary>{d.answer_label}</summary>
+        {d.verdict && r.row[d.verdict] && <p class="verdict"><span class="tag">{r.row[d.verdict]}</span></p>}
         {Array.isArray(r.row[d.answer]) ? <ul class="items">{list(r.row[d.answer]).map((a) => <li><code>{a}</code></li>)}</ul> :
          d.math ? <p class="pre" set:html={renderMath(String(r.row[d.answer]))} /> : (
           <p class="pre">
@@ -41,6 +48,11 @@ const list = (v: unknown): string[] => (Array.isArray(v) ? v.map(String) : v == 
   .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 8px; }
   .items { margin: 6px 0 0; padding-left: 20px; font-size: 0.9rem; }
   .input { margin: -4px 0 10px; padding: 8px 12px; border-left: 3px solid var(--border); color: var(--muted); font-size: 0.92rem; }
+  .sections p { margin: 0 0 6px; }
+  .sections p:last-child { margin: 0; }
+  .sec { display: inline-block; margin-right: 6px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text); }
+  .verdict { margin: 8px 0 4px; }
+  .verdict .tag { font-size: 0.85rem; text-transform: capitalize; }
   .wrong { margin-top: 10px; font-size: 0.92rem; }
   .wrong p { margin: 0 0 4px; font-size: 0.85rem; }
   .wrong ul { margin: 0; padding-left: 20px; color: var(--neg); }

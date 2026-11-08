@@ -1,0 +1,41 @@
+name: PubMedQA
+year: 2019
+modality: benchmark
+tags: [medical]
+task: Yes/no/maybe questions answered from biomedical research abstracts
+one_liner: Paper titles turned into questions, to be answered yes, no or maybe from the paper's abstract.
+creators: Qiao Jin, Bhuwan Dhingra, Zhengping Liu, William W. Cohen, Xinghua Lu (University of Pittsburgh, Carnegie Mellon University)
+size: 1,000 expert-labeled questions, 61,249 unlabeled, 211,269 generated automatically
+splits: { labeled: 1000, unlabeled: 61249, artificial: 211269 }
+input: A question (from a paper's title) and the abstract without its conclusion
+labels: Yes, no or maybe, and the abstract's conclusion as the long answer
+license: MIT
+paper:
+  title: "PubMedQA: A Dataset for Biomedical Research Question Answering"
+  url: https://arxiv.org/abs/1909.06146
+homepage: https://pubmedqa.github.io/
+why: >-
+  Many paper titles are questions: "Is X associated with Y?". PubMedQA takes
+  those titles, hides the abstract's conclusion, and asks a model to answer
+  from the background, methods and results alone. That makes it a test of
+  reading quantitative research, not of recalling facts. Together with MedQA
+  it was part of the benchmark suite behind Med-PaLM, and it remains a common
+  check of biomedical reading for LLMs.
+trivia:
+  - The conclusion the model must not see is shown under "Show answer" as the long answer.
+  - In the labeled set, "yes" is the majority answer (about 55%), so always saying yes is a baseline to beat.
+  - A single human annotator reached 78% accuracy, in the "reasoning-required" setting shown here.
+  - The 211,000 artificial questions were generated from statement titles with simple rules, for pretraining.
+lineage:
+  - { name: BioASQ, note: "2013–, a yearly biomedical semantic indexing and QA challenge", url: "http://bioasq.org/" }
+  - { name: MedQA (USMLE), note: "2020, licensing exam questions", hf: GBaker/MedQA-USMLE-4-options, id: medqa }
+  - { name: SQuAD, note: "2016, answers as spans of Wikipedia paragraphs", hf: rajpurkar/squad, id: squad }
+  - { name: MMLU, note: "2020, includes medical subjects", hf: cais/mmlu, id: mmlu }
+landmark_papers:
+  - { title: "BioBERT: a pre-trained biomedical language representation model for biomedical text mining", year: 2019, url: "https://arxiv.org/abs/1901.08746" }
+  - { title: "BioGPT: Generative Pre-trained Transformer for Biomedical Text Generation and Mining", year: 2022, url: "https://arxiv.org/abs/2210.10341" }
+  - { title: "Large Language Models Encode Clinical Knowledge (Med-PaLM)", year: 2022, url: "https://arxiv.org/abs/2212.13138" }
+source: { hf: qiaojin/PubMedQA, config: pqa_labeled, split: train, n: 12, seed: 5 }
+display: { kind: qa, question: question, input: context, answer: long_answer, verdict: final_decision, answer_label: Show answer }
+download:
+  config: pqa_labeled

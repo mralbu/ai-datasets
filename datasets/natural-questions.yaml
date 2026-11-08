@@ -1,0 +1,45 @@
+name: Natural Questions
+year: 2019
+modality: text
+tags: [retrieval]
+task: Open-domain question answering from Wikipedia
+one_liner: Real Google search questions, each answered by an annotator with a paragraph and a short span from Wikipedia.
+creators: Tom Kwiatkowski, Jennimaria Palomaki, Olivia Redfield, Michael Collins, Ankur Parikh, Chris Alberti, Kenton Lee, Kristina Toutanova, Jacob Devlin, Slav Petrov and others (Google)
+size: 323,045 questions with their Wikipedia pages
+splits: { train: 307373, validation: 7830, test: 7842 }
+input: An anonymized Google query and a Wikipedia page from the top search results
+labels: A long answer (usually a paragraph) and a short answer (a span, or yes/no), or none
+license: CC BY-SA 3.0
+paper:
+  title: "Natural Questions: A Benchmark for Question Answering Research"
+  url: https://aclanthology.org/Q19-1026/
+homepage: https://ai.google.com/research/NaturalQuestions
+why: >-
+  Questions written by people who already see the answer, as in SQuAD, share
+  its words. Natural Questions used what people actually asked Google, and
+  annotators then searched a Wikipedia page for the answer. Its open-domain
+  version (NQ-Open), with only the question and short answers, became the
+  benchmark that started modern retrieval: ORQA, REALM, DPR and RAG all
+  measured how well a model finds the right passage in all of Wikipedia and
+  answers from it, which is the recipe behind retrieval-augmented LLMs.
+trivia:
+  - About half of the questions have no paragraph answer on the page, and only about a third have a short answer. The samples here come from a subset that has one.
+  - Questions had to be at least eight words, or start with "who", "when" or "where", to filter for real questions.
+  - The development and test sets have five annotators per question, because people often disagree on what counts as the answer.
+  - In NQ-Open, models must find the answer in all of Wikipedia; DPR's dense retriever beat keyword search (BM25) there by 9 to 19 points.
+lineage:
+  - { name: SQuAD, note: "2016, questions written while reading the paragraph", hf: rajpurkar/squad, id: squad }
+  - { name: TriviaQA, note: "2017, trivia questions with evidence documents", hf: mandarjoshi/trivia_qa }
+  - { name: MS MARCO, note: "2016, Bing queries with web passages", hf: microsoft/ms_marco, id: ms-marco }
+  - { name: NQ-Open, note: "2019, the open-domain version: question and short answers only", hf: google-research-datasets/nq_open }
+  - { name: HotpotQA, note: "2018, questions that need two paragraphs", hf: hotpotqa/hotpot_qa, id: hotpotqa }
+landmark_papers:
+  - { title: "Latent Retrieval for Weakly Supervised Open Domain Question Answering (ORQA)", year: 2019, url: "https://arxiv.org/abs/1906.00300" }
+  - { title: "REALM: Retrieval-Augmented Language Model Pre-Training", year: 2020, url: "https://arxiv.org/abs/2002.08909" }
+  - { title: "Dense Passage Retrieval for Open-Domain Question Answering (DPR)", year: 2020, url: "https://arxiv.org/abs/2004.04906" }
+  - { title: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (RAG)", year: 2020, url: "https://arxiv.org/abs/2005.11401" }
+source: { hf: cjlovering/natural-questions-short, config: default, split: validation, n: 12, seed: 23 }
+display: { kind: extractive, context: contexts, question: questions, answers: answers, title: name }
+download:
+  hf: google-research-datasets/natural_questions
+  note: "The full dataset includes each Wikipedia page as HTML and tokens (about 40 GB). The samples come from cjlovering/natural-questions-short, which keeps the answer paragraph and span; the open-domain version is google-research-datasets/nq_open."

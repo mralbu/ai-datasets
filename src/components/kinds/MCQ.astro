@@ -7,9 +7,11 @@ const letters = 'ABCDEFGHIJ';
 <div class="list">
   {rows.map((r, i) => {
     // Choices: a list (MMLU, HellaSwag) or {text: [...], label: ["A", ...]} (AI2 ARC).
+    // …or a plain {A: text, B: text} object (MedQA).
     const raw = r.row[d.choices];
-    const choices: string[] = Array.isArray(raw) ? raw : raw.text;
-    const keys: string[] | undefined = Array.isArray(raw) ? undefined : raw.label;
+    const plain = !Array.isArray(raw) && !Array.isArray(raw?.text);
+    const choices: string[] = Array.isArray(raw) ? raw : plain ? Object.values(raw) : raw.text;
+    const keys: string[] | undefined = Array.isArray(raw) ? undefined : plain ? Object.keys(raw) : raw.label;
     // Answer: ClassLabel int (MMLU), "3" (HellaSwag) or a key like "B" or "4" (ARC).
     const a = r.row[d.answer];
     const correct = keys ? keys.indexOf(String(a)) : Number(a);
