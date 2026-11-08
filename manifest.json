@@ -64,6 +64,13 @@
    "fetched_at": "2026-11-07T22:33:14+00:00",
    "rows": 18
   },
+  "chestx-ray14": {
+   "fingerprint": "afdc71c6f880fa9c",
+   "hf": "timm/nih-chest-xray-14",
+   "revision": "c1bf579641b3256b4d49924436984b82bee5834d",
+   "fetched_at": "2026-11-08T03:52:45+00:00",
+   "rows": 18
+  },
   "cifar10": {
    "fingerprint": "ec2ef70e1bfa8044",
    "hf": "uoft-cs/cifar10",
@@ -91,6 +98,13 @@
    "revision": "7d5136d6952da2df12d99106e2cce2a65324617d",
    "fetched_at": "2026-11-07T15:46:00+00:00",
    "rows": 18
+  },
+  "eurosat": {
+   "fingerprint": "9607a1be104787bc",
+   "hf": "timm/eurosat-rgb",
+   "revision": "b4e28552cd5f3932b6abc37eb20d3e84901ad728",
+   "fetched_at": "2026-11-08T03:53:06+00:00",
+   "rows": 80
   },
   "fashion-mnist": {
    "fingerprint": "cf3451b55d606543",
@@ -169,6 +183,13 @@
    "fetched_at": "2026-11-07T15:47:46+00:00",
    "rows": 12
   },
+  "isic": {
+   "fingerprint": "19f48ef640094cb4",
+   "hf": "MedOtter/ISIC2018",
+   "revision": "0217b654204bacba75c95d93e9ecbb1f4348e723",
+   "fetched_at": "2026-11-08T03:53:56+00:00",
+   "rows": 12
+  },
   "kitti": {
    "fingerprint": "f9b4fab569c33f7f",
    "hf": "KingRam/Kitti-Object-Detection-Evaluation-2012",
@@ -231,6 +252,13 @@
    "revision": "a1c7c3304f31f9be882a2c90726d25b94dd2d8f1",
    "fetched_at": "2026-11-07T21:34:18+00:00",
    "rows": 16
+  },
+  "ms-marco": {
+   "fingerprint": "f1470f98abd3b2ce",
+   "hf": "microsoft/ms_marco",
+   "revision": "a47ee7aae8d7d466ba15f9f0bfac3b3681087b3a",
+   "fetched_at": "2026-11-08T03:53:57+00:00",
+   "rows": 9
   },
   "nyu-depth-v2": {
    "fingerprint": "69107e7940a50b31",

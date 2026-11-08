@@ -1,0 +1,854 @@
+{
+ "features": [
+  {
+   "name": "image",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "labels",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "_type": "ClassLabel",
+     "names": [
+      "Atelectasis",
+      "Cardiomegaly",
+      "Consolidation",
+      "Edema",
+      "Effusion",
+      "Emphysema",
+      "Fibrosis",
+      "Hernia",
+      "Infiltration",
+      "Mass",
+      "Nodule",
+      "Pleural_Thickening",
+      "Pneumonia",
+      "Pneumothorax"
+     ]
+    }
+   }
+  },
+  {
+   "name": "label_names",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "_type": "Value",
+     "dtype": "string"
+    }
+   }
+  },
+  {
+   "name": "image_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "fold",
+   "type": {
+    "_type": "Value",
+    "dtype": "int8"
+   }
+  },
+  {
+   "name": "patient_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "int32"
+   }
+  },
+  {
+   "name": "follow_up",
+   "type": {
+    "_type": "Value",
+    "dtype": "int32"
+   }
+  },
+  {
+   "name": "patient_age",
+   "type": {
+    "_type": "Value",
+    "dtype": "int32"
+   }
+  },
+  {
+   "name": "patient_sex",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "view_position",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "original_width",
+   "type": {
+    "_type": "Value",
+    "dtype": "int32"
+   }
+  },
+  {
+   "name": "original_height",
+   "type": {
+    "_type": "Value",
+    "dtype": "int32"
+   }
+  },
+  {
+   "name": "pixel_spacing_x",
+   "type": {
+    "_type": "Value",
+    "dtype": "float64"
+   }
+  },
+  {
+   "name": "pixel_spacing_y",
+   "type": {
+    "_type": "Value",
+    "dtype": "float64"
+   }
+  },
+  {
+   "name": "bboxes",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "bbox": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "float32"
+      },
+      "length": 4
+     },
+     "label": {
+      "_type": "ClassLabel",
+      "names": [
+       "Atelectasis",
+       "Cardiomegaly",
+       "Consolidation",
+       "Edema",
+       "Effusion",
+       "Emphysema",
+       "Fibrosis",
+       "Hernia",
+       "Infiltration",
+       "Mass",
+       "Nodule",
+       "Pleural_Thickening",
+       "Pneumonia",
+       "Pneumothorax"
+      ]
+     }
+    }
+   }
+  }
+ ],
+ "fetched_at": "2026-11-08T03:52:45+00:00",
+ "id": "chestx-ray14",
+ "num_rows_total": 86524,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "image",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "labels",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "_type": "ClassLabel",
+       "names": [
+        "Atelectasis",
+        "Cardiomegaly",
+        "Consolidation",
+        "Edema",
+        "Effusion",
+        "Emphysema",
+        "Fibrosis",
+        "Hernia",
+        "Infiltration",
+        "Mass",
+        "Nodule",
+        "Pleural_Thickening",
+        "Pneumonia",
+        "Pneumothorax"
+       ]
+      }
+     }
+    },
+    {
+     "name": "label_names",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "string"
+      }
+     }
+    },
+    {
+     "name": "image_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "fold",
+     "type": {
+      "_type": "Value",
+      "dtype": "int8"
+     }
+    },
+    {
+     "name": "patient_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    {
+     "name": "follow_up",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    {
+     "name": "patient_age",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    {
+     "name": "patient_sex",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "view_position",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "original_width",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    {
+     "name": "original_height",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    {
+     "name": "pixel_spacing_x",
+     "type": {
+      "_type": "Value",
+      "dtype": "float64"
+     }
+    },
+    {
+     "name": "pixel_spacing_y",
+     "type": {
+      "_type": "Value",
+      "dtype": "float64"
+     }
+    },
+    {
+     "name": "bboxes",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "bbox": {
+        "_type": "List",
+        "feature": {
+         "_type": "Value",
+         "dtype": "float32"
+        },
+        "length": 4
+       },
+       "label": {
+        "_type": "ClassLabel",
+        "names": [
+         "Atelectasis",
+         "Cardiomegaly",
+         "Consolidation",
+         "Edema",
+         "Effusion",
+         "Emphysema",
+         "Fibrosis",
+         "Hernia",
+         "Infiltration",
+         "Mass",
+         "Nodule",
+         "Pleural_Thickening",
+         "Pneumonia",
+         "Pneumothorax"
+        ]
+       }
+      }
+     }
+    }
+   ],
+   "num_rows_total": 86524,
+   "split": "train"
+  }
+ ],
+ "revision": "c1bf579641b3256b4d49924436984b82bee5834d",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "bboxes": [],
+    "fold": 0,
+    "follow_up": 12,
+    "image": {
+     "height": 1024,
+     "src": "samples/chestx-ray14/5432-image.jpg",
+     "width": 1024
+    },
+    "image_id": "00001803_011",
+    "label_names": [],
+    "labels": [],
+    "original_height": 2991,
+    "original_width": 2992,
+    "patient_age": 58,
+    "patient_id": 1803,
+    "patient_sex": "M",
+    "pixel_spacing_x": 0.143,
+    "pixel_spacing_y": 0.143,
+    "view_position": "PA"
+   },
+   "row_idx": 5432,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bboxes": [],
+    "fold": 5,
+    "follow_up": 1,
+    "image": {
+     "height": 1024,
+     "src": "samples/chestx-ray14/5493-image.jpg",
+     "width": 1024
+    },
+    "image_id": "00001818_001",
+    "label_names": [],
+    "labels": [],
+    "original_height": 2500,
+    "original_width": 2048,
+    "patient_age": 49,
+    "patient_id": 1818,
+    "patient_sex": "F",
+    "pixel_spacing_x": 0.168,
+    "pixel_spacing_y": 0.168,
+    "view_position": "PA"
+   },
+   "row_idx": 5493,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bboxes": [],
+    "fold": 2,
+    "follow_up": 12,
+    "image": {
+     "height": 1024,
+     "src": "samples/chestx-ray14/54881-image.jpg",
+     "width": 1024
+    },
+    "image_id": "00017044_012",
+    "label_names": [],
+    "labels": [],
+    "original_height": 2991,
+    "original_width": 2626,
+    "patient_age": 21,
+    "patient_id": 17044,
+    "patient_sex": "F",
+    "pixel_spacing_x": 0.143,
+    "pixel_spacing_y": 0.143,
+    "view_position": "PA"
+   },
+   "row_idx": 54881,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bboxes": [],
+    "fold": 6,
+    "follow_up": 1,
+    "image": {
+     "height": 1024,
+     "src": "samples/chestx-ray14/54837-image.jpg",
+     "width": 1024
+    },
+    "image_id": "00017025_001",
+    "label_names": [
+     "Effusion",
+     "Infiltration"
+    ],
+    "labels": [
+     4,
+     8
+    ],
+    "original_height": 2991,
+    "original_width": 2992,
+    "patient_age": 58,
+    "patient_id": 17025,
+    "patient_sex": "M",
+    "pixel_spacing_x": 0.143,
+    "pixel_spacing_y": 0.143,
+    "view_position": "PA"
+   },
+   "row_idx": 54837,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bboxes": [],
+    "fold": 0,
+    "follow_up": 0,
+    "image": {
+     "height": 1024,
+     "src": "samples/chestx-ray14/5441-image.jpg",
+     "width": 1024
+    },
+    "image_id": "00001804_000",
+    "label_names": [],
+    "labels": [],
+    "original_height": 2500,
+    "original_width": 2048,
+    "patient_age": 7,
+    "patient_id": 1804,
+    "patient_sex": "F",
+    "pixel_spacing_x": 0.171,
+    "pixel_spacing_y": 0.171,
+    "view_position": "PA"
+   },
+   "row_idx": 5441,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bboxes": [],
+    "fold": 4,
+    "follow_up": 4,
+    "image": {
+     "height": 1024,
+     "src": "samples/chestx-ray14/83525-image.jpg",
+     "width": 1024
+    },
+    "image_id": "00028544_004",
+    "label_names": [
+     "Edema",
+     "Effusion",
+     "Pneumothorax"
+    ],
+    "labels": [
+     3,
+     4,
+     13
+    ],
+    "original_height": 2544,
+    "original_width": 3056,
+    "patient_age": 15,
+    "patient_id": 28544,
+    "patient_sex": "F",
+    "pixel_spacing_x": 0.139,
+    "pixel_spacing_y": 0.139,
+    "view_position": "AP"
+   },
+   "row_idx": 83525,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bboxes": [],
+    "fold": 4,
+    "follow_up": 8,
+    "image": {
+     "height": 1024,
+     "src": "samples/chestx-ray14/5486-image.jpg",
+     "width": 1024
+    },
+    "image_id": "00001814_008",
+    "label_names": [
+     "Infiltration"
+    ],
+    "labels": [
+     8
+    ],
+    "original_height": 2765,
+    "original_width": 2794,
+    "patient_age": 35,
+    "patient_id": 1814,
+    "patient_sex": "F",
+    "pixel_spacing_x": 0.143,
+    "pixel_spacing_y": 0.143,
+    "view_position": "PA"
+   },
+   "row_idx": 5486,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bboxes": [],
+    "fold": 7,
+    "follow_up": 0,
+    "image": {
+     "height": 1024,
+     "src": "samples/chestx-ray14/83518-image.jpg",
+     "width": 1024
+    },
+    "image_id": "00028539_000",
+    "label_names": [
+     "Infiltration"
+    ],
+    "labels": [
+     8
+    ],
+    "original_height": 2021,
+    "original_width": 2021,
+    "patient_age": 59,
+    "patient_id": 28539,
+    "patient_sex": "M",
+    "pixel_spacing_x": 0.1943109999999999,
+    "pixel_spacing_y": 0.1943109999999999,
+    "view_position": "PA"
+   },
+   "row_idx": 83518,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bboxes": [],
+    "fold": 8,
+    "follow_up": 4,
+    "image": {
+     "height": 1024,
+     "src": "samples/chestx-ray14/83591-image.jpg",
+     "width": 1024
+    },
+    "image_id": "00028583_004",
+    "label_names": [],
+    "labels": [],
+    "original_height": 2544,
+    "original_width": 3056,
+    "patient_age": 23,
+    "patient_id": 28583,
+    "patient_sex": "M",
+    "pixel_spacing_x": 0.139,
+    "pixel_spacing_y": 0.139,
+    "view_position": "AP"
+   },
+   "row_idx": 83591,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bboxes": [],
+    "fold": 2,
+    "follow_up": 9,
+    "image": {
+     "height": 1024,
+     "src": "samples/chestx-ray14/54878-image.jpg",
+     "width": 1024
+    },
+    "image_id": "00017044_009",
+    "label_names": [
+     "Infiltration"
+    ],
+    "labels": [
+     8
+    ],
+    "original_height": 2991,
+    "original_width": 2992,
+    "patient_age": 19,
+    "patient_id": 17044,
+    "patient_sex": "F",
+    "pixel_spacing_x": 0.143,
+    "pixel_spacing_y": 0.143,
+    "view_position": "PA"
+   },
+   "row_idx": 54878,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bboxes": [],
+    "fold": 9,
+    "follow_up": 1,
+    "image": {
+     "height": 1024,
+     "src": "samples/chestx-ray14/83517-image.jpg",
+     "width": 1024
+    },
+    "image_id": "00028537_001",
+    "label_names": [
+     "Cardiomegaly"
+    ],
+    "labels": [
+     1
+    ],
+    "original_height": 2544,
+    "original_width": 3056,
+    "patient_age": 43,
+    "patient_id": 28537,
+    "patient_sex": "M",
+    "pixel_spacing_x": 0.139,
+    "pixel_spacing_y": 0.139,
+    "view_position": "AP"
+   },
+   "row_idx": 83517,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bboxes": [],
+    "fold": 2,
+    "follow_up": 1,
+    "image": {
+     "height": 1024,
+     "src": "samples/chestx-ray14/83564-image.jpg",
+     "width": 1024
+    },
+    "image_id": "00028567_001",
+    "label_names": [
+     "Nodule"
+    ],
+    "labels": [
+     10
+    ],
+    "original_height": 3056,
+    "original_width": 2544,
+    "patient_age": 37,
+    "patient_id": 28567,
+    "patient_sex": "F",
+    "pixel_spacing_x": 0.139,
+    "pixel_spacing_y": 0.139,
+    "view_position": "PA"
+   },
+   "row_idx": 83564,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bboxes": [],
+    "fold": 2,
+    "follow_up": 5,
+    "image": {
+     "height": 1024,
+     "src": "samples/chestx-ray14/54874-image.jpg",
+     "width": 1024
+    },
+    "image_id": "00017044_005",
+    "label_names": [],
+    "labels": [],
+    "original_height": 2048,
+    "original_width": 2500,
+    "patient_age": 19,
+    "patient_id": 17044,
+    "patient_sex": "F",
+    "pixel_spacing_x": 0.168,
+    "pixel_spacing_y": 0.168,
+    "view_position": "AP"
+   },
+   "row_idx": 54874,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bboxes": [],
+    "fold": 8,
+    "follow_up": 8,
+    "image": {
+     "height": 1024,
+     "src": "samples/chestx-ray14/5458-image.jpg",
+     "width": 1024
+    },
+    "image_id": "00001806_008",
+    "label_names": [
+     "Infiltration"
+    ],
+    "labels": [
+     8
+    ],
+    "original_height": 2633,
+    "original_width": 2550,
+    "patient_age": 63,
+    "patient_id": 1806,
+    "patient_sex": "F",
+    "pixel_spacing_x": 0.143,
+    "pixel_spacing_y": 0.143,
+    "view_position": "PA"
+   },
+   "row_idx": 5458,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bboxes": [],
+    "fold": 7,
+    "follow_up": 1,
+    "image": {
+     "height": 1024,
+     "src": "samples/chestx-ray14/54844-image.jpg",
+     "width": 1024
+    },
+    "image_id": "00017027_001",
+    "label_names": [
+     "Atelectasis",
+     "Consolidation"
+    ],
+    "labels": [
+     0,
+     2
+    ],
+    "original_height": 2048,
+    "original_width": 2500,
+    "patient_age": 62,
+    "patient_id": 17027,
+    "patient_sex": "M",
+    "pixel_spacing_x": 0.168,
+    "pixel_spacing_y": 0.168,
+    "view_position": "AP"
+   },
+   "row_idx": 54844,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bboxes": [],
+    "fold": 3,
+    "follow_up": 5,
+    "image": {
+     "height": 1024,
+     "src": "samples/chestx-ray14/83571-image.jpg",
+     "width": 1024
+    },
+    "image_id": "00028579_005",
+    "label_names": [
+     "Edema",
+     "Effusion",
+     "Infiltration"
+    ],
+    "labels": [
+     3,
+     4,
+     8
+    ],
+    "original_height": 1734,
+    "original_width": 1610,
+    "patient_age": 67,
+    "patient_id": 28579,
+    "patient_sex": "F",
+    "pixel_spacing_x": 0.1943109999999999,
+    "pixel_spacing_y": 0.1943109999999999,
+    "view_position": "PA"
+   },
+   "row_idx": 83571,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bboxes": [],
+    "fold": 2,
+    "follow_up": 10,
+    "image": {
+     "height": 1024,
+     "src": "samples/chestx-ray14/54879-image.jpg",
+     "width": 1024
+    },
+    "image_id": "00017044_010",
+    "label_names": [],
+    "labels": [],
+    "original_height": 2991,
+    "original_width": 2992,
+    "patient_age": 20,
+    "patient_id": 17044,
+    "patient_sex": "F",
+    "pixel_spacing_x": 0.143,
+    "pixel_spacing_y": 0.143,
+    "view_position": "PA"
+   },
+   "row_idx": 54879,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "bboxes": [],
+    "fold": 2,
+    "follow_up": 0,
+    "image": {
+     "height": 1024,
+     "src": "samples/chestx-ray14/5466-image.jpg",
+     "width": 1024
+    },
+    "image_id": "00001808_001",
+    "label_names": [
+     "Mass"
+    ],
+    "labels": [
+     9
+    ],
+    "original_height": 2544,
+    "original_width": 3056,
+    "patient_age": 18,
+    "patient_id": 1808,
+    "patient_sex": "M",
+    "pixel_spacing_x": 0.139,
+    "pixel_spacing_y": 0.139,
+    "view_position": "AP"
+   },
+   "row_idx": 5466,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "timm/nih-chest-xray-14",
+  "split": "train"
+ }
+}

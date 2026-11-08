@@ -1,0 +1,1206 @@
+{
+ "features": [
+  {
+   "name": "image",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "label",
+   "type": {
+    "_type": "ClassLabel",
+    "names": [
+     "AnnualCrop",
+     "Forest",
+     "HerbaceousVegetation",
+     "Highway",
+     "Industrial",
+     "Pasture",
+     "PermanentCrop",
+     "Residential",
+     "River",
+     "SeaLake"
+    ]
+   }
+  },
+  {
+   "name": "image_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-08T03:53:06+00:00",
+ "id": "eurosat",
+ "num_rows_total": 16200,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "image",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "label",
+     "type": {
+      "_type": "ClassLabel",
+      "names": [
+       "AnnualCrop",
+       "Forest",
+       "HerbaceousVegetation",
+       "Highway",
+       "Industrial",
+       "Pasture",
+       "PermanentCrop",
+       "Residential",
+       "River",
+       "SeaLake"
+      ]
+     }
+    },
+    {
+     "name": "image_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 16200,
+   "split": "train"
+  }
+ ],
+ "revision": "b4e28552cd5f3932b6abc37eb20d3e84901ad728",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/991-image.jpg",
+     "width": 64
+    },
+    "image_id": "Residential_1280",
+    "label": 7
+   },
+   "row_idx": 991,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/983-image.jpg",
+     "width": 64
+    },
+    "image_id": "HerbaceousVegetation_1640",
+    "label": 2
+   },
+   "row_idx": 983,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/9347-image.jpg",
+     "width": 64
+    },
+    "image_id": "Highway_82",
+    "label": 3
+   },
+   "row_idx": 9347,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/9904-image.jpg",
+     "width": 64
+    },
+    "image_id": "AnnualCrop_2346",
+    "label": 0
+   },
+   "row_idx": 9904,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/6452-image.jpg",
+     "width": 64
+    },
+    "image_id": "Industrial_905",
+    "label": 4
+   },
+   "row_idx": 6452,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/1001-image.jpg",
+     "width": 64
+    },
+    "image_id": "River_2025",
+    "label": 8
+   },
+   "row_idx": 1001,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/9946-image.jpg",
+     "width": 64
+    },
+    "image_id": "AnnualCrop_1735",
+    "label": 0
+   },
+   "row_idx": 9946,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/3501-image.jpg",
+     "width": 64
+    },
+    "image_id": "Residential_204",
+    "label": 7
+   },
+   "row_idx": 3501,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/6440-image.jpg",
+     "width": 64
+    },
+    "image_id": "PermanentCrop_30",
+    "label": 6
+   },
+   "row_idx": 6440,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/13268-image.jpg",
+     "width": 64
+    },
+    "image_id": "River_41",
+    "label": 8
+   },
+   "row_idx": 13268,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/6583-image.jpg",
+     "width": 64
+    },
+    "image_id": "Residential_1314",
+    "label": 7
+   },
+   "row_idx": 6583,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/2706-image.jpg",
+     "width": 64
+    },
+    "image_id": "Residential_302",
+    "label": 7
+   },
+   "row_idx": 2706,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/3475-image.jpg",
+     "width": 64
+    },
+    "image_id": "Industrial_2234",
+    "label": 4
+   },
+   "row_idx": 3475,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/12014-image.jpg",
+     "width": 64
+    },
+    "image_id": "HerbaceousVegetation_516",
+    "label": 2
+   },
+   "row_idx": 12014,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/6594-image.jpg",
+     "width": 64
+    },
+    "image_id": "SeaLake_96",
+    "label": 9
+   },
+   "row_idx": 6594,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/13189-image.jpg",
+     "width": 64
+    },
+    "image_id": "AnnualCrop_246",
+    "label": 0
+   },
+   "row_idx": 13189,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/15077-image.jpg",
+     "width": 64
+    },
+    "image_id": "SeaLake_458",
+    "label": 9
+   },
+   "row_idx": 15077,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/6381-image.jpg",
+     "width": 64
+    },
+    "image_id": "Forest_1120",
+    "label": 1
+   },
+   "row_idx": 6381,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/9984-image.jpg",
+     "width": 64
+    },
+    "image_id": "Highway_1378",
+    "label": 3
+   },
+   "row_idx": 9984,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/3506-image.jpg",
+     "width": 64
+    },
+    "image_id": "Forest_649",
+    "label": 1
+   },
+   "row_idx": 3506,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/11993-image.jpg",
+     "width": 64
+    },
+    "image_id": "AnnualCrop_1443",
+    "label": 0
+   },
+   "row_idx": 11993,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/3482-image.jpg",
+     "width": 64
+    },
+    "image_id": "PermanentCrop_783",
+    "label": 6
+   },
+   "row_idx": 3482,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/3508-image.jpg",
+     "width": 64
+    },
+    "image_id": "SeaLake_2427",
+    "label": 9
+   },
+   "row_idx": 3508,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/11988-image.jpg",
+     "width": 64
+    },
+    "image_id": "Highway_111",
+    "label": 3
+   },
+   "row_idx": 11988,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/12082-image.jpg",
+     "width": 64
+    },
+    "image_id": "SeaLake_2842",
+    "label": 9
+   },
+   "row_idx": 12082,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/15067-image.jpg",
+     "width": 64
+    },
+    "image_id": "Pasture_696",
+    "label": 5
+   },
+   "row_idx": 15067,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/9394-image.jpg",
+     "width": 64
+    },
+    "image_id": "Forest_1158",
+    "label": 1
+   },
+   "row_idx": 9394,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/2746-image.jpg",
+     "width": 64
+    },
+    "image_id": "Forest_2204",
+    "label": 1
+   },
+   "row_idx": 2746,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/15023-image.jpg",
+     "width": 64
+    },
+    "image_id": "SeaLake_2136",
+    "label": 9
+   },
+   "row_idx": 15023,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/9929-image.jpg",
+     "width": 64
+    },
+    "image_id": "HerbaceousVegetation_601",
+    "label": 2
+   },
+   "row_idx": 9929,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/9373-image.jpg",
+     "width": 64
+    },
+    "image_id": "HerbaceousVegetation_794",
+    "label": 2
+   },
+   "row_idx": 9373,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/3493-image.jpg",
+     "width": 64
+    },
+    "image_id": "Residential_582",
+    "label": 7
+   },
+   "row_idx": 3493,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/12050-image.jpg",
+     "width": 64
+    },
+    "image_id": "SeaLake_162",
+    "label": 9
+   },
+   "row_idx": 12050,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/9335-image.jpg",
+     "width": 64
+    },
+    "image_id": "Highway_1565",
+    "label": 3
+   },
+   "row_idx": 9335,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/2748-image.jpg",
+     "width": 64
+    },
+    "image_id": "Residential_697",
+    "label": 7
+   },
+   "row_idx": 2748,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/985-image.jpg",
+     "width": 64
+    },
+    "image_id": "Highway_1913",
+    "label": 3
+   },
+   "row_idx": 985,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/950-image.jpg",
+     "width": 64
+    },
+    "image_id": "Residential_886",
+    "label": 7
+   },
+   "row_idx": 950,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/6652-image.jpg",
+     "width": 64
+    },
+    "image_id": "Industrial_1754",
+    "label": 4
+   },
+   "row_idx": 6652,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/9952-image.jpg",
+     "width": 64
+    },
+    "image_id": "SeaLake_2777",
+    "label": 9
+   },
+   "row_idx": 9952,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/12083-image.jpg",
+     "width": 64
+    },
+    "image_id": "HerbaceousVegetation_1018",
+    "label": 2
+   },
+   "row_idx": 12083,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/9926-image.jpg",
+     "width": 64
+    },
+    "image_id": "Industrial_1109",
+    "label": 4
+   },
+   "row_idx": 9926,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/13218-image.jpg",
+     "width": 64
+    },
+    "image_id": "Industrial_1980",
+    "label": 4
+   },
+   "row_idx": 13218,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/3430-image.jpg",
+     "width": 64
+    },
+    "image_id": "Residential_2260",
+    "label": 7
+   },
+   "row_idx": 3430,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/6612-image.jpg",
+     "width": 64
+    },
+    "image_id": "Industrial_772",
+    "label": 4
+   },
+   "row_idx": 6612,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/13183-image.jpg",
+     "width": 64
+    },
+    "image_id": "Forest_1983",
+    "label": 1
+   },
+   "row_idx": 13183,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/997-image.jpg",
+     "width": 64
+    },
+    "image_id": "Highway_1506",
+    "label": 3
+   },
+   "row_idx": 997,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/2725-image.jpg",
+     "width": 64
+    },
+    "image_id": "Pasture_1836",
+    "label": 5
+   },
+   "row_idx": 2725,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/13181-image.jpg",
+     "width": 64
+    },
+    "image_id": "Forest_2047",
+    "label": 1
+   },
+   "row_idx": 13181,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/15070-image.jpg",
+     "width": 64
+    },
+    "image_id": "Industrial_740",
+    "label": 4
+   },
+   "row_idx": 15070,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/13194-image.jpg",
+     "width": 64
+    },
+    "image_id": "AnnualCrop_1658",
+    "label": 0
+   },
+   "row_idx": 13194,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/6451-image.jpg",
+     "width": 64
+    },
+    "image_id": "Forest_1139",
+    "label": 1
+   },
+   "row_idx": 6451,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/9376-image.jpg",
+     "width": 64
+    },
+    "image_id": "Industrial_2313",
+    "label": 4
+   },
+   "row_idx": 9376,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/6393-image.jpg",
+     "width": 64
+    },
+    "image_id": "SeaLake_795",
+    "label": 9
+   },
+   "row_idx": 6393,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/2728-image.jpg",
+     "width": 64
+    },
+    "image_id": "Residential_292",
+    "label": 7
+   },
+   "row_idx": 2728,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/9977-image.jpg",
+     "width": 64
+    },
+    "image_id": "SeaLake_423",
+    "label": 9
+   },
+   "row_idx": 9977,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/9310-image.jpg",
+     "width": 64
+    },
+    "image_id": "Residential_56",
+    "label": 7
+   },
+   "row_idx": 9310,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/13232-image.jpg",
+     "width": 64
+    },
+    "image_id": "SeaLake_2336",
+    "label": 9
+   },
+   "row_idx": 13232,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/6577-image.jpg",
+     "width": 64
+    },
+    "image_id": "Residential_2683",
+    "label": 7
+   },
+   "row_idx": 6577,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/6374-image.jpg",
+     "width": 64
+    },
+    "image_id": "HerbaceousVegetation_2448",
+    "label": 2
+   },
+   "row_idx": 6374,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/13230-image.jpg",
+     "width": 64
+    },
+    "image_id": "River_1556",
+    "label": 8
+   },
+   "row_idx": 13230,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/6556-image.jpg",
+     "width": 64
+    },
+    "image_id": "Forest_1734",
+    "label": 1
+   },
+   "row_idx": 6556,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/15107-image.jpg",
+     "width": 64
+    },
+    "image_id": "Residential_1361",
+    "label": 7
+   },
+   "row_idx": 15107,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/15065-image.jpg",
+     "width": 64
+    },
+    "image_id": "Forest_2291",
+    "label": 1
+   },
+   "row_idx": 15065,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/12057-image.jpg",
+     "width": 64
+    },
+    "image_id": "Highway_2054",
+    "label": 3
+   },
+   "row_idx": 12057,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/12021-image.jpg",
+     "width": 64
+    },
+    "image_id": "Forest_1230",
+    "label": 1
+   },
+   "row_idx": 12021,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/949-image.jpg",
+     "width": 64
+    },
+    "image_id": "SeaLake_2168",
+    "label": 9
+   },
+   "row_idx": 949,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/15026-image.jpg",
+     "width": 64
+    },
+    "image_id": "Residential_743",
+    "label": 7
+   },
+   "row_idx": 15026,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/2680-image.jpg",
+     "width": 64
+    },
+    "image_id": "Industrial_1006",
+    "label": 4
+   },
+   "row_idx": 2680,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/6380-image.jpg",
+     "width": 64
+    },
+    "image_id": "PermanentCrop_280",
+    "label": 6
+   },
+   "row_idx": 6380,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/3513-image.jpg",
+     "width": 64
+    },
+    "image_id": "PermanentCrop_1453",
+    "label": 6
+   },
+   "row_idx": 3513,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/2686-image.jpg",
+     "width": 64
+    },
+    "image_id": "Highway_334",
+    "label": 3
+   },
+   "row_idx": 2686,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/9964-image.jpg",
+     "width": 64
+    },
+    "image_id": "Residential_777",
+    "label": 7
+   },
+   "row_idx": 9964,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/1025-image.jpg",
+     "width": 64
+    },
+    "image_id": "HerbaceousVegetation_2128",
+    "label": 2
+   },
+   "row_idx": 1025,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/9339-image.jpg",
+     "width": 64
+    },
+    "image_id": "Highway_718",
+    "label": 3
+   },
+   "row_idx": 9339,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/6609-image.jpg",
+     "width": 64
+    },
+    "image_id": "Residential_1510",
+    "label": 7
+   },
+   "row_idx": 6609,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/2691-image.jpg",
+     "width": 64
+    },
+    "image_id": "AnnualCrop_2373",
+    "label": 0
+   },
+   "row_idx": 2691,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/9391-image.jpg",
+     "width": 64
+    },
+    "image_id": "Pasture_780",
+    "label": 5
+   },
+   "row_idx": 9391,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/6629-image.jpg",
+     "width": 64
+    },
+    "image_id": "Highway_1368",
+    "label": 3
+   },
+   "row_idx": 6629,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/6456-image.jpg",
+     "width": 64
+    },
+    "image_id": "Highway_564",
+    "label": 3
+   },
+   "row_idx": 6456,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 64,
+     "src": "samples/eurosat/15043-image.jpg",
+     "width": 64
+    },
+    "image_id": "Forest_2197",
+    "label": 1
+   },
+   "row_idx": 15043,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "timm/eurosat-rgb",
+  "split": "train"
+ }
+}

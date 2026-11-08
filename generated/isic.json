@@ -1,0 +1,330 @@
+{
+ "features": [
+  {
+   "name": "image_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "image",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "mask",
+   "type": {
+    "_type": "Dense",
+    "kind": "mask",
+    "was": "Image"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-08T03:53:56+00:00",
+ "id": "isic",
+ "num_rows_total": 2594,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "image_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "image",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "mask",
+     "type": {
+      "_type": "Dense",
+      "kind": "mask",
+      "was": "Image"
+     }
+    }
+   ],
+   "num_rows_total": 2594,
+   "split": "train"
+  }
+ ],
+ "revision": "0217b654204bacba75c95d93e9ecbb1f4348e723",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 2848,
+     "src": "samples/isic/577-image.jpg",
+     "width": 4288
+    },
+    "image_id": "ISIC_0006711",
+    "mask": {
+     "classes": {
+      "0": 0.9647,
+      "1": 0.0353
+     },
+     "height": 510,
+     "src": "samples/isic/577-mask.png",
+     "width": 768
+    }
+   },
+   "row_idx": 577,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 2000,
+     "src": "samples/isic/1211-image.jpg",
+     "width": 3008
+    },
+    "image_id": "ISIC_0012210",
+    "mask": {
+     "classes": {
+      "0": 0.8685,
+      "1": 0.1315
+     },
+     "height": 511,
+     "src": "samples/isic/1211-mask.png",
+     "width": 768
+    }
+   },
+   "row_idx": 1211,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 2848,
+     "src": "samples/isic/2540-image.jpg",
+     "width": 4288
+    },
+    "image_id": "ISIC_0016009",
+    "mask": {
+     "classes": {
+      "0": 0.9438,
+      "1": 0.0562
+     },
+     "height": 510,
+     "src": "samples/isic/2540-mask.png",
+     "width": 768
+    }
+   },
+   "row_idx": 2540,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 2848,
+     "src": "samples/isic/1900-image.jpg",
+     "width": 4288
+    },
+    "image_id": "ISIC_0014089",
+    "mask": {
+     "classes": {
+      "0": 0.989,
+      "1": 0.011
+     },
+     "height": 510,
+     "src": "samples/isic/1900-mask.png",
+     "width": 768
+    }
+   },
+   "row_idx": 1900,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 2000,
+     "src": "samples/isic/1216-image.jpg",
+     "width": 3008
+    },
+    "image_id": "ISIC_0012221",
+    "mask": {
+     "classes": {
+      "0": 0.9675,
+      "1": 0.0325
+     },
+     "height": 511,
+     "src": "samples/isic/1216-mask.png",
+     "width": 768
+    }
+   },
+   "row_idx": 1216,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 768,
+     "src": "samples/isic/246-image.jpg",
+     "width": 1024
+    },
+    "image_id": "ISIC_0000277",
+    "mask": {
+     "classes": {
+      "0": 0.5451,
+      "1": 0.4549
+     },
+     "height": 576,
+     "src": "samples/isic/246-mask.png",
+     "width": 768
+    }
+   },
+   "row_idx": 246,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 768,
+     "src": "samples/isic/242-image.jpg",
+     "width": 1024
+    },
+    "image_id": "ISIC_0000271",
+    "mask": {
+     "classes": {
+      "0": 0.7935,
+      "1": 0.2065
+     },
+     "height": 576,
+     "src": "samples/isic/242-mask.png",
+     "width": 768
+    }
+   },
+   "row_idx": 242,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 2848,
+     "src": "samples/isic/1908-image.jpg",
+     "width": 4288
+    },
+    "image_id": "ISIC_0014110",
+    "mask": {
+     "classes": {
+      "0": 0.8446,
+      "1": 0.1554
+     },
+     "height": 510,
+     "src": "samples/isic/1908-mask.png",
+     "width": 768
+    }
+   },
+   "row_idx": 1908,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 2848,
+     "src": "samples/isic/570-image.jpg",
+     "width": 4288
+    },
+    "image_id": "ISIC_0006021",
+    "mask": {
+     "classes": {
+      "0": 0.9328,
+      "1": 0.0672
+     },
+     "height": 510,
+     "src": "samples/isic/570-mask.png",
+     "width": 768
+    }
+   },
+   "row_idx": 570,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 2000,
+     "src": "samples/isic/1561-image.jpg",
+     "width": 3008
+    },
+    "image_id": "ISIC_0013196",
+    "mask": {
+     "classes": {
+      "0": 0.997,
+      "1": 0.003
+     },
+     "height": 511,
+     "src": "samples/isic/1561-mask.png",
+     "width": 768
+    }
+   },
+   "row_idx": 1561,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 2000,
+     "src": "samples/isic/1555-image.jpg",
+     "width": 3008
+    },
+    "image_id": "ISIC_0013187",
+    "mask": {
+     "classes": {
+      "0": 0.9003,
+      "1": 0.0997
+     },
+     "height": 511,
+     "src": "samples/isic/1555-mask.png",
+     "width": 768
+    }
+   },
+   "row_idx": 1555,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 2848,
+     "src": "samples/isic/2536-image.jpg",
+     "width": 4288
+    },
+    "image_id": "ISIC_0016005",
+    "mask": {
+     "classes": {
+      "0": 0.8955,
+      "1": 0.1045
+     },
+     "height": 510,
+     "src": "samples/isic/2536-mask.png",
+     "width": 768
+    }
+   },
+   "row_idx": 2536,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "MedOtter/ISIC2018",
+  "split": "train"
+ }
+}

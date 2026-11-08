@@ -1,0 +1,626 @@
+{
+ "features": [
+  {
+   "name": "answers",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "_type": "Value",
+     "dtype": "string"
+    }
+   }
+  },
+  {
+   "name": "passages",
+   "type": {
+    "is_selected": {
+     "_type": "List",
+     "feature": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    "passage_text": {
+     "_type": "List",
+     "feature": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    "url": {
+     "_type": "List",
+     "feature": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   }
+  },
+  {
+   "name": "query",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "query_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "int32"
+   }
+  },
+  {
+   "name": "query_type",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "wellFormedAnswers",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "_type": "Value",
+     "dtype": "string"
+    }
+   }
+  }
+ ],
+ "fetched_at": "2026-11-08T03:53:57+00:00",
+ "id": "ms-marco",
+ "num_rows_total": 101093,
+ "parts": [
+  {
+   "config": "v2.1",
+   "features": [
+    {
+     "name": "answers",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "string"
+      }
+     }
+    },
+    {
+     "name": "passages",
+     "type": {
+      "is_selected": {
+       "_type": "List",
+       "feature": {
+        "_type": "Value",
+        "dtype": "int32"
+       }
+      },
+      "passage_text": {
+       "_type": "List",
+       "feature": {
+        "_type": "Value",
+        "dtype": "string"
+       }
+      },
+      "url": {
+       "_type": "List",
+       "feature": {
+        "_type": "Value",
+        "dtype": "string"
+       }
+      }
+     }
+    },
+    {
+     "name": "query",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "query_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    {
+     "name": "query_type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "wellFormedAnswers",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "string"
+      }
+     }
+    }
+   ],
+   "num_rows_total": 101093,
+   "split": "validation"
+  }
+ ],
+ "revision": "a47ee7aae8d7d466ba15f9f0bfac3b3681087b3a",
+ "rows": [
+  {
+   "config": "v2.1",
+   "row": {
+    "answers": [
+     "Vasculitis of the skin is blood vessel inflammation that causes fever, pain, local tenderness and other evidence of blocked blood vessels."
+    ],
+    "passages": {
+     "is_selected": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "passage_text": [
+      "Skin. If vasculitis affects your skin, you may notice skin changes. For example, you may have purple or red spots or bumps, clusters of small dots, splotches, bruises, or hives. Your skin also may itch. Joints. If vasculitis affects your joints, you may ache or develop arthritis in one or more joints. Lungs",
+      "A traditional way of diagnosing hypersensitivity vasculitis is determining whether you meet at least three of the five following criteria set forth by the American College of Rheumatology: You are older than 16 years of age. You have a skin rash with palpable purpura. You have a skin rash that is maculopapular (contains both flat and raised spots).",
+      "Vasculitis is blood vessel inflammation that causes fever, pain, local tenderness and other evidence of blocked blood vessels. When a blood vessel becomes inflamed and narrowed, blood supply to that area can become partially or completely blocked, cutting off blood supply to the tissues beyond.",
+      "This form of vasculitis usually affects the kidneys, the digestive tract, the nerves and the skin. Signs and symptoms include a rash, general malaise, weight loss, muscle and joint pain, abdominal pain after eating, high blood pressure, muscle pain and weakness, and kidney problems.",
+      "In some vasculitic diseases, abnormal antibodies (autoantibodies) attack white blood cells, which attack vessel walls and cause inflammation and destruction of the vessel wall. Infection caused by a virus can also cause CNS vasculitis. What are the symptoms of central nervous system vasculitis? Symptoms of CNS vasculitis can include the following:",
+      "Vasculitis often affects the renal glomeruli, joints, cerebral vessels, testes, or respiratory system. Vasculitis can affect large, medium-sized, and small blood vessels. When it is found in small blood vessels in the skin, characteristic rashes may be seen. Vasculitis is loosely classified by the size of the vessel involved.",
+      "Affected organs (such as the heart or lungs) may require specific medical treatment intended to improve their function during the active phase of the disease.  1 Vasculitis - Definition from the Merriam-Webster Online Dictionary.  2 Glossary of dermatopathological terms.  3 Vasculitis at Dorland's Medical Dictionary.",
+      "Vasculitis affecting the skin can cause rashes, skin discoloration, and ulcers. Vasculitis affecting the muscles can cause muscle pain. Vasculitis affecting the lungs can cause shortness of breath and cough. Vasculitis affecting the heart can cause congestive heart failure. Vasculitis affecting the brain can cause headaches, confusion, seizures, stroke, paralysis, numbness, and lightheadedness.",
+      "Some types of vasculitis have predilection for certain age groups. 1  Acute haemorrhagic oedema affects infants. 2  Henoch Schonlein purpura affects children. 3  Hypersensitivity vasculitis affects adults. 4  Older people are more likely to have diseases and medications that are potential causes of small vessel vasculitis.",
+      "Symptoms vary depending on the specific type of vasculitis: Polyarteritis nodosa – Fever, weight loss, weakness, fatigue, malaise, headache, abdominal pain, muscle aches, hypertension (high blood pressure), shortness of breath and rash . Hypersensitivity vasculitis – Raised, purple spots on the skin, fever, joint pain"
+     ],
+     "url": [
+      "https://www.nhlbi.nih.gov/health-topics/vasculitis",
+      "https://www.healthline.com/health/allergic-vasculitis",
+      "https://www.hss.edu/conditions_lupus-vasculitis-blocked-blood-vessels.asp",
+      "http://www.mayoclinic.org/diseases-conditions/vasculitis/symptoms-causes/syc-20363435",
+      "https://my.clevelandclinic.org/health/diseases/13205-central-nervous-system-vasculitis",
+      "https://medical-dictionary.thefreedictionary.com/vasculitis",
+      "https://en.wikipedia.org/wiki/Vasculitis",
+      "https://www.medicinenet.com/vasculitis/article.htm",
+      "https://www.dermnetnz.org/topics/cutaneous-vasculitis/",
+      "https://www.drugs.com/health-guide/vasculitis.html"
+     ]
+    },
+    "query": "what is vasculitis of the skin",
+    "query_id": 1028998,
+    "query_type": "ENTITY",
+    "wellFormedAnswers": []
+   },
+   "row_idx": 15519,
+   "truncated": []
+  },
+  {
+   "config": "v2.1",
+   "row": {
+    "answers": [
+     "No Answer Present."
+    ],
+    "passages": {
+     "is_selected": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "passage_text": [
+      "According to the new hypothesis, magma emerging as such a lava flow would have lost a lot of its water during its rise to the surface. As the water formed gas bubbles, repeated non-explosive fragmentation ruptured bubble walls and allowed the gas to escape easily through the passageways formed by the broken bubbles.",
+      "How does volcanic ash cause damage? Volcanic ash can bury entire towns, if it becomes wet, it can cause roofs to collapse if a plane engine sucks it in the plane it could fall eruptions can cause landslides and avalaunches of mud, melted snow, and rock.",
+      "A 2-cm wide slice through a piece of banded obsidian from Big Glass Mountain in northern California. The bands, which contain different concentrations of microcrystals of the mineral pyroxene, are created by shear forces as the magma rises under the volcano and as it flows on the surface.",
+      "The standard explanation for explosive volcanism is that as liquid magma rises from a magma chamber at a depth of several miles, dissolved gases-mostly water-form bubbles. These bubbles grow in size, because the pressure in the surrounding magma decreases as it rises toward the surface.",
+      "Magma rises from the asthenosphere to the surface of the Earth.  After it reaches temperature upward to 1000 degrees Fahrenheit, the  magma starts to rise. Gases also aid in … pushing the magma toward  the surface, along with the tremendous pressure from the depth at  which it originates. Answered.",
+      "Volcanic eruptions create landforms made of lava, ash, and other materials. These landforms include shield volcanoes, cinder cones volcanoes, composition volcanoes and lava plateaus.   . Features formed by magma include volcanic necks, dikes, and sils, as well as batholiths and dome mountains.",
+      "As magma rises, the gases contained within expand due to the  decrease in pressure on them as they rise. This creates bubbles  that float through the magma. Like the sudden … decrease in pressure  on the gas in a carbonated beverage when opening, it's container  releases a mass of rising bubbles.",
+      "Which is more likely to be dangerous a volcano that erupts frequently or a volcano that has been inactive for a hundred years? A volcano that has been inactive for a hundred years, because people near this volcano are unaware of the danger they could be in, and are unprepared.",
+      "Magma is less dense than rock and is buoyant due to this density difference. It will seek out any weaknesses in the rock above it to reach the surface.",
+      "The idea that fragmentation might occur in all rising magma came to Gonnermann after he began looking at banded obsidian from lava flows, in particular the flow at northern California's Big Glass Mountain, a volcanic dome containing about 1 cubic kilometer of rhyolite, obsidian and pumice from an effusive eruption."
+     ],
+     "url": [
+      "http://www.berkeley.edu/news/media/releases/2003/11/26_bubbles.shtml",
+      "https://quizlet.com/17729271/volcanoes-flash-cards/",
+      "http://www.berkeley.edu/news/media/releases/2003/11/26_bubbles.shtml",
+      "http://www.berkeley.edu/news/media/releases/2003/11/26_bubbles.shtml",
+      "http://www.answers.com/Q/Why_does_magma_rise_towards_the_Earth's_surface",
+      "https://quizlet.com/17729271/volcanoes-flash-cards/",
+      "http://www.answers.com/Q/Why_does_magma_rise_towards_the_Earth's_surface",
+      "https://quizlet.com/17729271/volcanoes-flash-cards/",
+      "http://www.answers.com/Q/Why_does_magma_rise_towards_the_Earth's_surface",
+      "http://www.berkeley.edu/news/media/releases/2003/11/26_bubbles.shtml"
+     ]
+    },
+    "query": "what happens to the gases in magma as it rises toward the surface",
+    "query_id": 666731,
+    "query_type": "DESCRIPTION",
+    "wellFormedAnswers": []
+   },
+   "row_idx": 60713,
+   "truncated": []
+  },
+  {
+   "config": "v2.1",
+   "row": {
+    "answers": [
+     "No Answer Present."
+    ],
+    "passages": {
+     "is_selected": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "passage_text": [
+      "Sep 2, 2014 … Finally, we commend CMS' for its proposal to include anesthesia services as part. of the screening colonoscopy, but urge the agency to also ….. or the. Comprehensive Primary care Initiative may not bill Medicare for CCM ….",
+      "Ambulatory Surgical Centers. ASC Rates – ASCs are paid a facility fee for certain procedure codes as noted in the 'Current Surgical Group' column in the ASC section of the 'Medicine, Surgery, Radiology and Imaging, and Additional Procedures (Non-Institutional Services)' schedule.",
+      "Your costs in Original Medicare. 1  You generally pay 20% of the Medicare-approved amount for the doctor or other health care provider's services, and the Part B deductible applies. 2  For all other services, you also generally pay a copayment for each service you get in an outpatient hospital setting.",
+      "How often is it covered? Medicare Part A (Hospital Insurance) covers anesthesia services provided by a hospital if you're an inpatient. Medicare Part B (Medical Insurance) covers anesthesia services provided by a hospital if you're an outpatient or by a freestanding ambulatory surgical center if you're a patient.",
+      "+ Share widget - Select to show. Medicare Part A (Hospital Insurance) covers anesthesia services provided by a hospital if you're an inpatient. Medicare Part B (Medical Insurance) covers anesthesia services provided by a hospital if you're an outpatient or by a freestanding ambulatory surgical center if you're a patient.",
+      "You generally pay 20% of the Medicare-approved amount for the doctor or other health care provider's services, and the Part B deductible applies. For all other services, you also generally pay a copayment for each service you get in an outpatient hospital setting.",
+      "how to bill anesthesia for screening colonoscopy. Aug 2, 2014 … … register now for the. drug test codes in 2015 will require detailed documentation …….. Jan 1, 2015 … announced the release of the 2015 physician fee schedule. colonoscopy by an anesthesia …. capability to bill differently.",
+      "In the non-. facility setting such as the physician’s office, the physician bears higher. overhead/practice costs than if the physician performed the service in a facility. 2.1.1.3. The RBRVS-based fee schedule sets out a table designating “facility” or “non-facility”. status for various “place of service” codes.",
+      "Index and the relative value scale adjustment, if any. 1.3.2.The Physician Fee Schedule uses the Medicare 2014 relative value units and 2014 CPT. codes. 1.3.3.The posted regulations include provisions adopted in the initial rulemaking action, in the. “clean up” rulemaking (to eliminate use of federal Office of Workers’ Compensation.",
+      "Fee Schedules and Rates. ASC Rates – ASCs are paid a facility fee for certain procedure codes as noted in the 'Current Surgical Group' column in the ASC section of the 'Medicine, Surgery, Radiology and Imaging, and Additional Procedures (Non-Institutional Services)' schedule."
+     ],
+     "url": [
+      "http://www.medicarecode.org/tag/anesthesia/",
+      "http://medicaid.ohio.gov/PROVIDERS/FeeScheduleandRates/SchedulesandRates.aspx",
+      "https://www.medicare.gov/coverage/outpatient-hospital-services.html",
+      "https://www.medicare.gov/coverage/anesthesia.html",
+      "https://www.medicare.gov/coverage/anesthesia.html",
+      "https://www.medicare.gov/coverage/outpatient-hospital-services.html",
+      "http://www.medicarecode.org/tag/anesthesia/",
+      "https://www.dir.ca.gov/dwc/FAQ/RBRVS_FactSheet.pdf",
+      "https://www.dir.ca.gov/dwc/FAQ/RBRVS_FactSheet.pdf",
+      "http://medicaid.ohio.gov/PROVIDERS/FeeScheduleandRates/SchedulesandRates.aspx"
+     ]
+    },
+    "query": "medicare facility fee schedule anesthesia",
+    "query_id": 451487,
+    "query_type": "NUMERIC",
+    "wellFormedAnswers": []
+   },
+   "row_idx": 60704,
+   "truncated": []
+  },
+  {
+   "config": "v2.1",
+   "row": {
+    "answers": [
+     "No Answer Present."
+    ],
+    "passages": {
+     "is_selected": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "passage_text": [
+      "MEANING GENDER FAVOURITES; Abdulbaith: Servant of resurrect or slave of one who raises death: Boy: Arabic,Urdu: Islam: Abiba: African - The first child born after death of grandmother; Abeaba and Abeabah are the variant spellings of Abiba: Girl: African: Ajal: specified term or period, hour of death; death; fate, destiny: Boy: Arabic: Amara",
+      "54. Language group that gave us “banjo” and “gumbo” : BANTU There are hundreds of Bantu languages, mainly spoken in central, east and southern Africa. The most commonly spoken Bantu language is Swahili, with Zulu coming in second. The instrument that we know today as the banjo is a derivative of instruments that were used in Africa. The name “banjo” might come from the Bantu word “mbanza”.",
+      "Shatavsky Innerdream, Markuss Innerdream, Stelck Soulurge, Carleandro Innerdream, Baranwal Soulurge, Tymeo Soulurge, Sitihajarmulya Soulurge, Mahika Innerdream, Fatayri Innerdream, Chertsey Soulurge, Lea Soulurge, Aggh Innerdream, Bantu Expression, Testin Soulurge, Sedlovsky Innerdream, Elki Expression, Oirschot Soulurge, Tedj Innerdream, Jamiez Innerdream, Iachini Expression,",
+      "There's nothing intimidating about death when you are composed. Yes, there are names that mean death. Check out our unique list of names.",
+      "baron. 1  a member of the lowest grade of nobility. 2  a feudal vassal holding his lands under a direct grant from the king. a direct descendant of such a vassal or his equal in the nobility. a member of the House of Lords. 3  an important financier or industrialist, especially one with great power in a particular area: an oil baron.",
+      "View the meaning of Damon and other baby names from around the world. Find meanings, and origins for thousands of baby names in one site!",
+      "Around 1442, the Portuguese first arrived in Southern Africa while trying to find a sea route to India. The term negro, literally meaning black, was used by the Spanish and Portuguese as a simple description to refer to the Bantu peoples that they encountered. From the 18th century to the late 1960s, negro was considered to be the proper English-language term for people of black African origin.",
+      "Meaning: Grace And Beauty. Name: Annunciata: Gender: Female: Origin: Latin: Meaning: News Bearer. Name: Araina: Gender: Female: Origin: Latin: Meaning (ah-RAY-nah) - Variant Of Raina: Queen. Name: Araseli: Gender: Female: Origin: Latin: Meaning: Alter In The Sky. Name: Arminda: Gender: Female: Origin: Latin: Meaning The Protector, Little Armed One. Name: Ayriauna: Gender: Female: Origin: Latin: Meaning: Holy Or Strong. Name: Belva: Gender: Female: Origin: Latin: Meaning: Beautiful View. Name",
+      "NIMROD (Real Meaning): USING ABAGUSII-KIKUYU HEBREW BANTU CODE - Duration: 53:30. BOSIBORE IBONKHIYAH 6,818 views",
+      "The verb “to coddle”, meaning “to treat tenderly”, was actually coined in 1815 by Jane Austen in her novel “Emma”. At least, that is the first written record we have of the verb’s usage."
+     ],
+     "url": [
+      "http://www.momjunction.com/baby-names/meaning-death/",
+      "https://nytcrossword.com/tag/im-not-buying-it-crossword-clue",
+      "http://www.nameaning.net/both/Austie",
+      "http://www.momjunction.com/baby-names/meaning-death/",
+      "http://www.dictionary.com/browse/baron",
+      "http://www.babynameworld.com/meaning-of-Damon.asp",
+      "https://pastebin.com/Rz6HHP6y",
+      "http://www.babynamesmeanings.info/index.php?origin=latin",
+      "https://www.youtube.com/watch?v=c0_02XELFX8",
+      "https://nytcrossword.com/2017/12/1219-17-ny-times-crossword-answers-19-dec-2017-tuesday.html"
+     ]
+    },
+    "query": "damon meaning bantu",
+    "query_id": 1028843,
+    "query_type": "DESCRIPTION",
+    "wellFormedAnswers": []
+   },
+   "row_idx": 15561,
+   "truncated": []
+  },
+  {
+   "config": "v2.1",
+   "row": {
+    "answers": [
+     "No Answer Present."
+    ],
+    "passages": {
+     "is_selected": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "passage_text": [
+      "The Univers typeface family is one of the most prolific grotesque sans-serif typefaces of the century. Like Helvetica, Univers is based on 1898‘s Akzide Skip to main content",
+      "Type Gallery – Univers. 1  Font Designer: Adrian Frutiger, 1957. The typeface Univers is one of the greatest typographic achievements of the second half of the 20th century The typeface has the advantage of having a variety of weights which even combined give an impression of steadiness and homogeneity.",
+      "Univers was designed by Adrian Frutiger on Swiss principles for Charles Peignot at Deberny & Peignot. Frutiger imposed strict discipline across all elements of the series, from light to dark, extra condensed to extended, a concordance of design that was possible in the foundry type and photocomposition fonts.",
+      "Univers Condensed; Univers 59 Ultra Condensed; Univers Bold Oblique; Show more →",
+      "Univers LT Std 65 Bold download free in category basic, various. Font Style: 65 Bold. Univers LT Std 65 Bold Font Author: Adrian Frutiger. Version: OTF 1.029;PS 001.004;Core 1.0.33;makeotf.lib1.4.1585",
+      "Free fonts similar to Univers Condensed Bold. Download free similar alternatives to univers condensed bold font. Browse through sneak previews of fonts similar to univers condensed bold. Choose the best alternative to univers condensed bold in TrueType format. 1  Oswald. 2  commercial and personal use. 3  2015-05-07 09:06:48.",
+      "Univers: Style: Bold: PostScript: UniversBold: Glyph Number: 385: Units Per em: 2048: Ascender: 2014: Descender-477: Height: 2491: Max Advance Width: 2039: Max Advance Height: 2491: Underline Position-459: Underline Thickness: 105: Global BBox (694,512) , (2011,2007) Has Horizontal: yes: Has Vertical: no: Has Kerning: no: Is Fixed Width: no: Is Scalable: yes: Font Size: 79.9 KB: Downloads Yesterday: 0: Total Downloads",
+      "This family contains 27 fonts in styles such as 47 light condensed, 67 bold condensed, 55 roman, 45 light, 59 ultra condensed, 57 condensed, 65 bold, 75 black, 49 light ultra condensed, 57 condensed oblique, 39 thin ultra condensed, 53 extended, 63 bold extended, 75 black oblique, 85 extra black, 93 extra black extended, 47 light condensed oblique, 45 light oblique, 67 bold condensed oblique, 73 black extended, 85 extra black oblique, 55 oblique, 93 extra black extended oblique, 65 bold ...",
+      "Univers. Originally designed by Adrian Frutiger for Deberny & Peignot in 1957. An ideal Companion to the font Glypha.",
+      "Font Folioは、まだAdobe.comからご購入いただけます。 アドビのオリジナルタイプフェースとデザインプログラムについて詳しくは、Adobe.comのフォントセクションをご覧ください。"
+     ],
+     "url": [
+      "https://www.fonts.com/font/linotype/univers",
+      "https://www.linotype.com/267/univers.html",
+      "https://www.myfonts.com/fonts/linotype/univers/",
+      "https://www.azfonts.net/load_font/universltstd-bold.html",
+      "http://thefonthub.com/font/universltstdbold/download",
+      "https://fontsup.com/similar/univers-condensed-bold.html",
+      "http://fontsgeek.com/fonts/Univers-Bold",
+      "https://fontsup.com/family/univers+lt+std.html",
+      "http://www.identifont.com/similar?X6",
+      "http://www.adobe.com/products/type/fonts-by-adobe.html"
+     ]
+    },
+    "query": "what is univers bold font?",
+    "query_id": 1029143,
+    "query_type": "DESCRIPTION",
+    "wellFormedAnswers": []
+   },
+   "row_idx": 15482,
+   "truncated": []
+  },
+  {
+   "config": "v2.1",
+   "row": {
+    "answers": [
+     "The United States Tennis Association is the national governing body for tennis in the United States."
+    ],
+    "passages": {
+     "is_selected": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "passage_text": [
+      "United States Tennis Association - Awards. 1  Samuel Hardy Award - The International Tennis Hall of Fame annually presents the Samuel Hardy Award to a USTA volunteer in recognition of long and outstanding service to the sport of tennis.",
+      "The United States Tennis Association (USTA) is the  national governing body for tennis in the United States. A not-for-profit organization with more than 700,000 members, it invests 100% of its proceeds to promote and develop the growth of tennis, from the grass-roots to the professional levels.",
+      "FREQUENTLY ASKED QUESTIONS ABOUT NTRP GENERAL 1. What is NTRP? National Tennis Rating Program is a classification system developed in 1978 that identifies and describes the general characteristics of thirteen levels of tennis-playing ability. 2. What is a self-rating? A self-rating is an entry rating level determined by the",
+      "USTA CTA of the Year Award - The USTA CTA of the Year Award was established in 2002 to honor a CTA (Community Tennis Association) for outstanding service rendered in growing and developing the sport of tennis in its community.",
+      "If you do not have a computer rating you must self-rate before entering a USTA league program. Go to national.usta.com and you will be connected directly to TennisLink. You will need your membership number, your team number, and a major credit card. Click on “Register for a Team” and follow the prompts which",
+      "USTA Section will determine what matches, if any will be reversed for the local season. During Championships: Each Section must state before the event one of two methods for NTRP disqualification. 1.) Following completion of Championship play: The player is disqualified from participation at that NTRP level for the balance of",
+      "The United States Tennis Association is the national governing body for tennis in the United States. A not-for-profit organization with more than 700,000 members, it invests 100% of its proceeds to promote and develop the growth of tennis, from the grass-roots to the professional levels. The association was created to standardize rules and regulations and to promote and develop the growth of tennis in the United States. The USTA runs the USTA Billie Jean King National Tennis Center which hosts t",
+      "USTA Section will determine which of two methods the section will follow at the local and the championship level. The effect on Team Standings may vary, depending on when the DQ occurs: During local league: In all cases, the player is disqualified from participation at that NTRP level. Each",
+      "The USTA runs the USTA Billie Jean King National Tennis Center which hosts the US Open every year. The USTA has leagues in most places for adults skill levels between beginner and pro. The USTA also hosts tournaments across the country every weekend for club players or professionals.",
+      "United States Tennis Association. The United States Tennis Association (USTA) is the national governing body for tennis in the United States. A not-for-profit organization with more than 700,000 members, it invests 100% of its proceeds to promote and develop the growth of tennis, from the grass-roots to the professional levels."
+     ],
+     "url": [
+      "https://en.wikipedia.org/wiki/USTA",
+      "https://en.wikipedia.org/wiki/USTA",
+      "http://assets.usta.com/assets/1/USTA_Import/dps/usta_master/sitecore_usta/USTA/Document%20Assets/Leagues_and_Tournaments/Leagues/NTRP_FAQ.pdf",
+      "https://en.wikipedia.org/wiki/USTA",
+      "http://assets.usta.com/assets/1/USTA_Import/dps/usta_master/sitecore_usta/USTA/Document%20Assets/Leagues_and_Tournaments/Leagues/NTRP_FAQ.pdf",
+      "http://assets.usta.com/assets/1/USTA_Import/dps/usta_master/sitecore_usta/USTA/Document%20Assets/Leagues_and_Tournaments/Leagues/NTRP_FAQ.pdf",
+      "https://en.wikipedia.org/wiki/USTA",
+      "http://assets.usta.com/assets/1/USTA_Import/dps/usta_master/sitecore_usta/USTA/Document%20Assets/Leagues_and_Tournaments/Leagues/NTRP_FAQ.pdf",
+      "https://en.wikipedia.org/wiki/USTA",
+      "https://en.wikipedia.org/wiki/USTA"
+     ]
+    },
+    "query": "what is usta",
+    "query_id": 1029031,
+    "query_type": "DESCRIPTION",
+    "wellFormedAnswers": []
+   },
+   "row_idx": 15507,
+   "truncated": []
+  },
+  {
+   "config": "v2.1",
+   "row": {
+    "answers": [
+     "No Answer Present."
+    ],
+    "passages": {
+     "is_selected": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "passage_text": [
+      "Endothermic and Exothermic Reactions 1. Endothermic reactions absorb energy, whereas exothermic reactions release energy. All reactions involve energy in some way. You should know from Physics that nothing can happen without energy being involved.",
+      "Endotherms control body temperature by internal homeostatic mechanisms. In mammals two separate homeostatic mechanisms are involved in thermoregulation-one mechanism increases body temperature, while the other decreases it. The presence of two separate mechanisms provides a very high degree of control.",
+      "For chemical reactions, see Endothermic. An endotherm (Greek: endon = within, thermē = heat) is an organism that maintains its body at a metabolically favourable temperature, largely by the use of heat set free by its internal bodily functions instead of relying almost purely on ambient heat.",
+      "In an endothermic reaction... 1  energy is absorbed from the surroundings and the temperature increases. 2  energy is released to the surroundings and the temperature of the surroundings increases. 3  energy is absorbed from the surroundings and the temperature of the surroundings decreases.",
+      "There are other chemical reactions that must absorb energy in order to proceed. These are endothermic reactions. Endothermic reactions cannot occur spontaneously. Work must be done in order to get these reactions to occur. When endothermic reactions absorb energy, a temperature drop is measured during the reaction. Endothermic reactions are characterized by positive heat flow (into the reaction) and an increase in enthalpy (+δH).",
+      "Have students measure the change in temperature in the reaction between baking soda and vinegar. Decide in advance whether you will have students use the Fahrenheit or Celsius scale. Review with students how to read a thermometer.",
+      "Certain lamnid sharks, tuna and billfishes are also endothermic. In common parlance, endotherms are characterized as  warm-blooded .. The opposite of endothermy is ectothermy, although there is no absolute or clear separation between the nature of endotherms and ectotherms in general.",
+      "Examples of Endothermic and Exothermic Processes. Photosynthesis is an example of an endothermic chemical reaction. In this process, plants use the energy from the sun to convert carbon dioxide and water into glucose and oxygen.",
+      "Endothermic animals mostly use internal heat production through metabolic active organs and tissues (liver, kidney, heart, brain, muscle) or specialized heat producing tissues like brown adipose tissue (BAT). In general, endotherms therefore have higher metabolic rates than ectotherms at a given body mass.",
+      "When an exothermic reaction takes place, the reaction mixture gives out heat because... 1  more energy is released when new bonds are formed than is taken in when existing bonds in the reactants are broken. 2  the radiation energy produced by the reaction has to be got rid of via diffusion."
+     ],
+     "url": [
+      "http://www.educationquizzes.com/gcse/chemistry/endothermic-and-exothermic-reactions-1/",
+      "https://en.wikipedia.org/wiki/Endotherm",
+      "https://en.wikipedia.org/wiki/Endotherm",
+      "http://www.educationquizzes.com/gcse/chemistry/endothermic-and-exothermic-reactions-1/",
+      "http://chemistry.about.com/cs/generalchemistry/a/aa051903a.htm",
+      "http://www.inquiryinaction.org/classroomactivities/activity.php?id=24",
+      "https://en.wikipedia.org/wiki/Endotherm",
+      "http://chemistry.about.com/cs/generalchemistry/a/aa051903a.htm",
+      "https://en.wikipedia.org/wiki/Endotherm",
+      "http://www.educationquizzes.com/gcse/chemistry/endothermic-and-exothermic-reactions-1/"
+     ]
+    },
+    "query": "is the reaction of an endothermic reaction higher at higher temperatures?",
+    "query_id": 427232,
+    "query_type": "DESCRIPTION",
+    "wellFormedAnswers": []
+   },
+   "row_idx": 60710,
+   "truncated": []
+  },
+  {
+   "config": "v2.1",
+   "row": {
+    "answers": [
+     "The two most common health problems in Dalmatians are Deafness and Kidney problem."
+    ],
+    "passages": {
+     "is_selected": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "passage_text": [
+      "SYMPTOMS: 1  An uncontrolled division of cells produces lumps in cancerous part.This is not necessary that every lump that you feel on touching your dog is cancerous but it is necessary to take him to vet if you feel any kind of lump or bump in your dog.",
+      "Dalmatian Sheds Way Too Much. Despite having short fur, Dalmatians are known to shed heavily. Luckily, there are a few things that you can do to reduce shedding a bit. Just don’t expect to stop it completely. No matter what you do, he will continue to shed.",
+      "Health Problems in Dalmatians. The two most common health problems in Dalmatians are Deafness and Kidney problem. clean and healthy environment,proper care and medication.Here are some other disease Dalmatians are prone to.",
+      "About 10 percent are born totally deaf, and another 20 percent are deaf in one ear. The BAER test, given to puppies about 6 weeks old, determines their unilateral or bilateral deafness. Don’t overlook a good-tempered Dalmatian just because he is deaf. With care and training, your Dalmatian can lead an active dog’s life.",
+      "The two most common health problems in Dalmatians are Deafness and Kidney problem. According to the research on the percentage of puppies born deaf is about 10-13 % that is pretty much higher than other dog breeds.The other main problem is kidney problem, Dalmatians might suffer from kidney stones.To avoid health problem your Dalmatian needs clean and healthy enviorment,proper care and medication.",
+      "The Dalmatian breed tends to have high uric acid levels. This can cause kidney stones and other urinary tract problems. Dalmatians account for 80 percent of canine uric acid bladder stones.",
+      "So you want a Dalmatian at your side. You like his intelligent, outgoing nature, and you look forward to jogging with your spotted dog. He is a sweetheart. Like others, the breed is prone to some diseases, but your care and attention can minimize health issues. Deafness Dalmatians are genetically prone to deafness.",
+      "Urinary stones and Diet. Urinary stones can take many forms, but the type most relevant to Dalmatian health & welfare is uric acid (or ‘Urate’) stones. All Dalmatians carry a genetic mutation, which prevents them from processing uric acid, a bi-product from all kinds of foods. Instead it is excreted in urine.",
+      "The two most common health problems in Dalmatians are Deafness and Kidney problem. According to the research on the percentage of puppies born deaf is about 10-13 % that. is pretty much higher than other dog breeds.The other main problem is kidney problem,",
+      "Common Dalmatian Health Problems. As wonderful and beautiful as the Dalmatian breed is, there are a few things we as owners should be concerned with when it comes to their health. Just like any other breed, there are certain breed specific problems that Dalmatians suffer from."
+     ],
+     "url": [
+      "http://www.anniemany.com/2013/03/health-problems-in-dalmatians.html",
+      "http://dalmatianbreed.com/category/care/",
+      "http://www.anniemany.com/2013/03/health-problems-in-dalmatians.html",
+      "https://pets.thenest.com/dalmatian-diseases-8694.html",
+      "http://www.anniemany.com/2013/03/health-problems-in-dalmatians.html",
+      "https://pets.thenest.com/dalmatian-diseases-8694.html",
+      "https://pets.thenest.com/dalmatian-diseases-8694.html",
+      "http://www.dalmatianwelfare.co.uk/living-with/health/",
+      "http://www.anniemany.com/2013/03/health-problems-in-dalmatians.html",
+      "http://dalmatianbreed.com/category/care/"
+     ]
+    },
+    "query": "dalmatian common health problems",
+    "query_id": 1028947,
+    "query_type": "ENTITY",
+    "wellFormedAnswers": []
+   },
+   "row_idx": 15530,
+   "truncated": []
+  },
+  {
+   "config": "v2.1",
+   "row": {
+    "answers": [
+     "No Answer Present."
+    ],
+    "passages": {
+     "is_selected": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "passage_text": [
+      "When the CPA traces a sales invoice from the journal to the ledger for correctness, it is called a transaction test. When the CPA compares the book balance of cash to the book balance, it is a test of balances.",
+      "Definition of IT audit – An IT audit can be defined as any audit that encompasses review and evaluation of automated information processing systems, related non-automated processes and the interfaces among them. Planning the IT audit involves two major steps. The first step is to gather information and do some planning the second step is to gain an understanding of the existing internal control structure.",
+      "Even when internal control systems are very good, the auditor will always carry out tests on the figures in the FS. The work has to address all the assertions made by each material figure. For example, valuation, completeness, existence etc. These tests are substantive tests and consist of:",
+      "The flowing audit procedures are examples of tests of controls: 1  Inquires of appropriate management, supervisor, and staff personnel. 2  Inspection of document, report, and electronic files. 3  Observation of the application of specific Controls. 4  Re performance of the application of the control by the auditors.",
+      "And as a final, final parting comment, if during the course of an IT audit, you come across a materially significant finding, it should be communicated to management immediately, not at the end of the audit. You can find other articles related it IT Auditing and Controls here.",
+      "In a risk-based approach, IT auditors are relying on internal and operational controls as well as the knowledge of the company or the business. This type of risk assessment decision can help relate the cost-benefit analysis of the control to the known risk.",
+      "Each of these audit tests are testing a control or control procedure. They are therefore tests of control. These tests are not investigating the receivables balance in the SOFP. I repeat, a test of control tests controls, not amounts in the FS.",
+      "The purpose of audit tests. The purpose of audit tests, or audit procedures, is to allow the auditor to collect sufficient appropriate audit evidence to be able to conclude with reasonable assurance that the financial statements (FS) are free of material misstatement.",
+      "Procedural Audit is a means of testing whether controls are in place and are been followed. Evaluating the effectives of the design and implementation of internal controls, to … detect and prevent material mis-statement. 16 people found this useful.",
+      "Tests of controls consist of procedures directed toward the evaluation of the effectiveness of the design and implementation of internal controls (AU 319).when tests of controls look at design issues, the auditors evaluates whether the control has been properly designed to prevent or detect material misstatement."
+     ],
+     "url": [
+      "http://www.answers.com/Q/What_are_procedures_for_test_of_control_for_audit",
+      "http://resources.infosecinstitute.com/itac-planning/",
+      "http://opentuition.com/articles/f8/audit-tests-difference-tests-control-substantive-tests/",
+      "http://www.answers.com/Q/What_are_procedures_for_test_of_control_for_audit",
+      "http://resources.infosecinstitute.com/itac-planning/",
+      "http://resources.infosecinstitute.com/itac-planning/",
+      "http://opentuition.com/articles/f8/audit-tests-difference-tests-control-substantive-tests/",
+      "http://opentuition.com/articles/f8/audit-tests-difference-tests-control-substantive-tests/",
+      "http://www.answers.com/Q/What_are_procedures_for_test_of_control_for_audit",
+      "http://www.answers.com/Q/What_are_procedures_for_test_of_control_for_audit"
+     ]
+    },
+    "query": "what are the types of audit control tests",
+    "query_id": 575282,
+    "query_type": "DESCRIPTION",
+    "wellFormedAnswers": []
+   },
+   "row_idx": 60753,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "v2.1",
+  "hf": "microsoft/ms_marco",
+  "split": "validation"
+ }
+}
