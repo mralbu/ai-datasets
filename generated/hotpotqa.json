@@ -1,0 +1,1054 @@
+{
+ "features": [
+  {
+   "name": "id",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "question",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "answer",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "type",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "level",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "supporting_facts",
+   "type": {
+    "sent_id": {
+     "_type": "List",
+     "feature": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    "title": {
+     "_type": "List",
+     "feature": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   }
+  },
+  {
+   "name": "context",
+   "type": {
+    "sentences": {
+     "_type": "List",
+     "feature": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "string"
+      }
+     }
+    },
+    "title": {
+     "_type": "List",
+     "feature": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   }
+  }
+ ],
+ "fetched_at": "2026-11-08T04:22:06+00:00",
+ "id": "hotpotqa",
+ "num_rows_total": 7405,
+ "parts": [
+  {
+   "config": "distractor",
+   "features": [
+    {
+     "name": "id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answer",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "type",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "level",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "supporting_facts",
+     "type": {
+      "sent_id": {
+       "_type": "List",
+       "feature": {
+        "_type": "Value",
+        "dtype": "int32"
+       }
+      },
+      "title": {
+       "_type": "List",
+       "feature": {
+        "_type": "Value",
+        "dtype": "string"
+       }
+      }
+     }
+    },
+    {
+     "name": "context",
+     "type": {
+      "sentences": {
+       "_type": "List",
+       "feature": {
+        "_type": "List",
+        "feature": {
+         "_type": "Value",
+         "dtype": "string"
+        }
+       }
+      },
+      "title": {
+       "_type": "List",
+       "feature": {
+        "_type": "Value",
+        "dtype": "string"
+       }
+      }
+     }
+    }
+   ],
+   "num_rows_total": 7405,
+   "split": "validation"
+  }
+ ],
+ "revision": "1908d6afbbead072334abe2965f91bd2709910ab",
+ "rows": [
+  {
+   "config": "distractor",
+   "row": {
+    "answer": "Richard Allen Street",
+    "context": {
+     "sentences": [
+      [
+       "Greetings!",
+       " We're The Monitors is the debut album by The Monitors, released in 1968.",
+       " It is composed of material that the group recorded from the three-year span of 1965 to 1968.",
+       " Richard Street, who would later replace Paul Williams in The Temptations, is the lead singer of this group.",
+       " Shortly after the album was released, the Monitors disbanded and didn't get back together again until 1990, when the group released a reunion album entitled \"Grazing in the Grass\"."
+      ],
+      [
+       "\"Keep On Movin'\" is a song by British soul/R&B band Soul II Soul.",
+       " It was the second single released from their debut album \"Club Classics Vol.",
+       " One\", (\"Keep On Movin<nowiki>'</nowiki>\" in the United States) after \"Fairplay\".",
+       " It is one of two songs on the album that features British R&B singer Caron Wheeler (the other being \"Back to Life (However Do You Want Me)\") and it became one of Soul II Soul's most successful songs.",
+       " It reached number five on the UK Singles Chart upon its release in March 1989 and number 11 on the US \"Billboard\" Hot 100, and was even more successful on Billboard's R&B charts, where it hit number one."
+      ],
+      [
+       "The Monitors were an American vocal group who recorded for Motown Records in the 1960s.",
+       " The group, which consisted of lead singer Richard Street, Sandra Fagin, John \"Maurice\" Fagin, and Warren Harris, had two minor hits, \"Say You\" (#36 R&B), and then a cover of the Valadiers' \"Greetings (This is Uncle Sam)\", which reached #21 on the Billboard R&B Chart, and #100 on the Billboard Pop Singles Chart."
+      ],
+      [
+       "Emotional is the debut album by R&B singer Carl Thomas, released on April 18, 2000 from Bad Boy/Arista Records.",
+       " He was nominated Best R&B/Soul Album, Male & Best R&B/Soul or Rap New Artist at the 2001 Soul Train Music Awards. \"",
+       "I Wish\" was also nominated for Best R&B/Soul Single."
+      ],
+      [
+       "Ericka Yancey is an American R&B singer who Recorded Up Up And Away in 1994, but it is not known if it was released or not.",
+       " Then she signed to RCA Records in 1996.",
+       " Her debut album \"Ericka\" was slated to be released in 1997, but was ultimately shelved after her lead singles, \"So Good\" and \"Wait a While\", failed to make an entry on the \"Billboard\" Hot 100, So Good, made it on the top 50 on the US R&B charts.",
+       " In 1998 she recorded a duet with R&B singer TQ."
+      ],
+      [
+       "Richard Allen Street (October 5, 1942 – February 27, 2013) was an American soul and R&B singer, most notable as a member of Motown vocal group The Temptations from 1971 to 1993.",
+       " Born and raised in Detroit, Michigan, Street was the first member of the Temptations to actually be a native of the city which served as Motown's namesake and hometown; all of the previous members were born and at least partially raised in the southern United States."
+      ],
+      [
+       "\"Can We Talk\" is a song recorded by American R&B singer Tevin Campbell and composed and produced by Babyface.",
+       " It was the first single to be released from his double platinum second release \"I'm Ready\".",
+       " The song hit top ten on the pop charts peaking at number nine on the \"Billboard\" Hot 100 and spent a total of three weeks at number one on the US R&B chart.",
+       " It sold 500,000 copies and earned a gold certification from the Recording Industry Association of America.",
+       " The song was also Nominated for a Grammy Award for Best Rhythm & Blues Vocal Performance - Male.",
+       " It was also nominated and later won the Soul Train Music Award for Best R&B/Soul Single - Male (\"Can We Talk\").",
+       " Cover versions of the hit song have been done by The Whispers, Sanchez, and Kirk Whalum (on his 2005 album \"Kirk Whalum Performs the Babyface Songbook\").",
+       " The song was later covered by British boyband Code Red in 1996, for their debut album \"Scarlet\" and was released as the album's lead single becoming a modest hit and reaching #1 in Asia.",
+       " The song has also been covered by a Japanese/Korean singer during June 2008.",
+       " The song became the opening theme to the 2012 sitcom \"1600 Penn\".",
+       " The song was sampled in hip hop duo Luniz's song \"Playa Hata\" from their debut album \"Operation Stackola\".",
+       " The song was sung by 19-year-old Victor Sulfa during the semi-finals on season 3 of \"New Zealand Idol\" as well as Nikko Smith during the Top 10 round on season 4 of \"American Idol\".",
+       " The song has been featured on at least two different compilation albums including Disc 14 of \"Classic Soul Ballads\" entitled \"Tender Love\" and Volume 6 of MTV's \"Party to Go\" compilation albums series entitled \"MTV Party to Go 6\"."
+      ],
+      [
+       "Ke'Tara Shavon \"Keke\" Wyatt (born March 10, 1982) is an American R&B singer.",
+       " After performing in a number of girl bands and working as a songwriter during her teenage years, in 2001 she garnered national attention after her successful collaboration with fellow R&B singer Avant, In 2002, her rendition of \"Nothing in This World\" led to a nomination for the Best New R&B/Soul/Rap Artist award at the Soul Train Lady of Soul Awards.",
+       " After a number of charting collaborations and solo releases, in 2012 she starred as a cast member in TV One's \"\", which featured the lives of five 1990s chart-topping R&B singers.",
+       " She was featured in all 3 seasons of the show.",
+       " She also performed with the group at events such as Essence Music Festival."
+      ],
+      [
+       "\"Nothing in This World\" is the second single by American R&B singer Keke Wyatt featuring American R&B singer Avant released as the second single taken from her debut album Soul Sista (2002).",
+       " The song was released on December 4, 2001 through MCA Records.",
+       " The song was written and produced by Steve 'Stone' Huff."
+      ],
+      [
+       "The Monitors' version was recorded in July 1965 and released as the group's debut single for Motown Records.",
+       " Their previous single, \"Hello Love\", was planned for release on Motown's VIP subsidiary (as VIP 25010) but cancelled.",
+       " That single was scheduled for release under the group's original name, The Majestics.",
+       " \"Say You\" was also released initially as crediting The Majestics before a name change was forced upon them by the existence of another Majestics group.",
+       " Upon release, the song became a minor R&B hit, making #36 on the \"Billboard\" Soul Charts.",
+       " \"Say You\" is also included on The Monitors' debut (and only) album for Motown, \"Greetings!",
+       " We're The Monitors\", released in November of 1968."
+      ]
+     ],
+     "title": [
+      "Greetings! We're The Monitors",
+      "Keep On Movin' (Soul II Soul song)",
+      "The Monitors (American band)",
+      "Emotional (Carl Thomas album)",
+      "Ericka Yancey",
+      "Richard Street",
+      "Can We Talk",
+      "Keke Wyatt",
+      "Nothing in This World (song)",
+      "Say You (Temptations song)"
+     ]
+    },
+    "id": "5ae409d955429970de88d89d",
+    "level": "hard",
+    "question": "Greetings! We're The Monitors was the debut album by the band who had what soul and R&B singer as their lead?",
+    "supporting_facts": {
+     "sent_id": [
+      3,
+      0
+     ],
+     "title": [
+      "Greetings! We're The Monitors",
+      "Richard Street"
+     ]
+    },
+    "type": "bridge"
+   },
+   "row_idx": 5612,
+   "truncated": []
+  },
+  {
+   "config": "distractor",
+   "row": {
+    "answer": "1976",
+    "context": {
+     "sentences": [
+      [
+       "Mahmood Sariolghalam (Persian: محمود سریع‌القلم‎ ‎ ) is a professor of International Relations at the School of Economics and Political Science in Shahid Beheshti University (formerly Iran National University) since 1987.",
+       " He was born in Tehran, Iran in 1959.",
+       " He received his B.A. degree in Political Science/Management from California State University, Northridge in 1980 and his M.A. and Ph.D. degrees in International Relations from the University of Southern California in 1982 and 87, respectively.",
+       " Sariolghalam also completed a Post Doctorate program at the Ohio University in 1997.",
+       " During the 2009-2010 academic year, he taught at the Kuwait University."
+      ],
+      [
+       "The Institute of Muslim Minority Affairs is a London-based scholarly institution furthering the study of Muslims in non-Muslim nations.",
+       " It holds conferences and publishes books and journals.",
+       " Pakistani-born Dr. Saleha Mahmood Abedin, the mother of Hillary Clinton aide Huma Abedin, is Director of the Institute.",
+       " It was founded in 1978 by Dr. Syed Zainul Abedin, from India who was educated at Aligarh Muslim University and University of Pennsylvania.",
+       " Abdullah Omar Naseef, then president of the Muslim World League and president of King Abdulaziz University, provided backing to Abedin for the institute's formation."
+      ],
+      [
+       "Huma Mahmood Abedin (born July 28, 1976) is an American political staffer who was vice chair of Hillary Clinton's 2016 campaign for President of the United States.",
+       " Prior to that, Abedin was deputy chief of staff to Clinton, who was U.S. Secretary of State, from 2009 to 2013.",
+       " She was also the traveling chief of staff and former assistant for Clinton during Clinton's campaign for the Democratic nomination in the 2008 presidential election."
+      ],
+      [
+       "The eldest of the eleven children of Dr. William Henry Twort, Frederick Twort was born in Camberley, Surrey on 22 October 1877.",
+       " The three eldest sons went to Tomlinson's Modern School in Woking.",
+       " From 1894 Frederick studied medicine at St Thomas's Hospital, London.",
+       " After qualifying in medicine (Membership of the Royal College of Surgeons, Licentiate of the Royal College of Physicians) in 1900, Twort took the first paid post available, assistant to Dr. Louis Jenner, Superintendent of the Clinical Laboratory of St Thomas' Hospital.",
+       " There he trained in pathological techniques.",
+       " In 1902 he became assistant to the Bacteriologist of the London Hospital, Dr. William Bulloch, later F.R.S., and carried out single-handed the whole diagnostic routine of the Hospital.",
+       " In 1909, Twort became the superintendent of the Brown Animal Sanatory Institution, a pathology research centre, and remained there for the duration of his career.",
+       " In 1919 Twort married Dorothy Nony, daughter of Frederick J. Banister, and together they had three daughters and a son."
+      ],
+      [
+       "On April 28, 1833, Willson was born in Fitzroy, Ontario.",
+       " Going to New York, he attended a district school and taught for a year.",
+       " Moving on to Olean, New York, he was involved in making daguerreotypes.",
+       " In the fall of 1855, Willson move to Ann Arbor to study at the University of Michigan medical department.",
+       " In 1857, he started practicing medicine in the office of Dr. R. D. Lamond in Flint.",
+       " Returning in 1858 to the University, Willson graduated in 1859 with a Doctor of Medicine degree.",
+       " Back in Flint, he joined his cousin's, Dr. George B. Willson, practice.",
+       " He serve as a Union Army major in the American Civil War.",
+       " In 1861, he was a surgeon to the Tenth Michigan Infantry.",
+       " Willson was transfer to the Eight Michigan Infantry.",
+       " He was honorable discharged in March 1863 because of ill health.",
+       " On May 18, 1865, he married Rhoda Crapo, daughter of Governor Henry H. Crapo.",
+       " That same year, he was sent to Washington, D.C. as the appointed Michigan military agent.",
+       " Willson joined and was active in two Civil War organizations: the Grand Army of the Republic and the Loyal Legion.",
+       " On the death of Henry Crapo, the Willson move into the Crapo Mansion in Flint at First and Clifford (now Wallenberg Street) Streets, now known as Willson Park and part of the University of Michigan–Flint Campus."
+      ],
+      [
+       "Mazher Mahmood (born 22 March 1963) is an undercover British journalist who has worked mainly for the tabloid press.",
+       " He spent 20 years working for the \"News of the World\" and the \"Sunday Times\", during which time he was responsible for numerous investigations, including a reputed 94 that led to convictions.",
+       " He won Reporter of the Year in 2011, as well as Scoop of the Year and the Sports Journalists' Association award, for an investigation of cricket match-fixing.",
+       " Later, from its foundation in 2012, he worked for the \"Sun on Sunday\", successor to the \"News of the World\"."
+      ],
+      [
+       "Univ.",
+       " Prof. Dr. Eva Schönbeck-Temesy (August 16, 1930 – August 27, 2011) was an eminent, Austrian botanist of Hungarian descent who made notable contributions to Karl Heinz Rechinger's magisterial Flora Iranica.",
+       " The fourth daughter of General Stefan Temesy and Ludovika Temesy née Messek, she was born in Győr, the most important city in northwestern Hungary.",
+       " She attended elementary school and afterwards (1940–44) \"Szent Margit Leánygimnázium\" (St. Margaret's School for Girls) in Székesfehérvár in central Hungary.",
+       " In the turmoil of the invasion of Hungary by the Red Army, the Temesy family left the country and settled in the Styrian capital Graz in eastern Austria, where the young Eva resumed her secondary education at BRG II for Girls in 1946 - from which she graduated with distinction in 1949.",
+       " In the same year, she enrolled at the University of Graz to study botany.",
+       " Her doctoral thesis, entitled \"The Polytypic Species \"Saxifraga stellaris\" Linné\" , which she wrote under the guidance of Professor Felix Joseph Widder, earned her in 1954 the degree of Ph.D. \"Sub auspiciis Praesidentis\" - the highest honour which may be bestowed by the Austrian University system.",
+       " On July 9, 1956 she married the zoologist Horst Schönbeck (1929–2009) by whom she had three children: Susanne (1957-), Stefan (1959-) and Pippa (1961-).",
+       " Up until 1964, the young Schönbeck-Temesy family lived in the municipality of Judendorf-Straßengel, in the district of Graz-Umgebung.",
+       " There then followed a work-related move to Vienna.",
+       " From January 1 1965 to December 1 1970 Eva worked on a research fellowship and then up until March 30 1973 on an \"Arbeitsauftrag\" in the botany department of the Natural History Museum, Vienna under the Directorship of Professor Karl Heinz Rechinger.",
+       " On March 1 1974 she became Keeper of the museum's Herbarium - a post in which she remained until her retirement in April 1993.",
+       " Dr. Schönbeck-Temesy benefitted greatly, during her academic career, from her polyglotism : in addition to her mother tongues of Hungarian and German she was also fluent in English, French, Italian, and Russian.",
+       " A true \"Grande Dame\" of the world of botany, she is commemorated in the name of the rubiaceous plant \"Galium schoenbeck-temesyae\" Ehrend."
+      ],
+      [
+       "Myra Celestina Philomena Portia McQueen is a fictional character from the British Channel 4 soap opera, \"Hollyoaks\", played by Nicole Barber-Lane.",
+       " She made her debut screen appearance during the episode broadcast on 19 June 2006 and was introduced by series producer Bryan Kirkwood as part of the McQueen family.",
+       " Her storylines have included discovering her son John Paul (James Sutton) was gay, the revenge of her abandoned son Niall (Barry Sloane), which led to the death of her daughter Tina (Leah Hackett), a relationship with Dirk Savage (David Kennedy), faking her own death, coming to terms with the death of her daughter Carmel (Gemma Merna) following a train crash and the disappearance of her daughter Mercedes (Jennifer Metcalfe).",
+       " On 1 August 2013, it was announced that Barber-Lane had quit the serial and Myra made her on-screen departure during the episode broadcast on 5 September 2013.",
+       " The character was shot by Dr. Paul Browning (Joseph Thompson), but survived and then emigrated so he thought she was dead.",
+       " On 31 January 2014, Myra made a brief return to the show following the death of Jim McGinn (Dan Tetsell).",
+       " In July 2014, it was announced that Myra would return again later in the year, but for a longer stint.",
+       " It was crossed with the return of Theresa McQueen (Jorgie Porter).",
+       " Myra returned to the serial on 12 September 2014."
+      ],
+      [
+       "Prof. Dr. Sevil Atasoy (Hafize Hikmet Sevil Atasoy Ekinci), immediate past president of the UN International Narcotics Control Board born in İstanbul, Turkey (February 25, 1949), is an internationally distinguished leader in the field of Forensic Sciences, substance abuse and addiction.",
+       " Atasoy is the daughter of forensic pathologist Prof. Dr. Şemsi Gök (1921–2002) and bacteriologist Dr. Ferda Gök (1924 - 2003).",
+       " She is currently the executive director of the Innocence Project (Turkey), the International Forensic Science Services, Vice-Rector of Uskudar University, Istanbul, Dean of the Faculty of Social Sciences and chairs the Crime & Violence Prevention Center."
+      ],
+      [
+       "Dr. Hossein Gharib was born in Tehran, Iran on February 2, 1940.",
+       " His father was Dr. Mohammad Gharib (1909–1975), a former Professor and Chair of Pediatrics at Tehran University (1938–1975), generally regarded as the \"Father of Pediatrics\" in Iran.",
+       " In 1998, Hossein Gharib edited and published a book in Persian about his father which includes a collection of essays from his father's family, patients, friends, and colleagues.",
+       " The second edition is scheduled for publication in late 2011.",
+       " For his lifetime of service, Dr. Mohammad Gharib was honored on a stamp issued by the government of Iran in 1991.",
+       " Hossein's mother was Zahra Gharib (1915–2010), daughter of Ostad Abdolazim Gharib (1877–1965), a renowned professor of Persian literature and the first person to develop a modern grammar for the Iranian language.",
+       " Ostad Abdolazim Gharib was recognized for his major contributions to Iranian literature by a stamp issued by Iran in 1989.",
+       " Dr. Gharib has two sisters, Nahid Ziai and Mayram Comninos, and one brother, Dr. Mohsen Gharib.",
+       " In 1976, he married Minoo Jalili and they have three children."
+      ]
+     ],
+     "title": [
+      "Mahmood Sariolghalam",
+      "Institute of Muslim Minority Affairs",
+      "Huma Abedin",
+      "Frederick Twort",
+      "James C. Willson",
+      "Mazher Mahmood",
+      "Eva Schönbeck-Temesy",
+      "Myra McQueen",
+      "Sevil Atasoy",
+      "Hossein Gharib"
+     ]
+    },
+    "id": "5a8d42c95542994ba4e3dc43",
+    "level": "hard",
+    "question": "Dr. Saleha Mahmood Abedin's daughter was born in what year ?",
+    "supporting_facts": {
+     "sent_id": [
+      2,
+      0
+     ],
+     "title": [
+      "Institute of Muslim Minority Affairs",
+      "Huma Abedin"
+     ]
+    },
+    "type": "bridge"
+   },
+   "row_idx": 5597,
+   "truncated": []
+  },
+  {
+   "config": "distractor",
+   "row": {
+    "answer": "no",
+    "context": {
+     "sentences": [
+      [
+       "The Yakutian Laika (Russian: Якутская лайка ) is a working dog breed that originated in the Arctic seashore of the Sakha (Yakutia) Republic.",
+       " The major habitat is estuaries of Kolyma, Indigirka, Yana and Lena.",
+       " In terms of functionality, Yakutian Laikas might serve as a reindeer herder’s dog (olenegonka), hunter’s dog, and a sled dog."
+      ],
+      [
+       "Planet Laika (プラネットライカ ) is a role-playing video game developed by Quintet and Zeque for the PlayStation home game console.",
+       " The game follows the main character, Laika, through a mission to Mars which forces the player to manipulate Laika's multiple-personality disorder in order to solve puzzles.",
+       " All the characters in the game have dog heads, a possible reference to the Soviet space dog Laika.",
+       " The game was only released in Japan."
+      ],
+      [
+       "Russo-European Laika (Russko-Evropeĭskaya Láĭka) is the name of a breed of hunting dog that originated in the forested region of northern Europe and Russia, one of several breeds developed from landrace Laika dogs of very ancient Spitz type.",
+       " The \"Russo-European Laika\" itself dates to a breeding program begun in 1944 by E. I. Shereshevsky of the All-Union Research Institute for the Hunting Industry, in Kalinin (now Tver) Province."
+      ],
+      [
+       "The West Siberian Laika or \"WSL\", is a breed of hunting dog and a breed of spitz type.",
+       " Russian publications indicate that the term West Siberian Laika loosely applied to hunting dogs originating with the Mansi and Khanty people in Ural and West Siberia, but there were no standards or registrations of WSL as such until 1930.",
+       " Then WWll disrupted it for a while, but \"systematic breeding with registrations\" resumed after the war ended, in 1946.",
+       " This was the time the breed began taking modern shape.",
+       " Before that hunters only knew of Mansi Laika and Khanty Laika.",
+       " In early 1960 many hunters in Ural still preferred the term Mansi Laika, when speaking of West Siberian Laika.",
+       " In Russian language, the term Laika originated from the word \"layat\" that means to bark.",
+       " The word Laika simply means \"barker\".",
+       " Any hunting Laika is a bark pointer (pointing at animal of interest by barking and staying with the animal ).",
+       " It is a versatile dog depending on use and environment, but in certain parts of the country they have become more specialized."
+      ],
+      [
+       "The Andalusian hound (Spanish: \"Podenco andaluz\" ) is a dog breed originating in Spain, especially Andalusia.",
+       " These dogs are similar to other Iberian breeds such as the Ibizan Hound, the Portuguese Podengo, the Podenco Canario and the Maneto.",
+       " In the Iberian Peninsula there are cave paintings representing dogs with a strong resemblance to these races.",
+       " Dogs very similar to these, including the Cirneco dell'Etna and Pharaoh Hound, have been bred in much of the Mediterranean basin since ancient times.",
+       " Despite the widespread belief that the podencos were introduced into Spain some 3,000 years ago by the Phoenicians, recent genetic studies have concluded that these dogs actually have a close genetic relationship with other European hunting dogs and are no more \"primitive\" than the others."
+      ],
+      [
+       "The East Siberian Laika (Vostotchno-Sibirskaia Laika) is a Russian breed of dog of spitz type, a hunting dog originating in parts of Siberia east of the Yenisei River."
+      ],
+      [
+       "Laika (Russian: Лайка ; c. 1954 – November 3, 1957) was a Soviet space dog who became one of the first animals in space, and the first animal to orbit the Earth.",
+       " Laika, a stray dog from the streets of Moscow, was selected to be the occupant of the Soviet spacecraft Sputnik 2 that was launched into outer space on November 3, 1957."
+      ],
+      [
+       "Bo (born October 9, 2008) is a pet dog of the Obama family, the former First Family of the United States.",
+       " Bo is a male Portuguese Water Dog.",
+       " President Barack Obama and his family were given the dog as a gift after months of speculation about the breed and identity of their future pet.",
+       " The final choice was made in part because Malia Obama's allergies dictated a need for a hypoallergenic breed.",
+       " Bo has occasionally been called \"First Dog\".",
+       " In August 2013, Bo was joined by Sunny, a female dog of the same breed."
+      ],
+      [
+       "A breed standard (also called bench standard or the standard) in the dog fancy is a set of guidelines covering specific \"externally observable\" qualities such as \"appearance\", \"movement\", and \"temperament\" for that dog breed.",
+       " Breed standards are not scientific documents, but are written for each breed by clubs of hobbyists called breed clubs for their own specific requirements.",
+       " Details and definitions within breed standards for a specific dog breed may vary from breed club to breed club and from country to country.",
+       " Dog breed standards are similar in form and function to breed standards for other domesticated animals."
+      ],
+      [
+       "The Portuguese Podengo is an ancient multi-sensory hound (sight and scent) breed of dog from Portugal.",
+       " As a breed, the Podengo is divided into three size categories that are not interbred: small (Pequeno), medium (Medio) and large (Grande).",
+       " Their coats are either short and 'smooth', or longer and 'wired'.",
+       " The smooth coated variety is traditional, dating back to the 5th century, whereas the wire coated variety is an outcome of the assimilation of various other breeds during the 20th century.",
+       " In general, the breed is healthy; the Pequeno (small) variety has an average lifespan of approximately 15–17 years."
+      ]
+     ],
+     "title": [
+      "Yakutian Laika",
+      "Planet Laika",
+      "Russo-European Laika",
+      "West Siberian Laika",
+      "Andalusian Hound",
+      "East Siberian Laika",
+      "Laika",
+      "Bo (dog)",
+      "Breed standard (dogs)",
+      "Portuguese Podengo"
+     ]
+    },
+    "id": "5ab7f0995542995dae37e9fb",
+    "level": "hard",
+    "question": "Are Portuguese Podengo and Russo-European Laika the same breed of dog?",
+    "supporting_facts": {
+     "sent_id": [
+      0,
+      0
+     ],
+     "title": [
+      "Portuguese Podengo",
+      "Russo-European Laika"
+     ]
+    },
+    "type": "comparison"
+   },
+   "row_idx": 5552,
+   "truncated": []
+  },
+  {
+   "config": "distractor",
+   "row": {
+    "answer": "1926",
+    "context": {
+     "sentences": [
+      [
+       "\"A language is a dialect with an army and navy\" is a quip or humorous adage about the arbitrariness of the distinction between a dialect and a language.",
+       " It points out the influence that social and political conditions can have over a community's perception of the status of a language or dialect.",
+       " The adage was popularized by the sociolinguist and Yiddish scholar Max Weinreich, who heard it from a member of the audience at one of his lectures."
+      ],
+      [
+       "Max Weinreich (22 April 1894 in Kuldīga, Russian Empire, now Latvia – 29 January 1969 in New York City, United States) was a Russian Jewish linguist, specializing in sociolinguistics and Yiddish, and the father of the linguist Uriel Weinreich, who edited the \"Modern Yiddish-English English-Yiddish Dictionary\"."
+      ],
+      [
+       "Uriel Weinreich (Yiddish: אוריאל ווײַנרײַך‎ \"Uriel Vaynraykh\", ] ; 23 May 1926 – 30 March 1967) was a Polish-American linguist."
+      ],
+      [
+       "François Boucher (1860c.",
+       " 1936) was a Canadian violinist and music educator.",
+       " Born in Montreal, Boucher was the son of Canadian publisher and musician Adélard Joseph Boucher and the brother of conductor Joseph-Arthur Boucher.",
+       " His initial violin studies were with Jules Hone and Frantz Jehin-Prume.",
+       " In 1876 he went to Europe to study at the Royal Conservatory of Liège with Lambert Massart.",
+       " After returning to Canada, he had a triumphany success in Montreal performing Felix Mendelssohn's \"Violin Concerto in E minor, Op. 64\" in 1881.",
+       " In 1882 he and his father established a successful music store in Ottawa.",
+       " That same year he began playing first violin in a string quartet and working as a teacher.",
+       " In 1887 he joined the faculty of the Toronto Conservatory of Music.",
+       " He taught concurrently at the Toronto College of Music beginning in 1889.",
+       " He was a soloist with the Toronto Philharmonic Society in 1893 where he had success performing Max Bruch's \"Violin Concerto No. 1\".",
+       " In 1894 he emigrated to the United States.",
+       " In 1906 he joined the faculty of the Kansas City Conservatory of Music, where he taught through 1923.",
+       " His wife taught piano at the conservatory and his daughter was later a singing teacher at the school.",
+       " He died in Kansas City."
+      ],
+      [
+       "Mark Potter (born June 13, 1960 in Kingston, Ontario) has been a well-known sports broadcaster in Eastern Ontario for over thirty years.",
+       " Born and raised in Portsmouth Village in Kingston, Potter has worked both hockey and baseball broadcasts on TV & radio spanning four decades.",
+       " His sports broadcasting career began in 1981 when he replaced Chris Cuthbert (now lead sports announcer at TSN) as the colour man for Jim Gilchrist on Kingston Canadians Ontario Hockey League radio broadcasts for seven seasons.",
+       " Potter began his television career in 1981 at CKWS TV in Kingston, Ontario working alongside the legendary Max Jackson (member of the Kingston & District Sports Hall of Fame).",
+       " Max retired in 1982 and Potter became Sports Director at CKWS TV & Radio.",
+       " He anchored the nightly sports reports on the six o'clock and 11 o'clock evening newscasts on CKWS-TV for eleven years.",
+       " He built a reputation as a colourful, outspoken commentator and his favourite target was the hapless Toronto Maple Leafs teams of that era.",
+       " Potter left CKWS in 1992 to start a new career as an Investment Advisor, but has continued working as a freelance broadcaster with TVCogeco in Kingston.",
+       " He hosted a weekly one-hour local sports interview show called 'SportsMark'.",
+       " It ran for five-years and after a brief hiatus he returned hosting a weekly 30-minute sports interview program called 'Sports Profiles'.",
+       " Potter has been the TV play by play voice of the Kingston Ponies Senior baseball team on TVCogeco since the late 1980s and for the past ten-years has hosted Kingston Frontenacs OHL broadcasts on TVCogeco.",
+       " In addition he hosts a weekly OHL intermission feature called 'The OHL Roundtable\" that is shown in several OHL cities.",
+       " Potter began his career as a radio announcer at CKWS/CFMK radio in the late 1970s after graduating from Loyalist College in Belleville, Ontario from the Broadcast Journalism program.",
+       " He anchored TV sports in Kingston starting at the age of twenty; the youngest anchor in the history of CKWS-TV, a station that goes back to the mid-1950s.",
+       " Potter also does radio work as the occasional co-host of the 'Big G & Mathews' morning drive show on KIX Country 93.5fm in Kingston.",
+       " In 2005 he won a prestigious TVCogeco STAR Award for being named the top broadcaster in Ontario for Cogeco stations.",
+       " A dedicated longtime community volunteer Potter has been a finalist for Kingston's Citizen of the Year award and a recipient of the Paul Harris Fellow; the highest honour given by Rotary International for community service.",
+       " He is in his tenth year as President of the International Hockey Hall of Fame in Kingston, Ontario, Canada and has been on the Board of Directors since the early 1980s.",
+       " In 2003, he co-authored a book with J.W. 'Bill' Fitsell \"Hockey's Hub-Three Centuries of Hockey in Kingston,\" (published by Quarry Press) that chronicles Kingston's rich hockey heritage."
+      ],
+      [
+       "The following is a list of characters that first appeared in the BBC soap opera \"EastEnders\" in 2015, by order of first appearance.",
+       " All characters were introduced by the show's executive producer Dominic Treadwell-Collins.",
+       " January saw the arrival of the year's first baby, Matthew Mitchell Cotton, son of Ronnie Mitchell and Charlie Cotton.",
+       " The following month saw the show celebrate its 30th anniversary with a live week, which oversaw the live arrivals of Vincent Hubbard, and the second baby born in 2015, Pearl Fox-Hubbard, Vincent's daughter with Kim Fox-Hubbard.",
+       " In March, Claudette Hubbard arrived as Donna Yates' foster mother and an acquaintance of Les Coker followed by Stan Carter's friend Cyril Bishop and Sharon Mitchell's aunt Margaret Midhurst, whilst Denise van Outen joined in April as Karin Smart.",
+       " May saw the arrivals of June Whitfield as Sister Ruth, Mick and Linda Carter's son Ollie Carter, the year's third baby, Mo Harris' business associate Fat Elvis and Kush Kazemi's mother, Carmel.",
+       " Paul Coker, the grandson of Les and Pam Coker, was introduced in June, as was Jade Green, the long-lost daughter of Shabnam Masood and Dean Wicks.",
+       " After Kathy Sullivan's surprise return during the 30th anniversary in February, her husband Gavin Sullivan made his debut in August.",
+       " September saw the arrivals of Max Branning's prosecution lawyer Hazel Warren and Louie Beale, the baby son of Lauren Branning and Peter Beale.",
+       " In October, Elaine Peacock's toyboy lover Jason Adams was introduced, as well as first transgender character to be played by a transgender actor, Kyle Slater.",
+       " December saw the birth of the year's fifth baby, Kush and Stacey Slater's son, Arthur Fowler."
+      ],
+      [
+       "Johannes Franciscus \"Jos\" Verstappen (born 4 March 1972) is a Dutch former racing driver.",
+       " After his F1 career Jos Verstappen has won races in A1 Grand Prix and Le Mans Series LMP2 races (winning the 24 hours of Le Mans LMP2 class in 2008).",
+       " Prior to his F1 début in 1994, he was also the German Formula Three champion and Masters of Formula Three winner in 1993.",
+       ".",
+       " Jos was the most successful Dutch F1 racing driver before he retired and started mentoring his son Max to Formula 1.",
+       " As of 2017 Max is the most successful Dutch F1 racing driver."
+      ],
+      [
+       "Felix von Kraus (October 3, 1870 - October 30, 1937) was an Austrian dramatic bass.",
+       " Born in Vienna, he received a doctorate in musicology from the University of Vienna in 1894; as a singer, however, he was mainly self-taught.",
+       " He made his debut at Bayreuth as Hagen in \"Götterdämmerung\" in 1899 and was heard thereafter at numerous Bayreuth Festivals and at other opera houses throughout Europe; he specialized in the works of Richard Wagner.",
+       " In 1908 he became the artistic director of the Munich Opera; that same year he became a professor at the Munich Conservatory.",
+       " Among his students was the Swiss tenor and early music specialist Max Meili and heldentenor Karel Burian.",
+       " In 1899 Kraus married the American contralto Adrienne Osborne, also a Wagnerian.",
+       " He had a child called Max Kraus.",
+       " He retired from the stage in 1927 and died in Munich in 1937."
+      ],
+      [
+       "Christopher George Maccabe CB (born 17 December 1946) is a former Political Director of the Northern Ireland Office, and a former British Joint Secretary of the British Irish Intergovernmental Conference.",
+       " Since 2006 he has been involved in conflict resolution and political development in various parts of the world, including Sri Lanka, Kosovo, the Middle East, Tanzania, Iraq, Lebanon and Colombia .",
+       " He is a member of a team appointed by the Minister of Justice in Northern Ireland to oversee the August 2010 agreement between the Minister and dissident republican prisoners in Maghaberry Prison.",
+       " Since September 2011 he has been a member of the International Verification Commission in the Basque Country that monitors the permanent ceasefire declared by ETA at the beginning of that year.",
+       " He is a Director of the Forum for Cities in Transition (Belfast) Ltd, the Independent Chair of the Belfast Conflict Resolution Consortium; and since March 2016, a Director of the Centre for Democracy and Peace Building.",
+       " He was educated at Brackenber House School, the Royal Belfast Academical Institution, Queen’s University Belfast and the University of London.",
+       " He is the son of Max (died 2000) and Gladys Maccabe MBE, a renowned Irish artist.",
+       " He is married to Jenny and has three children."
+      ],
+      [
+       "Max Troy Barnes (born October 25, 1962) is an American country music singer, songwriter, studio musician and producer.",
+       " He is the son of songwriter Max D. Barnes.",
+       " He has written songs on albums that have sold over 20 million records.",
+       " He currently writes for Ray Stevens Music publishing and lives in Hendersonville, Tennessee."
+      ]
+     ],
+     "title": [
+      "A language is a dialect with an army and navy",
+      "Max Weinreich",
+      "Uriel Weinreich",
+      "François Boucher (violinist)",
+      "Mark Potter (sportscaster)",
+      "List of EastEnders characters (2015)",
+      "Jos Verstappen",
+      "Felix von Kraus",
+      "Christopher Maccabe",
+      "Max T. Barnes"
+     ]
+    },
+    "id": "5a7af4bb55429927d897bf1d",
+    "level": "hard",
+    "question": "In what year was the son of Max Weinreich born?",
+    "supporting_facts": {
+     "sent_id": [
+      0,
+      0
+     ],
+     "title": [
+      "Max Weinreich",
+      "Uriel Weinreich"
+     ]
+    },
+    "type": "bridge"
+   },
+   "row_idx": 5562,
+   "truncated": []
+  },
+  {
+   "config": "distractor",
+   "row": {
+    "answer": "August 28, 1774",
+    "context": {
+     "sentences": [
+      [
+       "The Reverend John Thayer (1755–5 February 1815) was the first native of New England ordained to the Roman Catholic priesthood.",
+       " He was born in Boston, Massachusetts.",
+       " Thayer was educated at Yale College and was a Protestant in his early life.",
+       " He was ordained as a Congregationalist minister and served as a chaplain during the American Revolutionary War.",
+       " While visiting Rome in 1783, he converted to the Roman Catholic faith, an act which caused a sensation in New England at the time.",
+       " He credited his conversion to miracles attributed to the noted mendicant, Saint Benedict Joseph Labre, who lived and died there in that period."
+      ],
+      [
+       "Saint Fortunatus (died 537) was a 6th-century bishop of Todi.",
+       " According to tradition, he defended Todi during a Gothic siege.",
+       " He is the patron saint of Todi.",
+       " He is praised by Gregory the Great, who calls him a man of great virtue who took great care in attending to the sick.",
+       " Gregory, who was born around the time that Fortunatus died, was greatly interested in Fortunatus' life.",
+       " Gregory writes that \"a certain poor old man was brought to me –because I always love to talk with such men- of whom I inquired his country, and hearing that he was of the city of Todi, I asked him whether he knew Bishop Fortunatus.",
+       " He said he knew him very well.",
+       " 'Then I beseech you,' said I, 'tell me whether you know of any miracles that he did, and, since I am very desirous to know, explained to me what manner of man he was.'\""
+      ],
+      [
+       "A Time For Miracles is a 1980 American made-for-television biographical drama film chronicling the life story of America's first native born saint, Elizabeth Ann Bayley Seton.",
+       " It was produced by ABC Circle Films for the American Broadcasting Company and telecast December 21, 1980, as a Christmas special.",
+       " The film was created by Beverlee Dean and directed by Michael O'Herlihy.",
+       " The script was written by Henry Denker with collaboration with Sister Mary Hilaire and filmed in Georgia.",
+       " \"A Time For Miracles\" starred \"Ryan's Hope\" and \"\" actress Kate Mulgrew as Elizabeth Seton.",
+       " John Forsythe and Lorne Greene also star."
+      ],
+      [
+       "Saint Palladius of Embrun (French: \"Pallade, Pélade\" , Catalan: \"Patllari, Pal·ladi\" ) (d. ca. 541 AD) was a 6th-century bishop of Embrun.",
+       " Born to a Christian family, he studied under Catulin, bishop of Embrun, who had attended the Council of Épaone in 517.",
+       " When the Arians and Sigismund of Burgundy opposed the council, Catulin was exiled to Vienne.",
+       " Palladius accompanied him there, and took the opportunity to extensively study Scripture.",
+       " Palladius was ordained a priest and, according to legend, gained the gift of prophecy.",
+       " He is said to have predicted the fall and death of Sigismund.",
+       " Catulin died around 518, and Palladius would later be elected bishop of Embrun.",
+       " During his episcopate he built numerous churches, in Chorges, Sauze, and Rama, as well as sanctuaries dedicated to Saint Martin of Tours, and Saints Vincent, Orontius, and Victor, as well as to Genesius of Arles.",
+       " One source states that Palladius \"possessed an exceptional efficacy in obtaining whatever he petitioned God for.\"",
+       " Many miracles were attributed to him, and, besides the gift of prophecy, he enjoyed a \"mystical familiarity with the angels... [and] successfully defeated the machinations of the devil simply by making the sign of the cross.\""
+      ],
+      [
+       "Elizabeth Ann Bayley Seton, S.C., (August 28, 1774 – January 4, 1821) was the first native-born citizen of the United States to be canonized by the Roman Catholic Church (September 14, 1975).",
+       " She established the first Catholic girls' school in the nation in Emmitsburg, Maryland, where she also founded the first American congregation of religious sisters, the Sisters of Charity."
+      ],
+      [
+       "Saint Menas (also Minas, Menas, Mena, Mennas) (285 – c. 309), the Martyr and Wonder-worker, is one of the most well-known Egyptian saints in the East and the West, due to the many miracles that are attributed to his intercession and prayers.",
+       " Menas was an Egyptian soldier in the Roman army martyred because he refused to recant his Christian faith.",
+       " The common date of his commemoration is November 11, which occurs 13 days later (November 24) on the Julian calendar."
+      ],
+      [
+       "Saint Gregory of Tours (30 November c. 538 – 17 November 594) was a Gallo-Roman historian and Bishop of Tours, which made him a leading prelate of Gaul.",
+       " He was born Georgius Florentius and later added the name Gregorius in honour of his maternal great-grandfather.",
+       " He is the primary contemporary source for Merovingian history.",
+       " His most notable work was his \"Decem Libri Historiarum\" (\"Ten Books of Histories\"), better known as the \"Historia Francorum\" (\"History of the Franks\"), a title that later chroniclers gave to it, but he is also known for his accounts of the miracles of saints, especially four books of the miracles of St. Martin of Tours.",
+       " St. Martin's tomb was a major pilgrimage destination in the 6th century, and St. Gregory's writings had the practical effect of promoting this highly organized devotion."
+      ],
+      [
+       "Lytham, a settlement recorded in the \"Domesday Book\" of 1086 as \"Lidun\", is situated on the Fylde coast, at the mouth of the River Ribble.",
+       " By the 12th century, there was already a church at Lytham, dedicated to Saint Cuthbert.",
+       " Between 1189 and 1194, Richard Fitz Roger of Woodplumpton gave the church and his land at Lytham to the monks of Durham Priory for the foundation of a Benedictine cell.",
+       " Richard already had a personal connection to Durham; he was said to have experienced two miracles ascribed to Saint Cuthbert (whose cult was centred at Durham) and had previously travelled there to give thanks for those miracles.",
+       " This may have been his motivation for donating land to that priory.",
+       " It is unlikely that the monks of Durham held any land at Lytham up to that point.",
+       " As a house dependent on Durham, Lytham Priory was small, with only two or three monks at a time."
+      ],
+      [
+       "Saint Lutgardis of Aywières (Dutch: \"Sint-Ludgardis\" ; 1182 – 16 June 1246; also spelled Lutgarde) is a saint from the medieval Low Countries.",
+       " She was born in Tongeren, known as \"Tongres\" in French (which is why she is also called \"Lutgardis of Tongres\" or \"Luitgard of Tonger(e)n\"), and entered into religious orders at the age of twelve.",
+       " During her life various miracles were attributed to her, and she is known to have experienced religious ecstasies.",
+       " Her feast day is June 16."
+      ],
+      [
+       "Wandelbert (813 - d. after 850) was a Benedictine monk and theological writer.",
+       " Little is known of his personal history.",
+       " He was apparently a native of Francia, and in 839 he was already a monk at the Abbey of Prüm, where he died.",
+       " About this date Abbot Markward commissioned him to rewrite the old \"Life of St. Goar\" and to supplement it by an account of the miracles worked by the saint.",
+       " The life Wandelbert wrote is not without historical value."
+      ]
+     ],
+     "title": [
+      "John Thayer (priest)",
+      "Fortunatus of Todi",
+      "A Time for Miracles",
+      "Palladius of Embrun",
+      "Elizabeth Ann Seton",
+      "Saint Menas",
+      "Gregory of Tours",
+      "Lytham Priory",
+      "Lutgardis",
+      "Wandelbert"
+     ]
+    },
+    "id": "5adeaec455429939a52fe952",
+    "level": "hard",
+    "question": "The saint in \"A Time for Miracles\" was born on what date?",
+    "supporting_facts": {
+     "sent_id": [
+      0,
+      0
+     ],
+     "title": [
+      "A Time for Miracles",
+      "Elizabeth Ann Seton"
+     ]
+    },
+    "type": "bridge"
+   },
+   "row_idx": 5591,
+   "truncated": []
+  },
+  {
+   "config": "distractor",
+   "row": {
+    "answer": "Martin O'Malley",
+    "context": {
+     "sentences": [
+      [
+       "The 2016 presidential campaign of Martin O'Malley, the 61st Governor of Maryland, for the Democratic nomination for President of the United States in 2016 was announced on May 30, 2015.",
+       " On February 1, 2016, he suspended his campaign after a poor showing in the Iowa caucuses."
+      ],
+      [
+       "Martin Joseph O'Malley (born January 18, 1963) is an American politician and attorney who served as the 61st Governor of Maryland from 2007 to 2015.",
+       " He previously served as the Mayor of Baltimore from 1999 to 2007, and was a councilman from the Third Councilmanic District in the northeast section of the city on the Baltimore City Council from 1991 to 1999."
+      ],
+      [
+       "The 61st Cavalry Division was a cavalry division of the Red Army that served in the first years of the Great Patriotic War.",
+       " It was formed in September – October, 1941, and saw its first actions to the south of Stalingrad during the German siege of that city in the autumn of 1942.",
+       " When the Soviet counteroffensive, Operation Uranus, began in November the 61st formed a significant part of the mobile forces of its 51st Army.",
+       " After the positions of Romanian 4th Army were broken through the division took part in the exploitation to the southwest, but became overextended and vulnerable to the mobile German reinforcements arriving to attempt a breakthrough to their Sixth Army.",
+       " The 61st suffered such severe losses that it had to be withdrawn to the reserves in December, and was later disbanded."
+      ],
+      [
+       "Daniel Kirkwood \"Kirk\" Fordice Jr. (February 10, 1934 – September 7, 2004), was an American politician and businessman who served as the 61st Governor of Mississippi from January 14, 1992 until January 11, 2000.",
+       " He was the first Republican governor of the state since Reconstruction-era governor Adelbert Ames, who served from 1874 to 1876."
+      ],
+      [
+       "Henry Roberts (January 22, 1853 – May 1, 1929) was an American politician who was the 61st Governor of Connecticut."
+      ],
+      [
+       "Richard Burton is a Baltimore, Maryland, city council employee and runs the \"Believe\" campaign.",
+       " He was a rapper before becoming involved in Martin O'Malley's first Mayoral campaign after meeting him in 1998."
+      ],
+      [
+       "Military Transport Aviation Command (Russian: Кома́ндование вое́нно-тра́нспортной авиа́ции (ВТА) — \" Komandovaniye voyenno-transportnoy aviatsii (VTA)\") was a major component of the former Soviet Air Forces, active from the Cold War period, through the dissolution of the Soviet Union, to 1998–1999.",
+       " In 1999–2009 it was reduced in status to the 61st Air Army of the Supreme High Command (\"61 Vozdushnaya Armiya VGK\").",
+       " The 61st Air Army itself was initially formed on 10 January 1949 by renaming the 3rd Air Army.",
+       " In 2009 the 61st Air Army was renamed the Command of"
+      ],
+      [
+       "John Eliakim Weeks (June 14, 1853 – September 10, 1949) was an American politician from Vermont.",
+       " He served as the 61st Governor of Vermont from 1927 to 1931."
+      ],
+      [
+       "Abner Linwood Holton Jr. (born September 21, 1923) is a Virginia political figure and attorney.",
+       " He served as the 61st Governor of Virginia, from 1970 to 1974.",
+       " He was the first Republican governor of Virginia in the 20th Century.",
+       " He was also the first Republican who won a popular election as governor.",
+       " Holton is the father of Anne, and the father-in-law of Tim Kaine."
+      ],
+      [
+       "Steven Lynn \"Steve\" Beshear (born September 21, 1944) is an American attorney and politician who served as the 61st governor of Kentucky from 2007 to 2015.",
+       " He served in the Kentucky House of Representatives from 1974 to 1980, was the state's Attorney General from 1980 to 1983, and was the 49th lieutenant governor from 1983 to 1987."
+      ]
+     ],
+     "title": [
+      "Martin O'Malley presidential campaign, 2016",
+      "Martin O'Malley",
+      "61st Cavalry Division (Soviet Union)",
+      "Kirk Fordice",
+      "Henry Roberts (governor)",
+      "Richard Burton (Baltimore)",
+      "Military Transport Aviation",
+      "John E. Weeks",
+      "Linwood Holton",
+      "Steve Beshear"
+     ]
+    },
+    "id": "5ae3fe635542996836b02c07",
+    "level": "hard",
+    "question": "Which American politician was the 61st Governor of Maryland and had help on his first campaign in 1998 from Richard Burton?",
+    "supporting_facts": {
+     "sent_id": [
+      1,
+      0
+     ],
+     "title": [
+      "Richard Burton (Baltimore)",
+      "Martin O'Malley"
+     ]
+    },
+    "type": "bridge"
+   },
+   "row_idx": 5613,
+   "truncated": []
+  },
+  {
+   "config": "distractor",
+   "row": {
+    "answer": "The Metropolitan Life Insurance Company Tower",
+    "context": {
+     "sentences": [
+      [
+       "The Supreme Life Building is a historic insurance building located at 3501 S. Dr. Martin Luther King Drive in the Douglas community area of Chicago, Illinois.",
+       " Built in 1921, the building served as the headquarters of the Supreme Life Insurance Company, which was founded two years earlier.",
+       " The company, originally known as the Liberty Life Insurance Company, was the first African-American owned insurance company in the northern United States.",
+       " Since white-owned insurance firms regularly denied black customers life insurance when the firm was founded, the firm played an important role in providing life insurance to Chicago's African-American community.",
+       " The company ultimately became the largest African-American owned business in the northern states and became a symbol of the predominantly black Bronzeville neighborhood's economic success from the 1920s to the 1950s."
+      ],
+      [
+       "Napoleon Eugene Charles Henry LeBrun (January 2, 1821 – July 9, 1901) was an American architect known for several notable Philadelphia churches, in particular St. Augustine's Church on Fourth Street and the Cathedral-Basilica of Sts.",
+       " Peter and Paul on Logan Square.",
+       " He also designed the Academy of Music at Broad and Locust Streets.",
+       " LeBrun later moved to New York City, where he established the firm Napoleon LeBrun & Sons, which designed numerous notable buildings."
+      ],
+      [
+       "The Metropolitan Life Insurance Company Tower, colloquially known as the Met Life Tower, is a landmark skyscraper located on Madison Avenue near the intersection with East 23rd Street, across from Madison Square Park in Manhattan, New York City.",
+       " Designed by the architectural firm of Napoleon LeBrun & Sons and built by the Hedden Construction Company, the tower is modeled after the Campanile in Venice, Italy.",
+       " The hotel located in the clock tower portion of the building has the address 5 Madison Avenue, while the office building covering the rest of the block, occupied primarily by Credit Suisse, is referred to as 1 Madison Avenue."
+      ],
+      [
+       "Some of the finest buildings in New Jersey, New York City, and other large eastern cities were built by the Hedden Construction Company, one of the largest construction companies operating in Newark in the very early 1900s.",
+       " Among the most notable is the Metropolitan Life Insurance Company Tower located at One Madison Avenue in New York, NY.",
+       " The tower was the world's tallest building from 1909 to 1913 and home to the Hedden Construction Company's main offices located on the 36th and 37th floors.",
+       " During this prosperous period over $40,000,000 in construction contracts and payments were collected by the firm."
+      ],
+      [
+       "15 Hudson Yards is a residential building currently under construction on Manhattan's West Side.",
+       " Located in Chelsea near Hell's Kitchen Penn Station area, the building is a part of the Hudson Yards project, a plan to redevelop the Metropolitan Transportation Authority's West Side Yards.",
+       " The tower started construction on December 4, 2014."
+      ],
+      [
+       "The Flatiron Building, originally the Fuller Building, is a triangular 22-story steel-framed landmarked building located at 175 Fifth Avenue in the borough of Manhattan, New York City, and is considered to be a groundbreaking skyscraper.",
+       " Upon completion in 1902, it was one of the tallest buildings in the city at 20 floors high and one of only two skyscrapers north of 14th Street – the other being the Metropolitan Life Insurance Company Tower, one block east.",
+       " The building sits on a triangular block formed by Fifth Avenue, Broadway, and East 22nd Street, with 23rd Street grazing the triangle's northern (uptown) peak.",
+       " As with numerous other wedge-shaped buildings, the name \"Flatiron\" derives from its resemblance to a cast-iron clothes iron."
+      ],
+      [
+       "Protective Life Corporation is a financial service holding company in Birmingham, Alabama.",
+       " The company’s primary subsidiary, Protective Life Insurance Company, was established in 1907 and now markets its products and services in all 50 states.",
+       " As of December 31, 2016, the corporation had more than 2,700 employees, annual revenues of $4.48 billion and assets of $75 billion.",
+       " In addition to Protective Life Insurance Company, Protective Life Corporation's subsidiaries include West Coast Life Insurance Company, MONY Life Insurance Company, Protective Life And Annuity Insurance Company, ProEquities Inc./Protective Securities, and Lyndon Property Insurance Company."
+      ],
+      [
+       "Physicians Mutual is a privately held insurance company headquartered in Omaha, Nebraska, United States, that consists of Physicians Mutual Insurance Company and Physicians Life Insurance Company.",
+       " Founded as Physicians Mutual Insurance Company in 1902 by Edwin E. Elliott, Physicians Mutual began by selling health insurance to medical professionals.",
+       " Policies were offered to the general public starting in 1962, and by 1970 the company expanded into life insurance when it founded Physicians Life Insurance Company.",
+       " Today the company offers a variety of insurance products, annuities, Medicare, Medigap, Medicare Supplement, Term Life Insurance, Whole Life Insurance, Cancer and funeral pre-planning services.",
+       " It holds over US$3 billion in assets and employs over one thousand people.",
+       " Robert A. Reed is chief executive officer and president."
+      ],
+      [
+       "The Lyceum Theatre was a theatre in New York City located on Fourth Avenue, now Park Avenue South, between 23rd and 24th Streets in Manhattan.",
+       " It was built in 1885 and operated until 1902, when it was torn down to make way for the Metropolitan Life Insurance Company Tower.",
+       " It was replaced by a new Lyceum Theatre on 45th Street.",
+       " For most of its existence, the theatre was home to Daniel Frohman’s Lyceum Theatre Stock Company, which presented many important plays and actors of the day."
+      ],
+      [
+       "The Metropolitan Life North Building, now known as Eleven Madison, is a 30-story art deco skyscraper on Madison Square Park in Manhattan, New York City, at 11-25 Madison Avenue.",
+       " The building is bordered by East 24th Street, Madison Avenue, East 25th Street and Park Avenue South, and is connected by an elevated walkway to the Met Life Tower just south of it.",
+       " The North Building was built on the site of Richard Upjohn's original Madison Square Presbyterian Church.",
+       " The second church, designed by Stanford White of McKim, Mead and White was built in 1906, across 24th street on land conveyed by Metropolitan Life.",
+       " As part of the Metropolitan Life Home Office Complex, the North Building was added to the National Register of Historic Places on January 19, 1996."
+      ]
+     ],
+     "title": [
+      "Supreme Life Building",
+      "Napoleon LeBrun",
+      "Metropolitan Life Insurance Company Tower",
+      "Hedden Construction Company",
+      "15 Hudson Yards",
+      "Flatiron Building",
+      "Protective Life",
+      "Physicians Mutual",
+      "Lyceum Theatre (Park Avenue South)",
+      "Metropolitan Life North Building"
+     ]
+    },
+    "id": "5a7322a25542991f9a20c634",
+    "level": "hard",
+    "question": "Was the Metropolitan Life Insurance Company Tower [Met Life Tower] or the 15 Hudson Yards building designed by the firm of Napoleon LeBrun & Sons?",
+    "supporting_facts": {
+     "sent_id": [
+      0,
+      1,
+      1
+     ],
+     "title": [
+      "Metropolitan Life Insurance Company Tower",
+      "Metropolitan Life Insurance Company Tower",
+      "15 Hudson Yards"
+     ]
+    },
+    "type": "comparison"
+   },
+   "row_idx": 5614,
+   "truncated": []
+  },
+  {
+   "config": "distractor",
+   "row": {
+    "answer": "Miami",
+    "context": {
+     "sentences": [
+      [
+       "Palm Tran is the public transit bus system run by the Palm Beach County Government, serving Palm Beach County, Florida.",
+       " During fiscal year 2015, Palm Tran provided 10,773,132 one-way passenger trips and 889,056 paratransit trips to Palm Beach County.",
+       " Palm Tran also serves a portion of Broward County, Florida where it overlaps with Broward County Transit.",
+       " Palm Tran has four main facilities (North Campus in West Palm Beach, South Campus in Delray Beach, Palm Tran Connection/Military Trail and the Belle Glade Facility) with its main headquarters in West Palm Beach on Electronics Way.",
+       " The current Executive Director is Clinton B. Forbes."
+      ],
+      [
+       "North Palm Beach County Airport (FAA LID: F45) , also known as North County Airport, is an uncontrolled general aviation airport located 12 nautical miles (22 km) northwest of West Palm Beach off the Bee Line Highway in Palm Beach Gardens, Florida.",
+       " The airport is owned by Palm Beach County and operated by the Palm Beach County Airports Department."
+      ],
+      [
+       "Cloud Lake is a town in Palm Beach County, Florida, United States.",
+       " With a population of 135 during the 2010 census, Cloud Lake is the least populous municipality in Palm Beach County.",
+       " The town is situated adjacent to Glen Ridge and West Palm Beach and is located near the Palm Beach International Airport.",
+       " Established in 1951, Cloud Lake was built largely by the efforts of twin brothers Karl and Kenyon Riddle, the former of whom served as the City Manager and Superintendent of Public Works of West Palm Beach in the 1920s."
+      ],
+      [
+       "West Palm Beach is a city in and the county seat of Palm Beach County, Florida, United States.",
+       " It is one of the three main cities in South Florida.",
+       " The population was 100,343 (revised) at the 2010 census.",
+       " The University of Florida Bureau of Economic and Business Research (BEBR) estimates a 2016 population of 108,896, a 7.9% increase from 2010.",
+       " It is the oldest municipality in the Miami metropolitan area, having been incorporated as a city two years before Miami in November 1894.",
+       " Although West Palm Beach is located approximately 68 mi north of Downtown Miami, it is still considered a principal city within the Miami metropolitan area, due to the solid urbanization between both cities.",
+       " The estimated population of the Miami metropolitan area, which includes all of Palm Beach County, was 6,012,331 people at the 2015 census."
+      ],
+      [
+       "Locally known as Forest Hill Boulevard, State Road 882 (SR 882) is a 9.233 mi east–west highway in Palm Beach County, Florida.",
+       " It extends from an intersection of US 441-SR 7 in Wellington, heading east serving Greenacres, Palm Springs, Lake Clarke Shores, and West Palm Beach before its eastern terminus is an intersection with South Dixie Highway (US 1/SR 805) in West Palm Beach.",
+       " It is a primary commuter road for the region."
+      ],
+      [
+       "There are four \"Century Villages\" in south Florida, built by the same developer: West Palm Beach (Palm Beach County), Boca Raton (Palm Beach County), Deerfield Beach (Broward County), and Pembroke Pines (Broward County).",
+       " This article deals only with the West Palm Beach Century Village, the only one designed a census-designated place (CDP).",
+       " All of them are gated retirement communities, whose residents must be 55 or over."
+      ],
+      [
+       "Palm Springs is a village in Palm Beach County, Florida, United States, situated between Greenacres, Lake Clarke Shores, Lake Worth, and West Palm Beach.",
+       " As of the 2010 United States Census, had a population of 18,928.",
+       " It is a minor city of the Miami metropolitan area, which was home to an estimated 6,012,331 people at the 2015 census."
+      ],
+      [
+       "Palm Beach County Glades Airport (IATA: PHK, ICAO: KPHK, FAA LID: PHK) is a county owned, public use airport in Palm Beach County, Florida, United States.",
+       " It is located three nautical miles (6 km) southwest of the central business district of Pahokee, Florida.",
+       " The airport is owned by Palm Beach County and operated by the Palm Beach County Airports Department.",
+       " It is included in the National Plan of Integrated Airport Systems for 2011–2015, which categorized it as a \"general aviation\" facility."
+      ],
+      [
+       "Headquartered in Boynton Beach, Florida, the mission of the Literacy Coalition of Palm Beach County is to improve the quality of life of those residing in and around Palm Beach County, Florida, by promoting and achieving literacy.",
+       " The ultimate goal of the Literacy Coalition of Palm Beach County, a nonprofit organization, is to ensure that every child and every adult in Palm Beach County becomes a reader.",
+       " One in seven adults in Palm Beach County is unable to read and understand information found in books, newspapers, magazines, brochures and manuals.",
+       " Through extensive outreach and collaboration with a network of community partners, the Literacy Coalition strives to ensure that individuals who need to improve their literacy skills receive the help they need.",
+       " The organization's operates with the assistance of over 9,000 volunteers.",
+       " In 2013, the Literacy Coalition provided services to more than 25,000 adults, children and families."
+      ],
+      [
+       "Palm Beach County is a county located in the state of Florida, directly north of Broward County.",
+       " As of the 2010 census, the population was 1,320,134, making it the third-most populous county in Florida.",
+       " The largest city and county seat is West Palm Beach.",
+       " Named after one of its oldest settlements, Palm Beach, the county was established in 1909, after being split from Dade County.",
+       " The county's modern-day boundaries were established in 1963.",
+       " Palm Beach County is one of the three counties in South Florida which make up the Miami metropolitan area, which was home to an estimated 6,012,331 people at the 2015 census."
+      ]
+     ],
+     "title": [
+      "Palm Tran",
+      "North Palm Beach County General Aviation Airport",
+      "Cloud Lake, Florida",
+      "West Palm Beach, Florida",
+      "Florida State Road 882",
+      "Century Village, Florida",
+      "Palm Springs, Florida",
+      "Palm Beach County Glades Airport",
+      "Literacy Coalition of Palm Beach County",
+      "Palm Beach County, Florida"
+     ]
+    },
+    "id": "5a7af2a455429931da12c998",
+    "level": "hard",
+    "question": "Palm Springs lies in Palm Beach County, the third most populated county in its state. Which major U.S. city is it near?",
+    "supporting_facts": {
+     "sent_id": [
+      0,
+      1,
+      5
+     ],
+     "title": [
+      "Palm Springs, Florida",
+      "Palm Beach County, Florida",
+      "Palm Beach County, Florida"
+     ]
+    },
+    "type": "bridge"
+   },
+   "row_idx": 5572,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "distractor",
+  "hf": "hotpotqa/hotpot_qa",
+  "split": "validation"
+ }
+}

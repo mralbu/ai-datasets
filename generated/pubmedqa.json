@@ -1,0 +1,735 @@
+{
+ "features": [
+  {
+   "name": "pubid",
+   "type": {
+    "_type": "Value",
+    "dtype": "int32"
+   }
+  },
+  {
+   "name": "question",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "context",
+   "type": {
+    "contexts": {
+     "_type": "List",
+     "feature": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    "labels": {
+     "_type": "List",
+     "feature": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    "meshes": {
+     "_type": "List",
+     "feature": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    "reasoning_free_pred": {
+     "_type": "List",
+     "feature": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    "reasoning_required_pred": {
+     "_type": "List",
+     "feature": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   }
+  },
+  {
+   "name": "long_answer",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "final_decision",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-08T04:22:10+00:00",
+ "id": "pubmedqa",
+ "num_rows_total": 1000,
+ "parts": [
+  {
+   "config": "pqa_labeled",
+   "features": [
+    {
+     "name": "pubid",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "context",
+     "type": {
+      "contexts": {
+       "_type": "List",
+       "feature": {
+        "_type": "Value",
+        "dtype": "string"
+       }
+      },
+      "labels": {
+       "_type": "List",
+       "feature": {
+        "_type": "Value",
+        "dtype": "string"
+       }
+      },
+      "meshes": {
+       "_type": "List",
+       "feature": {
+        "_type": "Value",
+        "dtype": "string"
+       }
+      },
+      "reasoning_free_pred": {
+       "_type": "List",
+       "feature": {
+        "_type": "Value",
+        "dtype": "string"
+       }
+      },
+      "reasoning_required_pred": {
+       "_type": "List",
+       "feature": {
+        "_type": "Value",
+        "dtype": "string"
+       }
+      }
+     }
+    },
+    {
+     "name": "long_answer",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "final_decision",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 1000,
+   "split": "train"
+  }
+ ],
+ "revision": "9001f2853fb87cab8d220904e0de81ac6973b318",
+ "rows": [
+  {
+   "config": "pqa_labeled",
+   "row": {
+    "context": {
+     "contexts": [
+      "This retrospective study was carried out in the Ear Nose Throat (ENT) Unit of Giannina Gaslini Institute, Genoa, Italy on children operated for adenotonsillectomy (AT) or tonsillectomy (T) between January 2003 and February 2008. We considered in the study all the post-tonsillectomy late haemorrhages irrespective of their severity and for each case we evaluated whether they recurred in the day-time (B) (between 9.00 a.m. and 9.00 p.m.) or in the night-time (A) (between 9.00 p.m. and 9.00 a.m.). Finally we considered the number of haemorrhages per hour in the whole day.",
+      "Out of 3306 patients undergoing elective adenotonsillectomy or tonsillectomy, post-operative late haemorrhage occurred in 59 (1.78%). We noted that 42 episodes (71.2%) occurred in the night-time and 17 (28.8%) in the day-time. The average time from the operation was 8.4 days. A statistically significant difference (p=0.002) was found when comparing the frequencies of night-time and day-time haemorrhages. We did not observe any significant difference in the distribution per hour of the haemorrhages."
+     ],
+     "labels": [
+      "STUDY DESIGN AND SETTING",
+      "RESULTS"
+     ],
+     "meshes": [
+      "Adolescent",
+      "Child",
+      "Child, Preschool",
+      "Circadian Rhythm",
+      "Female",
+      "Humans",
+      "Male",
+      "Postoperative Hemorrhage",
+      "Prevalence",
+      "Retrospective Studies",
+      "Tonsillectomy"
+     ],
+     "reasoning_free_pred": [
+      "y",
+      "e",
+      "s"
+     ],
+     "reasoning_required_pred": [
+      "y",
+      "e",
+      "s"
+     ]
+    },
+    "final_decision": "yes",
+    "long_answer": "The incidence of post-tonsillectomy late haemorrhage in our study population was 1.78%. A statistically significant difference was found between night-time and day-time haemorrhages. Even though no significant distribution of haemorrhages per hour was observed, we underline that we recorded 32 (54.2%) events in 2 periods of the day: from 10 p.m. to 1 a.m. and from 6 to 9 a.m.",
+    "pubid": 19230985,
+    "question": "Post-tonsillectomy late haemorrhage: is it a preferably night-time event?"
+   },
+   "row_idx": 545,
+   "truncated": []
+  },
+  {
+   "config": "pqa_labeled",
+   "row": {
+    "context": {
+     "contexts": [
+      "A secondary analysis of one-hundred-sixty-seven patients referred for treatment of cancer-related pain was conducted. Pain intensity at admission was recorded and patients were divided in three categories of pain intensity: mild, moderate and severe. Patients were offered a treatment with opioid dose titration, according to department policy. Data regarding opioid doses and pain intensity were collected after dose titration was completed. Four levels of opioid response were considered: (a) good pain control, with minimal opioid escalation and without relevant adverse effects; (b) good pain control requiring more aggressive opioid escalation, for example doubling the doses in four days; (c) adequate pain control associated with the occurrence of adverse effects; (d) poor pain control with adverse effects.",
+      "Seventy-six, forty-four, forty-one and six patients showed a response a, b, c, and d, respectively. No correlation between baseline pain intensity categories and opioid response was found. Patients with response 'b' and 'd' showed higher values of OEImg."
+     ],
+     "labels": [
+      "METHODS",
+      "RESULTS"
+     ],
+     "meshes": [
+      "Aged",
+      "Analgesics, Opioid",
+      "Analysis of Variance",
+      "Female",
+      "Humans",
+      "Karnofsky Performance Status",
+      "Male",
+      "Middle Aged",
+      "Neoplasms",
+      "Pain",
+      "Pain Measurement",
+      "Prospective Studies",
+      "Treatment Outcome"
+     ],
+     "reasoning_free_pred": [
+      "n",
+      "o"
+     ],
+     "reasoning_required_pred": [
+      "n",
+      "o"
+     ]
+    },
+    "final_decision": "no",
+    "long_answer": "Baseline pain intensity does not predict the outcome after an appropriate opioid titration. It is likely that non-homogeneous pain treatment would have biased the outcome of a previous work.",
+    "pubid": 21256734,
+    "question": "Does pain intensity predict a poor opioid response in cancer patients?"
+   },
+   "row_idx": 363,
+   "truncated": []
+  },
+  {
+   "config": "pqa_labeled",
+   "row": {
+    "context": {
+     "contexts": [
+      "Pregnancy induces adaptations in maternal metabolism to meet the increased need for nutrients by the placenta and fetus. Creatine is an important intracellular metabolite obtained from the diet and also synthesised endogenously. Experimental evidence suggests that the fetus relies on a maternal supply of creatine for much of gestation. However, the impact of pregnancy on maternal creatine homeostasis is unclear. We hypothesise that alteration of maternal creatine homeostasis occurs during pregnancy to ensure adequate levels of this essential substrate are available for maternal tissues, the placenta and fetus. This study aimed to describe maternal creatine homeostasis from mid to late gestation in the precocial spiny mouse.",
+      "Plasma creatine concentration and urinary excretion were measured from mid to late gestation in pregnant (n = 8) and age-matched virgin female spiny mice (n = 6). At term, body composition and organ weights were assessed and tissue total creatine content determined. mRNA expression of the creatine synthesising enzymes arginine:glycine amidinotransferase (AGAT) and guanidinoacetate methyltransferase (GAMT), and the creatine transporter (CrT1) were assessed by RT-qPCR. Protein expression of AGAT and GAMT was also assessed by western blot analysis.",
+      "Plasma creatine and renal creatine excretion decreased significantly from mid to late gestation (P<0.001, P<0.05, respectively). Pregnancy resulted in increased lean tissue (P<0.01), kidney (P<0.01), liver (P<0.01) and heart (P<0.05) mass at term. CrT1 expression was increased in the heart (P<0.05) and skeletal muscle (P<0.05) at term compared to non-pregnant tissues, and creatine content of the heart (P<0.05) and kidney (P<0.001) were also increased at this time. CrT1 mRNA expression was down-regulated in the liver (<0.01) and brain (<0.01) of pregnant spiny mice at term. Renal AGAT mRNA (P<0.01) and protein (P<0.05) expression were both significantly up-regulated at term, with decreased expression of AGAT mRNA (<0.01) and GAMT protein (<0.05) observed in the term pregnant heart. Brain AGAT (<0.01) and GAMT (<0.001) mRNA expression were also decreased at term."
+     ],
+     "labels": [
+      "BACKGROUND",
+      "METHODS",
+      "RESULTS"
+     ],
+     "meshes": [
+      "Amidinotransferases",
+      "Animals",
+      "Blotting, Western",
+      "Creatine",
+      "Female",
+      "Gene Expression Regulation",
+      "Guanidinoacetate N-Methyltransferase",
+      "Homeostasis",
+      "Membrane Transport Proteins",
+      "Murinae",
+      "Pregnancy",
+      "RNA, Messenger",
+      "Reverse Transcriptase Polymerase Chain Reaction"
+     ],
+     "reasoning_free_pred": [
+      "y",
+      "e",
+      "s"
+     ],
+     "reasoning_required_pred": [
+      "y",
+      "e",
+      "s"
+     ]
+    },
+    "final_decision": "yes",
+    "long_answer": "Change of maternal creatine status (increased creatine synthesis and reduced creatine excretion) may be a necessary adjustment of maternal physiology to pregnancy to meet the metabolic demands of maternal tissues, the placenta and developing fetus.",
+    "pubid": 25885219,
+    "question": "Maternal creatine homeostasis is altered during gestation in the spiny mouse: is this a metabolic adaptation to pregnancy?"
+   },
+   "row_idx": 520,
+   "truncated": []
+  },
+  {
+   "config": "pqa_labeled",
+   "row": {
+    "context": {
+     "contexts": [
+      "Dyschesia can be provoked by inappropriate defecation movements. The aim of this prospective study was to demonstrate dysfunction of the anal sphincter and/or the musculus (m.) puborectalis in patients with dyschesia using anorectal endosonography.",
+      "Twenty consecutive patients with a medical history of dyschesia and a control group of 20 healthy subjects underwent linear anorectal endosonography (Toshiba models IUV 5060 and PVL-625 RT). In both groups, the dimensions of the anal sphincter and the m. puborectalis were measured at rest, and during voluntary squeezing and straining. Statistical analysis was performed within and between the two groups.",
+      "The anal sphincter became paradoxically shorter and/or thicker during straining (versus the resting state) in 85% of patients but in only 35% of control subjects. Changes in sphincter length were statistically significantly different (p<0.01, chi(2) test) in patients compared with control subjects. The m. puborectalis became paradoxically shorter and/or thicker during straining in 80% of patients but in only 30% of controls. Both the changes in length and thickness of the m. puborectalis were significantly different (p<0.01, chi(2) test) in patients versus control subjects."
+     ],
+     "labels": [
+      "AIMS",
+      "METHODS",
+      "RESULTS"
+     ],
+     "meshes": [
+      "Adolescent",
+      "Adult",
+      "Aged",
+      "Aged, 80 and over",
+      "Anal Canal",
+      "Case-Control Studies",
+      "Chi-Square Distribution",
+      "Constipation",
+      "Defecation",
+      "Endosonography",
+      "Female",
+      "Humans",
+      "Male",
+      "Middle Aged",
+      "Pelvic Floor",
+      "Rectum"
+     ],
+     "reasoning_free_pred": [
+      "y",
+      "e",
+      "s"
+     ],
+     "reasoning_required_pred": [
+      "y",
+      "e",
+      "s"
+     ]
+    },
+    "final_decision": "yes",
+    "long_answer": "Linear anorectal endosonography demonstrated incomplete or even absent relaxation of the anal sphincter and the m. puborectalis during a defecation movement in the majority of our patients with dyschesia. This study highlights the value of this elegant ultrasonographic technique in the diagnosis of \"pelvic floor dyssynergia\" or \"anismus\".",
+    "pubid": 12377809,
+    "question": "Is anorectal endosonography valuable in dyschesia?"
+   },
+   "row_idx": 534,
+   "truncated": []
+  },
+  {
+   "config": "pqa_labeled",
+   "row": {
+    "context": {
+     "contexts": [
+      "To evaluate the impact of patient-prosthesis mismatch (PPM) on survival, functional status, and quality of life (QoL) after aortic valve replacement (AVR) with small prosthesis size in elderly patients.",
+      "Between January 2005 and December 2013, 152 patients with pure aortic stenosis, aged at least 75 years, underwent AVR, with a 19 or 21 mm prosthetic heart valve. PPM was defined as an indexed effective orifice area less than 0.85 cm/m. Median age was 82 years (range 75-93 years). Mean follow-up was 56 months (range 1-82 months) and was 98% complete. Late survival rate, New York Heart Association functional class, and QoL (RAND SF-36) were assessed.",
+      "Overall, PPM was found in 78 patients (53.8%). Among them, 42 patients (29%) had an indexed effective orifice area less than 0.75 cm/m and 17 less than 0.65 cm/m (11.7%). Overall survival at 5 years was 78 ± 4.5% and was not influenced by PPM (P = NS). The mean New York Heart Association class for long-term survivors with PPM improved from 3.0 to 1.7 (P < 0.001). QoL (physical functioning 45.18 ± 11.35, energy/fatigue 49.36 ± 8.64, emotional well being 58.84 ± 15.44, social functioning 61.29 ± 6.15) was similar to that of no-PPM patients (P = NS)."
+     ],
+     "labels": [
+      "BACKGROUND",
+      "METHODS",
+      "RESULTS"
+     ],
+     "meshes": [
+      "Aged",
+      "Aged, 80 and over",
+      "Aortic Valve",
+      "Aortic Valve Stenosis",
+      "Female",
+      "Follow-Up Studies",
+      "Heart Valve Prosthesis",
+      "Heart Valve Prosthesis Implantation",
+      "Humans",
+      "Italy",
+      "Male",
+      "Quality of Life",
+      "Ventricular Remodeling"
+     ],
+     "reasoning_free_pred": [
+      "n",
+      "o"
+     ],
+     "reasoning_required_pred": [
+      "n",
+      "o"
+     ]
+    },
+    "final_decision": "no",
+    "long_answer": "PPM after AVR does not affect survival, functional status, and QoL in patients aged at least 75 years. Surgical procedures, often time-consuming, contemplated to prevent PPM, may therefore be not justified in this patient subgroup.",
+    "pubid": 26237424,
+    "question": "Does patient-prosthesis mismatch after aortic valve replacement affect survival and quality of life in elderly patients?"
+   },
+   "row_idx": 597,
+   "truncated": []
+  },
+  {
+   "config": "pqa_labeled",
+   "row": {
+    "context": {
+     "contexts": [
+      "In this study we investigated whether the association between measures of fetal growth restriction and intellectual performance was mediated by socioeconomic or familial factors.",
+      "This was a population-based cohort study of 357,768 Swedish males born as singletons without congenital malformations between 1973 and 1981. The main outcome measure was intellectual performance at military conscription.",
+      "Compared with men born with appropriate birth weight for gestational age, men born light for gestational age suffered an increased risk of low intellectual performance after adjustment for maternal and socioeconomic factors. The increase in risk of low intellectual performance related to a decrease in birth weight for gestational age was similar between families and within families. Men born short or with a small head circumference for gestational age were also at increased risk of low intellectual performance, both when adjusting for maternal and socioeconomic factors and within families."
+     ],
+     "labels": [
+      "OBJECTIVE",
+      "METHODS",
+      "RESULTS"
+     ],
+     "meshes": [
+      "Adolescent",
+      "Birth Weight",
+      "Family Characteristics",
+      "Female",
+      "Fetal Growth Retardation",
+      "Growth",
+      "Humans",
+      "Infant, Newborn",
+      "Infant, Small for Gestational Age",
+      "Intelligence",
+      "Male",
+      "Pregnancy",
+      "Risk Factors",
+      "Socioeconomic Factors",
+      "Sweden"
+     ],
+     "reasoning_free_pred": [
+      "n",
+      "o"
+     ],
+     "reasoning_required_pred": [
+      "y",
+      "e",
+      "s"
+     ]
+    },
+    "final_decision": "no",
+    "long_answer": "We found that all of the studied dimensions of restricted fetal growth are independently associated with increased risks of low intellectual performance and that these associations are only partly mediated by socioeconomic or familial factors.",
+    "pubid": 16510651,
+    "question": "Birth characteristics and risk of low intellectual performance in early adulthood: are the associations confounded by socioeconomic factors in adolescence or familial effects?"
+   },
+   "row_idx": 350,
+   "truncated": []
+  },
+  {
+   "config": "pqa_labeled",
+   "row": {
+    "context": {
+     "contexts": [
+      "Although body dysmorphic disorder (BDD) is classified in DSM-III-R as a nonpsychotic somatoform disorder, controversy exists as to whether BDD can present with psychotic features. If it can, this raises the possibility that its DSM-III-R psychotic counterpart-delusional disorder, somatic type--may not be a separate disorder. The purpose of this study was to determine whether patients with nonpsychotic BDD (defined according to DSM-III-R criteria, i.e., with maintenance of some insight) were different from patients with psychotic BDD (those whose preoccupation was without insight and of delusional intensity).",
+      "Fifty consecutive patients meeting DSM-III-R criteria A and C for BDD were assessed with a semistructured interview and the Structured Clinical Interview for DSM-III-R (SCID). Family histories of psychiatric disorders were blindly assessed. The 24 patients with nonpsychotic BDD were compared with the 26 patients with psychotic BDD with respect to demographics, phenomenology, course of illness, associated features, comorbid psychiatric disorders, family history, and treatment response.",
+      "Patients with psychotic BDD displayed a significantly higher rate of lifetime DSM-III-R psychotic disorder diagnoses than patients with nonpsychotic BDD. However, the two groups did not differ significantly on most other variables examined. For instance, both psychotic and nonpsychotic patients displayed significant morbidity; high comorbidity with mood, anxiety, and psychoactive substance use disorders; and apparent preferential response to serotonin reuptake inhibitors rather than to non-serotonin reuptake blocking antidepressants or antipsychotics."
+     ],
+     "labels": [
+      "BACKGROUND",
+      "METHOD",
+      "RESULTS"
+     ],
+     "meshes": [
+      "Adult",
+      "Aged",
+      "Body Image",
+      "Comorbidity",
+      "Delusions",
+      "Diagnosis, Differential",
+      "Female",
+      "Humans",
+      "Male",
+      "Mental Disorders",
+      "Middle Aged",
+      "Psychiatric Status Rating Scales",
+      "Somatoform Disorders",
+      "Terminology as Topic",
+      "Treatment Outcome"
+     ],
+     "reasoning_free_pred": [
+      "y",
+      "e",
+      "s"
+     ],
+     "reasoning_required_pred": [
+      "n",
+      "o"
+     ]
+    },
+    "final_decision": "yes",
+    "long_answer": "Body dysmorphic disorder may have a closely related psychotic subtype that significantly overlaps with, or may even be the same disorder as, the BDD variant of delusional disorder, somatic type. Inclusion of a psychotic subtype for BDD should be considered for future editions of DSM.",
+    "pubid": 8262881,
+    "question": "Body dysmorphic disorder: does it have a psychotic subtype?"
+   },
+   "row_idx": 401,
+   "truncated": []
+  },
+  {
+   "config": "pqa_labeled",
+   "row": {
+    "context": {
+     "contexts": [
+      "In this study, the authors discussed the feasibility and value of diffusion-weighted (DW) MR imaging in the detection of uterine endometrial cancer in addition to conventional nonenhanced MR images.",
+      "DW images of endometrial cancer in 23 patients were examined by using a 1.5-T MR scanner. This study investigated whether or not DW images offer additional incremental value to conventional nonenhanced MR imaging in comparison with histopathological results. Moreover, the apparent diffusion coefficient (ADC) values were measured in the regions of interest within the endometrial cancer and compared with those of normal endometrium and myometrium in 31 volunteers, leiomyoma in 14 patients and adenomyosis in 10 patients. The Wilcoxon rank sum test was used, with a p<0.05 considered statistically significant.",
+      "In 19 of 23 patients, endometrial cancers were detected only on T2-weighted images. In the remaining 4 patients, of whom two had coexisting leiomyoma, no cancer was detected on T2-weighted images. This corresponds to an 83% detection sensitivity for the carcinomas. When DW images and fused DW images/T2-weighted images were used in addition to the T2-weighted images, cancers were identified in 3 of the remaining 4 patients in addition to the 19 patients (overall detection sensitivity of 96%). The mean ADC value of endometrial cancer (n=22) was (0.97+/-0.19)x10(-3)mm(2)/s, which was significantly lower than those of the normal endometrium, myometrium, leiomyoma and adenomyosis (p<0.05)."
+     ],
+     "labels": [
+      "OBJECTIVE",
+      "METHODS AND MATERIALS",
+      "RESULTS"
+     ],
+     "meshes": [
+      "Adult",
+      "Aged",
+      "Contrast Media",
+      "Diffusion Magnetic Resonance Imaging",
+      "Endometrial Neoplasms",
+      "Female",
+      "Humans",
+      "Image Enhancement",
+      "Middle Aged",
+      "Reproducibility of Results",
+      "Sensitivity and Specificity",
+      "Subtraction Technique",
+      "Whole Body Imaging"
+     ],
+     "reasoning_free_pred": [
+      "y",
+      "e",
+      "s"
+     ],
+     "reasoning_required_pred": [
+      "y",
+      "e",
+      "s"
+     ]
+    },
+    "final_decision": "yes",
+    "long_answer": "DW imaging can be helpful in the detection of uterine endometrial cancer in nonenhanced MR imaging.",
+    "pubid": 18182265,
+    "question": "Body diffusion-weighted MR imaging of uterine endometrial cancer: is it helpful in the detection of cancer in nonenhanced MR imaging?"
+   },
+   "row_idx": 573,
+   "truncated": []
+  },
+  {
+   "config": "pqa_labeled",
+   "row": {
+    "context": {
+     "contexts": [
+      "The aim of this study was to investigate the influence of the pharmacokinetics of s.c. anti-TNF agents on the grade of US-detected synovitis in RA patients.",
+      "Fifty RA patients were prospectively recruited from the Biologic Therapy Unit of our hospital. Inclusion criteria were being in treatment with s.c. anti-TNF agents and having had neither changes in therapy nor local corticosteroid injections in the previous 3 months. Patients underwent clinical, laboratory [28-joint DAS (DAS28) and Simplified Disease Activity Index (SDAI)]and US assessment at two time points, i.e. at peak plasma drug concentration and at trough plasma drug concentration. US assessments were performed blindly to the anti-TNF agent, the administration time and the clinical and laboratory data. Twenty-eight joints were investigated for the presence and grade (0-3) of B-mode synovitis and synovial power Doppler signal. Global indices for B-mode synovitis (BSI) and Doppler synovitis (DSI) were calculated for 12 joints and for wrist-hand-ankle-foot joints. B-mode US remission was defined as a BSI<1 and Doppler US remission as a DSI<1.",
+      "There were no significant differences between the clinical, laboratory and B-mode and Doppler US parameters at peak time and trough time (P = 0.132-0.986). There were no significant differences between the proportion of patients with active disease and those in remission according to DAS28, SDAI, B-mode US and Doppler US at peak time and trough time assessments (P = 0.070-1)."
+     ],
+     "labels": [
+      "OBJECTIVE",
+      "METHODS",
+      "RESULTS"
+     ],
+     "meshes": [
+      "Adult",
+      "Aged",
+      "Aged, 80 and over",
+      "Antirheumatic Agents",
+      "Arthritis, Rheumatoid",
+      "Female",
+      "Follow-Up Studies",
+      "Humans",
+      "Male",
+      "Middle Aged",
+      "Prognosis",
+      "Prospective Studies",
+      "Severity of Illness Index",
+      "Synovitis",
+      "Tumor Necrosis Factor-alpha",
+      "Ultrasonography, Doppler",
+      "Young Adult"
+     ],
+     "reasoning_free_pred": [
+      "n",
+      "o"
+     ],
+     "reasoning_required_pred": [
+      "n",
+      "o"
+     ]
+    },
+    "final_decision": "no",
+    "long_answer": "Our results suggested that s.c. anti-TNF pharmacokinetics do not significantly influence US-scored synovitis in RA patients.",
+    "pubid": 24939676,
+    "question": "Does ultrasound-scored synovitis depend on the pharmacokinetics of subcutaneous anti-TNF agents in patients with rheumatoid arthritis?"
+   },
+   "row_idx": 406,
+   "truncated": []
+  },
+  {
+   "config": "pqa_labeled",
+   "row": {
+    "context": {
+     "contexts": [
+      "Guidelines emphasize that irritable bowel syndrome (IBS) is not a diagnosis of exclusion and encourage clinicians to make a positive diagnosis using the Rome criteria alone. Yet many clinicians are concerned about overlooking alternative diagnoses. We measured beliefs about whether IBS is a diagnosis of exclusion, and measured testing proclivity between IBS experts and community providers.",
+      "We developed a survey to measure decision-making in two standardized patients with Rome III-positive IBS, including IBS with diarrhea (D-IBS) and IBS with constipation (C-IBS). The survey elicited provider knowledge and beliefs about IBS, including testing proclivity and beliefs regarding IBS as a diagnosis of exclusion. We surveyed nurse practitioners, primary care physicians, community gastroenterologists, and IBS experts.",
+      "Experts were less likely than nonexperts to endorse IBS as a diagnosis of exclusion (8 vs. 72%; P<0.0001). In the D-IBS vignette, experts were more likely to make a positive diagnosis of IBS (67 vs. 38%; P<0.001), to perform fewer tests (2.0 vs. 4.1; P<0.01), and to expend less money on testing (US$297 vs. $658; P<0.01). Providers who believed IBS is a diagnosis of exclusion ordered 1.6 more tests and consumed $364 more than others (P<0.0001). Experts only rated celiac sprue screening and complete blood count as appropriate in D-IBS; nonexperts rated most tests as appropriate. Parallel results were found in the C-IBS vignette."
+     ],
+     "labels": [
+      "OBJECTIVES",
+      "METHODS",
+      "RESULTS"
+     ],
+     "meshes": [
+      "Algorithms",
+      "Decision Making",
+      "Diagnosis, Differential",
+      "Female",
+      "Gastroenterology",
+      "Guidelines as Topic",
+      "Health Knowledge, Attitudes, Practice",
+      "Humans",
+      "Irritable Bowel Syndrome",
+      "Male",
+      "Middle Aged",
+      "Nurse Practitioners",
+      "Physicians, Family",
+      "Regression Analysis",
+      "Surveys and Questionnaires"
+     ],
+     "reasoning_free_pred": [
+      "y",
+      "e",
+      "s"
+     ],
+     "reasoning_required_pred": [
+      "n",
+      "o"
+     ]
+    },
+    "final_decision": "maybe",
+    "long_answer": "Most community providers believe IBS is a diagnosis of exclusion; this belief is associated with increased resource use. Experts comply more closely with guidelines to diagnose IBS with minimal testing. This disconnect suggests that better implementation of guidelines is warranted to minimize variation and improve cost-effectiveness of care.",
+    "pubid": 20197761,
+    "question": "Is irritable bowel syndrome a diagnosis of exclusion?"
+   },
+   "row_idx": 613,
+   "truncated": []
+  },
+  {
+   "config": "pqa_labeled",
+   "row": {
+    "context": {
+     "contexts": [
+      "Current guidelines for the treatment of uncomplicated urinary tract infection (UTI) in women recommend empiric therapy with antibiotics for which local resistance rates do not exceed 10-20%. We hypothesized that resistance rates of Escherichia coli to fluoroquinolones may have surpassed this level in older women in the Israeli community setting.",
+      "To identify age groups of women in which fluoroquinolones may no longer be appropriate for empiric treatment of UTI.",
+      "Resistance rates for ofloxacin were calculated for all cases of uncomplicated UTI diagnosed during the first 5 months of 2005 in a managed care organization (MCO) in Israel, in community-dwelling women aged 41-75 years. The women were without risk factors for fluoroquinolone resistance. Uncomplicated UTI was diagnosed with a urine culture positive for E. coli. The data set was stratified for age, using 5 year intervals, and stratum-specific resistance rates (% and 95% CI) were calculated. These data were analyzed to identify age groups in which resistance rates have surpassed 10%.",
+      "The data from 1291 urine cultures were included. The crude resistance rate to ofloxacin was 8.7% (95% CI 7.4 to 10.2). Resistance was lowest among the youngest (aged 41-50 y) women (3.2%; 95% CI 1.11 to 5.18), approached 10% in women aged 51-55 years (7.1%; 95% CI 3.4 to 10.9), and reached 19.86% (95% CI 13.2 to 26.5) among the oldest women (aged 56-75 y)."
+     ],
+     "labels": [
+      "BACKGROUND",
+      "OBJECTIVES",
+      "METHODS",
+      "RESULTS"
+     ],
+     "meshes": [
+      "Adolescent",
+      "Adult",
+      "Age Factors",
+      "Aged",
+      "Drug Resistance, Bacterial",
+      "Empirical Research",
+      "Escherichia coli",
+      "Escherichia coli Infections",
+      "Female",
+      "Fluoroquinolones",
+      "Humans",
+      "Israel",
+      "Middle Aged",
+      "Practice Guidelines as Topic",
+      "Urinary Tract Infections"
+     ],
+     "reasoning_free_pred": [
+      "m",
+      "a",
+      "y",
+      "b",
+      "e"
+     ],
+     "reasoning_required_pred": [
+      "y",
+      "e",
+      "s"
+     ]
+    },
+    "final_decision": "maybe",
+    "long_answer": "Physicians who opt to treat UTI in postmenopausal women empirically should consider prescribing drugs other than fluoroquinolones. Concomitant longitudinal surveillance of both antibiotic utilization patterns and uropathogen resistance rates should become routine practice in this managed-care organization.",
+    "pubid": 17105833,
+    "question": "Empiric treatment of uncomplicated urinary tract infection with fluoroquinolones in older women in Israel: another lost treatment option?"
+   },
+   "row_idx": 385,
+   "truncated": []
+  },
+  {
+   "config": "pqa_labeled",
+   "row": {
+    "context": {
+     "contexts": [
+      "We examined whether invasive lung-specimen collection-to-treatment times for intensive care unit patients with suspected ventilator-associated pneumonia (VAP) differ with to the work shift during which specimens were collected. We compared weekday day shifts and off-hours (from 6:30 p.m. to 8:29 a.m. the next day for night shifts, from Saturday 1:00 p.m. to Monday 8:29 a.m. for weekends, and from 8:30 a.m. to 8:29 a.m. the following morning for public holidays).",
+      "Single-center, observational study in the intensive care unit in an academic teaching hospital.",
+      "101 patients who developed 152 episodes of bacteriologically confirmed VAP.",
+      "Of the 152 VAP episodes 66 were diagnosed during off-hours. Neither more bronchoscopy complications nor more inappropriate initial antimicrobial treatments for patients were observed between day and off-hour shifts. Indeed, the overall time from brochoalveolar lavage to antibiotic administration was shorter for off-hours than day-shifts due to shorter specimen collection-to-antibiotic prescription times, but antibiotic prescription-to-administration times were the same."
+     ],
+     "labels": [
+      "OBJECTIVE",
+      "DESIGN AND SETTING",
+      "PATIENTS AND PARTICIPANTS",
+      "MEASUREMENTS AND RESULTS"
+     ],
+     "meshes": [
+      "Anti-Bacterial Agents",
+      "Bronchoalveolar Lavage Fluid",
+      "Bronchoscopy",
+      "Cross Infection",
+      "Humans",
+      "Intensive Care Units",
+      "Pneumonia, Ventilator-Associated",
+      "Time Factors"
+     ],
+     "reasoning_free_pred": [
+      "n",
+      "o"
+     ],
+     "reasoning_required_pred": [
+      "n",
+      "o"
+     ]
+    },
+    "final_decision": "no",
+    "long_answer": "An invasive strategy based on bronchoscopy to diagnose VAP was not associated with a longer time to first appropriate antibiotic administration when clinical suspicion of VAP occurs during off-hours.",
+    "pubid": 17323047,
+    "question": "Does invasive diagnosis of nosocomial pneumonia during off-hours delay treatment?"
+   },
+   "row_idx": 412,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "pqa_labeled",
+  "hf": "qiaojin/PubMedQA",
+  "split": "train"
+ }
+}

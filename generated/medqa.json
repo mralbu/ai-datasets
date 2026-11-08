@@ -1,0 +1,822 @@
+{
+ "features": [
+  {
+   "name": "question",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "answer",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "options",
+   "type": {
+    "A": {
+     "_type": "Value",
+     "dtype": "string"
+    },
+    "B": {
+     "_type": "Value",
+     "dtype": "string"
+    },
+    "C": {
+     "_type": "Value",
+     "dtype": "string"
+    },
+    "D": {
+     "_type": "Value",
+     "dtype": "string"
+    }
+   }
+  },
+  {
+   "name": "meta_info",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "answer_idx",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "metamap_phrases",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "_type": "Value",
+     "dtype": "string"
+    }
+   }
+  }
+ ],
+ "fetched_at": "2026-11-08T04:22:07+00:00",
+ "id": "medqa",
+ "num_rows_total": 1273,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answer",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "options",
+     "type": {
+      "A": {
+       "_type": "Value",
+       "dtype": "string"
+      },
+      "B": {
+       "_type": "Value",
+       "dtype": "string"
+      },
+      "C": {
+       "_type": "Value",
+       "dtype": "string"
+      },
+      "D": {
+       "_type": "Value",
+       "dtype": "string"
+      }
+     }
+    },
+    {
+     "name": "meta_info",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answer_idx",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "metamap_phrases",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "string"
+      }
+     }
+    }
+   ],
+   "num_rows_total": 1273,
+   "split": "test"
+  }
+ ],
+ "revision": "0fb93dd23a7339b6dcd27e241cb9b5eca62d4d18",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "answer": "E2F transcription factors",
+    "answer_idx": "B",
+    "meta_info": "step1",
+    "metamap_phrases": [
+     "year old woman",
+     "physician",
+     "scheduled colposcopy",
+     "Two weeks",
+     "routine Pap smear",
+     "showed atypical squamous cells",
+     "Colposcopy shows",
+     "area of white discoloration",
+     "cervix",
+     "application",
+     "acetic acid solution",
+     "Biopsy",
+     "area shows carcinoma-in-situ",
+     "Activation",
+     "following best",
+     "pathogenesis",
+     "condition"
+    ],
+    "options": {
+     "A": "JAK2 tyrosine kinase",
+     "B": "E2F transcription factors",
+     "C": "Phosphoprotein p53",
+     "D": "Cyclin-dependent kinase inhibitors"
+    },
+    "question": "A 49-year-old woman comes to the physician for a scheduled colposcopy. Two weeks ago, she had a routine Pap smear that showed atypical squamous cells. Colposcopy shows an area of white discoloration of the cervix with application of acetic acid solution. Biopsy of this area shows carcinoma-in-situ. Activation of which of the following best explains the pathogenesis of this condition?"
+   },
+   "row_idx": 248,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "Dense fibroinflammatory infiltrate",
+    "answer_idx": "B",
+    "meta_info": "step1",
+    "metamap_phrases": [
+     "65 year old man presents",
+     "primary care physician",
+     "neck mass",
+     "first",
+     "firm mass",
+     "anterior aspect of",
+     "neck approximately",
+     "months",
+     "mass",
+     "painless",
+     "not increased in size",
+     "then",
+     "occasional fatigue",
+     "gained 10 pounds",
+     "past",
+     "months",
+     "change in",
+     "diet",
+     "exercise frequency",
+     "past medical history",
+     "notable",
+     "gout",
+     "takes allopurinol",
+     "denies",
+     "prior thyroid disorder",
+     "runs 4 times per week",
+     "eats",
+     "balanced diet",
+     "mostly fruits",
+     "vegetables",
+     "not smoke",
+     "drinks",
+     "glass",
+     "wine",
+     "dinner",
+     "family history",
+     "notable",
+     "medullary thyroid cancer",
+     "maternal uncle",
+     "temperature",
+     "97",
+     "36",
+     "blood pressure",
+     "72 mmHg",
+     "pulse",
+     "87 min",
+     "respirations",
+     "min",
+     "exam",
+     "firm",
+     "symmetric",
+     "stone firm thyroid",
+     "biopsy",
+     "patient's lesion",
+     "most likely",
+     "following findings"
+    ],
+    "options": {
+     "A": "Diffuse infiltrate of lymphoid cells destroying thyroid follicles",
+     "B": "Dense fibroinflammatory infiltrate",
+     "C": "Pleomorphic undifferentiated infiltrative cells with necrosis",
+     "D": "Stromal amyloid deposition"
+    },
+    "question": "A 65-year-old man presents to his primary care physician with a neck mass. He first noticed a firm mass on the anterior aspect of his neck approximately 4 months ago. The mass is painless and has not increased in size since then. He has also noticed occasional fatigue and has gained 10 pounds in the past 4 months despite no change in his diet or exercise frequency. His past medical history is notable for gout for which he takes allopurinol. He denies any prior thyroid disorder. He runs 4 times per week and eats a balanced diet of mostly fruits and vegetables. He does not smoke and drinks a glass of wine with dinner. His family history is notable for medullary thyroid cancer in his maternal uncle. His temperature is 97.8°F (36.6°C), blood pressure is 127/72 mmHg, pulse is 87/min, and respirations are 19/min. On exam, he has a firm, symmetric, and stone-firm thyroid. A biopsy of this patient's lesion would most likely demonstrate which of the following findings?"
+   },
+   "row_idx": 237,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "Cystocele",
+    "answer_idx": "B",
+    "meta_info": "step1",
+    "metamap_phrases": [
+     "year old woman",
+     "physician",
+     "month history",
+     "difficulty starting urination",
+     "vague sensation",
+     "fullness",
+     "pelvis",
+     "speculum examination",
+     "lithotomy position shows",
+     "pink structure",
+     "vaginal introitus",
+     "anterior vaginal wall",
+     "patient",
+     "to cough",
+     "following",
+     "most likely cause",
+     "patient's symptoms"
+    ],
+    "options": {
+     "A": "Vaginal rhabdomyosarcoma",
+     "B": "Cystocele",
+     "C": "Rectocele",
+     "D": "Uterine leiomyomata"
+    },
+    "question": "A 79-year-old woman comes to the physician because of a 1-month history of difficulty starting urination and a vague sensation of fullness in the pelvis. Pelvic speculum examination in the lithotomy position shows a pink structure at the vaginal introitus that protrudes from the anterior vaginal wall when the patient is asked to cough. Which of the following is the most likely cause of this patient's symptoms?"
+   },
+   "row_idx": 805,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "Night blindness",
+    "answer_idx": "C",
+    "meta_info": "step1",
+    "metamap_phrases": [
+     "year old man",
+     "Crohn disease",
+     "physician",
+     "1-week history",
+     "dysuria",
+     "urinary urgency",
+     "treated",
+     "urinary tract infections twice",
+     "past 6 months",
+     "currently taking infliximab",
+     "Cystoscopy shows pearl like plaques",
+     "bladder",
+     "Biopsy",
+     "lesions shows",
+     "focal layer",
+     "stratified squamous epithelium",
+     "hyperkeratosis",
+     "patient's bladder finding",
+     "caused",
+     "a vitamin deficiency",
+     "following features",
+     "likely to",
+     "seen"
+    ],
+    "options": {
+     "A": "Carpopedal spasm",
+     "B": "Photodermatitis",
+     "C": "Night blindness",
+     "D": "Intracranial hypertension"
+    },
+    "question": "A 52-year-old man with Crohn disease comes to the physician because of a 1-week history of dysuria and urinary urgency. He had been treated for urinary tract infections twice in the past 6 months. He is currently taking infliximab. Cystoscopy shows pearl-like plaques on the bladder wall. Biopsy of these lesions shows a focal layer of stratified squamous epithelium with hyperkeratosis. If the patient's bladder finding is caused by a vitamin deficiency, which of the following features is also most likely to be seen?"
+   },
+   "row_idx": 787,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "Cognitive behavioral therapy",
+    "answer_idx": "B",
+    "meta_info": "step2&3",
+    "metamap_phrases": [
+     "year old man",
+     "primary care physician to discuss",
+     "fear of flying",
+     "patient reports",
+     "fear of flying",
+     "teenager",
+     "family vacation",
+     "years",
+     "flight",
+     "landing",
+     "then",
+     "flying",
+     "not go",
+     "cousins wedding",
+     "out",
+     "country",
+     "unable to visit",
+     "grandmother",
+     "80th",
+     "last time",
+     "job",
+     "to meet",
+     "client out",
+     "state",
+     "drove 18 hours",
+     "flying",
+     "Two years",
+     "promised",
+     "fly",
+     "Florida",
+     "arrival",
+     "airport",
+     "began to feel dizzy",
+     "lightheaded",
+     "refused to go",
+     "security",
+     "clinic visit",
+     "patient appears anxious",
+     "distressed",
+     "fear",
+     "irrational",
+     "upset",
+     "affecting",
+     "relationship",
+     "wife",
+     "current job",
+     "employees",
+     "sales position to fly to meet potential clients",
+     "embarrassed to",
+     "conversation",
+     "manager",
+     "fear of flying",
+     "following",
+     "best therapy",
+     "patients condition"
+    ],
+    "options": {
+     "A": "Alprazolam",
+     "B": "Cognitive behavioral therapy",
+     "C": "Fluoxetine",
+     "D": "Psychodynamic psychotherapy"
+    },
+    "question": "A 32-year-old man arrives to his primary care physician to discuss his fear of flying. The patient reports that he has had a fear of flying since being a teenager. He went on a family vacation 15 years ago, and during the flight there was turbulence and a “rough landing”. Since then he has avoided flying. He did not go to his cousin’s wedding because it was out of the country. He also was unable to visit his grandmother for her 80th birthday. The last time his job asked him to meet a client out of state, he drove 18 hours instead of flying. Two years ago he promised his fiancé they could fly to Florida. Upon arrival at the airport, he began to feel dizzy, lightheaded, and refused to go through security. During the clinic visit, the patient appears anxious and distressed. He recognizes that his fear is irrational. He is upset that it is affecting his relationship with his wife. Additionally, his current job may soon require employees in his sales position to fly to meet potential clients. He is embarrassed to have a conversation with his manager about his fear of flying. Which of the following is the best therapy for the patient’s condition?"
+   },
+   "row_idx": 280,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "Intracellular inclusions of alpha-synuclein",
+    "answer_idx": "C",
+    "meta_info": "step1",
+    "metamap_phrases": [
+     "62 year old man",
+     "brought",
+     "primary care physician",
+     "wife",
+     "concerned",
+     "patient's frequent falls",
+     "Approximately",
+     "months",
+     "started",
+     "walking more slowly",
+     "usual",
+     "fallen",
+     "times",
+     "past month",
+     "worried",
+     "sustain",
+     "serious injury",
+     "not stop falling",
+     "patient",
+     "retired banking executive",
+     "active",
+     "age",
+     "60",
+     "not smoke",
+     "drinks 2 alcoholic beverages",
+     "day",
+     "family history",
+     "notable",
+     "normal pressure hydrocephalus",
+     "mother",
+     "Alzheimer dementia",
+     "father",
+     "temperature",
+     "97",
+     "36",
+     "blood pressure",
+     "81 mmHg",
+     "pulse",
+     "68 min",
+     "respirations",
+     "min",
+     "exam",
+     "movements appear slowed",
+     "forced",
+     "shuffles",
+     "feet",
+     "walks",
+     "Tone",
+     "increased",
+     "upper",
+     "lower extremities",
+     "patient's condition",
+     "most",
+     "associated with",
+     "following histologic findings",
+     "brain autopsy"
+    ],
+    "options": {
+     "A": "Accumulations of beta-pleated sheets",
+     "B": "Atrophy of the caudate nucleus",
+     "C": "Intracellular inclusions of alpha-synuclein",
+     "D": "Intracellular inclusions of hyperphosphorylated tau"
+    },
+    "question": "A 62-year-old man is brought to his primary care physician by his wife who is concerned about the patient's frequent falls. Approximately 6 months ago, she started noticing that he was walking more slowly than usual. He has fallen more than 6 times in the past month, and she is worried that he will sustain a serious injury if he does not stop falling. The patient is a retired banking executive and was active as a triathlete until the age of 60. He does not smoke and drinks 2-3 alcoholic beverages per day. His family history is notable for normal pressure hydrocephalus in his mother and Alzheimer dementia in his father. His temperature is 97.8°F (36.6°C), blood pressure is 131/81 mmHg, pulse is 68/min, and respirations are 19/min. On exam, his movements appear slowed and forced. He shuffles his feet when he walks. Tone is increased in his upper and lower extremities bilaterally. This patient's condition is most strongly associated with which of the following histologic findings on brain autopsy?"
+   },
+   "row_idx": 322,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "Actinic keratosis",
+    "answer_idx": "C",
+    "meta_info": "step1",
+    "metamap_phrases": [
+     "68 year old man",
+     "California presents",
+     "routine checkup",
+     "not",
+     "complaints",
+     "to keep",
+     "healthy",
+     "active",
+     "jogging",
+     "gardening",
+     "retirement",
+     "age 50",
+     "adds",
+     "spends",
+     "mornings",
+     "park",
+     "afternoons",
+     "garden",
+     "significant medical history",
+     "patient denies",
+     "smoking history",
+     "drinks alcohol occasionally",
+     "physical examination",
+     "following lesion",
+     "seen",
+     "scalp",
+     "see image",
+     "following",
+     "most likely diagnosis"
+    ],
+    "options": {
+     "A": "Psoriasis",
+     "B": "Seborrheic keratosis",
+     "C": "Actinic keratosis",
+     "D": "Squamous cell carcinoma"
+    },
+    "question": "A 68-year-old man from California presents for a routine checkup. He does not have any complaints. He says that he has tried to keep himself healthy and active by jogging and gardening since his retirement at age 50. He adds that he spends his mornings in the park and his afternoons in his garden. He has no significant medical history. The patient denies any smoking history and drinks alcohol occasionally. On physical examination, the following lesion is seen on his scalp (see image). Which of the following is the most likely diagnosis?"
+   },
+   "row_idx": 256,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "Reducing daily insulin dose",
+    "answer_idx": "D",
+    "meta_info": "step2&3",
+    "metamap_phrases": [
+     "year old man presents",
+     "primary care physician",
+     "follow-up visit",
+     "type 1 diabetes mellitus",
+     "takes insulin",
+     "of frequent episodes",
+     "waking",
+     "middle",
+     "sleep",
+     "wakes up",
+     "feels excessive sweating",
+     "hand tremors",
+     "weakness",
+     "morning blood glucose",
+     "high",
+     "repeated measurement",
+     "following",
+     "optimal intervention",
+     "patient condition"
+    ],
+    "options": {
+     "A": "Reassurance",
+     "B": "Adding pramlintide",
+     "C": "Increasing daily insulin dose",
+     "D": "Reducing daily insulin dose"
+    },
+    "question": "A 42-year-old man presents to his primary care physician for a follow-up visit. He has type 1 diabetes mellitus, for which he takes insulin. He complains of frequent episodes of waking up in the middle of his sleep. When he wakes up, he feels excessive sweating, hand tremors, and weakness. His morning blood glucose is high on repeated measurement. Which of the following is the optimal intervention for this patient condition?"
+   },
+   "row_idx": 740,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "IV steroids",
+    "answer_idx": "C",
+    "meta_info": "step2&3",
+    "metamap_phrases": [
+     "55 year old man presents",
+     "emergency department",
+     "headache",
+     "states",
+     "worst headache",
+     "symptoms",
+     "not",
+     "improving",
+     "patient",
+     "pain",
+     "jaw",
+     "worse",
+     "chews",
+     "past medical insomnia",
+     "currently taking alprazolam",
+     "temperature",
+     "98",
+     "36",
+     "blood pressure",
+     "98 mmHg",
+     "pulse",
+     "90 min",
+     "respirations",
+     "min",
+     "oxygen saturation",
+     "98",
+     "room air",
+     "Physical exam",
+     "notable",
+     "tenderness",
+     "patient's scalp",
+     "jaw",
+     "temporal area",
+     "following",
+     "best next step",
+     "management"
+    ],
+    "options": {
+     "A": "CT head",
+     "B": "Ibuprofen",
+     "C": "IV steroids",
+     "D": "Lumbar puncture"
+    },
+    "question": "A 55-year-old man presents to the emergency department with a headache. He states that this is the worst headache he has ever had and that his symptoms have not been improving. The patient complains of pain in his jaw that is worse when he chews. He has a past medical history of insomnia and is currently taking alprazolam. His temperature is 98.2°F (36.8°C), blood pressure is 157/98 mmHg, pulse is 90/min, respirations are 15/min, and oxygen saturation is 98% on room air. Physical exam is notable for tenderness over the patient's scalp, jaw, and temporal area. Which of the following is the best next step in management?"
+   },
+   "row_idx": 749,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "Impaired urine concentration ability",
+    "answer_idx": "D",
+    "meta_info": "step2&3",
+    "metamap_phrases": [
+     "year old African American man presents",
+     "primary care provider",
+     "routine blood work",
+     "well known case",
+     "sickle cell disease treated with hydroxyurea",
+     "tramadol as needed",
+     "pain",
+     "not smoke",
+     "drink alcohol",
+     "patient",
+     "his disease",
+     "affect",
+     "kidneys",
+     "friend",
+     "recently diagnosed",
+     "end-stage renal failure",
+     "following",
+     "renal complication of sickle cell disease"
+    ],
+    "options": {
+     "A": "Membranous glomerulonephritis",
+     "B": "Proximal renal tubular acidosis",
+     "C": "Impaired urine diluting ability",
+     "D": "Impaired urine concentration ability"
+    },
+    "question": "A 25-year-old African American man presents to his primary care provider for routine blood work. He is a well-known case of sickle cell disease treated with hydroxyurea and tramadol as needed for pain. He does not smoke or drink alcohol. The patient asks if his disease can adversely affect his kidneys because his friend was recently diagnosed with end-stage renal failure. Which of the following is a renal complication of sickle cell disease?"
+   },
+   "row_idx": 774,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "Choledocholithiasis",
+    "answer_idx": "B",
+    "meta_info": "step2&3",
+    "metamap_phrases": [
+     "year old woman",
+     "brought",
+     "emergency department",
+     "three 1 hour episodes",
+     "severe",
+     "sharp",
+     "penetrating abdominal pain",
+     "right upper quadrant",
+     "episodes",
+     "nausea",
+     "vomiting",
+     "diarrhea",
+     "dysuria",
+     "hematuria",
+     "asymptomatic",
+     "episodes",
+     "hypertension",
+     "hyperlipidemia",
+     "Seven years",
+     "resection of",
+     "terminal ileum",
+     "severe Crohn",
+     "isease.",
+     "  t   ",
+     "all ",
+     "g ",
+     "MI ",
+     "g/m2.",
+     "emperature ",
+     "6.",
+     "8.",
+     "ulse ",
+     "0/ in,",
+     "lood pressure ",
+     "5  m Hg.",
+     "ild  cleral icterus.",
+     "ardiopulmonary  xamination  hows ",
+     "bnormalities.",
+     "bdomen ",
+     "oft,",
+     "enderness ",
+     "alpation ",
+     "ight upper quadrant ",
+     "uarding ",
+     "owel sounds ",
+     "ormal.",
+     "tool ",
+     "rown,",
+     "est ",
+     "ccult blood ",
+     "egative.",
+     "aboratory studies  how:",
+     "emoglobin  2.5 ",
+     "eukocyte count ",
+     "m3  latelet count ",
+     "erum ",
+     "lkaline phosphatase  48 ",
+     " ",
+     "bdominal  ltrasonography  hows ",
+     "ormal liver,",
+     "ommon bile duct  aliber ",
+     "0  m ",
+     "ormal ",
+     " mm)",
+     "allbladder ",
+     "ultiple  allstones ",
+     "all  hickening ",
+     "luid.",
+     "ollowing ",
+     "ost  ikely  ause ",
+     "indings?"
+    ],
+    "options": {
+     "A": "Acute hepatitis A",
+     "B": "Choledocholithiasis",
+     "C": "Cholecystitis",
+     "D": "Pancreatitis\n\""
+    },
+    "question": "A 38-year-old woman is brought to the emergency department because of three 1-hour episodes of severe, sharp, penetrating abdominal pain in the right upper quadrant. During these episodes, she has had nausea and vomiting. She has no diarrhea, dysuria, or hematuria and is asymptomatic between episodes. She has hypertension and hyperlipidemia. Seven years ago, she underwent resection of the terminal ileum because of severe Crohn's disease. She is 155 cm (5 ft 2 in) tall and weighs 79 kg (175 lb); BMI is 32 kg/m2. Her temperature is 36.9°C (98.5°F), pulse is 80/min, and blood pressure is 130/95 mm Hg. There is mild scleral icterus. Cardiopulmonary examination shows no abnormalities. The abdomen is soft, and there is tenderness to palpation of the right upper quadrant without guarding or rebound. Bowel sounds are normal. The stool is brown, and test for occult blood is negative. Laboratory studies show:\nHemoglobin 12.5 g/dL\nLeukocyte count 9,500 mm3\nPlatelet count 170,000 mm3\nSerum\nTotal bilirubin 4.1 mg/dL\nAlkaline phosphatase 348 U/L\nAST 187 U/L\nALT 260 U/L\nAbdominal ultrasonography shows a normal liver, a common bile duct caliber of 10 mm (normal < 6 mm) and a gallbladder with multiple gallstones and no wall thickening or pericholecystic fluid. Which of the following is the most likely cause of these findings?\""
+   },
+   "row_idx": 754,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answer": "Intravenous dexamethasone therapy",
+    "answer_idx": "B",
+    "meta_info": "step2&3",
+    "metamap_phrases": [
+     "76 year old man",
+     "brought",
+     "physician",
+     "wife",
+     "low back pain",
+     "weakness",
+     "past 4 weeks",
+     "pain",
+     "sharp",
+     "radiates",
+     "left side",
+     "burning quality",
+     "cough occasionally productive of blood streaked sputum",
+     "past",
+     "months",
+     "3.2 kg",
+     "0",
+     "weight loss",
+     "time",
+     "now unable to walk",
+     "assistance",
+     "constipation",
+     "difficulty urinating",
+     "past 2 weeks",
+     "hypertension treated with enalapril",
+     "smoked 1 pack",
+     "cigarettes daily",
+     "60 years",
+     "temperature",
+     "98",
+     "pulse",
+     "75 min",
+     "blood pressure",
+     "80 mm Hg",
+     "oriented to person",
+     "place",
+     "time",
+     "Neurologic examination shows 3/5 strength of",
+     "lower extremities",
+     "Deep tendon reflexes",
+     "Babinski sign",
+     "present",
+     "Sensory examination shows decreased sensation",
+     "pinprick",
+     "T4 dermatome",
+     "unable to",
+     "recumbent due to severe pain",
+     "x-ray of",
+     "chest shows multiple round opacities",
+     "sizes",
+     "lungs",
+     "following",
+     "most appropriate next step",
+     "management",
+     "patient"
+    ],
+    "options": {
+     "A": "Radiation therapy",
+     "B": "Intravenous dexamethasone therapy",
+     "C": "Intravenous acyclovir therapy",
+     "D": "Intravenous ceftriaxone and azithromycin therapy"
+    },
+    "question": "A 76-year-old man is brought to the physician by his wife because of low back pain and weakness for the past 4 weeks. He says that the pain is sharp, radiates to his left side, and has a burning quality. He has had a cough occasionally productive of blood-streaked sputum for the past 2 months. He has had 3.2-kg (7.0-lb) weight loss in that time. He is now unable to walk without assistance and has had constipation and difficulty urinating for the past 2 weeks. He has hypertension treated with enalapril. He has smoked 1 pack of cigarettes daily for 60 years. His temperature is 37°C (98.6°F), pulse is 75/min, and blood pressure is 150/80 mm Hg. He is oriented to person, place, and time. Neurologic examination shows 3/5 strength of the lower extremities. Deep tendon reflexes are hyperreflexive. Babinski sign is present bilaterally. Sensory examination shows decreased sensation to pinprick below the T4 dermatome. He is unable to lie recumbent due to severe pain. An x-ray of the chest shows multiple round opacities of varying sizes in both lungs. Which of the following is the most appropriate next step in the management of this patient?"
+   },
+   "row_idx": 279,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "GBaker/MedQA-USMLE-4-options",
+  "split": "test"
+ }
+}

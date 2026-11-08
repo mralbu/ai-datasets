@@ -148,6 +148,13 @@
    "fetched_at": "2026-11-07T22:33:21+00:00",
    "rows": 9
   },
+  "hotpotqa": {
+   "fingerprint": "f4147adeba2826f8",
+   "hf": "hotpotqa/hotpot_qa",
+   "revision": "1908d6afbbead072334abe2965f91bd2709910ab",
+   "fetched_at": "2026-11-08T04:22:06+00:00",
+   "rows": 8
+  },
   "humaneval": {
    "fingerprint": "acdad41f0bc2bf49",
    "hf": "openai/openai_humaneval",
@@ -218,6 +225,13 @@
    "fetched_at": "2026-11-07T21:34:17+00:00",
    "rows": 21
   },
+  "medqa": {
+   "fingerprint": "054b86b271ff03c7",
+   "hf": "GBaker/MedQA-USMLE-4-options",
+   "revision": "0fb93dd23a7339b6dcd27e241cb9b5eca62d4d18",
+   "fetched_at": "2026-11-08T04:22:07+00:00",
+   "rows": 12
+  },
   "mmlu": {
    "fingerprint": "51947459d1786af2",
    "hf": "cais/mmlu",
@@ -260,6 +274,13 @@
    "fetched_at": "2026-11-08T03:53:57+00:00",
    "rows": 9
   },
+  "natural-questions": {
+   "fingerprint": "f7cb41fdb31d394d",
+   "hf": "cjlovering/natural-questions-short",
+   "revision": "1c022733f473ab1c86b7799f1ca8e52411df5c28",
+   "fetched_at": "2026-11-08T04:22:09+00:00",
+   "rows": 12
+  },
   "nyu-depth-v2": {
    "fingerprint": "69107e7940a50b31",
    "hf": "tanganke/nyuv2",
@@ -280,6 +301,13 @@
    "revision": "9c22fd683717086d5dd5ec93a57ed1cdd5eca067",
    "fetched_at": "2026-11-07T21:34:29+00:00",
    "rows": 18
+  },
+  "pubmedqa": {
+   "fingerprint": "ef511168194e854d",
+   "hf": "qiaojin/PubMedQA",
+   "revision": "9001f2853fb87cab8d220904e0de81ac6973b318",
+   "fetched_at": "2026-11-08T04:22:10+00:00",
+   "rows": 12
   },
   "simpleqa-verified": {
    "fingerprint": "eaeb75bb77ce2cee",
@@ -357,6 +385,13 @@
    "revision": "741b8276f2d1982aa3d5b832d3ee81ed3b896490",
    "fetched_at": "2026-11-07T22:35:09+00:00",
    "rows": 16
+  },
+  "uc-merced": {
+   "fingerprint": "9d4eec99914342d4",
+   "hf": "blanchon/UC_Merced",
+   "revision": "b79f9bfb55cd7731306d583c3e072c8c010bac61",
+   "fetched_at": "2026-11-08T04:25:39+00:00",
+   "rows": 84
   },
   "visual-genome": {
    "fingerprint": "b43d29dd9ae7883c",

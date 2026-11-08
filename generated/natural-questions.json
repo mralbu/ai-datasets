@@ -1,0 +1,460 @@
+{
+ "features": [
+  {
+   "name": "contexts",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "has_correct_context",
+   "type": {
+    "_type": "Value",
+    "dtype": "bool"
+   }
+  },
+  {
+   "name": "name",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "answers",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "candidate_id": {
+      "_type": "Value",
+      "dtype": "int64"
+     },
+     "input_text": {
+      "_type": "Value",
+      "dtype": "string"
+     },
+     "span_end": {
+      "_type": "Value",
+      "dtype": "int64"
+     },
+     "span_start": {
+      "_type": "Value",
+      "dtype": "int64"
+     },
+     "span_text": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   }
+  },
+  {
+   "name": "id",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "questions",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "input_text": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   }
+  }
+ ],
+ "fetched_at": "2026-11-08T04:22:09+00:00",
+ "id": "natural-questions",
+ "num_rows_total": 871,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "contexts",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "has_correct_context",
+     "type": {
+      "_type": "Value",
+      "dtype": "bool"
+     }
+    },
+    {
+     "name": "name",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answers",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "candidate_id": {
+        "_type": "Value",
+        "dtype": "int64"
+       },
+       "input_text": {
+        "_type": "Value",
+        "dtype": "string"
+       },
+       "span_end": {
+        "_type": "Value",
+        "dtype": "int64"
+       },
+       "span_start": {
+        "_type": "Value",
+        "dtype": "int64"
+       },
+       "span_text": {
+        "_type": "Value",
+        "dtype": "string"
+       }
+      }
+     }
+    },
+    {
+     "name": "id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "questions",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "input_text": {
+        "_type": "Value",
+        "dtype": "string"
+       }
+      }
+     }
+    }
+   ],
+   "num_rows_total": 871,
+   "split": "validation"
+  }
+ ],
+ "revision": "1c022733f473ab1c86b7799f1ca8e52411df5c28",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     {
+      "candidate_id": 0,
+      "input_text": "short",
+      "span_end": 406,
+      "span_start": 279,
+      "span_text": "a security feature for `` card not present '' payment card transactions instituted to reduce the incidence of credit card fraud"
+     }
+    ],
+    "contexts": "A card security code ( CSC ; also called card verification data ( CVD ) , card verification number , card verification value ( CVV ) , card verification value code , card verification code ( CVC ) , verification code ( V - code or V code ) , or signature panel code ( SPC ) ) is a security feature for `` card not present '' payment card transactions instituted to reduce the incidence of credit card fraud .",
+    "has_correct_context": true,
+    "id": "-4463524755977549691",
+    "name": "Card security code",
+    "questions": [
+     {
+      "input_text": "what is a cvv code on a visa gift card"
+     }
+    ]
+   },
+   "row_idx": 223,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     {
+      "candidate_id": 0,
+      "input_text": "short",
+      "span_end": 20,
+      "span_start": 13,
+      "span_text": "Spanish"
+     }
+    ],
+    "contexts": "Tavarez is a Spanish surname , the Portuguese version of this surname is Tavares . It may refer to :",
+    "has_correct_context": true,
+    "id": "-7724688015982273680",
+    "name": "Tavarez",
+    "questions": [
+     {
+      "input_text": "where does the last name tavarez come from"
+     }
+    ]
+   },
+   "row_idx": 150,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     {
+      "candidate_id": 0,
+      "input_text": "short",
+      "span_end": 301,
+      "span_start": 101,
+      "span_text": "James Ray in 1962 , under the title `` I 've Got My Mind Set on You '' . An edited version of the song was released later in the year as a single on the Dynamic Sound label . In 1987 , George Harrison"
+     }
+    ],
+    "contexts": "`` Got My Mind Set on You '' is a song written and composed by Rudy Clark and originally recorded by James Ray in 1962 , under the title `` I 've Got My Mind Set on You '' . An edited version of the song was released later in the year as a single on the Dynamic Sound label . In 1987 , George Harrison released a cover version of the song as a single , and released it on his album Cloud Nine , which he had recorded on his own Dark Horse Records label .",
+    "has_correct_context": true,
+    "id": "8823076125131408628",
+    "name": "Got My Mind Set on You",
+    "questions": [
+     {
+      "input_text": "who sings got my mind set on you"
+     }
+    ]
+   },
+   "row_idx": 196,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     {
+      "candidate_id": 0,
+      "input_text": "short",
+      "span_end": 539,
+      "span_start": 506,
+      "span_text": "Scopes Trial in the United States"
+     }
+    ],
+    "contexts": "The term monkey 's uncle , most notably seen in the idiom `` ( well ) I 'll be a monkey 's uncle '' , is used to express complete surprise , amazement or disbelief . It can also be used to acknowledge the impossibility of a situation , in the same way that `` pigs might fly '' is used . An example is if one says : `` I may agree that if two plus two equals five , then I am a monkey 's uncle '' . `` I 'll be a monkey 's uncle '' has been said to date from after 1925 , the date of the widely publicized Scopes Trial in the United States , where the term first appears . The Oxford English Dictionary 's earliest example is the phrase If that 's a joke I 'm a monkey 's uncle , from an Ohio newspaper on 8 February 1925 . It was originally a sarcastic remark made by creationists . The notion `` that ( people ) were descended from apes was considered blasphemous ... by Darwin 's contemporaries '' , and it was for this reason that the sarcastic phrase came into use .",
+    "has_correct_context": true,
+    "id": "6405015309290964923",
+    "name": "Monkey's uncle",
+    "questions": [
+     {
+      "input_text": "where did the saying monkey's uncle come from"
+     }
+    ]
+   },
+   "row_idx": 202,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     {
+      "candidate_id": 0,
+      "input_text": "short",
+      "span_end": 456,
+      "span_start": 441,
+      "span_text": "Masaru Yokoyama"
+     }
+    ],
+    "contexts": "Your Lie in April Cover of the first tankōbon volume featuring Kōsei Arima and Kaori Miyazono 四 月 は 君 の 嘘 ( Shigatsu wa Kimi no Uso ) Manga Written by Naoshi Arakawa Published by Kodansha English publisher Kodansha Comics Demographic Shōnen Magazine Monthly Shōnen Magazine Original run April 6 , 2011 -- February 6 , 2015 Volumes 11 ( List of volumes ) Anime television series Directed by Kyōhei Ishiguro Written by Takao Yoshioka Music by Masaru Yokoyama Studio A-1 Pictures Licensed by Madman Entertainment Aniplex of America Anime Limited Original network Fuji TV ( Noitamina ) Original run October 9 , 2014 -- March 19 , 2015 Episodes 22 ( List of episodes ) Light novel Your Lie in April - A Six Person Etude Written by Yui Tokiumi Published by Kodansha English publisher Vertical Published November 17 , 2014 Volumes Manga Shigatsu wa Kimi no Uso : Coda Written by Naoshi Arakawa Demographic Shōnen Original run February 25 , 2015 -- October 28 , 2015 Volumes Original video animation Moments Directed by Kazuya Iwata Written by Takao Yoshioka Music by Masaru Yokoyama Studio A-1 Pictures Released May 15 , 2015 Runtime 23 minutes Live - action film Your Lie in April ( film ) Anime and Manga portal",
+    "has_correct_context": true,
+    "id": "6728482020797819238",
+    "name": "Your Lie in April",
+    "questions": [
+     {
+      "input_text": "who did the music for your lie in april"
+     }
+    ]
+   },
+   "row_idx": 741,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     {
+      "candidate_id": 0,
+      "input_text": "short",
+      "span_end": 386,
+      "span_start": 204,
+      "span_text": "plays a key role in digestion of proteins , by activating digestive enzymes , and making ingested proteins unravel so that digestive enzymes break down the long chains of amino acids"
+     }
+    ],
+    "contexts": "Gastric acid , gastric juice or stomach acid , is a digestive fluid formed in the stomach and is composed of hydrochloric acid ( HCl ) , potassium chloride ( KCl ) and sodium chloride ( NaCl ) . The acid plays a key role in digestion of proteins , by activating digestive enzymes , and making ingested proteins unravel so that digestive enzymes break down the long chains of amino acids . Gastric acid is produced by cells in the lining of the stomach , which are coupled in feedback systems to increase acid production when needed . Other cells in the stomach produce bicarbonate , a base , to buffer the fluid , ensuring that it does not become too acidic . These cells also produce mucus , which forms a viscous physical barrier to prevent gastric acid from damaging the stomach . The pancreas further produces large amounts of bicarbonate and secretes bicarbonate through the pancreatic duct to the duodenum to completely neutralize any gastric acid that passes further down into the digestive tract .",
+    "has_correct_context": true,
+    "id": "-2001755377002783202",
+    "name": "Gastric acid",
+    "questions": [
+     {
+      "input_text": "what is the role of hcl in the stomach"
+     }
+    ]
+   },
+   "row_idx": 752,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     {
+      "candidate_id": 0,
+      "input_text": "short",
+      "span_end": 208,
+      "span_start": 160,
+      "span_text": "drizzle , rain , sleet , snow , graupel and hail"
+     }
+    ],
+    "contexts": "In meteorology , precipitation is any product of the condensation of atmospheric water vapor that falls under gravity . The main forms of precipitation include drizzle , rain , sleet , snow , graupel and hail . Precipitation occurs when a portion of the atmosphere becomes saturated with water vapor , so that the water condenses and `` precipitates '' . Thus , fog and mist are not precipitation but suspensions , because the water vapor does not condense sufficiently to precipitate . Two processes , possibly acting together , can lead to air becoming saturated : cooling the air or adding water vapor to the air . Precipitation forms as smaller droplets coalesce via collision with other rain drops or ice crystals within a cloud . Short , intense periods of rain in scattered locations are called `` showers . ''",
+    "has_correct_context": true,
+    "id": "3610488274381813727",
+    "name": "Precipitation",
+    "questions": [
+     {
+      "input_text": "what are the four main types of precipitation"
+     }
+    ]
+   },
+   "row_idx": 799,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     {
+      "candidate_id": 0,
+      "input_text": "short",
+      "span_end": 585,
+      "span_start": 545,
+      "span_text": "September 30 , 1999 -- October 14 , 2006"
+     }
+    ],
+    "contexts": "A Series of Unfortunate Events The Bad Beginning The Reptile Room The Wide Window The Miserable Mill The Austere Academy The Ersatz Elevator The Vile Village The Hostile Hospital The Carnivorous Carnival The Slippery Slope The Grim Grotto The Penultimate Peril The End Author Lemony Snicket Illustrator Brett Helquist Cover artist Brett Helquist Country United States Language English Genre Gothic fiction , Absurdist fiction , Mystery , Steampunk , Comedy - Drama , Children 's fiction , Black comedy Publisher HarperCollins EgmontUK Published September 30 , 1999 -- October 14 , 2006",
+    "has_correct_context": true,
+    "id": "374835558462691663",
+    "name": "A Series of Unfortunate Events",
+    "questions": [
+     {
+      "input_text": "when was a series of unfortunate events published"
+     }
+    ]
+   },
+   "row_idx": 763,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     {
+      "candidate_id": 0,
+      "input_text": "short",
+      "span_end": 542,
+      "span_start": 490,
+      "span_text": "Mick Jagger Keith Richards Charlie Watts Ronnie Wood"
+     }
+    ],
+    "contexts": "The Rolling Stones The Rolling Stones performing at Summerfest in Milwaukee in 2015 . Left to right : Charlie Watts , Ronnie Wood , Mick Jagger and Keith Richards Background information Origin London , England Genres Rock blues Years active 1962 -- present Labels Decca London Rolling Stones Virgin ABKCO Interscope Polydor Associated acts The New Barbarians Billy Preston Faces The Pretty Things John Mayall & the Bluesbreakers Bill Wyman 's Rhythm Kings Website rollingstones.com Members Mick Jagger Keith Richards Charlie Watts Ronnie Wood Past members Brian Jones Ian Stewart Dick Taylor Bill Wyman Mick Taylor",
+    "has_correct_context": true,
+    "id": "-7816789034233739974",
+    "name": "The Rolling Stones",
+    "questions": [
+     {
+      "input_text": "what are the band members names of the rolling stones"
+     }
+    ]
+   },
+   "row_idx": 723,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     {
+      "candidate_id": 0,
+      "input_text": "short",
+      "span_end": 47,
+      "span_start": 14,
+      "span_text": "90 ° N 0 ° W ﻿ / ﻿ 90 ° N - 0 ° E"
+     }
+    ],
+    "contexts": "Coordinates : 90 ° N 0 ° W ﻿ / ﻿ 90 ° N - 0 ° E ﻿ / 90 ; - 0",
+    "has_correct_context": true,
+    "id": "-6959456828837530300",
+    "name": "North Pole",
+    "questions": [
+     {
+      "input_text": "where is the north pole on the world map"
+     }
+    ]
+   },
+   "row_idx": 731,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     {
+      "candidate_id": 0,
+      "input_text": "short",
+      "span_end": 163,
+      "span_start": 151,
+      "span_text": "peptide bond"
+     }
+    ],
+    "contexts": "A dipeptide is a sometimes ambiguous designation of two classes of organic compounds : Its molecules contain either two amino acids joined by a single peptide bond or one amino acid with two peptide bonds .",
+    "has_correct_context": true,
+    "id": "938657920608427711",
+    "name": "Dipeptide",
+    "questions": [
+     {
+      "input_text": "what type of reaction occurs to form a dipeptide"
+     }
+    ]
+   },
+   "row_idx": 187,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     {
+      "candidate_id": 0,
+      "input_text": "short",
+      "span_end": 189,
+      "span_start": 182,
+      "span_text": "Chennai"
+     }
+    ],
+    "contexts": "Bigg Boss Season 1 logo Presented by Kamal Hassan Country of origin India Original language ( s ) Tamil No. of seasons No. of episodes 97 ( remaining 3 ? ) Production Location ( s ) Chennai Running time 90 minutes Production company ( s ) Endemol India Release Original release 25 June 2017 ( 2017 - 06 - 25 )",
+    "has_correct_context": true,
+    "id": "560971710217153823",
+    "name": "Bigg Boss Tamil",
+    "questions": [
+     {
+      "input_text": "where is bigg boss tamil house is located"
+     }
+    ]
+   },
+   "row_idx": 158,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "cjlovering/natural-questions-short",
+  "split": "validation"
+ }
+}

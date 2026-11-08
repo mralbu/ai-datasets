@@ -1,0 +1,1186 @@
+{
+ "features": [
+  {
+   "name": "image",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "label",
+   "type": {
+    "_type": "ClassLabel",
+    "names": [
+     "agricultural",
+     "airplane",
+     "baseballdiamond",
+     "beach",
+     "buildings",
+     "chaparral",
+     "denseresidential",
+     "forest",
+     "freeway",
+     "golfcourse",
+     "harbor",
+     "intersection",
+     "mediumresidential",
+     "mobilehomepark",
+     "overpass",
+     "parkinglot",
+     "river",
+     "runway",
+     "sparseresidential",
+     "storagetanks",
+     "tenniscourt"
+    ]
+   }
+  }
+ ],
+ "fetched_at": "2026-11-08T04:25:39+00:00",
+ "id": "uc-merced",
+ "num_rows_total": 2100,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "image",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "label",
+     "type": {
+      "_type": "ClassLabel",
+      "names": [
+       "agricultural",
+       "airplane",
+       "baseballdiamond",
+       "beach",
+       "buildings",
+       "chaparral",
+       "denseresidential",
+       "forest",
+       "freeway",
+       "golfcourse",
+       "harbor",
+       "intersection",
+       "mediumresidential",
+       "mobilehomepark",
+       "overpass",
+       "parkinglot",
+       "river",
+       "runway",
+       "sparseresidential",
+       "storagetanks",
+       "tenniscourt"
+      ]
+     }
+    }
+   ],
+   "num_rows_total": 2100,
+   "split": "train"
+  }
+ ],
+ "revision": "b79f9bfb55cd7731306d583c3e072c8c010bac61",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1825-image.jpg",
+     "width": 256
+    },
+    "label": 18
+   },
+   "row_idx": 1825,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1191-image.jpg",
+     "width": 256
+    },
+    "label": 11
+   },
+   "row_idx": 1191,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1871-image.jpg",
+     "width": 256
+    },
+    "label": 18
+   },
+   "row_idx": 1871,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1309-image.jpg",
+     "width": 256
+    },
+    "label": 13
+   },
+   "row_idx": 1309,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1643-image.jpg",
+     "width": 256
+    },
+    "label": 16
+   },
+   "row_idx": 1643,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/797-image.jpg",
+     "width": 256
+    },
+    "label": 7
+   },
+   "row_idx": 797,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/638-image.jpg",
+     "width": 256
+    },
+    "label": 6
+   },
+   "row_idx": 638,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1329-image.jpg",
+     "width": 256
+    },
+    "label": 13
+   },
+   "row_idx": 1329,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1225-image.jpg",
+     "width": 256
+    },
+    "label": 12
+   },
+   "row_idx": 1225,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1592-image.jpg",
+     "width": 256
+    },
+    "label": 15
+   },
+   "row_idx": 1592,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/624-image.jpg",
+     "width": 256
+    },
+    "label": 6
+   },
+   "row_idx": 624,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/952-image.jpg",
+     "width": 256
+    },
+    "label": 9
+   },
+   "row_idx": 952,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/2078-image.jpg",
+     "width": 256
+    },
+    "label": 20
+   },
+   "row_idx": 2078,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1137-image.jpg",
+     "width": 256
+    },
+    "label": 11
+   },
+   "row_idx": 1137,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1167-image.jpg",
+     "width": 256
+    },
+    "label": 11
+   },
+   "row_idx": 1167,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/232-image.jpg",
+     "width": 256
+    },
+    "label": 2
+   },
+   "row_idx": 232,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/884-image.jpg",
+     "width": 256
+    },
+    "label": 8
+   },
+   "row_idx": 884,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 247,
+     "src": "samples/uc-merced/1470-image.jpg",
+     "width": 247
+    },
+    "label": 14
+   },
+   "row_idx": 1470,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1920-image.jpg",
+     "width": 256
+    },
+    "label": 19
+   },
+   "row_idx": 1920,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1558-image.jpg",
+     "width": 256
+    },
+    "label": 15
+   },
+   "row_idx": 1558,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1739-image.jpg",
+     "width": 256
+    },
+    "label": 17
+   },
+   "row_idx": 1739,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1513-image.jpg",
+     "width": 256
+    },
+    "label": 15
+   },
+   "row_idx": 1513,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/2044-image.jpg",
+     "width": 256
+    },
+    "label": 20
+   },
+   "row_idx": 2044,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/479-image.jpg",
+     "width": 256
+    },
+    "label": 4
+   },
+   "row_idx": 479,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/383-image.jpg",
+     "width": 256
+    },
+    "label": 3
+   },
+   "row_idx": 383,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/18-image.jpg",
+     "width": 256
+    },
+    "label": 0
+   },
+   "row_idx": 18,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/156-image.jpg",
+     "width": 256
+    },
+    "label": 1
+   },
+   "row_idx": 156,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/115-image.jpg",
+     "width": 256
+    },
+    "label": 1
+   },
+   "row_idx": 115,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1794-image.jpg",
+     "width": 256
+    },
+    "label": 17
+   },
+   "row_idx": 1794,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1439-image.jpg",
+     "width": 256
+    },
+    "label": 14
+   },
+   "row_idx": 1439,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/36-image.jpg",
+     "width": 256
+    },
+    "label": 0
+   },
+   "row_idx": 36,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/817-image.jpg",
+     "width": 256
+    },
+    "label": 8
+   },
+   "row_idx": 817,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1934-image.jpg",
+     "width": 256
+    },
+    "label": 19
+   },
+   "row_idx": 1934,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1119-image.jpg",
+     "width": 256
+    },
+    "label": 11
+   },
+   "row_idx": 1119,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1004-image.jpg",
+     "width": 256
+    },
+    "label": 10
+   },
+   "row_idx": 1004,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1980-image.jpg",
+     "width": 256
+    },
+    "label": 19
+   },
+   "row_idx": 1980,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/735-image.jpg",
+     "width": 256
+    },
+    "label": 7
+   },
+   "row_idx": 735,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1201-image.jpg",
+     "width": 256
+    },
+    "label": 12
+   },
+   "row_idx": 1201,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1360-image.jpg",
+     "width": 256
+    },
+    "label": 13
+   },
+   "row_idx": 1360,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/462-image.jpg",
+     "width": 256
+    },
+    "label": 4
+   },
+   "row_idx": 462,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/668-image.jpg",
+     "width": 256
+    },
+    "label": 6
+   },
+   "row_idx": 668,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/212-image.jpg",
+     "width": 256
+    },
+    "label": 2
+   },
+   "row_idx": 212,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/945-image.jpg",
+     "width": 256
+    },
+    "label": 9
+   },
+   "row_idx": 945,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/556-image.jpg",
+     "width": 256
+    },
+    "label": 5
+   },
+   "row_idx": 556,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/2024-image.jpg",
+     "width": 256
+    },
+    "label": 20
+   },
+   "row_idx": 2024,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/142-image.jpg",
+     "width": 256
+    },
+    "label": 1
+   },
+   "row_idx": 142,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1771-image.jpg",
+     "width": 256
+    },
+    "label": 17
+   },
+   "row_idx": 1771,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1650-image.jpg",
+     "width": 256
+    },
+    "label": 16
+   },
+   "row_idx": 1650,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1494-image.jpg",
+     "width": 256
+    },
+    "label": 14
+   },
+   "row_idx": 1494,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/298-image.jpg",
+     "width": 256
+    },
+    "label": 2
+   },
+   "row_idx": 298,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1534-image.jpg",
+     "width": 256
+    },
+    "label": 15
+   },
+   "row_idx": 1534,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1281-image.jpg",
+     "width": 256
+    },
+    "label": 12
+   },
+   "row_idx": 1281,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/503-image.jpg",
+     "width": 256
+    },
+    "label": 5
+   },
+   "row_idx": 503,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/2059-image.jpg",
+     "width": 256
+    },
+    "label": 20
+   },
+   "row_idx": 2059,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/847-image.jpg",
+     "width": 256
+    },
+    "label": 8
+   },
+   "row_idx": 847,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/70-image.jpg",
+     "width": 256
+    },
+    "label": 0
+   },
+   "row_idx": 70,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/192-image.jpg",
+     "width": 256
+    },
+    "label": 1
+   },
+   "row_idx": 192,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1253-image.jpg",
+     "width": 256
+    },
+    "label": 12
+   },
+   "row_idx": 1253,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/359-image.jpg",
+     "width": 256
+    },
+    "label": 3
+   },
+   "row_idx": 359,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/447-image.jpg",
+     "width": 256
+    },
+    "label": 4
+   },
+   "row_idx": 447,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1701-image.jpg",
+     "width": 256
+    },
+    "label": 17
+   },
+   "row_idx": 1701,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/902-image.jpg",
+     "width": 256
+    },
+    "label": 9
+   },
+   "row_idx": 902,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1694-image.jpg",
+     "width": 256
+    },
+    "label": 16
+   },
+   "row_idx": 1694,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/692-image.jpg",
+     "width": 256
+    },
+    "label": 6
+   },
+   "row_idx": 692,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1078-image.jpg",
+     "width": 256
+    },
+    "label": 10
+   },
+   "row_idx": 1078,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/266-image.jpg",
+     "width": 256
+    },
+    "label": 2
+   },
+   "row_idx": 266,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/529-image.jpg",
+     "width": 256
+    },
+    "label": 5
+   },
+   "row_idx": 529,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1412-image.jpg",
+     "width": 256
+    },
+    "label": 14
+   },
+   "row_idx": 1412,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1955-image.jpg",
+     "width": 256
+    },
+    "label": 19
+   },
+   "row_idx": 1955,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1074-image.jpg",
+     "width": 256
+    },
+    "label": 10
+   },
+   "row_idx": 1074,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1886-image.jpg",
+     "width": 256
+    },
+    "label": 18
+   },
+   "row_idx": 1886,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/330-image.jpg",
+     "width": 256
+    },
+    "label": 3
+   },
+   "row_idx": 330,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/321-image.jpg",
+     "width": 256
+    },
+    "label": 3
+   },
+   "row_idx": 321,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1386-image.jpg",
+     "width": 256
+    },
+    "label": 13
+   },
+   "row_idx": 1386,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/596-image.jpg",
+     "width": 256
+    },
+    "label": 5
+   },
+   "row_idx": 596,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1034-image.jpg",
+     "width": 256
+    },
+    "label": 10
+   },
+   "row_idx": 1034,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/758-image.jpg",
+     "width": 256
+    },
+    "label": 7
+   },
+   "row_idx": 758,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/870-image.jpg",
+     "width": 256
+    },
+    "label": 8
+   },
+   "row_idx": 870,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/718-image.jpg",
+     "width": 256
+    },
+    "label": 7
+   },
+   "row_idx": 718,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1600-image.jpg",
+     "width": 256
+    },
+    "label": 16
+   },
+   "row_idx": 1600,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/977-image.jpg",
+     "width": 256
+    },
+    "label": 9
+   },
+   "row_idx": 977,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/419-image.jpg",
+     "width": 256
+    },
+    "label": 4
+   },
+   "row_idx": 419,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/1823-image.jpg",
+     "width": 256
+    },
+    "label": 18
+   },
+   "row_idx": 1823,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "image": {
+     "height": 256,
+     "src": "samples/uc-merced/94-image.jpg",
+     "width": 256
+    },
+    "label": 0
+   },
+   "row_idx": 94,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "blanchon/UC_Merced",
+  "split": "train"
+ }
+}
