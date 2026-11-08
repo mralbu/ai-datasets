@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getDatasets } from '../lib/data';
+import { getDatasets, url } from '../lib/data';
 const count = (await getDatasets()).length;
 ---
 <Base title="About · AI Datasets">
@@ -33,6 +33,12 @@ const count = (await getDatasets()).length;
       Every page has a "Get the data" box with a command for the Hugging Face CLI, and the same in Python
       with the <code>datasets</code> library or Polars. Check the license and size first: some datasets are
       for research use only, and some are hundreds of gigabytes.
+    </p>
+    <h2>For language models</h2>
+    <p>
+      <a href={url('/llms.txt')}><code>llms.txt</code></a> lists every dataset with a link to a plain-Markdown
+      version of its page (the page URL plus <code>.md</code>), and{' '}
+      <a href={url('/llms-full.txt')}><code>llms-full.txt</code></a> has all of them in one file.
     </p>
   </article>
 </Base>

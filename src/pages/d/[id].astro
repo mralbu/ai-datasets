@@ -38,7 +38,7 @@ const facts: [string, string][] = [
   ['License', d.license],
 ];
 ---
-<Base title={`${d.name} · AI Datasets`} description={d.one_liner}>
+<Base title={`${d.name} · AI Datasets`} description={d.one_liner} markdown={url(`/d/${ds.id}.md`)}>
   <p class="crumb"><a href={url('/')}>Catalog</a> / <span class="tag" data-m={d.modality}>{MODALITIES[d.modality]}</span>{d.tags.map((t) => <> <a class="dtag" href={url(`/?tag=${t}`)}>{TAGS[t]}</a></>)}</p>
   <h1>{d.name} <span class="muted">({d.year})</span></h1>
   <p class="lede">{d.one_liner}</p>
