@@ -175,6 +175,7 @@ def rasterize(client: httpx.Client, cell, how: str, max_px: int | None) -> tuple
     The cell is a viewer Image (a mask image, like Cityscapes') or a raw array (NYU's Array3D).
       image    float array, channels first, 0..1                    -> JPEG photo
       labels   class id per pixel (-1 = void)                       -> grayscale PNG, id as the value, 255 = void
+      mask     a black-and-white mask image (ISIC's lesions)         -> labels with 0 = outside, 1 = inside
       depth    meters per pixel, channels first (0 = no reading)    -> grayscale PNG, 1..255 spans 0..max, 0 = missing
       normals  unit vectors, channels first, -1..1                  -> RGB PNG, the usual (n + 1) / 2 coloring
     Returns the file bytes, its extension and metadata for the row (size; class shares; depth range).
@@ -193,7 +194,9 @@ def rasterize(client: httpx.Client, cell, how: str, max_px: int | None) -> tuple
         out = io.BytesIO()
         img.convert("RGB").save(out, "JPEG", quality=88, optimize=True)
         data, ext = out.getvalue(), ".jpg"
-    elif how == "labels":
+    elif how in ("labels", "mask"):
+        if how == "mask":
+            a = (a[..., 0] if a.ndim == 3 else a) > 127
         ids = np.where(a < 0, 255, a).astype(np.uint8)
         img = Image.fromarray(ids, "L")
         if isinstance(cell, dict):

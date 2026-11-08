@@ -111,3 +111,10 @@ button:hover { border-color: var(--accent); }
 .tip-start::after, .icon-links > .tip:first-child::after { left: 0; transform: translate(0, 4px); }
 .tip-start:hover::after, .tip-start:focus-visible::after,
 .icon-links > .tip:first-child:hover::after, .icon-links > .tip:first-child:focus-visible::after { transform: translate(0, 0); }
+
+/* Cross-cutting tags (Medical, Remote sensing…): outlined, neutral, next to the colored category. */
+.dtag {
+  display: inline-flex; align-items: center; gap: 4px; font-size: 0.72rem; line-height: 1.5; padding: 0 7px;
+  border: 1px solid var(--border); border-radius: 999px; color: var(--muted); background: var(--surface); white-space: nowrap;
+}
+a.dtag { color: var(--text); }

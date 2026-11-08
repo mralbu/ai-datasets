@@ -1,0 +1,77 @@
+---
+// A search query and the passages a search engine returned for it (MS MARCO). Annotators marked the
+// passages that answer the query and wrote an answer; both are hidden until "Show the answer".
+import type { SampleRow } from '../../lib/data';
+interface Props {
+  d: { query: string; passages: string; text: string; selected: string; url?: string; answers?: string; type?: string };
+  rows: SampleRow[];
+  k: number;
+}
+const { d, rows, k } = Astro.props;
+const host = (u?: string) => { try { return u ? new URL(u).hostname.replace(/^www\./, '') : ''; } catch { return ''; } };
+const passagesOf = (r: SampleRow) => {
+  const p = r.row[d.passages] ?? {};
+  const texts: string[] = p[d.text] ?? [];
+  return texts.map((t, i) => ({ text: t, sel: !!p[d.selected]?.[i], url: d.url ? p[d.url]?.[i] : undefined }));
+};
+---
+<div class="ret-list">
+  {rows.map((r, i) => {
+    const ps = passagesOf(r);
+    const answers = d.answers ? ((r.row[d.answers] ?? []) as string[]).filter(Boolean) : [];
+    const nSel = ps.filter((p) => p.sel).length;
+    return (
+      <article class="card ret" data-item hidden={i >= k}>
+        <p class="q">
+          <span class="lens" aria-hidden="true">⌕</span>
+          <span class="qt">{r.row[d.query]}</span>
+          {d.type && r.row[d.type] && <span class="tag">{String(r.row[d.type]).toLowerCase()}</span>}
+        </p>
+        <ol class="passages">
+          {ps.map((p) => (
+            <li class:list={{ sel: p.sel }} data-passage>
+              {p.url && <span class="src">{host(p.url)}</span>}
+              <span class="txt">{p.text}</span>
+            </li>
+          ))}
+        </ol>
+        <details>
+          <summary>Show the answer</summary>
+          <p class="muted small">
+            {nSel ? `Annotators marked ${nSel === 1 ? 'passage' : 'passages'} ${ps.map((p, j) => (p.sel ? j + 1 : 0)).filter(Boolean).join(', ')} as answering the query.` : 'No passage was marked as answering the query.'}
+          </p>
+          {answers.length > 0 && <blockquote>{answers.join(' / ')}</blockquote>}
+        </details>
+      </article>
+    );
+  })}
+</div>
+
+<script>
+  // Passages are clamped to three lines; a click shows the whole text.
+  document.querySelectorAll<HTMLElement>('[data-passage]').forEach((li) =>
+    li.addEventListener('click', () => li.classList.toggle('open')),
+  );
+</script>
+
+<style>
+  .ret-list { display: grid; gap: 14px; }
+  .ret { padding: 14px 16px; }
+  .ret[hidden] { display: none; }
+  .q { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 999px; background: var(--bg); }
+  .lens { color: var(--muted); font-size: 1.1rem; line-height: 1; }
+  .qt { flex: 1; font-weight: 600; }
+  .passages { margin: 0; padding-left: 24px; display: grid; gap: 6px; font-size: 0.88rem; }
+  .passages li { padding: 4px 8px; border-radius: 6px; cursor: pointer; border-left: 3px solid transparent; }
+  .passages li::marker { color: var(--muted); font-size: 0.8rem; }
+  .passages li:hover { background: var(--code-bg); }
+  .txt { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  li.open .txt { display: block; }
+  .src { display: block; font-size: 0.75rem; color: var(--pos); }
+  /* Revealed with the answer: the passages annotators marked. */
+  .ret:has(details[open]) li.sel { border-left-color: var(--pos); background: color-mix(in srgb, var(--pos) 10%, transparent); }
+  details { margin-top: 10px; }
+  summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; }
+  .small { font-size: 0.85rem; margin: 8px 0 6px; }
+  blockquote { margin: 0; padding: 8px 12px; border-left: 3px solid var(--pos); background: var(--code-bg); border-radius: 0 6px 6px 0; }
+</style>

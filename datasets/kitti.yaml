@@ -1,6 +1,7 @@
 name: KITTI
 year: 2012
 modality: vision
+tags: [driving]
 task: Driving benchmarks (object detection, stereo, optical flow, odometry, depth)
 one_liner: A car with cameras and a laser scanner drove around Karlsruhe; the recordings became a dozen benchmarks.
 creators: Andreas Geiger, Philip Lenz, Raquel Urtasun (Karlsruhe Institute of Technology, Toyota Technological Institute at Chicago)

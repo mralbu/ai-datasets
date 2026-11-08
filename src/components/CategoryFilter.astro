@@ -40,7 +40,7 @@ const cats = Object.keys(MODALITIES).filter((m) => counts[m]);
       const all = on.size === keys.length;
       resets[0].hidden = all;
       empty.hidden = on.size > 0;
-      history.replaceState(null, '', location.pathname + (all ? '' : `#${[...on].join(',')}`));
+      history.replaceState(null, '', location.pathname + location.search + (all ? '' : `#${[...on].join(',')}`));
       window.dispatchEvent(new CustomEvent('categoryfilter', { detail: on }));
     };
     const toggle = (k: string) => {

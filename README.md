@@ -72,7 +72,8 @@ the first fetch fills it, which takes 10 minutes or more for the whole catalog.
 ## Add a dataset
 
 1. `just new <id> <similar-id>` and fill it in. `modality` is the category (`vision`, `text`,
-   `benchmark` (shown as "LLMs"), `tabular`, `audio`, `other`). `display.kind` picks the renderer;
+   `benchmark` (shown as "LLMs"), `tabular`, `audio`, `other`). Optional `tags` cut across
+   categories: `medical`, `remote-sensing`, `driving`, `retrieval` (the list lives in `src/lib/tags.ts`). `display.kind` picks the renderer;
    field names are columns of the Hugging Face dataset:
 
    | kind | fields | used by |
@@ -80,8 +81,9 @@ the first fetch fills it, which takes 10 minutes or more for the whole catalog.
    | `image` | `image`, `label`, `scale` (enlarge tiny images), `thumb` (px height for photos), `class_grid`, `short_labels` | MNIST, Fashion-MNIST, CIFAR-10, SVHN, ImageNet |
    | `boxes` | `image`, `objects` (COCO-style `bbox` `[x, y, w, h]` + a label list), `label` (its name, default `label`), `names` (when labels are plain integers), `ignore` (classes drawn as dashed "don't care" regions) | COCO, PASCAL VOC, KITTI |
    | `segmentation` | `image`, `objects` (ADE20K-style: `name`, `polygon {x, y}`, `depth_ordering_rank`, `parts.part_level`), `scene` | ADE20K |
-   | `dense` | `image`, `layers` (each a `field`, `type` (`labels`, `depth` or `normals`), `name`, and for labels `classes: [{id, name, color}]`); needs `source.dense` | Cityscapes, NYU Depth V2 |
-   | `annotated` | `image`, `captions` (list) or `attributes: true` (yes/no columns), `thumb` | Flickr30k, CelebA |
+   | `dense` | `image`, `layers` (each a `field`, `type` (`labels`, `depth` or `normals`), `name`, and for labels `classes: [{id, name, color}]` and `outline`); needs `source.dense` | Cityscapes, NYU Depth V2, ISIC |
+   | `retrieval` | `query`, `passages` (a struct of lists: `text`, `selected`, `url`), `answers`, `type` | MS MARCO |
+   | `annotated` | `image`, `captions` (list) or `attributes: true` (yes/no columns) or `labels` (a list of strings, `none` when empty), `details` (`{Label: field}`), `thumb` | Flickr30k, CelebA, ChestX-ray14 |
    | `text` | `text`, `label`, `summary` (shown on demand), `caption` (small line, e.g. a URL) | IMDB, 20 Newsgroups, WikiText-103, CNN/DailyMail, C4 |
    | `record` | `label`; shows every text field, per config | GLUE, SuperGLUE, SNLI |
    | `extractive` | `context`, `question`, `answers`, `title` | SQuAD |
@@ -104,7 +106,7 @@ the first fetch fills it, which takes 10 minutes or more for the whole catalog.
    - `min_length: {field: n}` skips rows whose field is shorter, like WikiText's blank lines.
    - `drop: [columns]` leaves columns out of the sample.
    - `max_image_px` downscales big photos; annotations keep their original coordinates.
-   - `dense: {column: image | labels | depth | normals}` turns per-pixel annotations (mask images or
+   - `dense: {column: image | labels | mask | depth | normals}` turns per-pixel annotations (mask images or
      raw arrays) into small PNGs the `dense` view colors and reads back on hover.
    - `page` (default 100) is the number of rows per request; set it to 1 when rows are megabytes each,
      like NYU's raw arrays.

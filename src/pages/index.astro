@@ -2,12 +2,15 @@
 import Base from '../layouts/Base.astro';
 import Preview from '../components/Preview.astro';
 import CategoryFilter from '../components/CategoryFilter.astro';
-import { getDatasets, MODALITIES, url } from '../lib/data';
+import { getDatasets, MODALITIES, TAGS, url, type Tag } from '../lib/data';
 const all = await getDatasets();
 const groups = Object.keys(MODALITIES)
   .map((m) => ({ m, items: all.filter((d) => d.data.modality === m) }))
   .filter((g) => g.items.length);
 const counts = Object.fromEntries(groups.map((g) => [g.m, g.items.length]));
+const tagCounts = (Object.keys(TAGS) as Tag[])
+  .map((t) => ({ t, n: all.filter((d) => d.data.tags.includes(t)).length }))
+  .filter((x) => x.n);
 ---
 <Base title="AI Datasets">
   <section class="hero">
@@ -16,21 +19,31 @@ const counts = Object.fromEntries(groups.map((g) => [g.m, g.items.length]));
       A small, curated collection of datasets and benchmarks that shaped AI. Each entry
       has the key facts, why it matters, and real samples you can shuffle through.
     </p>
+    {tagCounts.length > 0 && (
+      <p class="by-tag">
+        <span class="muted">Also by tag:</span>
+        {tagCounts.map(({ t, n }) => <a class="dtag" href={`?tag=${t}`} data-tag-link={t}>{TAGS[t]} <span class="muted">{n}</span></a>)}
+      </p>
+    )}
+    <p class="tag-banner" data-tag-banner hidden>
+      Showing datasets tagged <strong data-tag-name></strong>. <a href={url('/')}>Show all</a>
+    </p>
   </section>
 
   <CategoryFilter counts={counts} />
 
   {groups.map(({ m, items }) => (
-    <section data-filter-item data-m={m}>
+    <section data-filter-item data-m={m} data-group>
       <h2><span class="cat-dot" aria-hidden="true"></span>{MODALITIES[m]}</h2>
       <div class="cards">
         {items.map((ds) => (
-          <a class="card entry" href={url(`/d/${ds.id}`)} data-m={m}>
+          <a class="card entry" href={url(`/d/${ds.id}`)} data-m={m} data-tags={ds.data.tags.join(' ')}>
             <div class="top">
               <h3>{ds.data.name}</h3>
               <span class="year">{ds.data.year}</span>
             </div>
             <p class="one">{ds.data.one_liner}</p>
+            {ds.data.tags.length > 0 && <p class="tags">{ds.data.tags.map((t) => <span class="dtag">{TAGS[t]}</span>)}</p>}
             <Preview ds={ds} />
           </a>
         ))}
@@ -38,6 +51,27 @@ const counts = Object.fromEntries(groups.map((g) => [g.m, g.items.length]));
     </section>
   ))}
 </Base>
+
+<script>
+  // ?tag=medical shows only the entries with that tag (links from tag pills on dataset pages).
+  const tag = new URLSearchParams(location.search).get('tag');
+  const banner = document.querySelector<HTMLElement>('[data-tag-banner]');
+  const label = document.querySelector<HTMLAnchorElement>(`[data-tag-link="${CSS.escape(tag ?? '')}"]`);
+  if (tag && banner && label) {
+    banner.hidden = false;
+    banner.querySelector('[data-tag-name]')!.textContent = label.firstChild!.textContent!.trim();
+    label.setAttribute('aria-current', 'true');
+    for (const g of document.querySelectorAll<HTMLElement>('[data-group]')) {
+      let any = false;
+      for (const c of g.querySelectorAll<HTMLElement>('.entry')) {
+        const on = (c.dataset.tags ?? '').split(' ').includes(tag);
+        c.classList.toggle('off-tag', !on);
+        any ||= on;
+      }
+      g.classList.toggle('off-tag', !any);
+    }
+  }
+</script>
 
 <style>
   .hero { padding: 40px 0 8px; max-width: 680px; }
@@ -51,4 +85,12 @@ const counts = Object.fromEntries(groups.map((g) => [g.m, g.items.length]));
   h3 { margin: 0; font-size: 1.05rem; }
   .year { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 0.9rem; }
   .one { margin: 0; font-size: 0.92rem; }
+  .tags { margin: -4px 0 0; display: flex; gap: 4px; flex-wrap: wrap; }
+  .by-tag { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 14px 0 0; font-size: 0.9rem; }
+  .by-tag .dtag { font-size: 0.8rem; padding: 2px 9px; }
+  .by-tag .dtag:hover { text-decoration: none; border-color: var(--accent); }
+  .by-tag .dtag[aria-current] { border-color: var(--accent); color: var(--accent); }
+  .tag-banner { margin: 10px 0 0; font-size: 0.9rem; }
+  .tag-banner[hidden] { display: none; }
+  .off-tag { display: none !important; }
 </style>

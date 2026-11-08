@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { TAGS, type Tag } from './lib/tags';
 
 const link = z.object({ title: z.string(), url: z.string().url() });
 
@@ -80,7 +81,12 @@ const display = z.discriminatedUnion('kind', [
   z.object({ kind: z.literal('grid'), train: z.string(), test: z.string() }),
   z.object({ kind: z.literal('record'), label: z.string().optional() }),
   // A photo with what annotators said about it: a list of captions, or true/false attributes.
-  z.object({ kind: z.literal('annotated'), image: z.string(), captions: z.string().optional(), attributes: z.boolean().default(false), thumb: z.number().default(220) }),
+  // labels: a list-of-strings field shown as tags (ChestX-ray14's findings), with `none` when empty;
+  // details: {Label: field} shown as a small line (age, sex, view).
+  z.object({
+    kind: z.literal('annotated'), image: z.string(), captions: z.string().optional(), attributes: z.boolean().default(false), thumb: z.number().default(220),
+    labels: z.string().optional(), none: z.string().default('none'), details: z.record(z.string(), z.string()).default({}),
+  }),
   // Multiple choice over one or more images (MMMU); options may be a list or a Python-style list string.
   z.object({ kind: z.literal('image_mcq'), images: z.array(z.string()), question: z.string(), options: z.string(), answer: z.string(), subject: z.string().optional() }),
   // Two answers to the same conversation, one preferred by a human rater (RLHF data).
@@ -95,9 +101,15 @@ const display = z.discriminatedUnion('kind', [
       field: z.string(),
       type: z.enum(['labels', 'depth', 'normals']),
       name: z.string(),
+      outline: z.boolean().default(false), // labels: draw region borders only (a lesion outline), not filled masks
       // labels: the pixel value is the id; classes without a color (void, unlabeled) stay transparent
       classes: z.array(z.object({ id: z.number(), name: z.string(), color: z.string().optional() })).optional(),
     })).min(1),
+  }),
+  // A search query with candidate passages, some marked relevant (MS MARCO); answers shown on demand.
+  z.object({
+    kind: z.literal('retrieval'), query: z.string(), passages: z.string(), text: z.string().default('passage_text'),
+    selected: z.string().default('is_selected'), url: z.string().optional(), answers: z.string().optional(), type: z.string().optional(),
   }),
   // A Translation feature, e.g. {de: …, en: …}; source/target pick the order.
   z.object({ kind: z.literal('translation'), translation: z.string(), source: z.string(), target: z.string() }),
@@ -110,6 +122,7 @@ const datasets = defineCollection({
     name: z.string(),
     year: z.number().int(),
     modality: z.enum(['vision', 'text', 'tabular', 'audio', 'benchmark', 'other']),
+    tags: z.array(z.enum(Object.keys(TAGS) as [Tag, ...Tag[]])).default([]), // see src/lib/tags.ts
     task: z.string(),
     one_liner: z.string(),
     creators: z.string(),

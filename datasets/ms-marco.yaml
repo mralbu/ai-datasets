@@ -1,0 +1,46 @@
+name: MS MARCO
+year: 2016
+modality: text
+tags: [retrieval]
+task: Passage ranking and question answering over web search results
+one_liner: A million real Bing queries, each with ten web passages and a human-written answer.
+creators: Tri Nguyen, Mir Rosenberg, Xia Song, Jianfeng Gao, Saurabh Tiwary, Rangan Majumder, Li Deng (Microsoft)
+size: 1,010,916 queries; 8.8 million passages in the ranking collection
+splits: { train: 808731, validation: 101093, test: 101092 }
+input: An anonymized search query and the passages Bing returned for it
+labels: Which passages answer the query, and an answer written by a person
+license: Non-commercial research use (MS MARCO terms)
+paper:
+  title: "MS MARCO: A Human Generated MAchine Reading COmprehension Dataset"
+  url: https://arxiv.org/abs/1611.09268
+homepage: https://microsoft.github.io/msmarco/
+why: >-
+  SQuAD's questions were written by people looking at a Wikipedia paragraph.
+  MS MARCO's are what people actually typed into Bing, with the messy web
+  passages that came back. Its passage ranking task (2018), finding the right
+  passage among 8.8 million, became the training set of neural search:
+  BERT re-rankers nearly doubled the score of keyword search (BM25) in
+  2019, and dense retrievers, ColBERT and most text embedding models since
+  were trained or tested on it. Retrieval for RAG systems grew from here.
+trivia:
+  - Usually only one passage per query is marked as relevant, though others often answer it too. The TREC Deep Learning track (2019) re-judged a subset in depth for that reason.
+  - The ranking score is MRR@10, the reciprocal rank of the first relevant passage in the top ten. BM25 scores about 0.19; the first BERT re-ranker reached 0.36.
+  - Many queries have no answer in their passages; their answer reads "No Answer Present."
+  - Queries are typed as numeric, entity, location, person or description; most are descriptions.
+lineage:
+  - { name: SQuAD, note: "2016, questions written from Wikipedia paragraphs", hf: rajpurkar/squad, id: squad }
+  - { name: TREC Deep Learning, note: "2019–2023, MS MARCO queries with deep human judgments", url: "https://microsoft.github.io/msmarco/TREC-Deep-Learning" }
+  - { name: Natural Questions, note: "2019, real Google queries answered from Wikipedia", hf: google-research-datasets/natural_questions }
+  - { name: BEIR, note: "2021, 18 retrieval datasets to test models trained on MS MARCO elsewhere", hf: BeIR/msmarco }
+  - { name: MTEB, note: "2022, the text embedding leaderboard; retrieval is one of its tasks", url: "https://huggingface.co/spaces/mteb/leaderboard" }
+landmark_papers:
+  - { title: "Passage Re-ranking with BERT", year: 2019, url: "https://arxiv.org/abs/1901.04085" }
+  - { title: "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT", year: 2020, url: "https://arxiv.org/abs/2004.12832" }
+  - { title: "Approximate Nearest Neighbor Negative Contrastive Learning for Dense Text Retrieval (ANCE)", year: 2020, url: "https://arxiv.org/abs/2007.00808" }
+source:
+  hf: microsoft/ms_marco
+  config: v2.1
+  split: validation
+  n: 9
+  seed: 4
+display: { kind: retrieval, query: query, passages: passages, url: url, answers: answers, type: query_type }

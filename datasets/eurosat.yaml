@@ -1,0 +1,48 @@
+name: EuroSAT
+year: 2017
+modality: vision
+tags: [remote-sensing]
+task: Land use and land cover classification from satellite images
+one_liner: 27,000 Sentinel-2 satellite tiles of Europe, 64×64 pixels, in 10 land-use classes.
+creators: Patrick Helber, Benjamin Bischke, Andreas Dengel, Damian Borth (DFKI)
+size: 27,000 images in 13 spectral bands (the RGB version is shown here)
+splits: { train: 16200, validation: 5400, test: 5400 }
+input: 64×64 image at 10 m per pixel, so one tile covers 640 × 640 m
+labels: One of 10 classes, from annual crop and forest to residential, river and sea/lake
+license: MIT
+paper:
+  title: "EuroSAT: A Novel Dataset and Deep Learning Benchmark for Land Use and Land Cover Classification"
+  url: https://arxiv.org/abs/1709.00029
+homepage: https://github.com/phelber/EuroSAT
+why: >-
+  When the European Copernicus program made Sentinel-2 imagery free for
+  everyone, EuroSAT turned it into an MNIST-sized benchmark: small tiles,
+  10 balanced classes, 34 countries. It made satellite images an ordinary
+  image classification problem that any vision model could be tested on,
+  and became the standard first benchmark for remote sensing and a regular
+  member of general evaluation suites. CLIP's paper reported it among its 27
+  zero-shot tests, where it was one of the hardest, a sign of how different
+  the view from above is from photos on the web.
+trivia:
+  - Each image has 13 spectral bands, including infrared bands that separate crops, forest and water far better than color does. The RGB version keeps three.
+  - A ResNet-50 reached 98.6% accuracy in the paper; the hard cases are classes that look alike from above, like pasture and herbaceous vegetation, or annual and permanent crops.
+  - At 10 m per pixel, a car is less than one pixel. A highway is a line a few pixels wide.
+lineage:
+  - { name: UC Merced Land Use, note: "2010, 2,100 aerial photos (30 cm per pixel), 21 classes", url: "http://weegee.vision.ucmerced.edu/datasets/landuse.html" }
+  - { name: Functional Map of the World (fMoW), note: "2018, over a million satellite images, 62 classes", url: "https://github.com/fMoW/dataset" }
+  - { name: xView, note: "2018, a million objects boxed in high-resolution satellite images", url: "https://xviewdataset.org/" }
+  - { name: BigEarthNet, note: "2019, 590,000 Sentinel-2 patches with multiple labels each", url: "https://bigearth.net/" }
+  - { name: MNIST, note: "1998, the small benchmark EuroSAT is often compared to", hf: ylecun/mnist, id: mnist }
+landmark_papers:
+  - { title: "Learning Transferable Visual Models From Natural Language Supervision (CLIP)", year: 2021, url: "https://arxiv.org/abs/2103.00020" }
+  - { title: "SatMAE: Pre-training Transformers for Temporal and Multi-Spectral Satellite Imagery", year: 2022, url: "https://arxiv.org/abs/2207.08051" }
+  - { title: "Foundation Models for Generalist Geospatial Artificial Intelligence (Prithvi)", year: 2023, url: "https://arxiv.org/abs/2310.18660" }
+source:
+  hf: timm/eurosat-rgb
+  config: default
+  split: train
+  n: 80
+  seed: 11
+display: { kind: image, image: image, label: label, scale: 2, class_grid: true }
+download:
+  note: "The RGB version as JPEG. The 13-band version is in torchgeo/eurosat (GeoTIFF) and on the authors' GitHub."
