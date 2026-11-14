@@ -1,0 +1,20 @@
+title: "You Only Look Once: Unified, Real-Time Object Detection"
+short: YOLO
+year: 2016
+venue: CVPR 2016
+authors: Joseph Redmon, Santosh Divvala, Ross Girshick, Ali Farhadi
+category: vision
+arxiv: "1506.02640"
+one_liner: Object detection as one pass of one network, fast enough for live video.
+idea: >-
+  Split the image into a 7×7 grid and have a single network predict, for every cell at once,
+  a few bounding boxes with confidences and a class distribution. No region proposals and no
+  separate classifier: detection becomes one regression problem.
+result: 63.4% mAP on PASCAL VOC 2007 at 45 frames per second; a smaller version ran at 155 frames per second.
+why: >-
+  Detectors of the R-CNN family looked at thousands of regions per image and ran at a few frames
+  per second at best. YOLO traded some accuracy, mostly on small objects, for real-time speed, and
+  made single-stage detection the practical default. The name lives on in a long line of versions
+  that are still the first choice for detection on cameras and phones.
+datasets: [pascal-voc]
+builds_on: [rcnn]

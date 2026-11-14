@@ -1,0 +1,20 @@
+title: The Use of Multiple Measurements in Taxonomic Problems
+short: Fisher's discriminant
+year: 1936
+venue: Annals of Eugenics
+authors: R. A. Fisher
+category: tabular
+url: https://doi.org/10.1111/j.1469-1809.1936.tb02137.x
+one_liner: Introduced linear discriminant analysis, and the iris flowers it was tested on.
+idea: >-
+  Find the weighted sum of measurements that separates two groups best: the one that makes the
+  difference between group means largest relative to the spread within each group. With four
+  measurements of iris flowers, a single linear combination tells the species apart.
+result: >-
+  One linear function of sepal and petal length and width cleanly separated Iris setosa from
+  Iris versicolor, and gave a clear test of a hypothesis about Iris versicolor's origin.
+why: >-
+  Linear discriminant analysis is one of the first methods for supervised classification, and
+  still a standard tool for classification and dimensionality reduction. The fifty flowers of each
+  species in the paper became one of the most used datasets in machine learning.
+datasets: [iris]

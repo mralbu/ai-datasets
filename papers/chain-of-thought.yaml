@@ -1,0 +1,21 @@
+title: Chain-of-Thought Prompting Elicits Reasoning in Large Language Models
+short: Chain of thought
+year: 2022
+venue: NeurIPS 2022
+authors: Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia, Ed Chi, Quoc Le, Denny Zhou
+category: benchmark
+arxiv: "2201.11903"
+one_liner: Show the model worked examples that reason step by step, and it starts reasoning step by step too.
+idea: >-
+  In a few-shot prompt, write out the intermediate reasoning for each example answer, not just the
+  answer. The model imitates the format and works through new problems one step at a time.
+result: >-
+  With eight such examples, the 540-billion-parameter PaLM reached state-of-the-art accuracy on
+  GSM8K, beating a fine-tuned GPT-3 with a verifier. Smaller models gained little.
+why: >-
+  A change to the prompt alone unlocked multi-step math and logic, and the gain appeared only in
+  the largest models. The idea of spending more computation on writing out reasoning before
+  answering led directly to the reasoning models trained with reinforcement learning, such as
+  OpenAI o1 and DeepSeek-R1.
+datasets: [gsm8k]
+builds_on: [gpt-3]

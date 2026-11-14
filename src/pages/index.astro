@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import Preview from '../components/Preview.astro';
+import DatasetCard from '../components/DatasetCard.astro';
 import CategoryFilter from '../components/CategoryFilter.astro';
 import { getDatasets, MODALITIES, TAGS, url } from '../lib/data';
 const all = await getDatasets();
@@ -28,15 +28,7 @@ const counts = Object.fromEntries(groups.map((g) => [g.m, g.items.length]));
       <h2><span class="cat-dot" aria-hidden="true"></span>{MODALITIES[m]}</h2>
       <div class="cards">
         {items.map((ds) => (
-          <a class="card entry" href={url(`/d/${ds.id}`)} data-m={m} data-tags={ds.data.tags.join(' ')}>
-            <div class="top">
-              <h3>{ds.data.name}</h3>
-              <span class="year">{ds.data.year}</span>
-            </div>
-            <p class="one">{ds.data.one_liner}</p>
-            {ds.data.tags.length > 0 && <p class="tags">{ds.data.tags.map((t) => <span class="dtag">{TAGS[t]}</span>)}</p>}
-            <Preview ds={ds} />
-          </a>
+          <DatasetCard ds={ds} />
         ))}
       </div>
     </section>
@@ -69,14 +61,7 @@ const counts = Object.fromEntries(groups.map((g) => [g.m, g.items.length]));
   section[hidden] { display: none; }
   h2 { scroll-margin-top: 120px; }
   .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
-  .entry { display: flex; flex-direction: column; gap: 10px; padding: 16px; color: var(--text); border-top: 3px solid var(--c); transition: border-color 0.15s; }
-  .entry:hover { border-color: var(--c); text-decoration: none; }
-  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
-  h3 { margin: 0; font-size: 1.05rem; }
-  .year { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 0.9rem; }
-  .one { margin: 0; font-size: 0.92rem; }
-  .tags { margin: -4px 0 0; display: flex; gap: 4px; flex-wrap: wrap; }
   .tag-banner { margin: 10px 0 0; font-size: 0.9rem; }
   .tag-banner[hidden] { display: none; }
-  .off-tag { display: none !important; }
+  :global(.off-tag) { display: none !important; }
 </style>

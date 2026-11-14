@@ -1,0 +1,21 @@
+title: Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks
+short: RAG
+year: 2020
+venue: NeurIPS 2020
+authors: Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, Sebastian Riedel, Douwe Kiela
+category: text
+arxiv: "2005.11401"
+one_liner: Let a text generator look things up in Wikipedia before it answers, and give the idea its name.
+idea: >-
+  Pair a neural retriever, which finds relevant Wikipedia passages for a question, with a
+  sequence-to-sequence generator that writes the answer conditioned on them, and train the two
+  together. Knowledge lives in an index that can be updated without retraining the model.
+result: >-
+  State-of-the-art results on three open-domain question answering benchmarks, including Natural
+  Questions, and more factual answers than a generator alone on MS MARCO.
+why: >-
+  RAG named a pattern that now underlies most practical LLM applications: retrieve documents first,
+  then generate from them. It showed that grounding answers in retrieved text reduces made-up facts
+  and lets a model use knowledge it was never trained on.
+datasets: [natural-questions, ms-marco]
+builds_on: [bert, transformer]

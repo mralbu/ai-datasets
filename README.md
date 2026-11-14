@@ -18,9 +18,10 @@ away knowing the data.
 
 ```
 datasets/<id>.yaml      one file per dataset: facts, description, Hugging Face source, how to display it
+papers/<id>.yaml        one file per classic paper: our own summary, links (arXiv/alphaXiv), the datasets it used
 scripts/sample.py       (uv: polars, altair, pillow) samples rows from the Hugging Face dataset viewer
                         into a snapshot, then copies it to src/generated/ and public/samples/
-src/                    Astro site: catalog, timeline, one page per dataset, search (press /)
+src/                    Astro site: catalog, papers, timeline, one page per dataset and per paper, search (press /)
                         and, for language models, /llms.txt, /llms-full.txt and /d/<id>.md (src/lib/llms.ts)
 samples branch          the snapshot: sampled rows, media and a manifest (generated, data only)
 justfile                shortcuts for everything below (run `just` to list them)
@@ -139,6 +140,33 @@ Gotchas:
   Search for a community Parquet copy with a working viewer and say so in `download.note`.
 - The viewer's signed media links fail for config names containing `+`; use another copy.
 - Gated datasets (GPQA, Humanity's Last Exam) cannot be sampled. Link them from `lineage` instead.
+
+## Add a paper
+
+Papers live in `papers/<id>.yaml` and need no sampling. The rule for now: a paper is in only if it
+changed its field **and** was trained or measured on at least one dataset on the site; `datasets`
+lists those ids, and the build fails if one does not exist.
+
+```yaml
+title: Deep Residual Learning for Image Recognition   # as published
+short: ResNet                                         # the name people use
+year: 2015                                            # first appearance (preprint if earlier)
+venue: CVPR 2016
+authors: Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
+category: vision                                      # same categories as datasets
+arxiv: "1512.03385"                                   # gives the arXiv and alphaXiv links; else `url:`
+one_liner: …
+idea: …                                               # the key idea, in plain words
+result: …                                             # the headline result, with numbers
+why: …                                                # why it mattered, in our own words
+datasets: [imagenet, cifar10, coco]
+builds_on: [alexnet]                                  # other paper ids; "Led to" is computed
+```
+
+Write `why`, `idea` and `result` yourself, in the same voice as the dataset pages; use alphaXiv
+or the paper for research, not as copy. A dataset page lists the papers here that use it under
+"Landmark papers" (matched by arXiv id or URL, added when missing), so there is nothing to edit on
+the dataset side.
 
 ## Deploy
 

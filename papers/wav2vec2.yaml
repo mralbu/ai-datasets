@@ -1,0 +1,21 @@
+title: "wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations"
+short: wav2vec 2.0
+year: 2020
+venue: NeurIPS 2020
+authors: Alexei Baevski, Henry Zhou, Abdelrahman Mohamed, Michael Auli
+category: audio
+arxiv: "2006.11477"
+one_liner: Learn speech from raw unlabeled audio, then recognize words with as little as ten minutes of transcripts.
+idea: >-
+  A convolutional encoder turns raw audio into latent frames; spans of them are masked, and a
+  Transformer must pick the right quantized version of each masked frame among distractors. After
+  this self-supervised pretraining, the model is fine-tuned with a small amount of transcribed speech.
+result: >-
+  1.8% / 3.3% word error rate on LibriSpeech test-clean / test-other with all labels, and 4.8% / 8.2%
+  with only ten minutes of labeled audio plus 53,000 hours of unlabeled audio.
+why: >-
+  Most of the world's languages have little transcribed speech. wav2vec 2.0 showed that
+  BERT-style pretraining works on audio, cutting the need for labels by orders of magnitude, and
+  its encoders became the starting point for speech models in many languages.
+datasets: [librispeech]
+builds_on: [transformer, bert]

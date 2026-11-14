@@ -1,6 +1,6 @@
 // Plain-Markdown versions of the site for language models (https://llmstxt.org):
 // /llms.txt (index), /llms-full.txt (every entry in full) and /d/<id>.md (one entry).
-import { getDatasets, getSamples, MODALITIES, TAGS, url, type Dataset } from './data';
+import { getDatasets, getPapers, getSamples, MODALITIES, paperLinks, TAGS, url, type Dataset, type Paper } from './data';
 import { snippets, downloadRepo } from './snippets';
 
 /** Absolute URL of a site path, e.g. https://mralbu.github.io/ai-datasets/d/mnist. */
@@ -18,12 +18,13 @@ const ABOUT = `## About the site
 
 - Entries are chosen because they changed the field, were the standard benchmark for years, or appear in every introductory course. It is not a catalog: Hugging Face already is one.
 - "LLMs" is the category for language-model benchmarks and training data (instructions, preferences).
+- Papers: a short list of classic papers, each linked to at least one dataset on the site. Summaries are written for the site; the alphaXiv and arXiv links lead to the full text.
 - Samples are a fixed random selection of rows taken once from the Hugging Face dataset viewer, so pages are stable between visits. Where the official copy cannot be read by the viewer a community copy is used; each entry names the exact repository.
 - Samples stay under each dataset's own license. Gated benchmarks whose authors ask that questions not be published (GPQA, Humanity's Last Exam) are linked but not sampled.
 - Download snippets use the \`hf\` CLI, the 🤗 \`datasets\` library and Polars (\`hf://datasets/<repo>@~parquet/<config>/<split>/*.parquet\`). Check license and size first: some datasets are research-only, some are hundreds of gigabytes.`;
 
 /** Full Markdown description of one dataset. `level` is the heading level of its title. */
-export function datasetMarkdown(ds: Dataset, site: URL | undefined, level = 1): string {
+export function datasetMarkdown(ds: Dataset, site: URL | undefined, level = 1, papers: Paper[] = []): string {
   const d = ds.data;
   const h = (n: number) => '#'.repeat(level + n);
   const byId = (id: string) => abs(site, `/d/${id}`);
@@ -81,6 +82,56 @@ export function datasetMarkdown(ds: Dataset, site: URL | undefined, level = 1): 
   if (d.landmark_papers.length) {
     out.push('', `${h(1)} Landmark papers`, '', ...d.landmark_papers.map((p) => `- [${p.title}](${p.url}) (${p.year})`));
   }
+  const here = papers.filter((p) => p.data.datasets.some((r) => r.id === ds.id));
+  if (here.length) {
+    out.push('', `${h(1)} Papers on this site that use it`, '', ...here.map((p) => `- [${p.data.short} (${p.data.year})](${abs(site, `/p/${p.id}.md`)}): ${oneLine(p.data.one_liner)}`));
+  }
+  return out.join('\n') + '\n';
+}
+
+/** Full Markdown description of one paper. `level` is the heading level of its title. */
+export function paperMarkdown(p: Paper, site: URL | undefined, datasets: Dataset[], papers: Paper[], level = 1): string {
+  const d = p.data;
+  const h = (n: number) => '#'.repeat(level + n);
+  const l = paperLinks(d);
+  const dsById = new Map(datasets.map((x) => [x.id, x]));
+  const pById = new Map(papers.map((x) => [x.id, x]));
+  const ref = (x: Paper) => `[${x.data.short} (${x.data.year})](${abs(site, `/p/${x.id}.md`)})`;
+  const children = papers.filter((x) => x.data.builds_on.some((b) => b.id === p.id));
+  const out: string[] = [
+    `${h(0)} ${d.short} (${d.year})`,
+    '',
+    `> ${oneLine(d.one_liner)}`,
+    '',
+    `Page: ${abs(site, `/p/${p.id}`)}`,
+    '',
+    `${h(1)} Key facts`,
+    '',
+    `- Title: ${d.title}`,
+    `- Authors: ${d.authors}`,
+    `- Venue: ${d.venue}`,
+    `- Category: ${MODALITIES[d.category]}`,
+    `- Paper: ${l.main}`,
+    ...(l.alphaxiv ? [`- alphaXiv: ${l.alphaxiv}`] : []),
+    '',
+    `${h(1)} Why it matters`,
+    '',
+    oneLine(d.why),
+    '',
+    `${h(1)} The idea`,
+    '',
+    oneLine(d.idea),
+    '',
+    `${h(1)} The result`,
+    '',
+    oneLine(d.result),
+    '',
+    `${h(1)} The data`,
+    '',
+    ...d.datasets.map((r) => dsById.get(r.id)!).map((x) => `- [${x.data.name} (${x.data.year})](${abs(site, `/d/${x.id}.md`)}): ${oneLine(x.data.one_liner)}`),
+  ];
+  if (d.builds_on.length) out.push('', `${h(1)} Builds on`, '', ...d.builds_on.map((r) => `- ${ref(pById.get(r.id)!)}`));
+  if (children.length) out.push('', `${h(1)} Led to`, '', ...children.map((x) => `- ${ref(x)}`));
   return out.join('\n') + '\n';
 }
 
@@ -100,7 +151,7 @@ export async function llmsTxt(site: URL | undefined): Promise<string> {
     '',
     `> ${SUMMARY}`,
     '',
-    `The site has ${count} datasets. Every dataset page has a plain-Markdown version at the same URL plus \`.md\` ` +
+    `The site has ${count} datasets and a list of classic papers that use them. Every dataset page has a plain-Markdown version at the same URL plus \`.md\` ` +
       `(for example ${abs(site, '/d/mnist.md')}); ${abs(site, '/llms-full.txt')} has all of them in one file. ` +
       `The source, one YAML file per dataset, is at https://github.com/mralbu/ai-datasets.`,
     '',
@@ -113,13 +164,24 @@ export async function llmsTxt(site: URL | undefined): Promise<string> {
       out.push(`- [${ds.data.name} (${ds.data.year})](${abs(site, `/d/${ds.id}.md`)}): ${oneLine(ds.data.one_liner)} ${ds.data.task}.${tags}`);
     }
   }
+  const papers = await getPapers();
+  const dsById = new Map(groups.flatMap((g) => g.items).map((x) => [x.id, x]));
+  out.push(
+    '',
+    '## Papers',
+    '',
+    `Classic papers, each linked to the datasets on this site it was trained or measured on. Each has a Markdown page at /p/<id>.md.`,
+    '',
+    ...papers.map((p) => `- [${p.data.short} (${p.data.year})](${abs(site, `/p/${p.id}.md`)}): ${oneLine(p.data.one_liner)} Data: ${p.data.datasets.map((r) => dsById.get(r.id)!.data.name).join(', ')}.`),
+  );
   out.push(
     '',
     '## Optional',
     '',
-    `- [All datasets in full](${abs(site, '/llms-full.txt')}): every dataset entry in one file`,
+    `- [Everything in full](${abs(site, '/llms-full.txt')}): every dataset and paper entry in one file`,
     `- [Catalog](${abs(site, '/')}): the HTML catalog, filterable by category and by tag (\`?tag=medical\`, \`remote-sensing\`, \`driving\`, \`retrieval\`)`,
-    `- [Timeline](${abs(site, '/timeline')}): every dataset by year`,
+    `- [Papers](${abs(site, '/papers')}): the HTML list of papers, by category`,
+    `- [Timeline](${abs(site, '/timeline')}): every dataset by year (\`?papers\` adds the papers)`,
     `- [About](${abs(site, '/about')}): how entries are chosen and where samples come from`,
     `- [Source on GitHub](https://github.com/mralbu/ai-datasets): the Astro site, the dataset YAML files and the sampling script`,
   );
@@ -129,11 +191,14 @@ export async function llmsTxt(site: URL | undefined): Promise<string> {
 /** /llms-full.txt: the index header, then every dataset in full. */
 export async function llmsFullTxt(site: URL | undefined): Promise<string> {
   const groups = await grouped();
+  const [datasets, papers] = [await getDatasets(), await getPapers()];
   const out = ['# AI Datasets', '', `> ${SUMMARY}`, '', `Index: ${abs(site, '/llms.txt')}`, '', ABOUT];
   for (const { m, items } of groups) {
     out.push('', `## ${MODALITIES[m]}`);
-    for (const ds of items) out.push('', datasetMarkdown(ds, site, 3).trimEnd());
+    for (const ds of items) out.push('', datasetMarkdown(ds, site, 3, papers).trimEnd());
   }
+  out.push('', '## Papers');
+  for (const p of papers) out.push('', paperMarkdown(p, site, datasets, papers, 3).trimEnd());
   return out.join('\n') + '\n';
 }
 

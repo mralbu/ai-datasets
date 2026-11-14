@@ -35,6 +35,36 @@ export async function getDatasets(): Promise<Dataset[]> {
   return (await getCollection('datasets')).sort((a, b) => a.data.year - b.data.year || a.data.name.localeCompare(b.data.name));
 }
 
+export type Paper = CollectionEntry<'papers'>;
+
+export async function getPapers(): Promise<Paper[]> {
+  return (await getCollection('papers')).sort((a, b) => a.data.year - b.data.year || a.data.short.localeCompare(b.data.short));
+}
+
+/** Where to read a paper: alphaXiv and arXiv when it has an arXiv id, else its own page. */
+export function paperLinks(p: Paper['data']) {
+  return {
+    alphaxiv: p.arxiv ? `https://www.alphaxiv.org/abs/${p.arxiv}` : undefined,
+    arxiv: p.arxiv ? `https://arxiv.org/abs/${p.arxiv}` : undefined,
+    main: p.arxiv ? `https://arxiv.org/abs/${p.arxiv}` : p.url!,
+  };
+}
+
+/** A comparable key for a paper link: the arXiv id when there is one, else the URL. */
+export function paperKey(href: string): string {
+  return href.match(/arxiv\.org\/(?:abs|pdf)\/(\d{4}\.\d{4,5})/)?.[1] ?? href.replace(/\/$/, '');
+}
+
+/** Papers on the site that link to a dataset. */
+export async function papersFor(datasetId: string): Promise<Paper[]> {
+  return (await getPapers()).filter((p) => p.data.datasets.some((d) => d.id === datasetId));
+}
+
+/** Papers on the site that build on a paper. */
+export async function ledTo(paperId: string): Promise<Paper[]> {
+  return (await getPapers()).filter((p) => p.data.builds_on.some((b) => b.id === paperId));
+}
+
 /** Features for a row: per-config for suites like GLUE, else the dataset's. */
 export function featuresFor(s: Samples, row?: SampleRow): Feature[] {
   return s.parts?.find((p) => p.config === row?.config)?.features ?? s.features;

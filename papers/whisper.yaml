@@ -1,0 +1,22 @@
+title: Robust Speech Recognition via Large-Scale Weak Supervision
+short: Whisper
+year: 2022
+venue: ICML 2023
+authors: Alec Radford, Jong Wook Kim, Tao Xu, Greg Brockman, Christine McLeavey, Ilya Sutskever
+category: audio
+arxiv: "2212.04356"
+one_liner: 680,000 hours of imperfect transcripts from the web make a speech recognizer that works almost anywhere, out of the box.
+idea: >-
+  Skip self-supervision and collect a huge, noisy, multilingual set of audio with transcripts from
+  the internet. Train a standard encoder–decoder Transformer on it to transcribe, translate and
+  detect language, then use it zero-shot without any fine-tuning on the target dataset.
+result: >-
+  Without training on LibriSpeech it reached 2.7% word error rate on test-clean, and on other
+  datasets it made on average about half the errors of supervised models with the same LibriSpeech
+  score.
+why: >-
+  Models fine-tuned on LibriSpeech looked superhuman on its test set and broke on accents, noise and
+  phone calls. Whisper made the gap between benchmark and real-world accuracy the point, and its open
+  weights became the default way to transcribe speech.
+datasets: [librispeech]
+builds_on: [transformer, wav2vec2]

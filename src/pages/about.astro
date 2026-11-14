@@ -17,6 +17,16 @@ const count = (await getDatasets()).length;
       <li>it was the standard benchmark for years (COCO, GLUE, MMLU, GSM8K), or</li>
       <li>it is in every introductory course (Iris, Titanic, CIFAR-10).</li>
     </ul>
+    <h2>Papers</h2>
+    <p>
+      The <a href={url('/papers')}>papers section</a> is a short list of papers that changed their field,
+      in the same categories as the datasets. Every paper is linked to at least one dataset on this site
+      that it was trained or measured on, so its page can show the data, not just the abstract; the{' '}
+      <a href={url('/timeline?papers')}>timeline</a> can show both. The summaries (why it matters, the
+      key idea, the headline result) are written for this site. For the full text and discussion, each
+      page links to the paper on alphaXiv and arXiv, or to the original publisher for papers that
+      predate arXiv.
+    </p>
     <h2>Where the samples come from</h2>
     <p>
       When a dataset is added, a script picks a fixed random sample of rows from the{' '}

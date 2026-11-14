@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import PaperCard from '../components/PaperCard.astro';
+import CategoryFilter from '../components/CategoryFilter.astro';
+import { getPapers, MODALITIES, url } from '../lib/data';
+const all = await getPapers();
+const groups = Object.keys(MODALITIES)
+  .map((m) => ({ m, items: all.filter((p) => p.data.category === m) }))
+  .filter((g) => g.items.length);
+const counts = Object.fromEntries(groups.map((g) => [g.m, g.items.length]));
+---
+<Base title="Papers · AI Datasets" description="Classic AI papers, each linked to the datasets it was built and measured on.">
+  <section class="hero">
+    <h1>Papers</h1>
+    <p class="muted">
+      A short list of papers that changed their field, each one linked to the data it was trained or
+      measured on. Read them next to the datasets, or <a href={url('/timeline?papers')}>see both on the timeline</a>.
+    </p>
+  </section>
+
+  <CategoryFilter counts={counts} />
+
+  {groups.map(({ m, items }) => (
+    <section data-filter-item data-m={m}>
+      <h2><span class="cat-dot" aria-hidden="true"></span>{MODALITIES[m]}</h2>
+      <div class="cards">{items.map((p) => <PaperCard p={p} />)}</div>
+    </section>
+  ))}
+</Base>
+
+<style>
+  .hero { padding: 40px 0 8px; max-width: 680px; }
+  .hero h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0 0 12px; }
+  section[hidden] { display: none; }
+  h2 { scroll-margin-top: 120px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+</style>

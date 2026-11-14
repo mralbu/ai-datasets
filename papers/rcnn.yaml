@@ -1,0 +1,20 @@
+title: Rich Feature Hierarchies for Accurate Object Detection and Semantic Segmentation
+short: R-CNN
+year: 2014
+venue: CVPR 2014
+authors: Ross Girshick, Jeff Donahue, Trevor Darrell, Jitendra Malik
+category: vision
+arxiv: "1311.2524"
+one_liner: Showed that features from an ImageNet-trained network beat hand-made features for finding objects, not just naming them.
+idea: >-
+  Propose about 2,000 candidate regions per image with selective search, warp each one to a fixed
+  size, describe it with a convolutional network pretrained on ImageNet and fine-tuned for
+  detection, then score it with per-class linear SVMs.
+result: 53.3% mAP on PASCAL VOC 2012, more than 30% better (relative) than the previous best result.
+why: >-
+  After AlexNet it was not obvious that deep features would help with detection, where the network
+  must also say where each object is. R-CNN settled it, and popularized the recipe of pretraining on
+  ImageNet and fine-tuning on a smaller labeled dataset. Fast R-CNN, Faster R-CNN and Mask R-CNN
+  all grew out of it.
+datasets: [pascal-voc, imagenet]
+builds_on: [alexnet]

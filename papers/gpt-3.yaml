@@ -1,0 +1,21 @@
+title: Language Models are Few-Shot Learners
+short: GPT-3
+year: 2020
+venue: NeurIPS 2020
+authors: Tom B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, et al.
+category: benchmark
+arxiv: "2005.14165"
+one_liner: A 175-billion-parameter language model that learns new tasks from a few examples in its prompt.
+idea: >-
+  Scale a decoder-only Transformer to 175 billion parameters and train it to predict the next word
+  on about 300 billion tokens of web text and books. Then, instead of fine-tuning, describe the task
+  and give a few examples in the prompt ("in-context learning").
+result: >-
+  Few-shot GPT-3 scored 71.8 on SuperGLUE, above a fine-tuned BERT-Large, without any
+  task-specific training.
+why: >-
+  GPT-3 turned prompting into a way of programming models and made scale the main lever in AI
+  research. It also changed evaluation: benchmarks were now run zero-shot and few-shot, and the
+  paper's own checks for test questions leaking into the training data became standard practice.
+datasets: [superglue, hellaswag, ai2-arc]
+builds_on: [transformer]

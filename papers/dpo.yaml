@@ -1,0 +1,22 @@
+title: "Direct Preference Optimization: Your Language Model is Secretly a Reward Model"
+short: DPO
+year: 2023
+venue: NeurIPS 2023
+authors: Rafael Rafailov, Archit Sharma, Eric Mitchell, Stefano Ermon, Christopher D. Manning, Chelsea Finn
+category: benchmark
+arxiv: "2305.18290"
+one_liner: RLHF without the reinforcement learning, as one simple loss on pairs of preferred and rejected answers.
+idea: >-
+  The RLHF objective has a closed-form optimal policy, which means the reward can be written in
+  terms of the model itself. Substituting it gives a classification-style loss on preference pairs:
+  raise the likelihood of the chosen answer relative to the rejected one, compared with a frozen
+  reference model. No reward model, no sampling during training.
+result: >-
+  Matched or beat PPO-based RLHF on sentiment control with IMDb reviews, summarization, and
+  single-turn dialogue on Anthropic's HH data, while being much simpler and more stable to train.
+why: >-
+  PPO-based RLHF needs several models in memory and is notoriously hard to tune. DPO made
+  preference tuning something any lab could do on a modest budget, and most open models since
+  have been aligned with it or one of its many variants.
+datasets: [hh-rlhf, imdb]
+builds_on: [instructgpt]

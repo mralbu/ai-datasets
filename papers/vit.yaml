@@ -1,0 +1,21 @@
+title: "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
+short: ViT
+year: 2020
+venue: ICLR 2021
+authors: Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn, Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, Neil Houlsby
+category: vision
+arxiv: "2010.11929"
+one_liner: Cut an image into 16×16 patches, treat them as words, and a plain Transformer matches the best convolutional networks.
+idea: >-
+  Flatten each 16×16 patch into a vector, add a position embedding, and feed the sequence to a
+  standard Transformer encoder with no convolutions at all. Without the built-in assumptions of a
+  convolutional network it needs more data, so it is pretrained on very large datasets first.
+result: >-
+  Pretrained on 300 million images, ViT-H/14 reached 88.55% top-1 on ImageNet. Trained on ImageNet
+  alone, it fell behind comparable ResNets.
+why: >-
+  ViT showed that the architecture behind language models works for images too, given enough data.
+  That made it possible to use one kind of model for text, images and their combination, and most
+  large vision and multimodal models since, from CLIP to today's vision-language models, use it.
+datasets: [imagenet, cifar10]
+builds_on: [transformer, resnet]
