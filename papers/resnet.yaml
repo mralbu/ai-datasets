@@ -1,0 +1,21 @@
+title: Deep Residual Learning for Image Recognition
+short: ResNet
+year: 2015
+venue: CVPR 2016
+authors: Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
+category: vision
+arxiv: "1512.03385"
+one_liner: Skip connections that let networks grow from about 20 layers to more than 150.
+idea: >-
+  Instead of asking a block of layers to learn a mapping H(x), let it learn the residual
+  F(x) = H(x) − x and add the input back through an identity shortcut. If extra layers are not
+  useful, they can easily learn to do nothing, so depth stops hurting.
+result: >-
+  An ensemble with 152-layer networks reached 3.57% top-5 error and won ILSVRC 2015, along with
+  the COCO detection and segmentation tracks.
+why: >-
+  Before ResNet, adding layers beyond about twenty made networks worse even on their training data.
+  Residual connections fixed that with almost no extra cost, and they are now in nearly every deep
+  architecture, including every Transformer. It is one of the most cited papers in all of science.
+datasets: [imagenet, cifar10, coco]
+builds_on: [alexnet]

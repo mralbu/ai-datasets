@@ -1,0 +1,35 @@
+---
+// A paper as a card: its common name, year, full title, one-liner and the datasets it links to.
+import { getDatasets, url, type Paper } from '../lib/data';
+interface Props { p: Paper }
+const { p } = Astro.props;
+const byId = new Map((await getDatasets()).map((d) => [d.id, d]));
+const ds = p.data.datasets.map((r) => byId.get(r.id)!);
+---
+<article class="card paper" data-m={p.data.category}>
+  <div class="top">
+    <h3><a href={url(`/p/${p.id}`)}>{p.data.short}</a></h3>
+    <span class="year">{p.data.year}</span>
+  </div>
+  <p class="title muted">{p.data.title}</p>
+  <p class="one">{p.data.one_liner}</p>
+  <p class="on">
+    <span class="muted">Data:</span>
+    {ds.map((d) => <a class="dtag" href={url(`/d/${d.id}`)} data-m={d.data.modality}><span class="dot" aria-hidden="true"></span>{d.data.name}</a>)}
+  </p>
+</article>
+<style>
+  .paper { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 16px; border-top: 3px solid var(--c); }
+  .paper:hover { border-color: var(--c); }
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  h3 { margin: 0; font-size: 1.05rem; }
+  h3 a { color: var(--text); }
+  /* The whole card opens the paper page; dataset links sit above that layer. */
+  h3 a::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
+  .year { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 0.9rem; }
+  .title { margin: -4px 0 0; font-size: 0.82rem; line-height: 1.35; }
+  .one { margin: 0; font-size: 0.92rem; }
+  .on { margin: auto 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; font-size: 0.8rem; position: relative; z-index: 1; }
+  .on .dtag:hover { text-decoration: none; border-color: var(--c); }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--c); }
+</style>

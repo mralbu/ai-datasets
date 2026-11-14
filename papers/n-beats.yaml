@@ -1,0 +1,21 @@
+title: "N-BEATS: Neural basis expansion analysis for interpretable time series forecasting"
+short: N-BEATS
+year: 2019
+venue: ICLR 2020
+authors: Boris N. Oreshkin, Dmitri Carpov, Nicolas Chapados, Yoshua Bengio
+category: timeseries
+arxiv: "1905.10437"
+one_liner: A pure deep learning forecaster that beat the M4 competition winner without any statistical components.
+idea: >-
+  Stack simple blocks of fully connected layers. Each block looks at the past window, produces part
+  of the forecast, and also a "backcast" of the input that it explains, which is subtracted before
+  the next block looks. A constrained version uses trend and seasonality bases so its output can be
+  read like a classical decomposition.
+result: >-
+  11% more accurate than a statistical benchmark on M4 and 3% better than the competition's winner,
+  a hybrid of exponential smoothing and a recurrent network.
+why: >-
+  The M4 organizers concluded that pure machine learning methods did poorly at forecasting.
+  N-BEATS answered that a year later on the same data, and helped convince the field that neural
+  forecasters could beat carefully tuned statistical methods.
+datasets: [m4]

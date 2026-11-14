@@ -1,0 +1,21 @@
+title: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
+short: BERT
+year: 2018
+venue: NAACL 2019
+authors: Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova
+category: text
+arxiv: "1810.04805"
+one_liner: Pretrain a Transformer to fill in masked words, then fine-tune it for almost any language task.
+idea: >-
+  Hide 15% of the words in a sentence and train a Transformer encoder to recover them from the
+  context on both sides, plus guess whether two sentences follow each other. Pretrain on books and
+  Wikipedia (3.3 billion words), then add one small layer and fine-tune for each task.
+result: >-
+  GLUE score of 80.5, a 7.7-point absolute improvement, and 93.2 F1 on SQuAD v1.1, above the
+  human baseline.
+why: >-
+  BERT made "pretrain once, fine-tune everywhere" the standard way to do NLP, and it topped almost
+  every leaderboard at once. That pushed benchmark makers to build harder tests such as SuperGLUE,
+  and BERT-style encoders still power much of search, classification and retrieval.
+datasets: [glue, squad]
+builds_on: [transformer]

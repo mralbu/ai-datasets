@@ -1,4 +1,4 @@
-import { defineCollection } from 'astro:content';
+import { defineCollection, reference } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 import { TAGS, type Tag } from './lib/tags';
@@ -216,4 +216,28 @@ const datasets = defineCollection({
   }),
 });
 
-export const collections = { datasets };
+// One YAML file per classic paper in /papers. Every paper links to at least one dataset on the site:
+// the section is about the history of the field as told through its data, not a reading list.
+const papers = defineCollection({
+  loader: glob({ pattern: '*.yaml', base: './papers' }),
+  schema: z
+    .object({
+      title: z.string(), // full title, as published
+      short: z.string(), // the name people use: "AlexNet", "Transformer"
+      year: z.number().int(), // year it first appeared (the arXiv preprint, if earlier than the venue)
+      venue: z.string(),
+      authors: z.string(),
+      category: z.enum(['vision', 'text', 'tabular', 'timeseries', 'audio', 'benchmark', 'other']),
+      arxiv: z.string().regex(/^\d{4}\.\d{4,5}$/).optional(), // gives the arXiv and alphaXiv links
+      url: z.string().url().optional(), // canonical page, for papers that are not on arXiv
+      one_liner: z.string(),
+      idea: z.string(), // the key idea, in a few plain sentences
+      result: z.string(), // the headline result, with numbers
+      why: z.string(), // why it mattered: our own words, not a copied abstract
+      datasets: z.array(reference('datasets')).min(1),
+      builds_on: z.array(reference('papers')).default([]),
+    })
+    .refine((p) => p.arxiv || p.url, { message: 'A paper needs an arxiv id or a url' }),
+});
+
+export const collections = { datasets, papers };

@@ -1,0 +1,22 @@
+title: "DeepAR: Probabilistic Forecasting with Autoregressive Recurrent Networks"
+short: DeepAR
+year: 2017
+venue: International Journal of Forecasting 2020 (arXiv 2017)
+authors: David Salinas, Valentin Flunkert, Jan Gasthaus, Tim Januschowski
+category: timeseries
+arxiv: "1704.04110"
+one_liner: One recurrent network trained across thousands of related series, forecasting a full distribution instead of one number.
+idea: >-
+  Train a single autoregressive LSTM on many series at once (for example every product a store
+  sells), scaled so that big and small series can share what they learn. At each step it outputs the
+  parameters of a probability distribution, and forecasts are drawn as sample paths.
+result: >-
+  About 15% more accurate than the state-of-the-art methods of the time on several datasets,
+  including electricity consumption and traffic, with calibrated prediction intervals.
+why: >-
+  Classical forecasting fitted one model per series. DeepAR, built for Amazon's demand forecasting,
+  made "global" models trained across many series the norm for neural forecasting, and its
+  electricity and traffic benchmarks became standard. It is a direct ancestor of today's time series
+  foundation models.
+datasets: [electricity]
+builds_on: [yule-1927]

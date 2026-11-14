@@ -1,0 +1,21 @@
+title: Neural Machine Translation by Jointly Learning to Align and Translate
+short: Attention for translation
+year: 2014
+venue: ICLR 2015
+authors: Dzmitry Bahdanau, Kyunghyun Cho, Yoshua Bengio
+category: text
+arxiv: "1409.0473"
+one_liner: The paper that introduced attention, letting a translator look back at the source sentence as it writes.
+idea: >-
+  Encoder–decoder translators squeezed the whole source sentence into one fixed vector. Here the
+  decoder computes, for every word it outputs, a weighted average over all encoder states, with
+  weights learned from the data, so it can focus on the source words that matter right now.
+result: >-
+  On WMT'14 English–French, quality no longer dropped on long sentences, and on sentences without
+  unknown words it matched the phrase-based system Moses.
+why: >-
+  Attention was proposed as a fix for long sentences in translation, and it became the central idea
+  of modern deep learning. The learned weights also gave readable word alignments, one of the first
+  windows into what a neural network was doing. Three years later the Transformer kept the
+  attention and dropped the recurrent network.
+datasets: [wmt14]

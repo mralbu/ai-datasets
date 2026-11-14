@@ -1,0 +1,22 @@
+title: Training language models to follow instructions with human feedback
+short: InstructGPT
+year: 2022
+venue: NeurIPS 2022
+authors: Long Ouyang, Jeff Wu, Xu Jiang, Diogo Almeida, Carroll L. Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, et al.
+category: benchmark
+arxiv: "2203.02155"
+one_liner: The recipe that turned a raw language model into an assistant, a few months before ChatGPT.
+idea: >-
+  Three steps: fine-tune GPT-3 on demonstrations written by people, train a reward model on human
+  rankings of the model's answers, then optimize the model against that reward with reinforcement
+  learning (PPO). This is reinforcement learning from human feedback, RLHF.
+result: >-
+  People preferred answers from the 1.3-billion-parameter InstructGPT over those of the
+  175-billion-parameter GPT-3, and it gave truthful and informative answers on TruthfulQA about
+  twice as often.
+why: >-
+  It showed that a small amount of human feedback matters more than a 100-fold increase in size
+  for making a model useful. The same recipe trained ChatGPT, and preference data such as
+  Anthropic's HH-RLHF became a dataset category of its own.
+datasets: [truthfulqa]
+builds_on: [gpt-3]

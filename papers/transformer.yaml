@@ -1,0 +1,21 @@
+title: Attention Is All You Need
+short: Transformer
+year: 2017
+venue: NeurIPS 2017
+authors: Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, Illia Polosukhin
+category: text
+arxiv: "1706.03762"
+one_liner: A translation model built only from attention, and the architecture behind every large language model since.
+idea: >-
+  Drop recurrence entirely. Each layer lets every position attend to every other position through
+  several attention heads in parallel, followed by a small feed-forward network, with residual
+  connections and position encodings to keep word order.
+result: >-
+  28.4 BLEU on WMT 2014 English–German, more than 2 BLEU above the previous best including
+  ensembles, after 3.5 days of training on eight GPUs.
+why: >-
+  Without recurrence, a whole sequence can be processed in parallel, so Transformers make full use
+  of GPUs and keep improving as they get bigger. BERT, GPT and nearly every language, vision and
+  speech model that followed use this architecture with few changes.
+datasets: [wmt14]
+builds_on: [bahdanau-attention, resnet]

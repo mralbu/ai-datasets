@@ -1,0 +1,23 @@
+title: "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning"
+short: DeepSeek-R1
+year: 2025
+venue: Nature 2025 (arXiv January 2025)
+authors: DeepSeek-AI
+category: benchmark
+arxiv: "2501.12948"
+one_liner: Reasoning learned through reinforcement learning on checkable answers, released with open weights.
+idea: >-
+  Start from a base model and train it with reinforcement learning (GRPO) using only rule-based
+  rewards: is the final answer correct, is the format right. Long chains of thought, self-checking
+  and backtracking emerge on their own (R1-Zero). R1 adds a small amount of supervised data first to
+  make the output readable.
+result: >-
+  79.8% pass@1 on AIME 2024 and 97.3% on MATH-500, on par with OpenAI o1, plus 84.0 on MMLU-Pro and
+  49.2% on SWE-bench Verified.
+why: >-
+  OpenAI's o1 had shown that reasoning models work but not how they were made. DeepSeek-R1 published
+  a recipe and open weights, showed that verifiable rewards alone can teach reasoning, and released
+  smaller distilled models that run on one GPU. Reinforcement learning on checkable tasks became the
+  main way frontier models are improved.
+datasets: [math, mmlu, mmlu-pro, swe-bench]
+builds_on: [chain-of-thought, instructgpt]

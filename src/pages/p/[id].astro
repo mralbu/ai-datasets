@@ -1,0 +1,125 @@
+---
+import Base from '../../layouts/Base.astro';
+import DatasetCard from '../../components/DatasetCard.astro';
+import { getDatasets, getPapers, ledTo, MODALITIES, paperLinks, url } from '../../lib/data';
+
+export async function getStaticPaths() {
+  const all = await getPapers();
+  return all.map((p, i) => ({ params: { id: p.id }, props: { p, prev: all[i - 1], next: all[i + 1] } }));
+}
+const { p, prev, next } = Astro.props;
+const d = p.data;
+const dsById = new Map((await getDatasets()).map((x) => [x.id, x]));
+const pById = new Map((await getPapers()).map((x) => [x.id, x]));
+const data = d.datasets.map((r) => dsById.get(r.id)!);
+const parents = d.builds_on.map((r) => pById.get(r.id)!);
+const children = await ledTo(p.id);
+const l = paperLinks(d);
+const hostOf = (u: string) => new URL(u).hostname.replace(/^www\./, '');
+// How long after the dataset the paper came: the gap is part of the story (ImageNet 2009, AlexNet 2012).
+const gap = (y: number) => (y === d.year ? 'same year' : y < d.year ? `${d.year - y} years earlier` : `${y - d.year} years later`).replace(/^1 years/, '1 year');
+const ICONS = {
+  read: 'M2 5.5C4.5 4 8 4 12 6c4-2 7.5-2 10-.5V19c-2.5-1.5-6-1.5-10 .5-4-2-7.5-2-10-.5V5.5ZM12 6v13.5',
+  paper: 'M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Zm0 0v5h5M9 13h6M9 17h6',
+};
+const links = [
+  l.alphaxiv && { href: l.alphaxiv, label: 'alphaXiv', icon: ICONS.read, tip: 'Summary and discussion', color: 'var(--c-text)' },
+  l.arxiv && { href: l.arxiv, label: 'arXiv', icon: ICONS.paper, tip: `arXiv ${d.arxiv}`, color: 'var(--c-tabular)' },
+  !l.arxiv && { href: l.main, label: 'Paper', icon: ICONS.paper, tip: hostOf(l.main), color: 'var(--c-tabular)' },
+].filter(Boolean) as { href: string; label: string; icon: string; tip: string; color: string }[];
+const facts: [string, string][] = [
+  ['Year', String(d.year)],
+  ['Authors', d.authors],
+  ['Venue', d.venue],
+];
+---
+<Base title={`${d.short} · Papers · AI Datasets`} description={d.one_liner} markdown={url(`/p/${p.id}.md`)}>
+  <p class="crumb"><a href={url('/papers')}>Papers</a> / <span class="tag" data-m={d.category}>{MODALITIES[d.category]}</span></p>
+  <h1>{d.short} <span class="muted">({d.year})</span></h1>
+  {d.title !== d.short && <p class="full muted">{d.title}</p>}
+  <p class="lede">{d.one_liner}</p>
+
+  <div class="top">
+    <section class="why">
+      <h2>Why it matters</h2>
+      <p>{d.why}</p>
+      <div class="links icon-links">
+        {links.map((k) => (
+          <a class="link-btn tip" href={k.href} data-tip={k.tip} style={`--ic: ${k.color}`}>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d={k.icon} /></svg>{k.label}
+          </a>
+        ))}
+      </div>
+    </section>
+    <dl class="facts card">
+      {facts.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
+      <dt>Data</dt>
+      <dd>{data.map((x, i) => <>{i > 0 && ', '}<a href={url(`/d/${x.id}`)}>{x.data.name}</a></>)}</dd>
+    </dl>
+  </div>
+
+  <div class="pair">
+    <section class="card box">
+      <h2>The idea</h2>
+      <p>{d.idea}</p>
+    </section>
+    <section class="card box">
+      <h2>The result</h2>
+      <p>{d.result}</p>
+    </section>
+  </div>
+
+  <h2>The data</h2>
+  <div class="cards">
+    {data.map((x) => <DatasetCard ds={x} note={`${x.data.one_liner} (${gap(x.data.year)})`} />)}
+  </div>
+
+  {(parents.length > 0 || children.length > 0) && (
+    <div class="cols">
+      {parents.length > 0 && (
+        <section>
+          <h2>Builds on</h2>
+          <ul>{parents.map((x) => <li><a href={url(`/p/${x.id}`)}><strong>{x.data.short}</strong></a> <span class="muted">({x.data.year}): {x.data.one_liner}</span></li>)}</ul>
+        </section>
+      )}
+      {children.length > 0 && (
+        <section>
+          <h2>Led to</h2>
+          <ul>{children.map((x) => <li><a href={url(`/p/${x.id}`)}><strong>{x.data.short}</strong></a> <span class="muted">({x.data.year}): {x.data.one_liner}</span></li>)}</ul>
+        </section>
+      )}
+    </div>
+  )}
+
+  <nav class="pager">
+    {prev ? <a href={url(`/p/${prev.id}`)}>← {prev.data.short} ({prev.data.year})</a> : <span />}
+    {next ? <a href={url(`/p/${next.id}`)}>{next.data.short} ({next.data.year}) →</a> : <span />}
+  </nav>
+</Base>
+<style>
+  .crumb { margin: 24px 0 0; font-size: 0.9rem; }
+  h1 { margin: 8px 0 4px; font-size: clamp(1.6rem, 4vw, 2.2rem); }
+  h1 .muted { font-weight: 400; }
+  .full { margin: 0 0 10px; font-size: 1rem; }
+  .lede { font-size: 1.1rem; margin: 0 0 8px; }
+  .top { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+  @media (max-width: 760px) { .top { grid-template-columns: minmax(0, 1fr); gap: 8px; } .facts { margin-top: 0 !important; } }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 0; }
+  .link-btn {
+    display: inline-flex; align-items: center; gap: 7px; height: 32px; padding: 0 12px;
+    border: 1px solid var(--border); border-radius: 8px; background: var(--surface);
+    color: var(--text); font-size: 0.85rem; font-weight: 500; transition: border-color 0.15s, color 0.15s;
+  }
+  .link-btn svg { width: 16px; height: 16px; fill: color-mix(in srgb, var(--ic, var(--muted)) 16%, transparent); stroke: var(--ic, var(--muted)); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .link-btn:hover { text-decoration: none; border-color: var(--accent); color: var(--accent); }
+  .facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; padding: 16px 18px; margin: 2.2rem 0 0; font-size: 0.9rem; }
+  dt { color: var(--muted); }
+  dd { margin: 0; }
+  .pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 2rem; }
+  .box { padding: 4px 18px 6px; }
+  .box h2 { margin-top: 0.9rem; font-size: 1.1rem; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0 28px; }
+  .cols li { margin-bottom: 6px; }
+  .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 0.92rem; }
+</style>

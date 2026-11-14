@@ -1,0 +1,21 @@
+title: Item-Based Collaborative Filtering Recommendation Algorithms
+short: Item-based collaborative filtering
+year: 2001
+venue: WWW 2001
+authors: Badrul Sarwar, George Karypis, Joseph Konstan, John Riedl
+category: tabular
+url: https://doi.org/10.1145/371920.372071
+one_liner: Recommend by how similar items are, not users, which is both more accurate and much easier to scale.
+idea: >-
+  Instead of finding users with similar tastes at request time, precompute how similar every pair
+  of items is from the ratings they share, then predict a user's rating for an item from their
+  ratings of its most similar items.
+result: >-
+  On MovieLens ratings, item-based predictions were more accurate than the standard user-based
+  nearest-neighbor method, and the item similarities could be computed offline.
+why: >-
+  Item relations change much more slowly than user profiles, so the expensive part can be done
+  ahead of time. "People who liked this also liked" became the classic recommender pattern, used at
+  Amazon and elsewhere, and this paper is one of the reasons MovieLens became the standard
+  recommender benchmark.
+datasets: [movielens]

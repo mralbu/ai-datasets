@@ -1,0 +1,19 @@
+title: ImageNet Classification with Deep Convolutional Neural Networks
+short: AlexNet
+year: 2012
+venue: NeurIPS 2012
+authors: Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton
+category: vision
+url: https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks
+one_liner: A convolutional network trained on two GPUs won ImageNet 2012 by a wide margin and started the deep learning era.
+idea: >-
+  Train a large convolutional network (five convolutional and three fully connected layers,
+  60 million parameters) end to end on raw pixels, made practical by GPUs, ReLU activations,
+  dropout and heavy data augmentation.
+result: Top-5 error of 15.3% on the ILSVRC-2012 test set, against 26.2% for the next best entry.
+why: >-
+  Convolutional networks were decades old, but most of computer vision still ran on hand-designed
+  features such as SIFT. AlexNet's margin was too large to ignore: within two years almost every
+  ImageNet entry was a deep network, and GPUs became the standard tool for machine learning.
+  ReLU, dropout and data augmentation from this paper are still in everyday use.
+datasets: [imagenet]

@@ -1,7 +1,7 @@
 ---
 // Site search: a header button that opens a small palette. Press "/" (or Ctrl/⌘ K) anywhere to open it.
 // The index is tiny (one entry per dataset), so it is inlined as JSON and searched in the browser.
-import { getDatasets, url, MODALITIES, TAGS } from '../lib/data';
+import { getDatasets, getPapers, url, MODALITIES, TAGS } from '../lib/data';
 const index = (await getDatasets()).map((d) => ({
   id: d.id,
   name: d.data.name,
@@ -15,8 +15,24 @@ const index = (await getDatasets()).map((d) => ({
   rel: (d.data.lineage ?? []).filter((l) => !l.id).map((l) => l.name),
   href: url(`/d/${d.id}`),
 }));
+// Papers search like datasets: by common name and title; the sub line says it is a paper.
+for (const p of await getPapers()) {
+  index.push({
+    id: p.id,
+    name: p.data.short,
+    year: p.data.year,
+    m: p.data.category,
+    cat: 'Paper',
+    tags: '',
+    task: `Paper: ${p.data.title}`,
+    line: `${p.data.one_liner} paper`,
+    who: p.data.authors,
+    rel: [],
+    href: url(`/p/${p.id}`),
+  });
+}
 ---
-<button type="button" class="search-btn" data-search-open aria-label="Search datasets" aria-keyshortcuts="/">
+<button type="button" class="search-btn" data-search-open aria-label="Search datasets and papers" aria-keyshortcuts="/">
   <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="5.5" /><path d="m13 13 4 4" /></svg>
   <span class="ph">Search</span>
 </button>
@@ -102,7 +118,7 @@ const index = (await getDatasets()).map((d) => ({
               <span class="cat">${esc(h.e.cat)}</span>
             </a>
           </li>`).join('')
-      : `<li class="none muted">No dataset matches “${esc(input.value.trim())}”.</li>`;
+      : `<li class="none muted">Nothing matches “${esc(input.value.trim())}”.</li>`;
     input.setAttribute('aria-activedescendant', results.length ? `sr-${active}` : '');
   }
 

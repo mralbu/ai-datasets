@@ -2,10 +2,18 @@
 import Base from '../layouts/Base.astro';
 import Preview from '../components/Preview.astro';
 import CategoryFilter from '../components/CategoryFilter.astro';
-import { getDatasets, MODALITIES, url } from '../lib/data';
+import { getDatasets, getPapers, MODALITIES, url, type Dataset, type Paper } from '../lib/data';
 const all = await getDatasets();
+const papers = await getPapers();
+const dsById = new Map(all.map((d) => [d.id, d]));
 const counts = Object.fromEntries(Object.keys(MODALITIES).map((m) => [m, all.filter((d) => d.data.modality === m).length]));
-const decades = [...new Set(all.map((d) => Math.floor(d.data.year / 10) * 10))];
+// Datasets and papers on one axis; within a year, datasets come first.
+type Item = { kind: 'dataset'; ds: Dataset; year: number } | { kind: 'paper'; p: Paper; year: number };
+const items: Item[] = [
+  ...all.map((ds) => ({ kind: 'dataset' as const, ds, year: ds.data.year })),
+  ...papers.map((p) => ({ kind: 'paper' as const, p, year: p.data.year })),
+].sort((a, b) => a.year - b.year || (a.kind === b.kind ? 0 : a.kind === 'dataset' ? -1 : 1));
+const decades = [...new Set(items.map((it) => Math.floor(it.year / 10) * 10))];
 ---
 <Base title="Timeline · AI Datasets" description="Classic AI datasets and benchmarks in the order they appeared.">
   <h1>Timeline</h1>
@@ -13,19 +21,42 @@ const decades = [...new Set(all.map((d) => Math.floor(d.data.year / 10) * 10))];
 
   <CategoryFilter counts={counts} />
 
+  <div class="overlay">
+    <label class="switch">
+      <input type="checkbox" data-papers-toggle />
+      <span class="track" aria-hidden="true"></span>
+      Show papers <span class="muted">({papers.length})</span>
+    </label>
+    <span class="muted hint">Classic papers, next to the data they were measured on. <a href={url('/papers')}>All papers</a></span>
+  </div>
+
   <ol class="tl">
     {decades.map((dec) => (
       <>
         <li class="decade" data-decade={dec}>{dec}s</li>
-        {all.filter((ds) => Math.floor(ds.data.year / 10) * 10 === dec).map((ds) => (
-          <li class="item" data-filter-item data-m={ds.data.modality} data-decade={dec}>
-            <span class="y">{ds.data.year}</span>
+        {items.filter((it) => Math.floor(it.year / 10) * 10 === dec).map((it) => it.kind === 'dataset' ? (
+          <li class="item" data-filter-item data-m={it.ds.data.modality} data-decade={dec}>
+            <span class="y">{it.year}</span>
             <div class="body">
-              <a href={url(`/d/${ds.id}`)}><strong>{ds.data.name}</strong></a>
-              <span class="tag" data-m={ds.data.modality}>{MODALITIES[ds.data.modality]}</span>
-              <p class="muted">{ds.data.one_liner}</p>
+              <a href={url(`/d/${it.ds.id}`)}><strong>{it.ds.data.name}</strong></a>
+              <span class="tag" data-m={it.ds.data.modality}>{MODALITIES[it.ds.data.modality]}</span>
+              <p class="muted">{it.ds.data.one_liner}</p>
             </div>
-            <a class="preview" href={url(`/d/${ds.id}`)} tabindex="-1" aria-hidden="true"><Preview ds={ds} /></a>
+            <a class="preview" href={url(`/d/${it.ds.id}`)} tabindex="-1" aria-hidden="true"><Preview ds={it.ds} /></a>
+          </li>
+        ) : (
+          <li class="item paper" data-filter-item data-paper data-m={it.p.data.category} data-decade={dec}>
+            <span class="y">{it.year}</span>
+            <div class="body">
+              <span class="kind">Paper</span>
+              <a href={url(`/p/${it.p.id}`)}><strong>{it.p.data.short}</strong></a>
+              <p class="muted">{it.p.data.one_liner}</p>
+              <p class="on">
+                {it.p.data.datasets.map((r) => dsById.get(r.id)!).map((d, i) => (
+                  <>{i === 0 ? 'On ' : ', '}<a href={url(`/d/${d.id}`)}>{d.data.name}</a> <span class="ago">({d.data.year})</span></>
+                ))}
+              </p>
+            </div>
           </li>
         ))}
       </>
@@ -34,13 +65,28 @@ const decades = [...new Set(all.map((d) => Math.floor(d.data.year / 10) * 10))];
 </Base>
 
 <script>
-  // Filtering is done by CategoryFilter; here we only hide decades with nothing visible.
-  const items = [...document.querySelectorAll<HTMLElement>('.tl .item')];
-  const decades = [...document.querySelectorAll<HTMLElement>('.tl .decade')];
+  // CategoryFilter shows and hides entries by category. Papers are an overlay on top of that:
+  // the switch adds the "with-papers" class (kept in the URL as ?papers), and decades with
+  // nothing visible are hidden.
+  const tl = document.querySelector<HTMLElement>('.tl')!;
+  const toggle = document.querySelector<HTMLInputElement>('[data-papers-toggle]')!;
+  const items = [...tl.querySelectorAll<HTMLElement>('.item')];
+  const decades = [...tl.querySelectorAll<HTMLElement>('.decade')];
+  const shown = (li: HTMLElement) => !li.hidden && (toggle.checked || !('paper' in li.dataset));
   const refresh = () =>
-    decades.forEach((h) => (h.hidden = !items.some((li) => !li.hidden && li.dataset.decade === h.dataset.decade)));
+    decades.forEach((h) => (h.hidden = !items.some((li) => shown(li) && li.dataset.decade === h.dataset.decade)));
+  const setPapers = (on: boolean) => {
+    toggle.checked = on;
+    tl.classList.toggle('with-papers', on);
+    const q = new URLSearchParams(location.search);
+    on ? q.set('papers', '') : q.delete('papers');
+    const search = q.toString().replace(/=(&|$)/g, '$1');
+    history.replaceState(null, '', location.pathname + (search ? `?${search}` : '') + location.hash);
+    refresh();
+  };
+  toggle.addEventListener('change', () => setPapers(toggle.checked));
   window.addEventListener('categoryfilter', refresh);
-  refresh();
+  setPapers(new URLSearchParams(location.search).has('papers'));
 </script>
 
 <style>
@@ -63,4 +109,27 @@ const decades = [...new Set(all.map((d) => Math.floor(d.data.year / 10) * 10))];
   .tag { margin-left: 8px; vertical-align: 2px; }
   .preview { grid-area: preview; display: block; color: inherit; max-width: 420px; }
   .preview:hover { text-decoration: none; }
+
+  /* Papers: hidden until the switch is on; a hollow dot and no preview, so the data stays the main thread. */
+  .paper { display: none; grid-template-areas: 'y body'; padding-bottom: 12px; }
+  .with-papers .paper:not([hidden]) { display: grid; }
+  .paper::before { background: var(--bg); border: 2.5px solid var(--c, var(--accent)); box-sizing: border-box; }
+  .paper .body > a { color: var(--text); }
+  .kind {
+    display: inline-block; margin-right: 8px; vertical-align: 2px; font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--c); border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
+    border-radius: 4px; padding: 0 5px;
+  }
+  .on { font-size: 0.85rem !important; color: var(--muted); }
+  .ago { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  .overlay { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 4px 0 0; font-size: 0.9rem; }
+  .hint { font-size: 0.85rem; }
+  .switch { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500; user-select: none; }
+  .switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .track { width: 34px; height: 20px; border-radius: 999px; background: var(--border); position: relative; transition: background 0.15s; flex: none; }
+  .track::after { content: ''; position: absolute; top: 3px; left: 3px; width: 14px; height: 14px; border-radius: 50%; background: var(--surface); box-shadow: 0 1px 2px rgb(0 0 0 / 0.25); transition: transform 0.15s; }
+  .switch input:checked + .track { background: var(--accent); }
+  .switch input:checked + .track::after { transform: translateX(14px); }
+  .switch input:focus-visible + .track { outline: 2px solid var(--accent); outline-offset: 2px; }
 </style>

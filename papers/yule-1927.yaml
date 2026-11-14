@@ -1,0 +1,20 @@
+title: On a Method of Investigating Periodicities in Disturbed Series, with special reference to Wolfer's Sunspot Numbers
+short: Yule's autoregression
+year: 1927
+venue: Philosophical Transactions of the Royal Society A
+authors: G. Udny Yule
+category: timeseries
+url: https://royalsocietypublishing.org/doi/10.1098/rsta.1927.0007
+one_liner: The first autoregressive model, fitted to sunspot numbers, and the ancestor of every forecasting model since.
+idea: >-
+  Picture a pendulum pelted by boys with peas: it swings with a natural rhythm, but each random hit
+  disturbs it. Yule modeled each year's sunspot number as a linear function of the previous two
+  years plus a random shock, an AR(2) model, instead of a sum of fixed sine waves.
+result: >-
+  The autoregressive fit described the irregular sunspot cycle better than the periodogram's fixed
+  periods, and explained why the cycle's length and height drift.
+why: >-
+  Predicting a series from its own past values is the basis of ARIMA, of the Box–Jenkins method, and
+  in spirit of today's autoregressive neural forecasters and language models. The sunspot numbers
+  Yule used are still a standard test series a century later.
+datasets: [sunspots]

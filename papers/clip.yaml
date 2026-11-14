@@ -1,0 +1,22 @@
+title: Learning Transferable Visual Models From Natural Language Supervision
+short: CLIP
+year: 2021
+venue: ICML 2021
+authors: Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen Krueger, Ilya Sutskever
+category: vision
+arxiv: "2103.00020"
+one_liner: Learn images from 400 million captions found on the web, then classify anything you can name.
+idea: >-
+  Train an image encoder and a text encoder together so that each image lands close to its own
+  caption and far from the other captions in the batch. To classify, write each class as a
+  sentence ("a photo of a dog") and pick the one closest to the image.
+result: >-
+  76.2% zero-shot top-1 on ImageNet, matching the original ResNet-50 without using any of its
+  1.28 million labeled training images.
+why: >-
+  CLIP replaced fixed label sets with free text and showed that web captions are enough supervision
+  for strong, general image features. Its encoders became a building block for text-to-image models
+  and for image search. The paper also reported where zero-shot CLIP is weak, for example on
+  satellite images such as EuroSAT.
+datasets: [imagenet, flickr30k, eurosat]
+builds_on: [vit, transformer]
