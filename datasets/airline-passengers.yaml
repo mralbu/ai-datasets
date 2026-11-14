@@ -1,0 +1,29 @@
+name: Air Passengers
+year: 1970
+modality: timeseries
+task: Univariate forecasting (monthly)
+one_liner: Monthly international airline passengers, 1949–1960. The 144 numbers that taught generations of statisticians ARIMA.
+creators: George Box and Gwilym Jenkins ("Series G" in their textbook), from airline records in R. G. Brown (1963)
+size: 144 monthly values
+splits: { train: 144 }
+input: Month, from 1949-01 to 1960-12
+labels: Total international airline passengers that month, in thousands
+license: Freely redistributed (bundled with R as AirPassengers)
+homepage: https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/AirPassengers.html
+why: >-
+  The textbook time series. In one small picture it has everything a forecaster
+  must handle: an upward trend, a yearly cycle, and seasonal swings that grow
+  with the level, so a log transform makes them steady. Box and Jenkins fitted
+  it with a seasonal ARIMA(0,1,1)(0,1,1)₁₂, now called the "airline model", and
+  it has opened forecasting courses, R tutorials and library docs ever since.
+trivia:
+  - "Passengers roughly quadrupled, from 112 thousand in January 1949 to 432 thousand in December 1960."
+  - "The gap between the summer peak and the winter low grows from 44 thousand in 1949 to 232 thousand in 1960: the seasonal swing scales with the level, which is why the series is usually modeled on a log scale."
+  - Every year peaks in July or August.
+  - With only 144 points, it is far too small to train a neural network on; it is a teaching set, not a benchmark.
+lineage:
+  - { name: AirPassengers in R, note: "the same series, as a built-in ts object", url: "https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/AirPassengers.html" }
+  - { name: M4 Competition, note: "2018, 100,000 series for testing forecasting methods at scale", id: m4 }
+landmark_papers: []
+source: { hf: duol/airpassengers, window: { n: 144, start: 0 } }
+display: { kind: series, value: "#Passengers", time: Month, unit: thousand passengers, names: { "#Passengers": "passengers per month, in thousands" } }

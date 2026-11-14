@@ -11,7 +11,7 @@ const oneLine = (s: string) => s.replace(/\s+/g, ' ').trim();
 
 export const SUMMARY =
   'A small, curated museum of classic AI datasets and benchmarks across vision, language models, text, ' +
-  'tabular data and audio. Each entry explains why the dataset mattered, lists the key facts, shows real ' +
+  'tabular data, time series and audio. Each entry explains why the dataset mattered, lists the key facts, shows real ' +
   'samples from the Hugging Face dataset viewer, and gives copy-paste snippets to download the full data.';
 
 const ABOUT = `## About the site

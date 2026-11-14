@@ -1,0 +1,55 @@
+name: ETT (Electricity Transformer Temperature)
+year: 2021
+modality: timeseries
+task: Long-horizon multivariate forecasting
+one_liner: Two years of load and oil temperature from two Chinese power transformers, the standard test for long-horizon forecasting.
+creators: Haoyi Zhou, Shanghang Zhang, Jieqi Peng and others (Beihang University), with State Grid data
+size: 4 series of 7 variables, July 2016 to July 2018 (ETTh1, ETTh2 hourly; ETTm1, ETTm2 every 15 minutes)
+splits: { ETTh1: 17420, ETTh2: 17420, ETTm1: 69680, ETTm2: 69680 }
+input: Six power-load measurements (high, middle and low voltage; useful and useless load)
+labels: Oil temperature (OT), forecast with the loads 96 to 720 steps ahead
+license: CC BY-ND 4.0
+paper:
+  title: "Informer: Beyond Efficient Transformer for Long Sequence Time-Series Forecasting"
+  url: https://arxiv.org/abs/2012.07436
+homepage: https://github.com/zhouhaoyi/ETDataset
+why: >-
+  Informer (AAAI 2021 best paper) released ETT to test forecasting far ahead,
+  and with Electricity, Traffic and Weather it became the benchmark set for
+  long-horizon forecasting. Autoformer, FEDformer, PatchTST and iTransformer
+  all report on it. In 2023 a paper asked "Are Transformers effective for
+  time series forecasting?" and showed that one linear layer beat most of
+  them on these datasets, a reminder of how easy it is to overfit a small benchmark.
+trivia:
+  - Oil temperature tracks the transformer's load and warns of overheating, which is why it is the target.
+  - The standard horizons are 96, 192, 336 and 720 steps; results are MSE and MAE on data normalized with the training set's statistics.
+  - The usual split is 12/4/4 months for training, validation and test.
+  - Some of the load columns go negative at times.
+  - The sample is a random two-week window (336 hours) of ETTh1, the most-used of the four.
+lineage:
+  - { name: Electricity Load Diagrams, note: "the Electricity set of the same benchmark", id: electricity }
+  - { name: Traffic (PeMS), note: "hourly road occupancy from 862 San Francisco Bay Area sensors", url: "https://pems.dot.ca.gov/" }
+  - { name: Weather (Jena), note: "21 weather variables every 10 minutes, Max Planck Institute for Biogeochemistry", url: "https://www.bgc-jena.mpg.de/wetter/" }
+landmark_papers:
+  - { title: "Autoformer: Decomposition Transformers with Auto-Correlation for Long-Term Series Forecasting", year: 2021, url: "https://arxiv.org/abs/2106.13008" }
+  - { title: "Are Transformers Effective for Time Series Forecasting? (DLinear)", year: 2023, url: "https://arxiv.org/abs/2205.13504" }
+  - { title: "A Time Series is Worth 64 Words: Long-term Forecasting with Transformers (PatchTST)", year: 2023, url: "https://arxiv.org/abs/2211.14730" }
+source:
+  hf: ailuntz/ETT-small
+  seed: 21
+  # The copy concatenates ETTh1, ETTh2, ETTm1 and ETTm2; rows 0–17,419 are ETTh1.
+  window: { n: 336, within: [0, 17420] }
+display:
+  kind: series
+  value: [OT, HUFL, HULL, MUFL, MULL, LUFL, LULL]
+  time: date
+  names:
+    OT: oil temperature (°C, the target)
+    HUFL: high useful load
+    HULL: high useless load
+    MUFL: middle useful load
+    MULL: middle useless load
+    LUFL: low useful load
+    LULL: low useless load
+download:
+  note: "A community copy of the four CSVs concatenated in one table (ETTh1, ETTh2, ETTm1, ETTm2, in that order). The originals are in the ETDataset repository."

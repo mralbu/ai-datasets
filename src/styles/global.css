@@ -12,7 +12,7 @@
   --mark: #fff1b8;
   --shadow: 0 10px 30px rgb(20 20 30 / 0.12);
   /* Category colors (dots on filter chips and section headings) */
-  --c-vision: #2f6fd6; --c-text: #1f8a5b; --c-benchmark: #8a4fd1; --c-tabular: #c26a12; --c-audio: #c43c78; --c-other: #6b7280;
+  --c-vision: #2f6fd6; --c-text: #1f8a5b; --c-benchmark: #8a4fd1; --c-tabular: #c26a12; --c-timeseries: #0f8fa6; --c-audio: #c43c78; --c-other: #6b7280;
   --radius: 10px;
   --maxw: 1080px;
   color-scheme: light;
@@ -23,7 +23,7 @@
     --bg: #131316; --surface: #1c1c21; --text: #ececef; --muted: #9c9ca6; --border: #2e2e35;
     --accent: #8aa8ff; --accent-soft: #232b45; --pos: #5cc98a; --neg: #f08a73; --code-bg: #24242a;
     --mark: #5a4a12; --shadow: 0 10px 30px rgb(0 0 0 / 0.5);
-    --c-vision: #7aa7ff; --c-text: #5cc98a; --c-benchmark: #b48cff; --c-tabular: #f0a35c; --c-audio: #f07aad; --c-other: #9ca3af;
+    --c-vision: #7aa7ff; --c-text: #5cc98a; --c-benchmark: #b48cff; --c-tabular: #f0a35c; --c-timeseries: #4fd3ea; --c-audio: #f07aad; --c-other: #9ca3af;
     color-scheme: dark;
   }
 }
@@ -31,7 +31,7 @@
   --bg: #131316; --surface: #1c1c21; --text: #ececef; --muted: #9c9ca6; --border: #2e2e35;
   --accent: #8aa8ff; --accent-soft: #232b45; --pos: #5cc98a; --neg: #f08a73; --code-bg: #24242a;
   --mark: #5a4a12; --shadow: 0 10px 30px rgb(0 0 0 / 0.5);
-    --c-vision: #7aa7ff; --c-text: #5cc98a; --c-benchmark: #b48cff; --c-tabular: #f0a35c; --c-audio: #f07aad; --c-other: #9ca3af;
+    --c-vision: #7aa7ff; --c-text: #5cc98a; --c-benchmark: #b48cff; --c-tabular: #f0a35c; --c-timeseries: #4fd3ea; --c-audio: #f07aad; --c-other: #9ca3af;
   color-scheme: dark;
 }
 /* Shiki dual themes (astro:components <Code>): switch to the dark colors with the theme. */
@@ -73,6 +73,7 @@ button:hover { border-color: var(--accent); }
 [data-m='text'] { --c: var(--c-text); }
 [data-m='benchmark'] { --c: var(--c-benchmark); }
 [data-m='tabular'] { --c: var(--c-tabular); }
+[data-m='timeseries'] { --c: var(--c-timeseries); }
 [data-m='audio'] { --c: var(--c-audio); }
 [data-m='other'] { --c: var(--c-other); }
 .chip {

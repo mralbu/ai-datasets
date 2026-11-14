@@ -21,36 +21,57 @@ import Retrieval from './kinds/Retrieval.astro';
 import VQA from './kinds/VQA.astro';
 import SceneGraph from './kinds/SceneGraph.astro';
 import MultiHop from './kinds/MultiHop.astro';
+import Series from './kinds/Series.astro';
 
 interface Props { ds: Dataset; samples: Samples }
 const { ds, samples: s } = Astro.props;
 const d = ds.data.display;
 const rows = s.rows;
 // How many samples to show at once, per kind.
-const SHOW: Record<string, number> = { image: 24, boxes: 6, text: 4, qa: 3, extractive: 3, mcq: 4, code: 2, audio: 4, grid: 2, record: 9, table: 8, translation: 6, annotated: 6, image_mcq: 3, preference: 3, segmentation: 4, dense: 4, retrieval: 2, vqa: 6, scene_graph: 2, multihop: 2 };
-const k = d.kind === 'image' && d.thumb ? 12 : SHOW[d.kind];
+const SHOW: Record<string, number> = { image: 24, boxes: 6, text: 4, qa: 3, extractive: 3, mcq: 4, code: 2, audio: 4, grid: 2, record: 9, table: 8, translation: 6, annotated: 6, image_mcq: 3, preference: 3, segmentation: 4, dense: 4, retrieval: 2, vqa: 6, scene_graph: 2, multihop: 2, series: 12 };
+// A window of a long-format series is one chart per column, all shown.
+const windowCols = d.kind === 'series' && s.window ? [d.value].flat().length : 0;
+const k = windowCols || (d.kind === 'image' && d.thumb ? 12 : SHOW[d.kind]);
+const items = windowCols || rows.length;
 const first = rows[0];
 const splitInfo = s.parts && s.parts.length > 1
   ? `${s.parts.length} tasks`
   : `the ${s.source.split} split`;
 // Raw JSON can be huge (ARC grids); keep the preview readable.
-const raw = first ? JSON.stringify(first.row, null, 2) : '';
+// Time series: long lists (values, timestamps) go on one line, cut after 40 items.
+const flat: string[] = [];
+const compact = (_k: string, v: unknown) => {
+  if (d.kind !== 'series' || !Array.isArray(v) || v.length <= 8 || v.some((x) => x !== null && typeof x === 'object')) return v;
+  const shown = v.slice(0, 40).map((x) => JSON.stringify(x)).join(', ');
+  flat.push(`[${shown}${v.length > 40 ? `, … ${(v.length - 40).toLocaleString('en-US')} more` : ''}]`);
+  return `\u0000${flat.length - 1}`;
+};
+const raw = first
+  ? JSON.stringify(first.row, compact, 2).replace(/"\\u0000(\d+)"/g, (_m, i) => flat[Number(i)])
+  : '';
 const rawShown = raw.length > 6000 ? raw.slice(0, 6000) + '\n… (truncated)' : raw;
 const fetched = s.fetched_at.slice(0, 10);
 const revUrl = s.revision ? `https://huggingface.co/datasets/${s.source.hf}/tree/${s.revision}` : undefined;
 ---
 <section class="samples" data-k={k}>
   <div class="toolbar">
-    <span class="muted">
-      Showing <span data-count>{Math.min(k, rows.length)}</span> of {rows.length} sampled rows
-      (from {s.num_rows_total.toLocaleString('en-US')} in {splitInfo})
-    </span>
+    {s.window ? (
+      <span class="muted">
+        {s.window.n.toLocaleString('en-US')} consecutive rows (rows {(s.window.start + 1).toLocaleString('en-US')}–{(s.window.start + s.window.n).toLocaleString('en-US')}
+        of {s.num_rows_total.toLocaleString('en-US')} in {splitInfo})
+      </span>
+    ) : (
+      <span class="muted">
+        Showing <span data-count>{Math.min(k, rows.length)}</span> of {rows.length} sampled {d.kind === 'series' ? 'series' : 'rows'}
+        (from {s.num_rows_total.toLocaleString('en-US')} in {splitInfo})
+      </span>
+    )}
     <span class="buttons">
       {d.kind === 'image' && !d.thumb && <button type="button" data-toggle-class="native" aria-pressed="false">Actual pixel size</button>}
       {d.kind === 'boxes' && <button type="button" data-toggle-class="no-boxes" aria-pressed="false">Hide boxes</button>}
       {d.kind === 'segmentation' && <button type="button" data-toggle-class="no-masks" aria-pressed="false">Hide masks</button>}
       {d.kind === 'segmentation' && <button type="button" data-toggle-class="solid" aria-pressed="false">Solid masks</button>}
-      {rows.length > k && <button type="button" data-shuffle>Shuffle</button>}
+      {items > k && <button type="button" data-shuffle>Shuffle</button>}
     </span>
   </div>
 
@@ -75,6 +96,7 @@ const revUrl = s.revision ? `https://huggingface.co/datasets/${s.source.hf}/tree
   {d.kind === 'vqa' && <VQA d={d} rows={rows} k={k} />}
   {d.kind === 'scene_graph' && <SceneGraph d={d} rows={rows} k={k} />}
   {d.kind === 'multihop' && <MultiHop d={d} rows={rows} k={k} />}
+  {d.kind === 'series' && <Series s={s} d={d} rows={rows} k={k} notes={ds.data.config_notes} />}
 
   {first && (
     <details class="raw">

@@ -1,0 +1,52 @@
+name: UCR Time Series Archive
+year: 2002
+modality: timeseries
+task: Univariate time-series classification
+one_liner: 128 small classification problems, from heartbeats to hand gestures, that every time-series classifier is measured on.
+creators: Eamonn Keogh and colleagues (UC Riverside); 2018 expansion led by Hoang Anh Dau
+size: 128 datasets (2018 version); 191,158 series in all, of length 15 to 2,844
+splits: { train: 60555, test: 130603 }
+input: One series, usually z-normalized
+labels: A class (2 to 60 classes, depending on the dataset)
+license: Free for research; cite the archive
+paper:
+  title: "The UCR Time Series Archive"
+  url: https://arxiv.org/abs/1810.07758
+homepage: https://www.cs.ucr.edu/~eamonn/time_series_data_2018/
+why: >-
+  For two decades this has been where time-series classification is
+  measured. Its 128 datasets come from ECGs, motion capture, spectrographs,
+  sensors and image outlines turned into series, each with a fixed
+  train/test split, so results compare across papers. For years the
+  1-nearest-neighbor classifier with dynamic time warping was famously hard to
+  beat; ensembles like HIVE-COTE, then ROCKET and InceptionTime, finally did.
+trivia:
+  - The archive started in 2002 with 16 datasets; it grew to 85 in 2015 and 128 in 2018.
+  - Several test sets are larger than their training sets, some by far, to make overfitting visible.
+  - ROCKET (2020) classifies with thousands of random convolution kernels and a linear model, matching the best ensembles in a small fraction of their training time.
+  - Its sister, the UEA archive, holds 30 multivariate datasets.
+config_notes:
+  GunPoint: "GunPoint: an actor's hand position, drawing a gun from a holster or just pointing a finger"
+  ECG200: "ECG200: one heartbeat, normal or myocardial infarction"
+  Coffee: "Coffee: the spectrum of roasted beans, Arabica or Robusta"
+  CBF: "CBF: synthetic cylinder, bell and funnel shapes in noise"
+  Trace: "Trace: synthetic transients like those of nuclear plant instruments, 4 classes"
+  TwoLeadECG: "TwoLeadECG: the same heartbeat seen through ECG lead 0 or lead 1"
+lineage:
+  - { name: UEA Multivariate Archive, note: "2018, 30 multivariate classification datasets", url: "https://www.timeseriesclassification.com/" }
+  - { name: UCR Anomaly Archive, note: "2021, 250 series with one anomaly each", url: "https://www.cs.ucr.edu/~eamonn/time_series_data_2018/" }
+  - { name: Numenta Anomaly Benchmark (NAB), note: "2015, 58 labeled streams for real-time anomaly detection; not on Hugging Face in a viewer-readable copy", url: "https://github.com/numenta/NAB" }
+landmark_papers:
+  - { title: "The great time series classification bake off", year: 2017, url: "https://arxiv.org/abs/1602.01711" }
+  - { title: "ROCKET: Exceptionally fast and accurate time series classification using random convolutional kernels", year: 2020, url: "https://arxiv.org/abs/1910.13051" }
+  - { title: "InceptionTime: Finding AlexNet for Time Series Classification", year: 2020, url: "https://arxiv.org/abs/1909.04939" }
+source:
+  hf: ChengsenWang/UCR-2018
+  configs: [GunPoint, ECG200, Coffee, CBF, Trace, TwoLeadECG]
+  n: 4
+  seed: 2
+  max_points: 5000
+display: { kind: series, value: data, label: label }
+download:
+  config: GunPoint
+  note: "A community copy with one config per dataset and train/test splits. The official zip (password on the archive page) also has the 2015 version."

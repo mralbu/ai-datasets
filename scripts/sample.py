@@ -59,6 +59,8 @@ SAMPLER_VERSION = 1
 API = "https://datasets-server.huggingface.co"
 PAGE = 100  # max rows per /rows request
 FETCH_ALL_LIMIT = 5_000  # small tabular datasets are fetched whole (for charts)
+WINDOW_LIMIT = 10_000  # most consecutive rows a time-series window may fetch (source.window)
+WINDOW_ROWS_KEPT = 12  # rows of a window kept as rows (raw JSON); the whole window is kept as columns
 ROWS_PER_PAGE_USED = 8  # rows taken per fetched page; lower it (source.rows_per_page) for datasets sorted by a many-valued label
 PAUSE = 0.15  # seconds between requests, to stay under the rate limit
 
@@ -159,8 +161,75 @@ def stratified_sample(client: httpx.Client, src: dict, total: int, n: int, rng: 
     return rows
 
 
+def round_sig(v, digits: int = 5):
+    """Round floats to a few significant digits: series are drawn, not computed with."""
+    if isinstance(v, float):
+        return float(f"{v:.{digits}g}")
+    if isinstance(v, list):
+        return [round_sig(x, digits) for x in v]
+    return v
+
+
+def trim_lists(rows: list[dict], src: dict, rng: random.Random) -> None:
+    """source.max_points: keep a contiguous stretch of N points of each list column (a series).
+
+    Lists of the same length (timestamps and values) are cut at the same place. source.trim
+    picks where: "end" keeps the last N points (what a forecaster sees last), "random" a
+    seeded random stretch. The original length is kept per column in r["points"].
+    """
+    n = src.get("max_points")
+    if not n:
+        return
+    for r in rows:
+        starts: dict[int, int] = {}
+        points = {}
+        for col, v in r["row"].items():
+            if not isinstance(v, list) or len(v) <= n:
+                continue
+            if len(v) not in starts:
+                starts[len(v)] = len(v) - n if src.get("trim", "random") == "end" else rng.randint(0, len(v) - n)
+            a = starts[len(v)]
+            points[col] = {"total": len(v), "from": a}
+            r["row"][col] = v[a:a + n]
+        if points:
+            r["points"] = points
+
+
+def sample_window(client: httpx.Client, src: dict, rng: random.Random) -> dict:
+    """source.window: N consecutive rows of a long-format series (one row per time step).
+
+    A random sample of rows would scatter timestamps; a series needs a contiguous stretch.
+    The stretch starts at window.start, or at a seeded random row inside window.within
+    (default: the whole split). It comes back as columns, plus the first few rows as rows.
+    """
+    w = src["window"]
+    head = fetch_rows(client, src, 0, 1)
+    total = head["num_rows_total"]
+    features = [{"name": f["name"], "type": f["type"]} for f in head["features"]]
+    lo, hi = w.get("within") or [0, total]
+    hi = min(hi, total)
+    n = min(int(w["n"]), hi - lo, WINDOW_LIMIT)
+    start = w["start"] if "start" in w else rng.randint(lo, hi - n)
+    rows: list[dict] = []
+    for off in range(start, start + n, PAGE):
+        rows += fetch_rows(client, src, off, min(PAGE, start + n - off))["rows"]
+    rows.sort(key=lambda r: r["row_idx"])
+    drop = set(src.get("drop") or [])
+    cols = [f["name"] for f in features if f["name"] not in drop]
+    columns = {c: round_sig([r["row"].get(c) for r in rows]) for c in cols}
+    return {
+        "total": total,
+        "features": features,
+        "rows": rows[:WINDOW_ROWS_KEPT],
+        "all_rows": None,
+        "window": {"start": start, "n": len(rows), "columns": columns},
+    }
+
+
 def sample_part(client: httpx.Client, src: dict, n: int, rng: random.Random) -> dict:
     """Sample one (config, split) of a dataset."""
+    if src.get("window"):
+        return sample_window(client, src, rng)
     head = fetch_rows(client, src, 0, 1)  # cheap: schema + total row count
     total = head["num_rows_total"]
     features = [{"name": f["name"], "type": f["type"]} for f in head["features"]]
@@ -178,6 +247,10 @@ def sample_part(client: httpx.Client, src: dict, n: int, rng: random.Random) -> 
     # Fetched in index order; present in a seeded random order so the first
     # rows on the page are not, say, all from one class.
     rng.shuffle(rows)
+    trim_lists(rows, src, rng)
+    if src.get("max_points"):
+        for r in rows:
+            r["row"] = {k: round_sig(v) if isinstance(v, list) else v for k, v in r["row"].items()}
     return {"total": total, "features": features, "rows": rows, "all_rows": all_rows}
 
 
@@ -335,10 +408,11 @@ def sample_dataset(client: httpx.Client, meta: dict, media_dir: Path) -> dict:
             "num_rows_total": part["total"],
             "features": part["features"],
             "all_rows": part["all_rows"],
+            "window": part.get("window"),
         })
         per_part_rows.append([
             {"row_idx": r["row_idx"], "config": part_src["config"], "row": r["row"],
-             "truncated": r.get("truncated_cells", [])}
+             "truncated": r.get("truncated_cells", [])} | ({"points": r["points"]} if r.get("points") else {})
             for r in part["rows"]
         ])
 
@@ -351,9 +425,11 @@ def sample_dataset(client: httpx.Client, meta: dict, media_dir: Path) -> dict:
         "num_rows_total": sum(p["num_rows_total"] for p in parts),
         "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "features": parts[0]["features"],
-        "parts": [{k: v for k, v in p.items() if k != "all_rows"} for p in parts],
+        "parts": [{k: v for k, v in p.items() if k not in ("all_rows", "window")} for p in parts],
         "rows": rows,
     }
+    if parts[0]["window"]:
+        out["window"] = parts[0]["window"]
 
     chart_cfg = (meta.get("display") or {}).get("chart")
     if chart_cfg and parts[0]["all_rows"]:
