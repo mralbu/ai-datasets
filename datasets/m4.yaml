@@ -1,0 +1,54 @@
+name: M4 Competition
+year: 2018
+modality: timeseries
+task: Univariate point and interval forecasting, at six frequencies
+one_liner: 100,000 real series, from yearly to hourly, to see which forecasting methods actually work.
+creators: Spyros Makridakis, Evangelos Spiliotis, Vassilios Assimakopoulos (University of Nicosia, NTUA)
+size: 100,000 series (48,000 monthly, 24,000 quarterly, 23,000 yearly, 4,227 daily, 414 hourly, 359 weekly)
+splits: { yearly: 23000, quarterly: 24000, monthly: 48000, weekly: 359, daily: 4227, hourly: 414 }
+input: The history of one series, from 13 to over 9,000 observations
+labels: The next 6 (yearly) to 48 (hourly) values, scored with sMAPE and MASE
+license: Free for research (M4 repository); the Hugging Face copy keeps each source's terms
+paper:
+  title: "The M4 Competition: Results, findings, conclusion and way forward"
+  url: https://doi.org/10.1016/j.ijforecast.2018.06.001
+homepage: https://github.com/Mcompetitions/M4-methods
+why: >-
+  The M competitions have tested forecasting methods on real data since 1982,
+  and M4 was the first at scale: 100,000 series from finance, industry,
+  demography and economics. It settled an argument. Pure machine-learning
+  methods did poorly, combinations of statistical methods did well, and the
+  winner was a hybrid: Slawek Smyl's exponential smoothing fused with an LSTM.
+  A year later N-BEATS beat it with deep learning alone, and M4 became the
+  standard test for global forecasting models.
+trivia:
+  - The winning ES-RNN came from Uber; second place, FFORMA, learned from series features how to weight nine classic methods.
+  - Of the 17 most accurate methods, 12 were combinations of mostly statistical methods.
+  - Each series has a category (Micro, Macro, Industry, Finance, Demographic or Other); the series are anonymized, with no names or units.
+  - The samples show up to the last 600 points of each series.
+config_notes:
+  m4_yearly: "Yearly: forecast 6 years ahead"
+  m4_quarterly: "Quarterly: forecast 8 quarters ahead"
+  m4_monthly: "Monthly: forecast 18 months ahead"
+  m4_weekly: "Weekly: forecast 13 weeks ahead"
+  m4_daily: "Daily: forecast 14 days ahead"
+  m4_hourly: "Hourly: forecast 48 hours ahead"
+lineage:
+  - { name: M3 Competition, note: "2000, 3,003 series; the benchmark before M4", url: "https://forecasters.org/resources/time-series-data/m3-competition/" }
+  - { name: M5 Competition, note: "2020, Walmart sales", id: m5 }
+  - { name: GIFT-Eval, note: "2024, the benchmark for foundation models; includes M4", id: gift-eval }
+landmark_papers:
+  - { title: "A hybrid method of exponential smoothing and recurrent neural networks for time series forecasting (ES-RNN)", year: 2020, url: "https://doi.org/10.1016/j.ijforecast.2019.03.017" }
+  - { title: "N-BEATS: Neural basis expansion analysis for interpretable time series forecasting", year: 2019, url: "https://arxiv.org/abs/1905.10437" }
+source:
+  hf: autogluon/chronos_datasets
+  configs: [m4_yearly, m4_quarterly, m4_monthly, m4_weekly, m4_daily, m4_hourly]
+  n: 4
+  seed: 4
+  page: 10
+  rows_per_page: 4
+  max_points: 600
+  trim: end
+display: { kind: series, value: target, time: timestamp, title: id, tags: [category] }
+download:
+  note: "The Chronos collection of forecasting datasets, one config per M4 frequency. The official CSVs, split into train and test, are in the M4 repository."

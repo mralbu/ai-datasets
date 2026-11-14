@@ -2,6 +2,8 @@
 // A tiny glimpse of the data, for catalog cards and timeline popovers.
 import { getSamples, url, type Dataset } from '../lib/data';
 import Grid from './kinds/Grid.astro';
+import SeriesPlot from './SeriesPlot.astro';
+import { seriesOf } from '../lib/series';
 interface Props { ds: Dataset }
 const { ds } = Astro.props;
 const d = ds.data.display;
@@ -14,6 +16,7 @@ const snippet = (t: unknown, n = 140) => {
 };
 const imageField = d.kind === 'image' || d.kind === 'boxes' || d.kind === 'annotated' || d.kind === 'segmentation' || d.kind === 'dense' || d.kind === 'vqa' || d.kind === 'scene_graph' ? d.image : d.kind === 'image_mcq' ? d.images[0] : undefined;
 const firstLine = (code: string) => code.split('\n').find((l) => l.startsWith('def ')) ?? '';
+const firstSeries = s && d.kind === 'series' ? seriesOf(s, d)[0] : undefined;
 const stripMath = (t: unknown) => String(t ?? '').replace(/\$+/g, '');
 ---
 <div class="preview">
@@ -37,6 +40,7 @@ const stripMath = (t: unknown) => String(t ?? '').replace(/\$+/g, '');
   {s && d.kind === 'translation' && r0[d.translation] && (
     <p>{snippet(r0[d.translation][d.source], 80)} → {snippet(r0[d.translation][d.target], 80)}</p>
   )}
+  {firstSeries && <SeriesPlot sr={firstSeries} height={60} compact />}
   {s && d.kind === 'table' && <code>{s.features.map((f) => f.name).join(' · ')}</code>}
   {s && d.kind === 'grid' && r0[d.train]?.[0] && (
     <div class="arc-mini">

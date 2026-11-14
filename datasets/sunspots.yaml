@@ -1,0 +1,39 @@
+name: Sunspot Number
+year: 1848
+modality: timeseries
+task: Univariate forecasting of a quasi-periodic series
+one_liner: The daily count of spots on the Sun, recorded since 1818. Its 11-year cycle is the oldest benchmark in time-series analysis.
+creators: Rudolf Wolf (1848); kept by SILSO, Royal Observatory of Belgium
+size: 76,275 daily values (1818–2026); a monthly series goes back to 1749
+splits: { train: 76275 }
+input: Date
+labels: Daily total sunspot number, with its standard deviation and number of observing stations
+license: CC BY-NC 4.0 (SILSO)
+paper:
+  title: "On a Method of Investigating Periodicities in Disturbed Series, with special reference to Wolfer's Sunspot Numbers (Yule, 1927)"
+  url: https://royalsocietypublishing.org/doi/10.1098/rsta.1927.0007
+homepage: https://www.sidc.be/SILSO/
+why: >-
+  Rudolf Wolf defined the sunspot number in 1848 and reconstructed it back to
+  the 1700s, making it one of the longest scientific records there is. In 1927
+  Udny Yule used it to introduce the autoregressive model, the AR in ARIMA:
+  rather than a sum of hidden sine waves, each year's value depends on the
+  previous years plus random shocks. The cycle is regular but not exactly
+  periodic, so it is still a test for forecasting methods.
+trivia:
+  - The sample shows two whole solar cycles, numbers 23 and 24, from the minimum of 1996 to the minimum of 2019.
+  - The cycle averages about 11 years but has ranged from about 9 to 14, and peak heights vary a lot. Cycle 24 was the weakest in a century.
+  - "At a minimum many days have no spots at all: the daily number is exactly 0."
+  - In 2015 SILSO released version 2.0, which recalibrated the whole series and dropped a long-standing 0.6 scale factor, so values are higher than in older copies.
+  - During the Maunder Minimum, about 1645 to 1715, sunspots almost disappeared.
+lineage:
+  - { name: Monthly mean sunspot number, note: "from 1749, the series Yule used (in its older version)", url: "https://www.sidc.be/SILSO/datafiles" }
+  - { name: Mauna Loa CO₂ (Keeling curve), note: "1958–, another long natural series with trend and seasonality; not on Hugging Face in a viewer-readable copy", url: "https://gml.noaa.gov/ccgg/trends/" }
+landmark_papers:
+  - { title: "On a Method of Investigating Periodicities in Disturbed Series (Yule)", year: 1927, url: "https://royalsocietypublishing.org/doi/10.1098/rsta.1927.0007" }
+source:
+  hf: juliensimon/silso-sunspot-number
+  # 1996-08-01 to 2019-11-30: solar cycles 23 and 24, minimum to minimum.
+  window: { n: 8522, start: 65226 }
+  drop: [decimal_date, std_dev, n_observations, is_provisional]
+display: { kind: series, value: sunspot_number, time: date, names: { sunspot_number: "daily total sunspot number" } }

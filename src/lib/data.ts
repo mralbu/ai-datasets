@@ -5,7 +5,10 @@ export type Display = Dataset['data']['display'];
 
 export interface FeatureType { _type?: string; names?: string[]; dtype?: string; [k: string]: unknown }
 export interface Feature { name: string; type: FeatureType }
-export interface SampleRow { row_idx: number; config?: string; row: Record<string, any>; truncated: string[] }
+export interface SampleRow {
+  row_idx: number; config?: string; row: Record<string, any>; truncated: string[];
+  points?: Record<string, { total: number; from: number }>; // list columns cut to source.max_points
+}
 export interface Part { config: string; split: string; num_rows_total: number; features: Feature[] }
 export interface Samples {
   id: string;
@@ -17,6 +20,8 @@ export interface Samples {
   parts?: Part[];
   rows: SampleRow[];
   chart?: Record<string, unknown>;
+  // A window of consecutive rows of a long-format time series (source.window), as columns.
+  window?: { start: number; n: number; columns: Record<string, unknown[]> };
 }
 
 // Written by scripts/sample.py. Missing files just mean "not fetched yet".
@@ -61,6 +66,7 @@ export const MODALITIES: Record<string, string> = {
   text: 'Text',
   benchmark: 'LLMs', // benchmarks and training data (instructions, preferences) for language models
   tabular: 'Tabular',
+  timeseries: 'Time series',
   audio: 'Audio',
   other: 'Other',
 };

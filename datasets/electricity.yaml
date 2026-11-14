@@ -1,0 +1,42 @@
+name: Electricity Load Diagrams
+year: 2015
+modality: timeseries
+task: Multi-series forecasting of electricity demand
+one_liner: The power use of 370 Portuguese clients every 15 minutes for four years, with clear daily and weekly rhythms.
+creators: Artur Trindade (donated to the UCI Machine Learning Repository)
+size: 370 clients × 140,256 readings (2011–2014); the copy here has 2012–2014
+splits: { train: 370 }
+input: Timestamp, every 15 minutes
+labels: Each client's consumption in kW over the 15 minutes
+license: CC BY 4.0
+homepage: https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014
+why: >-
+  The workhorse of deep forecasting. DeepAR, LSTNet and the Transformer
+  forecasters were all tested on it, usually as "Electricity" or "ECL": an
+  hourly version with the 321 clients that have data for the whole period. It
+  is big enough to train neural networks, and its clear daily and weekly
+  seasonality, holidays and changes of regime make it a good test of global
+  models that learn from many series at once.
+trivia:
+  - Values are kW averaged over 15 minutes; divide by 4 for kWh.
+  - Times are Portuguese local time. On the March daylight-saving day one hour is missing (zeros); in October the extra hour is summed into another.
+  - Clients that joined after 2011 have zeros before their start, which is why the benchmark version keeps 321 of the 370.
+  - The samples show a random two weeks (1,344 readings) of each client.
+lineage:
+  - { name: ETT, note: "the other half of the long-horizon benchmark", id: ett }
+  - { name: London smart meters, note: "5,567 households, half-hourly, 2011–2014", url: "https://data.london.gov.uk/dataset/smartmeter-energy-use-data-in-london-households" }
+landmark_papers:
+  - { title: "DeepAR: Probabilistic Forecasting with Autoregressive Recurrent Networks", year: 2017, url: "https://arxiv.org/abs/1704.04110" }
+  - { title: "Modeling Long- and Short-Term Temporal Patterns with Deep Neural Networks (LSTNet)", year: 2018, url: "https://arxiv.org/abs/1703.07015" }
+source:
+  hf: autogluon/chronos_datasets
+  config: electricity_15min
+  n: 8
+  seed: 15
+  page: 1
+  rows_per_page: 1
+  max_points: 1344
+display: { kind: series, value: consumption_kW, time: timestamp, title: id, unit: kW }
+download:
+  config: electricity_15min
+  note: "The Chronos copy: one row per client, 2012–2014 (a full row is about 105,000 readings). The hourly 321-client version is the monash_electricity_hourly config; the original file, with 2011, is on UCI."

@@ -1,0 +1,58 @@
+name: GIFT-Eval
+year: 2024
+modality: timeseries
+task: Zero-shot forecasting benchmark for time-series foundation models
+one_liner: 97 forecasting tasks across seven domains and ten frequencies, with a leaderboard for foundation models.
+creators: Taha Aksu, Gerald Woo, Juncheng Liu and others (Salesforce AI Research)
+size: 23 datasets, over 144,000 series and 177 million points; 97 task configurations
+splits: { test configurations: 97 }
+input: The history of a series up to a cutoff
+labels: The next values, at a short, medium or long horizon; scored with MASE and CRPS
+license: Apache 2.0
+paper:
+  title: "GIFT-Eval: A Benchmark For General Time Series Forecasting Model Evaluation"
+  url: https://arxiv.org/abs/2410.10393
+homepage: https://huggingface.co/spaces/Salesforce/GIFT-Eval
+why: >-
+  Foundation models for time series (Chronos, TimesFM, Moirai, and many since)
+  promise to forecast any series without training on it. GIFT-Eval is how they
+  are compared: one set of tasks from energy, transport, nature, sales,
+  healthcare, web and economics, at frequencies from seconds to years, and a
+  public leaderboard. It comes with a pretraining corpus that leaves out the
+  test data, because otherwise leakage makes zero-shot claims meaningless.
+trivia:
+  - Each config is a dataset, a frequency and a horizon, e.g. solar_H_short; medium and long horizons are 10 and 15 times the short one.
+  - The pretraining corpus, GIFT-Eval Pretrain, has about 230 billion points.
+  - The leaderboard reports point accuracy (MASE) and probabilistic accuracy (CRPS), so a model should forecast a distribution, not just one line.
+  - In the samples the dashed line is the part a model must forecast; up to the last 512 points of history are shown.
+config_notes:
+  ett1_H_short: "ETT, hourly: one variable of electricity transformer 1"
+  solar_H_short: "Solar, hourly: photovoltaic power output"
+  jena_weather_H_short: "Jena weather, hourly: one of 21 weather variables"
+  us_births_D_short: "US births, daily"
+  sz_taxi_15T_short: "Shenzhen taxi, 15-minute: traffic speed on a road"
+  hospital_M_short: "Hospital, monthly: patient counts for a product"
+  kdd_cup_2018_H_short: "KDD Cup 2018, hourly: air quality in Beijing and London"
+  car_parts_M_short: "Car parts, monthly: intermittent sales"
+lineage:
+  - { name: GIFT-Eval Pretrain, note: "the non-leaking pretraining corpus", hf: Salesforce/GiftEvalPretrain }
+  - { name: Chronos datasets, note: "2024, the training and evaluation collection behind Chronos", hf: autogluon/chronos_datasets }
+  - { name: Monash Forecasting Archive, note: "2021, 30 datasets; an earlier common benchmark", url: "https://forecastingdata.org/" }
+  - { name: M4 Competition, note: "2018", id: m4 }
+landmark_papers:
+  - { title: "Chronos: Learning the Language of Time Series", year: 2024, url: "https://arxiv.org/abs/2403.07815" }
+  - { title: "A decoder-only foundation model for time-series forecasting (TimesFM)", year: 2024, url: "https://arxiv.org/abs/2310.10688" }
+  - { title: "Unified Training of Universal Time Series Forecasting Transformers (Moirai)", year: 2024, url: "https://arxiv.org/abs/2402.02592" }
+source:
+  hf: Salesforce/GiftEvalParquet
+  configs: [ett1_H_short, solar_H_short, jena_weather_H_short, us_births_D_short, sz_taxi_15T_short, hospital_M_short, kdd_cup_2018_H_short, car_parts_M_short]
+  n: 3
+  seed: 24
+  page: 10
+  rows_per_page: 3
+  max_points: 512
+  trim: end
+display: { kind: series, value: history_value, future: future_value, start: history_start, future_start: future_start }
+download:
+  hf: Salesforce/GiftEval
+  note: "The samples come from the Parquet copy, with history and forecast target in separate columns. The command fetches the official Arrow files the leaderboard code reads."

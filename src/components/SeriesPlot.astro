@@ -1,0 +1,110 @@
+---
+// One time series as a small SVG line chart: thin line in the category color, a faint min–max band
+// when points are bucketed, the forecast target dashed in ink, and a hover crosshair with a readout.
+// compact: no labels and no hover (catalog cards).
+import { plot, fmtValue, timeFormatter, type Series } from '../lib/series';
+interface Props { sr: Series; height?: number; compact?: boolean }
+const { sr, height = 120, compact = false } = Astro.props;
+const W = 1000, H = 100;
+const p = plot(sr, W, H, compact ? 160 : 500);
+const fmtT = timeFormatter(sr.times);
+const first = sr.times?.[0] ?? sr.start;
+const last = sr.times?.[sr.times.length - 1];
+const end = sr.future?.length ? undefined : last;
+const hover = compact ? undefined : JSON.stringify({
+  v: p.hover.v, i: p.hover.i, lo: p.lo, hi: p.hi, n: p.n + (sr.future?.length ?? 0),
+  t: p.hover.t?.map(fmtT), u: sr.unit ?? '', s: p.split !== undefined ? p.n : undefined,
+});
+---
+<div class:list={['splot', { compact }]} style={`--h: ${height}px`} data-hover={hover}>
+  {!compact && <span class="y y-max">{fmtValue(p.max)}</span>}
+  {!compact && <span class="y y-min">{fmtValue(p.min)}</span>}
+  <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" role="img" aria-label={`Line chart of ${sr.title ?? 'a series'}: ${p.n.toLocaleString('en-US')} points from ${fmtValue(p.min)} to ${fmtValue(p.max)}`}>
+    {!compact && <line class="grid" x1="0" x2={W} y1="0.5" y2="0.5" />}
+    {!compact && <line class="grid" x1="0" x2={W} y1={H - 0.5} y2={H - 0.5} />}
+    {p.zero !== undefined && <line class="zero" x1="0" x2={W} y1={p.zero} y2={p.zero} />}
+    {p.split !== undefined && <rect class="ahead" x={p.split} y="0" width={W - p.split} height={H} />}
+    {p.band && <path class="band" d={p.band} />}
+    {p.lines.map((d, i) => <path class="line" d={d} style={i ? `opacity: ${0.75 - i * 0.15}` : undefined} />)}
+    {p.future && <path class="future" d={p.future} />}
+    {!compact && <line class="cross" x1="0" x2="0" y1="0" y2={H} />}
+  </svg>
+  {!compact && <span class="dot" aria-hidden="true"></span>}
+  {!compact && <span class="tipbox" aria-hidden="true"></span>}
+</div>
+{!compact && (
+  <div class="xaxis">
+    {!sr.future?.length && <span>{first ? fmtT(first) : 't = 0'}</span>}
+    {p.split !== undefined
+      ? <span class="fc">forecast {sr.future!.length} steps{sr.futureStart && <> from {fmtT(sr.futureStart)}</>}</span>
+      : <span>{end ? fmtT(end) : `${p.n.toLocaleString('en-US')} points`}</span>}
+  </div>
+)}
+
+<script>
+  // Crosshair + readout. Each plot carries a light copy of its points (data-hover).
+  for (const el of document.querySelectorAll<HTMLElement>('.splot[data-hover]')) {
+    const h = JSON.parse(el.dataset.hover!) as { v: (number | null)[]; i: number[]; n: number; lo: number; hi: number; t?: string[]; u: string; s?: number };
+    const svg = el.querySelector('svg')!, cross = el.querySelector<SVGLineElement>('.cross')!;
+    const dot = el.querySelector<HTMLElement>('.dot')!, tip = el.querySelector<HTMLElement>('.tipbox')!;
+    const fmt = new Intl.NumberFormat('en-US', { maximumSignificantDigits: 4 });
+    const move = (e: PointerEvent) => {
+      const r = svg.getBoundingClientRect();
+      const target = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)) * (h.n - 1);
+      let k = 0;
+      for (let j = 1; j < h.i.length; j++) if (Math.abs(h.i[j] - target) < Math.abs(h.i[k] - target)) k = j;
+      const i = h.i[k], v = h.v[k];
+      const x = h.n <= 1 ? 0.5 : i / (h.n - 1);
+      cross.setAttribute('x1', String(x * 1000));
+      cross.setAttribute('x2', String(x * 1000));
+      el.classList.add('hovering');
+      dot.hidden = v === null;
+      if (v !== null) {
+        dot.style.left = `${x * 100}%`;
+        dot.style.top = `${(1 - (v - h.lo) / (h.hi - h.lo)) * 100}%`;
+      }
+      const ahead = h.s !== undefined && i >= h.s ? ' · to forecast' : '';
+      tip.textContent = `${h.t?.[k] ?? `t = ${i}`} · ${v === null ? 'missing' : fmt.format(v)}${h.u ? ' ' + h.u : ''}${ahead}`;
+      tip.style.left = `${x * 100}%`;
+      tip.classList.toggle('flip', x > 0.6);
+    };
+    el.addEventListener('pointermove', move);
+    el.addEventListener('pointerleave', () => el.classList.remove('hovering'));
+  }
+</script>
+
+<style>
+  .splot { position: relative; height: var(--h); margin-left: 44px; touch-action: pan-y; }
+  .splot.compact { margin: 0; }
+  svg { display: block; width: 100%; height: 100%; overflow: visible; }
+  path, line { vector-effect: non-scaling-stroke; }
+  .line { fill: none; stroke: var(--c-timeseries); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+  .compact .line { stroke-width: 1.5; }
+  .band { fill: var(--c-timeseries); opacity: 0.2; stroke: none; }
+  .future { fill: none; stroke: var(--text); stroke-width: 1.5; stroke-dasharray: 4 3; opacity: 0.75; }
+  .ahead { fill: var(--code-bg); opacity: 0.8; }
+  .grid { stroke: var(--border); stroke-width: 1; }
+  .zero { stroke: var(--muted); stroke-width: 1; opacity: 0.45; }
+  .cross { stroke: var(--muted); stroke-width: 1; opacity: 0; }
+  .hovering .cross { opacity: 0.7; }
+  .y { position: absolute; left: -44px; width: 38px; text-align: right; font-size: 0.7rem; color: var(--muted); font-variant-numeric: tabular-nums; line-height: 1; }
+  .y-max { top: 0; }
+  .y-min { bottom: 0; }
+  .dot {
+    position: absolute; width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%;
+    background: var(--c-timeseries); box-shadow: 0 0 0 2px var(--surface); pointer-events: none; opacity: 0;
+  }
+  .tipbox {
+    position: absolute; top: 2px; transform: translateX(-8px); white-space: nowrap; pointer-events: none;
+    background: var(--text); color: var(--bg); font-size: 0.72rem; line-height: 1; padding: 5px 8px; border-radius: 6px;
+    font-variant-numeric: tabular-nums; opacity: 0; z-index: 5;
+  }
+  .tipbox.flip { transform: translateX(calc(-100% + 8px)); }
+  .hovering .dot, .hovering .tipbox { opacity: 1; }
+  .xaxis {
+    display: flex; justify-content: space-between; gap: 8px; margin: 4px 0 0 44px; white-space: nowrap; overflow: hidden;
+    font-size: 0.7rem; color: var(--muted); font-variant-numeric: tabular-nums;
+  }
+  .xaxis span { overflow: hidden; text-overflow: ellipsis; }
+  .xaxis .fc { color: var(--text); opacity: 0.8; margin-left: auto; }
+</style>

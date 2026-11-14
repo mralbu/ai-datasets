@@ -1,0 +1,47 @@
+name: M5 Forecasting (Walmart)
+year: 2020
+modality: timeseries
+task: Hierarchical forecasting of daily unit sales, 28 days ahead
+one_liner: Five years of daily sales for 3,049 Walmart products in 10 stores. Most days, most items sell nothing.
+creators: Spyros Makridakis, Evangelos Spiliotis, Vassilios Assimakopoulos, with Walmart, on Kaggle
+size: 30,490 item-store series of 1,969 days (2011-01-29 to 2016-06-19)
+splits: { train: 30490 }
+input: Daily unit sales history, plus a calendar (holidays, SNAP benefit days) and weekly prices
+labels: Unit sales for each of the next 28 days, scored at 12 levels of aggregation
+license: Kaggle competition data
+paper:
+  title: "M5 accuracy competition: Results, findings, and conclusions"
+  url: https://doi.org/10.1016/j.ijforecast.2021.11.013
+homepage: https://www.kaggle.com/competitions/m5-forecasting-accuracy
+why: >-
+  M5 brought the M competitions to Kaggle and to real retail data, with all its
+  awkwardness: intermittent demand, a hierarchy from single item to all of
+  Walmart, prices and holidays. More than 5,000 teams entered. The lesson was
+  the reverse of M4's: gradient-boosted trees (LightGBM) trained on all series
+  at once beat both statistical methods and deep networks, as long as the
+  features were good.
+trivia:
+  - "The stores are in three states: four in California, three in Texas and three in Wisconsin."
+  - "The products fall into three categories (Foods, Hobbies, Household) and seven departments."
+  - "Scoring covers 42,840 series: the 30,490 item-store series plus every aggregate, up to total sales."
+  - "The sales are intermittent: many items have long runs of zero days, which breaks methods that assume smooth series."
+  - "Christmas Day is the one day every store is closed, so all sales drop to zero."
+  - The samples show the last two years (730 days) of each series.
+lineage:
+  - { name: M4 Competition, note: "2018, 100,000 series", id: m4 }
+  - { name: M5 Uncertainty, note: "the sister competition: forecast nine quantiles", url: "https://www.kaggle.com/competitions/m5-forecasting-uncertainty" }
+  - { name: Favorita Grocery Sales, note: "2017, an earlier Kaggle retail-sales forecasting set", url: "https://www.kaggle.com/competitions/favorita-grocery-sales-forecasting" }
+landmark_papers: []
+source:
+  hf: autogluon/chronos_datasets
+  config: m5
+  n: 12
+  seed: 5
+  page: 20
+  rows_per_page: 4
+  max_points: 730
+  trim: end
+display: { kind: series, value: target, time: timestamp, title: id, tags: [cat_id, store_id] }
+download:
+  config: m5
+  note: "The Chronos copy: one row per item-store series, with its ids. The calendar and price files are on Kaggle."

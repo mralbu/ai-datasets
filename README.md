@@ -11,7 +11,7 @@ why each one mattered, the key facts, real samples, and a copy-paste snippet to 
 [![The MNIST page: why it matters, link buttons, the download box, key facts, and a digit at its real 28×28 size next to an 8× enlargement](docs/screenshot.png)](https://mralbu.github.io/ai-datasets/d/mnist)
 
 Not a catalog; Hugging Face already does that. The goal is a few dozen historically important
-datasets across vision, LLMs, text, tabular data and audio, each shown well enough that you come
+datasets across vision, LLMs, text, tabular data, time series and audio, each shown well enough that you come
 away knowing the data.
 
 ## How it works
@@ -73,7 +73,7 @@ the first fetch fills it, which takes 10 minutes or more for the whole catalog.
 ## Add a dataset
 
 1. `just new <id> <similar-id>` and fill it in. `modality` is the category (`vision`, `text`,
-   `benchmark` (shown as "LLMs"), `tabular`, `audio`, `other`). Optional `tags` cut across
+   `benchmark` (shown as "LLMs"), `tabular`, `timeseries`, `audio`, `other`). Optional `tags` cut across
    categories: `medical`, `remote-sensing`, `driving`, `retrieval` (the list lives in `src/lib/tags.ts`). `display.kind` picks the renderer;
    field names are columns of the Hugging Face dataset:
 
@@ -100,6 +100,7 @@ the first fetch fills it, which takes 10 minutes or more for the whole catalog.
    | `grid` | `train`, `test` (ARC-style pairs of integer grids) | ARC-AGI |
    | `audio` | `audio`, `text` and/or `label` (a class or a list of classes), `speaker` | LibriSpeech, AudioSet, Speech Commands, LJSpeech |
    | `table` | `columns` (default: all); `chart: {type: scatter \| rate, x, y, color}` | Iris, Titanic, Palmer Penguins, MovieLens |
+   | `series` | `value` (a list column, one series per row; or scalar columns of a `source.window`), `time`, `start`, `future` and `future_start` (the forecast target, drawn dashed), `title`, `label` (a class), `tags`, `unit`, `names` (`{column: readable name}`) | Air Passengers, Sunspot Number, ETT, Electricity, M4, M5, UCR, GIFT-Eval |
 
    Useful `source` options:
    - `n` (rows to sample) and `seed`.
@@ -116,6 +117,10 @@ the first fetch fills it, which takes 10 minutes or more for the whole catalog.
      raw arrays) into small PNGs the `dense` view colors and reads back on hover.
    - `page` (default 100) is the number of rows per request; set it to 1 when rows are megabytes each,
      like NYU's raw arrays.
+   - `window: {n, start}` (or `within: [lo, hi]` for a seeded random start) fetches `n` consecutive rows
+     of a long-format series (one row per time step) instead of a random sample, like ETT or Sunspots.
+   - `max_points` cuts each long list column (a series and its timestamps) to that many points:
+     `trim: end` keeps the last ones (what a forecaster sees), the default a seeded random stretch.
 
    The "Get the data" box shows snippets for the `hf` CLI, 🤗 `datasets` and Polars, built from
    `source`. Override it with an optional `download` block: `hf` (the canonical repo, when the sample

@@ -130,6 +130,24 @@ const display = z.discriminatedUnion('kind', [
     kind: z.literal('scene_graph'), image: z.string(), objects: z.string(), relationships: z.string(),
     regions: z.string().optional(), qa: z.string().optional(),
   }),
+  // Time series, drawn as line charts. value names the series: a list column (one row = one series,
+  // the Chronos/GIFT-Eval layout) or one or more scalar columns of a window of consecutive rows
+  // (one row = one time step; source.window). time: timestamps (a list, or a column of the window);
+  // start: one start timestamp when there is no time list. future: the values to forecast,
+  // drawn dashed after the history. title, label and tags name the series.
+  z.object({
+    kind: z.literal('series'),
+    value: z.union([z.string(), z.array(z.string())]),
+    time: z.string().optional(),
+    start: z.string().optional(),
+    future: z.string().optional(),
+    future_start: z.string().optional(), // timestamp where the forecast starts
+    title: z.string().optional(),
+    label: z.string().optional(), // a class (UCR); integers are shown as "class 1"
+    tags: z.array(z.string()).default([]),
+    unit: z.string().optional(), // shown after the values in the hover readout, e.g. "kW"
+    names: z.record(z.string(), z.string()).default({}), // readable names for value columns (ETT's HUFL…)
+  }),
   // A Translation feature, e.g. {de: …, en: …}; source/target pick the order.
   z.object({ kind: z.literal('translation'), translation: z.string(), source: z.string(), target: z.string() }),
 ]);
@@ -140,7 +158,7 @@ const datasets = defineCollection({
   schema: z.object({
     name: z.string(),
     year: z.number().int(),
-    modality: z.enum(['vision', 'text', 'tabular', 'audio', 'benchmark', 'other']),
+    modality: z.enum(['vision', 'text', 'tabular', 'timeseries', 'audio', 'benchmark', 'other']),
     tags: z.array(z.enum(Object.keys(TAGS) as [Tag, ...Tag[]])).default([]), // see src/lib/tags.ts
     task: z.string(),
     one_liner: z.string(),
@@ -175,6 +193,12 @@ const datasets = defineCollection({
       min_length: z.record(z.string(), z.number().int()).optional(), // skip rows whose field is shorter (WikiText's blank lines)
       drop: z.array(z.string()).optional(), // columns to leave out of the sample
       max_image_px: z.number().int().optional(), // downscale larger images (annotations keep original coordinates)
+      page: z.number().int().optional(), // rows per request, for rows that are megabytes each
+      // Time series: a window of consecutive rows (one row per time step), from row start or a
+      // seeded random row inside within; and/or long list columns cut to max_points points.
+      window: z.object({ n: z.number().int(), start: z.number().int().optional(), within: z.tuple([z.number().int(), z.number().int()]).optional() }).optional(),
+      max_points: z.number().int().optional(),
+      trim: z.enum(['random', 'end']).optional(),
     }),
     // How to get the full dataset (the download box). Defaults to the sampled source repo.
     download: z
