@@ -29,6 +29,13 @@
    "fetched_at": "2026-11-08T03:30:25+00:00",
    "rows": 12
   },
+  "airline-passengers": {
+   "fingerprint": "f5a50a0beb782dd2",
+   "hf": "duol/airpassengers",
+   "revision": "62967f9c784156bc16de3c8b0ca65c5630cfb592",
+   "fetched_at": "2026-11-14T02:31:46+00:00",
+   "rows": 12
+  },
   "alpaca": {
    "fingerprint": "81d4093f21f177a2",
    "hf": "tatsu-lab/alpaca",
@@ -99,6 +106,20 @@
    "fetched_at": "2026-11-07T15:46:00+00:00",
    "rows": 18
   },
+  "electricity": {
+   "fingerprint": "3bdcb6c17f2d20ad",
+   "hf": "autogluon/chronos_datasets",
+   "revision": "eeecad0b82a8c237e212ce6f8d1abecb513e2cec",
+   "fetched_at": "2026-11-14T02:32:37+00:00",
+   "rows": 8
+  },
+  "ett": {
+   "fingerprint": "dde7df25cb18012c",
+   "hf": "ailuntz/ETT-small",
+   "revision": "c7177e374830f246f184dd3ef082642d94e7279e",
+   "fetched_at": "2026-11-14T02:32:46+00:00",
+   "rows": 12
+  },
   "eurosat": {
    "fingerprint": "9607a1be104787bc",
    "hf": "timm/eurosat-rgb",
@@ -119,6 +140,13 @@
    "revision": "2b239befc81b6e3f035ce6bd52f5f4d60f5625f7",
    "fetched_at": "2026-11-07T22:33:20+00:00",
    "rows": 12
+  },
+  "gift-eval": {
+   "fingerprint": "b10d3b82f8ba8fce",
+   "hf": "Salesforce/GiftEvalParquet",
+   "revision": "faad405a631f3082bd3d4e4d47fa8ff976357205",
+   "fetched_at": "2026-11-14T02:33:12+00:00",
+   "rows": 24
   },
   "glue": {
    "fingerprint": "f919a7b699e6dcd1",
@@ -217,6 +245,20 @@
    "revision": "f04bb20ddce4b1dbcfb95b10e5573121d871bf5f",
    "fetched_at": "2026-11-07T22:24:07+00:00",
    "rows": 8
+  },
+  "m4": {
+   "fingerprint": "07005181feffcb1a",
+   "hf": "autogluon/chronos_datasets",
+   "revision": "eeecad0b82a8c237e212ce6f8d1abecb513e2cec",
+   "fetched_at": "2026-11-14T02:34:26+00:00",
+   "rows": 24
+  },
+  "m5": {
+   "fingerprint": "cc0809b2e3ba19c2",
+   "hf": "autogluon/chronos_datasets",
+   "revision": "eeecad0b82a8c237e212ce6f8d1abecb513e2cec",
+   "fetched_at": "2026-11-14T02:34:29+00:00",
+   "rows": 12
   },
   "math": {
    "fingerprint": "8627b222466fa828",
@@ -337,6 +379,13 @@
    "fetched_at": "2026-11-07T15:49:12+00:00",
    "rows": 16
   },
+  "sunspots": {
+   "fingerprint": "01c3437027e6f0cb",
+   "hf": "juliensimon/silso-sunspot-number",
+   "revision": "56899c668cbfcfa1defb76e657f992955e412fad",
+   "fetched_at": "2026-11-14T02:38:26+00:00",
+   "rows": 12
+  },
   "superglue": {
    "fingerprint": "cb975e0fb8dfe198",
    "hf": "aps/super_glue",
@@ -392,6 +441,13 @@
    "revision": "b79f9bfb55cd7731306d583c3e072c8c010bac61",
    "fetched_at": "2026-11-08T04:25:39+00:00",
    "rows": 84
+  },
+  "ucr": {
+   "fingerprint": "b6e98ce0f7aedbe8",
+   "hf": "ChengsenWang/UCR-2018",
+   "revision": "6551f7eec4f6488b390556e78cb3be42f0924c02",
+   "fetched_at": "2026-11-14T02:38:34+00:00",
+   "rows": 24
   },
   "visual-genome": {
    "fingerprint": "b43d29dd9ae7883c",
