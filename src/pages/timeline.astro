@@ -6,7 +6,9 @@ import { getDatasets, getPapers, MODALITIES, url, type Dataset, type Paper } fro
 const all = await getDatasets();
 const papers = await getPapers();
 const dsById = new Map(all.map((d) => [d.id, d]));
+// Chip counts are datasets; Foundations has only papers, so its chip counts papers and shows with them.
 const counts = Object.fromEntries(Object.keys(MODALITIES).map((m) => [m, all.filter((d) => d.data.modality === m).length]));
+counts.foundations = papers.filter((p) => p.data.category === 'foundations').length;
 // Datasets and papers on one axis; within a year, datasets come first.
 type Item = { kind: 'dataset'; ds: Dataset; year: number } | { kind: 'paper'; p: Paper; year: number };
 const items: Item[] = [
@@ -55,6 +57,7 @@ const decades = [...new Set(items.map((it) => Math.floor(it.year / 10) * 10))];
                 {it.p.data.datasets.map((r) => dsById.get(r.id)!).map((d, i) => (
                   <>{i === 0 ? 'On ' : ', '}<a href={url(`/d/${d.id}`)}>{d.data.name}</a> <span class="ago">({d.data.year})</span></>
                 ))}
+                {it.p.data.datasets.length === 0 && `Tested on: ${it.p.data.tested_on}`}
               </p>
             </div>
           </li>
@@ -72,12 +75,14 @@ const decades = [...new Set(items.map((it) => Math.floor(it.year / 10) * 10))];
   const toggle = document.querySelector<HTMLInputElement>('[data-papers-toggle]')!;
   const items = [...tl.querySelectorAll<HTMLElement>('.item')];
   const decades = [...tl.querySelectorAll<HTMLElement>('.decade')];
+  const foundations = document.querySelector<HTMLElement>('[data-toggle="foundations"]');
   const shown = (li: HTMLElement) => !li.hidden && (toggle.checked || !('paper' in li.dataset));
   const refresh = () =>
     decades.forEach((h) => (h.hidden = !items.some((li) => shown(li) && li.dataset.decade === h.dataset.decade)));
   const setPapers = (on: boolean) => {
     toggle.checked = on;
     tl.classList.toggle('with-papers', on);
+    if (foundations) foundations.style.display = on ? '' : 'none';
     const q = new URLSearchParams(location.search);
     on ? q.set('papers', '') : q.delete('papers');
     const search = q.toString().replace(/=(&|$)/g, '$1');

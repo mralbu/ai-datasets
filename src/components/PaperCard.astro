@@ -13,10 +13,14 @@ const ds = p.data.datasets.map((r) => byId.get(r.id)!);
   </div>
   <p class="title muted">{p.data.title}</p>
   <p class="one">{p.data.one_liner}</p>
-  <p class="on">
-    <span class="muted">Data:</span>
-    {ds.map((d) => <a class="dtag" href={url(`/d/${d.id}`)} data-m={d.data.modality}><span class="dot" aria-hidden="true"></span>{d.data.name}</a>)}
-  </p>
+  {ds.length > 0 ? (
+    <p class="on">
+      <span class="muted">Data:</span>
+      {ds.map((d) => <a class="dtag" href={url(`/d/${d.id}`)} data-m={d.data.modality}><span class="dot" aria-hidden="true"></span>{d.data.name}</a>)}
+    </p>
+  ) : (
+    <p class="on muted">Tested on: {p.data.tested_on}</p>
+  )}
 </article>
 <style>
   .paper { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 16px; border-top: 3px solid var(--c); }

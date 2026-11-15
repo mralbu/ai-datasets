@@ -143,9 +143,19 @@ Gotchas:
 
 ## Add a paper
 
-Papers live in `papers/<id>.yaml` and need no sampling. The rule for now: a paper is in only if it
+Papers live in `papers/<id>.yaml` and need no sampling. The rule: a paper is in only if it
 changed its field **and** was trained or measured on at least one dataset on the site; `datasets`
 lists those ids, and the build fails if one does not exist.
+
+`category` takes the dataset categories plus one for papers only, `foundations`: **a training
+technique that applies to any kind of data and any model** (optimizers, normalization,
+regularization, initialization, backpropagation). The test is "does it change how a model is
+trained, not what the model is?" Architectures and model families (Transformer, ResNet, GANs) are
+not foundations, even when they spread to every kind of data; they go in the category of the data
+they were introduced on. Foundations papers still list datasets when theirs are on the site; when
+none are, `tested_on` says in plain text what the paper was shown on (only this category may
+leave `datasets` empty). Keep `builds_on` to direct lineage: "Adam builds on backpropagation" is
+true of everything and says nothing.
 
 ```yaml
 title: Deep Residual Learning for Image Recognition   # as published
@@ -160,7 +170,8 @@ idea: …                                               # the key idea, in plain
 result: …                                             # the headline result, with numbers
 why: …                                                # why it mattered, in our own words
 datasets: [imagenet, cifar10, coco]
-builds_on: [alexnet]                                  # other paper ids; "Led to" is computed
+builds_on: [alexnet]                                  # other paper ids, direct lineage only; "Led to" is computed
+tested_on: …                                          # optional: data not on the site, in words
 ```
 
 Write `why`, `idea` and `result` yourself, in the same voice as the dataset pages; use alphaXiv

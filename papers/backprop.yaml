@@ -1,0 +1,25 @@
+title: Learning representations by back-propagating errors
+short: Backpropagation
+year: 1986
+venue: Nature
+authors: David E. Rumelhart, Geoffrey E. Hinton, Ronald J. Williams
+category: foundations
+url: https://doi.org/10.1038/323533a0
+one_liner: The four-page paper that showed how to train networks with hidden layers, and what those layers learn.
+idea: >-
+  Run the network forward, measure the error at the output, then pass error derivatives backwards
+  through the layers with the chain rule to get the gradient for every weight at once. Adjust each
+  weight a little against its gradient, and repeat. Hidden units, which no label describes, end up
+  learning useful features on their own.
+result: >-
+  On a task about two family trees, one English and one Italian, the hidden units learned
+  features nobody had specified, such as a person's nationality, generation and branch of the
+  family.
+why: >-
+  Single-layer perceptrons could not learn even simple functions such as XOR, and there was no
+  practical way to train deeper networks. Backpropagation gave one. The algorithm itself had been
+  described earlier (reverse-mode differentiation by Linnainmaa in 1970, and applied to neural
+  networks by Werbos in 1974), but this paper showed what it could do and made it famous. Every
+  model on this site is trained with it, through the automatic differentiation in PyTorch, JAX and
+  TensorFlow.
+tested_on: Small synthetic problems such as detecting mirror symmetry in a row of inputs, and learning relations in two family trees (English and Italian).

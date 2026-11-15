@@ -1,0 +1,21 @@
+title: "Dropout: A Simple Way to Prevent Neural Networks from Overfitting"
+short: Dropout
+year: 2014
+venue: JMLR 2014
+authors: Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, Ruslan Salakhutdinov
+category: foundations
+url: https://jmlr.org/papers/v15/srivastava14a.html
+one_liner: Switch off random neurons during training, and a network stops memorizing its training data.
+idea: >-
+  At every training step, drop each unit (typically half of the hidden units) at random, so the
+  network can never rely on any particular neuron being there. At test time, use all units with
+  their weights scaled down. This works like averaging an enormous number of smaller networks that
+  share weights.
+result: >-
+  On MNIST it took a plain fully connected network from 1.6% to 0.95% test error, and it improved
+  results on every dataset in the paper, from street-view digits and CIFAR to ImageNet and speech.
+why: >-
+  Large networks overfit easily, and the usual fixes were limited. Dropout was a one-line change
+  that made bigger networks pay off. First described in a 2012 preprint, it was one of the
+  ingredients of AlexNet, and it is still used in Transformers and many other models.
+datasets: [mnist, svhn, cifar10, imagenet]

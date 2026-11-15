@@ -21,7 +21,12 @@ const count = (await getDatasets()).length;
     <p>
       The <a href={url('/papers')}>papers section</a> is a short list of papers that changed their field,
       in the same categories as the datasets. Every paper is linked to at least one dataset on this site
-      that it was trained or measured on, so its page can show the data, not just the abstract; the{' '}
+      that it was trained or measured on, so its page can show the data, not just the abstract. The
+      one extra category, <strong>Foundations</strong>, is for training techniques that apply to any
+      kind of data and any model: optimizers, normalization, regularization, initialization and
+      backpropagation itself. Architectures such as the Transformer are not foundations here; they go
+      with the data they were introduced on. A Foundations paper may predate every dataset on the
+      site, so it can say in words what it was tested on instead. The{' '}
       <a href={url('/timeline?papers')}>timeline</a> can show both. The summaries (why it matters, the
       key idea, the headline result) are written for this site. For the full text and discussion, each
       page links to the paper on alphaXiv, or to the original publisher for papers that

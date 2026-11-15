@@ -53,7 +53,7 @@ const facts: [string, string][] = [
     <dl class="facts card">
       {facts.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
       <dt>Data</dt>
-      <dd>{data.map((x, i) => <>{i > 0 && ', '}<a href={url(`/d/${x.id}`)}>{x.data.name}</a></>)}</dd>
+      <dd>{data.length > 0 ? data.map((x, i) => <>{i > 0 && ', '}<a href={url(`/d/${x.id}`)}>{x.data.name}</a></>) : 'None on this site'}</dd>
     </dl>
   </div>
 
@@ -69,9 +69,14 @@ const facts: [string, string][] = [
   </div>
 
   <h2>The data</h2>
-  <div class="cards">
-    {data.map((x) => <DatasetCard ds={x} note={`${x.data.one_liner} (${gap(x.data.year)})`} />)}
-  </div>
+  {data.length > 0 && (
+    <div class="cards">
+      {data.map((x) => <DatasetCard ds={x} note={`${x.data.one_liner} (${gap(x.data.year)})`} />)}
+    </div>
+  )}
+  {d.tested_on && (
+    <p class="tested card"><strong>{data.length ? 'Also tested on' : 'Tested on'}</strong>{data.length === 0 && <> <span class="muted">(not on this site)</span></>}: {d.tested_on}</p>
+  )}
 
   {(parents.length > 0 || children.length > 0) && (
     <div class="cols">
@@ -117,6 +122,7 @@ const facts: [string, string][] = [
   .pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 2rem; }
   .box { padding: 4px 18px 6px; }
   .box h2 { margin-top: 0.9rem; font-size: 1.1rem; }
+  .tested { padding: 12px 16px; margin: 16px 0 0; font-size: 0.95rem; }
   .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
   .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0 28px; }
   .cols li { margin-bottom: 6px; }
