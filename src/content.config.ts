@@ -233,6 +233,7 @@ const papers = defineCollection({
       category: z.enum(['foundations', 'vision', 'text', 'tabular', 'timeseries', 'audio', 'benchmark', 'other']),
       arxiv: z.string().regex(/^\d{4}\.\d{4,5}$/).optional(), // gives the arXiv and alphaXiv links
       url: z.string().url().optional(), // canonical page, for papers that are not on arXiv
+      pdf: z.string().url().optional(), // direct PDF for the first-page image (scripts/papers.py), when not on arXiv
       one_liner: z.string(),
       idea: z.string(), // the key idea, in a few plain sentences
       result: z.string(), // the headline result, with numbers

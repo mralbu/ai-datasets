@@ -25,6 +25,14 @@ refetch +ids:
 check:
     uv run scripts/sample.py --check
 
+# Render the first page of papers that have no image yet (all, or only the given ids)
+paper-pages *ids:
+    uv run scripts/papers.py pages {{ids}}
+
+# Recompute the data behind the paper figures drawn from site datasets
+paper-figures *names:
+    uv run scripts/papers.py figures {{names}}
+
 # Dev server at http://localhost:4321
 dev:
     npm run dev

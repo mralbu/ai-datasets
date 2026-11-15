@@ -19,6 +19,7 @@ away knowing the data.
 ```
 datasets/<id>.yaml      one file per dataset: facts, description, Hugging Face source, how to display it
 papers/<id>.yaml        one file per classic paper: our own summary, an alphaXiv link, the datasets it used
+scripts/papers.py       (uv) first-page images of papers, and the data behind their figures
 scripts/sample.py       (uv: polars, altair, pillow) samples rows from the Hugging Face dataset viewer
                         into a snapshot, then copies it to src/generated/ and public/samples/
 src/                    Astro site: catalog, papers, timeline, one page per dataset and per paper, search (press /)
@@ -164,7 +165,7 @@ year: 2015                                            # first appearance (prepri
 venue: CVPR 2016
 authors: Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
 category: vision                                      # same categories as datasets
-arxiv: "1512.03385"                                   # gives the alphaXiv link; else `url:`
+arxiv: "1512.03385"                                   # gives the alphaXiv link; else `url:` (and `pdf:` for the first page)
 one_liner: …
 idea: …                                               # the key idea, in plain words
 result: …                                             # the headline result, with numbers
@@ -173,6 +174,17 @@ datasets: [imagenet, cifar10, coco]
 builds_on: [alexnet]                                  # other paper ids, direct lineage only; "Led to" is computed
 tested_on: …                                          # optional: data not on the site, in words
 ```
+
+Images on the paper page, both committed to the repository:
+
+- **First page**: `just paper-pages <id>` downloads the PDF (from arXiv, or the `pdf:` field for papers
+  not on arXiv), renders page 1 with poppler's `pdftoppm` and saves `public/papers/<id>.webp`
+  (about 50 KB). Papers whose PDF is not reachable simply have no image.
+- **Figure**: the paper's idea drawn on data from this site, one Astro component per paper in
+  `src/components/figures/` (registered with its caption in `PaperFigure.astro`). Figures that need
+  a whole dataset rather than the sampled rows (Fisher's discriminant on all 150 irises, Yule's
+  AR(2) fit on a century of sunspots) get their numbers from `just paper-figures`, which writes
+  `src/paper-figures/<id>.json`. No figures copied from the papers: everything is drawn here.
 
 Write `why`, `idea` and `result` yourself, in the same voice as the dataset pages; use alphaXiv
 or the paper for research, not as copy. A dataset page lists the papers here that use it under

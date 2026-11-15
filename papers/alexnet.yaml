@@ -5,6 +5,7 @@ venue: NeurIPS 2012
 authors: Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton
 category: vision
 url: https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks
+pdf: https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf
 one_liner: A convolutional network trained on two GPUs won ImageNet 2012 by a wide margin and started the deep learning era.
 idea: >-
   Train a large convolutional network (five convolutional and three fully connected layers,

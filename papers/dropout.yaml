@@ -5,6 +5,7 @@ venue: JMLR 2014
 authors: Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, Ruslan Salakhutdinov
 category: foundations
 url: https://jmlr.org/papers/v15/srivastava14a.html
+pdf: https://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf
 one_liner: Switch off random neurons during training, and a network stops memorizing its training data.
 idea: >-
   At every training step, drop each unit (typically half of the hidden units) at random, so the
