@@ -218,6 +218,9 @@ const datasets = defineCollection({
 
 // One YAML file per classic paper in /papers. Every paper links to at least one dataset on the site:
 // the section is about the history of the field as told through its data, not a reading list.
+// The one exception is Foundations (papers only): training techniques that apply to any kind of
+// data and any model (optimizers, normalization, regularization, initialization, backprop). When
+// none of their data is on the site, tested_on says in plain text what they were shown on.
 const papers = defineCollection({
   loader: glob({ pattern: '*.yaml', base: './papers' }),
   schema: z
@@ -227,17 +230,21 @@ const papers = defineCollection({
       year: z.number().int(), // year it first appeared (the arXiv preprint, if earlier than the venue)
       venue: z.string(),
       authors: z.string(),
-      category: z.enum(['vision', 'text', 'tabular', 'timeseries', 'audio', 'benchmark', 'other']),
+      category: z.enum(['foundations', 'vision', 'text', 'tabular', 'timeseries', 'audio', 'benchmark', 'other']),
       arxiv: z.string().regex(/^\d{4}\.\d{4,5}$/).optional(), // gives the arXiv and alphaXiv links
       url: z.string().url().optional(), // canonical page, for papers that are not on arXiv
       one_liner: z.string(),
       idea: z.string(), // the key idea, in a few plain sentences
       result: z.string(), // the headline result, with numbers
       why: z.string(), // why it mattered: our own words, not a copied abstract
-      datasets: z.array(reference('datasets')).min(1),
+      datasets: z.array(reference('datasets')).default([]),
+      tested_on: z.string().optional(), // data the paper used that is not on the site (Foundations only, when datasets is empty)
       builds_on: z.array(reference('papers')).default([]),
     })
-    .refine((p) => p.arxiv || p.url, { message: 'A paper needs an arxiv id or a url' }),
+    .refine((p) => p.arxiv || p.url, { message: 'A paper needs an arxiv id or a url' })
+    .refine((p) => p.datasets.length > 0 || (p.category === 'foundations' && p.tested_on), {
+      message: 'A paper needs at least one dataset on the site; only Foundations papers may use tested_on instead',
+    }),
 });
 
 export const collections = { datasets, papers };

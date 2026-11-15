@@ -1,0 +1,24 @@
+title: Understanding the difficulty of training deep feedforward neural networks
+short: Xavier initialization
+year: 2010
+venue: AISTATS 2010
+authors: Xavier Glorot, Yoshua Bengio
+category: foundations
+url: https://proceedings.mlr.press/v9/glorot10a.html
+one_liner: Why deep networks were hard to train, and a way to set the starting weights so signals neither vanish nor explode.
+idea: >-
+  Watch the activations and gradients layer by layer during training. With the usual small random
+  weights, their size shrinks or grows from layer to layer, and sigmoid units saturate. Choosing
+  each layer's random weights with a variance based on its number of inputs and outputs keeps
+  that size roughly constant through the network, forward and backward.
+result: >-
+  With this "normalized initialization", networks with five hidden layers trained faster and
+  generally reached lower test error, on MNIST and CIFAR-10 as well as on the synthetic shapes,
+  without any layer-by-layer pretraining.
+why: >-
+  In 2010, deep networks were usually pretrained one layer at a time before they would train at
+  all. This paper explained why and showed that a better starting point helps. Xavier (or Glorot)
+  initialization became the default in deep learning frameworks, and its adaptation for ReLU
+  units by Kaiming He in 2015 is what ResNets use.
+datasets: [mnist, cifar10]
+tested_on: A synthetic shape dataset (Shapeset-3×2) and a small subset of ImageNet.

@@ -1,0 +1,23 @@
+title: "Adam: A Method for Stochastic Optimization"
+short: Adam
+year: 2014
+venue: ICLR 2015
+authors: Diederik P. Kingma, Jimmy Ba
+category: foundations
+arxiv: "1412.6980"
+one_liner: The optimizer that trains most neural networks, with defaults that work without tuning.
+idea: >-
+  Keep two running averages for every weight: of its gradients (momentum) and of its squared
+  gradients (how large they usually are). Step in the direction of the first, divided by the
+  square root of the second, so each weight gets its own step size. A correction keeps the
+  averages from being too small in the first steps.
+result: >-
+  With the same default settings everywhere, it trained logistic regression on MNIST and IMDB,
+  a multilayer network on MNIST and a convolutional network on CIFAR-10 as fast as or faster than
+  SGD with momentum, AdaGrad and RMSProp.
+why: >-
+  Before Adam, each model needed its learning rate and schedule tuned by hand. Adam's defaults
+  (learning rate 0.001, β₁ 0.9, β₂ 0.999) worked well across very different problems, and it became
+  the default choice. Its convergence proof later turned out to be flawed, and the variant AdamW,
+  with decoupled weight decay, is what trains most large language models today.
+datasets: [mnist, imdb, cifar10]

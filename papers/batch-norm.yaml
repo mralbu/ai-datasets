@@ -1,0 +1,21 @@
+title: "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift"
+short: Batch normalization
+year: 2015
+venue: ICML 2015
+authors: Sergey Ioffe, Christian Szegedy
+category: foundations
+arxiv: "1502.03167"
+one_liner: Normalize each layer's inputs over the mini-batch, and deep networks train many times faster.
+idea: >-
+  Inside the network, rescale each feature to zero mean and unit variance using the statistics of
+  the current mini-batch, then let the network learn its own scale and shift. At test time, use
+  running averages instead of batch statistics.
+result: >-
+  An Inception network reached the same ImageNet accuracy in 14 times fewer training steps, and an
+  ensemble reached 4.9% top-5 validation error, better than the reported accuracy of human raters.
+why: >-
+  Batch normalization allowed much higher learning rates and made networks far less sensitive to
+  their initial weights, so very deep networks became routine; ResNet uses it after every
+  convolution. The paper's explanation, "internal covariate shift", was later disputed, and why it
+  works is still debated. Its relative, layer normalization, is used in every Transformer.
+datasets: [imagenet, mnist]

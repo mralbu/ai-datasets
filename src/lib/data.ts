@@ -92,6 +92,7 @@ export function url(path: string): string {
 
 // Display order of categories everywhere (catalog sections, filter chips).
 export const MODALITIES: Record<string, string> = {
+  foundations: 'Foundations', // papers only: training techniques for any data and any model
   vision: 'Vision',
   text: 'Text',
   benchmark: 'LLMs', // benchmarks and training data (instructions, preferences) for language models

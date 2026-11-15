@@ -18,7 +18,7 @@ const ABOUT = `## About the site
 
 - Entries are chosen because they changed the field, were the standard benchmark for years, or appear in every introductory course. It is not a catalog: Hugging Face already is one.
 - "LLMs" is the category for language-model benchmarks and training data (instructions, preferences).
-- Papers: a short list of classic papers, each linked to at least one dataset on the site. Summaries are written for the site; the alphaXiv link (or the publisher, for papers older than arXiv) leads to the full text.
+- Papers: a short list of classic papers, each linked to at least one dataset on the site. The exception is Foundations, a papers-only category for training techniques that apply to any data and any model (optimizers, normalization, regularization, initialization, backpropagation); when their data is not on the site, the entry says in words what they were tested on. Summaries are written for the site; the alphaXiv link (or the publisher, for papers older than arXiv) leads to the full text.
 - Samples are a fixed random selection of rows taken once from the Hugging Face dataset viewer, so pages are stable between visits. Where the official copy cannot be read by the viewer a community copy is used; each entry names the exact repository.
 - Samples stay under each dataset's own license. Gated benchmarks whose authors ask that questions not be published (GPQA, Humanity's Last Exam) are linked but not sampled.
 - Download snippets use the \`hf\` CLI, the 🤗 \`datasets\` library and Polars (\`hf://datasets/<repo>@~parquet/<config>/<split>/*.parquet\`). Check license and size first: some datasets are research-only, some are hundreds of gigabytes.`;
@@ -128,6 +128,7 @@ export function paperMarkdown(p: Paper, site: URL | undefined, datasets: Dataset
     `${h(1)} The data`,
     '',
     ...d.datasets.map((r) => dsById.get(r.id)!).map((x) => `- [${x.data.name} (${x.data.year})](${abs(site, `/d/${x.id}.md`)}): ${oneLine(x.data.one_liner)}`),
+    ...(d.tested_on ? [`- ${d.datasets.length ? 'Also tested on' : 'Tested on (not on this site)'}: ${oneLine(d.tested_on)}`] : []),
   ];
   if (d.builds_on.length) out.push('', `${h(1)} Builds on`, '', ...d.builds_on.map((r) => `- ${ref(pById.get(r.id)!)}`));
   if (children.length) out.push('', `${h(1)} Led to`, '', ...children.map((x) => `- ${ref(x)}`));
@@ -171,7 +172,7 @@ export async function llmsTxt(site: URL | undefined): Promise<string> {
     '',
     `Classic papers, each linked to the datasets on this site it was trained or measured on. Each has a Markdown page at /p/<id>.md.`,
     '',
-    ...papers.map((p) => `- [${p.data.short} (${p.data.year})](${abs(site, `/p/${p.id}.md`)}): ${oneLine(p.data.one_liner)} Data: ${p.data.datasets.map((r) => dsById.get(r.id)!.data.name).join(', ')}.`),
+    ...papers.map((p) => `- [${p.data.short} (${p.data.year})](${abs(site, `/p/${p.id}.md`)}): ${oneLine(p.data.one_liner)} ${p.data.datasets.length ? `Data: ${p.data.datasets.map((r) => dsById.get(r.id)!.data.name).join(', ')}.` : `Tested on: ${oneLine(p.data.tested_on!)}`} [${MODALITIES[p.data.category]}]`),
   );
   out.push(
     '',
