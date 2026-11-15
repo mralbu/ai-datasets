@@ -18,7 +18,7 @@ away knowing the data.
 
 ```
 datasets/<id>.yaml      one file per dataset: facts, description, Hugging Face source, how to display it
-papers/<id>.yaml        one file per classic paper: our own summary, links (arXiv/alphaXiv), the datasets it used
+papers/<id>.yaml        one file per classic paper: our own summary, an alphaXiv link, the datasets it used
 scripts/sample.py       (uv: polars, altair, pillow) samples rows from the Hugging Face dataset viewer
                         into a snapshot, then copies it to src/generated/ and public/samples/
 src/                    Astro site: catalog, papers, timeline, one page per dataset and per paper, search (press /)
@@ -154,7 +154,7 @@ year: 2015                                            # first appearance (prepri
 venue: CVPR 2016
 authors: Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
 category: vision                                      # same categories as datasets
-arxiv: "1512.03385"                                   # gives the arXiv and alphaXiv links; else `url:`
+arxiv: "1512.03385"                                   # gives the alphaXiv link; else `url:`
 one_liner: …
 idea: …                                               # the key idea, in plain words
 result: …                                             # the headline result, with numbers
