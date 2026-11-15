@@ -24,8 +24,7 @@ const ICONS = {
 };
 const links = [
   l.alphaxiv && { href: l.alphaxiv, label: 'alphaXiv', icon: ICONS.read, tip: 'Summary and discussion', color: 'var(--c-text)' },
-  l.arxiv && { href: l.arxiv, label: 'arXiv', icon: ICONS.paper, tip: `arXiv ${d.arxiv}`, color: 'var(--c-tabular)' },
-  !l.arxiv && { href: l.main, label: 'Paper', icon: ICONS.paper, tip: hostOf(l.main), color: 'var(--c-tabular)' },
+  !l.alphaxiv && { href: l.main, label: 'Paper', icon: ICONS.paper, tip: hostOf(l.main), color: 'var(--c-tabular)' },
 ].filter(Boolean) as { href: string; label: string; icon: string; tip: string; color: string }[];
 const facts: [string, string][] = [
   ['Year', String(d.year)],

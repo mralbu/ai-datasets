@@ -18,7 +18,7 @@ const ABOUT = `## About the site
 
 - Entries are chosen because they changed the field, were the standard benchmark for years, or appear in every introductory course. It is not a catalog: Hugging Face already is one.
 - "LLMs" is the category for language-model benchmarks and training data (instructions, preferences).
-- Papers: a short list of classic papers, each linked to at least one dataset on the site. Summaries are written for the site; the alphaXiv and arXiv links lead to the full text.
+- Papers: a short list of classic papers, each linked to at least one dataset on the site. Summaries are written for the site; the alphaXiv link (or the publisher, for papers older than arXiv) leads to the full text.
 - Samples are a fixed random selection of rows taken once from the Hugging Face dataset viewer, so pages are stable between visits. Where the official copy cannot be read by the viewer a community copy is used; each entry names the exact repository.
 - Samples stay under each dataset's own license. Gated benchmarks whose authors ask that questions not be published (GPQA, Humanity's Last Exam) are linked but not sampled.
 - Download snippets use the \`hf\` CLI, the 🤗 \`datasets\` library and Polars (\`hf://datasets/<repo>@~parquet/<config>/<split>/*.parquet\`). Check license and size first: some datasets are research-only, some are hundreds of gigabytes.`;
@@ -111,8 +111,7 @@ export function paperMarkdown(p: Paper, site: URL | undefined, datasets: Dataset
     `- Authors: ${d.authors}`,
     `- Venue: ${d.venue}`,
     `- Category: ${MODALITIES[d.category]}`,
-    `- Paper: ${l.main}`,
-    ...(l.alphaxiv ? [`- alphaXiv: ${l.alphaxiv}`] : []),
+    `- Paper: ${l.alphaxiv ?? l.main}`,
     '',
     `${h(1)} Why it matters`,
     '',
