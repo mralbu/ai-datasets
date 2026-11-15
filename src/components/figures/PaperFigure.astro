@@ -1,0 +1,45 @@
+---
+// The figure for a paper page: its idea drawn on data from this site, with a caption.
+// Each figure is its own component; papers without one render nothing.
+import type { Paper } from '../../lib/data';
+import VitPatches from './VitPatches.astro';
+import YoloGrid from './YoloGrid.astro';
+import ClipGrid from './ClipGrid.astro';
+import FisherLda from './FisherLda.astro';
+import YuleAr2 from './YuleAr2.astro';
+interface Props { p: Paper }
+const { p } = Astro.props;
+const FIGURES: Record<string, { C: any; caption: string }> = {
+  vit: {
+    C: VitPatches,
+    caption: 'An ImageNet validation photo (a black swan), cropped to the central 224×224 pixels as in evaluation and cut into 14×14 = 196 patches of 16×16. ViT flattens each patch into a vector and reads them in order, row by row, like the words of a sentence, after a learned [class] token whose output is the prediction. Outlined: the first two patches and part of row 8.',
+  },
+  yolo: {
+    C: YoloGrid,
+    caption: 'A PASCAL VOC image with YOLO\'s 7×7 grid. Each object is the job of the one cell that contains the center of its box (highlighted); that cell predicts the box and the class, and the whole grid is predicted in a single pass of the network. Dashed: the annotated boxes.',
+  },
+  clip: {
+    C: ClipGrid,
+    caption: 'CLIP\'s training objective on four Flickr30k images and their captions. The image and text encoders are trained so that each image scores highest with its own caption (the diagonal) and low with every other caption in the batch. CLIP did this with batches of 32,768 pairs from the web.',
+  },
+  'fisher-1936': {
+    C: FisherLda,
+    caption: 'Fisher\'s linear discriminant, computed on all 150 flowers of the site\'s Iris data (the three-species form of his method). One weighted sum of four measurements puts setosa far apart and leaves only a small overlap between versicolor and virginica. Hover a dot for its flower.',
+  },
+  'yule-1927': {
+    C: YuleAr2,
+    caption: 'Yearly mean sunspot numbers from 1818, where the daily record on this site begins, to 1924, the last year in Yule\'s data, with an AR(2) model fitted to them: each year predicted from the two before. Values are on today\'s revised SILSO scale, not Wolfer\'s numbers that Yule used; 1835–1837 have too few observed days and are left out. Hover for a year.',
+  },
+};
+const f = FIGURES[p.id];
+---
+{f && (
+  <figure class="card fig">
+    <f.C />
+    <figcaption class="muted">{f.caption}</figcaption>
+  </figure>
+)}
+<style>
+  .fig { margin: 0; padding: 16px 18px 14px; }
+  figcaption { font-size: 0.86rem; margin-top: 12px; max-width: 72ch; }
+</style>

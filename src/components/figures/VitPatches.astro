@@ -1,0 +1,60 @@
+---
+// ViT: an ImageNet validation photo cropped to 224×224 and cut into 14×14 patches of 16×16 px,
+// then the first patches laid out as the sequence the Transformer reads.
+import { getSamples, labelOf, url } from '../../lib/data';
+const s = getSamples('imagenet');
+// A sample whose subject fills the center of the crop; any sample works if it is missing.
+const row = s?.rows.find((r) => labelOf(s, 'label', r.row.label).startsWith('black swan')) ?? s?.rows[0];
+const img = row?.row.image as { src: string; width: number; height: number } | undefined;
+// The mirror is resized to 256 px on the short side; ImageNet evaluation takes the central 224×224.
+const crop = img && { x: (img.width - 224) / 2, y: (img.height - 224) / 2 };
+const P = 16, N = 14;
+// The sequence starts at the top-left patch; after the first two, show a stretch of the middle row
+// (with its position in the sequence) so the tokens visibly hold the subject.
+const at = (r: number, c: number) => ({ r, c, n: r * N + c + 1 });
+const head = [at(0, 0), at(0, 1)];
+const mid = Array.from({ length: 7 }, (_, i) => at(7, 4 + i));
+const tokens = [...head, ...mid];
+---
+{img && crop && (
+  <div class="vit">
+    <svg class="grid" viewBox="0 0 224 224" role="img" aria-label="A photo cut into a 14 by 14 grid of patches">
+      <image href={url(img.src)} x={-crop.x} y={-crop.y} width={img.width} height={img.height} />
+      {Array.from({ length: N - 1 }, (_, i) => (
+        <>
+          <line x1={(i + 1) * P} y1="0" x2={(i + 1) * P} y2="224" />
+          <line x1="0" y1={(i + 1) * P} x2="224" y2={(i + 1) * P} />
+        </>
+      ))}
+      {tokens.map((t) => <rect class="pick" x={t.c * P} y={t.r * P} width={P} height={P}><title>patch {t.n}</title></rect>)}
+    </svg>
+    <div class="seq" aria-label="The first patches as a sequence">
+      <span class="tok cls">[class]</span>
+      {tokens.map((t, i) => (
+        <>
+          {i === head.length && <span class="more">…</span>}
+          <span class="tok">
+            <svg viewBox={`${t.c * P + crop.x} ${t.r * P + crop.y} ${P} ${P}`} width="34" height="34" aria-hidden="true">
+              <image href={url(img.src)} width={img.width} height={img.height} />
+            </svg>
+            <small>{t.n}</small>
+          </span>
+        </>
+      ))}
+      <span class="more">… 196</span>
+      <span class="arrow">→ Transformer encoder</span>
+    </div>
+  </div>
+)}
+<style>
+  .vit { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+  .grid { width: min(260px, 100%); height: auto; border-radius: 6px; flex: none; }
+  .grid line { stroke: #fff; stroke-opacity: 0.75; stroke-width: 0.6; }
+  .pick { fill: none; stroke: var(--accent); stroke-width: 1.4; }
+  .seq { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; flex: 1; min-width: 220px; }
+  .tok { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; font-size: 0.7rem; color: var(--muted); }
+  .tok svg { border-radius: 3px; outline: 1.5px solid var(--accent); }
+  .cls { font: 0.72rem ui-monospace, Menlo, monospace; padding: 9px 6px; margin-bottom: 15px; border: 1.5px dashed var(--accent); border-radius: 4px; color: var(--text); }
+  .more { color: var(--muted); font-size: 0.85rem; margin-bottom: 15px; }
+  .arrow { font-size: 0.85rem; font-weight: 600; margin-bottom: 15px; }
+</style>

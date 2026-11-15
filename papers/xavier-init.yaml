@@ -5,6 +5,7 @@ venue: AISTATS 2010
 authors: Xavier Glorot, Yoshua Bengio
 category: foundations
 url: https://proceedings.mlr.press/v9/glorot10a.html
+pdf: https://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf
 one_liner: Why deep networks were hard to train, and a way to set the starting weights so signals neither vanish nor explode.
 idea: >-
   Watch the activations and gradients layer by layer during training. With the usual small random

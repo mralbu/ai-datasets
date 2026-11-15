@@ -1,0 +1,48 @@
+---
+// YOLO: a PASCAL VOC image with the 7×7 grid; the cell holding each object's center is the
+// one responsible for predicting it.
+import { getSamples, classNames, url } from '../../lib/data';
+const s = getSamples('pascal-voc');
+const names = s ? classNames(s, 'objects', 'category') : [];
+type Obj = { bbox: number[][]; category: number[] };
+const pick = s?.rows.map((r) => r.row).find((r) => {
+  const o = r.objects as Obj;
+  const W = r.image.width, H = r.image.height;
+  return o.bbox.length >= 2 && o.bbox.length <= 4 && o.bbox.every((b) => (b[2] * b[3]) / (W * H) > 0.02)
+    && new Set(o.bbox.map((b) => `${Math.floor(((b[0] + b[2] / 2) / W) * 7)},${Math.floor(((b[1] + b[3] / 2) / H) * 7)}`)).size === o.bbox.length;
+});
+const S = 7;
+const W = pick?.image.width as number, H = pick?.image.height as number;
+const objs = pick ? (pick.objects as Obj).bbox.map((b, i) => {
+  const cx = b[0] + b[2] / 2, cy = b[1] + b[3] / 2;
+  return { b, cx, cy, col: Math.floor((cx / W) * S), row: Math.floor((cy / H) * S), name: names[(pick.objects as Obj).category[i]] ?? String((pick.objects as Obj).category[i]) };
+}) : [];
+---
+{pick && (
+  <svg class="yolo" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`A photo with a 7 by 7 grid; objects: ${objs.map((o) => o.name).join(', ')}`}>
+    <image href={url(pick.image.src)} width={W} height={H} />
+    {objs.map((o) => <rect class="cell" x={(o.col * W) / S} y={(o.row * H) / S} width={W / S} height={H / S} />)}
+    {Array.from({ length: S - 1 }, (_, i) => (
+      <>
+        <line x1={((i + 1) * W) / S} y1="0" x2={((i + 1) * W) / S} y2={H} />
+        <line x1="0" y1={((i + 1) * H) / S} x2={W} y2={((i + 1) * H) / S} />
+      </>
+    ))}
+    {objs.map((o) => (
+      <g>
+        <rect class="box" x={o.b[0]} y={o.b[1]} width={o.b[2]} height={o.b[3]} />
+        <circle cx={o.cx} cy={o.cy} r={W / 90} />
+        <text x={o.b[0] + 4} y={o.b[1] + W / 30} font-size={W / 32}>{o.name}</text>
+        <title>{o.name}: center in cell row {o.row + 1}, column {o.col + 1}</title>
+      </g>
+    ))}
+  </svg>
+)}
+<style>
+  .yolo { width: min(560px, 100%); height: auto; display: block; border-radius: 6px; }
+  .yolo line { stroke: #fff; stroke-opacity: 0.8; stroke-width: 1.2; }
+  .cell { fill: #ffd400; fill-opacity: 0.38; stroke: #ffd400; stroke-width: 2.5; }
+  .box { fill: none; stroke: #ffd400; stroke-width: 2.5; stroke-dasharray: 8 5; }
+  circle { fill: #ffd400; stroke: #000; stroke-width: 1.5; }
+  text { fill: #000; paint-order: stroke; stroke: #ffd400; stroke-width: 5px; font-weight: 700; font-family: system-ui, sans-serif; }
+</style>

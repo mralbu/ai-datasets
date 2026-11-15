@@ -5,6 +5,7 @@ venue: Nature
 authors: David E. Rumelhart, Geoffrey E. Hinton, Ronald J. Williams
 category: foundations
 url: https://doi.org/10.1038/323533a0
+pdf: https://www.cs.toronto.edu/~hinton/absps/naturebp.pdf
 one_liner: The four-page paper that showed how to train networks with hidden layers, and what those layers learn.
 idea: >-
   Run the network forward, measure the error at the output, then pass error derivatives backwards

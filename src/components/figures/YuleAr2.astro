@@ -1,0 +1,58 @@
+---
+// Yule's AR(2) model on yearly mean sunspot numbers, 1818–1924 (src/paper-figures/yule-1927.json,
+// from scripts/papers.py figures): the observed series and the model's one-step predictions.
+import data from '../../paper-figures/yule-1927.json';
+const pts = data.points;
+const W = 680, H = 250, L = 40, R = 14, T = 14, B = 28;
+const [y0, y1] = [pts[0].year, pts[pts.length - 1].year];
+const vmax = Math.ceil(Math.max(...pts.map((p) => Math.max(p.actual, p.fit ?? 0))) / 50) * 50;
+const x = (y: number) => L + ((y - y0) / (y1 - y0)) * (W - L - R);
+const y = (v: number) => T + (1 - v / vmax) * (H - T - B);
+// A new segment starts after a missing year (1835–1837 have too few observed days).
+const line = (vals: [number, number][]) =>
+  vals.map(([a, b], i) => `${i && vals[i - 1][0] === a - 1 ? 'L' : 'M'}${x(a).toFixed(1)},${y(b).toFixed(1)}`).join('');
+const actual = line(pts.map((p) => [p.year, p.actual]));
+const fit = line(pts.filter((p) => p.fit !== null).map((p) => [p.year, p.fit!]));
+const yt = Array.from({ length: vmax / 50 + 1 }, (_, i) => i * 50);
+const xt = Array.from({ length: 12 }, (_, i) => 1820 + i * 10).filter((t) => t <= y1);
+const last = pts[pts.length - 1];
+const step = (W - L - R) / (y1 - y0);
+const { a, b1, b2 } = data.coef;
+---
+<div class="yule">
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Yearly sunspot numbers from 1818 to 1924 with Yule's autoregressive predictions following them closely">
+    {yt.map((t) => (<><line class="grid" x1={L} x2={W - R} y1={y(t)} y2={y(t)} /><text class="tick" x={L - 6} y={y(t) + 4} text-anchor="end">{t}</text></>))}
+    {xt.map((t) => <text class="tick" x={x(t)} y={H - 8} text-anchor="middle">{t}</text>)}
+    {data.missing.length > 0 && (
+      <text class="tick gap" x={x((data.missing[0] + data.missing[data.missing.length - 1]) / 2)} y={y(vmax) + 10} text-anchor="middle">no data</text>
+    )}
+    <path class="actual" d={actual} />
+    <path class="fit" d={fit} />
+    {pts.map((p) => (
+      <rect class="hit" x={x(p.year) - step / 2} y={T} width={step} height={H - T - B}>
+        <title>{`${p.year}: observed ${p.actual}${p.fit !== null ? `, AR(2) predicted ${p.fit}` : ''}`}</title>
+      </rect>
+    ))}
+  </svg>
+  <p class="legend">
+    <span><i class="sw actual-sw"></i>Observed yearly mean</span>
+    <span><i class="sw fit-sw"></i>Yule's model, from the two previous years</span>
+  </p>
+  <p class="eq muted">
+    x<sub>t</sub> = {a} + {b1}·x<sub>t−1</sub> {b2 < 0 ? '−' : '+'} {Math.abs(b2)}·x<sub>t−2</sub> + noise
+    {data.period && <span> · a damped cycle of {data.period} years</span>} · explains {Math.round(data.r2 * 100)}% of the year-to-year variance
+  </p>
+</div>
+<style>
+  .yule svg { width: 100%; max-width: 700px; height: auto; display: block; }
+  .grid { stroke: var(--border); stroke-width: 1; }
+  .tick { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+  .actual { fill: none; stroke: var(--c-timeseries); stroke-width: 2; stroke-linejoin: round; }
+  .fit { fill: none; stroke: var(--text); stroke-width: 1.5; stroke-dasharray: 5 3; opacity: 0.75; }
+  .hit { fill: transparent; }
+  .hit:hover { fill: color-mix(in srgb, var(--text) 8%, transparent); }
+  .legend { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 6px 0 0; font-size: 0.82rem; }
+  .sw { display: inline-block; width: 18px; height: 0; vertical-align: middle; margin-right: 6px; border-top: 2px solid var(--c-timeseries); }
+  .fit-sw { border-top: 1.5px dashed var(--text); opacity: 0.75; }
+  .eq { font-size: 0.82rem; margin: 4px 0 0; }
+</style>

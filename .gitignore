@@ -7,3 +7,5 @@ __pycache__/
 public/samples/
 src/generated/
 .samples/
+# downloads cached by scripts/papers.py
+.cache/

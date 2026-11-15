@@ -1,6 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { existsSync } from 'node:fs';
 import DatasetCard from '../../components/DatasetCard.astro';
+import PaperFigure from '../../components/figures/PaperFigure.astro';
 import { getDatasets, getPapers, ledTo, MODALITIES, paperLinks, url } from '../../lib/data';
 
 export async function getStaticPaths() {
@@ -26,6 +28,9 @@ const links = [
   l.alphaxiv && { href: l.alphaxiv, label: 'alphaXiv', icon: ICONS.read, tip: 'Summary and discussion', color: 'var(--c-text)' },
   !l.alphaxiv && { href: l.main, label: 'Paper', icon: ICONS.paper, tip: hostOf(l.main), color: 'var(--c-tabular)' },
 ].filter(Boolean) as { href: string; label: string; icon: string; tip: string; color: string }[];
+// First page, rendered by scripts/papers.py pages; links to where the paper can be read.
+const page1 = existsSync(`public/papers/${p.id}.webp`) ? url(`/papers/${p.id}.webp`) : undefined;
+const readAt = l.alphaxiv ?? l.main;
 const facts: [string, string][] = [
   ['Year', String(d.year)],
   ['Authors', d.authors],
@@ -42,19 +47,31 @@ const facts: [string, string][] = [
     <section class="why">
       <h2>Why it matters</h2>
       <p>{d.why}</p>
-      <div class="links icon-links">
-        {links.map((k) => (
-          <a class="link-btn tip" href={k.href} data-tip={k.tip} style={`--ic: ${k.color}`}>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d={k.icon} /></svg>{k.label}
+      <div class="read">
+        {page1 && (
+          <a class="page1" href={readAt} aria-label={`Read ${d.short} on ${hostOf(readAt)}`}>
+            <img src={page1} alt={`First page of “${d.title}”`} loading="lazy" width="150" />
           </a>
-        ))}
+        )}
+        <div class="read-side">
+          <div class="links">
+            {links.map((k) => (
+              <a class:list={['link-btn tip', { 'tip-end': page1, 'tip-start': !page1 }]} href={k.href} data-tip={k.tip} style={`--ic: ${k.color}`}>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d={k.icon} /></svg>{k.label}
+              </a>
+            ))}
+          </div>
+          {page1 && <p class="muted page1-note">The first page, as published. Read the full paper{l.alphaxiv ? ', with summaries and discussion,' : ''} on {hostOf(readAt)}.</p>}
+        </div>
       </div>
     </section>
-    <dl class="facts card">
-      {facts.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
-      <dt>Data</dt>
-      <dd>{data.length > 0 ? data.map((x, i) => <>{i > 0 && ', '}<a href={url(`/d/${x.id}`)}>{x.data.name}</a></>) : 'None on this site'}</dd>
-    </dl>
+    <div class="side">
+      <dl class="facts card">
+        {facts.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
+        <dt>Data</dt>
+        <dd>{data.length > 0 ? data.map((x, i) => <>{i > 0 && ', '}<a href={url(`/d/${x.id}`)}>{x.data.name}</a></>) : 'None on this site'}</dd>
+      </dl>
+    </div>
   </div>
 
   <div class="pair">
@@ -67,6 +84,8 @@ const facts: [string, string][] = [
       <p>{d.result}</p>
     </section>
   </div>
+
+  <PaperFigure p={p} />
 
   <h2>The data</h2>
   {data.length > 0 && (
@@ -107,7 +126,11 @@ const facts: [string, string][] = [
   .full { margin: 0 0 10px; font-size: 1rem; }
   .lede { font-size: 1.1rem; margin: 0 0 8px; }
   .top { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 28px; align-items: start; }
-  @media (max-width: 760px) { .top { grid-template-columns: minmax(0, 1fr); gap: 8px; } .facts { margin-top: 0 !important; } }
+  @media (max-width: 760px) {
+    .top { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+    .side { margin-top: 0; }
+    .page1 img { width: 110px; }
+  }
   .links { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 0; }
   .link-btn {
     display: inline-flex; align-items: center; gap: 7px; height: 32px; padding: 0 12px;
@@ -116,10 +139,22 @@ const facts: [string, string][] = [
   }
   .link-btn svg { width: 16px; height: 16px; fill: color-mix(in srgb, var(--ic, var(--muted)) 16%, transparent); stroke: var(--ic, var(--muted)); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
   .link-btn:hover { text-decoration: none; border-color: var(--accent); color: var(--accent); }
+  .side { margin: 2.2rem 0 0; display: flex; flex-direction: column; gap: 16px; }
+  .side .facts { margin: 0; }
+  /* The first page as a small thumbnail beside the reading links. */
+  .read { display: flex; align-items: flex-end; gap: 16px; margin-top: 4px; }
+  .read-side { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .page1-note { margin: 0; font-size: 0.82rem; max-width: 34ch; overflow-wrap: anywhere; }
+  .page1 { flex: none; display: block; }
+  .page1 img { width: 150px; height: auto; display: block; border: 1px solid var(--border); border-radius: 4px; box-shadow: 0 2px 10px rgb(20 20 30 / 0.08); background: #fff; transition: transform 0.15s, box-shadow 0.15s; }
+  .page1:hover img { transform: translateY(-2px); box-shadow: var(--shadow); }
+  /* Scans and PDFs are white pages; dim them a little in dark mode. */
+  :global(:root[data-theme='dark']) .page1 img { filter: brightness(0.85); }
+  @media (prefers-color-scheme: dark) { :global(:root:not([data-theme='light'])) .page1 img { filter: brightness(0.85); } }
   .facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; padding: 16px 18px; margin: 2.2rem 0 0; font-size: 0.9rem; }
   dt { color: var(--muted); }
   dd { margin: 0; }
-  .pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 2rem; }
+  .pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 2rem 0 16px; }
   .box { padding: 4px 18px 6px; }
   .box h2 { margin-top: 0.9rem; font-size: 1.1rem; }
   .tested { padding: 12px 16px; margin: 16px 0 0; font-size: 0.95rem; }
