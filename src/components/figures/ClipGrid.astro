@@ -15,7 +15,7 @@ const pairs = (s?.rows ?? []).slice(0, 4).map((r) => ({
     {pairs.map((p, i) => <div class="img" role="columnheader"><img src={p.src} alt={`Image ${i + 1}`} loading="lazy" /></div>)}
     {pairs.map((p, r) => (
       <>
-        <div class="cap" role="rowheader">{p.caption}</div>
+        <div class="cap" role="rowheader" title={p.caption}><span>{p.caption}</span></div>
         {pairs.map((_, c) => (
           <div class:list={['cell', { match: r === c }]} role="cell" title={r === c ? 'Matching pair: pulled together' : 'Different pair: pushed apart'}>
             {r === c ? '✓' : ''}
@@ -26,11 +26,19 @@ const pairs = (s?.rows ?? []).slice(0, 4).map((r) => ({
   </div>
 )}
 <style>
-  .clip { display: grid; grid-template-columns: minmax(120px, 1.6fr) repeat(4, minmax(44px, 1fr)); gap: 4px; max-width: 620px; font-size: 0.8rem; }
+  /* Every row is the same height: cells are square, and each caption gets the same three-line
+     slot (longer ones are cut with an ellipsis; the full caption is in the tooltip). */
+  .clip {
+    --cell: 92px;
+    display: grid; grid-template-columns: minmax(0, 1fr) repeat(4, var(--cell)); grid-auto-rows: var(--cell);
+    gap: 4px; max-width: 600px; font-size: 0.8rem; line-height: 1.3;
+  }
   .corner { display: flex; flex-direction: column; justify-content: flex-end; color: var(--muted); font-size: 0.72rem; padding-bottom: 4px; }
-  .img img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; display: block; }
-  .cap { display: flex; align-items: center; line-height: 1.3; padding-right: 6px; }
-  .cell { display: grid; place-items: center; border-radius: 4px; background: color-mix(in srgb, var(--muted) 10%, transparent); color: var(--surface); font-weight: 700; min-height: 44px; }
+  .img img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; display: block; }
+  .cap { display: flex; align-items: center; padding-right: 8px; min-width: 0; }
+  .cap span { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; }
+  .cell { display: grid; place-items: center; border-radius: 4px; background: color-mix(in srgb, var(--muted) 10%, transparent); color: var(--surface); font-weight: 700; font-size: 1rem; }
   .match { background: var(--accent); }
-  @media (max-width: 480px) { .clip { font-size: 0.72rem; grid-template-columns: minmax(96px, 1.4fr) repeat(4, minmax(36px, 1fr)); } }
+  @media (max-width: 600px) { .clip { --cell: 64px; } }
+  @media (max-width: 400px) { .clip { --cell: 46px; font-size: 0.72rem; } .cap span { -webkit-line-clamp: 3; } }
 </style>
