@@ -32,7 +32,7 @@ lineage:
   - { name: NWPU-RESISC45, note: "2017, 31,500 images in 45 classes", url: "https://arxiv.org/abs/1703.00121" }
   - { name: ImageNet, note: "2009, whose features made the benchmark easy", hf: ILSVRC/imagenet-1k, id: imagenet }
 landmark_papers:
-  - { title: "Do Deep Features Generalize from Everyday Objects to Remote Sensing and Aerial Scenes Domains?", year: 2015, url: "https://arxiv.org/abs/1508.00092" }
+  - { title: "Do Deep Features Generalize from Everyday Objects to Remote Sensing and Aerial Scenes Domains?", year: 2015, url: "https://openaccess.thecvf.com/content_cvpr_workshops_2015/W13/html/Penatti_Do_Deep_Features_2015_CVPR_paper.html" }
   - { title: "AID: A Benchmark Data Set for Performance Evaluation of Aerial Scene Classification", year: 2017, url: "https://arxiv.org/abs/1608.05167" }
 source: { hf: blanchon/UC_Merced, config: default, split: train, n: 84, seed: 3, rows_per_page: 1, page: 25 }
 display: { kind: image, image: image, label: label, scale: 0.6, class_grid: true }

@@ -6,7 +6,7 @@ const index = (await getDatasets()).map((d) => ({
   id: d.id,
   name: d.data.name,
   year: d.data.year,
-  m: d.data.modality,
+  m: d.data.modality as string,
   cat: MODALITIES[d.data.modality] ?? d.data.modality,
   tags: d.data.tags.map((t) => TAGS[t]).join(' '),
   task: d.data.task,

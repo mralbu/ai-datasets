@@ -170,8 +170,9 @@ const palette = JSON.stringify(Object.fromEntries(d.layers.filter((l) => l.class
         const r = raw[field];
         if (!r) return null;
         const box = frame.getBoundingClientRect();
-        const x = Math.min(r.w - 1, Math.floor((ev.clientX - box.left) / box.width * r.w));
-        const y = Math.min(r.h - 1, Math.floor((ev.clientY - box.top) / box.height * r.h));
+        if (!box.width || !box.height) return null;
+        const x = Math.max(0, Math.min(r.w - 1, Math.floor((ev.clientX - box.left) / box.width * r.w)));
+        const y = Math.max(0, Math.min(r.h - 1, Math.floor((ev.clientY - box.top) / box.height * r.h)));
         return r.data[(y * r.w + x) * 4];
       };
       frame.addEventListener('pointermove', (ev) => {

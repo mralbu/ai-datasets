@@ -17,7 +17,7 @@ const list = (v: unknown): string[] => (Array.isArray(v) ? v.map(String) : v == 
       {d.input && r.row[d.input] && (typeof r.row[d.input] === 'object' && r.row[d.input].contexts ? (
         <div class="input sections">
           {(r.row[d.input].contexts as string[]).map((c, j) => (
-            <p>{r.row[d.input].labels?.[j] && <span class="sec">{String(r.row[d.input].labels[j]).toLowerCase()}</span>}{c}</p>
+            <p>{r.row[d.input!].labels?.[j] && <span class="sec">{String(r.row[d.input!].labels[j]).toLowerCase()}</span>}{c}</p>
           ))}
         </div>
       ) : <p class="input pre">{r.row[d.input]}</p>)}

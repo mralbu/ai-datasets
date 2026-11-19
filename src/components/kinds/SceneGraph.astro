@@ -58,8 +58,8 @@ const view = (r: SampleRow) => {
                 <path d="M0 0 10 5 0 10z" fill="#fff" />
               </marker>
             </defs>
-            <rect class="b1" hidden /><rect class="b2" hidden />
-            <line class="ln" marker-end={`url(#ah-${i})`} hidden />
+            <rect class="b1" data-hidden /><rect class="b2" data-hidden />
+            <line class="ln" marker-end={`url(#ah-${i})`} data-hidden />
           </svg>
           <span class="say" aria-hidden="true"></span>
         </div>
@@ -118,7 +118,7 @@ const view = (r: SampleRow) => {
     const say = card.querySelector<HTMLElement>('.say')!;
     const parse = (s?: string) => (s ? s.split(',').map((v) => Number(v) * 1000) : null);
     const place = (el: SVGRectElement, b: number[] | null) => {
-      el.toggleAttribute('hidden', !b);
+      el.toggleAttribute('data-hidden', !b);
       if (!b) return;
       el.setAttribute('x', String(b[0])); el.setAttribute('y', String(b[1]));
       el.setAttribute('width', String(Math.max(b[2] - b[0], 4))); el.setAttribute('height', String(Math.max(b[3] - b[1], 4)));
@@ -126,7 +126,7 @@ const view = (r: SampleRow) => {
     const show = (el: HTMLElement | null) => {
       const s = parse(el?.dataset.sb), o = parse(el?.dataset.ob);
       place(b1, s); place(b2, o);
-      ln.toggleAttribute('hidden', !(s && o));
+      ln.toggleAttribute('data-hidden', !(s && o));
       if (s && o) {
         ln.setAttribute('x1', String((s[0] + s[2]) / 2)); ln.setAttribute('y1', String((s[1] + s[3]) / 2));
         ln.setAttribute('x2', String((o[0] + o[2]) / 2)); ln.setAttribute('y2', String((o[1] + o[3]) / 2));
@@ -157,7 +157,7 @@ const view = (r: SampleRow) => {
   .b1 { stroke: #ff9f1c; fill: rgb(255 159 28 / 0.15); }
   .b2 { stroke: #4cc9f0; fill: rgb(76 201 240 / 0.15); }
   .ln { stroke: #fff; stroke-width: 2.5; vector-effect: non-scaling-stroke; stroke-dasharray: 6 4; }
-  [hidden] { display: none; }
+  [data-hidden] { display: none; }
   .say {
     position: absolute; left: 8px; bottom: 8px; right: 8px; width: fit-content; line-height: 1.3; padding: 4px 8px; border-radius: 6px;
     background: rgb(0 0 0 / 0.72); color: #fff; font-size: 0.82rem; font-weight: 600; pointer-events: none;

@@ -29,8 +29,8 @@ const count = (await getDatasets()).length;
       site, so it can say in words what it was tested on instead. The{' '}
       <a href={url('/timeline?papers')}>timeline</a> can show both. The summaries (why it matters, the
       key idea, the headline result) are written for this site. For the full text and discussion, each
-      page links to the paper on alphaXiv, or to the original publisher for papers that
-      predate arXiv, next to a small image of its first page. Figures on paper pages are not
+      page links to the paper on alphaXiv, or to the original publisher for papers not on
+      arXiv, next to a small image of its first page when a PDF is available. Figures on paper pages are not
       copied from the papers: they are drawn for this site, showing the paper's idea on data from
       the site's own datasets.
     </p>
@@ -53,7 +53,7 @@ const count = (await getDatasets()).length;
     </p>
     <h2>For language models</h2>
     <p>
-      <a href={url('/llms.txt')}><code>llms.txt</code></a> lists every dataset with a link to a plain-Markdown
+      <a href={url('/llms.txt')}><code>llms.txt</code></a> lists every dataset and paper with a link to a plain-Markdown
       version of its page (the page URL plus <code>.md</code>), and{' '}
       <a href={url('/llms-full.txt')}><code>llms-full.txt</code></a> has all of them in one file.
     </p>

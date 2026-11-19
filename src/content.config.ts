@@ -192,7 +192,9 @@ const datasets = defineCollection({
       rows_per_page: z.number().int().optional(),
       min_length: z.record(z.string(), z.number().int()).optional(), // skip rows whose field is shorter (WikiText's blank lines)
       drop: z.array(z.string()).optional(), // columns to leave out of the sample
+      unpack: z.object({ column: z.string(), files: z.record(z.string(), z.string()) }).optional(), // files read from a .tar.gz binary column
       max_image_px: z.number().int().optional(), // downscale larger images (annotations keep original coordinates)
+      dense: z.record(z.string(), z.enum(['image', 'labels', 'mask', 'depth', 'normals'])).optional(), // per-pixel annotations rasterized to PNG/JPEG
       page: z.number().int().optional(), // rows per request, for rows that are megabytes each
       // Time series: a window of consecutive rows (one row per time step), from row start or a
       // seeded random row inside within; and/or long list columns cut to max_points points.
@@ -211,7 +213,7 @@ const datasets = defineCollection({
         gated: z.boolean().default(false), // needs `hf auth login` and accepting terms on the Hub
         note: z.string().optional(),
       })
-      .default({}),
+      .default({ gated: false }),
     display,
   }),
 });

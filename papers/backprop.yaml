@@ -19,8 +19,8 @@ result: >-
 why: >-
   Single-layer perceptrons could not learn even simple functions such as XOR, and there was no
   practical way to train deeper networks. Backpropagation gave one. The algorithm itself had been
-  described earlier (reverse-mode differentiation by Linnainmaa in 1970, and applied to neural
-  networks by Werbos in 1974), but this paper showed what it could do and made it famous. Every
-  model on this site is trained with it, through the automatic differentiation in PyTorch, JAX and
-  TensorFlow.
+  described earlier (reverse-mode differentiation by Linnainmaa in 1970, and by Werbos in his 1974
+  thesis, later applied to neural networks in 1982), but this paper showed what it could do and made
+  it famous. Every neural network on this site is trained with it, through the automatic
+  differentiation in PyTorch, JAX and TensorFlow.
 tested_on: Small synthetic problems such as detecting mirror symmetry in a row of inputs, and learning relations in two family trees (English and Italian).

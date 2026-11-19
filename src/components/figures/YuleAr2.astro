@@ -15,7 +15,6 @@ const actual = line(pts.map((p) => [p.year, p.actual]));
 const fit = line(pts.filter((p) => p.fit !== null).map((p) => [p.year, p.fit!]));
 const yt = Array.from({ length: vmax / 50 + 1 }, (_, i) => i * 50);
 const xt = Array.from({ length: 12 }, (_, i) => 1820 + i * 10).filter((t) => t <= y1);
-const last = pts[pts.length - 1];
 const step = (W - L - R) / (y1 - y0);
 const { a, b1, b2 } = data.coef;
 ---

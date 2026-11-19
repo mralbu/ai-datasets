@@ -2,11 +2,11 @@ name: MMLU-Pro
 year: 2024
 modality: benchmark
 task: Harder, reasoning-heavy multiple choice with ten options
-one_liner: 12,032 exam questions in 14 subjects, each with ten options instead of MMLU's four.
+one_liner: 12,032 exam questions in 14 subjects, with up to ten options instead of MMLU's four.
 creators: Yubo Wang, Xueguang Ma, Ge Zhang et al. (TIGER-Lab, University of Waterloo)
 size: 12,102 questions
 splits: { test: 12032, validation: 70 }
-input: A question and ten answer options
+input: A question and up to ten answer options
 labels: The correct letter (A–J)
 license: MIT
 paper:

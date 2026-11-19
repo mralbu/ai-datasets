@@ -55,14 +55,22 @@ const cats = Object.keys(MODALITIES).filter((m) => counts[m]);
 
     // A single click waits briefly to see if it becomes a double-click, so a
     // double-click doesn't flash items off and on. Keyboard (detail 0) is immediate.
-    let pending: number | undefined;
+    let pending: { k: string; id: number } | undefined;
     toggles.forEach((t) =>
       t.addEventListener('click', (e) => {
         const k = t.dataset.toggle!;
-        clearTimeout(pending);
+        if (pending && pending.k !== k) {
+          clearTimeout(pending.id);
+          const prev = pending.k;
+          pending = undefined;
+          toggle(prev);
+        } else if (pending) {
+          clearTimeout(pending.id);
+          pending = undefined;
+        }
         if (e.detail === 0) return toggle(k);
         if (e.detail >= 2) return solo(k);
-        pending = window.setTimeout(() => toggle(k), 230);
+        pending = { k, id: window.setTimeout(() => { pending = undefined; toggle(k); }, 230) };
       }),
     );
     resets.forEach((r) => r.addEventListener('click', () => apply(new Set(keys))));

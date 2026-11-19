@@ -132,6 +132,7 @@ const revUrl = s.revision ? `https://huggingface.co/datasets/${s.source.hf}/tree
       const parent = items[0].parentElement!;
       idx.slice(0, k).forEach((i) => parent.appendChild(items[i]));
       root.querySelectorAll<HTMLButtonElement>('[data-reveal]').forEach(resetReveal);
+      root.querySelectorAll<HTMLButtonElement>('[data-more]').forEach((btn) => { btn.textContent = 'Show all'; });
     });
 
     // Toolbar toggles that flip a class on the section ("Actual pixel size", "Hide boxes").

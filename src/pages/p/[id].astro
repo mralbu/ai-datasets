@@ -29,7 +29,7 @@ const links = [
   !l.alphaxiv && { href: l.main, label: 'Paper', icon: ICONS.paper, tip: hostOf(l.main), color: 'var(--c-tabular)' },
 ].filter(Boolean) as { href: string; label: string; icon: string; tip: string; color: string }[];
 // First page, rendered by scripts/papers.py pages; links to where the paper can be read.
-const page1 = existsSync(`public/papers/${p.id}.webp`) ? url(`/papers/${p.id}.webp`) : undefined;
+const page1 = existsSync(new URL(`../../../public/papers/${p.id}.webp`, import.meta.url)) ? url(`/papers/${p.id}.webp`) : undefined;
 const readAt = l.alphaxiv ?? l.main;
 const facts: [string, string][] = [
   ['Year', String(d.year)],

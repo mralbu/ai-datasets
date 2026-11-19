@@ -17,7 +17,7 @@ homepage: https://github.com/phelber/EuroSAT
 why: >-
   When the European Copernicus program made Sentinel-2 imagery free for
   everyone, EuroSAT turned it into an MNIST-sized benchmark: small tiles,
-  10 balanced classes, 34 countries. It made satellite images an ordinary
+  10 roughly balanced classes, 34 countries. It made satellite images an ordinary
   image classification problem that any vision model could be tested on,
   and became the standard first benchmark for remote sensing and a regular
   member of general evaluation suites. CLIP's paper reported it among its 27

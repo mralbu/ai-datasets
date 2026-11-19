@@ -24,7 +24,7 @@ trivia:
   - It is a hand-labeled subset of the 80 Million Tiny Images collection, which was withdrawn in 2020 over offensive labels. CIFAR's own labels were checked by hand and are unaffected.
   - CIFAR-10.1 (2018) built a new test set the same way, and accuracy dropped by about 4–10 points. The authors found this was not overfitting to the test set but brittleness to a small shift in the data.
 lineage:
-  - { name: CIFAR-100, note: "2009, same images style, 100 fine-grained classes", hf: uoft-cs/cifar100 }
+  - { name: CIFAR-100, note: "2009, same image style, 100 fine-grained classes", hf: uoft-cs/cifar100 }
   - { name: CIFAR-10.1, note: "2018, fresh test set", url: "https://github.com/modestyachts/CIFAR-10.1" }
   - { name: CINIC-10, note: "2018, CIFAR plus downsampled ImageNet", hf: flwrlabs/cinic10 }
   - { name: SVHN, note: "2011, real-world house-number digits at the same 32×32 size", hf: ufldl-stanford/svhn, id: svhn }

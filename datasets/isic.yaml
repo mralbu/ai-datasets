@@ -5,7 +5,7 @@ tags: [medical]
 task: Skin lesion segmentation and melanoma classification
 one_liner: Dermoscopy photos of moles and other skin lesions, each with an expert outline of the lesion.
 creators: International Skin Imaging Collaboration (Noel Codella, Veronica Rotemberg, Philipp Tschandl, M. Emre Celebi, Allan Halpern and others)
-size: 2,694 images with lesion masks (task 1); 10,015 images in 7 diagnoses (task 3, HAM10000)
+size: 3,694 images with lesion masks (task 1); 10,015 images in 7 diagnoses (task 3, HAM10000)
 splits: { train: 2594, validation: 100, test: 1000 }
 input: Dermoscopy photo (a magnified, lit view of the skin), from 540×722 to 6,708×4,439 pixels
 labels: A mask of the lesion (task 1); its dermoscopic features (task 2); one of 7 diagnoses (task 3)

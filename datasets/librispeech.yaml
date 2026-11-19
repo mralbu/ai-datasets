@@ -5,7 +5,7 @@ task: Automatic speech recognition (speech to text)
 one_liner: About 1,000 hours of read English audiobooks with transcripts.
 creators: Vassil Panayotov, Guoguo Chen, Daniel Povey, Sanjeev Khudanpur
 size: ~1,000 hours from 2,484 speakers
-splits: { train-clean-100: 28539, train-clean-360: 104014, train-other-500: 148688, test-clean: 2620, test-other: 2939 }
+splits: { train-clean-100: 28539, train-clean-360: 104014, train-other-500: 148688, dev-clean: 2703, dev-other: 2864, test-clean: 2620, test-other: 2939 }
 input: 16 kHz mono audio of one utterance (a few seconds to ~35 s)
 labels: Uppercase transcript, no punctuation
 license: CC BY 4.0

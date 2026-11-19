@@ -71,6 +71,9 @@ jobs:
             git push origin HEAD:samples
           fi
 
+      - name: Typecheck
+        run: npm run check
+
       - name: Build site
         run: npm run build
       - uses: actions/upload-pages-artifact@v5

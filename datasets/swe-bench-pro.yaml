@@ -1,7 +1,7 @@
 name: SWE-bench Pro
 year: 2025
 modality: benchmark
-task: Long-horizon software engineering in real Go, Python and JavaScript repositories
+task: Long-horizon software engineering in real Go, Python, TypeScript and JavaScript repositories
 one_liner: Multi-file changes from 11 copyleft repositories, graded by hidden tests in a container.
 creators: Xiang Deng, Jeff Da, Edwin Pan et al. (Scale AI)
 size: 1,865 tasks in the paper; 642 public (V2), plus held-out and commercial sets

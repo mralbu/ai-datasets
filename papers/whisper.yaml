@@ -19,4 +19,4 @@ why: >-
   phone calls. Whisper made the gap between benchmark and real-world accuracy the point, and its open
   weights became the default way to transcribe speech.
 datasets: [librispeech]
-builds_on: [transformer, wav2vec2]
+builds_on: [transformer]

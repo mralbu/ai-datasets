@@ -12,7 +12,7 @@ idea: >-
   square root of the second, so each weight gets its own step size. A correction keeps the
   averages from being too small in the first steps.
 result: >-
-  With the same default settings everywhere, it trained logistic regression on MNIST and IMDB,
+  With little hyperparameter tuning, it trained logistic regression on MNIST and IMDB,
   a multilayer network on MNIST and a convolutional network on CIFAR-10 as fast as or faster than
   SGD with momentum, AdaGrad and RMSProp.
 why: >-

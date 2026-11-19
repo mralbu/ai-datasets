@@ -6,7 +6,7 @@ task: Multi-hop question answering over Wikipedia
 one_liner: 113,000 questions that need facts from two Wikipedia paragraphs, with the supporting sentences marked.
 creators: Zhilin Yang, Peng Qi, Saizheng Zhang, Yoshua Bengio, William W. Cohen, Ruslan Salakhutdinov, Christopher D. Manning (CMU, Stanford, Mila)
 size: 112,779 questions
-splits: { train: 90447, validation: 7405, test: 7405 }
+splits: { train: 90447, validation: 7405, test_distractor: 7405, test_fullwiki: 7405 }
 input: A question, with ten paragraphs (distractor setting) or all of Wikipedia (fullwiki setting)
 labels: A short answer, and the sentences needed to reach it
 license: CC BY-SA 4.0

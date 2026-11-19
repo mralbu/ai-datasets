@@ -4,7 +4,7 @@ modality: audio
 task: Keyword spotting (recognize short spoken words)
 one_liner: 105,000 one-second recordings of 35 spoken words, for wake-word models.
 creators: Pete Warden (Google)
-size: 105,829 utterances from 2,618 speakers (v0.02)
+size: 105,829 utterances from 2,618 speakers (v0.02), plus 6 background-noise files
 splits: { train: 84849, validation: 9981, test: 11005 }
 input: 1 second of 16 kHz audio
 labels: One of 35 words (yes, no, up, down, the digits, …)

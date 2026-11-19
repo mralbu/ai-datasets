@@ -17,6 +17,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import random
+import shutil
 import time
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date
@@ -70,6 +72,10 @@ def cmd_pages(ids: list[str], force: bool) -> int:
     files = sorted(PAPERS.glob("*.yaml"))
     if ids:
         files = [f for f in files if f.stem in ids]
+    todo = [f for f in files if force or not (PAGES_OUT / f"{f.stem}.webp").exists()]
+    if todo and shutil.which("pdftoppm") is None:
+        print("error: pdftoppm not found on PATH (install poppler-utils / poppler)", file=sys.stderr)
+        return 1
     failed = 0
     with httpx.Client(follow_redirects=True, timeout=60, headers={"User-Agent": "ai-datasets-site/0.1"}) as client:
         for f in files:
@@ -110,13 +116,19 @@ def viewer_range(client: httpx.Client, dataset: str, config: str, split: str, n:
     """The first n rows of a split, fetched 100 at a time two requests at a time (the viewer rate-limits)."""
     def page(offset: int) -> list[dict]:
         for attempt in range(8):
+            retry_after = None
             try:
                 r = client.get(f"{VIEWER}/rows", params={"dataset": dataset, "config": config, "split": split, "offset": offset, "length": 100})
-                if r.status_code == 200:
+                if r.status_code != 429 and r.status_code < 500:
+                    r.raise_for_status()
                     return [x["row"] for x in r.json()["rows"]]
+                retry_after = r.headers.get("retry-after")
             except httpx.TransportError:
                 pass  # dropped connection: retry like a 429
-            time.sleep(5 * 2 ** min(attempt, 4))
+            wait = 5 * 2 ** min(attempt, 4) + random.random()
+            if retry_after and retry_after.isdigit():
+                wait = max(wait, float(retry_after))
+            time.sleep(wait)
         raise RuntimeError(f"rows at offset {offset} failed after retries")
     cache = ROOT / ".cache" / f"{dataset.replace('/', '__')}-{config}-{split}-{n}.json"
     if cache.exists():

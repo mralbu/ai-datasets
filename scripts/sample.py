@@ -24,6 +24,7 @@ Usage:
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import os
@@ -142,6 +143,8 @@ def stratified_sample(client: httpx.Client, src: dict, total: int, n: int, rng: 
     about n/k random rows from every page. k pages instead of n single-row calls.
     """
     n = min(n, total)
+    if n <= 0:
+        return []
     per_page = int(src.get("rows_per_page", ROWS_PER_PAGE_USED))
     # source.page: fewer rows per request, for rows that are megabytes each (NYU's raw arrays).
     page_len = int(src.get("page", PAGE))
@@ -207,9 +210,22 @@ def sample_window(client: httpx.Client, src: dict, rng: random.Random) -> dict:
     total = head["num_rows_total"]
     features = [{"name": f["name"], "type": f["type"]} for f in head["features"]]
     lo, hi = w.get("within") or [0, total]
-    hi = min(hi, total)
-    n = min(int(w["n"]), hi - lo, WINDOW_LIMIT)
-    start = w["start"] if "start" in w else rng.randint(lo, hi - n)
+    lo = max(0, min(int(lo), total))
+    hi = max(lo, min(int(hi), total))
+    if "start" in w:
+        start = max(0, min(int(w["start"]), total))
+        n = min(int(w["n"]), max(0, total - start), WINDOW_LIMIT)
+    else:
+        n = min(int(w["n"]), hi - lo, WINDOW_LIMIT)
+        start = rng.randint(lo, hi - n) if n > 0 else lo
+    if n <= 0:
+        return {
+            "total": total,
+            "features": features,
+            "rows": [],
+            "all_rows": None,
+            "window": {"start": start, "n": 0, "columns": {}},
+        }
     rows: list[dict] = []
     for off in range(start, start + n, PAGE):
         rows += fetch_rows(client, src, off, min(PAGE, start + n - off))["rows"]
@@ -555,20 +571,21 @@ def warn(msg: str) -> None:
 
 
 def main(argv: list[str]) -> int:
-    flags = {a for a in argv if a.startswith("--")}
-    args = [a for a in argv if not a.startswith("--")]
-    snap = DEFAULT_SNAPSHOT
-    if "--snapshot" in argv:
-        i = argv.index("--snapshot")
-        snap = Path(argv[i + 1]).resolve()
-        args.remove(argv[i + 1])
-    only = set(args)
-    strict, force = "--strict" in flags, "--force" in flags
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("ids", nargs="*", help="Only consider these dataset ids (no pruning)")
+    ap.add_argument("--force", action="store_true", help="Re-fetch even if unchanged")
+    ap.add_argument("--strict", action="store_true", help="Exit 1 if any dataset fails")
+    ap.add_argument("--check", action="store_true", help="Only check every source still resolves")
+    ap.add_argument("--snapshot", type=Path, default=DEFAULT_SNAPSHOT, help="Snapshot directory")
+    parsed = ap.parse_args(argv)
+    snap = parsed.snapshot.resolve()
+    only = set(parsed.ids)
+    strict, force = parsed.strict, parsed.force
 
     catalog, failures = load_catalog()
     headers = {"User-Agent": "ai-datasets-sampler/0.1 (static educational site)"}
     with httpx.Client(timeout=180, headers=headers, follow_redirects=True) as client:
-        if "--check" in flags:
+        if parsed.check:
             broken = check_sources(client, catalog)
             if broken:
                 warn(f"broken sources: {', '.join(sorted(set(broken)))}")

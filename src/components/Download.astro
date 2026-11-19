@@ -16,7 +16,7 @@ const themes = { light: 'github-light', dark: 'github-dark' } as const;
     <div class="controls">
       <div class="tabs" role="tablist" aria-label="Download method">
         {tabs.map((t, i) => (
-          <button type="button" role="tab" id={`dl-tab-${t.id}`} aria-controls={`dl-${t.id}`} aria-selected={String(i === 0)} data-tab={t.id}>{t.label}</button>
+          <button type="button" role="tab" id={`dl-tab-${t.id}`} aria-controls={`dl-${t.id}`} aria-selected={i === 0 ? 'true' : 'false'} data-tab={t.id}>{t.label}</button>
         ))}
       </div>
       <button type="button" class="copy" data-copy aria-label="Copy snippet">Copy</button>
