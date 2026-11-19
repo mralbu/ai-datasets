@@ -1,0 +1,25 @@
+title: "DINOv2: Learning Robust Visual Features without Supervision"
+short: DINOv2
+year: 2023
+venue: TMLR 2024
+authors: Maxime Oquab, Timothée Darcet, Théo Moutakanni, Huy V. Vo, Marc Szafraniec, Vasil Khalidov, Pierre Fernandez, Daniel Haziza, Francisco Massa, Alaaeldin El-Nouby, et al.
+category: vision
+arxiv: "2304.07193"
+one_liner: Combined image-level self-distillation with patch-level masked modeling on 142 million automatically curated images to produce frozen all-purpose vision features.
+idea: >-
+  Automatically deduplicate and rebalance a billion web images against curated reference sets to
+  build LVD-142M without manual labels. Train a 1.1-billion-parameter ViT-g with both DINO's
+  image-level cross-view distillation and iBOT-style masked patch prediction (plus Sinkhorn
+  centering, KoLeo regularization and a short high-resolution phase), then distill smaller ViT
+  backbones from the giant model.
+result: >-
+  86.5% ImageNet top-1 accuracy, 49.0 mIoU on ADE20K semantic segmentation and strong depth on NYU
+  Depth V2 using only linear heads on frozen features—matching or beating weakly supervised
+  OpenCLIP across image-level and pixel-level benchmarks.
+why: >-
+  Self-supervised vision models either needed full fine-tuning (like MAE) or failed to scale cleanly
+  on messy web scrapes. DINOv2 showed that automated data curation plus combined image- and
+  patch-level objectives yields off-the-shelf visual foundation models that work frozen across
+  classification, segmentation, retrieval and depth.
+datasets: [imagenet, ade20k, cityscapes, pascal-voc, nyu-depth-v2]
+builds_on: [dino, mae, vit]

@@ -1,0 +1,24 @@
+title: Emerging Properties in Self-Supervised Vision Transformers
+short: DINO
+year: 2021
+venue: ICCV 2021
+authors: Mathilde Caron, Hugo Touvron, Ishan Misra, Hervé Jégou, Julien Mairal, Piotr Bojanowski, Armand Joulin
+category: vision
+arxiv: "2104.14294"
+one_liner: Applied label-free student–teacher self-distillation to Vision Transformers and uncovered emergent object segmentation in their attention maps.
+idea: >-
+  Feed global crops of an image to a momentum-updated teacher ViT and both global and small local
+  crops to a student ViT, training the student to match the teacher's output distribution via
+  cross-entropy. Center and sharpen the teacher's logits to prevent collapse—no negative pairs,
+  memory queues or predictor heads required.
+result: >-
+  80.1% ImageNet linear top-1 accuracy with ViT-Base/8 and 78.3% top-1 with a plain k-NN
+  classifier on frozen ViT-Small/8 features, while its raw self-attention heads cleanly outlined
+  foreground objects without any mask labels.
+why: >-
+  Supervised Vision Transformers seemed to need hundreds of millions of labeled images to beat
+  CNNs, and their attention maps looked noisy. DINO showed that self-supervised ViTs learn crisp
+  object boundaries and strong nearest-neighbor features on ImageNet alone, making ViTs the
+  default backbone for visual self-supervision.
+datasets: [imagenet, pascal-voc, cifar10]
+builds_on: [byol, vit]

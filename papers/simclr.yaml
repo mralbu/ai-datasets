@@ -1,0 +1,23 @@
+title: A Simple Framework for Contrastive Learning of Visual Representations
+short: SimCLR
+year: 2020
+venue: ICML 2020
+authors: Ting Chen, Simon Kornblith, Mohammad Norouzi, Geoffrey Hinton
+category: vision
+arxiv: "2002.05709"
+one_liner: Showed that plain contrastive learning without queues or memory banks matches supervised ResNet-50 when paired with strong augmentations, a nonlinear projection head and large batches.
+idea: >-
+  Create two heavily augmented views of every image in a large mini-batch—combining random crops,
+  color distortion and Gaussian blur—encode both with the same backbone, and pass them through a
+  small MLP projection head before applying a temperature-scaled contrastive loss against all
+  other images in the batch. Discard the projection head after pretraining.
+result: >-
+  69.3% ImageNet linear top-1 with ResNet-50 and 76.5% with ResNet-50 (4×), matching supervised
+  ResNet-50; fine-tuned on just 1% of ImageNet labels, it reached 85.8% top-5 accuracy.
+why: >-
+  Before SimCLR, contrastive methods relied on custom architectures, memory banks or momentum
+  queues. SimCLR's systematic ablations proved that the real levers were simple—crop-plus-color
+  augmentations, the throwaway MLP head, and bigger batches—and its recipe immediately boosted
+  both SimCLR and MoCo v2.
+datasets: [imagenet, cifar10, pascal-voc]
+builds_on: [moco, resnet]

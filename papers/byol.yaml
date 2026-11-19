@@ -1,0 +1,23 @@
+title: "Bootstrap Your Own Latent: A New Approach to Self-Supervised Learning"
+short: BYOL
+year: 2020
+venue: NeurIPS 2020
+authors: Jean-Bastien Grill, Florian Strub, Florent Altché, Corentin Tallec, Pierre H. Richemond, Elena Buchatskaya, Carl Doersch, Bernardo Avila Pires, Zhaohan Daniel Guo, Mohammad Gheshlaghi Azar, et al.
+category: vision
+arxiv: "2006.07733"
+one_liner: Learned strong image representations without any negative pairs by training an online network to predict a slowly moving copy of itself.
+idea: >-
+  Pair an online encoder with a momentum-averaged target encoder and give them two different
+  augmented views of the same image. Add a small prediction MLP only on the online side so it
+  predicts the target network's embedding directly—with no contrastive negatives and no gradient
+  flowing through the target—and rely on that asymmetry to avoid collapsing to a constant output.
+result: >-
+  74.3% linear top-1 accuracy on ImageNet with a standard ResNet-50 and 79.6% with a larger
+  ResNet, while matching or beating prior self-supervised methods on PASCAL VOC, CIFAR-10 and
+  NYU Depth V2 transfer.
+why: >-
+  Everyone assumed contrastive learning needed thousands of negative pairs to stop the encoder
+  from outputting the same vector for every image. BYOL disproved that assumption, kicking off
+  non-contrastive self-distillation and paving the way directly for SimSiam and DINO.
+datasets: [imagenet, pascal-voc, nyu-depth-v2, cifar10]
+builds_on: [simclr, moco, resnet]

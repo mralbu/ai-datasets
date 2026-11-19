@@ -1,0 +1,24 @@
+title: Masked Autoencoders Are Scalable Vision Learners
+short: MAE
+year: 2021
+venue: CVPR 2022
+authors: Kaiming He, Xinlei Chen, Saining Xie, Yanghao Li, Piotr Dollár, Ross Girshick
+category: vision
+arxiv: "2111.06377"
+one_liner: Masked 75% of an image's patches and trained a Vision Transformer to reconstruct the missing pixels using an asymmetric encoder–decoder.
+idea: >-
+  Drop three-quarters of an image's patches at random and run the heavy ViT encoder only on the
+  remaining 25% visible patches, cutting pretraining compute by more than 3×. Then insert mask
+  tokens and pass the full sequence through a tiny decoder to predict the raw pixel values of the
+  hidden patches, forcing the encoder to learn global object geometry rather than local texture.
+result: >-
+  87.8% ImageNet fine-tuning top-1 accuracy with a vanilla ViT-Huge using only ImageNet-1K data,
+  plus consistent gains over supervised pretraining when transferred to COCO detection and ADE20K
+  segmentation.
+why: >-
+  BERT's masked-token recipe had revolutionized NLP, but early attempts to mask images failed
+  because pixels are far more redundant than words. MAE solved that by masking aggressively (75%)
+  and keeping the encoder light on visible patches only, making masked image modeling simple, fast
+  and scalable to giant ViTs.
+datasets: [imagenet, coco, ade20k]
+builds_on: [vit, bert, moco, dino]

@@ -1,0 +1,24 @@
+title: Momentum Contrast for Unsupervised Visual Representation Learning
+short: MoCo
+year: 2019
+venue: CVPR 2020
+authors: Kaiming He, Haoqi Fan, Yuxin Wu, Saining Xie, Ross Girshick
+category: vision
+arxiv: "1911.05722"
+one_liner: Built a large, consistent queue of negative keys with a slowly moving momentum encoder so unsupervised pretraining beat supervised ImageNet on transfer.
+idea: >-
+  Frame contrastive learning as matching two crops of the same image against a large dictionary of
+  other images. Keep the dictionary as a rolling queue of 65,536 past embeddings—decoupling its
+  size from the GPU batch size—and encode the keys with an exponential moving average of the query
+  network so old keys stay consistent with new ones.
+result: >-
+  60.6% linear top-1 on ImageNet with ResNet-50 (68.6% with ResNet-50 4×) and stronger transfer
+  than supervised ImageNet pretraining on seven detection and segmentation benchmarks across
+  PASCAL VOC, COCO and Cityscapes.
+why: >-
+  For years, self-supervised vision features trailed supervised ImageNet pretraining whenever
+  transferred to real downstream tasks. MoCo was the turning point showing that contrastive
+  pretraining on unlabeled photos could surpass supervised pretraining on detection and
+  segmentation, and its momentum encoder became a fixture across later SSL methods.
+datasets: [imagenet, pascal-voc, coco, cityscapes]
+builds_on: [resnet]

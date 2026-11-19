@@ -1,0 +1,24 @@
+title: Self-supervised learning for images
+categories: [vision]
+one_liner: From contrastive queues that beat supervised ImageNet transfer to frozen billion-parameter ViT features trained without labels.
+intro: >-
+  Teaching vision models from raw pixels without human labels took a rapid sequence of
+  simplifications and pivots. Contrastive learning first overtook supervised ImageNet pretraining
+  by matching two crops of the same photo against thousands of negatives; non-contrastive
+  self-distillation then dropped negative pairs altogether and unlocked emergent object structure
+  in Vision Transformers; masked autoencoders brought BERT-style reconstruction to images; and
+  DINOv2 combined both ideas on curated web data to produce universal frozen vision features.
+datasets: [pascal-voc, imagenet, coco, ade20k]
+steps:
+  - paper: moco
+    note: Unsupervised vision pretraining still lagged supervised ImageNet on downstream transfer; a rolling queue of negative keys with a momentum encoder closed and reversed that gap.
+  - paper: simclr
+    note: MoCo relied on a memory queue and momentum encoder to keep enough negatives fresh; SimCLR dropped both, showing strong augmentations, a nonlinear projection head and large batches worked on their own.
+  - paper: byol
+    note: Contrastive methods like SimCLR still required huge batches of negative pairs to avoid representation collapse; predicting a slowly moving target network from an online predictor removed negatives altogether.
+  - paper: dino
+    note: Negative-free self-distillation had been proven on CNNs while ViTs still needed massive labeled datasets; applying student–teacher self-distillation to Vision Transformers unlocked emergent object segmentation.
+  - paper: mae
+    note: Joint-embedding methods like DINO still depended on hand-tuned multi-crop augmentations; masking 75% of image patches and reconstructing pixels brought BERT-style pretraining to vision at scale.
+  - paper: dinov2
+    note: Masked autoencoders needed end-to-end fine-tuning while earlier DINO models stalled on uncurated web data; pairing image-level self-distillation with masked patch modeling on 142M curated images produced universal frozen features.
