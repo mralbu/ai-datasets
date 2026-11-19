@@ -1,0 +1,24 @@
+title: "Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks"
+short: Faster R-CNN
+year: 2015
+venue: NeurIPS 2015
+authors: Shaoqing Ren, Kaiming He, Ross Girshick, Jian Sun
+category: vision
+arxiv: "1506.01497"
+one_liner: Replaced the slow external region proposer with a small network that shares the detector's features.
+idea: >-
+  Slide a tiny Region Proposal Network over the last shared convolutional feature map, scoring
+  multi-scale anchor boxes at each location to propose about 300 candidate objects. Run the Fast
+  R-CNN classifier and box regressor on those same features, so generating proposals takes only
+  about 10 milliseconds.
+result: >-
+  73.2% mAP on PASCAL VOC 2007 (trained on 07+12) at 5 frames per second with VGG-16, and 42.1%
+  AP50 (21.5% AP) on COCO test-dev; paired with ResNet, it won the 2015 ILSVRC and COCO detection
+  tracks.
+why: >-
+  R-CNN and Fast R-CNN still depended on selective search on the CPU, which took longer than the
+  neural network itself. Pulling proposals inside the network removed the last hand-crafted
+  bottleneck, introduced anchor boxes, and set the two-stage blueprint that anchored high-accuracy
+  object detection for years.
+datasets: [pascal-voc, coco]
+builds_on: [rcnn]

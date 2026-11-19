@@ -1,0 +1,23 @@
+title: Mask R-CNN
+short: Mask R-CNN
+year: 2017
+venue: ICCV 2017
+authors: Kaiming He, Georgia Gkioxari, Piotr Dollár, Ross Girshick
+category: vision
+arxiv: "1703.06870"
+one_liner: Added a small parallel branch to Faster R-CNN that predicts a pixel mask for every detected object.
+idea: >-
+  Attach a tiny fully convolutional mask head next to Faster R-CNN's class and box heads,
+  predicting a separate binary mask per class so mask prediction does not compete across categories.
+  Replace RoIPool with RoIAlign, using bilinear interpolation instead of integer rounding so pooled
+  features stay aligned to exact pixels.
+result: >-
+  35.7 mask AP and 37.1 box AP on COCO test-dev with ResNet-101-FPN at 5 frames per second, plus
+  62.7 keypoint AP on COCO human pose and 32.0 AP on Cityscapes instance segmentation (with COCO
+  pretraining).
+why: >-
+  Earlier instance segmentation systems were brittle and much slower than box detectors. Mask R-CNN
+  showed that pixel masks—and even human pose keypoints—could be added as another cheap head on top
+  of Faster R-CNN, turning two-stage detection into a general framework for instance-level vision.
+datasets: [coco, cityscapes]
+builds_on: [faster-rcnn, resnet]

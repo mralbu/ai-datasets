@@ -1,0 +1,23 @@
+title: End-to-End Object Detection with Transformers
+short: DETR
+year: 2020
+venue: ECCV 2020
+authors: Nicolas Carion, Francisco Massa, Gabriel Synnaeve, Nicolas Usunier, Alexander Kirillov, Sergey Zagoruyko
+category: vision
+arxiv: "2005.12872"
+one_liner: Framed object detection as direct set prediction with a Transformer, dropping anchors and non-maximum suppression.
+idea: >-
+  Pass CNN feature maps into a Transformer encoder–decoder together with a fixed set of learned
+  object queries that attend to the image and to one another, outputting all boxes and classes in
+  parallel. During training, Hungarian bipartite matching assigns each ground-truth object to a
+  unique prediction, so the model learns not to emit duplicates and needs no NMS post-processing.
+result: >-
+  42.0 AP on COCO val2017 at 28 frames per second with ResNet-50 (44.9 AP with ResNet-101-DC5),
+  matching a heavily tuned Faster R-CNN-FPN baseline while clearly ahead on large objects.
+why: >-
+  For seven years every major detector relied on hand-designed anchor boxes, label-assignment
+  rules and non-maximum suppression. DETR replaced the entire pipeline with a standard Transformer
+  and a set loss whose inference fits in fifty lines of PyTorch, kicking off the line of
+  Transformer detectors from Deformable DETR to RT-DETR.
+datasets: [coco]
+builds_on: [faster-rcnn, transformer, resnet]

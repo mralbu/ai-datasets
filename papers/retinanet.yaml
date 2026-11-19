@@ -1,0 +1,22 @@
+title: Focal Loss for Dense Object Detection
+short: RetinaNet
+year: 2017
+venue: ICCV 2017
+authors: Tsung-Yi Lin, Priya Goyal, Ross Girshick, Kaiming He, Piotr Dollár
+category: vision
+arxiv: "1708.02002"
+one_liner: Down-weighted easy background examples in the loss so a single-stage detector finally matched two-stage accuracy.
+idea: >-
+  Dense single-stage detectors evaluate tens of thousands of candidate boxes per image, almost all
+  obvious background whose small losses add up to swamp the gradient. Focal loss scales standard
+  cross-entropy by (1 − p)^γ so confident negatives barely contribute, letting a clean one-stage
+  detector on a Feature Pyramid Network (RetinaNet) focus on hard examples.
+result: >-
+  39.1 AP on COCO test-dev with ResNet-101-FPN (and 37.8 AP at about 5 frames per second),
+  surpassing every published one-stage and two-stage detector of the time without a proposal stage.
+why: >-
+  After YOLO, the field assumed you had to trade accuracy for one-stage speed. Focal loss showed
+  the gap was not architectural but a training imbalance between foreground and background, and its
+  one-line loss modification became a standard tool well beyond object detection.
+datasets: [coco]
+builds_on: [yolo, faster-rcnn, resnet]

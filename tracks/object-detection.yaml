@@ -1,0 +1,23 @@
+title: Object detection
+categories: [vision]
+one_liner: From slow sliding proposals on PASCAL VOC to end-to-end Transformer set prediction on COCO.
+intro: >-
+  Finding every object in an image and drawing a tight box around it took a decade of shedding
+  hand-crafted scaffolding. Deep features first won on top of external region proposals, then
+  pulled proposals inside the network, split into real-time single-stage detectors once focal loss
+  fixed background imbalance, grew pixel-accurate masks, and finally dropped anchors and
+  non-maximum suppression altogether with Transformers.
+datasets: [pascal-voc, kitti, coco]
+steps:
+  - paper: rcnn
+    note: Proved that ImageNet-pretrained deep features beat hand-crafted detectors, even when run one slow selective-search region at a time.
+  - paper: faster-rcnn
+    note: External region proposals had become the speed bottleneck; learning a Region Proposal Network on shared features unified two-stage detection.
+  - paper: yolo
+    note: Two-stage detectors were still too slow for live video; predicting boxes directly on a single grid traded some accuracy for real-time speed.
+  - paper: retinanet
+    note: Single-stage detectors trailed two-stage accuracy because easy background anchors swamped training; focal loss down-weighted them and closed the gap.
+  - paper: mask-rcnn
+    note: Bounding boxes still gave only coarse rectangles; adding a parallel mask branch and pixel-aligned RoIAlign turned Faster R-CNN into an instance segmentation model.
+  - paper: detr
+    note: Both one-stage and two-stage detectors still depended on hand-tuned anchors and non-maximum suppression; framing detection as Transformer set prediction removed both.
