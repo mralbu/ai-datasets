@@ -1,6 +1,9 @@
 // Plain-Markdown versions of the site for language models (https://llmstxt.org):
-// /llms.txt (index), /llms-full.txt (every entry in full) and /d/<id>.md (one entry).
-import { getDatasets, getPapers, getSamples, MODALITIES, paperLinks, TAGS, url, type Dataset, type Paper } from './data';
+// /llms.txt (index), /llms-full.txt (every entry in full), /d/<id>.md and /p/<id>.md.
+import {
+  getDatasets, getPapers, getSamples, getTracks, MODALITIES, paperLinks, TAGS, trackTimeline, url,
+  type Dataset, type Paper, type Track,
+} from './data';
 import { snippets, downloadRepo } from './snippets';
 
 /** Absolute URL of a site path, e.g. https://mralbu.github.io/ai-datasets/d/mnist. */
@@ -19,6 +22,7 @@ const ABOUT = `## About the site
 - Entries are chosen because they changed the field, were the standard benchmark for years, or appear in every introductory course. It is not a catalog: Hugging Face already is one.
 - "LLMs" is the category for language-model benchmarks and training data (instructions, preferences).
 - Papers: a short list of classic papers, each linked to at least one dataset on the site. The exception is Foundations, a papers-only category for training techniques that apply to any data and any model (optimizers, normalization, regularization, initialization, backpropagation); when their data is not on the site, the entry says in words what they were tested on. Summaries are written for the site; the alphaXiv link (or the publisher, for papers not on arXiv) leads to the full text.
+- Tracks: curated sequences of 5–8 papers that trace the history of a field in reading order, available as filters on /timeline (\`?track=<id>\`, with datasets woven in) and /papers (\`?track=<id>\`).
 - Samples are a fixed random selection of rows taken once from the Hugging Face dataset viewer, so pages are stable between visits. Where the official copy cannot be read by the viewer a community copy is used; each entry names the exact repository.
 - Samples stay under each dataset's own license. Gated benchmarks whose authors ask that questions not be published (GPQA, Humanity's Last Exam) are linked but not sampled.
 - Download snippets use the \`hf\` CLI, the 🤗 \`datasets\` library and Polars (\`hf://datasets/<repo>@~parquet/<config>/<split>/*.parquet\`). Check license and size first: some datasets are research-only, some are hundreds of gigabytes.`;
@@ -90,7 +94,14 @@ export function datasetMarkdown(ds: Dataset, site: URL | undefined, level = 1, p
 }
 
 /** Full Markdown description of one paper. `level` is the heading level of its title. */
-export function paperMarkdown(p: Paper, site: URL | undefined, datasets: Dataset[], papers: Paper[], level = 1): string {
+export function paperMarkdown(
+  p: Paper,
+  site: URL | undefined,
+  datasets: Dataset[],
+  papers: Paper[],
+  level = 1,
+  tracks: Track[] = [],
+): string {
   const d = p.data;
   const h = (n: number) => '#'.repeat(level + n);
   const l = paperLinks(d);
@@ -98,6 +109,9 @@ export function paperMarkdown(p: Paper, site: URL | undefined, datasets: Dataset
   const pById = new Map(papers.map((x) => [x.id, x]));
   const ref = (x: Paper) => `[${x.data.short} (${x.data.year})](${abs(site, `/p/${x.id}.md`)})`;
   const children = papers.filter((x) => x.data.builds_on.some((b) => b.id === p.id));
+  const inTracks = tracks
+    .map((t) => ({ t, idx: t.data.steps.findIndex((s) => s.paper.id === p.id) }))
+    .filter((x) => x.idx >= 0);
   const out: string[] = [
     `${h(0)} ${d.short} (${d.year})`,
     '',
@@ -132,6 +146,44 @@ export function paperMarkdown(p: Paper, site: URL | undefined, datasets: Dataset
   ];
   if (d.builds_on.length) out.push('', `${h(1)} Builds on`, '', ...d.builds_on.map((r) => `- ${ref(pById.get(r.id)!)}`));
   if (children.length) out.push('', `${h(1)} Led to`, '', ...children.map((x) => `- ${ref(x)}`));
+  if (inTracks.length) {
+    out.push(
+      '',
+      `${h(1)} Part of`,
+      '',
+      ...inTracks.map(({ t, idx }) => `- [${t.data.title}](${abs(site, `/timeline?track=${t.id}`)}) (step ${idx + 1} of ${t.data.steps.length})`),
+    );
+  }
+  return out.join('\n') + '\n';
+}
+
+/** Full Markdown description of one track. `level` is the heading level of its title. */
+export function trackMarkdown(t: Track, site: URL | undefined, datasets: Dataset[], papers: Paper[], level = 1): string {
+  const d = t.data;
+  const h = (n: number) => '#'.repeat(level + n);
+  const dsById = new Map(datasets.map((x) => [x.id, x]));
+  const pById = new Map(papers.map((x) => [x.id, x]));
+  const items = trackTimeline(t, dsById, pById);
+  const cats = d.categories.map((c) => MODALITIES[c]).join(', ');
+  const out: string[] = [
+    `${h(0)} ${d.title}`,
+    '',
+    `> ${oneLine(d.one_liner)}`,
+    '',
+    `Timeline: ${abs(site, `/timeline?track=${t.id}`)}`,
+    `Papers: ${abs(site, `/papers?track=${t.id}`)}`,
+    ...(cats ? [`Categories: ${cats}`] : []),
+    '',
+    oneLine(d.intro),
+    '',
+    `${h(1)} Sequence`,
+    '',
+    ...items.map((it) =>
+      it.kind === 'dataset'
+        ? `- **${it.year} · Dataset:** [${it.ds.data.name}](${abs(site, `/d/${it.ds.id}.md`)}) — ${oneLine(it.ds.data.one_liner)}`
+        : `- **${it.year} · Step ${it.step}:** [${it.p.data.short}](${abs(site, `/p/${it.p.id}.md`)}) — ${oneLine(it.note)}`,
+    ),
+  ];
   return out.join('\n') + '\n';
 }
 
@@ -151,9 +203,9 @@ export async function llmsTxt(site: URL | undefined): Promise<string> {
     '',
     `> ${SUMMARY}`,
     '',
-    `The site has ${count} datasets and a list of classic papers that use them. Every dataset and paper page has a plain-Markdown version at the same URL plus \`.md\` ` +
+    `The site has ${count} datasets, a list of classic papers that use them, and curated tracks that filter the timeline and papers by field. Every dataset and paper page has a plain-Markdown version at the same URL plus \`.md\` ` +
       `(for example ${abs(site, '/d/mnist.md')}); ${abs(site, '/llms-full.txt')} has all of them in one file. ` +
-      `The source, one YAML file per dataset or paper, is at https://github.com/mralbu/ai-datasets.`,
+      `The source, one YAML file per dataset, paper or track, is at https://github.com/mralbu/ai-datasets.`,
     '',
     ABOUT,
   ];
@@ -164,8 +216,22 @@ export async function llmsTxt(site: URL | undefined): Promise<string> {
       out.push(`- [${ds.data.name} (${ds.data.year})](${abs(site, `/d/${ds.id}.md`)}): ${oneLine(ds.data.one_liner)} ${ds.data.task}.${tags}`);
     }
   }
-  const papers = await getPapers();
+  const [papers, tracks] = await Promise.all([getPapers(), getTracks()]);
   const dsById = new Map(groups.flatMap((g) => g.items).map((x) => [x.id, x]));
+  const pById = new Map(papers.map((x) => [x.id, x]));
+  if (tracks.length) {
+    out.push(
+      '',
+      '## Tracks',
+      '',
+      'Curated sequences of papers tracing the history of a field. Filter /timeline?track=<id> (with datasets woven in) or /papers?track=<id>.',
+      '',
+      ...tracks.map((t) => {
+        const chain = t.data.steps.map((s) => pById.get(s.paper.id)!.data.short).join(' → ');
+        return `- [${t.data.title}](${abs(site, `/timeline?track=${t.id}`)}): ${oneLine(t.data.one_liner)} (${chain})`;
+      }),
+    );
+  }
   out.push(
     '',
     '## Papers',
@@ -178,27 +244,31 @@ export async function llmsTxt(site: URL | undefined): Promise<string> {
     '',
     '## Optional',
     '',
-    `- [Everything in full](${abs(site, '/llms-full.txt')}): every dataset and paper entry in one file`,
+    `- [Everything in full](${abs(site, '/llms-full.txt')}): every dataset, paper and track entry in one file`,
     `- [Catalog](${abs(site, '/')}): the HTML catalog, filterable by category and by tag (\`?tag=medical\`, \`remote-sensing\`, \`driving\`, \`retrieval\`)`,
-    `- [Papers](${abs(site, '/papers')}): the HTML list of papers, by category`,
-    `- [Timeline](${abs(site, '/timeline')}): every dataset by year (\`?papers\` adds the papers)`,
+    `- [Papers](${abs(site, '/papers')}): the HTML list of papers, filterable by category or track (\`?track=<id>\`)`,
+    `- [Timeline](${abs(site, '/timeline')}): datasets, papers, or both by year (\`?show=datasets|papers|both\`, \`?track=<id>\`)`,
     `- [About](${abs(site, '/about')}): how entries are chosen and where samples come from`,
-    `- [Source on GitHub](https://github.com/mralbu/ai-datasets): the Astro site, the dataset and paper YAML files, and the sampling script`,
+    `- [Source on GitHub](https://github.com/mralbu/ai-datasets): the Astro site, the dataset, paper and track YAML files, and the sampling script`,
   );
   return out.join('\n') + '\n';
 }
 
-/** /llms-full.txt: the index header, then every dataset in full. */
+/** /llms-full.txt: the index header, then every dataset, track and paper in full. */
 export async function llmsFullTxt(site: URL | undefined): Promise<string> {
   const groups = await grouped();
-  const [datasets, papers] = [await getDatasets(), await getPapers()];
+  const [datasets, papers, tracks] = await Promise.all([getDatasets(), getPapers(), getTracks()]);
   const out = ['# AI Datasets', '', `> ${SUMMARY}`, '', `Index: ${abs(site, '/llms.txt')}`, '', ABOUT];
   for (const { m, items } of groups) {
     out.push('', `## ${MODALITIES[m]}`);
     for (const ds of items) out.push('', datasetMarkdown(ds, site, 3, papers).trimEnd());
   }
+  if (tracks.length) {
+    out.push('', '## Tracks');
+    for (const t of tracks) out.push('', trackMarkdown(t, site, datasets, papers, 3).trimEnd());
+  }
   out.push('', '## Papers');
-  for (const p of papers) out.push('', paperMarkdown(p, site, datasets, papers, 3).trimEnd());
+  for (const p of papers) out.push('', paperMarkdown(p, site, datasets, papers, 3, tracks).trimEnd());
   return out.join('\n') + '\n';
 }
 

@@ -2,36 +2,221 @@
 import Base from '../layouts/Base.astro';
 import PaperCard from '../components/PaperCard.astro';
 import CategoryFilter from '../components/CategoryFilter.astro';
-import { getPapers, MODALITIES, url } from '../lib/data';
-const all = await getPapers();
+import { getDatasets, getPapers, getTracks, MODALITIES, url } from '../lib/data';
+
+const FOLD_LIMIT = 6;
+const [all, datasets, tracks] = await Promise.all([getPapers(), getDatasets(), getTracks()]);
+const pById = new Map(all.map((p) => [p.id, p]));
+const dsById = new Map(datasets.map((d) => [d.id, d]));
+
 const groups = Object.keys(MODALITIES)
   .map((m) => ({ m, items: all.filter((p) => p.data.category === m) }))
   .filter((g) => g.items.length);
 const counts = Object.fromEntries(groups.map((g) => [g.m, g.items.length]));
+
+const trackViews = tracks.map((t) => ({
+  t,
+  steps: t.data.steps.map((s, i) => {
+    const p = pById.get(s.paper.id)!;
+    return { step: i + 1, p, note: s.note, ds: p.data.datasets.map((r) => dsById.get(r.id)!) };
+  }),
+}));
 ---
 <Base title="Papers · AI Datasets" description="Classic AI papers, each linked to the datasets it was built and measured on.">
   <section class="hero">
     <h1>Papers</h1>
     <p class="muted">
       A short list of papers that changed their field, each one linked to the data it was trained or
-      measured on. Read them next to the datasets, or <a href={url('/timeline?papers')}>see both on the timeline</a>.
+      measured on. Read them next to the datasets, or <a href={url('/timeline?show=both')}>see both on the timeline</a>.
     </p>
   </section>
 
-  <CategoryFilter counts={counts} />
+  {tracks.length > 0 && (
+    <div class="track-pills" role="group" aria-label="Filter by track">
+      <span class="muted lbl">Track</span>
+      <button type="button" class="tpill" data-track="" aria-pressed="true">All</button>
+      {tracks.map((t) => (
+        <button type="button" class="tpill" data-track={t.id} data-m={t.data.categories[0] ?? 'other'} aria-pressed="false">
+          <span class="dot" aria-hidden="true"></span>{t.data.title}
+        </button>
+      ))}
+    </div>
+  )}
 
-  {groups.map(({ m, items }) => (
-    <section data-filter-item data-m={m}>
-      <h2><span class="cat-dot" aria-hidden="true"></span>{MODALITIES[m]}</h2>
-      <div class="cards">{items.map((p) => <PaperCard p={p} />)}</div>
+  <div data-cat-wrap>
+    <CategoryFilter counts={counts} />
+  </div>
+
+  {trackViews.map(({ t, steps }) => (
+    <section class="track-view" data-track-view={t.id} data-m={t.data.categories[0] ?? 'other'} hidden>
+      <div class="card track-banner">
+        <div class="tb-head">
+          <h2>{t.data.title} <span class="muted count">({steps.length} papers)</span></h2>
+          <div class="tb-actions">
+            <a href={url(`/timeline?track=${t.id}`)}>Follow with datasets on Timeline →</a>
+            <button type="button" class="show-all" data-track-clear>Show all</button>
+          </div>
+        </div>
+        <p class="tb-intro muted">{t.data.intro}</p>
+      </div>
+      <div class="cards">
+        {steps.map(({ step, p, note, ds }) => (
+          <article class="card paper" data-m={p.data.category}>
+            <div class="top">
+              <h3><span class="step">Step {step}</span> <a href={url(`/p/${p.id}`)}>{p.data.short}</a></h3>
+              <span class="year">{p.data.year}</span>
+            </div>
+            <p class="title muted">{p.data.title}</p>
+            <p class="one">{note}</p>
+            {ds.length > 0 ? (
+              <p class="on">
+                <span class="muted">Data:</span>
+                {ds.map((d) => <a class="dtag" href={url(`/d/${d.id}`)} data-m={d.data.modality}><span class="dot" aria-hidden="true"></span>{d.data.name}</a>)}
+              </p>
+            ) : (
+              <p class="on muted">Tested on: {p.data.tested_on}</p>
+            )}
+          </article>
+        ))}
+      </div>
     </section>
   ))}
+
+  <div data-groups-wrap>
+    {groups.map(({ m, items }) => {
+      const extra = items.length - FOLD_LIMIT;
+      return (
+        <section data-filter-item data-m={m} data-fold-section={extra > 0 ? m : undefined}>
+          <h2><span class="cat-dot" aria-hidden="true"></span>{MODALITIES[m]}</h2>
+          <div class="cards">
+            {items.map((p, i) => (
+              <div class="card-slot" data-extra={i >= FOLD_LIMIT ? '' : undefined}>
+                <PaperCard p={p} />
+              </div>
+            ))}
+          </div>
+          {extra > 0 && (
+            <div class="fold-bar">
+              <button
+                type="button"
+                class="fold-btn"
+                data-fold-toggle
+                aria-expanded="false"
+                data-more={`Show all ${items.length} ${MODALITIES[m]} papers (+${extra} more)`}
+                data-less={`Show fewer ${MODALITIES[m]} papers`}
+              >
+                Show all {items.length} {MODALITIES[m]} papers (+{extra} more)
+              </button>
+            </div>
+          )}
+        </section>
+      );
+    })}
+  </div>
 </Base>
+
+<script>
+  // Track filter (?track=<id>): switches between the category grid and an ordered track view.
+  const trackBtns = [...document.querySelectorAll<HTMLButtonElement>('[data-track]')];
+  const trackViews = [...document.querySelectorAll<HTMLElement>('[data-track-view]')];
+  const catWrap = document.querySelector<HTMLElement>('[data-cat-wrap]')!;
+  const groupsWrap = document.querySelector<HTMLElement>('[data-groups-wrap]')!;
+  const catEmpty = document.querySelector<HTMLElement>('[data-empty]');
+  const validTracks = new Set(trackViews.map((v) => v.dataset.trackView!));
+
+  function setTrack(id: string) {
+    const active = validTracks.has(id) ? id : '';
+    trackBtns.forEach((b) => b.setAttribute('aria-pressed', String((b.dataset.track ?? '') === active)));
+    trackViews.forEach((v) => (v.hidden = v.dataset.trackView !== active));
+    catWrap.hidden = Boolean(active);
+    groupsWrap.hidden = Boolean(active);
+    if (catEmpty) {
+      const anyCat = Boolean(document.querySelector('[data-cat-filter] [data-toggle][aria-pressed="true"]'));
+      catEmpty.hidden = Boolean(active) || anyCat;
+    }
+
+    const q = new URLSearchParams(location.search);
+    if (active) q.set('track', active);
+    else q.delete('track');
+    const search = q.toString();
+    history.replaceState(null, '', location.pathname + (search ? `?${search}` : '') + (active ? '' : location.hash));
+  }
+
+  trackBtns.forEach((b) => b.addEventListener('click', () => setTrack(b.dataset.track ?? '')));
+  document.querySelectorAll<HTMLButtonElement>('[data-track-clear]').forEach((b) => b.addEventListener('click', () => setTrack('')));
+  setTrack(new URLSearchParams(location.search).get('track') ?? '');
+
+  // Per-category foldable limit (6 cards initially, expandable with the bottom button).
+  for (const sec of document.querySelectorAll<HTMLElement>('[data-fold-section]')) {
+    const btn = sec.querySelector<HTMLButtonElement>('[data-fold-toggle]')!;
+    btn.addEventListener('click', () => {
+      const open = sec.classList.toggle('expanded');
+      btn.setAttribute('aria-expanded', String(open));
+      btn.textContent = open ? btn.dataset.less! : btn.dataset.more!;
+    });
+  }
+</script>
 
 <style>
   .hero { padding: 40px 0 8px; max-width: 680px; }
   .hero h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0 0 12px; }
-  section[hidden] { display: none; }
+  section[hidden], [hidden] { display: none !important; }
   h2 { scroll-margin-top: 120px; }
+
+  .track-pills { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 14px 0 0; }
+  .lbl { font-size: 0.82rem; margin-right: 2px; }
+  .tpill {
+    display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px;
+    border: 1px solid var(--border); background: var(--surface); color: var(--muted);
+    font-size: 0.82rem; font-weight: 500; transition: border-color 0.15s, color 0.15s, background 0.15s;
+  }
+  .tpill:hover { color: var(--text); border-color: color-mix(in srgb, var(--c, var(--accent)) 45%, var(--border)); }
+  .tpill[aria-pressed='true'] {
+    color: var(--text); font-weight: 600;
+    border-color: color-mix(in srgb, var(--c, var(--accent)) 55%, var(--border));
+    background: color-mix(in srgb, var(--c, var(--accent)) 10%, var(--surface));
+  }
+  .tpill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c, var(--accent)); }
+
+  .track-view { margin-top: 18px; }
+  .track-banner { padding: 14px 18px; margin-bottom: 18px; border-left: 3px solid var(--c, var(--accent)); }
+  .tb-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+  .tb-head h2 { margin: 0; font-size: 1.15rem; }
+  .tb-head .count { font-weight: 400; font-size: 0.9rem; }
+  .tb-actions { display: flex; align-items: baseline; gap: 12px; font-size: 0.85rem; }
+  .tb-actions .show-all { border: 0; background: none; padding: 0; color: var(--muted); font-size: 0.85rem; cursor: pointer; }
+  .tb-actions .show-all:hover { color: var(--text); text-decoration: underline; }
+  .tb-intro { margin: 8px 0 0; font-size: 0.92rem; max-width: 72ch; }
+
   .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .card-slot { display: flex; }
+  .card-slot > :global(.card) { width: 100%; }
+  [data-fold-section]:not(.expanded) .card-slot[data-extra] { display: none; }
+
+  .fold-bar { display: flex; justify-content: center; margin-top: 14px; }
+  .fold-btn {
+    padding: 6px 16px; border-radius: 999px; font-size: 0.85rem; font-weight: 500;
+    color: var(--muted); background: var(--surface); border: 1px solid var(--border);
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .fold-btn:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* Track cards match PaperCard.astro, with a step badge and the track bridge note. */
+  .paper { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 16px; border-top: 3px solid var(--c); }
+  .paper:hover { border-color: var(--c); }
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  h3 { margin: 0; font-size: 1.05rem; }
+  h3 a { color: var(--text); }
+  h3 a::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
+  .step {
+    display: inline-block; margin-right: 4px; vertical-align: 1px; font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.05em; text-transform: uppercase; color: var(--c);
+    border: 1px solid color-mix(in srgb, var(--c) 45%, transparent); border-radius: 4px; padding: 0 5px;
+  }
+  .year { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 0.9rem; }
+  .title { margin: -4px 0 0; font-size: 0.82rem; line-height: 1.35; }
+  .one { margin: 0; font-size: 0.92rem; }
+  .on { margin: auto 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; font-size: 0.8rem; position: relative; z-index: 1; }
+  .on .dtag:hover { text-decoration: none; border-color: var(--c); }
+  .on .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--c); }
 </style>

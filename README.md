@@ -19,11 +19,12 @@ away knowing the data.
 ```
 datasets/<id>.yaml      one file per dataset: facts, description, Hugging Face source, how to display it
 papers/<id>.yaml        one file per classic paper: our own summary, an alphaXiv link, the datasets it used
+tracks/<id>.yaml        one file per reading track: 5–8 papers in order, filtering /timeline and /papers
 scripts/papers.py       (uv) first-page images of papers, and the data behind their figures
 scripts/sample.py       (uv: polars, altair, pillow) samples rows from the Hugging Face dataset viewer
                         into a snapshot, then copies it to src/generated/ and public/samples/
-src/                    Astro site: catalog, papers, timeline, one page per dataset and per paper, search (press /)
-                        and, for language models, /llms.txt, /llms-full.txt and /d/<id>.md (src/lib/llms.ts)
+src/                    Astro site: catalog, papers, timeline, one page per dataset and paper, search (press /)
+                        and, for language models, /llms.txt, /llms-full.txt and .md pages (src/lib/llms.ts)
 samples branch          the snapshot: sampled rows, media and a manifest (generated, data only)
 justfile                shortcuts for everything below (run `just` to list them)
 ```
@@ -190,6 +191,28 @@ Write `why`, `idea` and `result` yourself, in the same voice as the dataset page
 or the paper for research, not as copy. A dataset page lists the papers here that use it under
 "Landmark papers" (matched by arXiv id or URL, added when missing), so there is nothing to edit on
 the dataset side.
+
+## Add a track
+
+Tracks live in `tracks/<id>.yaml`. Each follows the history of a field through 5–8 papers in
+reading order, filtering `/timeline?track=<id>` (with its datasets woven in automatically) and
+`/papers?track=<id>`. Keep `steps` linear (never re-sorted by year, so same-year papers stay in
+editorial order) and keep each `note` to one sentence on what the previous step left open and what
+changed—don't repeat the paper's `idea` or `why`. At build time, Astro warns if a step after the
+first has no `builds_on` link to an earlier step in the track.
+
+```yaml
+title: Modern LLMs
+categories: [text, benchmark]       # optional; tracks may span categories
+one_liner: …
+intro: …
+datasets: [wmt14, superglue, gsm8k, hh-rlhf, mmlu-pro]  # optional; woven in by year
+steps:
+  - paper: transformer
+    note: …                         # one sentence: what changed from what came before
+  - paper: gpt-3
+    note: …
+```
 
 ## Deploy
 

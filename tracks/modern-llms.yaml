@@ -1,0 +1,23 @@
+title: Modern LLMs
+categories: [text, benchmark]
+one_liner: From an attention-only translation model to reasoning systems trained with reinforcement learning.
+intro: >-
+  Large language models did not arrive in one jump. Starting from an architecture built for machine
+  translation, the field scaled next-word prediction until prompting worked, added human feedback to
+  turn completions into assistant replies, discovered that writing out intermediate steps unlocked
+  harder problems, simplified alignment, and finally trained reasoning directly with verifiable
+  rewards.
+datasets: [wmt14, superglue, gsm8k, hh-rlhf, mmlu-pro]
+steps:
+  - paper: transformer
+    note: "Set the shared backbone: an attention-only architecture that parallelized cleanly across GPUs, removing the sequential bottleneck of recurrent networks."
+  - paper: gpt-3
+    note: The Transformer still needed task-specific fine-tuning; scaling a decoder-only model to 175B parameters showed that examples in the prompt could replace it.
+  - paper: instructgpt
+    note: Few-shot prompting still produced raw text completions rather than helpful replies; post-training with human feedback aligned the model to follow instructions.
+  - paper: chain-of-thought
+    note: Even large models stumbled on multi-step math and logic when answering in one shot; prompting them to write out intermediate steps unlocked much harder problems.
+  - paper: dpo
+    note: InstructGPT's PPO pipeline needed a separate reward model and fragile RL tuning; DPO collapsed preference alignment into a single supervised loss.
+  - paper: deepseek-r1
+    note: Prompted reasoning depended on examples written by people; reinforcement learning with checkable rewards let the model discover long chains of thought and self-correction on its own.

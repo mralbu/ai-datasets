@@ -1,7 +1,7 @@
 ---
 // Site search: a header button that opens a small palette. Press "/" (or Ctrl/⌘ K) anywhere to open it.
 // The index is tiny (one entry per dataset), so it is inlined as JSON and searched in the browser.
-import { getDatasets, getPapers, url, MODALITIES, TAGS } from '../lib/data';
+import { getDatasets, getPapers, getTracks, url, MODALITIES, TAGS } from '../lib/data';
 const index = (await getDatasets()).map((d) => ({
   id: d.id,
   name: d.data.name,
@@ -16,7 +16,9 @@ const index = (await getDatasets()).map((d) => ({
   href: url(`/d/${d.id}`),
 }));
 // Papers search like datasets: by common name and title; the sub line says it is a paper.
-for (const p of await getPapers()) {
+const papers = await getPapers();
+const pById = new Map(papers.map((p) => [p.id, p]));
+for (const p of papers) {
   index.push({
     id: p.id,
     name: p.data.short,
@@ -31,8 +33,25 @@ for (const p of await getPapers()) {
     href: url(`/p/${p.id}`),
   });
 }
+// Tracks: searchable by title, categories, intro and the papers they contain.
+for (const t of await getTracks()) {
+  const stepPapers = t.data.steps.map((s) => pById.get(s.paper.id)!);
+  index.push({
+    id: t.id,
+    name: t.data.title,
+    year: Math.min(...stepPapers.map((p) => p.data.year)),
+    m: t.data.categories[0] ?? 'other',
+    cat: 'Track',
+    tags: t.data.categories.map((c) => MODALITIES[c]).join(' '),
+    task: `Track (${stepPapers.length} papers): ${t.data.one_liner}`,
+    line: `${stepPapers.map((p) => p.data.short).join(' ')} ${t.data.intro} track`,
+    who: '',
+    rel: [],
+    href: url(`/timeline?track=${t.id}`),
+  });
+}
 ---
-<button type="button" class="search-btn" data-search-open aria-label="Search datasets and papers" aria-keyshortcuts="/">
+<button type="button" class="search-btn" data-search-open aria-label="Search datasets, papers and tracks" aria-keyshortcuts="/">
   <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="5.5" /><path d="m13 13 4 4" /></svg>
   <span class="ph">Search</span>
 </button>

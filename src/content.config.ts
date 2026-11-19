@@ -218,6 +218,8 @@ const datasets = defineCollection({
   }),
 });
 
+const category = z.enum(['foundations', 'vision', 'text', 'tabular', 'timeseries', 'audio', 'benchmark', 'other']);
+
 // One YAML file per classic paper in /papers. Every paper links to at least one dataset on the site:
 // the section is about the history of the field as told through its data, not a reading list.
 // The one exception is Foundations (papers only): training techniques that apply to any kind of
@@ -232,7 +234,7 @@ const papers = defineCollection({
       year: z.number().int(), // year it first appeared (the arXiv preprint, if earlier than the venue)
       venue: z.string(),
       authors: z.string(),
-      category: z.enum(['foundations', 'vision', 'text', 'tabular', 'timeseries', 'audio', 'benchmark', 'other']),
+      category,
       arxiv: z.string().regex(/^\d{4}\.\d{4,5}$/).optional(), // gives the arXiv and alphaXiv links
       url: z.string().url().optional(), // canonical page, for papers that are not on arXiv
       pdf: z.string().url().optional(), // direct PDF for the first-page image (scripts/papers.py), when not on arXiv
@@ -250,4 +252,26 @@ const papers = defineCollection({
     }),
 });
 
-export const collections = { datasets, papers };
+// Curated reading tracks in /tracks: each follows the history of a field through 5–8 papers
+// in editorial order (never re-sorted by year), filtering /timeline (with its datasets woven in)
+// and /papers. Each step's note is one sentence on what the previous step left open and what changed.
+const tracks = defineCollection({
+  loader: glob({ pattern: '*.yaml', base: './tracks' }),
+  schema: z.object({
+    title: z.string(),
+    categories: z.array(category).default([]),
+    one_liner: z.string(),
+    intro: z.string(),
+    datasets: z.array(reference('datasets')).default([]),
+    steps: z
+      .array(
+        z.object({
+          paper: reference('papers'),
+          note: z.string(), // one sentence: what the previous step left open, and what this one changed
+        }),
+      )
+      .min(2),
+  }),
+});
+
+export const collections = { datasets, papers, tracks };

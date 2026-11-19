@@ -65,6 +65,85 @@ export async function ledTo(paperId: string): Promise<Paper[]> {
   return (await getPapers()).filter((p) => p.data.builds_on.some((b) => b.id === paperId));
 }
 
+export type Track = CollectionEntry<'tracks'>;
+
+export async function getTracks(): Promise<Track[]> {
+  return (await getCollection('tracks')).sort((a, b) => a.data.title.localeCompare(b.data.title));
+}
+
+export interface PaperTrackContext {
+  track: Track;
+  index: number;
+  total: number;
+  prev?: Paper;
+  next?: Paper;
+}
+
+/** Tracks that include a given paper, with its position and immediate neighbors in each track. */
+export async function tracksFor(paperId: string): Promise<PaperTrackContext[]> {
+  const [tracks, papers] = await Promise.all([getTracks(), getPapers()]);
+  const pById = new Map(papers.map((p) => [p.id, p]));
+  return tracks.flatMap((track) => {
+    const steps = track.data.steps;
+    const index = steps.findIndex((s) => s.paper.id === paperId);
+    if (index < 0) return [];
+    return [{
+      track,
+      index,
+      total: steps.length,
+      prev: index > 0 ? pById.get(steps[index - 1].paper.id) : undefined,
+      next: index + 1 < steps.length ? pById.get(steps[index + 1].paper.id) : undefined,
+    }];
+  });
+}
+
+export type TrackItem =
+  | { kind: 'dataset'; ds: Dataset; year: number }
+  | { kind: 'paper'; p: Paper; year: number; step: number; note: string };
+
+/**
+ * Weave a track's datasets into its authored paper order without re-sorting papers by year.
+ * Datasets are sorted by year and placed before the first step with paper.year >= dataset.year
+ * (matching timeline.astro, where datasets precede same-year papers).
+ */
+export function trackTimeline(track: Track, dsById: Map<string, Dataset>, pById: Map<string, Paper>): TrackItem[] {
+  const datasets = track.data.datasets
+    .map((r) => dsById.get(r.id)!)
+    .sort((a, b) => a.data.year - b.data.year || a.data.name.localeCompare(b.data.name));
+  const steps = track.data.steps.map((s, i) => ({ p: pById.get(s.paper.id)!, step: i + 1, note: s.note }));
+  const out: TrackItem[] = [];
+  let di = 0;
+  for (const s of steps) {
+    while (di < datasets.length && datasets[di].data.year <= s.p.data.year) {
+      out.push({ kind: 'dataset', ds: datasets[di], year: datasets[di].data.year });
+      di++;
+    }
+    out.push({ kind: 'paper', p: s.p, year: s.p.data.year, step: s.step, note: s.note });
+  }
+  while (di < datasets.length) {
+    out.push({ kind: 'dataset', ds: datasets[di], year: datasets[di].data.year });
+    di++;
+  }
+  return out;
+}
+
+const warnedTracks = new Set<string>();
+
+/** Soft build-time check: warn when a track step has no builds_on link to any earlier step. */
+export function checkTrackBuildsOn(track: Track, pById: Map<string, Paper>): void {
+  if (warnedTracks.has(track.id)) return;
+  warnedTracks.add(track.id);
+  const seen = new Set<string>();
+  for (const [i, step] of track.data.steps.entries()) {
+    const pid = step.paper.id;
+    const p = pById.get(pid);
+    if (i > 0 && p && !p.data.builds_on.some((b) => seen.has(b.id))) {
+      console.warn(`[tracks/${track.id}] step ${i + 1} (${pid}) has no builds_on link to any earlier step in this track`);
+    }
+    seen.add(pid);
+  }
+}
+
 /** Features for a row: per-config for suites like GLUE, else the dataset's. */
 export function featuresFor(s: Samples, row?: SampleRow): Feature[] {
   return s.parts?.find((p) => p.config === row?.config)?.features ?? s.features;

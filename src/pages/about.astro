@@ -27,12 +27,13 @@ const count = (await getDatasets()).length;
       backpropagation itself. Architectures such as the Transformer are not foundations here; they go
       with the data they were introduced on. A Foundations paper may predate every dataset on the
       site, so it can say in words what it was tested on instead. The{' '}
-      <a href={url('/timeline?papers')}>timeline</a> can show both. The summaries (why it matters, the
+      <a href={url('/timeline?show=both')}>timeline</a> can show datasets, papers, or both. The summaries (why it matters, the
       key idea, the headline result) are written for this site. For the full text and discussion, each
       page links to the paper on alphaXiv, or to the original publisher for papers not on
       arXiv, next to a small image of its first page when a PDF is available. Figures on paper pages are not
       copied from the papers: they are drawn for this site, showing the paper's idea on data from
-      the site's own datasets.
+      the site's own datasets. Reading <strong>tracks</strong> filter the timeline (with datasets woven
+      in) and the papers view to 5–8 papers in order, tracing how a field moved forward.
     </p>
     <h2>Where the samples come from</h2>
     <p>
@@ -53,8 +54,8 @@ const count = (await getDatasets()).length;
     </p>
     <h2>For language models</h2>
     <p>
-      <a href={url('/llms.txt')}><code>llms.txt</code></a> lists every dataset and paper with a link to a plain-Markdown
-      version of its page (the page URL plus <code>.md</code>), and{' '}
+      <a href={url('/llms.txt')}><code>llms.txt</code></a> lists every dataset, paper and track with links to plain-Markdown
+      pages (the page URL plus <code>.md</code>), and{' '}
       <a href={url('/llms-full.txt')}><code>llms-full.txt</code></a> has all of them in one file.
     </p>
   </article>
