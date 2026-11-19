@@ -1,0 +1,23 @@
+title: Fully Convolutional Networks for Semantic Segmentation
+short: FCN
+year: 2014
+venue: CVPR 2015
+authors: Jonathan Long, Evan Shelhamer, Trevor Darrell
+category: vision
+arxiv: "1411.4038"
+one_liner: Turned image classifiers into pixel-by-pixel labelers by replacing fully connected layers with convolutions and skip connections.
+idea: >-
+  Rewrite the final fully connected layers of an ImageNet classifier as 1×1 convolutions so the
+  network accepts any image size and outputs a coarse spatial grid of class scores. Upsample that
+  grid back to full resolution with learned transposed convolutions, and add skip connections from
+  earlier, finer layers to recover sharp object boundaries.
+result: >-
+  62.2% mIoU on PASCAL VOC 2012 test (a 20% relative jump over the previous best) alongside new
+  highs on NYUDv2 and SIFT Flow, running in under a fifth of a second per image.
+why: >-
+  Earlier neural approaches classified tiny image patches or external superpixels one at a time,
+  which was slow and threw away context. FCN showed that a single end-to-end convolutional network
+  can predict dense pixel maps directly, establishing the encoder–upsampler blueprint that almost
+  every modern segmentation model builds on.
+datasets: [pascal-voc, nyu-depth-v2]
+builds_on: [alexnet]

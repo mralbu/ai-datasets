@@ -1,0 +1,23 @@
+title: Encoder-Decoder with Atrous Separable Convolution for Semantic Image Segmentation
+short: DeepLabv3+
+year: 2018
+venue: ECCV 2018
+authors: Liang-Chieh Chen, Yukun Zhu, George Papandreou, Florian Schroff, Hartwig Adam
+category: vision
+arxiv: "1802.02611"
+one_liner: Paired multi-rate dilated context pooling with a lightweight decoder that sharpens object edges.
+idea: >-
+  Keep DeepLabv3's Atrous Spatial Pyramid Pooling encoder—parallel dilated convolutions at several
+  rates plus image-level pooling—to capture multi-scale context without shrinking the feature map
+  too aggressively. Then upsample the encoder output and fuse it with low-level backbone features
+  through depthwise separable convolutions to refine fine object boundaries.
+result: >-
+  89.0% mIoU on PASCAL VOC 2012 test and 82.1% mIoU on Cityscapes test with a modified Xception
+  backbone and no CRF post-processing.
+why: >-
+  Semantic segmentation had split into two camps: dilated encoders that gathered rich context but
+  blurred edges, and U-shaped encoder–decoders that preserved boundaries. DeepLabv3+ merged both
+  into one clean, fast architecture that became the default production baseline for convolutional
+  segmentation for years.
+datasets: [pascal-voc, cityscapes]
+builds_on: [fcn, pspnet, resnet]

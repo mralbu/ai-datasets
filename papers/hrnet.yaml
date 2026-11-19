@@ -1,0 +1,23 @@
+title: Deep High-Resolution Representation Learning for Visual Recognition
+short: HRNet
+year: 2019
+venue: TPAMI 2020
+authors: Jingdong Wang, Ke Sun, Tianheng Cheng, Borui Jiang, Chaorui Deng, Yang Zhao, Dong Liu, Yadong Mu, Mingkui Tan, Xinggang Wang, Wenyu Liu, Bin Xiao
+category: vision
+arxiv: "1908.07919"
+one_liner: Kept a high-resolution stream alive all the way through the network instead of downsampling and trying to rebuild detail later.
+idea: >-
+  Start with a high-resolution convolutional branch and add progressively lower-resolution branches
+  in parallel rather than in series. Repeatedly fuse every resolution with every other resolution
+  across the depth of the network, then concatenate all four upsampled streams at the end for dense
+  pixel prediction.
+result: >-
+  81.1% mIoU on Cityscapes val (81.6% on test) with HRNetV2-W48 trained only on fine annotations,
+  alongside top marks on COCO human pose estimation and object detection.
+why: >-
+  Standard vision backbones were built for image classification: they shrink the image down to a
+  tiny grid and rely on a decoder to guess the lost spatial detail back. HRNet proved that
+  maintaining crisp spatial maps throughout the backbone itself yields sharper boundaries on
+  street scenes and fine structures without heavy dilated convolutions.
+datasets: [cityscapes, coco, imagenet]
+builds_on: [fcn, resnet]

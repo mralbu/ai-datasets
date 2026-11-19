@@ -1,0 +1,24 @@
+title: Masked-attention Mask Transformer for Universal Image Segmentation
+short: Mask2Former
+year: 2021
+venue: CVPR 2022
+authors: Bowen Cheng, Ishan Misra, Alexander G. Schwing, Alexander Kirillov, Rohit Girdhar
+category: vision
+arxiv: "2112.01527"
+one_liner: Unified semantic, instance and panoptic segmentation into one mask-predicting Transformer with masked cross-attention.
+idea: >-
+  Instead of classifying every pixel independently, predict a fixed set of binary masks and class
+  labels from learned object queries—just as DETR predicts boxes. Inside the Transformer decoder,
+  restrict each query's cross-attention to the foreground region predicted by the previous layer
+  (masked attention) and feed multi-scale feature maps round-robin so small objects stay sharp.
+result: >-
+  57.7% mIoU on ADE20K semantic segmentation, 50.1 AP on COCO instance segmentation, and 57.8 PQ
+  on COCO panoptic segmentation with a Swin-L backbone—beating specialized models on all three
+  tasks with one architecture.
+why: >-
+  For a decade, semantic segmentation (labeling stuff like sky and road) and instance segmentation
+  (separating individual cars and people) used different heads, losses and toolboxes. Mask2Former
+  proved that mask classification with a Transformer can handle every segmentation task at once
+  without giving up state-of-the-art accuracy.
+datasets: [ade20k, cityscapes, coco]
+builds_on: [detr, mask-rcnn, segformer]

@@ -1,0 +1,23 @@
+title: Pyramid Scene Parsing Network
+short: PSPNet
+year: 2016
+venue: CVPR 2017
+authors: Hengshuang Zhao, Jianping Shi, Xiaojuan Qi, Xiaogang Wang, Jiaya Jia
+category: vision
+arxiv: "1612.01105"
+one_liner: Pooled features across multiple spatial scales so every pixel could use whole-scene context to resolve ambiguity.
+idea: >-
+  Attach a Pyramid Pooling Module on top of a dilated ResNet backbone: average-pool the feature
+  map into four grid sizes (1×1, 2×2, 3×3 and 6×6), compress each with a 1×1 convolution, upsample
+  them back, and concatenate them with the local features before predicting pixel classes. Add an
+  auxiliary loss at an intermediate ResNet block to steady training.
+result: >-
+  Won the 2016 ImageNet Scene Parsing Challenge on ADE20K (44.94% mIoU with ResNet-269; 43.29%
+  with ResNet-101), and set records of 85.4% mIoU on PASCAL VOC 2012 and 80.2% mIoU on Cityscapes.
+why: >-
+  Local convolutions often misread objects whose meaning depends on their surroundings—mistaking a
+  boat on water for a car, or confusing a skyscraper with a wall. PSPNet showed that a simple
+  multi-scale global context head fixes these scene-level errors, making pyramid pooling a
+  standard ingredient in dense prediction.
+datasets: [ade20k, cityscapes, pascal-voc]
+builds_on: [fcn, resnet]

@@ -1,0 +1,24 @@
+title: Semantic segmentation
+categories: [vision]
+one_liner: From turning classifiers into dense pixel labelers on PASCAL VOC to unified mask Transformers on Cityscapes and ADE20K.
+intro: >-
+  Labeling every pixel in a scene pits two needs against each other: knowing what is in the whole
+  picture requires wide context, while tracing crisp edges requires high resolution. Fully
+  convolutional networks first made dense prediction end-to-end; pyramid pooling and dilated
+  encoder–decoders balanced context with sharp boundaries; parallel multi-resolution backbones
+  stopped throwing resolution away; and Transformers first simplified the decoder before unifying
+  semantic, instance and panoptic segmentation into one mask-predicting model.
+datasets: [pascal-voc, nyu-depth-v2, cityscapes, ade20k]
+steps:
+  - paper: fcn
+    note: Image classifiers threw away spatial layout to output a single label; converting their fully connected layers into convolutions with skip connections made end-to-end pixel labeling possible.
+  - paper: pspnet
+    note: Local convolutions still mislabeled regions that needed whole-scene context; multi-scale pyramid pooling gave every pixel a view of the entire image.
+  - paper: deeplabv3-plus
+    note: Context-heavy dilated encoders still produced coarse boundaries; adding a lightweight decoder fused high-level context back with fine edge features.
+  - paper: hrnet
+    note: Encoder–decoders still lost spatial detail during downsampling and tried to rebuild it afterward; keeping a high-resolution stream parallel to coarser ones preserved detail throughout.
+  - paper: segformer
+    note: Convolutional backbones needed complex dilated modules to widen their receptive field; a hierarchical Vision Transformer got global context natively and needed only a tiny MLP decoder.
+  - paper: mask2former
+    note: Per-pixel classifiers still treated semantic segmentation separately from instance and panoptic masks; predicting masks via Transformer queries with masked attention unified all three tasks.
