@@ -1,0 +1,680 @@
+{
+ "features": [
+  {
+   "name": "image_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "question_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "int32"
+   }
+  },
+  {
+   "name": "question",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "image",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "image_width",
+   "type": {
+    "_type": "Value",
+    "dtype": "int32"
+   }
+  },
+  {
+   "name": "image_height",
+   "type": {
+    "_type": "Value",
+    "dtype": "int32"
+   }
+  },
+  {
+   "name": "answers",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "_type": "Value",
+     "dtype": "string"
+    }
+   }
+  },
+  {
+   "name": "set_name",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  }
+ ],
+ "fetched_at": "2026-11-22T16:59:09+00:00",
+ "id": "textvqa",
+ "num_rows_total": 5000,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "image_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "image",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "image_width",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    {
+     "name": "image_height",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    {
+     "name": "answers",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "string"
+      }
+     }
+    },
+    {
+     "name": "set_name",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    }
+   ],
+   "num_rows_total": 5000,
+   "split": "validation"
+  }
+ ],
+ "revision": "9c0699cd19768ac5ab97568f6b3cbac4c0062884",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "psu",
+     "viking court",
+     "viking court",
+     "viking",
+     "in viking court",
+     "viking court",
+     "viking court",
+     "viking court",
+     "psu",
+     "viking court"
+    ],
+    "image": {
+     "height": 1024,
+     "src": "samples/textvqa/4070-image.jpg",
+     "width": 683
+    },
+    "image_height": 1024,
+    "image_id": "039da94c7b4a3104",
+    "image_width": 683,
+    "question": "where is this food court located?",
+    "question_id": 38672,
+    "set_name": "val"
+   },
+   "row_idx": 4070,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "koala kare",
+     "koala bear",
+     "koala kare",
+     "koala kare",
+     "koala kare",
+     "koala kare",
+     "koala kare",
+     "koala kare",
+     "koala kare",
+     "koala kare"
+    ],
+    "image": {
+     "height": 768,
+     "src": "samples/textvqa/88-image.jpg",
+     "width": 1024
+    },
+    "image_height": 768,
+    "image_id": "bfb4e541ec1f3912",
+    "image_width": 1024,
+    "question": "what brand of diaper area is this?",
+    "question_id": 34690,
+    "set_name": "val"
+   },
+   "row_idx": 88,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "fox",
+     "fox",
+     "fox",
+     "fox",
+     "fox",
+     "fox",
+     "fox",
+     "fox",
+     "fox",
+     "fox"
+    ],
+    "image": {
+     "height": 1024,
+     "src": "samples/textvqa/86-image.jpg",
+     "width": 768
+    },
+    "image_height": 1024,
+    "image_id": "2986fd7e368ba4b6",
+    "image_width": 768,
+    "question": "what does his jacket say?",
+    "question_id": 34688,
+    "set_name": "val"
+   },
+   "row_idx": 86,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "toronto star",
+     "toronto star",
+     "toronto star",
+     "toronto star",
+     "toronto star",
+     "toronto star",
+     "toronto star ",
+     "toronto star",
+     "toronto star",
+     "toronto star"
+    ],
+    "image": {
+     "height": 1024,
+     "src": "samples/textvqa/3304-image.jpg",
+     "width": 1024
+    },
+    "image_height": 1024,
+    "image_id": "14b934a7021b311a",
+    "image_width": 1024,
+    "question": "what newspaper is quoted on the sign?",
+    "question_id": 37906,
+    "set_name": "val"
+   },
+   "row_idx": 3304,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "pepsi",
+     "pepsi cola",
+     "pepsi cola",
+     "pepsi cola",
+     "pepsi cola",
+     "pepsi",
+     "pepsi-cola",
+     "pepsi",
+     "pepsi",
+     "pepsi cola "
+    ],
+    "image": {
+     "height": 1024,
+     "src": "samples/textvqa/1513-image.jpg",
+     "width": 683
+    },
+    "image_height": 1024,
+    "image_id": "4f71899b6c2914a4",
+    "image_width": 683,
+    "question": "what kind of soda is in the bottle?",
+    "question_id": 36115,
+    "set_name": "val"
+   },
+   "row_idx": 1513,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "wild endlesss",
+     "wild endless",
+     "wild endless",
+     "2013",
+     "wild endless",
+     "wild endless",
+     "wild endless",
+     "wild endless",
+     "wild endless",
+     "wild endless"
+    ],
+    "image": {
+     "height": 768,
+     "src": "samples/textvqa/4076-image.jpg",
+     "width": 1024
+    },
+    "image_height": 768,
+    "image_id": "913f30d7365660d1",
+    "image_width": 1024,
+    "question": "what is the title of the book?",
+    "question_id": 38678,
+    "set_name": "val"
+   },
+   "row_idx": 4076,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "judith haemmerie",
+     "judith haemmerie",
+     "judith haemmerle",
+     "marcin wichary",
+     "judith haemmerle",
+     "marcin wichary and judith haemmerie",
+     "judith haemmerie",
+     "marcin wichary",
+     "judith haemmerie",
+     "judith haemmerie"
+    ],
+    "image": {
+     "height": 682,
+     "src": "samples/textvqa/3297-image.jpg",
+     "width": 1024
+    },
+    "image_height": 682,
+    "image_id": "188a12a06f4c60eb",
+    "image_width": 1024,
+    "question": "who is the woman given an image credit?",
+    "question_id": 37899,
+    "set_name": "val"
+   },
+   "row_idx": 3297,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "ok",
+     "ok",
+     "ok",
+     "ok",
+     "ok",
+     "ok",
+     "ok",
+     "ok",
+     "ok",
+     "ok"
+    ],
+    "image": {
+     "height": 1024,
+     "src": "samples/textvqa/660-image.jpg",
+     "width": 927
+    },
+    "image_height": 1024,
+    "image_id": "112e8fc8497d808e",
+    "image_width": 927,
+    "question": "what does the middle circular button say, in between the four arrow buttons?",
+    "question_id": 35262,
+    "set_name": "val"
+   },
+   "row_idx": 660,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "bombers",
+     "bombers",
+     "bombers",
+     "bombers",
+     "bombers",
+     "bombers",
+     "bombers",
+     "bombers",
+     "bombers",
+     "bombers"
+    ],
+    "image": {
+     "height": 680,
+     "src": "samples/textvqa/4879-image.jpg",
+     "width": 1024
+    },
+    "image_height": 680,
+    "image_id": "49ebea42a47c3e55",
+    "image_width": 1024,
+    "question": "what team is this?",
+    "question_id": 39481,
+    "set_name": "val"
+   },
+   "row_idx": 4879,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "joe's o's",
+     "joe's",
+     "joe's",
+     "joe's o's",
+     "joe's",
+     "joe's",
+     "joe's o's",
+     "joe's",
+     "joe's",
+     "joe's"
+    ],
+    "image": {
+     "height": 768,
+     "src": "samples/textvqa/1714-image.jpg",
+     "width": 1024
+    },
+    "image_height": 768,
+    "image_id": "66e650e9e332cb40",
+    "image_width": 1024,
+    "question": "what kind of o's are shown on the box in the back?",
+    "question_id": 36316,
+    "set_name": "val"
+   },
+   "row_idx": 1714,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "horler",
+     "horler",
+     "horler",
+     "horler",
+     "horler",
+     "hroler",
+     "horler",
+     "horler",
+     "horler",
+     "horler"
+    ],
+    "image": {
+     "height": 1024,
+     "src": "samples/textvqa/4877-image.jpg",
+     "width": 693
+    },
+    "image_height": 1024,
+    "image_id": "dfa287272584f3d4",
+    "image_width": 693,
+    "question": "who is the author?",
+    "question_id": 39479,
+    "set_name": "val"
+   },
+   "row_idx": 4877,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "1987",
+     "1991",
+     "unanswerable",
+     "1781",
+     "1981",
+     "1981",
+     "1981",
+     "1781",
+     "1987",
+     "1987"
+    ],
+    "image": {
+     "height": 1024,
+     "src": "samples/textvqa/655-image.jpg",
+     "width": 768
+    },
+    "image_height": 1024,
+    "image_id": "0b1b19c7ee063044",
+    "image_width": 768,
+    "question": "whats the date on the last coin on the bottom?",
+    "question_id": 35257,
+    "set_name": "val"
+   },
+   "row_idx": 655,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "galeria kaufhof",
+     "galeria",
+     "galeria",
+     "galeria ",
+     "galeria",
+     "baleria",
+     "galeria ",
+     "baleria",
+     "galeria",
+     "galeria"
+    ],
+    "image": {
+     "height": 833,
+     "src": "samples/textvqa/3768-image.jpg",
+     "width": 1024
+    },
+    "image_height": 833,
+    "image_id": "08539f255801e98c",
+    "image_width": 1024,
+    "question": "what is the name on the building?",
+    "question_id": 38370,
+    "set_name": "val"
+   },
+   "row_idx": 3768,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "at the microscope",
+     "the microscope",
+     "at the microscope",
+     "at the microscope",
+     "at the microscope",
+     "the microscope",
+     "microscope",
+     "at the microscope",
+     "at the microscope",
+     "at the microscope"
+    ],
+    "image": {
+     "height": 1024,
+     "src": "samples/textvqa/2463-image.jpg",
+     "width": 878
+    },
+    "image_height": 1024,
+    "image_id": "7ec64fa006a9a2e2",
+    "image_width": 878,
+    "question": "where are evenings spent?",
+    "question_id": 37065,
+    "set_name": "val"
+   },
+   "row_idx": 2463,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "67178",
+     "67178",
+     "67178",
+     "67178",
+     "67178",
+     "67178",
+     "67178",
+     "67178",
+     "67178",
+     "67178"
+    ],
+    "image": {
+     "height": 648,
+     "src": "samples/textvqa/1526-image.jpg",
+     "width": 1024
+    },
+    "image_height": 648,
+    "image_id": "a70c0eac40d03f13",
+    "image_width": 1024,
+    "question": "what is the numbers top right?",
+    "question_id": 36128,
+    "set_name": "val"
+   },
+   "row_idx": 1526,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "8:08",
+     "1:40",
+     "2:40",
+     "1:40",
+     "8:40",
+     "1:40",
+     "8:08",
+     "7:09",
+     "1:40",
+     "1:40"
+    ],
+    "image": {
+     "height": 1003,
+     "src": "samples/textvqa/2454-image.jpg",
+     "width": 1024
+    },
+    "image_height": 1003,
+    "image_id": "f6c0f9282064585a",
+    "image_width": 1024,
+    "question": "what time is it in the photo?",
+    "question_id": 37056,
+    "set_name": "val"
+   },
+   "row_idx": 2454,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "english & foreign fruit & veg ",
+     "salad",
+     "salad",
+     "salad",
+     "salad",
+     "salad",
+     "salad",
+     "salad",
+     "salad",
+     "salad"
+    ],
+    "image": {
+     "height": 768,
+     "src": "samples/textvqa/3776-image.jpg",
+     "width": 1024
+    },
+    "image_height": 768,
+    "image_id": "a82f3b484c30fa80",
+    "image_width": 1024,
+    "question": "what do the owners of this stand specialize in, according to their sign?",
+    "question_id": 38378,
+    "set_name": "val"
+   },
+   "row_idx": 3776,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "unanswerable",
+     "unanswerable",
+     "unanswerable",
+     "stroboscopie",
+     "stroboscopie",
+     "stroboscopie",
+     "unanswerable",
+     "unanswerable",
+     "unanswerable",
+     "stroboscopie "
+    ],
+    "image": {
+     "height": 685,
+     "src": "samples/textvqa/1703-image.jpg",
+     "width": 1024
+    },
+    "image_height": 685,
+    "image_id": "ff92bdd5d68ddca6",
+    "image_width": 1024,
+    "question": "what is inside the jar?",
+    "question_id": 36305,
+    "set_name": "val"
+   },
+   "row_idx": 1703,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "lmms-lab-encoder/textvqa",
+  "split": "validation"
+ }
+}

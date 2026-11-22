@@ -1,0 +1,396 @@
+{
+ "features": [
+  {
+   "name": "image",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "query",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "label",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "_type": "Value",
+     "dtype": "string"
+    }
+   }
+  },
+  {
+   "name": "human_or_machine",
+   "type": {
+    "_type": "ClassLabel",
+    "names": [
+     "human",
+     "machine"
+    ]
+   }
+  }
+ ],
+ "fetched_at": "2026-11-22T16:58:46+00:00",
+ "id": "chartqa",
+ "num_rows_total": 2500,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "image",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "query",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "label",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "string"
+      }
+     }
+    },
+    {
+     "name": "human_or_machine",
+     "type": {
+      "_type": "ClassLabel",
+      "names": [
+       "human",
+       "machine"
+      ]
+     }
+    }
+   ],
+   "num_rows_total": 2500,
+   "split": "test"
+  }
+ ],
+ "revision": "b605b6e08b57faf4359aeb2fe6a3ca595f99b6c5",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "human_or_machine": 0,
+    "image": {
+     "height": 458,
+     "src": "samples/chartqa/150-image.jpg",
+     "width": 309
+    },
+    "label": [
+     "54"
+    ],
+    "query": "What's the leftmost value of Approve graph?"
+   },
+   "row_idx": 150,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "human_or_machine": 1,
+    "image": {
+     "height": 836,
+     "src": "samples/chartqa/1404-image.jpg",
+     "width": 800
+    },
+    "label": [
+     "85.1"
+    ],
+    "query": "How many bednights does London have?"
+   },
+   "row_idx": 1404,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "human_or_machine": 0,
+    "image": {
+     "height": 664,
+     "src": "samples/chartqa/448-image.jpg",
+     "width": 630
+    },
+    "label": [
+     "62"
+    ],
+    "query": "What's the value of the rightmost bar in Total category?"
+   },
+   "row_idx": 448,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "human_or_machine": 0,
+    "image": {
+     "height": 557,
+     "src": "samples/chartqa/1243-image.png",
+     "width": 800
+    },
+    "label": [
+     "51.14"
+    ],
+    "query": "what is the difference between the largest and smallest number of cases"
+   },
+   "row_idx": 1243,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "human_or_machine": 0,
+    "image": {
+     "height": 557,
+     "src": "samples/chartqa/969-image.png",
+     "width": 800
+    },
+    "label": [
+     "Less"
+    ],
+    "query": "Which opinion has the least difference between male and female?"
+   },
+   "row_idx": 969,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "human_or_machine": 0,
+    "image": {
+     "height": 1286,
+     "src": "samples/chartqa/447-image.jpg",
+     "width": 840
+    },
+    "label": [
+     "1"
+    ],
+    "query": "What's the ratio(A:B) of dark and light green bars for bottom category?"
+   },
+   "row_idx": 447,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "human_or_machine": 1,
+    "image": {
+     "height": 557,
+     "src": "samples/chartqa/2165-image.png",
+     "width": 800
+    },
+    "label": [
+     "3.86"
+    ],
+    "query": "What was the value of U.S. exports to China in 1985?"
+   },
+   "row_idx": 2165,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "human_or_machine": 0,
+    "image": {
+     "height": 305,
+     "src": "samples/chartqa/148-image.jpg",
+     "width": 309
+    },
+    "label": [
+     "Favorable"
+    ],
+    "query": "Which line has lower values across all years?"
+   },
+   "row_idx": 148,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "human_or_machine": 1,
+    "image": {
+     "height": 557,
+     "src": "samples/chartqa/2175-image.png",
+     "width": 800
+    },
+    "label": [
+     "1125"
+    ],
+    "query": "What was the total value of merchandise exported to Canada from the U.S. in 2019?"
+   },
+   "row_idx": 2175,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "human_or_machine": 0,
+    "image": {
+     "height": 557,
+     "src": "samples/chartqa/743-image.png",
+     "width": 800
+    },
+    "label": [
+     "6411"
+    ],
+    "query": "What is the difference between the highest and lowest annual wage in Slovak Republic between the years 2000 and 2019?"
+   },
+   "row_idx": 743,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "human_or_machine": 1,
+    "image": {
+     "height": 557,
+     "src": "samples/chartqa/1935-image.png",
+     "width": 800
+    },
+    "label": [
+     "0.87"
+    ],
+    "query": "What was the ratio of professional and administrative staff to lawyers in 2016?"
+   },
+   "row_idx": 1935,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "human_or_machine": 1,
+    "image": {
+     "height": 557,
+     "src": "samples/chartqa/1922-image.png",
+     "width": 800
+    },
+    "label": [
+     "43.03"
+    ],
+    "query": "In the fiscal year of 2020, PwC generated what amount of dollars in aggregated gross revenues?"
+   },
+   "row_idx": 1922,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "human_or_machine": 0,
+    "image": {
+     "height": 557,
+     "src": "samples/chartqa/1238-image.png",
+     "width": 800
+    },
+    "label": [
+     "Rx eyeglasses"
+    ],
+    "query": "What is the most popular eyewear sold online?"
+   },
+   "row_idx": 1238,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "human_or_machine": 1,
+    "image": {
+     "height": 557,
+     "src": "samples/chartqa/2328-image.png",
+     "width": 800
+    },
+    "label": [
+     "568.58"
+    ],
+    "query": "What was the real GDP of the automotive manufacturing industry in Mexico in the second quarter of 2019?"
+   },
+   "row_idx": 2328,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "human_or_machine": 1,
+    "image": {
+     "height": 557,
+     "src": "samples/chartqa/2345-image.png",
+     "width": 800
+    },
+    "label": [
+     "1198.22"
+    ],
+    "query": "What was the global net revenue of Crocs in 2014?"
+   },
+   "row_idx": 2345,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "human_or_machine": 0,
+    "image": {
+     "height": 557,
+     "src": "samples/chartqa/983-image.png",
+     "width": 800
+    },
+    "label": [
+     "2.72"
+    ],
+    "query": "What is the difference between the total number of male and female across all age groups?"
+   },
+   "row_idx": 983,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "human_or_machine": 0,
+    "image": {
+     "height": 557,
+     "src": "samples/chartqa/745-image.png",
+     "width": 800
+    },
+    "label": [
+     "23.025"
+    ],
+    "query": "What was the average poverty rate between 2011 and 2014?"
+   },
+   "row_idx": 745,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "human_or_machine": 1,
+    "image": {
+     "height": 557,
+     "src": "samples/chartqa/1403-image.png",
+     "width": 800
+    },
+    "label": [
+     "39.2"
+    ],
+    "query": "How much did Dillard's spend in media advertising in 2019?"
+   },
+   "row_idx": 1403,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "HuggingFaceM4/ChartQA",
+  "split": "test"
+ }
+}

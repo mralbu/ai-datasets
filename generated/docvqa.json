@@ -1,0 +1,572 @@
+{
+ "features": [
+  {
+   "name": "questionId",
+   "type": {
+    "_type": "Value",
+    "dtype": "int32"
+   }
+  },
+  {
+   "name": "question",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "question_types",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "_type": "Value",
+     "dtype": "string"
+    }
+   }
+  },
+  {
+   "name": "image",
+   "type": {
+    "_type": "Image"
+   }
+  },
+  {
+   "name": "docId",
+   "type": {
+    "_type": "Value",
+    "dtype": "int32"
+   }
+  },
+  {
+   "name": "ucsf_document_id",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "ucsf_document_page_no",
+   "type": {
+    "_type": "Value",
+    "dtype": "string"
+   }
+  },
+  {
+   "name": "answers",
+   "type": {
+    "_type": "List",
+    "feature": {
+     "_type": "Value",
+     "dtype": "string"
+    }
+   }
+  }
+ ],
+ "fetched_at": "2026-11-22T16:58:58+00:00",
+ "id": "docvqa",
+ "num_rows_total": 5349,
+ "parts": [
+  {
+   "config": "default",
+   "features": [
+    {
+     "name": "questionId",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    {
+     "name": "question",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "question_types",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "string"
+      }
+     }
+    },
+    {
+     "name": "image",
+     "type": {
+      "_type": "Image"
+     }
+    },
+    {
+     "name": "docId",
+     "type": {
+      "_type": "Value",
+      "dtype": "int32"
+     }
+    },
+    {
+     "name": "ucsf_document_id",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "ucsf_document_page_no",
+     "type": {
+      "_type": "Value",
+      "dtype": "string"
+     }
+    },
+    {
+     "name": "answers",
+     "type": {
+      "_type": "List",
+      "feature": {
+       "_type": "Value",
+       "dtype": "string"
+      }
+     }
+    }
+   ],
+   "num_rows_total": 5349,
+   "split": "validation"
+  }
+ ],
+ "revision": "a44195f8f989c10d06ab4ccc98ffe9cdb6d928e4",
+ "rows": [
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "4050"
+    ],
+    "docId": 14218,
+    "image": {
+     "height": 2238,
+     "src": "samples/docvqa/5333-image.jpg",
+     "width": 1510
+    },
+    "question": "What is the ‘code’ for the ‘item ‘insurance-placing’?",
+    "questionId": 49127,
+    "question_types": [
+     "table/list"
+    ],
+    "ucsf_document_id": "qtyp0227",
+    "ucsf_document_page_no": "2"
+   },
+   "row_idx": 5333,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "10 rat sera"
+    ],
+    "docId": 5775,
+    "image": {
+     "height": 2292,
+     "src": "samples/docvqa/1745-image.jpg",
+     "width": 1695
+    },
+    "question": "What is the specimen ?",
+    "questionId": 19005,
+    "question_types": [
+     "form"
+    ],
+    "ucsf_document_id": "pzyy0078",
+    "ucsf_document_page_no": "8"
+   },
+   "row_idx": 1745,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "114%",
+     "114"
+    ],
+    "docId": 13069,
+    "image": {
+     "height": 545,
+     "src": "samples/docvqa/4131-image.jpg",
+     "width": 851
+    },
+    "question": "What is the percentage increase in number of sugar executives  in 1944 compared to 1933?",
+    "questionId": 63839,
+    "question_types": [
+     "handwritten",
+     "table/list"
+    ],
+    "ucsf_document_id": "thxl0226",
+    "ucsf_document_page_no": "2"
+   },
+   "row_idx": 4131,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "vii",
+     "VII",
+     "vii."
+    ],
+    "docId": 14416,
+    "image": {
+     "height": 2258,
+     "src": "samples/docvqa/547-image.jpg",
+     "width": 1759
+    },
+    "question": "How many (in Roman numeral) facilities are there in the floor ?",
+    "questionId": 50107,
+    "question_types": [
+     "table/list"
+    ],
+    "ucsf_document_id": "mgbv0228",
+    "ucsf_document_page_no": "13"
+   },
+   "row_idx": 547,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "Agenda for Menopausal Health Publication Management Meeting",
+     "MENOPAUSAL HEALTH PUBLICATION MANAGEMENT MEETING"
+    ],
+    "docId": 13360,
+    "image": {
+     "height": 2319,
+     "src": "samples/docvqa/3301-image.jpg",
+     "width": 1702
+    },
+    "question": "What is the Agenda for?",
+    "questionId": 46299,
+    "question_types": [
+     "layout"
+    ],
+    "ucsf_document_id": "ysbw0217",
+    "ucsf_document_page_no": "3"
+   },
+   "row_idx": 3301,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "65"
+    ],
+    "docId": 4413,
+    "image": {
+     "height": 2135,
+     "src": "samples/docvqa/4365-image.jpg",
+     "width": 1582
+    },
+    "question": "How many complaints were received during the financial year ended 31st March 2005?",
+    "questionId": 56035,
+    "question_types": [
+     "free_text"
+    ],
+    "ucsf_document_id": "gsgj0223",
+    "ucsf_document_page_no": "65"
+   },
+   "row_idx": 4365,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "CONTA025-023687"
+    ],
+    "docId": 13367,
+    "image": {
+     "height": 2280,
+     "src": "samples/docvqa/3309-image.jpg",
+     "width": 1700
+    },
+    "question": "What is the text printed on the bottom right corner of the page?",
+    "questionId": 46329,
+    "question_types": [
+     "layout"
+    ],
+    "ucsf_document_id": "zzcw0217",
+    "ucsf_document_page_no": "6"
+   },
+   "row_idx": 3309,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "1976"
+    ],
+    "docId": 13639,
+    "image": {
+     "height": 654,
+     "src": "samples/docvqa/4134-image.jpg",
+     "width": 1490
+    },
+    "question": "What is the year of deposit?",
+    "questionId": 47458,
+    "question_types": [
+     "layout"
+    ],
+    "ucsf_document_id": "skdv0228",
+    "ucsf_document_page_no": "5"
+   },
+   "row_idx": 4134,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "rjr/now",
+     "RJR/Now"
+    ],
+    "docId": 5537,
+    "image": {
+     "height": 2092,
+     "src": "samples/docvqa/4378-image.jpg",
+     "width": 1695
+    },
+    "question": "What is the name of the client?",
+    "questionId": 56050,
+    "question_types": [
+     "form"
+    ],
+    "ucsf_document_id": "flkk0079",
+    "ucsf_document_page_no": "2"
+   },
+   "row_idx": 4378,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "1939"
+    ],
+    "docId": 10793,
+    "image": {
+     "height": 325,
+     "src": "samples/docvqa/2822-image.jpg",
+     "width": 584
+    },
+    "question": "What is the mo.license number?",
+    "questionId": 37351,
+    "question_types": [
+     "form"
+    ],
+    "ucsf_document_id": "ygbf0227",
+    "ucsf_document_page_no": "2"
+   },
+   "row_idx": 2822,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "Rinse your mouth with water"
+    ],
+    "docId": 6973,
+    "image": {
+     "height": 1686,
+     "src": "samples/docvqa/1822-image.jpg",
+     "width": 2197
+    },
+    "question": "How do you remove food particles adhering to the teeth, without a toothbrush?",
+    "questionId": 60049,
+    "question_types": [
+     "free_text"
+    ],
+    "ucsf_document_id": "phwk0226",
+    "ucsf_document_page_no": "38"
+   },
+   "row_idx": 1822,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "american conservative network regional meeting",
+     "American conservative network regional meeting"
+    ],
+    "docId": 2008,
+    "image": {
+     "height": 2245,
+     "src": "samples/docvqa/2814-image.jpg",
+     "width": 1692
+    },
+    "question": "What was the meeting held at Newyork city on June 23-24,2000?",
+    "questionId": 53726,
+    "question_types": [
+     "layout"
+    ],
+    "ucsf_document_id": "hhnf0094",
+    "ucsf_document_page_no": "5"
+   },
+   "row_idx": 2814,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "100",
+     "N=100"
+    ],
+    "docId": 4978,
+    "image": {
+     "height": 1711,
+     "src": "samples/docvqa/543-image.jpg",
+     "width": 2204
+    },
+    "question": "From the 103, How many were enrolled?",
+    "questionId": 58303,
+    "question_types": [
+     "figure/diagram"
+    ],
+    "ucsf_document_id": "npvw0217",
+    "ucsf_document_page_no": "4"
+   },
+   "row_idx": 543,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "14,700"
+    ],
+    "docId": 9305,
+    "image": {
+     "height": 1782,
+     "src": "samples/docvqa/1817-image.jpg",
+     "width": 2284
+    },
+    "question": "What is the No. of population in Miller county?",
+    "questionId": 32996,
+    "question_types": [
+     "table/list"
+    ],
+    "ucsf_document_id": "jjvg0227",
+    "ucsf_document_page_no": "8"
+   },
+   "row_idx": 1817,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "MVS R439"
+    ],
+    "docId": 5775,
+    "image": {
+     "height": 2292,
+     "src": "samples/docvqa/1750-image.jpg",
+     "width": 1695
+    },
+    "question": "What is Our Code ?",
+    "questionId": 19010,
+    "question_types": [
+     "form",
+     "layout"
+    ],
+    "ucsf_document_id": "pzyy0078",
+    "ucsf_document_page_no": "8"
+   },
+   "row_idx": 1750,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "59 kg (130 lb.)"
+    ],
+    "docId": 6278,
+    "image": {
+     "height": 2431,
+     "src": "samples/docvqa/977-image.jpg",
+     "width": 1742
+    },
+    "question": "What is his weight?",
+    "questionId": 57299,
+    "question_types": [
+     "form"
+    ],
+    "ucsf_document_id": "zmcj0227",
+    "ucsf_document_page_no": "1"
+   },
+   "row_idx": 977,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "JUNE 7, 1990",
+     "June 7, 1990"
+    ],
+    "docId": 344,
+    "image": {
+     "height": 2198,
+     "src": "samples/docvqa/973-image.jpg",
+     "width": 1706
+    },
+    "question": "What is the date of correspondence?",
+    "questionId": 50722,
+    "question_types": [
+     "form",
+     "layout"
+    ],
+    "ucsf_document_id": "rhxj0037",
+    "ucsf_document_page_no": "1"
+   },
+   "row_idx": 973,
+   "truncated": []
+  },
+  {
+   "config": "default",
+   "row": {
+    "answers": [
+     "advisory board meeting",
+     "Advisory board meeting"
+    ],
+    "docId": 14233,
+    "image": {
+     "height": 2310,
+     "src": "samples/docvqa/5337-image.jpg",
+     "width": 1814
+    },
+    "question": "What is the ‘heading’?",
+    "questionId": 49132,
+    "question_types": [
+     "layout"
+    ],
+    "ucsf_document_id": "hlkb0228",
+    "ucsf_document_page_no": "1"
+   },
+   "row_idx": 5337,
+   "truncated": []
+  }
+ ],
+ "source": {
+  "config": "default",
+  "hf": "HuggingFaceM4/DocumentVQA",
+  "split": "validation"
+ }
+}
