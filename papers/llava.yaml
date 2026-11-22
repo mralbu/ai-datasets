@@ -1,0 +1,24 @@
+title: "Visual Instruction Tuning"
+short: LLaVA
+year: 2023
+venue: NeurIPS 2023 (Oral)
+authors: Haotian Liu, Chunyuan Li, Qingyang Wu, Yong Jae Lee
+category: vision
+arxiv: "2304.08485"
+one_liner: Dropped complex multimodal adapters for a single linear projection from CLIP to an LLM, trained on 158k GPT-4-synthesized image conversations.
+idea: >-
+  Feed image patch features from a frozen CLIP ViT-L/14 through a single linear projection matrix
+  directly into the token embedding space of a pretrained LLM (Vicuna). Because open multimodal
+  chat data barely existed, prompt text-only GPT-4 with COCO captions and bounding boxes to generate
+  158k multi-turn conversations, detailed descriptions and reasoning questions, then fine-tune the
+  projector and LLM end to end.
+result: >-
+  Reached an 85.1% relative score against text-only GPT-4 on LLaVA-Bench (COCO) and set a 92.53%
+  state of the art on ScienceQA when ensembled with GPT-4.
+why: >-
+  LLaVA stripped VLM architecture down to its bare bones—vision encoder, simple projector, LLM—and
+  showed that instruction-tuning data mattered far more than elaborate cross-attention modules. Its
+  follow-up LLaVA-1.5 swapped the linear layer for a two-layer MLP and added VQA v2, turning that
+  minimal recipe into the blueprint for nearly every open multimodal assistant that followed.
+datasets: [coco]
+builds_on: [clip, blip-2, instructgpt]

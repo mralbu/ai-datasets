@@ -119,10 +119,13 @@ const display = z.discriminatedUnion('kind', [
     kind: z.literal('retrieval'), query: z.string(), passages: z.string(), text: z.string().default('passage_text'),
     selected: z.string().default('is_selected'), url: z.string().optional(), answers: z.string().optional(), type: z.string().optional(),
   }),
-  // Visual question answering: a photo, a question and several human answers (VQA v2 has ten).
+  // Visual question answering: a photo, a question and human answers (VQA v2 / TextVQA have ten;
+  // DocVQA / ChartQA have 1–3 exact references, so set consensus: false and fit: contain).
   z.object({
     kind: z.literal('vqa'), image: z.string(), question: z.string(), answers: z.string(), answer_key: z.string().default('answer'),
     type: z.string().optional(),
+    fit: z.enum(['cover', 'contain']).default('cover'),
+    consensus: z.boolean().default(true),
   }),
   // Scene graphs (Visual Genome): objects with attributes, relationships between them, region phrases, Q&A.
   // Boxes are [x1, y1, x2, y2] as fractions of the image.

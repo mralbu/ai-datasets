@@ -28,6 +28,8 @@ lineage:
   - { name: MMLU, note: "2020, the text-only original", hf: cais/mmlu, id: mmlu }
   - { name: MMMU-Pro, note: "2024, harder and less guessable", hf: MMMU/MMMU_Pro }
   - { name: VQA v2, note: "2017, open-ended questions about photos", hf: lmms-lab-encoder/VQAv2, id: vqa-v2 }
+  - { name: DocVQA, note: "2020, reading scanned document pages", hf: HuggingFaceM4/DocumentVQA, id: docvqa }
+  - { name: ChartQA, note: "2022, visual and arithmetic reasoning over charts", hf: HuggingFaceM4/ChartQA, id: chartqa }
 landmark_papers:
   - { title: "MMMU-Pro: A More Robust Multi-discipline Multimodal Understanding Benchmark", year: 2024, url: "https://arxiv.org/abs/2409.02813" }
 source:

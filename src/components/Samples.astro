@@ -93,7 +93,7 @@ const revUrl = s.revision ? `https://huggingface.co/datasets/${s.source.hf}/tree
   {d.kind === 'segmentation' && <Segmentation d={d} rows={rows} k={k} />}
   {d.kind === 'dense' && <Dense d={d} rows={rows} k={k} />}
   {d.kind === 'retrieval' && <Retrieval d={d} rows={rows} k={k} />}
-  {d.kind === 'vqa' && <VQA d={d} rows={rows} k={k} />}
+  {d.kind === 'vqa' && <VQA s={s} d={d} rows={rows} k={k} />}
   {d.kind === 'scene_graph' && <SceneGraph d={d} rows={rows} k={k} />}
   {d.kind === 'multihop' && <MultiHop d={d} rows={rows} k={k} />}
   {d.kind === 'series' && <Series s={s} d={d} rows={rows} k={k} notes={ds.data.config_notes} />}

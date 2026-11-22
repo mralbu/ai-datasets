@@ -1,0 +1,47 @@
+name: DocVQA
+year: 2020
+modality: vision
+task: Document visual question answering
+one_liner: 50,000 questions over 12,767 scanned industry documents—forms, tables, letters and handwritten notes.
+creators: Minesh Mathew, Dimosthenis Karatzas, C. V. Jawahar (CVC Barcelona, IIIT Hyderabad)
+size: 12,767 document pages, 50,000 questions
+splits: { train: 39463, validation: 5349, test: 5188 }
+input: A scanned single-page document image and a question about its contents
+labels: One or more verbatim reference answers, plus question-type tags (table, form, layout, handwritten, etc.)
+license: Research use (annotations); document images from UCSF Industry Documents Library
+paper:
+  title: "DocVQA: A Dataset for VQA on Document Images"
+  url: https://arxiv.org/abs/2007.00398
+homepage: https://www.docvqa.org/
+why: >-
+  Natural-photo VQA rarely tests whether a model can read dense typography,
+  follow a two-column table or link a checkbox to its label. DocVQA turned real
+  archival scans into a question-answering benchmark where layout carries half
+  the meaning. Because small print vanishes when a page is squashed to 224×224
+  pixels, DocVQA became the stress test that drove modern VLMs toward high-res
+  stages, image tiling and native dynamic resolution.
+trivia:
+  - Pages come from the UCSF Industry Documents Library—memos, budgets, lab reports and forms spanning decades, many typed or handwritten.
+  - Scored with ANLS (Average Normalized Levenshtein Similarity), which forgives minor one-character OCR typos while zeroing out responses that drift too far.
+  - Upgrading PaliGemma from 224px to 896px nearly doubled its DocVQA score (from 43.7 to 84.8), illustrating how severely fixed low-res crops bottleneck document reading.
+  - Questions are tagged by layout type—tables, forms, figures, lists, yes/no and handwritten text—so errors can be broken down by structure.
+lineage:
+  - { name: TextVQA, note: "2019, reading text in everyday street and indoor photos", hf: lmms-lab-encoder/textvqa, id: textvqa }
+  - { name: InfographicVQA, note: "2021, companion benchmark over tall, visually dense infographics", url: "https://arxiv.org/abs/2104.12756" }
+  - { name: ChartQA, note: "2022, visual and arithmetic reasoning over plots and charts", hf: HuggingFaceM4/ChartQA, id: chartqa }
+  - { name: MP-DocVQA, note: "2023, multi-page extension requiring cross-page lookup", url: "https://arxiv.org/abs/2212.05935" }
+  - { name: MMMU, note: "2023, college-level multimodal reasoning", hf: MMMU/MMMU, id: mmmu }
+landmark_papers:
+  - { title: "OCR-free Document Understanding Transformer (Donut)", year: 2022, url: "https://arxiv.org/abs/2111.15664" }
+source:
+  hf: HuggingFaceM4/DocumentVQA
+  config: default
+  split: validation
+  n: 18
+  seed: 17
+  rows_per_page: 2
+  page: 20
+  max_image_px: 900
+display: { kind: vqa, image: image, question: question, answers: answers, type: question_types, fit: contain, consensus: false }
+download:
+  note: "Single-page DocVQA (Task 1) in Parquet format with embedded page scans, questions, reference answers and layout tags."

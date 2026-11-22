@@ -33,6 +33,8 @@ lineage:
   - { name: Visual Genome, note: "2016, 1.7 million questions plus scene graphs", hf: ljnlonoljpiljm/visual_genome, id: visual-genome }
   - { name: VizWiz, note: "2018, photos and spoken questions from blind people", url: "https://vizwiz.org/" }
   - { name: GQA, note: "2019, compositional questions generated from Visual Genome's scene graphs", url: "https://cs.stanford.edu/people/dorarad/gqa/" }
+  - { name: TextVQA, note: "2019, questions that require reading text inside photos", hf: lmms-lab-encoder/textvqa, id: textvqa }
+  - { name: DocVQA, note: "2020, reading scanned forms, tables and documents", hf: HuggingFaceM4/DocumentVQA, id: docvqa }
   - { name: MMMU, note: "2023, college-level questions about images", hf: MMMU/MMMU, id: mmmu }
 landmark_papers:
   - { title: "Bottom-Up and Top-Down Attention for Image Captioning and Visual Question Answering", year: 2018, url: "https://arxiv.org/abs/1707.07998" }

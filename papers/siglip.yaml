@@ -1,0 +1,24 @@
+title: "Sigmoid Loss for Language Image Pre-Training"
+short: SigLIP
+year: 2023
+venue: ICCV 2023
+authors: Xiaohua Zhai, Basil Mustafa, Alexander Kolesnikov, Lucas Beyer
+category: vision
+arxiv: "2303.15343"
+one_liner: Replaced CLIP's batch-wide softmax contrastive loss with an independent pairwise sigmoid loss, training stronger vision encoders at smaller and larger batch sizes alike.
+idea: >-
+  CLIP's InfoNCE loss normalizes every image–caption similarity across the entire global batch,
+  which demands heavy all-gather synchronization and huge batches. SigLIP treats every image–text
+  pair in the batch as an independent binary classification problem with a pairwise sigmoid loss and
+  a learnable bias, decoupling the loss from global batch normalization.
+result: >-
+  With Locked-image Tuning (SigLiT) on just four TPUv4 chips for two days, reached 84.5% zero-shot
+  top-1 on ImageNet; trained from scratch, SigLIP beat softmax CLIP at small batch sizes and
+  saturated around a 32k batch size rather than needing hundreds of thousands.
+why: >-
+  As multimodal LLMs converged on feeding ViT patch tokens directly into a language model, the
+  contrastive vision encoder became the primary visual bottleneck. SigLIP's simpler, memory-light
+  loss produced sharper encoders—especially ViT-So400m—that replaced OpenAI CLIP as the default
+  vision backbone in PaliGemma and a wide wave of open VLMs.
+datasets: [imagenet]
+builds_on: [clip]

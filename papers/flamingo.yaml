@@ -1,0 +1,25 @@
+title: "Flamingo: a Visual Language Model for Few-Shot Learning"
+short: Flamingo
+year: 2022
+venue: NeurIPS 2022
+authors: Jean-Baptiste Alayrac, Jeff Donahue, Pauline Luc, Antoine Miech, Iain Barr, Yana Hasson, Karel Lenc, Arthur Mensch, Katie Millican, Malcolm Reynolds, Roman Ring, Eliza Rutherford, et al.
+category: vision
+arxiv: "2204.14198"
+one_liner: Bridged a frozen vision encoder and a frozen LLM with gated cross-attention so one model learns new visual tasks from a few examples in the prompt.
+idea: >-
+  Take a contrastively pretrained vision encoder and a large language model (Chinchilla) and keep
+  both frozen. A Perceiver Resampler compresses variable numbers of image or video features into a
+  fixed set of visual tokens, and freshly initialized gated cross-attention layers—starting at zero
+  so the language model stays intact at step one—are interleaved between the frozen LLM blocks and
+  trained on web pages with mixed images and text.
+result: >-
+  Flamingo-80B reached 56.3% zero-shot and 67.6% 32-shot on VQA v2, 113.8 CIDEr on COCO captions
+  and 36.0% 32-shot on TextVQA without OCR—and when fine-tuned set a new state of the art of 82.0%
+  on VQA v2.
+why: >-
+  CLIP aligned images with short captions, but could not generate text or hold a multi-image
+  conversation. Flamingo brought GPT-3's in-context few-shot prompting to vision and video, proving
+  that pretrained vision and language backbones could be stitched together into a single generalist
+  visual language model.
+datasets: [vqa-v2, coco, flickr30k, textvqa, imagenet]
+builds_on: [clip, gpt-3]

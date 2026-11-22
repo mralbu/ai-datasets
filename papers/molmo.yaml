@@ -1,0 +1,25 @@
+title: "Molmo and PixMo: Open Weights and Open Data for State-of-the-Art Vision-Language Models"
+short: Molmo
+year: 2024
+venue: CVPR 2025 (Oral)
+authors: Matt Deitke, Christopher Clark, Sangho Lee, Rohun Tripathi, Yue Yang, Jae Sung Park, Mohammadreza Salehi, Niklas Muennighoff, Kyle Lo, Luca Soldaini, Jiasen Lu, Taira Anderson, et al.
+category: vision
+arxiv: "2409.17146"
+one_liner: Matched proprietary frontier VLMs using only open weights and newly collected human speech captions and 2D pointing data—with zero distillation from closed VLMs.
+idea: >-
+  Keep the standard ViT-plus-connector-plus-LLM architecture (paired with OLMo and Qwen2 backbones
+  and multi-crop high-resolution encoding), and focus instead on data quality. Build PixMo from
+  scratch without touching closed VLMs: ask annotators to speak about each image for 60–90 seconds
+  to collect 712k dense ~200-word captions, and add 2.3M 2D point annotations so the model grounds
+  answers and counts objects by pointing to each one in plain-text coordinates.
+result: >-
+  Molmo-72B reached 86.5 on VQA v2, 93.5 on DocVQA, 87.3 on ChartQA, 83.1 on TextVQA and 54.1 on
+  MMMU, averaging 81.2 across 11 academic benchmarks (ahead of GPT-4o's 78.5) and ranking second
+  only to GPT-4o in human preference—while Molmo-7B-O on OLMo-7B averaged 74.6.
+why: >-
+  By 2024 most strong "open" VLMs either hid their training data or distilled outputs from GPT-4V
+  and GPT-4o. Molmo proved that careful, fully public human-collected datasets—especially dense
+  spoken descriptions and grounded pointing—can rival proprietary systems on a straightforward
+  ViT+LLM architecture.
+datasets: [mmmu, vqa-v2, docvqa, chartqa, textvqa]
+builds_on: [clip, llava]

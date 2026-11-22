@@ -1,17 +1,32 @@
 ---
-// Visual question answering (VQA v2): each question was answered by ten people. The answers are
-// hidden until asked for, then grouped with the score the VQA metric gives each one:
-// min(people who gave that answer / 3, 1).
-import { url, type SampleRow } from '../../lib/data';
-interface Props { d: { image: string; question: string; answers: string; answer_key: string; type?: string }; rows: SampleRow[]; k: number }
-const { d, rows, k } = Astro.props;
+// Visual question answering: VQA v2 and TextVQA have ten human answers per question (consensus: true,
+// scored as min(count / 3, 1)); DocVQA and ChartQA have 1–3 reference answers (consensus: false)
+// and full-page documents or charts that should not be cropped (fit: contain).
+import { labelOf, url, type SampleRow, type Samples } from '../../lib/data';
+interface Props {
+  s: Samples;
+  d: { image: string; question: string; answers: string; answer_key: string; type?: string; fit: 'cover' | 'contain'; consensus: boolean };
+  rows: SampleRow[];
+  k: number;
+}
+const { s, d, rows, k } = Astro.props;
 const grouped = (r: SampleRow) => {
+  const raw = r.row[d.answers];
+  const list = Array.isArray(raw) ? raw : raw != null ? [raw] : [];
   const m = new Map<string, number>();
-  for (const a of (r.row[d.answers] ?? []) as (string | Record<string, string>)[]) {
-    const s = (typeof a === 'string' ? a : a[d.answer_key] ?? '').trim();
-    if (s) m.set(s, (m.get(s) ?? 0) + 1);
+  for (const a of list as (string | Record<string, string>)[]) {
+    const val = typeof a === 'string' ? a : a?.[d.answer_key] ?? '';
+    const text = String(val).trim();
+    if (text) m.set(text, (m.get(text) ?? 0) + 1);
   }
   return [...m.entries()].sort((a, b) => b[1] - a[1]);
+};
+const typeTags = (r: SampleRow): string[] => {
+  if (!d.type) return [];
+  const v = r.row[d.type];
+  if (v == null || v === '') return [];
+  if (Array.isArray(v)) return v.map((x) => String(x).trim()).filter(Boolean);
+  return [labelOf(s, d.type, v, r)];
 };
 const score = (n: number) => Math.min(n / 3, 1);
 ---
@@ -19,40 +34,56 @@ const score = (n: number) => Math.min(n / 3, 1);
   {rows.map((r, i) => {
     const img = r.row[d.image];
     const g = grouped(r);
-    const total = g.reduce((s, [, n]) => s + n, 0);
+    const total = g.reduce((acc, [, n]) => acc + n, 0);
+    const tags = typeTags(r);
     return (
       <figure class="card" data-item hidden={i >= k}>
-        <img src={url(img.src)} width={img.width} height={img.height} alt="" loading="lazy" />
+        <img class:list={{ contain: d.fit === 'contain' }} src={url(img.src)} width={img.width} height={img.height} alt="" loading="lazy" />
         <figcaption>
           <p class="q">{r.row[d.question]}</p>
-          {d.type && r.row[d.type] && <span class="tag">{r.row[d.type]}</span>}
-          <details>
-            <summary>Show the {total} answers</summary>
-            <ul class="answers">
-              {g.map(([a, n]) => (
-                <li>
-                  <span class="a">{a}</span>
-                  <span class="bar" style={`--w:${(n / total) * 100}%`}></span>
-                  <span class="n muted">{n}×</span>
-                  <span class="s" title="VQA accuracy for a model that answers this">{Math.round(score(n) * 100)}%</span>
-                </li>
-              ))}
-            </ul>
-          </details>
+          {tags.length > 0 && (
+            <div class="tags">{tags.map((t) => <span class="tag">{t}</span>)}</div>
+          )}
+          {d.consensus ? (
+            <details>
+              <summary>Show the {total} answers</summary>
+              <ul class="answers">
+                {g.map(([a, n]) => (
+                  <li>
+                    <span class="a">{a}</span>
+                    <span class="bar" style={`--w:${(n / total) * 100}%`}></span>
+                    <span class="n muted">{n}×</span>
+                    <span class="s" title="VQA accuracy for a model that answers this">{Math.round(score(n) * 100)}%</span>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ) : (
+            <details>
+              <summary>{g.length === 1 ? 'Show answer' : `Show ${g.length} accepted answers`}</summary>
+              <ul class="ref-answers">
+                {g.map(([a]) => <li>{a}</li>)}
+              </ul>
+            </details>
+          )}
         </figcaption>
       </figure>
     );
   })}
 </div>
-<p class="muted note">The percentage is the credit a model gets for each answer: full credit if at least 3 of the 10 people gave it.</p>
+{d.consensus && (
+  <p class="muted note">The percentage is the credit a model gets for each answer: full credit if at least 3 of the 10 people gave it.</p>
+)}
 
 <style>
   .vqa-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; align-items: start; }
   figure { margin: 0; overflow: hidden; }
   figure[hidden] { display: none; }
   img { width: 100%; height: 220px; object-fit: cover; display: block; background: var(--code-bg); }
+  img.contain { height: 280px; object-fit: contain; background: #fff; padding: 6px; box-sizing: border-box; border-bottom: 1px solid var(--border); }
   figcaption { padding: 12px 14px 14px; }
   .q { margin: 0 0 6px; font-weight: 600; }
+  .tags { display: flex; flex-wrap: wrap; gap: 4px; }
   details { margin-top: 8px; }
   summary { cursor: pointer; color: var(--accent); font-size: 0.88rem; }
   .answers { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 4px; font-size: 0.85rem; }
@@ -61,5 +92,7 @@ const score = (n: number) => Math.min(n / 3, 1);
   .bar { height: 8px; border-radius: 4px; background: linear-gradient(to right, var(--accent) var(--w), var(--code-bg) var(--w)); }
   .n { text-align: right; font-variant-numeric: tabular-nums; }
   .s { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+  .ref-answers { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; font-size: 0.88rem; }
+  .ref-answers li { padding: 3px 9px; border-radius: 6px; background: var(--accent-soft); color: var(--text); font-weight: 600; }
   .note { font-size: 0.8rem; margin: 10px 0 0; }
 </style>

@@ -1,0 +1,25 @@
+title: "BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models"
+short: BLIP-2
+year: 2023
+venue: ICML 2023
+authors: Junnan Li, Dongxu Li, Silvio Savarese, Steven Hoi
+category: vision
+arxiv: "2301.12597"
+one_liner: Connected off-the-shelf frozen ViTs and frozen LLMs through a compact 188M-parameter Querying Transformer trained in two stages.
+idea: >-
+  Instead of inserting billions of cross-attention parameters inside an LLM, train a small
+  Querying Transformer (Q-Former) with learned query vectors that extract only the text-relevant
+  information from a frozen ViT. Stage 1 aligns the Q-Former to the vision encoder via contrastive,
+  matching and captioning losses; Stage 2 projects its output queries straight into a frozen LLM
+  (OPT or Flan-T5) for generative text output.
+result: >-
+  65.0% zero-shot accuracy on VQA v2—beating Flamingo-80B (56.3%) by 8.7 points while training 54×
+  fewer parameters (188M vs 10.2B)—plus 97.6% R@1 image-to-text retrieval on Flickr30k and 121.6
+  CIDEr zero-shot on COCO.
+why: >-
+  Flamingo showed that frozen vision and language models could work together, but its custom
+  cross-attention layers were massive and tied to one proprietary LLM. BLIP-2 made multimodal
+  bootstrapping modular and affordable, letting researchers swap in stronger open vision encoders
+  and language models as fast as they arrived.
+datasets: [vqa-v2, coco, flickr30k, visual-genome]
+builds_on: [clip, flamingo]

@@ -1,0 +1,49 @@
+name: TextVQA
+year: 2019
+modality: vision
+task: Visual question answering requiring reading text in photos
+one_liner: 45,000 questions about signs, labels, clocks and book covers in everyday photos, each answered by ten people.
+creators: Amanpreet Singh, Vivek Natarajan, Meet Shah, Yu Jiang, Xinlei Chen, Dhruv Batra, Devi Parikh, Marcus Rohrbach (Facebook AI Research, Georgia Tech)
+size: 28,408 images, 45,336 questions, 453,360 answers
+splits: { train: 34602, validation: 5000, test: 5734 }
+input: An Open Images photo containing scene text and a question about it
+labels: Ten free-form human answers per question, scored with VQA v2 consensus accuracy
+license: CC BY 4.0 (annotations); images under Open Images / Flickr licenses
+paper:
+  title: "Towards VQA Models That Can Read"
+  url: https://arxiv.org/abs/1904.08920
+homepage: https://textvqa.org/
+why: >-
+  Models trained on VQA v2 could recognize objects and scenes, yet went blind
+  the moment an answer depended on a street sign, a jersey number or a price tag.
+  TextVQA selected images rich in scene text and required every question to rely
+  on reading it. Early systems bolted an external OCR engine onto a VQA model;
+  modern vision-language models read the pixels directly, making TextVQA a
+  standard measure of fine-grained visual resolution from Flamingo and LLaVA to
+  PaliGemma, Qwen2-VL and Molmo.
+trivia:
+  - "Uses the same ten-annotator consensus scoring as VQA v2: full credit if at least three of the ten people gave the same answer."
+  - Images come from Open Images v3, filtered for categories that often contain text such as billboards, traffic signs, books and whiteboards.
+  - About 40% of answers require reasoning beyond copying a word verbatim—for example reading a clock face, adding prices, or deciding which of several labels answers the question.
+  - Because small scene text turns illegible at 224×224, TextVQA became one of the main benchmarks motivating higher-resolution and dynamic-resolution vision encoders.
+lineage:
+  - { name: VQA v2, note: "2017, general open-ended visual question answering on COCO", hf: lmms-lab-encoder/VQAv2, id: vqa-v2 }
+  - { name: ST-VQA, note: "2019, concurrent scene-text VQA benchmark scored with ANLS", url: "https://rrc.cvc.uab.es/?ch=11" }
+  - { name: DocVQA, note: "2020, reading scanned documents, forms and tables", hf: HuggingFaceM4/DocumentVQA, id: docvqa }
+  - { name: ChartQA, note: "2022, reading and reasoning over real-world charts", hf: HuggingFaceM4/ChartQA, id: chartqa }
+  - { name: MMMU, note: "2023, college-level multimodal reasoning", hf: MMMU/MMMU, id: mmmu }
+landmark_papers:
+  - { title: "Iterative Answer Prediction with Pointer-Augmented Multimodal Transformers for TextVQA (M4C)", year: 2020, url: "https://arxiv.org/abs/1911.06258" }
+source:
+  hf: lmms-lab-encoder/textvqa
+  config: default
+  split: validation
+  n: 18
+  seed: 29
+  rows_per_page: 2
+  page: 20
+  max_image_px: 720
+  drop: [question_tokens, flickr_original_url, flickr_300k_url, image_classes, ocr_tokens]
+display: { kind: vqa, image: image, question: question, answers: answers }
+download:
+  note: "A Parquet copy of TextVQA (train, validation and test) with embedded images; the official facebook/textvqa repository uses a legacy loading script."

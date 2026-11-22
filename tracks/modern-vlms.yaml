@@ -1,0 +1,29 @@
+title: Modern VLMs
+categories: [vision, benchmark]
+one_liner: From contrastive web-caption alignment to native-resolution, fully open multimodal LLMs.
+intro: >-
+  Modern vision–language models grew out of a rapid series of simplifications and engineering
+  breakthroughs. Web-scale contrastive training first gave vision models open-vocabulary features;
+  gated cross-attention and Q-Formers plugged frozen vision encoders into frozen LLMs; pairwise
+  sigmoid loss sharpened the vision backbone while visual instruction tuning collapsed the adapter
+  into a plain projection; unfrozen multi-resolution pretraining turned small VLMs into versatile
+  transfer bases; dynamic resolution freed ViTs from square crops; and curated human data showed
+  open VLMs could rival proprietary models without distilling from them.
+datasets: [imagenet, coco, flickr30k, vqa-v2, textvqa, docvqa, chartqa, mmmu]
+steps:
+  - paper: clip
+    note: Replaced fixed class labels with 400 million web captions to learn general open-vocabulary vision encoders, though it could only score similarity rather than generate text or answer questions.
+  - paper: flamingo
+    note: CLIP could match images to captions but could not converse or reason in context; bridging a frozen vision encoder and frozen LLM with a Perceiver Resampler and gated cross-attention brought GPT-3-style few-shot prompting to interleaved images and text.
+  - paper: blip-2
+    note: Flamingo's interleaved cross-attention added billions of trainable parameters tied to one LLM; a lightweight 188M-parameter Q-Former bridged off-the-shelf frozen ViTs and frozen LLMs at a fraction of the compute.
+  - paper: siglip
+    note: As multimodal models leaned on contrastively trained vision towers, CLIP's global-batch softmax limited training efficiency and encoder quality; a pairwise sigmoid loss trained sharper vision backbones without massive synchronized batches.
+  - paper: llava
+    note: BLIP-2's multi-stage Q-Former was complex and not tuned for open-ended chat; dropping it for a plain linear projection and GPT-4-synthesized visual instruction tuning established the minimal ViT-plus-LLM recipe.
+  - paper: paligemma
+    note: LLaVA froze a low-resolution CLIP encoder for chat; pairing SigLIP with Gemma, unfreezing the whole model under prefix-LM pretraining and scaling up to 896px turned a 3B VLM into a strong transfer base across VQA, OCR and documents.
+  - paper: qwen2-vl
+    note: Fixed square checkpoints like PaliGemma's still squashed aspect ratios and capped fine detail; Naive Dynamic Resolution and Multimodal RoPE let one ViT+LLM read arbitrary image sizes, dense documents, charts and video natively.
+  - paper: molmo
+    note: Top open-weight VLMs still hid their training mixtures or distilled from proprietary models; pairing a clean ViT+LLM pipeline with fully open human spoken captions and 2D pointing data (PixMo) matched frontier systems from scratch.

@@ -1,0 +1,46 @@
+name: ChartQA
+year: 2022
+modality: vision
+task: Visual and logical question answering over charts
+one_liner: 32,700 questions over 20,882 real-world bar, line and pie charts requiring reading values and doing math.
+creators: Ahmed Masry, Do Xuan Long, Jia Qing Tan, Shafiq Joty, Enamul Hoque (York University, NTU Singapore)
+size: 20,882 charts, 32,719 questions (9,608 human-written, 23,111 augmented)
+splits: { train: 28299, val: 1920, test: 2500 }
+input: A real-world chart image and a question about its bars, lines, legends or numbers
+labels: A short numerical or text answer, tagged as human-written or machine-augmented
+license: GPL-3.0 (code and annotations); charts sourced from Statista, Pew, OWID and OECD
+paper:
+  title: "ChartQA: A Benchmark for Question Answering about Charts with Visual and Logical Reasoning"
+  url: https://arxiv.org/abs/2203.10244
+homepage: https://github.com/vis-nlp/ChartQA
+why: >-
+  Earlier chart datasets used synthetic matplotlib plots and template questions.
+  ChartQA scraped real published charts from Statista, Pew Research, Our World
+  in Data and the OECD, then asked questions that mix visual lookup ("the blue
+  bar") with multi-step arithmetic (differences, averages, ratios). It quickly
+  became a fixture in VLM scorecards—testing whether a model can read small axis
+  labels, match colors to legends and calculate without hallucinating numbers.
+trivia:
+  - "The test set splits evenly: 1,250 human-written questions (which often require arithmetic and visual references) and 1,250 machine-augmented questions generated from chart summaries."
+  - "Scored with relaxed accuracy: text answers must match exactly, while numeric answers are accepted within a 5% relative tolerance."
+  - Because VLMs used to struggle much more on the human half than the augmented half, papers often report both subsets separately alongside the overall average.
+  - Every chart in the original release ships with its underlying CSV data table, letting researchers separate chart-parsing errors from reasoning errors.
+lineage:
+  - { name: PlotQA, note: "2020, 224k synthetic plots with open-vocabulary reasoning questions", url: "https://arxiv.org/abs/1909.00997" }
+  - { name: DocVQA, note: "2020, question answering over scanned document pages", hf: HuggingFaceM4/DocumentVQA, id: docvqa }
+  - { name: TextVQA, note: "2019, reading text inside natural photos", hf: lmms-lab-encoder/textvqa, id: textvqa }
+  - { name: MMMU, note: "2023, college-level exam questions over charts, diagrams and scans", hf: MMMU/MMMU, id: mmmu }
+landmark_papers:
+  - { title: "Pix2Struct: Screenshot Parsing as Pretraining for Visual Language Understanding", year: 2022, url: "https://arxiv.org/abs/2210.03347" }
+source:
+  hf: HuggingFaceM4/ChartQA
+  config: default
+  split: test
+  n: 18
+  seed: 23
+  rows_per_page: 2
+  page: 20
+  max_image_px: 800
+display: { kind: vqa, image: image, question: query, answers: label, type: human_or_machine, fit: contain, consensus: false }
+download:
+  note: "Parquet copy of ChartQA (train, val and test) with chart images, queries, reference answers and human/machine tags."

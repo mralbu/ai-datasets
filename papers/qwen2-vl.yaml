@@ -1,0 +1,24 @@
+title: "Qwen2-VL: Enhancing Vision-Language Model's Perception of the World at Any Resolution"
+short: Qwen2-VL
+year: 2024
+venue: arXiv September 2024
+authors: Peng Wang, Shuai Bai, Sinan Tan, Shijie Wang, Zhihao Fan, Jinze Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin Ge, Yang Fan, Kai Dang, et al.
+category: vision
+arxiv: "2409.12191"
+one_liner: Replaced fixed square crops and patch grids with Naive Dynamic Resolution and Multimodal RoPE so one ViT+LLM reads images and video at their native sizes.
+idea: >-
+  Remove the ViT's fixed absolute position embeddings and introduce 2D rotary embeddings so images
+  of any resolution and aspect ratio become a variable number of visual tokens, compressed 2×2 via a
+  lightweight MLP before entering the LLM. Inside the language model, Multimodal Rotary Position
+  Embedding (M-RoPE) splits positional coordinates into temporal, height and width components,
+  unifying text, arbitrary-size images and multi-minute video in one sequence.
+result: >-
+  Qwen2-VL-72B scored 96.5 on DocVQA, 88.3 on ChartQA, 85.5 on TextVQA and 64.5 on MMMU—surpassing
+  GPT-4o on DocVQA and ChartQA—while even the 7B model reached 94.5 on DocVQA and 84.3 on TextVQA.
+why: >-
+  Fixed square resolutions (224px–896px) and rigid image-tiling heuristics had become the biggest
+  engineering friction in ViT+LLM architectures. Qwen2-VL showed how to feed native-resolution
+  documents, charts, screenshots and video cleanly into one Transformer, setting the architectural
+  template for modern open-weight VLMs.
+datasets: [mmmu, docvqa, chartqa, textvqa]
+builds_on: [llava, vit]

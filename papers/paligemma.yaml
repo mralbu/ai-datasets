@@ -1,0 +1,25 @@
+title: "PaliGemma: A versatile 3B VLM for transfer"
+short: PaliGemma
+year: 2024
+venue: arXiv July 2024
+authors: Lucas Beyer, Andreas Steiner, André Susano Pinto, Alexander Kolesnikov, Xiao Wang, Daniel Salz, Maxim Neumann, Ibrahim Alabdulmohsin, Michael Tschannen, Emanuele Bugliarello, Thomas Unterthiner, Daniel Keysers, et al.
+category: vision
+arxiv: "2407.07726"
+one_liner: Paired SigLIP and Gemma-2B with a linear projection, prefix-LM attention and unfrozen multi-resolution pretraining to build a compact 3B transfer base model.
+idea: >-
+  Connect a SigLIP-So400m vision encoder to a Gemma-2B decoder with a single linear layer and apply
+  prefix-LM masking—full bidirectional attention across the image tokens and text prompt, causal
+  attention only on the generated answer. Unlike chat VLMs that freeze the vision tower, train the
+  entire model on a billion-example mixture of captioning, VQA, OCR and localization tasks, then run
+  short high-resolution stages at 448px and 896px so fine text and small objects survive.
+result: >-
+  Fine-tuned across nearly 40 benchmarks, the 3B model reached 85.6% on VQA v2, 144.6 CIDEr on COCO
+  captions, 76.5% on TextVQA and 84.8 on DocVQA—jumping from 43.7 on DocVQA at 224px to 84.8 at
+  896px—matching or beating models 10× larger.
+why: >-
+  While most open VLMs optimized for zero-shot chat, PaliGemma revived the "pretrain once,
+  fine-tune cleanly anywhere" paradigm for vision-language models. Its thorough ablations also
+  settled key ViT+LLM engineering questions: unfreezing the encoder, prefix-LM masking and stepping
+  up resolution mattered far more than fancy connectors.
+datasets: [vqa-v2, coco, textvqa, docvqa, chartqa]
+builds_on: [siglip, llava]
